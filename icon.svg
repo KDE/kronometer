@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Karbon, part of Calligra: http://www.calligra.org/karbon -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960pt" height="960pt">
+<defs>
+  <linearGradient id="gradient0" gradientTransform="" gradientUnits="objectBoundingBox" x1="-0.04040608112" y1="-0.04040608112" x2="1.04040610132" y2="1.04040610132" spreadMethod="pad">
+   <stop stop-color="#00fff2" offset="0.00000000000" stop-opacity="0.00000000000"/>
+   <stop stop-color="#25e5da" offset="0.38860100508" stop-opacity="0.90980392157"/>
+   <stop stop-color="#48e9e0" offset="0.47668400407" stop-opacity="0.92156862745"/>
+   <stop stop-color="#ffffff" offset="1.00000000000" stop-opacity="1.00000000000"/>
+  </linearGradient>
+ </defs>
+<g id="layer1">
+  <path id="path3213" transform="matrix(18.3118 0 0 18.3118 142.719 245.844)" fill="url(#gradient0)" stroke="#778899" stroke-width="4.00000000000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M49.4975 24.7487C49.4975 38.4171 38.4171 49.4975 24.7487 49.4975C11.0804 49.4975 0 38.4171 0 24.7487C0 11.0804 11.0804 0 24.7487 0C38.4171 0 49.4975 11.0804 49.4975 24.7487Z"/>
+  <g id="g4013" transform="translate(491.98, -2.69488)" fill="none">
+   <g id="g4017" transform="" fill="none">
+    <rect id="rect4009" transform="matrix(18.3118 0 0 18.3118 11.4449 11.4449)" fill="#778899" width="7.87919008000pt" height="6.66700672000pt" rx="1.01015264000pt" ry="1.01015264000pt"/>
+    <rect id="rect4011" transform="matrix(18.3118 0 0 18.3118 66.938 160.583)" fill="#778899" width="3.03045656000pt" height="2.32335088000pt"/>
+   </g>
+  </g>
+  <g id="g4021" transform="translate(908.587, 205.307)" fill="none">
+   <g id="g4023" transform="" fill="none">
+    <rect id="rect4025" transform="matrix(-9.16874 -9.16874 -9.16874 9.16874 169.549 91.0317)" fill="#778899" width="7.87919008000pt" height="6.66700672000pt" rx="1.01015264000pt" ry="1.01015264000pt"/>
+    <rect id="rect4027" transform="matrix(-9.16874 -9.16874 -9.16874 9.16874 67.09 137.92)" fill="#778899" width="3.03045656000pt" height="2.32335088000pt"/>
+   </g>
+  </g>
+  <g id="g4243" transform="translate(523.68, 369.613)" fill="none">
+   <path id="path4029" transform="matrix(1.43887 0 0 1.43887 36.6237 292.567)" fill="none" stroke="#000000" stroke-width="25.45312691000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M49.4975 24.7487C49.4975 38.4171 38.4171 49.4975 24.7487 49.4975C11.0804 49.4975 -2.03674e-07 38.4171 0 24.7487C0 11.0804 11.0804 0 24.7487 0C38.4171 0 49.4975 11.0804 49.4975 24.7487Z"/>
+   <path id="path4031" transform="translate(58.7757, 10.3388)" fill="#000000" stroke="#000000" stroke-width="14.13645363000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="2.00000000000" d="M0 266.538L6.95778 13.0127L13.7499 0L20.3211 13.0127L26.8214 266.538Z"/>
+  </g>
+  <path id="path4061" transform="translate(596.029, 303.441)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M0 0L0 44.1055"/>
+  <path id="path4065" transform="translate(945.636, 697.154)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M44.1055 0L0 0"/>
+  <path id="path4067" transform="translate(596.029, 1046.76)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M0 44.1055L0 0"/>
+  <path id="path4069" transform="translate(202.317, 697.154)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M0 0L44.1055 0"/>
+  <path id="path4071" transform="translate(770.833, 356.189)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M22.0527 0L0 38.1964"/>
+  <path id="path4073" transform="translate(898.798, 500.298)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M38.1964 0L0 22.0527"/>
+  <path id="path4075" transform="translate(898.798, 871.957)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M38.1964 22.0527L0 0"/>
+  <path id="path4077" transform="translate(770.833, 999.922)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M22.0527 38.1966L0 0"/>
+  <path id="path4079" transform="translate(399.173, 999.922)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M0 38.1966L22.0529 0"/>
+  <path id="path4081" transform="translate(255.064, 871.957)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M0 22.0527L38.1968 0"/>
+  <path id="path4083" transform="translate(255.064, 500.298)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M0 0L38.1964 22.0529"/>
+  <path id="path4085" transform="translate(399.173, 356.189)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M0 0L22.0527 38.1966"/>
+  <path id="path4087" transform="translate(399.173, 356.189)" fill="none" stroke="#000000" stroke-width="9.15590382000" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="4.00000000000" d="M0 0L22.0527 38.1966"/>
+ </g>
+</svg>
