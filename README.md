@@ -19,7 +19,24 @@ v0.1
 Installation
 ------------
 
-TODO
+Distro-agnostic installation instructions:
+
+1. Download the latest source files archive from github
+2. Extract the archive in a folder and run the following commands:
+
+* mkdir build && cd build
+* cmake ..
+* sudo make install
+
+Now you should have kronometer installed under /usr/local/bin.
+
+Most KDE distro should already provide the necessary software dependencies: kdelibs, cmake, make, automoc and gcc-c++.
+Some distro (e.g. Sabayon) doesn't provide automoc, so it must be installed before kronometer installation.
+
+Installation tested succesfully on:
+
+* Chakra Linux
+* Sabayon Linux (need to install automoc)
 
 TODO list
 ---------
