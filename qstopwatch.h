@@ -50,6 +50,8 @@ public:
 	
     virtual ~QStopwatch();
 	
+	QString format() const;
+	
 public slots:
 	
 	void start();
@@ -67,8 +69,11 @@ private:
 	int timerId;								/** ID for the QObject timer */
 	qint64 accumulator;							/** milliseconds internal counter */
 	
-	QLabel *timeLabel;
+	QLabel *timeLabel;							
 	QElapsedTimer elapsedTimer;
+	
+	QString timeFormat;							/** Time format string used internally */
+	QString timeFormatMsg;						/** Time format message displayed in the UI */
 	
 	State state;
 	Granularity granularity;

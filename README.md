@@ -4,21 +4,24 @@ Kronometer README
 Description
 -----------
 Hello!
+
 Kronometer is a simple *chronometer* application, built for the KDE Linux Desktop Environment.
 
 Changelog
 ---------
 
-v0.1.2
+v0.2
+* *Panel-like* look for time label
+* Time format in statusbar
+* Tooltip messages for labels in statusbar
 
+v0.1.2
 * Switched install prefix from (cmake-default) **/usr/local** to **/usr**
 
 v0.1.1
-
 * added **.desktop** file for KMenu integration
 
 v0.1
-
 * first public and stable release
 * initial basic features: start, pause, resume and reset the stopwatch widget
 * basic KDE settings: toolbar/shortcuts configuration, statusbar visibility

@@ -23,13 +23,22 @@
 
 namespace
 {
-	const QString TIME_FORMAT = "hh:mm:ss.zzz";
+	const QString DEFAULT_TIME_FORMAT = "hh:mm:ss.zzz";
+	const QString DEFAULT_TIME_FORMAT_MSG = "h:m:s.ms";
 }
 
 
-QStopwatch::QStopwatch(QWidget *parent) : QWidget(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS)
+QStopwatch::QStopwatch(QWidget *parent) 
+	:  
+	QWidget(parent), 
+	timerId(INACTIVE_TIMER_ID), 
+	timeFormat(DEFAULT_TIME_FORMAT), 
+	timeFormatMsg(DEFAULT_TIME_FORMAT_MSG),  
+	state(State::INACTIVE), 
+	granularity(HUNDREDTHS) 
 {
 	timeLabel = new QLabel(this);
+	timeLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
 	QVBoxLayout *layout = new QVBoxLayout(this);
 	layout->addWidget(timeLabel);
 	
@@ -39,6 +48,11 @@ QStopwatch::QStopwatch(QWidget *parent) : QWidget(parent), timerId(INACTIVE_TIME
 QStopwatch::~QStopwatch()
 {
 
+}
+
+QString QStopwatch::format() const
+{
+	return timeFormatMsg;
 }
 
 
@@ -104,7 +118,7 @@ void QStopwatch::timerEvent(QTimerEvent *event)
 		timerId = INACTIVE_TIMER_ID;
 	}
 	
-	timeLabel->setText(qtime.toString(TIME_FORMAT));
+	timeLabel->setText(qtime.toString(timeFormat));
 }
 
 void QStopwatch::initTimeLabel()
@@ -115,5 +129,5 @@ void QStopwatch::initTimeLabel()
 	timeLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 	
 	QTime startTime(0, 0);
-	timeLabel->setText(startTime.toString(TIME_FORMAT));
+	timeLabel->setText(startTime.toString(timeFormat));
 }

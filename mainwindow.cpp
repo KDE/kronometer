@@ -44,13 +44,17 @@ namespace
  
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 {
-	statusLabel = new QLabel();
-	stopwatch = new QStopwatch();
+	statusLabel = new QLabel(this);
+	formatLabel = new QLabel(this);
+	stopwatch = new QStopwatch(this);
 
-	setCentralWidget(stopwatch);
-	 
-	statusBar()->addWidget(statusLabel);
+	formatLabel->setText(stopwatch->format());
+	formatLabel->setToolTip(i18n("Current time format"));
+	statusLabel->setToolTip(i18n("Current chronometer status"));
 	
+	setCentralWidget(stopwatch); 
+	statusBar()->addWidget(statusLabel);
+	statusBar()->addPermanentWidget(formatLabel);
 	setupActions();
 }
  

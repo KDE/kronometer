@@ -52,6 +52,7 @@ private:
 	KAction *resetAction;
 	
 	QLabel *statusLabel;
+	QLabel *formatLabel;
 		
 	void setupActions();
 	
