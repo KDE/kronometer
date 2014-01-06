@@ -51,4 +51,10 @@ Installation tested succesfully on:
 TODO list
 ---------
 
-TODO
+* UI basic improvements: widget separator, labels, etc.
+* Granularity: ability to choose chronometer granularity
+* Save support: ability to save/restore times
+* Chronometer font customization: font famility, size, etc.
+* Text localization
+
+
