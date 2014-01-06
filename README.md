@@ -9,6 +9,10 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 Changelog
 ---------
 
+v0.1.2
+
+* Switched install prefix from (cmake-default) **/usr/local** to **/usr**
+
 v0.1.1
 
 * added **.desktop** file for KMenu integration
@@ -25,15 +29,15 @@ Installation
 Distro-agnostic installation instructions:
 
 1. Download the latest source files archive from github
-2. Extract the archive in a folder and run the following commands:
+2. Extract the archive in your preferred directory and run the following commands:
 
 ```
 $ mkdir build && cd build
-$ cmake ..
+$ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ..
 $ sudo make install
 ```
 
-Now you should have **kronometer** installed under **/usr/local/bin** and it should be available under the *Utility* entry in your KMenu.
+Now you should have **kronometer** installed under **/usr/bin** and it should be available under the *Utility* entry in your KMenu.
 If not, try to reboot your pc and now **kronomoter** should be in your KMenu.
 
 Most KDE distro should already provide the necessary software dependencies: **kdelibs**, **cmake**, **make**, **automoc** and **gcc-c++**.

@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=/usr/local/bin/kronometer
+Exec=kronometer
 Icon=kronometer
 Terminal=false
 Name=Kronometer
