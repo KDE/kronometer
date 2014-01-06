@@ -63,10 +63,7 @@ TODO list
 Screenshot
 ----------
 
-Click to view!
-
-[![kronometer inactive](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-inactive.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-inactive.png)
-[![kronometer running](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-running.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-running.png)
-[![kronometer paused](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-paused.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-paused.png)
-[!test](img/screen-v0.2.x/kronometer-paused.png?raw=true)
+[![kronometer inactive](img/screen-v0.2.x/kronometer-inactive.png?raw=true)](img/screen-v0.2.x/kronometer-inactive.png?raw=true)
+[![kronometer running](img/screen-v0.2.x/kronometer-running.png?raw=true)](img/screen-v0.2.x/kronometer-running.png?raw=true)
+[![kronometer paused](img/screen-v0.2.x/kronometer-paused.png?raw=true)](img/screen-v0.2.x/kronometer-paused.png?raw=true)
 
