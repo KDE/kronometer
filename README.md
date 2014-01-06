@@ -10,7 +10,7 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 Changelog
 ---------
 
-v0.2
+v0.2.0
 * *Panel-like* look for time label
 * Time format in statusbar
 * Tooltip messages for labels in statusbar
@@ -21,7 +21,7 @@ v0.1.2
 v0.1.1
 * added **.desktop** file for KMenu integration
 
-v0.1
+v0.1.0
 * first public and stable release
 * initial basic features: start, pause, resume and reset the stopwatch widget
 * basic KDE settings: toolbar/shortcuts configuration, statusbar visibility
@@ -65,7 +65,7 @@ Screenshot
 
 Click to view!
 
-[![kronometer inactive](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-inactive.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-inactive.png)
-[![kronometer running](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-running.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-running.png)
-[![kronometer paused](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-paused.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-paused.png)
+[![kronometer inactive](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-inactive.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-inactive.png)
+[![kronometer running](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-running.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-running.png)
+[![kronometer paused](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-paused.png)](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.2.x/kronometer-paused.png)
 
