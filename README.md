@@ -62,7 +62,7 @@ Screenshot
 
 Click to view!
 
-[![kronometer inactive](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-inactive.png)](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-inactive.png)
-[![kronometer running](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-running.png)](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-running.png)
-[![kronometer paused](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-paused.png)](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-paused.png)
+[![kronometer inactive](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-inactive.png)](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-inactive.png)
+[![kronometer running](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-running.png)](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-running.png)
+[![kronometer paused](https://github.com/elvisangelaccio/kronometer/raw/master/img/screen-v0.1.x/kronometer-paused.png)](https://github.com/elvisangelaccio/kronometer/raw/img/screen-v0.1.x/kronometer-paused.png)
 
