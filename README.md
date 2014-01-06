@@ -30,7 +30,7 @@ $ cmake ..
 $ sudo make install
 ```
 
-Now you should have **kronometer** installed under **/usr/local/bin**.
+Now you should have **kronometer** installed under **/usr/local/bin** and it should be available under the *Utility* entry in your KDE Menu.
 
 Most KDE distro should already provide the necessary software dependencies: **kdelibs**, **cmake**, **make**, **automoc** and **gcc-c++**.
 Some distro (e.g. Sabayon) might not provide **automoc** by default, so it must be installed before kronometer installation.

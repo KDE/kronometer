@@ -17,8 +17,8 @@ kde4_add_executable(kronometer ${kronometer_SRCS})
 target_link_libraries(kronometer ${KDE4_KDEUI_LIBS})
  
 install(TARGETS kronometer DESTINATION ${BIN_INSTALL_DIR})
-install(FILES kronometerui.rc 
-        DESTINATION  ${DATA_INSTALL_DIR}/kronometer)
-        
+install(FILES kronometerui.rc DESTINATION  ${DATA_INSTALL_DIR}/kronometer)
+install(PROGRAMS kronometer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
+
 kde4_install_icons(${ICON_INSTALL_DIR})
 kde4_update_iconcache()

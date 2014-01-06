@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Exec=/usr/local/bin/kronometer
+Icon=kronometer
+Terminal=false
+Name=Kronometer
+GenericName=Chronometer
+Comment=A simple chronometer application for KDE
+Categories=Qt;KDE;Utility;
