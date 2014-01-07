@@ -80,7 +80,7 @@ void MainWindow::setupActions()
 	
 	lapAction->setText(i18n(LAP_MSG));
 	lapAction->setIcon(KIcon("chronometer"));
-	lapAction->setShortcut(Qt::Key_Enter);
+	lapAction->setShortcut(Qt::Key_Return);
 	
 	actionCollection()->addAction(START_KEY, startAction);
 	actionCollection()->addAction(PAUSE_KEY, pauseAction);

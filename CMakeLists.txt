@@ -8,6 +8,7 @@ set(
 	main.cpp
 	mainwindow.cpp
 	qstopwatch.cpp
+	lapmodel.cpp
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x")

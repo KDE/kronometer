@@ -21,9 +21,12 @@
 #define Q_STOPWATCH_H
 
 #include <QLabel>
+#include <QTableView>
 #include <QElapsedTimer>
 #include <QTimerEvent>
 #include <QTime>
+
+#include "lapmodel.h"
 
 class QStopwatch : public QWidget
 {
@@ -70,8 +73,11 @@ private:
 	int timerId;								/** ID for the QObject timer */
 	qint64 accumulator;							/** milliseconds internal counter */
 	
-	QLabel *timeLabel;							
+	QLabel *timeLabel;
+	QTableView *tableView;
 	QElapsedTimer elapsedTimer;
+	
+	LapModel *lapModel;
 	
 	QString timeFormat;							/** Time format string used internally */
 	QString timeFormatMsg;						/** Time format message displayed in the UI */

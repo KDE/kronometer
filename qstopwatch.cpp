@@ -17,7 +17,7 @@
 	along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QVBoxLayout>
+#include <QHBoxLayout>
 
 #include "qstopwatch.h"
 
@@ -26,7 +26,6 @@ namespace
 	const QString DEFAULT_TIME_FORMAT = "hh:mm:ss.zzz";
 	const QString DEFAULT_TIME_FORMAT_MSG = "h:m:s.ms";
 }
-
 
 QStopwatch::QStopwatch(QWidget *parent) 
 	:  
@@ -39,8 +38,14 @@ QStopwatch::QStopwatch(QWidget *parent)
 {
 	timeLabel = new QLabel(this);
 	timeLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
-	QVBoxLayout *layout = new QVBoxLayout(this);
+	tableView = new QTableView(this);
+	
+	lapModel = new LapModel(this);
+	tableView->setModel(lapModel);
+	
+	QHBoxLayout *layout = new QHBoxLayout(this);
 	layout->addWidget(timeLabel);
+	layout->addWidget(tableView);
 	
 	initTimeLabel();
 }
@@ -97,7 +102,29 @@ void QStopwatch::reset()
 
 void QStopwatch::lap()
 {
-
+	
+// TODO: port this test working code for lap recording to model/view architecture
+// 	QTime qtime(0, 0);
+// 		
+// 	if (elapsedTimer.isValid())
+// 	{
+// 		qtime = qtime.addMSecs(elapsedTimer.elapsed());
+// 		qDebug() << "elapsedTimer.elapsed() = " << elapsedTimer.elapsed();
+// 	}
+// 	
+// 	lapList.append(qtime);
+// 	
+// 	if (lapList.size() > 1)
+// 	{
+// 		QTime last = lapList.at(lapList.size() - 2);
+// 		QTime diff(0, 0);
+// 		diff = diff.addMSecs(last.msecsTo(qtime));
+// 		new QListWidgetItem("lap: " + diff.toString(timeFormat), listWidget);
+// 	}
+// 	
+// 	else
+// 		new QListWidgetItem("lap: " + qtime.toString(timeFormat), listWidget);
+	
 }
 
 
