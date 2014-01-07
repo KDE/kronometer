@@ -57,6 +57,7 @@ public slots:
 	void start();
 	void pause();
 	void reset();
+	void lap();
 	
 protected:
 	

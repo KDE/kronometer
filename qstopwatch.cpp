@@ -95,6 +95,12 @@ void QStopwatch::reset()
 	state = State::INACTIVE;
 }
 
+void QStopwatch::lap()
+{
+
+}
+
+
 void QStopwatch::timerEvent(QTimerEvent *event)
 {
     if (event->timerId() != timerId)  // forward undesired events

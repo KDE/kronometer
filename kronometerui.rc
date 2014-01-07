@@ -11,8 +11,8 @@
 			<Action name="start" />
 			<Action name="pause" />
 			<Action name="reset" />
+			<Action name="lap" />
 		</Menu>
-
 	</MenuBar>
 
 	<ToolBar position="top" iconSize="48" name="mainToolBar" >
@@ -20,7 +20,7 @@
 		<Action name="start" />
 		<Action name="pause" />
 		<Action name="reset" />
-
+		<Action name="lap" />
 	</ToolBar> 
  
 </gui> 

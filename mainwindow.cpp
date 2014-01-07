@@ -30,10 +30,12 @@ namespace
 	const char *PAUSE_MSG = "&Pause";
 	const char *RESET_MSG = "&Reset";
 	const char *RESUME_MSG = "Re&sume";
+	const char *LAP_MSG = "&Lap";
 	
 	const QString START_KEY = "start";
 	const QString PAUSE_KEY = "pause";
 	const QString RESET_KEY = "reset";
+	const QString LAP_KEY = "lap";
 	
 	const char *RUNNING_MSG = "Running...";
 	const char *PAUSED_MSG = "Paused";
@@ -63,6 +65,7 @@ void MainWindow::setupActions()
 	startAction = new KAction(this);
 	pauseAction = new KAction(this);
 	resetAction = new KAction(this);
+	lapAction = new KAction(this);
 
 	startAction->setIcon(KIcon("player-time"));
 	startAction->setShortcut(Qt::Key_Space);
@@ -75,14 +78,20 @@ void MainWindow::setupActions()
 	resetAction->setIcon(KIcon("edit-clear-history"));
 	resetAction->setShortcut(Qt::Key_F5);
 	
+	lapAction->setText(i18n(LAP_MSG));
+	lapAction->setIcon(KIcon("chronometer"));
+	lapAction->setShortcut(Qt::Key_Enter);
+	
 	actionCollection()->addAction(START_KEY, startAction);
 	actionCollection()->addAction(PAUSE_KEY, pauseAction);
 	actionCollection()->addAction(RESET_KEY, resetAction);
+	actionCollection()->addAction(LAP_KEY, lapAction);
 
 	// triggers for Chronometer "behavioral" slots
 	connect(startAction, SIGNAL(triggered(bool)), stopwatch, SLOT(start()));
 	connect(pauseAction, SIGNAL(triggered(bool)), stopwatch, SLOT(pause()));
 	connect(resetAction, SIGNAL(triggered(bool)), stopwatch, SLOT(reset()));
+	connect(lapAction, SIGNAL(triggered(bool)), stopwatch, SLOT(lap()));
 	
 	// triggers for MainWindow "gui" slots
 	connect(startAction, SIGNAL(triggered(bool)), this, SLOT(running()));
@@ -102,6 +111,7 @@ void MainWindow::running()
 {
 	startAction->setEnabled(false);
 	pauseAction->setEnabled(true);
+	lapAction->setEnabled(true);
 	statusLabel->setText(i18n(RUNNING_MSG));
 }
 
@@ -110,6 +120,7 @@ void MainWindow::paused()
 	startAction->setText(i18n(RESUME_MSG));
 	startAction->setEnabled(true);
 	pauseAction->setEnabled(false);
+	lapAction->setEnabled(false);
 	statusLabel->setText(i18n(PAUSED_MSG));
 }
 
@@ -118,6 +129,7 @@ void MainWindow::inactive()
 	startAction->setText(i18n(START_MSG));
 	startAction->setEnabled(true);
 	pauseAction->setEnabled(false);
+	lapAction->setEnabled(false);
 	statusLabel->setText(i18n(INACTIVE_MSG));
 }
 

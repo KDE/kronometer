@@ -50,6 +50,7 @@ private:
 	KAction *startAction;
 	KAction *pauseAction;
 	KAction *resetAction;
+	KAction *lapAction;
 	
 	QLabel *statusLabel;
 	QLabel *formatLabel;
