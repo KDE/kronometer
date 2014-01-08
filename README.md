@@ -9,6 +9,9 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v0.3.0
+* Lap recording feature
+* Lap times sorting
 
 v0.2.0
 * *Panel-like* look for time label
@@ -19,12 +22,12 @@ v0.1.2
 * Switched install prefix from (cmake-default) **/usr/local** to **/usr**
 
 v0.1.1
-* added **.desktop** file for KMenu integration
+* Added **.desktop** file for KMenu integration
 
 v0.1.0
-* first public and stable release
-* initial basic features: start, pause, resume and reset the stopwatch widget
-* basic KDE settings: toolbar/shortcuts configuration, statusbar visibility
+* First public and stable release
+* Initial basic features: start, pause, resume and reset the stopwatch widget
+* Basic KDE settings: toolbar/shortcuts configuration, statusbar visibility
 
 Installation
 ------------
@@ -55,7 +58,7 @@ TODO list
 ---------
 
 * ~~UI basic improvements: widget separator, labels, etc.~~
-* *Laps* recording feature
+* ~~*Laps* recording feature~~
 * Granularity: ability to choose chronometer granularity
 * Save support: ability to save/restore times
 * Chronometer font customization: font famility, size, etc.
@@ -64,7 +67,9 @@ TODO list
 Screenshot
 ----------
 
-[![kronometer inactive](img/screen-v0.2.x/kronometer-inactive.png?raw=true)](img/screen-v0.2.x/kronometer-inactive.png?raw=true)
-[![kronometer running](img/screen-v0.2.x/kronometer-running.png?raw=true)](img/screen-v0.2.x/kronometer-running.png?raw=true)
-[![kronometer paused](img/screen-v0.2.x/kronometer-paused.png?raw=true)](img/screen-v0.2.x/kronometer-paused.png?raw=true)
+<!-- [![kronometer inactive](img/screen-v0.3.x/kronometer-inactive.png?raw=true)](img/screen-v0.3.x/kronometer-inactive.png?raw=true) -->
+[![kronometer running](img/screen-v0.3.x/kronometer-running.png?raw=true)](img/screen-v0.3.x/kronometer-running.png?raw=true)
+[![kronometer paused](img/screen-v0.3.x/kronometer-paused.png?raw=true)](img/screen-v0.3.x/kronometer-paused.png?raw=true)
+[![kronometer paused](img/screen-v0.3.x/kronometer-laps.png?raw=true)](img/screen-v0.3.x/kronometer-laps.png?raw=true)
+
 

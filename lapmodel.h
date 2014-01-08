@@ -28,17 +28,32 @@ class LapModel : public QAbstractTableModel
 	
 public:
 	
-	LapModel(QObject* parent = 0);
+    LapModel(QObject* parent);
+	LapModel(QObject* parent, const QString& format);
 	
 	int rowCount(const QModelIndex& parent) const ;
     int columnCount(const QModelIndex& parent) const;
     QVariant data(const QModelIndex& index, int role) const;
 	QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 	
+	void addLap(const QTime& lapTime);
+	void clear();
+	
 private:
 
-	QList<QTime> lapList;
+	static const int LAP_TAG_NUMBER = 3;	/** Number of tag/header in the model */
 	
+	enum LapTag
+	{
+		INDEX = 0,
+		REL_TIME = 1,
+		ABS_TIME = 2,
+	};
+	
+	QList<QTime> timeList;		/** Absolute lap times */
+	QString timeFormat;
+	
+	QString lapTime(int lapIndex) const;
 };
 
 

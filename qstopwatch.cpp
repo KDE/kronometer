@@ -18,6 +18,7 @@
 */
 
 #include <QHBoxLayout>
+#include <QHeaderView>
 
 #include "qstopwatch.h"
 
@@ -40,8 +41,17 @@ QStopwatch::QStopwatch(QWidget *parent)
 	timeLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
 	tableView = new QTableView(this);
 	
-	lapModel = new LapModel(this);
-	tableView->setModel(lapModel);
+	lapModel = new LapModel(tableView, timeFormat);
+	proxyModel = new QSortFilterProxyModel(tableView);
+	proxyModel->setSourceModel(lapModel);
+
+	tableView->setModel(proxyModel);
+	tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+	tableView->setGridStyle(Qt::DotLine);
+	tableView->verticalHeader()->hide();
+	tableView->resizeColumnsToContents();
+	tableView->horizontalHeader()->setStretchLastSection(true);
+	tableView->setSortingEnabled(true);
 	
 	QHBoxLayout *layout = new QHBoxLayout(this);
 	layout->addWidget(timeLabel);
@@ -97,34 +107,25 @@ void QStopwatch::reset()
 {
 	elapsedTimer.invalidate();
 	initTimeLabel();
+	lapModel->clear();
 	state = State::INACTIVE;
 }
 
 void QStopwatch::lap()
 {
 	
-// TODO: port this test working code for lap recording to model/view architecture
-// 	QTime qtime(0, 0);
-// 		
-// 	if (elapsedTimer.isValid())
-// 	{
-// 		qtime = qtime.addMSecs(elapsedTimer.elapsed());
-// 		qDebug() << "elapsedTimer.elapsed() = " << elapsedTimer.elapsed();
-// 	}
-// 	
-// 	lapList.append(qtime);
-// 	
-// 	if (lapList.size() > 1)
-// 	{
-// 		QTime last = lapList.at(lapList.size() - 2);
-// 		QTime diff(0, 0);
-// 		diff = diff.addMSecs(last.msecsTo(qtime));
-// 		new QListWidgetItem("lap: " + diff.toString(timeFormat), listWidget);
-// 	}
-// 	
-// 	else
-// 		new QListWidgetItem("lap: " + qtime.toString(timeFormat), listWidget);
+	QTime qtime(0, 0);
 	
+	qtime = qtime.addMSecs(accumulator);
+	
+	if (elapsedTimer.isValid())
+	{
+		qtime = qtime.addMSecs(elapsedTimer.elapsed());
+	}
+	
+	lapModel->addLap(qtime);
+	tableView->resizeColumnsToContents();
+	tableView->horizontalHeader()->setStretchLastSection(true);
 }
 
 

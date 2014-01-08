@@ -27,7 +27,7 @@ namespace
 {
 	const QByteArray APP_NAME = "kronometer";
 	const QByteArray PROGRAM_NAME = "Kronometer";
-	const QByteArray VERSION = "0.1";
+	const QByteArray VERSION = "0.3";
 	const QByteArray SHORT_DESCRIPTION = "Kronometer is a simple chronometer application built for KDE";
 	const QByteArray COPYRIGHT_STATEMENT = "Copyright (C) 2014 Elvis Angelaccio";
 	const QByteArray OTHER_TEXT = "";
@@ -61,6 +61,7 @@ int main (int argc, char **argv)
 	KApplication app;
 
 	MainWindow* window = new MainWindow();
+	window->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
 	window->setWindowIcon(KIcon("kronometer"));
 	window->show();
 	

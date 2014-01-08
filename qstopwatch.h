@@ -25,6 +25,7 @@
 #include <QElapsedTimer>
 #include <QTimerEvent>
 #include <QTime>
+#include <QSortFilterProxyModel>
 
 #include "lapmodel.h"
 
@@ -78,6 +79,8 @@ private:
 	QElapsedTimer elapsedTimer;
 	
 	LapModel *lapModel;
+	QSortFilterProxyModel *proxyModel;
+	
 	
 	QString timeFormat;							/** Time format string used internally */
 	QString timeFormatMsg;						/** Time format message displayed in the UI */
