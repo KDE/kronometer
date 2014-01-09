@@ -21,13 +21,10 @@
 #define Q_STOPWATCH_H
 
 #include <QLabel>
-#include <QTableView>
 #include <QElapsedTimer>
 #include <QTimerEvent>
 #include <QTime>
-#include <QSortFilterProxyModel>
 
-#include "lapmodel.h"
 
 class QStopwatch : public QWidget
 {
@@ -63,6 +60,10 @@ public slots:
 	void reset();
 	void lap();
 	
+signals:
+
+	void lap(const QTime& lapTime);
+	
 protected:
 	
 	void timerEvent(QTimerEvent *event);
@@ -75,12 +76,7 @@ private:
 	qint64 accumulator;							/** milliseconds internal counter */
 	
 	QLabel *timeLabel;
-	QTableView *tableView;
 	QElapsedTimer elapsedTimer;
-	
-	LapModel *lapModel;
-	QSortFilterProxyModel *proxyModel;
-	
 	
 	QString timeFormat;							/** Time format string used internally */
 	QString timeFormatMsg;						/** Time format message displayed in the UI */

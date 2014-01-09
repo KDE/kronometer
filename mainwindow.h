@@ -25,9 +25,12 @@
 #include <KAction>
 
 #include <QLabel>
+#include <QDockWidget>
+#include <QTableView>
+#include <QSortFilterProxyModel>
 
 #include "qstopwatch.h"
- 
+#include "lapmodel.h"
 
 class MainWindow : public KXmlGuiWindow
 {
@@ -43,9 +46,15 @@ public slots:
 	void paused();
 	void inactive();
 	
+private slots:
+	
+	void updateLapDock();
+	
 private:
 	
 	QStopwatch *stopwatch;
+	QDockWidget *lapDock;
+	QTableView *lapView;
 	
 	KAction *startAction;
 	KAction *pauseAction;
@@ -54,6 +63,9 @@ private:
 	
 	QLabel *statusLabel;
 	QLabel *formatLabel;
+	
+	LapModel *lapModel;
+	QSortFilterProxyModel *proxyModel;
 		
 	void setupActions();
 	

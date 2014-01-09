@@ -100,7 +100,7 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 	return QVariant::Invalid;
 }
 
-void LapModel::addLap(const QTime& lapTime)
+void LapModel::lap(const QTime& lapTime)
 {
 	beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
 	

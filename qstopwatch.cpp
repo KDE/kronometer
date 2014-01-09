@@ -18,7 +18,6 @@
 */
 
 #include <QHBoxLayout>
-#include <QHeaderView>
 
 #include "qstopwatch.h"
 
@@ -39,23 +38,9 @@ QStopwatch::QStopwatch(QWidget *parent)
 {
 	timeLabel = new QLabel(this);
 	timeLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
-	tableView = new QTableView(this);
-	
-	lapModel = new LapModel(tableView, timeFormat);
-	proxyModel = new QSortFilterProxyModel(tableView);
-	proxyModel->setSourceModel(lapModel);
-
-	tableView->setModel(proxyModel);
-	tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
-	tableView->setGridStyle(Qt::DotLine);
-	tableView->verticalHeader()->hide();
-	tableView->resizeColumnsToContents();
-	tableView->horizontalHeader()->setStretchLastSection(true);
-	tableView->setSortingEnabled(true);
 	
 	QHBoxLayout *layout = new QHBoxLayout(this);
 	layout->addWidget(timeLabel);
-	layout->addWidget(tableView);
 	
 	initTimeLabel();
 }
@@ -107,7 +92,6 @@ void QStopwatch::reset()
 {
 	elapsedTimer.invalidate();
 	initTimeLabel();
-	lapModel->clear();
 	state = State::INACTIVE;
 }
 
@@ -123,9 +107,7 @@ void QStopwatch::lap()
 		qtime = qtime.addMSecs(elapsedTimer.elapsed());
 	}
 	
-	lapModel->addLap(qtime);
-	tableView->resizeColumnsToContents();
-	tableView->horizontalHeader()->setStretchLastSection(true);
+	emit lap(qtime);
 }
 
 

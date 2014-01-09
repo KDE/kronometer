@@ -24,6 +24,8 @@
 #include <KActionCollection>
 #include <KStatusBar>
 
+#include <QHeaderView>
+
 namespace
 {
 	const char *START_MSG = "&Start"; 
@@ -54,6 +56,30 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 	formatLabel->setToolTip(i18n("Current time format"));
 	statusLabel->setToolTip(i18n("Current chronometer status"));
 	
+	lapModel = new LapModel(this, "hh:mm:ss.zzz");
+	proxyModel = new QSortFilterProxyModel(this);
+	proxyModel->setSourceModel(lapModel);
+	
+	QDockWidget *lapDock = new QDockWidget(this);
+// 	lapDock->setObjectName("lapDock");
+// 	lapDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
+	lapDock->setFeatures(QDockWidget::NoDockWidgetFeatures);
+	lapDock->setAllowedAreas(Qt::AllDockWidgetAreas);
+	lapDock->setTitleBarWidget(new QWidget(this));  // fake widget to disable titlebar
+	
+	lapView = new QTableView(this);
+	lapView->setModel(proxyModel);
+	lapView->setSelectionBehavior(QAbstractItemView::SelectRows);
+	lapView->setGridStyle(Qt::DotLine);
+	lapView->verticalHeader()->hide();
+	lapView->resizeColumnsToContents();
+	lapView->horizontalHeader()->setStretchLastSection(true);
+	lapView->setSortingEnabled(true);
+	lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Ignored);
+	
+	lapDock->setWidget(lapView);
+	addDockWidget(Qt::RightDockWidgetArea, lapDock);
+		
 	setCentralWidget(stopwatch); 
 	statusBar()->addWidget(statusLabel);
 	statusBar()->addPermanentWidget(formatLabel);
@@ -87,16 +113,21 @@ void MainWindow::setupActions()
 	actionCollection()->addAction(RESET_KEY, resetAction);
 	actionCollection()->addAction(LAP_KEY, lapAction);
 
-	// triggers for Chronometer "behavioral" slots
+	// triggers for QStopwatch "behavioral" slots
 	connect(startAction, SIGNAL(triggered(bool)), stopwatch, SLOT(start()));
 	connect(pauseAction, SIGNAL(triggered(bool)), stopwatch, SLOT(pause()));
 	connect(resetAction, SIGNAL(triggered(bool)), stopwatch, SLOT(reset()));
 	connect(lapAction, SIGNAL(triggered(bool)), stopwatch, SLOT(lap()));
 	
+	// triggers for LapModel slots
+	connect(resetAction, SIGNAL(triggered(bool)), lapModel, SLOT(clear()));
+	connect(stopwatch, SIGNAL(lap(QTime)), lapModel, SLOT(lap(QTime)));
+	
 	// triggers for MainWindow "gui" slots
 	connect(startAction, SIGNAL(triggered(bool)), this, SLOT(running()));
 	connect(pauseAction, SIGNAL(triggered(bool)), this, SLOT(paused()));
 	connect(resetAction, SIGNAL(triggered(bool)), this, SLOT(inactive()));
+	connect(lapAction, SIGNAL(triggered(bool)), this, SLOT(updateLapDock()));
 
 	KStandardAction::quit(kapp, SLOT(quit()), actionCollection());  
 
@@ -134,5 +165,10 @@ void MainWindow::inactive()
 }
 
 
+void MainWindow::updateLapDock()
+{
+	lapView->resizeColumnsToContents();
+	lapView->horizontalHeader()->setStretchLastSection(true);
+}
 
 

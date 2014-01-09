@@ -25,6 +25,7 @@
 
 class LapModel : public QAbstractTableModel
 {
+	Q_OBJECT
 	
 public:
 	
@@ -36,7 +37,9 @@ public:
     QVariant data(const QModelIndex& index, int role) const;
 	QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 	
-	void addLap(const QTime& lapTime);
+public slots:	
+	
+	void lap(const QTime& lapTime);
 	void clear();
 	
 private:
