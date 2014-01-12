@@ -9,6 +9,11 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v0.4.0
+* Initial implementantation of Kronometer settings dialog (Settings -> Configure Kronometer)
+* Stopwatch time format settings: show or not show hours/minutes/seconds/tenths/hundredths/milliseconds
+* Now you can resize time label and lap times table without resize the application window.
+
 v0.3.0
 * Lap recording feature
 * Lap times sorting
@@ -73,7 +78,7 @@ Screenshot
 [![kronometer paused](img/screen-v0.3.x/kronometer-laps.png?raw=true)](img/screen-v0.3.x/kronometer-laps.png?raw=true)
 -->
 [![kronometer running](http://kde-apps.org/CONTENT/content-pre1/162829-1.png)](http://kde-apps.org/CONTENT/content-pre1/162829-1.png)
-[![kronometer paused](http://kde-apps.org/CONTENT/content-pre2/162829-2.png)](http://kde-apps.org/CONTENT/content-pre2/162829-2.png)
-[![kronometer paused](http://kde-apps.org/CONTENT/content-pre3/162829-3.png)](http://kde-apps.org/CONTENT/content-pre3/162829-3.png)
+[![kronometer laps](http://kde-apps.org/CONTENT/content-pre2/162829-2.png)](http://kde-apps.org/CONTENT/content-pre2/162829-2.png)
+[![kronometer settings](http://kde-apps.org/CONTENT/content-pre3/162829-3.png)](http://kde-apps.org/CONTENT/content-pre3/162829-3.png)
 
 

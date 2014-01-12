@@ -51,7 +51,8 @@ public:
 	
     virtual ~QStopwatch();
 	
-	QString format() const;
+	void setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
+
 	
 public slots:
 	
@@ -63,6 +64,7 @@ public slots:
 signals:
 
 	void lap(const QTime& lapTime);
+	void timeFormatChanged(const QString& formatMsg);
 	
 protected:
 	
@@ -85,6 +87,8 @@ private:
 	Granularity granularity;
 	
 	void initTimeLabel();
+	void updateTimeLabel(const QTime& time);
+
 };
 
 

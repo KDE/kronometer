@@ -32,6 +32,8 @@
 #include "qstopwatch.h"
 #include "lapmodel.h"
 
+#include "widgets/generalsettings.h"
+
 class MainWindow : public KXmlGuiWindow
 {
 	Q_OBJECT
@@ -46,9 +48,13 @@ public slots:
 	void paused();
 	void inactive();
 	
+	void showSettings();
+	
 private slots:
 	
 	void updateLapDock();
+	void updatateFormatLabel(const QString& formatMsg);
+	void writeSettings(const QString& dialogName);
 	
 private:
 	
@@ -68,6 +74,7 @@ private:
 	QSortFilterProxyModel *proxyModel;
 		
 	void setupActions();
+	void loadSettings();
 	
 };
 

@@ -50,10 +50,89 @@ QStopwatch::~QStopwatch()
 
 }
 
-QString QStopwatch::format() const
+void QStopwatch::setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec)
 {
-	return timeFormatMsg;
+	timeFormat = timeFormatMsg = "";	// discard default time format 
+	
+	if (hours)
+	{	
+		if (min or sec or tenths or hundredths or msec)
+		{
+			timeFormat = "h:";
+			timeFormatMsg = "hours : ";
+		}
+		
+		else
+		{
+			timeFormat = "h";
+			timeFormatMsg = "hours";
+		}	
+	}
+	
+	if (min)
+	{
+		if (sec or tenths or hundredths or msec)
+		{
+			timeFormat += "mm:";
+			timeFormatMsg += "min : ";
+		}
+		
+		else
+		{
+			timeFormat += "mm";
+			timeFormatMsg += "min";
+		}
+	}
+	
+	if (sec)
+	{
+		if (tenths or hundredths or msec)
+		{
+			timeFormat += "ss.";
+			timeFormatMsg += "sec . ";
+		}
+		
+		else
+		{
+			timeFormat += "ss";
+			timeFormatMsg += "sec";
+		}
+	}
+	
+	if (msec)
+	{
+		timeFormat += "zzz";
+		timeFormatMsg += "msec";
+		granularity = MILLISECONDS;
+	}
+	
+	else if (hundredths)
+	{
+		timeFormat += "zzz";
+		timeFormat = timeFormat.left(timeFormat.size() - 1);
+		timeFormatMsg += "hundreths";
+		granularity = HUNDREDTHS;
+	}
+	
+	else if (tenths)
+	{
+		timeFormat += "zzz";
+		timeFormat = timeFormat.left(timeFormat.size() - 2);
+		timeFormatMsg += "tenths";
+		granularity = TENTHS;
+	}
+	
+	else
+	{
+		granularity = SECONDS;
+	}
+	
+	if (state == State::INACTIVE)
+		initTimeLabel();
+	
+	emit timeFormatChanged(timeFormatMsg);
 }
+
 
 
 void QStopwatch::start()
@@ -134,7 +213,7 @@ void QStopwatch::timerEvent(QTimerEvent *event)
 		timerId = INACTIVE_TIMER_ID;
 	}
 	
-	timeLabel->setText(qtime.toString(timeFormat));
+	updateTimeLabel(qtime);
 }
 
 void QStopwatch::initTimeLabel()
@@ -147,3 +226,33 @@ void QStopwatch::initTimeLabel()
 	QTime startTime(0, 0);
 	timeLabel->setText(startTime.toString(timeFormat));
 }
+
+void QStopwatch::updateTimeLabel(const QTime& time)
+{
+	QString formattedTime;
+	
+	if (timeFormat.endsWith("zzz"))
+		formattedTime = time.toString(timeFormat);
+	
+	else if (timeFormat.endsWith("zz"))
+	{
+		QString original = time.toString(timeFormat + "z");
+		formattedTime = original.left(original.size() - 1);
+	}
+	
+	else if (timeFormat.endsWith("z"))
+	{
+		QString original = time.toString(timeFormat + "zz");
+		formattedTime = original.left(original.size() - 2);
+	}
+	
+	else
+	{
+		formattedTime = time.toString(timeFormat);
+	}
+	
+	timeLabel->setText(formattedTime);
+}
+
+
+

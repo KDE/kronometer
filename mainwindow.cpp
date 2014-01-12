@@ -23,8 +23,11 @@
 #include <KLocale>
 #include <KActionCollection>
 #include <KStatusBar>
+#include <KConfigDialog>
 
 #include <QHeaderView>
+
+#include "settings.h"
 
 namespace
 {
@@ -52,7 +55,6 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 	formatLabel = new QLabel(this);
 	stopwatch = new QStopwatch(this);
 
-	formatLabel->setText(stopwatch->format());
 	formatLabel->setToolTip(i18n("Current time format"));
 	statusLabel->setToolTip(i18n("Current chronometer status"));
 	
@@ -61,7 +63,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 	proxyModel->setSourceModel(lapModel);
 	
 	QDockWidget *lapDock = new QDockWidget(this);
-// 	lapDock->setObjectName("lapDock");
+	lapDock->setObjectName("lapDock");
 // 	lapDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
 	lapDock->setFeatures(QDockWidget::NoDockWidgetFeatures);
 	lapDock->setAllowedAreas(Qt::AllDockWidgetAreas);
@@ -80,10 +82,15 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 	lapDock->setWidget(lapView);
 	addDockWidget(Qt::RightDockWidgetArea, lapDock);
 		
-	setCentralWidget(stopwatch); 
 	statusBar()->addWidget(statusLabel);
 	statusBar()->addPermanentWidget(formatLabel);
+	
+	connect(stopwatch, SIGNAL(timeFormatChanged(QString)), this, SLOT(updatateFormatLabel(QString)));
+	
 	setupActions();
+	loadSettings();
+	
+	setCentralWidget(stopwatch); 
 }
  
 void MainWindow::setupActions() 
@@ -131,12 +138,26 @@ void MainWindow::setupActions()
 
 	KStandardAction::quit(kapp, SLOT(quit()), actionCollection());  
 
+	KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
+	
 	setupGUI(Default, "kronometerui.rc");
 	
 	inactive();	// init kactions
 }
 
 
+void MainWindow::loadSettings()
+{
+	stopwatch->setTimeFormat(
+		KronometerConfig::showHours(), 
+		KronometerConfig::showMinutes(), 
+		KronometerConfig::showSeconds(), 
+		KronometerConfig::showTenths(), 
+		KronometerConfig::showHundredths(), 
+		KronometerConfig::showMilliseconds()
+	);
+
+}
 
 void MainWindow::running()
 {
@@ -164,11 +185,44 @@ void MainWindow::inactive()
 	statusLabel->setText(i18n(INACTIVE_MSG));
 }
 
+void MainWindow::showSettings()
+{
+	if (KConfigDialog::showDialog("settings"))
+		return;
+	
+	KConfigDialog* dialog = new KConfigDialog(this, "settings", KronometerConfig::self());
+	
+	dialog->showButtonSeparator(true);
+	
+	KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
+	generalPage->setIcon(KIcon(KApplication::windowIcon()));
+
+	connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(writeSettings(QString)));
+	
+	dialog->show();
+}
+
+
 
 void MainWindow::updateLapDock()
 {
 	lapView->resizeColumnsToContents();
 	lapView->horizontalHeader()->setStretchLastSection(true);
 }
+
+void MainWindow::updatateFormatLabel(const QString& formatMsg)
+{
+	formatLabel->setText(formatMsg);
+}
+
+
+void MainWindow::writeSettings(const QString& dialogName)
+{
+	Q_UNUSED(dialogName);
+	KronometerConfig::self()->writeConfig();
+	
+	loadSettings();
+}
+
 
 
