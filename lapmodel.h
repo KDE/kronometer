@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 20014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
+    Copyright (C) 2014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
 
 	This file is part of Kronometer.
 
@@ -23,6 +23,11 @@
 #include <QAbstractTableModel>
 #include <QTime>
 
+/**
+ * @brief A LapModel is a Model for lap times.
+ * A LapModel holds a list of times. Every time is meant to be the absolute time of a lap.
+ * Then the model show the relative time of the lap, computing the difference between two consecutive absolute times.
+ */
 class LapModel : public QAbstractTableModel
 {
 	Q_OBJECT
@@ -39,7 +44,15 @@ public:
 	
 public slots:	
 	
+    /**
+     * Add a new absolute lap time to the model.
+     * @param lapTime The absolute time of the new lap.
+     */
 	void lap(const QTime& lapTime);
+
+    /**
+     * Clear all the model data
+     */
 	void clear();
 	
 private:
@@ -48,14 +61,19 @@ private:
 	
 	enum LapTag
 	{
-		INDEX = 0,
-		REL_TIME = 1,
-		ABS_TIME = 2,
+        NUMBER = 0,     /**< Index of the lap-number column */
+        REL_TIME = 1,   /**< Index of the lap relative time column */
+        ABS_TIME = 2,   /**< Index of the lap absolute time column */
 	};
 	
 	QList<QTime> timeList;		/** Absolute lap times */
-	QString timeFormat;
+    QString timeFormat;         /** Time format */
 	
+    /**
+     * Compute the relative time of a lap.
+     * @param lapIndex The index of the lap.
+     * @return Relative time of the lap, formatted as string.
+     */
 	QString lapTime(int lapIndex) const;
 };
 

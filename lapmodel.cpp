@@ -1,5 +1,5 @@
-/*
-	Copyright (C) 20014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
+q/*
+    Copyright (C) 2014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
 
 	This file is part of Kronometer.
 
@@ -54,7 +54,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
 		switch (index.column())
 		{
-			case INDEX:
+			case NUMBER:
 				variant = QString::number(index.row());
 				break;
 				
@@ -82,7 +82,7 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 		{
 			switch (section)
 			{
-				case INDEX:
+				case NUMBER:
 					return i18n("Lap #");
 					break;
 					

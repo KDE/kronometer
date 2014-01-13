@@ -1,5 +1,5 @@
 /*
-	Copyright (C) 20014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
+    Copyright (C) 2014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
 
 	This file is part of Kronometer.
 
@@ -39,7 +39,7 @@ namespace
 	const QByteArray AUTHOR_EMAIL_ADDRESS = "angelaccioelvis@gmail.com";
 	const QByteArray AUTHOR_WEB_ADDRESS = "https://github.com/elvisangelaccio/kronometer";
 }
- 
+
 int main (int argc, char **argv)
 {
 	KAboutData aboutData(
