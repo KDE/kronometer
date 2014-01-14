@@ -21,18 +21,10 @@
 
 #include "qstopwatch.h"
 
-namespace
-{
-	const QString DEFAULT_TIME_FORMAT = "hh:mm:ss.zzz";
-	const QString DEFAULT_TIME_FORMAT_MSG = "h:m:s.ms";
-}
-
 QStopwatch::QStopwatch(QWidget *parent) 
 	:  
-	QWidget(parent), 
-	timerId(INACTIVE_TIMER_ID), 
-	timeFormat(DEFAULT_TIME_FORMAT), 
-	timeFormatMsg(DEFAULT_TIME_FORMAT_MSG),  
+    QWidget(parent),
+    timerId(INACTIVE_TIMER_ID),
 	state(State::INACTIVE), 
 	granularity(HUNDREDTHS) 
 {
@@ -43,11 +35,6 @@ QStopwatch::QStopwatch(QWidget *parent)
 	layout->addWidget(timeLabel);
 	
 	initTimeLabel();
-}
-
-QStopwatch::~QStopwatch()
-{
-
 }
 
 void QStopwatch::setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec)
@@ -133,6 +120,11 @@ void QStopwatch::setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool
 	emit timeFormatChanged(timeFormatMsg);
 }
 
+void QStopwatch::setDisplayFont(const QFont& font)
+{
+    displayFont = font;
+    timeLabel->setFont(displayFont);
+}
 
 
 void QStopwatch::start()
@@ -213,46 +205,14 @@ void QStopwatch::timerEvent(QTimerEvent *event)
 		timerId = INACTIVE_TIMER_ID;
 	}
 	
-	updateTimeLabel(qtime);
+    timeLabel->setText(format(qtime));
 }
 
 void QStopwatch::initTimeLabel()
 {
-	QFont labelFont;
-	labelFont.setPointSize(54);
-	timeLabel->setFont(labelFont);
+    timeLabel->setFont(displayFont);
 	timeLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 	
 	QTime startTime(0, 0);
-	timeLabel->setText(startTime.toString(timeFormat));
+    timeLabel->setText(format(startTime));
 }
-
-void QStopwatch::updateTimeLabel(const QTime& time)
-{
-	QString formattedTime;
-	
-	if (timeFormat.endsWith("zzz"))
-		formattedTime = time.toString(timeFormat);
-	
-	else if (timeFormat.endsWith("zz"))
-	{
-		QString original = time.toString(timeFormat + "z");
-		formattedTime = original.left(original.size() - 1);
-	}
-	
-	else if (timeFormat.endsWith("z"))
-	{
-		QString original = time.toString(timeFormat + "zz");
-		formattedTime = original.left(original.size() - 2);
-	}
-	
-	else
-	{
-		formattedTime = time.toString(timeFormat);
-	}
-	
-	timeLabel->setText(formattedTime);
-}
-
-
-

@@ -9,10 +9,15 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v0.5.0
+* Now you can choose also the time format for lap times
+* Font settings for timer display font
+* Fixed general settings appereance, with a scrollable layout
+
 v0.4.0
 * Initial implementantation of Kronometer settings dialog (Settings -> Configure Kronometer)
 * Stopwatch time format settings: show or not show hours/minutes/seconds/tenths/hundredths/milliseconds
-* Now you can resize time label and lap times table without resize the application window.
+* Now you can resize time label and lap times table without resize the application window
 
 v0.3.0
 * Lap recording feature
@@ -77,8 +82,9 @@ Screenshot
 [![kronometer paused](img/screen-v0.3.x/kronometer-paused.png?raw=true)](img/screen-v0.3.x/kronometer-paused.png?raw=true)
 [![kronometer paused](img/screen-v0.3.x/kronometer-laps.png?raw=true)](img/screen-v0.3.x/kronometer-laps.png?raw=true)
 -->
-[![kronometer running](http://kde-apps.org/CONTENT/content-pre1/162829-1.png)](http://kde-apps.org/CONTENT/content-pre1/162829-1.png)
-[![kronometer laps](http://kde-apps.org/CONTENT/content-pre2/162829-2.png)](http://kde-apps.org/CONTENT/content-pre2/162829-2.png)
-[![kronometer settings](http://kde-apps.org/CONTENT/content-pre3/162829-3.png)](http://kde-apps.org/CONTENT/content-pre3/162829-3.png)
+[![kronometer running](http://abload.de/img/kronometer-runningdbzun.png)](http://abload.de/img/kronometer-runningdbzun.png)
+[![kronometer laps](http://abload.de/img/kronometer-laps5xykt.png)](http://abload.de/img/kronometer-laps5xykt.png)
+[![kronometer general settings](http://abload.de/img/kronometer-general-se9ebol.png)](http://abload.de/img/kronometer-general-se9ebol.png)
+[![kronometer font settings](http://abload.de/img/kronometer-font-settiotx1i.png)](http://abload.de/img/kronometer-font-settiotx1i.png)
 
 

@@ -15,6 +15,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x")
 
 kde4_add_ui_files(kronometer_SRCS
   widgets/generalsettings.ui
+  widgets/fontsettings.ui
 )
  
 kde4_add_kcfg_files(kronometer_SRCS settings.kcfgc) 

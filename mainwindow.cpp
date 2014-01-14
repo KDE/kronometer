@@ -58,7 +58,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 	formatLabel->setToolTip(i18n("Current time format"));
 	statusLabel->setToolTip(i18n("Current chronometer status"));
 	
-	lapModel = new LapModel(this, "hh:mm:ss.zzz");
+    lapModel = new LapModel(this);
 	proxyModel = new QSortFilterProxyModel(this);
 	proxyModel->setSourceModel(lapModel);
 	
@@ -86,7 +86,7 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 	statusBar()->addPermanentWidget(formatLabel);
 	
 	connect(stopwatch, SIGNAL(timeFormatChanged(QString)), this, SLOT(updatateFormatLabel(QString)));
-	
+
 	setupActions();
 	loadSettings();
 	
@@ -157,6 +157,17 @@ void MainWindow::loadSettings()
 		KronometerConfig::showMilliseconds()
 	);
 
+    stopwatch->setDisplayFont(KronometerConfig::displayFont());
+
+    lapModel->setTimeFormat(
+        KronometerConfig::showLapHours(),
+        KronometerConfig::showLapMinutes(),
+        KronometerConfig::showLapSeconds(),
+        KronometerConfig::showLapTenths(),
+        KronometerConfig::showLapHundredths(),
+        KronometerConfig::showLapMilliseconds()
+    );
+
 }
 
 void MainWindow::running()
@@ -193,13 +204,16 @@ void MainWindow::showSettings()
 	KConfigDialog* dialog = new KConfigDialog(this, "settings", KronometerConfig::self());
 	
 	dialog->showButtonSeparator(true);
-	
-	KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
-	generalPage->setIcon(KIcon(KApplication::windowIcon()));
 
-	connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(writeSettings(QString)));
+    KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
+    generalPage->setIcon(KIcon(KApplication::windowIcon()));
+
+    KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
+    fontPage->setIcon(KIcon("preferences-desktop-font"));
+
+    connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(writeSettings(QString)));
 	
-	dialog->show();
+    dialog->show();
 }
 
 
@@ -219,7 +233,7 @@ void MainWindow::updatateFormatLabel(const QString& formatMsg)
 void MainWindow::writeSettings(const QString& dialogName)
 {
 	Q_UNUSED(dialogName);
-	KronometerConfig::self()->writeConfig();
+    KronometerConfig::self()->writeConfig();
 	
 	loadSettings();
 }

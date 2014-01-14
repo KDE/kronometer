@@ -33,6 +33,7 @@
 #include "lapmodel.h"
 
 #include "widgets/generalsettings.h"
+#include "widgets/fontsettings.h"
 
 /**
  * @brief Kronometer main window.
@@ -74,7 +75,7 @@ private:
 	QLabel *formatLabel;
 	
 	LapModel *lapModel;
-	QSortFilterProxyModel *proxyModel;
+    QSortFilterProxyModel *proxyModel;
 		
 	void setupActions();
 	void loadSettings();

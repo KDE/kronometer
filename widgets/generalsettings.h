@@ -26,7 +26,7 @@ class GeneralSettings: public QWidget, public Ui::GeneralSettings
 {
 
 public:
-    explicit GeneralSettings(QWidget *parent) : QWidget(parent) 
+    explicit GeneralSettings(QWidget *parent) : QWidget(parent)
 	{
         setupUi(this);
     }

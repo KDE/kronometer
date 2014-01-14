@@ -25,14 +25,16 @@
 #include <QTimerEvent>
 #include <QTime>
 
+#include "timeformat.h"
+
 /**
  * @brief A Stopwatch class written in Qt.
- * QStopwatch is a simple QWidget implementing a real stopwatch.
+ * QStopwatch is a simple QWidget implementing a real stopwatch, i.e. a stopwatch using a digital display.
  * The class provides public slots for start/pause/reset the time.
  * A slot for lap recording exists too, but the computing of lap time is not a task for this class:
  * QStopwatch simply emits a signal, that the receiver can use to compute lap time.
  */
-class QStopwatch : public QWidget
+class QStopwatch : public QWidget, public TimeFormat
 {
 	Q_OBJECT
 
@@ -55,20 +57,14 @@ public:
 
 	explicit QStopwatch(QWidget *parent = 0);
 	
-    virtual ~QStopwatch();
-	
-    /**
-     * Set the time format used by the stopwatch.
-     * @param hours Wheter to show timer hours (0 to 23).
-     * @param min Wheter to show timer minutes (00 to 59).
-     * @param sec Wheter to show timer seconds (00 to 59).
-     * @param tenths Wheter to show timer tenths of second (0 to 9).
-     * @param hundredths Wheter to show timer tenths and hundredths of second (00 to 99).
-     * @param msec Wheter to show timer tenths/hundredths of second and milliseconds (000 to 999).
-     */
-	void setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
+    void setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
 
-	
+    /**
+     * Set a custom font for stopwatch display
+     * @param font The custom font to set.
+     */
+    void setDisplayFont(const QFont& font);
+		
 public slots:
 	
     /**
@@ -121,22 +117,16 @@ private:
 	QLabel *timeLabel;
 	QElapsedTimer elapsedTimer;
 	
-	QString timeFormat;							/** Time format string used internally */
 	QString timeFormatMsg;						/** Time format message displayed in the UI */
-	
+    QFont displayFont;                          /** Font used in timer display */
+
     State state;                                /** Stopwatch current state */
     Granularity granularity;                    /** Stopwatch current granularity */
 	
     /**
      * Initialize time label.
      */
-	void initTimeLabel();
-
-    /**
-     * Update time label content, according to current time format.
-     * @param time The current time to show.
-     */
-	void updateTimeLabel(const QTime& time);
+    void initTimeLabel();
 
 };
 

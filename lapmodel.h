@@ -23,24 +23,27 @@
 #include <QAbstractTableModel>
 #include <QTime>
 
+#include "timeformat.h"
+
 /**
  * @brief A LapModel is a Model for lap times.
  * A LapModel holds a list of times. Every time is meant to be the absolute time of a lap.
  * Then the model show the relative time of the lap, computing the difference between two consecutive absolute times.
  */
-class LapModel : public QAbstractTableModel
+class LapModel : public QAbstractTableModel, public TimeFormat
 {
 	Q_OBJECT
 	
 public:
 	
     LapModel(QObject* parent);
-	LapModel(QObject* parent, const QString& format);
-	
+
 	int rowCount(const QModelIndex& parent) const ;
     int columnCount(const QModelIndex& parent) const;
     QVariant data(const QModelIndex& index, int role) const;
 	QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+
+    void setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
 	
 public slots:	
 	
@@ -67,7 +70,6 @@ private:
 	};
 	
 	QList<QTime> timeList;		/** Absolute lap times */
-    QString timeFormat;         /** Time format */
 	
     /**
      * Compute the relative time of a lap.
