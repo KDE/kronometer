@@ -28,13 +28,13 @@ QStopwatch::QStopwatch(QWidget *parent)
 	state(State::INACTIVE), 
 	granularity(HUNDREDTHS) 
 {
-	timeLabel = new QLabel(this);
-	timeLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
+    displayLabel = new QLabel(this);
+    displayLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
 	
 	QHBoxLayout *layout = new QHBoxLayout(this);
-	layout->addWidget(timeLabel);
+    layout->addWidget(displayLabel);
 	
-	initTimeLabel();
+    setupDisplayLabel();
 }
 
 void QStopwatch::setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec)
@@ -115,7 +115,7 @@ void QStopwatch::setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool
 	}
 	
 	if (state == State::INACTIVE)
-		initTimeLabel();
+        setupDisplayLabel();
 	
 	emit timeFormatChanged(timeFormatMsg);
 }
@@ -123,7 +123,7 @@ void QStopwatch::setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool
 void QStopwatch::setDisplayFont(const QFont& font)
 {
     displayFont = font;
-    timeLabel->setFont(displayFont);
+    displayLabel->setFont(displayFont);
 }
 
 
@@ -162,7 +162,7 @@ void QStopwatch::pause()
 void QStopwatch::reset()
 {
 	elapsedTimer.invalidate();
-	initTimeLabel();
+    setupDisplayLabel();
 	state = State::INACTIVE;
 }
 
@@ -205,14 +205,14 @@ void QStopwatch::timerEvent(QTimerEvent *event)
 		timerId = INACTIVE_TIMER_ID;
 	}
 	
-    timeLabel->setText(format(qtime));
+    displayLabel->setText(format(qtime));
 }
 
-void QStopwatch::initTimeLabel()
+void QStopwatch::setupDisplayLabel()
 {
-    timeLabel->setFont(displayFont);
-	timeLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    displayLabel->setFont(displayFont);
+    displayLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
 	
 	QTime startTime(0, 0);
-    timeLabel->setText(format(startTime));
+    displayLabel->setText(format(startTime));
 }

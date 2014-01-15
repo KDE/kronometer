@@ -51,48 +51,55 @@ namespace
  
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 {
-	statusLabel = new QLabel(this);
-	formatLabel = new QLabel(this);
-	stopwatch = new QStopwatch(this);
-
-	formatLabel->setToolTip(i18n("Current time format"));
-	statusLabel->setToolTip(i18n("Current chronometer status"));
-	
-    lapModel = new LapModel(this);
-	proxyModel = new QSortFilterProxyModel(this);
-	proxyModel->setSourceModel(lapModel);
-	
-	QDockWidget *lapDock = new QDockWidget(this);
-	lapDock->setObjectName("lapDock");
-// 	lapDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
-	lapDock->setFeatures(QDockWidget::NoDockWidgetFeatures);
-	lapDock->setAllowedAreas(Qt::AllDockWidgetAreas);
-	lapDock->setTitleBarWidget(new QWidget(this));  // fake widget to disable titlebar
-	
-	lapView = new QTableView(this);
-	lapView->setModel(proxyModel);
-	lapView->setSelectionBehavior(QAbstractItemView::SelectRows);
-	lapView->setGridStyle(Qt::DotLine);
-	lapView->verticalHeader()->hide();
-	lapView->resizeColumnsToContents();
-	lapView->horizontalHeader()->setStretchLastSection(true);
-	lapView->setSortingEnabled(true);
-	lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Ignored);
-	
-	lapDock->setWidget(lapView);
-	addDockWidget(Qt::RightDockWidgetArea, lapDock);
-		
-	statusBar()->addWidget(statusLabel);
-	statusBar()->addPermanentWidget(formatLabel);
-	
+    stopwatch = new QStopwatch(this);
 	connect(stopwatch, SIGNAL(timeFormatChanged(QString)), this, SLOT(updatateFormatLabel(QString)));
+    setCentralWidget(stopwatch);
 
+    setupDock();
+    setupStatusBar();
 	setupActions();
 	loadSettings();
-	
-	setCentralWidget(stopwatch); 
 }
  
+void MainWindow::setupDock()
+{
+    lapModel = new LapModel(this);
+    proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(lapModel);
+
+    QDockWidget *lapDock = new QDockWidget(this);
+    lapDock->setObjectName("lapDock");
+// 	lapDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
+    lapDock->setFeatures(QDockWidget::NoDockWidgetFeatures);
+    lapDock->setAllowedAreas(Qt::AllDockWidgetAreas);
+    lapDock->setTitleBarWidget(new QWidget(this));  // fake widget to disable titlebar
+
+    lapView = new QTableView(this);
+    lapView->setModel(proxyModel);
+    lapView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    lapView->setGridStyle(Qt::DotLine);
+    lapView->verticalHeader()->hide();
+    lapView->resizeColumnsToContents();
+    lapView->horizontalHeader()->setStretchLastSection(true);
+    lapView->setSortingEnabled(true);
+    lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Ignored);
+
+    lapDock->setWidget(lapView);
+    addDockWidget(Qt::RightDockWidgetArea, lapDock);
+}
+
+void MainWindow::setupStatusBar()
+{
+    statusLabel = new QLabel(this);
+    formatLabel = new QLabel(this);
+
+    formatLabel->setToolTip(i18n("Current time format"));
+    statusLabel->setToolTip(i18n("Current chronometer status"));
+
+    statusBar()->addWidget(statusLabel);
+    statusBar()->addPermanentWidget(formatLabel);
+}
+
 void MainWindow::setupActions() 
 {
 	startAction = new KAction(this);

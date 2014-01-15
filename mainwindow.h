@@ -46,19 +46,18 @@ public:
 	
 	MainWindow(QWidget *parent=0);
 
-public slots:
-	
-	void running();
-	void paused();
-	void inactive();
-	
-	void showSettings();
-	
 private slots:
 	
+    void running();
+    void paused();
+    void inactive();
+
+    void showSettings();
+    void writeSettings(const QString& dialogName);
+
 	void updateLapDock();
 	void updatateFormatLabel(const QString& formatMsg);
-	void writeSettings(const QString& dialogName);
+
 	
 private:
 	
@@ -77,6 +76,8 @@ private:
 	LapModel *lapModel;
     QSortFilterProxyModel *proxyModel;
 		
+    void setupDock();
+    void setupStatusBar();
 	void setupActions();
 	void loadSettings();
 	

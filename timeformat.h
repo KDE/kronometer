@@ -26,7 +26,7 @@
 /**
  * @brief Interface for a customizable time format.
  * A class implementing this interface manages a time format, extending the format syntax used by QTime class.
- * This time format is customizable by the only public function.
+ * This time format is customizable by the only public function of this class.
  */
 class TimeFormat
 {

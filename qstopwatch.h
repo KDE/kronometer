@@ -30,9 +30,9 @@
 /**
  * @brief A Stopwatch class written in Qt.
  * QStopwatch is a simple QWidget implementing a real stopwatch, i.e. a stopwatch using a digital display.
- * The class provides public slots for start/pause/reset the time.
- * A slot for lap recording exists too, but the computing of lap time is not a task for this class:
- * QStopwatch simply emits a signal, that the receiver can use to compute lap time.
+ * The class provides public slots for start/pause/reset the timer.
+ * A slot for lap recording exists too, but the computing of lap times is not a task of this class:
+ * QStopwatch simply emits a signal, that the receiver can use to compute lap times.
  */
 class QStopwatch : public QWidget, public TimeFormat
 {
@@ -113,20 +113,20 @@ private:
 	
 	int timerId;								/** ID for the QObject timer */
 	qint64 accumulator;							/** milliseconds internal counter */
-	
-	QLabel *timeLabel;
-	QElapsedTimer elapsedTimer;
-	
+    State state;                                /** Stopwatch current state */
+    Granularity granularity;                    /** Stopwatch current granularity */
+
+    QElapsedTimer elapsedTimer;                 /** Stopwatch core class*/
+    QLabel *displayLabel;                       /** Label implementing the digital display with the timer */
 	QString timeFormatMsg;						/** Time format message displayed in the UI */
     QFont displayFont;                          /** Font used in timer display */
 
-    State state;                                /** Stopwatch current state */
-    Granularity granularity;                    /** Stopwatch current granularity */
+
 	
     /**
-     * Initialize time label.
+     * Initialize display label.
      */
-    void initTimeLabel();
+    void setupDisplayLabel();
 
 };
 
