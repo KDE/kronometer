@@ -17,115 +17,14 @@
 	along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QHBoxLayout>
-
 #include "qstopwatch.h"
 
-QStopwatch::QStopwatch(QWidget *parent) 
-	:  
-    QWidget(parent),
-    timerId(INACTIVE_TIMER_ID),
-	state(State::INACTIVE), 
-	granularity(HUNDREDTHS) 
-{
-    displayLabel = new QLabel(this);
-    displayLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
-	
-	QHBoxLayout *layout = new QHBoxLayout(this);
-    layout->addWidget(displayLabel);
-	
-    setupDisplayLabel();
-}
+QStopwatch::QStopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS) {}
 
-void QStopwatch::setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec)
+void QStopwatch::setGranularity(Granularity g)
 {
-	timeFormat = timeFormatMsg = "";	// discard default time format 
-	
-	if (hours)
-	{	
-		if (min or sec or tenths or hundredths or msec)
-		{
-			timeFormat = "h:";
-			timeFormatMsg = "hours : ";
-		}
-		
-		else
-		{
-			timeFormat = "h";
-			timeFormatMsg = "hours";
-		}	
-	}
-	
-	if (min)
-	{
-		if (sec or tenths or hundredths or msec)
-		{
-			timeFormat += "mm:";
-			timeFormatMsg += "min : ";
-		}
-		
-		else
-		{
-			timeFormat += "mm";
-			timeFormatMsg += "min";
-		}
-	}
-	
-	if (sec)
-	{
-		if (tenths or hundredths or msec)
-		{
-			timeFormat += "ss.";
-			timeFormatMsg += "sec . ";
-		}
-		
-		else
-		{
-			timeFormat += "ss";
-			timeFormatMsg += "sec";
-		}
-	}
-	
-	if (msec)
-	{
-		timeFormat += "zzz";
-		timeFormatMsg += "msec";
-		granularity = MILLISECONDS;
-	}
-	
-	else if (hundredths)
-	{
-		timeFormat += "zzz";
-		timeFormat = timeFormat.left(timeFormat.size() - 1);
-		timeFormatMsg += "hundreths";
-		granularity = HUNDREDTHS;
-	}
-	
-	else if (tenths)
-	{
-		timeFormat += "zzz";
-		timeFormat = timeFormat.left(timeFormat.size() - 2);
-		timeFormatMsg += "tenths";
-		granularity = TENTHS;
-	}
-	
-	else
-	{
-		granularity = SECONDS;
-	}
-	
-	if (state == State::INACTIVE)
-        setupDisplayLabel();
-	
-	emit timeFormatChanged(timeFormatMsg);
+    granularity = g;
 }
-
-void QStopwatch::setDisplayFont(const QFont& font)
-{
-    displayFont = font;
-    displayLabel->setFont(displayFont);
-}
-
 
 void QStopwatch::start()
 {
@@ -161,42 +60,46 @@ void QStopwatch::pause()
 
 void QStopwatch::reset()
 {
-	elapsedTimer.invalidate();
-    setupDisplayLabel();
+    elapsedTimer.invalidate();  // if state is running, it will emit a zero time at next timerEvent() call
+
+    if (state == State::PAUSED) // if not, it must be done explicitly
+    {
+        emit time(QTime(0,0));  // in this way the stopwatch signals that it has been reset
+    }
+
 	state = State::INACTIVE;
 }
 
 void QStopwatch::lap()
 {
 	
-	QTime qtime(0, 0);
+    QTime lapTime(0, 0);
 	
-	qtime = qtime.addMSecs(accumulator);
+    lapTime = lapTime.addMSecs(accumulator);
 	
 	if (elapsedTimer.isValid())
 	{
-		qtime = qtime.addMSecs(elapsedTimer.elapsed());
+        lapTime = lapTime.addMSecs(elapsedTimer.elapsed());
 	}
 	
-	emit lap(qtime);
+    emit lap(lapTime);
 }
-
 
 void QStopwatch::timerEvent(QTimerEvent *event)
 {
     if (event->timerId() != timerId)  // forward undesired events
 	{
-		QWidget::timerEvent(event);
+        QObject::timerEvent(event);
 		return;
 	}
 	
-	QTime qtime(0, 0);
-	
-	qtime = qtime.addMSecs(accumulator);
+    QTime t(0, 0);
+
+    t = t.addMSecs(accumulator);
 	
 	if (elapsedTimer.isValid())
 	{
-		qtime = qtime.addMSecs(elapsedTimer.elapsed());
+        t = t.addMSecs(elapsedTimer.elapsed());
 	}
 	
 	else
@@ -205,14 +108,5 @@ void QStopwatch::timerEvent(QTimerEvent *event)
 		timerId = INACTIVE_TIMER_ID;
 	}
 	
-    displayLabel->setText(format(qtime));
-}
-
-void QStopwatch::setupDisplayLabel()
-{
-    displayLabel->setFont(displayFont);
-    displayLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-	
-	QTime startTime(0, 0);
-    displayLabel->setText(format(startTime));
+    emit time(t);
 }

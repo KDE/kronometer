@@ -52,8 +52,9 @@ namespace
 MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
 {
     stopwatch = new QStopwatch(this);
-	connect(stopwatch, SIGNAL(timeFormatChanged(QString)), this, SLOT(updatateFormatLabel(QString)));
-    setCentralWidget(stopwatch);
+    stopwatchDisplay = new QTimeDisplay(this);
+    connect(stopwatch, SIGNAL(time(QTime)), stopwatchDisplay, SLOT(time(QTime)));  // bind stopwatch to its display
+    setCentralWidget(stopwatchDisplay);
 
     setupDock();
     setupStatusBar();
@@ -155,26 +156,18 @@ void MainWindow::setupActions()
 
 void MainWindow::loadSettings()
 {
-	stopwatch->setTimeFormat(
-		KronometerConfig::showHours(), 
-		KronometerConfig::showMinutes(), 
-		KronometerConfig::showSeconds(), 
-		KronometerConfig::showTenths(), 
-		KronometerConfig::showHundredths(), 
-		KronometerConfig::showMilliseconds()
-	);
-
-    stopwatch->setDisplayFont(KronometerConfig::displayFont());
-
-    lapModel->setTimeFormat(
-        KronometerConfig::showLapHours(),
-        KronometerConfig::showLapMinutes(),
-        KronometerConfig::showLapSeconds(),
-        KronometerConfig::showLapTenths(),
-        KronometerConfig::showLapHundredths(),
-        KronometerConfig::showLapMilliseconds()
+    QString timeFormat = setupTimeFormat(
+        KronometerConfig::showHours(),
+        KronometerConfig::showMinutes(),
+        KronometerConfig::showSeconds(),
+        KronometerConfig::showTenths(),
+        KronometerConfig::showHundredths(),
+        KronometerConfig::showMilliseconds()
     );
 
+    lapModel->setTimeFormat(timeFormat);
+    stopwatchDisplay->setTimeFormat(timeFormat);
+    stopwatchDisplay->setDisplayFont(KronometerConfig::displayFont());
 }
 
 void MainWindow::running()
@@ -231,12 +224,6 @@ void MainWindow::updateLapDock()
 	lapView->horizontalHeader()->setStretchLastSection(true);
 }
 
-void MainWindow::updatateFormatLabel(const QString& formatMsg)
-{
-	formatLabel->setText(formatMsg);
-}
-
-
 void MainWindow::writeSettings(const QString& dialogName)
 {
 	Q_UNUSED(dialogName);
@@ -245,5 +232,88 @@ void MainWindow::writeSettings(const QString& dialogName)
 	loadSettings();
 }
 
+
+QString MainWindow::setupTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec)
+{
+    QString timeFormat;
+    QString timeFormatMsg;	// status bar message
+
+    if (hours)
+    {
+        if (min or sec or tenths or hundredths or msec)
+        {
+            timeFormat = "h:";
+            timeFormatMsg = "hours : ";
+        }
+
+        else
+        {
+            timeFormat = "h";
+            timeFormatMsg = "hours";
+        }
+    }
+
+    if (min)
+    {
+        if (sec or tenths or hundredths or msec)
+        {
+            timeFormat += "mm:";
+            timeFormatMsg += "min : ";
+        }
+
+        else
+        {
+            timeFormat += "mm";
+            timeFormatMsg += "min";
+        }
+    }
+
+    if (sec)
+    {
+        if (tenths or hundredths or msec)
+        {
+            timeFormat += "ss.";
+            timeFormatMsg += "sec . ";
+        }
+
+        else
+        {
+            timeFormat += "ss";
+            timeFormatMsg += "sec";
+        }
+    }
+
+    if (msec)
+    {
+        timeFormat += "zzz";
+        timeFormatMsg += "msec";
+        stopwatch->setGranularity(QStopwatch::MILLISECONDS);
+    }
+
+    else if (hundredths)
+    {
+        timeFormat += "zzz";  // TODO: see if can be += "zz"
+        timeFormat = timeFormat.left(timeFormat.size() - 1);
+        timeFormatMsg += "hundreths";
+        stopwatch->setGranularity(QStopwatch::HUNDREDTHS);
+    }
+
+    else if (tenths)
+    {
+        timeFormat += "zzz";
+        timeFormat = timeFormat.left(timeFormat.size() - 2);
+        timeFormatMsg += "tenths";
+        stopwatch->setGranularity(QStopwatch::TENTHS);
+    }
+
+    else
+    {
+        stopwatch->setGranularity(QStopwatch::SECONDS);
+    }
+
+    formatLabel->setText(timeFormatMsg);
+
+    return timeFormat;
+}
 
 

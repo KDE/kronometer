@@ -8,7 +8,9 @@ set(
 	main.cpp
 	mainwindow.cpp
 	qstopwatch.cpp
+        qtimedisplay.cpp
 	lapmodel.cpp
+        utils/utils.cpp
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x")
@@ -33,3 +35,5 @@ install(PROGRAMS kronometer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
 kde4_install_icons(${ICON_INSTALL_DIR})
 kde4_update_iconcache()
+
+add_subdirectory(utils)

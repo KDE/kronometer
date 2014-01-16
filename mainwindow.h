@@ -30,8 +30,8 @@
 #include <QSortFilterProxyModel>
 
 #include "qstopwatch.h"
+#include "qtimedisplay.h"
 #include "lapmodel.h"
-
 #include "widgets/generalsettings.h"
 #include "widgets/fontsettings.h"
 
@@ -51,17 +51,14 @@ private slots:
     void running();
     void paused();
     void inactive();
-
     void showSettings();
     void writeSettings(const QString& dialogName);
-
 	void updateLapDock();
-	void updatateFormatLabel(const QString& formatMsg);
-
 	
 private:
 	
 	QStopwatch *stopwatch;
+    QTimeDisplay *stopwatchDisplay;
 	QDockWidget *lapDock;
 	QTableView *lapView;
 	
@@ -80,6 +77,8 @@ private:
     void setupStatusBar();
 	void setupActions();
 	void loadSettings();
+
+    QString setupTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
 	
 };
 

@@ -25,8 +25,6 @@
 #include <QTimerEvent>
 #include <QTime>
 
-#include "timeformat.h"
-
 /**
  * @brief A Stopwatch class written in Qt.
  * QStopwatch is a simple QWidget implementing a real stopwatch, i.e. a stopwatch using a digital display.
@@ -34,18 +32,11 @@
  * A slot for lap recording exists too, but the computing of lap times is not a task of this class:
  * QStopwatch simply emits a signal, that the receiver can use to compute lap times.
  */
-class QStopwatch : public QWidget, public TimeFormat
+class QStopwatch : public QObject
 {
 	Q_OBJECT
 
 public:
-	
-	enum class State 
-	{
-        INACTIVE, /**< Inactive stopwatch. */
-        RUNNING,  /**< Running stopwatch. */
-        PAUSED    /**< Paused stopwatch. */
-	};
 	
 	enum Granularity
 	{
@@ -55,16 +46,10 @@ public:
         SECONDS = 1000,   /**< Stopwatch refreshed every sec. */
 	};
 
-    explicit QStopwatch(QWidget *parent = nullptr);
-	
-    void setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
+    explicit QStopwatch(QObject *parent = nullptr);
 
-    /**
-     * Set a custom font for stopwatch display
-     * @param font The custom font to set.
-     */
-    void setDisplayFont(const QFont& font);
-		
+    void setGranularity(Granularity g);
+
 public slots:
 	
     /**
@@ -98,16 +83,23 @@ signals:
 	void lap(const QTime& lapTime);
 
     /**
-     * Emits a signal every time that the time format is changed, with a human-readable string as the new time format.
-     * @param formatMsg
+     * Emits a signal with the current stopwatch time.
+     * @param t Current stopwatch time.
      */
-	void timeFormatChanged(const QString& formatMsg);
+    void time(const QTime& t);
 	
 protected:
 	
 	void timerEvent(QTimerEvent *event);
 	
 private:
+
+    enum class State
+    {
+        INACTIVE, /**< Inactive stopwatch. */
+        RUNNING,  /**< Running stopwatch. */
+        PAUSED    /**< Paused stopwatch. */
+    };
 	
 	static const int INACTIVE_TIMER_ID = -1;	/** Used for timerId initialization */
 	
@@ -117,17 +109,6 @@ private:
     Granularity granularity;                    /** Stopwatch current granularity */
 
     QElapsedTimer elapsedTimer;                 /** Stopwatch core class*/
-    QLabel *displayLabel;                       /** Label implementing the digital display with the timer */
-	QString timeFormatMsg;						/** Time format message displayed in the UI */
-    QFont displayFont;                          /** Font used in timer display */
-
-
-	
-    /**
-     * Initialize display label.
-     */
-    void setupDisplayLabel();
-
 };
 
 

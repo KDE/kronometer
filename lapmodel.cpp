@@ -20,6 +20,7 @@
 #include <KLocale>
 
 #include "lapmodel.h"
+#include "utils/utils.h"
 
 LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
 
@@ -60,7 +61,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 				break;
 				
 			case ABS_TIME:
-                variant = format(timeList.at(index.row()));
+                variant = utils::formatTime(timeFormat, timeList.at(index.row()));
 				break;
 		}
 		 
@@ -97,51 +98,9 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 	return QVariant::Invalid;
 }
 
-void LapModel::setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec)
+void LapModel::setTimeFormat(const QString& format)
 {
-    timeFormat = "";	// discard default time format
-
-    if (hours)
-    {
-        if (min or sec or tenths or hundredths or msec)
-            timeFormat = "h:";
-
-        else
-            timeFormat = "h";
-    }
-
-    if (min)
-    {
-        if (sec or tenths or hundredths or msec)
-            timeFormat += "mm:";
-
-        else
-            timeFormat += "mm";
-    }
-
-    if (sec)
-    {
-        if (tenths or hundredths or msec)
-            timeFormat += "ss.";
-
-        else
-            timeFormat += "ss";
-    }
-
-    if (msec)
-        timeFormat += "zzz";
-
-    else if (hundredths)
-    {
-        timeFormat += "zzz";
-        timeFormat = timeFormat.left(timeFormat.size() - 1);
-    }
-
-    else if (tenths)
-    {
-        timeFormat += "zzz";
-        timeFormat = timeFormat.left(timeFormat.size() - 2);
-    }
+    timeFormat = format;
 }
 
 void LapModel::lap(const QTime& lapTime)
@@ -173,12 +132,12 @@ QString LapModel::lapTime(int lapIndex) const
 		QTime diff(0, 0);
 		diff = diff.addMSecs(prev.msecsTo(target));
 
-        time = format(diff);
+        time = utils::formatTime(timeFormat, diff);
 	}
 	
 	else  // first lap entry
 	{
-        time = format(timeList.first());
+        time = utils::formatTime(timeFormat, timeList.first());
 	}
 	
 	return time;
