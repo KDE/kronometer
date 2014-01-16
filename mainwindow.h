@@ -44,7 +44,7 @@ class MainWindow : public KXmlGuiWindow
 
 public:
 	
-	MainWindow(QWidget *parent=0);
+    explicit MainWindow(QWidget *parent = nullptr);
 
 private slots:
 	

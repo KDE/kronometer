@@ -55,7 +55,7 @@ public:
         SECONDS = 1000,   /**< Stopwatch refreshed every sec. */
 	};
 
-	explicit QStopwatch(QWidget *parent = 0);
+    explicit QStopwatch(QWidget *parent = nullptr);
 	
     void setTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
 
