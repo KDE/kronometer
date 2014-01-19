@@ -1,7 +1,7 @@
 #include <QBoxLayout>
 
 #include "qtimedisplay.h"
-#include "utils/utils.h"
+#include "utils.h"
 
 QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
 {

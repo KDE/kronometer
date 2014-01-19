@@ -34,6 +34,7 @@
 #include "lapmodel.h"
 #include "widgets/generalsettings.h"
 #include "widgets/fontsettings.h"
+#include "widgets/savesettings.h"
 
 /**
  * @brief Kronometer main window.
@@ -44,7 +45,11 @@ class MainWindow : public KXmlGuiWindow
 
 public:
 	
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr, const QString& file = "");
+
+protected:
+
+    bool queryClose();
 
 private slots:
 	
@@ -54,6 +59,11 @@ private slots:
     void showSettings();
     void writeSettings(const QString& dialogName);
 	void updateLapDock();
+
+    void newFile();
+    void openFile();
+    void saveFile();
+    void saveFileAs();
 	
 private:
 	
@@ -72,6 +82,9 @@ private:
 	
 	LapModel *lapModel;
     QSortFilterProxyModel *proxyModel;
+
+    QString fileName;
+    bool unsavedTimes;          /** Wheter there are unsaved times */
 		
     void setupDock();
     void setupStatusBar();
@@ -79,6 +92,9 @@ private:
 	void loadSettings();
 
     QString setupTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
+
+    void saveFileAs(const QString& name);
+    void openFile(const QString& name);
 	
 };
 

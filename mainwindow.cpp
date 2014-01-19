@@ -24,6 +24,10 @@
 #include <KActionCollection>
 #include <KStatusBar>
 #include <KConfigDialog>
+#include <KFileDialog>
+#include <KMessageBox>
+#include <KIO/NetAccess>
+#include <KSaveFile>
 
 #include <QHeaderView>
 
@@ -31,25 +35,33 @@
 
 namespace
 {
-	const char *START_MSG = "&Start"; 
-	const char *PAUSE_MSG = "&Pause";
-	const char *RESET_MSG = "&Reset";
-	const char *RESUME_MSG = "Re&sume";
-	const char *LAP_MSG = "&Lap";
-	
+    const char START_MSG[] = "&Start";
+    const char PAUSE_MSG[] = "&Pause";
+    const char RESET_MSG[] = "&Reset";
+    const char RESUME_MSG[] = "Re&sume";
+    const char LAP_MSG[] = "&Lap";
+
 	const QString START_KEY = "start";
 	const QString PAUSE_KEY = "pause";
 	const QString RESET_KEY = "reset";
 	const QString LAP_KEY = "lap";
 	
-	const char *RUNNING_MSG = "Running...";
-	const char *PAUSED_MSG = "Paused";
-	const char *INACTIVE_MSG = "Inactive"; 
+    const char RUNNING_MSG[] = "Running...";
+    const char PAUSED_MSG[] = "Paused";
+    const char INACTIVE_MSG[] = "Inactive";
 
+    const QString WINDOW_TITLE = "Kronometer";       /** Default Window title */
+    const QString QT_PLACE_HOLDER = "[*]";           /** Qt standard placeholder for setWindowModified() */
+
+    // kronometerui.rc states
+    const QString INACTIVE_STATE = "inactive";
+    const QString RUNNING_STATE = "running";
+    const QString PAUSED_STATE = "paused";
+    const QString PAUSED_FILE_STATE = "pausedFile";  /** An open file has been paused */
 }
 
  
-MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
+MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(parent), unsavedTimes(false)
 {
     stopwatch = new QStopwatch(this);
     stopwatchDisplay = new QTimeDisplay(this);
@@ -60,6 +72,64 @@ MainWindow::MainWindow(QWidget *parent) : KXmlGuiWindow(parent)
     setupStatusBar();
 	setupActions();
 	loadSettings();
+
+    setWindowTitle(WINDOW_TITLE + QT_PLACE_HOLDER);
+
+    if (not file.isEmpty())
+        openFile(file);
+}
+
+bool MainWindow::queryClose()
+{
+    if (stopwatch->isInactive() or not KronometerConfig::askOnExit())
+        return true;  // exit without ask
+
+    if (stopwatch->isRunning())
+    {
+        stopwatch->pause();
+        paused();
+    }
+
+    int buttonCode;
+
+    if (fileName.isEmpty())
+    {
+        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times on a new file?"));
+
+        switch (buttonCode)
+        {
+            case KMessageBox::Yes :
+              qDebug() << "chiamo saveFileAs() perchè non ho nessun file";
+              saveFileAs();
+              return true;  // TODO: return false if saving fails
+            case KMessageBox::No :
+              return true;
+            default: // cancel
+              return false;
+        }
+    }
+
+    else if (unsavedTimes)
+    {
+        QFileInfo fileInfo(fileName);
+        QString msg = "Save times on file " + fileInfo.fileName() + "?";
+        buttonCode = KMessageBox::warningYesNoCancel(this, i18n(msg.toAscii()));
+
+        switch (buttonCode)
+        {
+            case KMessageBox::Yes :
+              // save document here. If saving fails, return false;
+              qDebug() << "chiamo saveFile() e fa tutto lui!";
+              saveFile();
+              return true;
+            case KMessageBox::No :
+              return true;
+            default: // cancel
+              return false;
+        }
+    }
+
+    return true;  // there is an open file, but times are already saved.
 }
  
 void MainWindow::setupDock()
@@ -144,13 +214,17 @@ void MainWindow::setupActions()
 	connect(resetAction, SIGNAL(triggered(bool)), this, SLOT(inactive()));
 	connect(lapAction, SIGNAL(triggered(bool)), this, SLOT(updateLapDock()));
 
-	KStandardAction::quit(kapp, SLOT(quit()), actionCollection());  
-
+    //KStandardAction::quit(kapp, SLOT(quit()), actionCollection());
+    KStandardAction::quit(this, SLOT(close()), actionCollection());
 	KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
-	
+    KStandardAction::openNew(this, SLOT(newFile()), actionCollection());
+    KStandardAction::save(this, SLOT(saveFile()), actionCollection());
+    KStandardAction::saveAs(this, SLOT(saveFileAs()), actionCollection());
+    KStandardAction::open(this, SLOT(openFile()), actionCollection());
+
 	setupGUI(Default, "kronometerui.rc");
 	
-	inactive();	// init kactions
+    inactive();	// inactive state is the default
 }
 
 
@@ -172,28 +246,36 @@ void MainWindow::loadSettings()
 
 void MainWindow::running()
 {
-	startAction->setEnabled(false);
-	pauseAction->setEnabled(true);
-	lapAction->setEnabled(true);
-	statusLabel->setText(i18n(RUNNING_MSG));
+    statusLabel->setText(i18n(RUNNING_MSG));
+
+    unsavedTimes = true;
+    setWindowModified(unsavedTimes);
+
+    stateChanged(RUNNING_STATE);
 }
 
 void MainWindow::paused()
 {
-	startAction->setText(i18n(RESUME_MSG));
-	startAction->setEnabled(true);
-	pauseAction->setEnabled(false);
-	lapAction->setEnabled(false);
+    startAction->setText(i18n(RESUME_MSG));
 	statusLabel->setText(i18n(PAUSED_MSG));
+
+    if (not fileName.isEmpty())
+    {
+        stateChanged(PAUSED_FILE_STATE);
+    }
+
+    else
+    {
+        stateChanged(PAUSED_STATE);
+    }
 }
 
 void MainWindow::inactive()
 {
-	startAction->setText(i18n(START_MSG));
-	startAction->setEnabled(true);
-	pauseAction->setEnabled(false);
-	lapAction->setEnabled(false);
+    startAction->setText(i18n(START_MSG));
 	statusLabel->setText(i18n(INACTIVE_MSG));
+
+    stateChanged(INACTIVE_STATE);
 }
 
 void MainWindow::showSettings()
@@ -211,17 +293,42 @@ void MainWindow::showSettings()
     KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
     fontPage->setIcon(KIcon("preferences-desktop-font"));
 
+    KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
+    savePage->setIcon(KIcon("document-save"));
+
     connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(writeSettings(QString)));
 	
     dialog->show();
 }
 
-
-
 void MainWindow::updateLapDock()
 {
 	lapView->resizeColumnsToContents();
-	lapView->horizontalHeader()->setStretchLastSection(true);
+    lapView->horizontalHeader()->setStretchLastSection(true);
+}
+
+void MainWindow::newFile()
+{
+    MainWindow *window = new MainWindow();
+    window->show();
+}
+
+void MainWindow::openFile()
+{
+    QString f = KFileDialog::getOpenFileName();
+
+    MainWindow *window = new MainWindow(nullptr, f);
+    window->show();
+}
+
+void MainWindow::saveFile()
+{
+    saveFileAs(fileName);
+}
+
+void MainWindow::saveFileAs()
+{
+    saveFileAs(KFileDialog::getSaveFileName());
 }
 
 void MainWindow::writeSettings(const QString& dialogName)
@@ -316,4 +423,50 @@ QString MainWindow::setupTimeFormat(bool hours, bool min, bool sec, bool tenths,
     return timeFormat;
 }
 
+void MainWindow::saveFileAs(const QString& name)
+{
+    KSaveFile saveFile(name);
+    saveFile.open();
+
+    QDataStream stream(&saveFile);
+
+    stopwatch->serialize(stream);   // save stopwatch time
+    stream << *lapModel;            // save laps
+
+    saveFile.finalize();
+    saveFile.close();
+
+    fileName = name;
+
+    unsavedTimes = false;
+    setWindowModified(unsavedTimes);
+}
+
+void MainWindow::openFile(const QString& name)
+{
+    QString buffer;
+
+    if (KIO::NetAccess::download(name, buffer, this))
+    {
+        QFile file(buffer);
+        file.open(QIODevice::ReadOnly);
+        QDataStream stream(&file);
+
+        stopwatch->deserialize(stream);     // load stopwatch time
+        stream >> *lapModel;                // load laps
+        paused();                           // enter in paused state
+
+        fileName = name;
+
+        KIO::NetAccess::removeTempFile(buffer);
+    }
+
+    else
+    {
+        KMessageBox::error(this, KIO::NetAccess::lastErrorString());
+    }
+
+    QFileInfo fileInfo(fileName);
+    setWindowTitle(WINDOW_TITLE + " - " + fileInfo.fileName() + QT_PLACE_HOLDER);
+}
 

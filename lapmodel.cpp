@@ -20,7 +20,7 @@
 #include <KLocale>
 
 #include "lapmodel.h"
-#include "utils/utils.h"
+#include "utils.h"
 
 LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
 
@@ -143,6 +143,26 @@ QString LapModel::lapTime(int lapIndex) const
 	return time;
 }
 
+QDataStream& operator<<(QDataStream& out, const LapModel& m)
+{
+    out << m.timeList;
 
+    return out;
+}
 
+QDataStream& operator>>(QDataStream& in, LapModel& m)
+{
+    QList<QTime> temp;
+    in >> temp;
 
+    for (int i = 0; i < temp.size(); i++)
+    {
+        m.beginInsertRows(QModelIndex(), i, i);
+
+        m.timeList.append(temp.at(i));
+
+        m.endInsertRows();
+    }
+
+    return in;
+}

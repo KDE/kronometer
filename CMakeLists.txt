@@ -8,23 +8,24 @@ set(
 	main.cpp
 	mainwindow.cpp
 	qstopwatch.cpp
-        qtimedisplay.cpp
+    qtimedisplay.cpp
 	lapmodel.cpp
-        utils/utils.cpp
+    utils.cpp
 )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -ansi -pedantic -std=gnu++0x")
 
 kde4_add_ui_files(kronometer_SRCS
   widgets/generalsettings.ui
   widgets/fontsettings.ui
+  widgets/savesettings.ui
 )
  
 kde4_add_kcfg_files(kronometer_SRCS settings.kcfgc) 
  
 kde4_add_executable(kronometer ${kronometer_SRCS})
  
-target_link_libraries(kronometer ${KDE4_KDEUI_LIBS})
+target_link_libraries(kronometer ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
  
 
 install(FILES kronometer.kcfg DESTINATION ${KCFG_INSTALL_DIR}) 
@@ -35,5 +36,3 @@ install(PROGRAMS kronometer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
 kde4_install_icons(${ICON_INSTALL_DIR})
 kde4_update_iconcache()
-
-add_subdirectory(utils)

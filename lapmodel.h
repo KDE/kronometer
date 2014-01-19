@@ -43,6 +43,9 @@ public:
 
     void setTimeFormat(const QString& format);
 	
+    friend QDataStream& operator<<(QDataStream& out, const LapModel& m);
+    friend QDataStream& operator>>(QDataStream& in, LapModel& m);
+
 public slots:	
 	
     /**
@@ -77,6 +80,8 @@ private:
      */
 	QString lapTime(int lapIndex) const;
 };
+
+
 
 
 #endif

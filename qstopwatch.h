@@ -48,7 +48,45 @@ public:
 
     explicit QStopwatch(QObject *parent = nullptr);
 
+    /**
+     * Set the stopwatch refresh granularity
+     * @param g The granularity to be set.
+     */
     void setGranularity(Granularity g);
+
+    /**
+     * Check is the stopwatch is running
+     * @return true if running, false otherwise
+     */
+    bool isRunning();
+
+    /**
+     * Check is the stopwatch is paused
+     * @return true if paused, false otherwise
+     */
+    bool isPaused();
+
+    /**
+     * Check is the stopwatch is inactive
+     * @return true if inactive, false otherwise
+     */
+    bool isInactive();
+
+    /**
+     * Serialize the stopwatch on the given output stream.
+     * Only a paused stopwatch is meant to be serialized.
+     * @param out The serialization output stream
+     * @return true if the serialization succeeds (i.e. the stopwatch is paused), false otherwise
+     */
+    bool serialize(QDataStream& out);
+
+    /**
+     * De-serialize the stopwatch from the given input stream.
+     * Only an inactive stopwatch is meant to be serialized.
+     * @param in The serialization input stream
+     * @return true if the deserialization succeeds (i.e. the stopwatch is inactive), false otherwise
+     */
+    bool deserialize(QDataStream& in);
 
 public slots:
 	

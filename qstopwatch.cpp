@@ -26,6 +26,51 @@ void QStopwatch::setGranularity(Granularity g)
     granularity = g;
 }
 
+bool QStopwatch::isRunning()
+{
+    return state == State::RUNNING;
+}
+
+bool QStopwatch::isPaused()
+{
+    return state == State::PAUSED;
+}
+
+bool QStopwatch::isInactive()
+{
+    return state == State::INACTIVE;
+}
+
+bool QStopwatch::serialize(QDataStream& out)
+{
+    if (state != State::PAUSED)
+    {
+        return false;
+    }
+
+    out << accumulator;
+
+    return true;
+}
+
+bool QStopwatch::deserialize(QDataStream& in)
+{
+    if (state != State::INACTIVE)
+    {
+        return false;
+    }
+
+    in >> accumulator;
+    state = State::PAUSED;
+
+    QTime t(0, 0);
+    t = t.addMSecs(accumulator);
+
+    emit time(t);  // it signals that has been deserialized and can be resumed
+
+    return true;
+}
+
 void QStopwatch::start()
 {
 	if (state == State::INACTIVE)

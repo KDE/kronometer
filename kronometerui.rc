@@ -7,7 +7,8 @@
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
  
 	<MenuBar>
-		<Menu name="file" >
+        <Menu name="kronometerActions" >
+            <text>&amp;Kronometer</text>
 			<Action name="start" />
 			<Action name="pause" />
 			<Action name="reset" />
@@ -15,12 +16,81 @@
 		</Menu>
 	</MenuBar>
 
-	<ToolBar position="top" iconSize="48" name="mainToolBar" >
-		<text>Main Toolbar</text>
-		<Action name="start" />
-		<Action name="pause" />
-		<Action name="reset" />
-		<Action name="lap" />
-	</ToolBar> 
- 
+    <!-- Main toolbar with KStandardActions -->
+    <ToolBar position="top" name="mainToolBar" noMerge="1">
+        <text>Main Toolbar</text>
+        <Action name="file_new" />
+        <Action name="file_open" />
+        <Separator/>
+        <Action name="file_save" />
+        <Action name="file_save_as" />
+    </ToolBar>
+
+    <!-- Toolbar with stopwatch actions -->
+    <ToolBar position="bottom" iconSize="48" name="kronometerToolBar" noMerge="1">
+        <text>Kronometer Toolbar</text>
+        <Action name="start" />
+        <Action name="pause" />
+        <Action name="reset" />
+        <Action name="lap" />
+    </ToolBar>
+
+    <!-- State rules definition (enabling/disabling actions) -->
+
+    <State name="inactive" >
+        <enable>
+            <Action name="start" />
+        </enable>
+
+        <disable>
+            <Action name="pause" />
+            <Action name="reset" />
+            <Action name="lap" />
+            <Action name="file_save" />
+            <Action name="file_save_as" />
+        </disable>
+    </State>
+
+    <State name="running" >
+        <enable>
+            <Action name="pause" />
+            <Action name="reset" />
+            <Action name="lap" />
+        </enable>
+
+        <disable>
+            <Action name="start" />
+            <Action name="file_save" />
+            <Action name="file_save_as" />
+        </disable>
+    </State>
+
+    <State name="paused" >
+        <enable>
+            <Action name="start" />
+            <Action name="reset" />
+            <Action name="file_save_as" />
+        </enable>
+
+        <disable>
+            <Action name="pause" />
+            <Action name="lap" />
+        </disable>
+    </State>
+
+    <!-- There is an opened/saved file that has been modified and then paused -->
+    <State name="pausedFile" >
+        <enable>
+            <Action name="start" />
+            <Action name="reset" />
+            <Action name="file_save" />
+            <Action name="file_save_as" />
+        </enable>
+
+        <disable>
+            <Action name="pause" />
+            <Action name="lap" />
+        </disable>
+    </State>
+
 </gui> 

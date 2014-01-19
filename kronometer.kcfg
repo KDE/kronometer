@@ -59,4 +59,10 @@
 		</entry>
 	</group>
 
+    <group name="Save">
+        <entry name="askOnExit" type="Bool">
+            <default>true</default>
+        </entry>
+    </group>
+
 </kcfg>
