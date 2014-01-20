@@ -23,6 +23,8 @@
 #include <QAbstractTableModel>
 #include <QTime>
 
+#include "timeformat.h"
+
 /**
  * @brief A LapModel is a Model for lap times.
  * A LapModel holds a list of times. Every time is meant to be the absolute time of a lap.
@@ -41,7 +43,7 @@ public:
     QVariant data(const QModelIndex& index, int role) const;
 	QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 
-    void setTimeFormat(const QString& format);
+    void setTimeFormat(const TimeFormat& format);
 	
     friend QDataStream& operator<<(QDataStream& out, const LapModel& m);
     friend QDataStream& operator>>(QDataStream& in, LapModel& m);
@@ -71,7 +73,7 @@ private:
 	};
 	
 	QList<QTime> timeList;		/** Absolute lap times */
-    QString timeFormat;         /** Current lap times format */
+    TimeFormat timeFormat;         /** Current lap times format */
 	
     /**
      * Compute the relative time of a lap.

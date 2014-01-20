@@ -1,0 +1,136 @@
+/*
+    Copyright (C) 2014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
+
+    This file is part of Kronometer.
+
+    Kronometer is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
+
+    Kronometer is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
+*/
+
+#include "timeformat.h"
+
+TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec)
+    :
+    hours(h),
+    min(mm),
+    sec(ss)
+{
+    if (msec)
+    {
+        secFraction = SecFraction::MILLISECONDS;
+    }
+
+    else if (hundr)
+    {
+        secFraction = SecFraction::HUNDREDTHS;
+    }
+
+    else if (t)
+    {
+        secFraction = SecFraction::TENTHS;
+    }
+
+    setupFormat();
+}
+
+QString TimeFormat::format(const QTime& time) const
+{
+    QString h = formatHours(time);
+    QString m = formatMin(time);
+    QString s = formatSec(time);
+    QString f = formatSecFract(time);
+
+    return h + m + s + f;
+}
+
+QString TimeFormat::formatHours(const QTime& time) const
+{
+    if (not hours)
+    {
+        return QString();
+    }
+
+    return time.toString(hourFormat);
+}
+
+QString TimeFormat::formatMin(const QTime& time) const
+{
+    if (not min)
+    {
+        return QString();
+    }
+
+    return time.toString(minFormat);
+}
+
+QString TimeFormat::formatSec(const QTime& time) const
+{
+    if (not sec)
+    {
+        return QString();
+    }
+
+    return time.toString(secFormat);
+}
+
+QString TimeFormat::formatSecFract(const QTime& time) const
+{
+    const QString fractFormat = "zzz";
+
+    if (secFraction == SecFraction::MILLISECONDS)
+        return time.toString(fractFormat);
+
+    if (secFraction == SecFraction::HUNDREDTHS)
+    {
+        QString temp = time.toString(fractFormat);
+        return temp.left(temp.size() - 1);
+    }
+
+    if (secFraction == SecFraction::TENTHS)
+    {
+        QString temp = time.toString(fractFormat);
+        return temp.left(temp.size() - 2);
+    }
+
+    return QString();
+}
+
+void TimeFormat::setupFormat()
+{
+    if (hours)
+    {
+        if (min or sec or secFraction != SecFraction::NONE)
+            hourFormat = "h:";
+
+        else
+            hourFormat = "h";
+    }
+
+    if (min)
+    {
+        if (sec or secFraction != SecFraction::NONE)
+            minFormat = "mm:";
+
+        else
+            minFormat = "mm";
+    }
+
+    if (sec)
+    {
+        if (secFraction != SecFraction::NONE)
+            secFormat = "ss.";
+
+        else
+            secFormat = "ss";
+    }
+}

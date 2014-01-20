@@ -91,7 +91,7 @@ private:
 	void setupActions();
 	void loadSettings();
 
-    QString setupTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec);
+    void setupGranularity(bool tenths, bool hundredths, bool msec);
 
     void saveFileAs(const QString& name);
     void openFile(const QString& name);

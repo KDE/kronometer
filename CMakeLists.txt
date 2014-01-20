@@ -10,7 +10,7 @@ set(
 	qstopwatch.cpp
     qtimedisplay.cpp
 	lapmodel.cpp
-    utils.cpp
+    timeformat.cpp
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -ansi -pedantic -std=gnu++0x")

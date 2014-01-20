@@ -31,6 +31,7 @@
 
 #include <QHeaderView>
 
+#include "timeformat.h"
 #include "settings.h"
 
 namespace
@@ -230,7 +231,7 @@ void MainWindow::setupActions()
 
 void MainWindow::loadSettings()
 {
-    QString timeFormat = setupTimeFormat(
+    TimeFormat timeFormat(
         KronometerConfig::showHours(),
         KronometerConfig::showMinutes(),
         KronometerConfig::showSeconds(),
@@ -242,6 +243,8 @@ void MainWindow::loadSettings()
     lapModel->setTimeFormat(timeFormat);
     stopwatchDisplay->setTimeFormat(timeFormat);
     stopwatchDisplay->setDisplayFont(KronometerConfig::displayFont());
+
+    setupGranularity(KronometerConfig::showTenths(), KronometerConfig::showHundredths(), KronometerConfig::showMilliseconds());
 }
 
 void MainWindow::running()
@@ -340,76 +343,20 @@ void MainWindow::writeSettings(const QString& dialogName)
 }
 
 
-QString MainWindow::setupTimeFormat(bool hours, bool min, bool sec, bool tenths, bool hundredths, bool msec)
+void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
 {
-    QString timeFormat;
-    QString timeFormatMsg;	// status bar message
-
-    if (hours)
-    {
-        if (min or sec or tenths or hundredths or msec)
-        {
-            timeFormat = "h:";
-            timeFormatMsg = "hours : ";
-        }
-
-        else
-        {
-            timeFormat = "h";
-            timeFormatMsg = "hours";
-        }
-    }
-
-    if (min)
-    {
-        if (sec or tenths or hundredths or msec)
-        {
-            timeFormat += "mm:";
-            timeFormatMsg += "min : ";
-        }
-
-        else
-        {
-            timeFormat += "mm";
-            timeFormatMsg += "min";
-        }
-    }
-
-    if (sec)
-    {
-        if (tenths or hundredths or msec)
-        {
-            timeFormat += "ss.";
-            timeFormatMsg += "sec . ";
-        }
-
-        else
-        {
-            timeFormat += "ss";
-            timeFormatMsg += "sec";
-        }
-    }
-
     if (msec)
     {
-        timeFormat += "zzz";
-        timeFormatMsg += "msec";
         stopwatch->setGranularity(QStopwatch::MILLISECONDS);
     }
 
     else if (hundredths)
     {
-        timeFormat += "zzz";  // TODO: see if can be += "zz"
-        timeFormat = timeFormat.left(timeFormat.size() - 1);
-        timeFormatMsg += "hundreths";
         stopwatch->setGranularity(QStopwatch::HUNDREDTHS);
     }
 
     else if (tenths)
     {
-        timeFormat += "zzz";
-        timeFormat = timeFormat.left(timeFormat.size() - 2);
-        timeFormatMsg += "tenths";
         stopwatch->setGranularity(QStopwatch::TENTHS);
     }
 
@@ -417,10 +364,6 @@ QString MainWindow::setupTimeFormat(bool hours, bool min, bool sec, bool tenths,
     {
         stopwatch->setGranularity(QStopwatch::SECONDS);
     }
-
-    formatLabel->setText(timeFormatMsg);
-
-    return timeFormat;
 }
 
 void MainWindow::saveFileAs(const QString& name)

@@ -1,7 +1,6 @@
 #include <QBoxLayout>
 
 #include "qtimedisplay.h"
-#include "utils.h"
 
 QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
 {
@@ -13,10 +12,10 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     layout->addWidget(displayLabel);
 }
 
-void QTimeDisplay::setTimeFormat(const QString& format)
+void QTimeDisplay::setTimeFormat(const TimeFormat& format)
 {
     timeFormat = format;
-    displayLabel->setText(utils::formatTime(timeFormat, displayTime));
+    displayLabel->setText(timeFormat.format(displayTime));
 }
 
 void QTimeDisplay::setDisplayFont(const QFont& font)
@@ -28,6 +27,6 @@ void QTimeDisplay::setDisplayFont(const QFont& font)
 void QTimeDisplay::time(const QTime& t)
 {
     displayTime = t;
-    displayLabel->setText(utils::formatTime(timeFormat, displayTime));
+    displayLabel->setText(timeFormat.format(displayTime));
 }
 

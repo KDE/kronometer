@@ -20,7 +20,6 @@
 #include <KLocale>
 
 #include "lapmodel.h"
-#include "utils.h"
 
 LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
 
@@ -61,7 +60,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 				break;
 				
 			case ABS_TIME:
-                variant = utils::formatTime(timeFormat, timeList.at(index.row()));
+                variant = timeFormat.format(timeList.at(index.row()));
 				break;
 		}
 		 
@@ -98,7 +97,7 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 	return QVariant::Invalid;
 }
 
-void LapModel::setTimeFormat(const QString& format)
+void LapModel::setTimeFormat(const TimeFormat& format)
 {
     timeFormat = format;
 }
@@ -132,12 +131,12 @@ QString LapModel::lapTime(int lapIndex) const
 		QTime diff(0, 0);
 		diff = diff.addMSecs(prev.msecsTo(target));
 
-        time = utils::formatTime(timeFormat, diff);
+        time = timeFormat.format(diff);
 	}
 	
 	else  // first lap entry
 	{
-        time = utils::formatTime(timeFormat, timeList.first());
+        time = timeFormat.format(timeList.first());
 	}
 	
 	return time;

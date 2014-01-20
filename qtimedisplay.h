@@ -5,6 +5,8 @@
 #include <QLabel>
 #include <QTime>
 
+#include "timeformat.h"
+
 /**
  * @brief A custom widget displaying a QTime
  * This custom widget implements a "digital" display for a time, formatted according to a certain format.
@@ -22,7 +24,7 @@ public:
      * Set the internal time format of the display
      * @param format
      */
-    void setTimeFormat(const QString& format);
+    void setTimeFormat(const TimeFormat& format);
 
    /**
     * Set a custom font for time display
@@ -43,7 +45,7 @@ private:
     QLabel *displayLabel;      /** Label implementing the digital display with the timer */
     QFont displayFont;         /** Current display font */
     QTime displayTime;         /** Current display time */
-    QString timeFormat;        /** Current display time format */
+    TimeFormat timeFormat;        /** Current display time format */
 };
 
 #endif
