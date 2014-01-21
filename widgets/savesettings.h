@@ -22,7 +22,7 @@
 
 #include "ui_savesettings.h"
 
-class SaveSettings: public QWidget, public Ui::SaveSettings
+class SaveSettings : public QWidget, public Ui::SaveSettings
 {
 
 public:

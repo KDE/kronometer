@@ -148,6 +148,14 @@ void QTimeDisplay::setFracFont(const QFont& font)
     fracLabel->setFont(fracFont);
 }
 
+void QTimeDisplay::showHeaders(bool show)
+{
+    hourHeader->setVisible(show);
+    minHeader->setVisible(show);
+    secHeader->setVisible(show);
+    fracHeader->setVisible(show);
+}
+
 
 void QTimeDisplay::time(const QTime& t)
 {

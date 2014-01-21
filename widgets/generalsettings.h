@@ -22,7 +22,7 @@
 
 #include "ui_generalsettings.h"
 
-class GeneralSettings: public QWidget, public Ui::GeneralSettings
+class GeneralSettings : public QWidget, public Ui::GeneralSettings
 {
 
 public:

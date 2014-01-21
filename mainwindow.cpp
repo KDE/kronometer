@@ -41,6 +41,7 @@
 #include "widgets/generalsettings.h"
 #include "widgets/fontsettings.h"
 #include "widgets/savesettings.h"
+#include "widgets/guisettings.h"
 
 namespace
 {
@@ -189,6 +190,9 @@ void MainWindow::showSettings()
 
     KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
     fontPage->setIcon(KIcon("preferences-desktop-font"));
+
+    KPageWidgetItem *guiPage = dialog->addPage(new GuiSettings(this), i18n("Interface settings"));
+    guiPage->setIcon(KIcon("preferences-desktop-theme"));
 
     KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
     savePage->setIcon(KIcon("document-save"));
@@ -345,6 +349,7 @@ void MainWindow::loadSettings()
     stopwatchDisplay->setMinFont(KronometerConfig::minFont());
     stopwatchDisplay->setSecFont(KronometerConfig::secFont());
     stopwatchDisplay->setFracFont(KronometerConfig::fracFont());
+    stopwatchDisplay->showHeaders(KronometerConfig::showTimeHeaders());
 
     setupGranularity(KronometerConfig::showTenths(), KronometerConfig::showHundredths(), KronometerConfig::showMilliseconds());
 }

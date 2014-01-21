@@ -55,6 +55,12 @@ public:
      */
     void setFracFont(const QFont& font);
 
+    /**
+     * Show or hide the time headers of the display.
+     * @param show Wheter to show the time headers.
+     */
+    void showHeaders(bool show);
+
 public slots:
 
     /**

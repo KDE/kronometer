@@ -102,19 +102,19 @@ public:
     bool isSecFracEnabled() const;
 
     /**
-     * Wheter the second fractios in the time format is made by tenths of second.
+     * Wheter the second fractions in the time format is made by tenths of second.
      * @return true if second fraction is tenths of second, false otherwise.
      */
     bool isTenthEnabled() const;
 
     /**
-     * Wheter the second fractios in the time format is made by hundredths of second.
+     * Wheter the second fractions in the time format is made by hundredths of second.
      * @return true if second fraction is hundredths of second, false otherwise.
      */
     bool isHundredthEnabled() const;
 
     /**
-     * Wheter the second fractios in the time format is made by milliseconds.
+     * Wheter the second fractions in the time format is made by milliseconds.
      * @return true if second fraction is milliseconds, false otherwise.
      */
     bool isMSecEnabled() const;

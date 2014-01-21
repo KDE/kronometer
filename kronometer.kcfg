@@ -77,4 +77,10 @@
         </entry>
     </group>
 
+    <group name="Gui">
+        <entry name="showTimeHeaders" type="Bool">
+            <default>true</default>
+        </entry>
+    </group>
+
 </kcfg>

@@ -22,7 +22,7 @@
 
 #include "ui_fontsettings.h"
 
-class FontSettings: public QWidget, public Ui::FontSettings
+class FontSettings : public QWidget, public Ui::FontSettings
 {
 
 public:

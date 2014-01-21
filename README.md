@@ -9,11 +9,17 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v0.7.0
+* Timer central *display* re-designed
+* Now each time "slot" has its own display
+* The displays are *splittable* between them
+* Display *time headers*, which can be disabled from settings.
+
 v0.6.0
 * Initial implementation of times saving on binary files
-* You can save a stopwatch "frame" (time and laps) to a file and resume it (open it) later
-* Due to the new "save toolbar" (new/open/save/save as buttons), the old "main" toolbar is moved on the window bottom by default. If you don't like it, you can always move it by right-clicking on it
-* Added "Kronometer" menu, separating the "save" actions (menu File) from the "stopwatch" actions
+* You can save a stopwatch *frame* (time and laps) to a file and resume it (open it) later
+* Due to the new *save toolbar* (new/open/save/save as buttons), the old *main* toolbar is moved on the window bottom by default. If you don't like it, you can always move it by right-clicking on it
+* Added **Kronometer** menu, separating the *save* actions (menu File) from the *stopwatch* actions
 * Save settings. You can disable the dialog on application exit if there are unsaved times
 
 v0.5.0
@@ -81,7 +87,10 @@ TODO list
 * ~~Granularity: ability to choose chronometer granularity~~
 * ~~Save support: ability to save/restore times~~
 * ~~Chronometer font customization: font famility, size, etc.~~
-* Various UI enhancements
+* ~~Various UI enhancements~~
+* Color settings
+* System tray support (pause/resume from tray icon, etc.)
+* Copy current time to clipboard
 * Laps export feature: CSV format, etc.
 * Text localization
 
@@ -93,8 +102,8 @@ Screenshot
 [![kronometer paused](img/screen-v0.3.x/kronometer-paused.png?raw=true)](img/screen-v0.3.x/kronometer-paused.png?raw=true)
 [![kronometer paused](img/screen-v0.3.x/kronometer-laps.png?raw=true)](img/screen-v0.3.x/kronometer-laps.png?raw=true)
 -->
-[![kronometer running](http://abload.de/img/kronometer-running-ladeqak.png)](http://abload.de/img/kronometer-running-ladeqak.png)
-[![kronometer save](http://abload.de/img/kronometer-saveizqk7.png)](http://abload.de/img/kronometer-saveizqk7.png)
-[![kronometer settings](http://abload.de/img/kronometer-settings6arwp.png)](http://abload.de/img/kronometer-settings6arwp.png)
+[![kronometer running](http://abload.de/img/kronometer-running-law1sva.png)](http://abload.de/img/kronometer-running-law1sva.png)
+[![kronometer save](http://abload.de/img/kronometer-saveggs6g.png)](http://abload.de/img/kronometer-saveggs6g.png)
+[![kronometer settings](http://abload.de/img/kronometer-settings9use2.png)](http://abload.de/img/kronometer-settings9use2.png)
 
 
