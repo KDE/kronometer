@@ -9,6 +9,9 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v0.7.1
+* Fix compilation bug
+
 v0.7.0
 * Timer central *display* re-designed
 * Now each time "slot" has its own display
