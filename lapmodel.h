@@ -21,9 +21,10 @@
 #define LAP_MODEL_H
 
 #include <QAbstractTableModel>
-#include <QTime>
 
 #include "timeformat.h"
+
+class QTime;
 
 /**
  * @brief A LapModel is a Model for lap times.

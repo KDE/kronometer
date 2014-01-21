@@ -2,10 +2,13 @@
 #define Q_TIME_DISPLAY_H
 
 #include <QWidget>
-#include <QLabel>
 #include <QTime>
-#include <QSplitter>
-#include <QBoxLayout>
+
+class QSplitter;
+class QHBoxLayout;
+class QVBoxLayout;
+class QFrame;
+class QLabel;
 
 #include "timeformat.h"
 

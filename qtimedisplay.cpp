@@ -1,5 +1,9 @@
 #include <KLocale>
 
+#include <QLabel>
+#include <QBoxLayout>
+#include <QSplitter>
+
 #include "qtimedisplay.h"
 
 namespace

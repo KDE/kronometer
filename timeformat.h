@@ -21,7 +21,8 @@
 #define TIME_FORMAT_H
 
 #include <QString>
-#include <QTime>
+
+class QTime;
 
 class TimeFormat
 {

@@ -22,19 +22,29 @@
 #define MAINWINDOW_H
  
 #include <KXmlGuiWindow>
-#include <KAction>
+// #include <KAction>
+// 
+// #include <QLabel>
+// #include <QDockWidget>
+// #include <QTableView>
+// #include <QSortFilterProxyModel>
 
-#include <QLabel>
-#include <QDockWidget>
-#include <QTableView>
-#include <QSortFilterProxyModel>
+// #include "qstopwatch.h"
+// #include "qtimedisplay.h"
+// #include "lapmodel.h"
+// #include "widgets/generalsettings.h"
+// #include "widgets/fontsettings.h"
+// #include "widgets/savesettings.h"
 
-#include "qstopwatch.h"
-#include "qtimedisplay.h"
-#include "lapmodel.h"
-#include "widgets/generalsettings.h"
-#include "widgets/fontsettings.h"
-#include "widgets/savesettings.h"
+class KAction;
+class QLabel;
+class QDockWidget;
+class QTableView;
+class QSortFilterProxyModel;
+
+class QStopwatch;
+class QTimeDisplay;
+class LapModel;
 
 /**
  * @brief Kronometer main window.

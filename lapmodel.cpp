@@ -19,6 +19,8 @@
 
 #include <KLocale>
 
+#include <QTime>
+
 #include "lapmodel.h"
 
 LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}

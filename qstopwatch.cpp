@@ -17,6 +17,10 @@
 	along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <QTime>
+#include <QTimerEvent>
+#include <QDataStream>
+
 #include "qstopwatch.h"
 
 QStopwatch::QStopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS) {}

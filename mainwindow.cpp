@@ -21,6 +21,7 @@
   
 #include <KApplication>
 #include <KLocale>
+#include <KAction>
 #include <KActionCollection>
 #include <KStatusBar>
 #include <KConfigDialog>
@@ -29,10 +30,17 @@
 #include <KIO/NetAccess>
 #include <KSaveFile>
 
-#include <QHeaderView>
+#include <QTableView>
+#include <QDockWidget>
+#include <QSortFilterProxyModel>
 
-#include "timeformat.h"
+#include "qstopwatch.h"
+#include "qtimedisplay.h"
+#include "lapmodel.h"
 #include "settings.h"
+#include "widgets/generalsettings.h"
+#include "widgets/fontsettings.h"
+#include "widgets/savesettings.h"
 
 namespace
 {
@@ -295,7 +303,7 @@ void MainWindow::showSettings()
 
     KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
     generalPage->setIcon(KIcon(KApplication::windowIcon()));
-
+	
     KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
     fontPage->setIcon(KIcon("preferences-desktop-font"));
 

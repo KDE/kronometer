@@ -20,6 +20,7 @@
 #include <KApplication>
 #include <KAboutData>
 #include <KCmdLineArgs> 
+#include <KIcon>
  
 #include "mainwindow.h"
  

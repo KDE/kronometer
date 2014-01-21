@@ -17,6 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <QTime>
+
 #include "timeformat.h"
 
 TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec)

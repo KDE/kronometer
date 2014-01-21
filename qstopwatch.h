@@ -20,10 +20,12 @@
 #ifndef Q_STOPWATCH_H
 #define Q_STOPWATCH_H
 
-#include <QLabel>
+#include <QObject>
 #include <QElapsedTimer>
-#include <QTimerEvent>
-#include <QTime>
+
+class QTime;
+class QTimerEvent;
+class QDataStream;
 
 /**
  * @brief A Stopwatch class written in Qt.
