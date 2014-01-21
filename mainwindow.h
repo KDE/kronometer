@@ -22,19 +22,6 @@
 #define MAINWINDOW_H
  
 #include <KXmlGuiWindow>
-// #include <KAction>
-// 
-// #include <QLabel>
-// #include <QDockWidget>
-// #include <QTableView>
-// #include <QSortFilterProxyModel>
-
-// #include "qstopwatch.h"
-// #include "qtimedisplay.h"
-// #include "lapmodel.h"
-// #include "widgets/generalsettings.h"
-// #include "widgets/fontsettings.h"
-// #include "widgets/savesettings.h"
 
 class KAction;
 class QLabel;
@@ -63,16 +50,55 @@ protected:
 
 private slots:
 	
+    /**
+     * Stopwatch running state triggers.
+     */
     void running();
+
+    /**
+     * Stopwatch paused state triggers.
+     */
     void paused();
+
+    /**
+     * Stopwatch inactive state triggers.
+     */
     void inactive();
+
+    /**
+     * Setup the settings dialog.
+     */
     void showSettings();
+
+    /**
+     * Write the new settings on filesystem.
+     * @param dialogName Ignored argument.
+     */
     void writeSettings(const QString& dialogName);
+
+    /**
+     * Fix lap dock appereance.
+     */
 	void updateLapDock();
 
+    /**
+     * Open a new MainWindow instance.
+     */
     void newFile();
+
+    /**
+     * Open an existing file in a new MainWindow instance.
+     */
     void openFile();
+
+    /**
+     * Save current times on the current file.
+     */
     void saveFile();
+
+    /**
+     * Save current times on a new file.
+     */
     void saveFileAs();
 	
 private:
@@ -81,14 +107,12 @@ private:
     QTimeDisplay *stopwatchDisplay;
 	QDockWidget *lapDock;
 	QTableView *lapView;
+	QLabel *statusLabel;
 	
 	KAction *startAction;
 	KAction *pauseAction;
 	KAction *resetAction;
 	KAction *lapAction;
-	
-	QLabel *statusLabel;
-	QLabel *formatLabel;
 	
 	LapModel *lapModel;
     QSortFilterProxyModel *proxyModel;
@@ -96,16 +120,46 @@ private:
     QString fileName;
     bool unsavedTimes;          /** Wheter there are unsaved times */
 		
+    /**
+     * Setup application dock widgets.
+     */
     void setupDock();
+
+    /**
+     * Setup application status bar.
+     */
     void setupStatusBar();
+
+    /**
+     * Setup standard and custom KActions.
+     */
 	void setupActions();
+
+    /**
+     * Load settings from app Config and apply them to the other objects.
+     */
 	void loadSettings();
 
+    /**
+     * Set the stopwatch refresh granularity.
+     * By default, if all the arguments are false, the stopwatch is refreshed every second.
+     * @param tenths Wheter to refresh the stopwatch every tenth of second.
+     * @param hundredths Wheter to refresh the stopwatch every hundredth of second.
+     * @param msec Wheter to refresh the stopwatch every millisecond.
+     */
     void setupGranularity(bool tenths, bool hundredths, bool msec);
 
+    /**
+     * Crate a file with the current stopwatch time and lap times.
+     * @param name The name of the file to be saved.
+     */
     void saveFileAs(const QString& name);
+
+    /**
+     * Load from file the stopwatch and lap times.
+     * @param name The name of the tile with the saved times to be loaded.
+     */
     void openFile(const QString& name);
-	
 };
 
  

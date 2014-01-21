@@ -91,9 +91,12 @@ private:
     QFont secFont;
     QFont fracFont;
 
-    QTime displayTime;         /** Current display time */
-    TimeFormat timeFormat;        /** Current display time format */
+    QTime displayTime;              /** Current display time */
+    TimeFormat timeFormat;          /** Current display time format */
 
+    /**
+     * Refresh the labels text implementing the display timer
+     */
     void updateTimer();
 };
 

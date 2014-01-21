@@ -141,6 +141,101 @@ bool MainWindow::queryClose()
     return true;  // there is an open file, but times are already saved.
 }
  
+void MainWindow::running()
+{
+    statusLabel->setText(i18n(RUNNING_MSG));
+
+    unsavedTimes = true;
+    setWindowModified(unsavedTimes);
+
+    stateChanged(RUNNING_STATE);
+}
+
+void MainWindow::paused()
+{
+    startAction->setText(i18n(RESUME_MSG));
+    statusLabel->setText(i18n(PAUSED_MSG));
+
+    if (not fileName.isEmpty())
+    {
+        stateChanged(PAUSED_FILE_STATE);
+    }
+
+    else
+    {
+        stateChanged(PAUSED_STATE);
+    }
+}
+
+void MainWindow::inactive()
+{
+    startAction->setText(i18n(START_MSG));
+    statusLabel->setText(i18n(INACTIVE_MSG));
+
+    stateChanged(INACTIVE_STATE);
+}
+
+void MainWindow::showSettings()
+{
+    if (KConfigDialog::showDialog("settings"))
+        return;
+
+    KConfigDialog* dialog = new KConfigDialog(this, "settings", KronometerConfig::self());
+
+    dialog->showButtonSeparator(true);
+
+    KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
+    generalPage->setIcon(KIcon(KApplication::windowIcon()));
+
+    KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
+    fontPage->setIcon(KIcon("preferences-desktop-font"));
+
+    KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
+    savePage->setIcon(KIcon("document-save"));
+
+    connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(writeSettings(QString)));
+
+    dialog->show();
+}
+
+void MainWindow::writeSettings(const QString& dialogName)
+{
+    Q_UNUSED(dialogName);
+    KronometerConfig::self()->writeConfig();
+
+    loadSettings();
+}
+
+void MainWindow::updateLapDock()
+{
+    lapView->resizeColumnsToContents();
+    lapView->horizontalHeader()->setStretchLastSection(true);
+}
+
+void MainWindow::newFile()
+{
+    MainWindow *window = new MainWindow();
+    window->show();
+}
+
+void MainWindow::openFile()
+{
+    QString f = KFileDialog::getOpenFileName();
+
+    MainWindow *window = new MainWindow(nullptr, f);
+    window->show();
+}
+
+void MainWindow::saveFile()
+{
+    saveFileAs(fileName);
+}
+
+void MainWindow::saveFileAs()
+{
+    saveFileAs(KFileDialog::getSaveFileName());
+}
+
 void MainWindow::setupDock()
 {
     lapModel = new LapModel(this);
@@ -171,13 +266,9 @@ void MainWindow::setupDock()
 void MainWindow::setupStatusBar()
 {
     statusLabel = new QLabel(this);
-    formatLabel = new QLabel(this);
-
-    formatLabel->setToolTip(i18n("Current time format"));
     statusLabel->setToolTip(i18n("Current chronometer status"));
 
     statusBar()->addWidget(statusLabel);
-    statusBar()->addPermanentWidget(formatLabel);
 }
 
 void MainWindow::setupActions() 
@@ -256,101 +347,6 @@ void MainWindow::loadSettings()
     stopwatchDisplay->setFracFont(KronometerConfig::fracFont());
 
     setupGranularity(KronometerConfig::showTenths(), KronometerConfig::showHundredths(), KronometerConfig::showMilliseconds());
-}
-
-void MainWindow::running()
-{
-    statusLabel->setText(i18n(RUNNING_MSG));
-
-    unsavedTimes = true;
-    setWindowModified(unsavedTimes);
-
-    stateChanged(RUNNING_STATE);
-}
-
-void MainWindow::paused()
-{
-    startAction->setText(i18n(RESUME_MSG));
-	statusLabel->setText(i18n(PAUSED_MSG));
-
-    if (not fileName.isEmpty())
-    {
-        stateChanged(PAUSED_FILE_STATE);
-    }
-
-    else
-    {
-        stateChanged(PAUSED_STATE);
-    }
-}
-
-void MainWindow::inactive()
-{
-    startAction->setText(i18n(START_MSG));
-	statusLabel->setText(i18n(INACTIVE_MSG));
-
-    stateChanged(INACTIVE_STATE);
-}
-
-void MainWindow::showSettings()
-{
-	if (KConfigDialog::showDialog("settings"))
-		return;
-	
-	KConfigDialog* dialog = new KConfigDialog(this, "settings", KronometerConfig::self());
-	
-	dialog->showButtonSeparator(true);
-
-    KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
-    generalPage->setIcon(KIcon(KApplication::windowIcon()));
-	
-    KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
-    fontPage->setIcon(KIcon("preferences-desktop-font"));
-
-    KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
-    savePage->setIcon(KIcon("document-save"));
-
-    connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(writeSettings(QString)));
-	
-    dialog->show();
-}
-
-void MainWindow::updateLapDock()
-{
-	lapView->resizeColumnsToContents();
-    lapView->horizontalHeader()->setStretchLastSection(true);
-}
-
-void MainWindow::newFile()
-{
-    MainWindow *window = new MainWindow();
-    window->show();
-}
-
-void MainWindow::openFile()
-{
-    QString f = KFileDialog::getOpenFileName();
-
-    MainWindow *window = new MainWindow(nullptr, f);
-    window->show();
-}
-
-void MainWindow::saveFile()
-{
-    saveFileAs(fileName);
-}
-
-void MainWindow::saveFileAs()
-{
-    saveFileAs(KFileDialog::getSaveFileName());
-}
-
-void MainWindow::writeSettings(const QString& dialogName)
-{
-	Q_UNUSED(dialogName);
-    KronometerConfig::self()->writeConfig();
-	
-	loadSettings();
 }
 
 
