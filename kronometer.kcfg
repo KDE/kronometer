@@ -54,9 +54,21 @@
 	</group>
 	
 	<group name="Font">
-		<entry name="displayFont" type="Font">
-			<default code="true">QFont(KGlobalSettings::generalFont().family(), 54)</default>
+        <entry name="hourFont" type="Font">
+            <code>
+                QFont defaultFont(KGlobalSettings::generalFont().family(), 54);
+            </code>
+            <default code="true">defaultFont</default>
 		</entry>
+        <entry name="minFont" type="Font">
+            <default code="true">defaultFont</default>
+        </entry>
+        <entry name="secFont" type="Font">
+            <default code="true">defaultFont</default>
+        </entry>
+        <entry name="fracFont" type="Font">
+            <default code="true">defaultFont</default>
+        </entry>
 	</group>
 
     <group name="Save">

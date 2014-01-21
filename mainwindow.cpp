@@ -242,7 +242,10 @@ void MainWindow::loadSettings()
 
     lapModel->setTimeFormat(timeFormat);
     stopwatchDisplay->setTimeFormat(timeFormat);
-    stopwatchDisplay->setDisplayFont(KronometerConfig::displayFont());
+    stopwatchDisplay->setHourFont(KronometerConfig::hourFont());
+    stopwatchDisplay->setMinFont(KronometerConfig::minFont());
+    stopwatchDisplay->setSecFont(KronometerConfig::secFont());
+    stopwatchDisplay->setFracFont(KronometerConfig::fracFont());
 
     setupGranularity(KronometerConfig::showTenths(), KronometerConfig::showHundredths(), KronometerConfig::showMilliseconds());
 }

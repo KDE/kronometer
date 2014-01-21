@@ -38,20 +38,33 @@ public:
 
     QString formatSec(const QTime& time) const;
 
-    QString formatSecFract(const QTime& time) const;
+    QString formatSecFrac(const QTime& time) const;
 
+    bool isHourEnabled() const;
+
+    bool isMinEnabled() const;
+
+    bool isSecEnabled() const;
+
+    bool isSecFracEnabled() const;
+
+    bool isTenthEnabled() const;
+
+    bool isHundredthEnabled() const;
+
+    bool isMSecEnabled() const;
 
 private:
 
     enum class SecFraction
     {
         NONE,
-        TENTHS,
-        HUNDREDTHS,
-        MILLISECONDS
+        TENTH,
+        HUNDREDTH,
+        MILLISECOND
     };
 
-    bool hours;
+    bool hour;
     bool min;
     bool sec;
     SecFraction secFraction;

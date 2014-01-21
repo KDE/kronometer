@@ -4,6 +4,8 @@
 #include <QWidget>
 #include <QLabel>
 #include <QTime>
+#include <QSplitter>
+#include <QBoxLayout>
 
 #include "timeformat.h"
 
@@ -26,11 +28,29 @@ public:
      */
     void setTimeFormat(const TimeFormat& format);
 
-   /**
-    * Set a custom font for time display
-    * @param font The custom font to set.
-    */
-    void setDisplayFont(const QFont& font);
+    /**
+     * Set a custom font for hours
+     * @param font The custom font to set.
+     */
+    void setHourFont(const QFont& font);
+
+    /**
+     * Set a custom font for minutes
+     * @param font The custom font to set.
+     */
+    void setMinFont(const QFont& font);
+
+    /**
+     * Set a custom font for seconds
+     * @param font The custom font to set.
+     */
+    void setSecFont(const QFont& font);
+
+    /**
+     * Set a custom font for second fractions
+     * @param font The custom font to set.
+     */
+    void setFracFont(const QFont& font);
 
 public slots:
 
@@ -42,10 +62,36 @@ public slots:
 
 private:
 
-    QLabel *displayLabel;      /** Label implementing the digital display with the timer */
-    QFont displayFont;         /** Current display font */
+    QSplitter *splitter;
+    QHBoxLayout *displayLayout;
+    QVBoxLayout *hourLayout;
+    QVBoxLayout *minLayout;
+    QVBoxLayout *secLayout;
+    QVBoxLayout *fracLayout;
+
+    QFrame *hourFrame;
+    QFrame *minFrame;
+    QFrame *secFrame;
+    QFrame *fracFrame;
+
+    QLabel *hourHeader;
+    QLabel *minHeader;
+    QLabel *secHeader;
+    QLabel *fracHeader;
+    QLabel *hourLabel;
+    QLabel *minLabel;
+    QLabel *secLabel;
+    QLabel *fracLabel;
+
+    QFont hourFont;
+    QFont minFont;
+    QFont secFont;
+    QFont fracFont;
+
     QTime displayTime;         /** Current display time */
     TimeFormat timeFormat;        /** Current display time format */
+
+    void updateTimer();
 };
 
 #endif
