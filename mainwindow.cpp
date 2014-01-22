@@ -32,6 +32,7 @@
 
 #include <QTableView>
 #include <QDockWidget>
+#include <QClipboard>
 #include <QSortFilterProxyModel>
 
 #include "qstopwatch.h"
@@ -240,6 +241,11 @@ void MainWindow::saveFileAs()
     saveFileAs(KFileDialog::getSaveFileName());
 }
 
+void MainWindow::copyToClipboard()
+{
+    KApplication::clipboard()->setText(stopwatchDisplay->currentTime());
+}
+
 void MainWindow::setupDock()
 {
     lapModel = new LapModel(this);
@@ -325,6 +331,7 @@ void MainWindow::setupActions()
     KStandardAction::save(this, SLOT(saveFile()), actionCollection());
     KStandardAction::saveAs(this, SLOT(saveFileAs()), actionCollection());
     KStandardAction::open(this, SLOT(openFile()), actionCollection());
+    KStandardAction::copy(this, SLOT(copyToClipboard()), actionCollection());
 
 	setupGUI(Default, "kronometerui.rc");
 	

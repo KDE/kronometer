@@ -25,7 +25,7 @@
 class QTime;
 
 /**
- * @brief A wrapper for a QTime-like format-time string.
+ * @brief A wrapper for a QTime-like format time string.
  * A TimeFormat is an abstraction for a QTime-like string used for time formats.
  * A TimeFormat can be customized using booleans in the constructor.
  * The QTime-syntax used is the following:

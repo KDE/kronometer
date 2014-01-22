@@ -156,6 +156,11 @@ void QTimeDisplay::showHeaders(bool show)
     fracHeader->setVisible(show);
 }
 
+QString QTimeDisplay::currentTime()
+{
+    return timeFormat.format(displayTime);
+}
+
 
 void QTimeDisplay::time(const QTime& t)
 {

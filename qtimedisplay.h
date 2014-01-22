@@ -61,6 +61,12 @@ public:
      */
     void showHeaders(bool show);
 
+    /**
+     * Get the current time formatted with the current format.
+     * @return Current time formatted as string.
+     */
+    QString currentTime();
+
 public slots:
 
     /**

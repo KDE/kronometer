@@ -100,6 +100,11 @@ private slots:
      * Save current times on a new file.
      */
     void saveFileAs();
+
+    /**
+     * Copy current stopwatch time to clipboard.
+     */
+    void copyToClipboard();
 	
 private:
 	
