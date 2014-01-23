@@ -9,6 +9,10 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v0.8.0
+* Added *Edit* menu with the ability to copy current stopwatch time to clipboard
+* Color settings: choose stopwatch display background/text color
+
 v0.7.1
 * Fix compilation bug
 
@@ -16,7 +20,7 @@ v0.7.0
 * Timer central *display* re-designed
 * Now each time "slot" has its own display
 * The displays are *splittable* between them
-* Display *time headers*, which can be disabled from settings.
+* Display *time headers*, which can be disabled from settings
 
 v0.6.0
 * Initial implementation of times saving on binary files
@@ -92,7 +96,8 @@ TODO list
 * ~~Chronometer font customization: font famility, size, etc.~~
 * ~~Various UI enhancements~~
 * ~~Copy current time to clipboard~~
-* Color settings
+* ~~Color settings~~
+* Replace binary files with text files for persistence.
 * Laps export feature: CSV format, etc.
 * Text localization
 * System tray support? (pause/resume from tray icon). Hard because multiple windows may be running.
@@ -105,8 +110,8 @@ Screenshot
 [![kronometer paused](img/screen-v0.3.x/kronometer-paused.png?raw=true)](img/screen-v0.3.x/kronometer-paused.png?raw=true)
 [![kronometer paused](img/screen-v0.3.x/kronometer-laps.png?raw=true)](img/screen-v0.3.x/kronometer-laps.png?raw=true)
 -->
-[![kronometer running](http://abload.de/img/kronometer-running-law1sva.png)](http://abload.de/img/kronometer-running-law1sva.png)
+[![kronometer running](http://abload.de/img/kronometer-running-lan4ij0.png)](http://abload.de/img/kronometer-running-lan4ij0.png)
 [![kronometer save](http://abload.de/img/kronometer-saveggs6g.png)](http://abload.de/img/kronometer-saveggs6g.png)
-[![kronometer settings](http://abload.de/img/kronometer-settings9use2.png)](http://abload.de/img/kronometer-settings9use2.png)
+[![kronometer settings](http://abload.de/img/kronometer-settingsqueub.png)](http://abload.de/img/kronometer-settingsqueub.png)
 
 
