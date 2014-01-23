@@ -91,11 +91,11 @@ TODO list
 * ~~Save support: ability to save/restore times~~
 * ~~Chronometer font customization: font famility, size, etc.~~
 * ~~Various UI enhancements~~
+* ~~Copy current time to clipboard~~
 * Color settings
-* System tray support (pause/resume from tray icon, etc.)
-* Copy current time to clipboard
 * Laps export feature: CSV format, etc.
 * Text localization
+* System tray support? (pause/resume from tray icon). Hard because multiple windows may be running.
 
 Screenshot
 ----------

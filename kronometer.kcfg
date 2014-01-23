@@ -4,7 +4,8 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
 	
-	<include>kglobalsettings.h</include>
+    <include>KColorScheme</include>
+    <include>kglobalsettings.h</include>
 	
 	<kcfgfile name="kronometerrc"/>
 	
@@ -70,6 +71,22 @@
             <default code="true">defaultFont</default>
         </entry>
 	</group>
+
+    <group name="Color">
+        <entry name="backgroundColor" type="Color">
+            <code>
+                KColorScheme schemeView(QPalette::Active, KColorScheme::View);
+                QColor defaultColor = schemeView.background().color();
+            </code>
+            <default code="true">defaultColor</default>
+        </entry>
+        <entry name="textColor" type="Color">
+            <code>
+                defaultColor = schemeView.foreground().color();
+            </code>
+            <default code="true">defaultColor</default>
+        </entry>
+    </group>
 
     <group name="Save">
         <entry name="askOnExit" type="Bool">

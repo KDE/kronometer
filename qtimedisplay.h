@@ -55,6 +55,10 @@ public:
      */
     void setFracFont(const QFont& font);
 
+    void setBackgroundColor(const QColor& color);
+
+    void setTextColor(const QColor& color);
+
     /**
      * Show or hide the time headers of the display.
      * @param show Wheter to show the time headers.
@@ -102,6 +106,9 @@ private:
     QFont minFont;
     QFont secFont;
     QFont fracFont;
+
+    QColor backgroundColor;
+    QColor textColor;
 
     QTime displayTime;              /** Current display time */
     TimeFormat timeFormat;          /** Current display time format */

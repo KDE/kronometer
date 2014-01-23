@@ -14,6 +14,8 @@ namespace
     const QByteArray TENTHS_MSG = "Tenths";
     const QByteArray HUNDREDTHS_MSG = "Hundredths";
     const QByteArray MSEC_MSG = "Milliseconds";
+
+    const QString FRAME_STYLE = "QFrame {background-clip: content; background: %1; color: %2}";
 }
 
 QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
@@ -146,6 +148,26 @@ void QTimeDisplay::setFracFont(const QFont& font)
 {
     fracFont = font;
     fracLabel->setFont(fracFont);
+}
+
+void QTimeDisplay::setBackgroundColor(const QColor& color)
+{
+    backgroundColor = color;
+
+    hourFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+    minFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+    secFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+    fracFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+}
+
+void QTimeDisplay::setTextColor(const QColor& color)
+{
+    textColor = color;
+
+    hourFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+    minFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+    secFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+    fracFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
 }
 
 void QTimeDisplay::showHeaders(bool show)
