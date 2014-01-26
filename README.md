@@ -97,8 +97,9 @@ TODO list
 * ~~Various UI enhancements~~
 * ~~Copy current time to clipboard~~
 * ~~Color settings~~
-* Replace binary files with text files for persistence.
+* Replace binary files with XML files for persistence.
 * Laps export feature: CSV format, etc.
+* System notification support (i.e. for lap times)
 * Text localization
 * System tray support? (pause/resume from tray icon). Hard because multiple windows may be running.
 

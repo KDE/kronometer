@@ -52,28 +52,28 @@ public:
     /**
      * Format the given time's hours with the current time format.
      * @param time The time to be formatted.
-     * @return The time's hours formatted as string.
+     * @return The time's hours formatted as string, or empty string if hour is not in the format.
      */
     QString formatHours(const QTime& time) const;
 
     /**
      * Format the given time's minutes with the current time format.
      * @param time The time to be formatted.
-     * @return The time's minutes formatted as string.
+     * @return The time's minutes formatted as string, or empty string if minute is not in the format.
      */
     QString formatMin(const QTime& time) const;
 
     /**
      * Format the given time's seconds with the current time format.
      * @param time The time to be formatted.
-     * @return The time's seconds formatted as string.
+     * @return The time's seconds formatted as string, or empty string if second is not in the format.
      */
     QString formatSec(const QTime& time) const;
 
     /**
      * Format the given time's second fractions with the current time format.
      * @param time The time to be formatted.
-     * @return The time's second fractions formatted as string.
+     * @return The time's second fractions formatted as string, or empty string if second fraction is not in the format.
      */
     QString formatSecFrac(const QTime& time) const;
 
