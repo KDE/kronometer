@@ -34,6 +34,7 @@
 #include <QDockWidget>
 #include <QClipboard>
 #include <QSortFilterProxyModel>
+#include <QDomDocument>
 
 #include "qstopwatch.h"
 #include "qtimedisplay.h"
@@ -70,6 +71,16 @@ namespace
     const QString RUNNING_STATE = "running";
     const QString PAUSED_STATE = "paused";
     const QString PAUSED_FILE_STATE = "pausedFile";  /** An open file has been paused */
+
+    // XML strings
+    const QString STOPWATCH_TAG = "stopwatch";
+    const QString LAPS_TAG = "laps";
+    const QString LAP_TAG = "lap";
+    const QString TIME_TAG = "time";
+    const QString ROOT_TAG = "kronometer";
+    const QString TYPE_ATTR = "type";
+    const QString REL_TYPE = "relative";
+    const QString ABS_TYPE = "absolute";
 }
 
  
@@ -396,10 +407,11 @@ void MainWindow::saveFileAs(const QString& name)
     KSaveFile saveFile(name);
     saveFile.open();
 
-    QDataStream stream(&saveFile);
-
-    stopwatch->serialize(stream);   // save stopwatch time
-    stream << *lapModel;            // save laps
+    //QDataStream stream(&saveFile);
+    //stopwatch->serialize(stream);   // save stopwatch time
+    //stream << *lapModel;            // save laps
+    QTextStream stream(&saveFile);
+    createXml(stream);
 
     saveFile.finalize();
     saveFile.close();
@@ -436,5 +448,50 @@ void MainWindow::openFile(const QString& name)
 
     QFileInfo fileInfo(fileName);
     setWindowTitle(WINDOW_TITLE + " - " + fileInfo.fileName() + QT_PLACE_HOLDER);
+}
+
+void MainWindow::createXml(QTextStream& out)
+{
+    QDomDocument doc;
+    QDomProcessingInstruction metaData = doc.createProcessingInstruction("xml", "version='1.0' encoding='UTF-8'");
+    QDomElement rootElement = doc.createElement(ROOT_TAG);
+
+    QDomElement stopwatchElement = doc.createElement(STOPWATCH_TAG);
+    stopwatch->serialize(stopwatchElement);
+    QDomElement stopwatchTime = doc.createElement(TIME_TAG);
+    stopwatchTime.setAttribute(TYPE_ATTR, REL_TYPE);
+    stopwatchTime.appendChild(doc.createTextNode(stopwatchDisplay->currentTime()));
+    stopwatchElement.appendChild(stopwatchTime);
+
+    QDomElement lapsElement = doc.createElement(LAPS_TAG);
+
+    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++)
+    {
+        QDomElement lap = doc.createElement(LAP_TAG);
+        lapModel->serialize(lap, i);
+
+        QDomElement relTime = doc.createElement(TIME_TAG);
+        relTime.setAttribute(TYPE_ATTR, REL_TYPE);
+        relTime.appendChild(doc.createTextNode(lapModel->relativeLapTime(i)));
+
+        QDomElement absTime = doc.createElement(TIME_TAG);
+        absTime.setAttribute(TYPE_ATTR, ABS_TYPE);
+        absTime.appendChild(doc.createTextNode(lapModel->absoluteLapTime(i)));
+
+        lap.appendChild(relTime);
+        lap.appendChild(absTime);
+        lapsElement.appendChild(lap);
+    }
+
+    rootElement.appendChild(stopwatchElement);
+    rootElement.appendChild(lapsElement);
+    doc.appendChild(metaData);
+    doc.appendChild(rootElement);
+    doc.save(out, 4);
+}
+
+void MainWindow::parseXml(const QString& xml)
+{
+    Q_UNUSED(xml); // TODO
 }
 

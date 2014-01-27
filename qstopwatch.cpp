@@ -20,6 +20,7 @@
 #include <QTime>
 #include <QTimerEvent>
 #include <QDataStream>
+#include <QDomElement>
 
 #include "qstopwatch.h"
 
@@ -65,6 +66,38 @@ bool QStopwatch::deserialize(QDataStream& in)
     }
 
     in >> accumulator;
+    state = State::PAUSED;
+
+    QTime t(0, 0);
+    t = t.addMSecs(accumulator);
+
+    emit time(t);  // it signals that has been deserialized and can be resumed
+
+    return true;
+}
+
+bool QStopwatch::serialize(QDomElement& element)
+{
+    if (state != State::PAUSED)
+    {
+        return false;
+    }
+
+    element.setAttribute("accumulator", accumulator);
+
+    return true;
+}
+
+bool QStopwatch::deserialize(QDomElement& element)
+{
+    if (state != State::INACTIVE)
+    {
+        return false;
+    }
+
+    QString acc = element.attribute("accumulator");
+    accumulator = acc.toLongLong();
+
     state = State::PAUSED;
 
     QTime t(0, 0);

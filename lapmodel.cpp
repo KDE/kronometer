@@ -20,6 +20,7 @@
 #include <KLocale>
 
 #include <QTime>
+#include <QDomElement>
 
 #include "lapmodel.h"
 
@@ -58,11 +59,11 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 				break;
 				
 			case REL_TIME:
-				variant = lapTime(index.row());
+                variant = relativeLapTime(index.row());
 				break;
 				
 			case ABS_TIME:
-                variant = timeFormat.format(timeList.at(index.row()));
+                variant = absoluteLapTime(index.row());
 				break;
 		}
 		 
@@ -104,6 +105,41 @@ void LapModel::setTimeFormat(const TimeFormat& format)
     timeFormat = format;
 }
 
+void LapModel::serialize(QDomElement& element, int lapIndex)
+{
+    QTime zero(0, 0);
+
+    element.setAttribute("id", lapIndex);
+    element.setAttribute("accumulator", zero.msecsTo(timeList.at(lapIndex)));
+}
+
+QString LapModel::relativeLapTime(int lapIndex) const
+{
+    QString time;
+
+    if (timeList.size() > 1 and lapIndex > 0)   // compute diff only starting from 2nd entry
+    {
+        QTime prev = timeList.at(lapIndex - 1);
+        QTime target = timeList.at(lapIndex);
+        QTime diff(0, 0);
+        diff = diff.addMSecs(prev.msecsTo(target));
+
+        time = timeFormat.format(diff);
+    }
+
+    else  // first lap entry
+    {
+        time = timeFormat.format(timeList.first());
+    }
+
+    return time;
+}
+
+QString LapModel::absoluteLapTime(int lapIndex) const
+{
+    return timeFormat.format(timeList.at(lapIndex));
+}
+
 void LapModel::lap(const QTime& lapTime)
 {
 	beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
@@ -120,28 +156,6 @@ void LapModel::clear()
 	timeList.clear();
 	
 	endResetModel();
-}
-
-QString LapModel::lapTime(int lapIndex) const
-{
-	QString time;
-	
-	if (timeList.size() > 1 and lapIndex > 0)   // compute diff only starting from 2nd entry
-	{
-		QTime prev = timeList.at(lapIndex - 1);
-		QTime target = timeList.at(lapIndex);
-		QTime diff(0, 0);
-		diff = diff.addMSecs(prev.msecsTo(target));
-
-        time = timeFormat.format(diff);
-	}
-	
-	else  // first lap entry
-	{
-        time = timeFormat.format(timeList.first());
-	}
-	
-	return time;
 }
 
 QDataStream& operator<<(QDataStream& out, const LapModel& m)

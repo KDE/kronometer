@@ -31,6 +31,7 @@ class QSortFilterProxyModel;
 
 class QStopwatch;
 class QTimeDisplay;
+class QTextStream;
 class LapModel;
 
 /**
@@ -165,6 +166,10 @@ private:
      * @param name The name of the tile with the saved times to be loaded.
      */
     void openFile(const QString& name);
+
+    void createXml(QTextStream& out);
+
+    void parseXml(const QString& xml);
 };
 
  

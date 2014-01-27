@@ -25,6 +25,7 @@
 #include "timeformat.h"
 
 class QTime;
+class QDomElement;
 
 /**
  * @brief A LapModel is a Model for lap times.
@@ -45,6 +46,22 @@ public:
 	QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 
     void setTimeFormat(const TimeFormat& format);
+
+    void serialize(QDomElement& element, int lapIndex);
+
+    /**
+     * Compute the relative time of a lap.
+     * @param lapIndex The index of the lap.
+     * @return Relative time of the lap, formatted as string.
+     */
+    QString relativeLapTime(int lapIndex) const;
+
+    /**
+     * Compute the absolute time of a lap.
+     * @param lapIndex The index of the lap.
+     * @return Absolute time of the lap, formatted as string.
+     */
+    QString absoluteLapTime(int lapIndex) const;
 	
     friend QDataStream& operator<<(QDataStream& out, const LapModel& m);
     friend QDataStream& operator>>(QDataStream& in, LapModel& m);
@@ -76,12 +93,7 @@ private:
 	QList<QTime> timeList;		/** Absolute lap times */
     TimeFormat timeFormat;         /** Current lap times format */
 	
-    /**
-     * Compute the relative time of a lap.
-     * @param lapIndex The index of the lap.
-     * @return Relative time of the lap, formatted as string.
-     */
-	QString lapTime(int lapIndex) const;
+
 };
 
 

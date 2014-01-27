@@ -26,6 +26,7 @@
 class QTime;
 class QTimerEvent;
 class QDataStream;
+class QDomElement;
 
 /**
  * @brief A Stopwatch class written in Qt.
@@ -89,6 +90,10 @@ public:
      * @return true if the deserialization succeeds (i.e. the stopwatch is inactive), false otherwise
      */
     bool deserialize(QDataStream& in);
+
+    bool serialize(QDomElement& element);
+
+    bool deserialize(QDomElement& element);
 
 public slots:
 	
