@@ -91,9 +91,25 @@ public:
      */
     bool deserialize(QDataStream& in);
 
-    bool serialize(QDomElement& element);
+    /**
+     * Serialize the stopwatch on the given XML DOM element.
+     * The serialization is implemented by adding an attribute (with the given name) to the element.
+     * Only a paused stopwatch is meant to be serialized.
+     * @param element The XML DOM element to be used as serialization output.
+     * @param attributeName The name of the attribute to be added to the element.
+     * @return true if the serialization succeeds (i.e. the stopwatch is paused), false otherwise
+     */
+    bool serialize(QDomElement& element, const QString& attributeName);
 
-    bool deserialize(QDomElement& element);
+    /**
+     * De-serialize the stopwatch from the given XML DOM element.
+     * The deserialization is implemented by reading an attribute (with the given name) from the element.
+     * Only an inactive stopwatch is meant to be serialized.
+     * @param element The XML DOM element to be used as serialization input.
+     * @param attributeName The name of the attribute to be read.
+     * @return true if the deserialization succeeds (i.e. the stopwatch is inactive and the attribute is valid), false otherwise
+     */
+    bool deserialize(QDomElement& element, const QString& attributeName);
 
 public slots:
 	

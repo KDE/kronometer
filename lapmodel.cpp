@@ -105,16 +105,55 @@ void LapModel::setTimeFormat(const TimeFormat& format)
     timeFormat = format;
 }
 
-void LapModel::serialize(QDomElement& element, int lapIndex)
+bool LapModel::lapToXml(QDomElement& element, const QString& attributeName, int lapIndex)
 {
+    if (lapIndex < 0 or lapIndex >= timeList.size() or attributeName.isEmpty())
+    {
+        return false;
+    }
+
     QTime zero(0, 0);
 
     element.setAttribute("id", lapIndex);
-    element.setAttribute("accumulator", zero.msecsTo(timeList.at(lapIndex)));
+    element.setAttribute(attributeName, zero.msecsTo(timeList.at(lapIndex)));
+
+    return true;
+}
+
+bool LapModel::lapFromXml(const QDomElement& element, const QString& attributeName)
+{
+    if (attributeName.isEmpty())
+    {
+        return false;
+    }
+
+    QString attributeValue = element.attribute(attributeName);
+    qint64 milliseconds = attributeValue.toLongLong();
+
+    if (milliseconds == 0)
+    {
+        return false;  // invalid attribute name or value
+    }
+
+    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
+
+    QTime t(0, 0);
+    t = t.addMSecs(milliseconds);
+
+    timeList.append(t);
+
+    endInsertRows();
+
+    return true;
 }
 
 QString LapModel::relativeLapTime(int lapIndex) const
 {
+    if (lapIndex < 0 or lapIndex >= timeList.size())
+    {
+        return QString();
+    }
+
     QString time;
 
     if (timeList.size() > 1 and lapIndex > 0)   // compute diff only starting from 2nd entry
@@ -137,6 +176,11 @@ QString LapModel::relativeLapTime(int lapIndex) const
 
 QString LapModel::absoluteLapTime(int lapIndex) const
 {
+    if (lapIndex < 0 or lapIndex >= timeList.size())
+    {
+        return QString();
+    }
+
     return timeFormat.format(timeList.at(lapIndex));
 }
 

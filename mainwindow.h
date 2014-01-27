@@ -162,14 +162,14 @@ private:
     void saveFileAs(const QString& name);
 
     /**
-     * Load from file the stopwatch and lap times.
-     * @param name The name of the tile with the saved times to be loaded.
+     * Load from file the stopwatch and lap times. If an error occurs, the window is closed.
+     * @param name The name of the file with the saved times to be loaded.
      */
     void openFile(const QString& name);
 
     void createXml(QTextStream& out);
 
-    void parseXml(const QString& xml);
+    bool parseXml(const QDomDocument& doc);
 };
 
  

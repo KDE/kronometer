@@ -78,6 +78,7 @@ namespace
     const QString LAP_TAG = "lap";
     const QString TIME_TAG = "time";
     const QString ROOT_TAG = "kronometer";
+    const QString PERSISTENCE_ATTR = "msec";
     const QString TYPE_ATTR = "type";
     const QString REL_TYPE = "relative";
     const QString ABS_TYPE = "absolute";
@@ -242,8 +243,11 @@ void MainWindow::openFile()
 {
     QString f = KFileDialog::getOpenFileName();
 
-    MainWindow *window = new MainWindow(nullptr, f);
-    window->show();
+    if (not f.isEmpty())
+    {
+        MainWindow *window = new MainWindow(nullptr, f);
+        window->show();
+    }
 }
 
 void MainWindow::saveFile()
@@ -404,19 +408,32 @@ void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
 
 void MainWindow::saveFileAs(const QString& name)
 {
-    KSaveFile saveFile(name);
+    if (name.isEmpty())
+        return;
+
+    const QString extension = ".xml";
+    QString saveName = name;
+
+    if (not saveName.endsWith(extension))
+    {
+        saveName += extension;
+    }
+
+    KSaveFile saveFile(saveName);
     saveFile.open();
 
+    // old persistence using binary files
     //QDataStream stream(&saveFile);
     //stopwatch->serialize(stream);   // save stopwatch time
     //stream << *lapModel;            // save laps
+
     QTextStream stream(&saveFile);
     createXml(stream);
 
     saveFile.finalize();
     saveFile.close();
 
-    fileName = name;
+    fileName = saveName;
 
     unsavedTimes = false;
     setWindowModified(unsavedTimes);
@@ -430,24 +447,46 @@ void MainWindow::openFile(const QString& name)
     {
         QFile file(buffer);
         file.open(QIODevice::ReadOnly);
-        QDataStream stream(&file);
 
-        stopwatch->deserialize(stream);     // load stopwatch time
-        stream >> *lapModel;                // load laps
-        paused();                           // enter in paused state
+        // old persistence using binary files
+        //QDataStream stream(&file);
+        //stopwatch->deserialize(stream);     // load stopwatch time
+        //stream >> *lapModel;                // load laps
 
-        fileName = name;
+        QDomDocument doc;
+        QString errorMsg;
 
-        KIO::NetAccess::removeTempFile(buffer);
+        if (doc.setContent(&file, &errorMsg))
+        {
+            if (parseXml(doc))
+            {
+                paused();                       // enter in paused state
+                fileName = name;
+
+                KIO::NetAccess::removeTempFile(buffer);
+                QFileInfo fileInfo(fileName);
+                setWindowTitle(WINDOW_TITLE + " - " + fileInfo.fileName() + QT_PLACE_HOLDER);
+            }
+
+            else
+            {
+                KIO::NetAccess::removeTempFile(buffer);
+                close(); // files are opened in a new window, so if the open fails the new window has to be closed.
+            }
+        }
+
+        else
+        {
+            KMessageBox::error(this, "Cannot open file: " + errorMsg);
+            KIO::NetAccess::removeTempFile(buffer);
+            close();
+        }
     }
 
     else
     {
         KMessageBox::error(this, KIO::NetAccess::lastErrorString());
     }
-
-    QFileInfo fileInfo(fileName);
-    setWindowTitle(WINDOW_TITLE + " - " + fileInfo.fileName() + QT_PLACE_HOLDER);
 }
 
 void MainWindow::createXml(QTextStream& out)
@@ -457,9 +496,9 @@ void MainWindow::createXml(QTextStream& out)
     QDomElement rootElement = doc.createElement(ROOT_TAG);
 
     QDomElement stopwatchElement = doc.createElement(STOPWATCH_TAG);
-    stopwatch->serialize(stopwatchElement);
+    stopwatch->serialize(stopwatchElement, PERSISTENCE_ATTR);
     QDomElement stopwatchTime = doc.createElement(TIME_TAG);
-    stopwatchTime.setAttribute(TYPE_ATTR, REL_TYPE);
+    stopwatchTime.setAttribute(TYPE_ATTR, ABS_TYPE);
     stopwatchTime.appendChild(doc.createTextNode(stopwatchDisplay->currentTime()));
     stopwatchElement.appendChild(stopwatchTime);
 
@@ -468,7 +507,7 @@ void MainWindow::createXml(QTextStream& out)
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++)
     {
         QDomElement lap = doc.createElement(LAP_TAG);
-        lapModel->serialize(lap, i);
+        lapModel->lapToXml(lap, PERSISTENCE_ATTR, i);
 
         QDomElement relTime = doc.createElement(TIME_TAG);
         relTime.setAttribute(TYPE_ATTR, REL_TYPE);
@@ -487,11 +526,38 @@ void MainWindow::createXml(QTextStream& out)
     rootElement.appendChild(lapsElement);
     doc.appendChild(metaData);
     doc.appendChild(rootElement);
-    doc.save(out, 4);
+    doc.save(out, 4); // TODO: KronometerConfig::indentSize()
 }
 
-void MainWindow::parseXml(const QString& xml)
+bool MainWindow::parseXml(const QDomDocument& doc)
 {
-    Q_UNUSED(xml); // TODO
+    QDomElement rootElement = doc.namedItem(ROOT_TAG).toElement();
+
+    if (rootElement.isNull())
+    {
+        KMessageBox::error(this, i18n("Invalid XML file"));
+        return false;
+    }
+
+    QDomElement stopwatchElement = rootElement.namedItem(STOPWATCH_TAG).toElement();
+    QDomElement lapsElement = rootElement.namedItem(LAPS_TAG).toElement();
+
+    if (stopwatchElement.isNull() or lapsElement.isNull())
+    {
+        KMessageBox::error(this, i18n("Incomplete Kronometer save file"));
+        return false;
+    }
+
+    stopwatch->deserialize(stopwatchElement, PERSISTENCE_ATTR);
+
+    QDomElement lap = lapsElement.firstChildElement(LAP_TAG);
+
+    while (not lap.isNull())
+    {
+        lapModel->lapFromXml(lap, PERSISTENCE_ATTR);
+        lap = lap.nextSiblingElement(LAP_TAG);
+    }
+
+    return true;
 }
 

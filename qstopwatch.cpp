@@ -76,27 +76,32 @@ bool QStopwatch::deserialize(QDataStream& in)
     return true;
 }
 
-bool QStopwatch::serialize(QDomElement& element)
+bool QStopwatch::serialize(QDomElement& element, const QString& attributeName)
 {
-    if (state != State::PAUSED)
+    if (state != State::PAUSED or attributeName.isEmpty())
     {
         return false;
     }
 
-    element.setAttribute("accumulator", accumulator);
+    element.setAttribute(attributeName, accumulator);
 
     return true;
 }
 
-bool QStopwatch::deserialize(QDomElement& element)
+bool QStopwatch::deserialize(QDomElement& element, const QString& attributeName)
 {
-    if (state != State::INACTIVE)
+    if (state != State::INACTIVE or attributeName.isEmpty())
     {
         return false;
     }
 
-    QString acc = element.attribute("accumulator");
+    QString acc = element.attribute(attributeName);
     accumulator = acc.toLongLong();
+
+    if (accumulator == 0)
+    {
+        return false;  // invalid attribute name or value
+    }
 
     state = State::PAUSED;
 
