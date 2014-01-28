@@ -162,13 +162,22 @@ private:
     void saveFileAs(const QString& name);
 
     /**
-     * Load from file the stopwatch and lap times. If an error occurs, the window is closed.
+     * Load the XML save file. If an error occurs, the window is closed.
      * @param name The name of the file with the saved times to be loaded.
      */
     void openFile(const QString& name);
 
+	/**
+	 * Write the XML save file on the given stream.
+	 * @param out The stream to be written.
+	 */
     void createXml(QTextStream& out);
 
+	/**
+	 * Parse the XML save file from the given DOM document.
+	 * @param doc The DOM document to be parsed.
+	 * @return true if doc is a valid Kronometer save file, false otherwise.
+	 */
     bool parseXml(const QDomDocument& doc);
 };
 
