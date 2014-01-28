@@ -9,6 +9,10 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v0.9.0
+* Times saved on XML files instead of binary files.
+* Fixed bug on aborting a file opening.
+
 v0.8.0
 * Added *Edit* menu with the ability to copy current stopwatch time to clipboard
 * Color settings: choose stopwatch display background/text color
@@ -97,7 +101,7 @@ TODO list
 * ~~Various UI enhancements~~
 * ~~Copy current time to clipboard~~
 * ~~Color settings~~
-* Replace binary files with XML files for persistence.
+* ~~Replace binary files with XML files for persistence.~~
 * Laps export feature: CSV format, etc.
 * System notification support (i.e. for lap times)
 * Text localization
