@@ -489,7 +489,7 @@ void MainWindow::openFile(const QString& name)
     }
 }
 
-void MainWindow::createXml(QTextStream& out)
+void MainWindow::createXml(QTextStream& out) // TODO: add XML comments
 {
     QDomDocument doc;
     QDomProcessingInstruction metaData = doc.createProcessingInstruction("xml", "version='1.0' encoding='UTF-8'");
@@ -526,7 +526,7 @@ void MainWindow::createXml(QTextStream& out)
     rootElement.appendChild(lapsElement);
     doc.appendChild(metaData);
     doc.appendChild(rootElement);
-    doc.save(out, 4); // TODO: KronometerConfig::indentSize()
+    doc.save(out, KronometerConfig::saveFileIndentSize());
 }
 
 bool MainWindow::parseXml(const QDomDocument& doc)
