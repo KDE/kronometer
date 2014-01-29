@@ -43,7 +43,11 @@
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="KColorButton" name="kcfg_backgroundColor"/>
+           <widget class="KColorButton" name="kcfg_backgroundColor">
+            <property name="toolTip">
+             <string>Background color of the stopwatch display(s)</string>
+            </property>
+           </widget>
           </item>
           <item row="1" column="0">
            <widget class="QLabel" name="label_2">
@@ -53,7 +57,11 @@
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="KColorButton" name="kcfg_textColor"/>
+           <widget class="KColorButton" name="kcfg_textColor">
+            <property name="toolTip">
+             <string>Text color of the stopwatch display(s) font(s)</string>
+            </property>
+           </widget>
           </item>
           <item row="0" column="2">
            <spacer name="horizontalSpacer">

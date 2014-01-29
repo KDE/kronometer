@@ -37,6 +37,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
            <widget class="QCheckBox" name="kcfg_showTimeHeaders">
+            <property name="toolTip">
+             <string>Wheter to show the descriptive headers on top of the stopwatch display(s)</string>
+            </property>
             <property name="text">
              <string>Show time headers</string>
             </property>

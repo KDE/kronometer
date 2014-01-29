@@ -34,8 +34,11 @@
       <layout class="QVBoxLayout" name="verticalLayout_3">
        <item>
         <widget class="QTabWidget" name="tabWidget">
+         <property name="toolTip">
+          <string>Wheter to hide second fractions in the laps</string>
+         </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -56,6 +59,9 @@
              <layout class="QVBoxLayout" name="verticalLayout_2">
               <item>
                <widget class="QCheckBox" name="kcfg_showHours">
+                <property name="toolTip">
+                 <string>Wheter to show hours in the stopwatch</string>
+                </property>
                 <property name="text">
                  <string>Show hours</string>
                 </property>
@@ -66,6 +72,9 @@
               </item>
               <item>
                <widget class="QCheckBox" name="kcfg_showMinutes">
+                <property name="toolTip">
+                 <string>Wheter to show minutes in the stopwatch</string>
+                </property>
                 <property name="text">
                  <string>Show minutes</string>
                 </property>
@@ -76,6 +85,9 @@
               </item>
               <item>
                <widget class="QCheckBox" name="kcfg_showSeconds">
+                <property name="toolTip">
+                 <string>Wheter to show seconds in the stopwatch</string>
+                </property>
                 <property name="text">
                  <string>Show seconds</string>
                 </property>
@@ -101,13 +113,19 @@
              <layout class="QVBoxLayout" name="verticalLayout_6">
               <item>
                <widget class="QRadioButton" name="kcfg_stopToSeconds">
+                <property name="toolTip">
+                 <string>Wheter to hide second fractions in the stopwatch</string>
+                </property>
                 <property name="text">
-                 <string>Nothing (hide tenths/hundredths/milliseconds)</string>
+                 <string>Hide second fractions</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QRadioButton" name="kcfg_showTenths">
+                <property name="toolTip">
+                 <string>Wheter to show tenths of second in the stopwatch</string>
+                </property>
                 <property name="text">
                  <string>Show also tenths of second</string>
                 </property>
@@ -115,6 +133,9 @@
               </item>
               <item>
                <widget class="QRadioButton" name="kcfg_showHundredths">
+                <property name="toolTip">
+                 <string>Wheter to show tenths and hundredths of second in the stopwatch</string>
+                </property>
                 <property name="text">
                  <string>Show tenths and hundredths of second</string>
                 </property>
@@ -125,6 +146,9 @@
               </item>
               <item>
                <widget class="QRadioButton" name="kcfg_showMilliseconds">
+                <property name="toolTip">
+                 <string>Wheter to show milliseconds in the stopwatch. It requires an high CPU usage because the GUI is refresh every millisecond</string>
+                </property>
                 <property name="text">
                  <string>Show also milliseconds (high CPU usage!)</string>
                 </property>
@@ -154,6 +178,9 @@
              <layout class="QVBoxLayout" name="verticalLayout_4">
               <item>
                <widget class="QCheckBox" name="kcfg_showLapHours">
+                <property name="toolTip">
+                 <string>Wheter to show hours in the laps</string>
+                </property>
                 <property name="text">
                  <string>Show hours</string>
                 </property>
@@ -164,6 +191,9 @@
               </item>
               <item>
                <widget class="QCheckBox" name="kcfg_showLapMinutes">
+                <property name="toolTip">
+                 <string>Wheter to show minutes in the laps</string>
+                </property>
                 <property name="text">
                  <string>Show minutes</string>
                 </property>
@@ -174,6 +204,9 @@
               </item>
               <item>
                <widget class="QCheckBox" name="kcfg_showLapSeconds">
+                <property name="toolTip">
+                 <string>Wheter to show seconds in the laps</string>
+                </property>
                 <property name="text">
                  <string>Show seconds</string>
                 </property>
@@ -199,13 +232,19 @@
              <layout class="QVBoxLayout" name="verticalLayout_5">
               <item>
                <widget class="QRadioButton" name="kcfg_stopToLapSeconds">
+                <property name="toolTip">
+                 <string>Wheter to hide second fractions in the laps</string>
+                </property>
                 <property name="text">
-                 <string>Nothing (hide tenths/hundredths/milliseconds)</string>
+                 <string>Hide second fractions</string>
                 </property>
                </widget>
               </item>
               <item>
                <widget class="QRadioButton" name="kcfg_showLapTenths">
+                <property name="toolTip">
+                 <string>Wheter to show tenths of second in the lapswatch</string>
+                </property>
                 <property name="text">
                  <string>Show also tenths of second</string>
                 </property>
@@ -213,6 +252,9 @@
               </item>
               <item>
                <widget class="QRadioButton" name="kcfg_showLapHundredths">
+                <property name="toolTip">
+                 <string>Wheter to show tenths and hundredths of second in the laps</string>
+                </property>
                 <property name="text">
                  <string>Show tenths and hundredths of second</string>
                 </property>
@@ -223,6 +265,9 @@
               </item>
               <item>
                <widget class="QRadioButton" name="kcfg_showLapMilliseconds">
+                <property name="toolTip">
+                 <string>Wheter to show milliseconds in the stopwatch</string>
+                </property>
                 <property name="text">
                  <string>Show also milliseconds</string>
                 </property>
