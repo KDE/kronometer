@@ -114,7 +114,7 @@ TODO list
 
 Video
 ------
-YT("gekQiZrHMcE", print = TRUE)
+<iframe width="420" height="315" src="//www.youtube.com/embed/gekQiZrHMcE" frameborder="0" allowfullscreen></iframe>
 
 Screenshot
 ----------
