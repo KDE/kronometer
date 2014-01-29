@@ -25,7 +25,7 @@
 
 class KAction;
 class QLabel;
-class QDockWidget;
+class QSplitter;
 class QTableView;
 class QSortFilterProxyModel;
 
@@ -111,7 +111,7 @@ private:
 	
 	QStopwatch *stopwatch;
     QTimeDisplay *stopwatchDisplay;
-	QDockWidget *lapDock;
+    QSplitter *centralSplitter;
 	QTableView *lapView;
 	QLabel *statusLabel;
 	
@@ -127,9 +127,9 @@ private:
     bool unsavedTimes;          /** Wheter there are unsaved times */
 		
     /**
-     * Setup application dock widgets.
+     * Setup the central widget of the window.
      */
-    void setupDock();
+    void setupCentralWidget();
 
     /**
      * Setup application status bar.

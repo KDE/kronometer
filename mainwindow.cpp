@@ -31,7 +31,7 @@
 #include <KSaveFile>
 
 #include <QTableView>
-#include <QDockWidget>
+#include <QSplitter>
 #include <QClipboard>
 #include <QSortFilterProxyModel>
 #include <QDomDocument>
@@ -90,9 +90,8 @@ MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(par
     stopwatch = new QStopwatch(this);
     stopwatchDisplay = new QTimeDisplay(this);
     connect(stopwatch, SIGNAL(time(QTime)), stopwatchDisplay, SLOT(time(QTime)));  // bind stopwatch to its display
-    setCentralWidget(stopwatchDisplay);
 
-    setupDock();
+    setupCentralWidget();
     setupStatusBar();
 	setupActions();
 	loadSettings();
@@ -265,18 +264,13 @@ void MainWindow::copyToClipboard()
     KApplication::clipboard()->setText(stopwatchDisplay->currentTime());
 }
 
-void MainWindow::setupDock()
+void MainWindow::setupCentralWidget()
 {
+    centralSplitter = new QSplitter(this);
+
     lapModel = new LapModel(this);
     proxyModel = new QSortFilterProxyModel(this);
     proxyModel->setSourceModel(lapModel);
-
-    QDockWidget *lapDock = new QDockWidget(this);
-    lapDock->setObjectName("lapDock");
-// 	lapDock->setFeatures(QDockWidget::DockWidgetMovable | QDockWidget::DockWidgetFloatable);
-    lapDock->setFeatures(QDockWidget::NoDockWidgetFeatures);
-    lapDock->setAllowedAreas(Qt::AllDockWidgetAreas);
-    lapDock->setTitleBarWidget(new QWidget(this));  // fake widget to disable titlebar
 
     lapView = new QTableView(this);
     lapView->setModel(proxyModel);
@@ -288,8 +282,12 @@ void MainWindow::setupDock()
     lapView->setSortingEnabled(true);
     lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Ignored);
 
-    lapDock->setWidget(lapView);
-    addDockWidget(Qt::RightDockWidgetArea, lapDock);
+    centralSplitter->setOrientation(Qt::Horizontal);
+    centralSplitter->setChildrenCollapsible(false);
+    centralSplitter->addWidget(stopwatchDisplay);
+    centralSplitter->addWidget(lapView);
+
+    setCentralWidget(centralSplitter);
 }
 
 void MainWindow::setupStatusBar()
