@@ -114,7 +114,7 @@ TODO list
 
 Video
 ------
-<iframe width="420" height="315" src="//www.youtube.com/embed/gekQiZrHMcE" frameborder="0" ></iframe>
+Kronometer demo on youtube: http://www.youtube.com/watch?v=gekQiZrHMcE
 
 Screenshot
 ----------
