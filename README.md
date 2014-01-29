@@ -114,7 +114,7 @@ TODO list
 
 Video
 ------
-<iframe width="420" height="315" src="//www.youtube.com/embed/gekQiZrHMcE" frameborder="0" allowfullscreen></iframe>
+<iframe width="420" height="315" src="//www.youtube.com/embed/gekQiZrHMcE" frameborder="0" ></iframe>
 
 Screenshot
 ----------
