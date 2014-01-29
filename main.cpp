@@ -28,7 +28,7 @@ namespace
 {
 	const QByteArray APP_NAME = "kronometer";
 	const QByteArray PROGRAM_NAME = "Kronometer";
-    const QByteArray VERSION = "0.9.0";
+    const QByteArray VERSION = "1.0.0";
 	const QByteArray SHORT_DESCRIPTION = "Kronometer is a simple chronometer application built for KDE";
 	const QByteArray COPYRIGHT_STATEMENT = "Copyright (C) 2014 Elvis Angelaccio";
 	const QByteArray OTHER_TEXT = "";

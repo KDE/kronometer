@@ -9,9 +9,14 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v1.0.0
+* First "stable" release of Kronometer
+* Fixed the appereance of the laps table-widget
+* Added tooltips in Settings dialogs
+
 v0.9.0
-* Times saved on XML files instead of binary files.
-* Fixed bug on aborting a file opening.
+* Times saved on XML files instead of binary files
+* Fixed bug on aborting a file opening
 
 v0.8.0
 * Added *Edit* menu with the ability to copy current stopwatch time to clipboard
@@ -115,8 +120,8 @@ Screenshot
 [![kronometer paused](img/screen-v0.3.x/kronometer-paused.png?raw=true)](img/screen-v0.3.x/kronometer-paused.png?raw=true)
 [![kronometer paused](img/screen-v0.3.x/kronometer-laps.png?raw=true)](img/screen-v0.3.x/kronometer-laps.png?raw=true)
 -->
-[![kronometer running](http://abload.de/img/kronometer-running-lan4ij0.png)](http://abload.de/img/kronometer-running-lan4ij0.png)
-[![kronometer save](http://abload.de/img/kronometer-saveggs6g.png)](http://abload.de/img/kronometer-saveggs6g.png)
-[![kronometer settings](http://abload.de/img/kronometer-settingsqueub.png)](http://abload.de/img/kronometer-settingsqueub.png)
+[![kronometer running](http://abload.de/img/kronometer-runningwfsx4.png)](http://abload.de/img/kronometer-runningwfsx4.png)
+[![kronometer save](http://abload.de/img/kronometer-saveeysub.png)](http://abload.de/img/kronometer-saveeysub.png)
+[![kronometer settings](http://abload.de/img/kronometer-settingsh1sb0.png)](http://abload.de/img/kronometer-settingsh1sb0.png)
 
 
