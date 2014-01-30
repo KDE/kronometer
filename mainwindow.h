@@ -1,20 +1,20 @@
 /*
     Copyright (C) 2014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
 
-	This file is part of Kronometer.
+    This file is part of Kronometer.
 
-	Kronometer is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 2 of the License, or
-	(at your option) any later version.
+    Kronometer is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
 
-	Kronometer is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+    Kronometer is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
+    along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 
@@ -39,10 +39,10 @@ class LapModel;
  */
 class MainWindow : public KXmlGuiWindow
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	
+
     explicit MainWindow(QWidget *parent = nullptr, const QString& file = "");
 
 protected:
@@ -50,7 +50,7 @@ protected:
     bool queryClose();
 
 private slots:
-	
+
     /**
      * Stopwatch running state triggers.
      */
@@ -80,7 +80,7 @@ private slots:
     /**
      * Fix lap dock appereance.
      */
-	void updateLapDock();
+    void updateLapDock();
 
     /**
      * Open a new MainWindow instance.
@@ -106,26 +106,26 @@ private slots:
      * Copy current stopwatch time to clipboard.
      */
     void copyToClipboard();
-	
+
 private:
-	
-	QStopwatch *stopwatch;
+
+    QStopwatch *stopwatch;
     QTimeDisplay *stopwatchDisplay;
     QSplitter *centralSplitter;
-	QTableView *lapView;
-	QLabel *statusLabel;
-	
-	KAction *startAction;
-	KAction *pauseAction;
-	KAction *resetAction;
-	KAction *lapAction;
-	
-	LapModel *lapModel;
+    QTableView *lapView;
+    QLabel *statusLabel;
+
+    KAction *startAction;
+    KAction *pauseAction;
+    KAction *resetAction;
+    KAction *lapAction;
+
+    LapModel *lapModel;
     QSortFilterProxyModel *proxyModel;
 
     QString fileName;
     bool unsavedTimes;          /** Wheter there are unsaved times */
-		
+
     /**
      * Setup the central widget of the window.
      */
@@ -139,12 +139,12 @@ private:
     /**
      * Setup standard and custom KActions.
      */
-	void setupActions();
+    void setupActions();
 
     /**
      * Load settings from app Config and apply them to the other objects.
      */
-	void loadSettings();
+    void loadSettings();
 
     /**
      * Set the stopwatch refresh granularity.
@@ -167,17 +167,17 @@ private:
      */
     void openFile(const QString& name);
 
-	/**
-	 * Write the XML save file on the given stream.
-	 * @param out The stream to be written.
-	 */
+    /**
+     * Write the XML save file on the given stream.
+     * @param out The stream to be written.
+     */
     void createXml(QTextStream& out);
 
-	/**
-	 * Parse the XML save file from the given DOM document.
-	 * @param doc The DOM document to be parsed.
-	 * @return true if doc is a valid Kronometer save file, false otherwise.
-	 */
+    /**
+     * Parse the XML save file from the given DOM document.
+     * @param doc The DOM document to be parsed.
+     * @return true if doc is a valid Kronometer save file, false otherwise.
+     */
     bool parseXml(const QDomDocument& doc);
 };
 

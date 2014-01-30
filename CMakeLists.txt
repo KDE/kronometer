@@ -5,11 +5,11 @@ include_directories(${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
  
 set(
     kronometer_SRCS
-	main.cpp
-	mainwindow.cpp
-	qstopwatch.cpp
+    main.cpp
+    mainwindow.cpp
+    qstopwatch.cpp
     qtimedisplay.cpp
-	lapmodel.cpp
+    lapmodel.cpp
     timeformat.cpp
 )
 

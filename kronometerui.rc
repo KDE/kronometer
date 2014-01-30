@@ -6,15 +6,15 @@
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
  
-	<MenuBar>
+    <MenuBar>
         <Menu name="kronometerActions" >
             <text>&amp;Kronometer</text>
-			<Action name="start" />
-			<Action name="pause" />
-			<Action name="reset" />
-			<Action name="lap" />
-		</Menu>
-	</MenuBar>
+            <Action name="start" />
+            <Action name="pause" />
+            <Action name="reset" />
+            <Action name="lap" />
+        </Menu>
+    </MenuBar>
 
     <!-- Main toolbar with KStandardActions -->
     <ToolBar position="top" name="mainToolBar" noMerge="1">

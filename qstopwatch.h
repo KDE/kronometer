@@ -1,20 +1,20 @@
 /*
     Copyright (C) 2014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
 
-	This file is part of Kronometer.
+    This file is part of Kronometer.
 
-	Kronometer is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 2 of the License, or
-	(at your option) any later version.
+    Kronometer is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
 
-	Kronometer is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+    Kronometer is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
+    along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #ifndef Q_STOPWATCH_H
@@ -37,17 +37,17 @@ class QDomElement;
  */
 class QStopwatch : public QObject
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	
-	enum Granularity
-	{
+
+    enum Granularity
+    {
         MILLISECONDS = 1, /**< Stopwatch refreshed every msec. */
         HUNDREDTHS = 10,  /**< Stopwatch refreshed every 10 msec. */
         TENTHS = 100,     /**< Stopwatch refreshed every 100 msec. */
         SECONDS = 1000,   /**< Stopwatch refreshed every sec. */
-	};
+    };
 
     explicit QStopwatch(QObject *parent = nullptr);
 
@@ -112,27 +112,27 @@ public:
     bool deserialize(QDomElement& element, const QString& attributeName);
 
 public slots:
-	
+
     /**
      * Start the stopwatch, if inactive or paused.
      */
-	void start();
+    void start();
 
     /**
      * Pause the stopwatch, if running.
      */
-	void pause();
+    void pause();
 
     /**
      * Reset the stopwatch to the inactive state.
      */
-	void reset();
+    void reset();
 
     /**
      * Tells the stopwatch to emits a signal with the last lap time.
      */
-	void lap();
-	
+    void lap();
+
 signals:
 
     /**
@@ -141,18 +141,18 @@ signals:
      * You can compute them simply by the difference between consecutives absolute times.
      * @param lapTime The absolute time of the last lap.
      */
-	void lap(const QTime& lapTime);
+    void lap(const QTime& lapTime);
 
     /**
      * Emits a signal with the current stopwatch time.
      * @param t Current stopwatch time.
      */
     void time(const QTime& t);
-	
+
 protected:
-	
-	void timerEvent(QTimerEvent *event);
-	
+
+    void timerEvent(QTimerEvent *event);
+
 private:
 
     enum class State
@@ -162,10 +162,10 @@ private:
         PAUSED    /**< Paused stopwatch. */
     };
 	
-	static const int INACTIVE_TIMER_ID = -1;	/** Used for timerId initialization */
-	
-	int timerId;								/** ID for the QObject timer */
-	qint64 accumulator;							/** milliseconds internal counter */
+    static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
+
+    int timerId;                                /** ID for the QObject timer */
+    qint64 accumulator;                         /** milliseconds internal counter */
     State state;                                /** Stopwatch current state */
     Granularity granularity;                    /** Stopwatch current granularity */
 

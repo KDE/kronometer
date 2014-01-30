@@ -1,20 +1,20 @@
 /*
     Copyright (C) 2014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
 
-	This file is part of Kronometer.
+    This file is part of Kronometer.
 
-	Kronometer is free software: you can redistribute it and/or modify
-	it under the terms of the GNU General Public License as published by
-	the Free Software Foundation, either version 2 of the License, or
-	(at your option) any later version.
+    Kronometer is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
 
-	Kronometer is distributed in the hope that it will be useful,
-	but WITHOUT ANY WARRANTY; without even the implied warranty of
-	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-	GNU General Public License for more details.
+    Kronometer is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-	You should have received a copy of the GNU General Public License
-	along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
+    along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
 #include <QTime>
@@ -115,34 +115,34 @@ bool QStopwatch::deserialize(QDomElement& element, const QString& attributeName)
 
 void QStopwatch::start()
 {
-	if (state == State::INACTIVE)
-	{
-		accumulator = 0;
-		elapsedTimer.start();
-		
-		if (timerId == INACTIVE_TIMER_ID)
-		{
-			timerId = startTimer(granularity);
-		}
-	}
-	else if (state == State::PAUSED)
-	{
-		elapsedTimer.restart();
-		timerId = startTimer(granularity);
-	}
-	
-	state = State::RUNNING;
+    if (state == State::INACTIVE)
+    {
+        accumulator = 0;
+        elapsedTimer.start();
+
+        if (timerId == INACTIVE_TIMER_ID)
+        {
+            timerId = startTimer(granularity);
+        }
+    }
+    else if (state == State::PAUSED)
+    {
+        elapsedTimer.restart();
+        timerId = startTimer(granularity);
+    }
+
+    state = State::RUNNING;
 }
 
 void QStopwatch::pause()
 {
-	if (elapsedTimer.isValid()) 
-	{
-		accumulator += elapsedTimer.elapsed();
-	} 
-	
-	elapsedTimer.invalidate();
-	state = State::PAUSED;
+    if (elapsedTimer.isValid())
+    {
+        accumulator += elapsedTimer.elapsed();
+    }
+
+    elapsedTimer.invalidate();
+    state = State::PAUSED;
 }
 
 void QStopwatch::reset()
@@ -159,41 +159,41 @@ void QStopwatch::reset()
 
 void QStopwatch::lap()
 {
-	
+
     QTime lapTime(0, 0);
-	
+
     lapTime = lapTime.addMSecs(accumulator);
-	
-	if (elapsedTimer.isValid())
-	{
+
+    if (elapsedTimer.isValid())
+    {
         lapTime = lapTime.addMSecs(elapsedTimer.elapsed());
-	}
-	
+    }
+
     emit lap(lapTime);
 }
 
 void QStopwatch::timerEvent(QTimerEvent *event)
 {
     if (event->timerId() != timerId)  // forward undesired events
-	{
+    {
         QObject::timerEvent(event);
-		return;
-	}
-	
+        return;
+    }
+
     QTime t(0, 0);
 
     t = t.addMSecs(accumulator);
-	
-	if (elapsedTimer.isValid())
-	{
+
+    if (elapsedTimer.isValid())
+    {
         t = t.addMSecs(elapsedTimer.elapsed());
-	}
-	
-	else
-	{
-		killTimer(timerId);
-		timerId = INACTIVE_TIMER_ID;
-	}
-	
+    }
+
+    else
+    {
+        killTimer(timerId);
+        timerId = INACTIVE_TIMER_ID;
+    }
+
     emit time(t);
 }
