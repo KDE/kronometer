@@ -27,18 +27,13 @@ TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec)
     min(mm),
     sec(ss)
 {
-    if (msec)
-    {
+    if (msec) {
         secFraction = SecFraction::MILLISECOND;
     }
-
-    else if (hundr)
-    {
+    else if (hundr) {
         secFraction = SecFraction::HUNDREDTH;
     }
-
-    else if (t)
-    {
+    else if (t) {
         secFraction = SecFraction::TENTH;
     }
 
@@ -57,8 +52,7 @@ QString TimeFormat::format(const QTime& time) const
 
 QString TimeFormat::formatHours(const QTime& time) const
 {
-    if (not hour)
-    {
+    if (not hour) {
         return QString();
     }
 
@@ -67,8 +61,7 @@ QString TimeFormat::formatHours(const QTime& time) const
 
 QString TimeFormat::formatMin(const QTime& time) const
 {
-    if (not min)
-    {
+    if (not min) {
         return QString();
     }
 
@@ -77,8 +70,7 @@ QString TimeFormat::formatMin(const QTime& time) const
 
 QString TimeFormat::formatSec(const QTime& time) const
 {
-    if (not sec)
-    {
+    if (not sec) {
         return QString();
     }
 
@@ -92,14 +84,12 @@ QString TimeFormat::formatSecFrac(const QTime& time) const
     if (secFraction == SecFraction::MILLISECOND)
         return time.toString(fractFormat);
 
-    if (secFraction == SecFraction::HUNDREDTH)
-    {
+    if (secFraction == SecFraction::HUNDREDTH) {
         QString temp = time.toString(fractFormat);
         return temp.left(temp.size() - 1);
     }
 
-    if (secFraction == SecFraction::TENTH)
-    {
+    if (secFraction == SecFraction::TENTH) {
         QString temp = time.toString(fractFormat);
         return temp.left(temp.size() - 2);
     }
@@ -144,30 +134,30 @@ bool TimeFormat::isMSecEnabled() const
 
 void TimeFormat::setupFormat()
 {
-    if (hour)
-    {
-        if (min or sec or secFraction != SecFraction::NONE)
+    if (hour) {
+        if (min or sec or secFraction != SecFraction::NONE) {
             hourFormat = "h:";
-
-        else
+        }
+        else {
             hourFormat = "h";
+        }
     }
 
-    if (min)
-    {
-        if (sec or secFraction != SecFraction::NONE)
+    if (min) {
+        if (sec or secFraction != SecFraction::NONE) {
             minFormat = "mm:";
-
-        else
+        }
+        else {
             minFormat = "mm";
+        }
     }
 
-    if (sec)
-    {
-        if (secFraction != SecFraction::NONE)
+    if (sec) {
+        if (secFraction != SecFraction::NONE) {
             secFormat = "ss.";
-
-        else
+        }
+        else {
             secFormat = "ss";
+        }
     }
 }

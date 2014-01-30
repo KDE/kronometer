@@ -124,20 +124,14 @@ void QTimeDisplay::setTimeFormat(const TimeFormat& format)
     secFrame->setVisible(timeFormat.isSecEnabled());
     fracFrame->setVisible(timeFormat.isSecFracEnabled());
 
-    if (timeFormat.isSecFracEnabled())
-    {
-        if (timeFormat.isMSecEnabled())
-        {
+    if (timeFormat.isSecFracEnabled()) {
+        if (timeFormat.isMSecEnabled()) {
             fracHeader->setText(i18n(MSEC_MSG));
         }
-
-        else if (timeFormat.isHundredthEnabled())
-        {
+        else if (timeFormat.isHundredthEnabled()) {
             fracHeader->setText(i18n(HUNDREDTHS_MSG));
         }
-
-        else if (timeFormat.isTenthEnabled())
-        {
+        else if (timeFormat.isTenthEnabled()) {
             fracHeader->setText(i18n(TENTHS_MSG));
         }
     }
@@ -211,23 +205,19 @@ void QTimeDisplay::time(const QTime& t)
 
 void QTimeDisplay::updateTimer()
 {
-    if (timeFormat.isHourEnabled())
-    {
+    if (timeFormat.isHourEnabled()) {
         hourLabel->setText(timeFormat.formatHours(displayTime));
     }
 
-    if (timeFormat.isMinEnabled())
-    {
+    if (timeFormat.isMinEnabled()) {
         minLabel->setText(timeFormat.formatMin(displayTime));
     }
 
-    if (timeFormat.isSecEnabled())
-    {
+    if (timeFormat.isSecEnabled()) {
         secLabel->setText(timeFormat.formatSec(displayTime));
     }
 
-    if (timeFormat.isSecFracEnabled())
-    {
+    if (timeFormat.isSecFracEnabled()) {
         fracLabel->setText(timeFormat.formatSecFrac(displayTime));
     }
 }

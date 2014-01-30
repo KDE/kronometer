@@ -98,57 +98,53 @@ MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(par
 
     setWindowTitle(WINDOW_TITLE + QT_PLACE_HOLDER);
 
-    if (not file.isEmpty())
+    if (not file.isEmpty()) {
         openFile(file);
+    }
 }
 
 bool MainWindow::queryClose()
 {
-    if (stopwatch->isInactive() or not KronometerConfig::askOnExit())
+    if (stopwatch->isInactive() or not KronometerConfig::askOnExit()) {
         return true;  // exit without ask
+    }
 
-    if (stopwatch->isRunning())
-    {
+    if (stopwatch->isRunning()) {
         stopwatch->pause();
         paused();
     }
 
     int buttonCode;
 
-    if (fileName.isEmpty())
-    {
+    if (fileName.isEmpty()) {
         buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times on a new file?"));
 
-        switch (buttonCode)
-        {
-            case KMessageBox::Yes :
-              qDebug() << "chiamo saveFileAs() perchè non ho nessun file";
-              saveFileAs();
-              return true;  // TODO: return false if saving fails
-            case KMessageBox::No :
-              return true;
-            default: // cancel
-              return false;
+        switch (buttonCode) {
+        case KMessageBox::Yes:
+          qDebug() << "chiamo saveFileAs() perchè non ho nessun file";
+          saveFileAs();
+          return true;  // TODO: return false if saving fails
+        case KMessageBox::No:
+          return true;
+        default: // cancel
+          return false;
         }
     }
-
-    else if (unsavedTimes)
-    {
+    else if (unsavedTimes) {
         QFileInfo fileInfo(fileName);
         QString msg = "Save times on file " + fileInfo.fileName() + "?";
         buttonCode = KMessageBox::warningYesNoCancel(this, i18n(msg.toAscii()));
 
-        switch (buttonCode)
-        {
-            case KMessageBox::Yes :
-              // save document here. If saving fails, return false;
-              qDebug() << "chiamo saveFile() e fa tutto lui!";
-              saveFile();
-              return true;
-            case KMessageBox::No :
-              return true;
-            default: // cancel
-              return false;
+        switch (buttonCode) {
+        case KMessageBox::Yes:
+          // save document here. If saving fails, return false;
+          qDebug() << "chiamo saveFile() e fa tutto lui!";
+          saveFile();
+          return true;
+        case KMessageBox::No:
+          return true;
+        default: // cancel
+          return false;
         }
     }
 
@@ -170,13 +166,10 @@ void MainWindow::paused()
     startAction->setText(i18n(RESUME_MSG));
     statusLabel->setText(i18n(PAUSED_MSG));
 
-    if (not fileName.isEmpty())
-    {
+    if (not fileName.isEmpty()) {
         stateChanged(PAUSED_FILE_STATE);
     }
-
-    else
-    {
+    else {
         stateChanged(PAUSED_STATE);
     }
 }
@@ -191,8 +184,9 @@ void MainWindow::inactive()
 
 void MainWindow::showSettings()
 {
-    if (KConfigDialog::showDialog("settings"))
+    if (KConfigDialog::showDialog("settings")) {
         return;
+    }
 
     KConfigDialog* dialog = new KConfigDialog(this, "settings", KronometerConfig::self());
 
@@ -242,8 +236,7 @@ void MainWindow::openFile()
 {
     QString f = KFileDialog::getOpenFileName();
 
-    if (not f.isEmpty())
-    {
+    if (not f.isEmpty()) {
         MainWindow *window = new MainWindow(nullptr, f);
         window->show();
     }
@@ -383,48 +376,42 @@ void MainWindow::loadSettings()
 
 void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
 {
-    if (msec)
-    {
+    if (msec) {
         stopwatch->setGranularity(QStopwatch::MILLISECONDS);
     }
-
-    else if (hundredths)
-    {
+    else if (hundredths) {
         stopwatch->setGranularity(QStopwatch::HUNDREDTHS);
     }
-
-    else if (tenths)
-    {
+    else if (tenths) {
         stopwatch->setGranularity(QStopwatch::TENTHS);
     }
-
-    else
-    {
+    else {
         stopwatch->setGranularity(QStopwatch::SECONDS);
     }
 }
 
 void MainWindow::saveFileAs(const QString& name)
 {
-    if (name.isEmpty())
+    if (name.isEmpty()) {
         return;
+    }
 
     const QString extension = ".xml";
     QString saveName = name;
 
-    if (not saveName.endsWith(extension))
-    {
+    if (not saveName.endsWith(extension)) {
         saveName += extension;
     }
 
     KSaveFile saveFile(saveName);
     saveFile.open();
 
-    // old persistence using binary files
+    // OLD: persistence using binary files
     //QDataStream stream(&saveFile);
     //stopwatch->serialize(stream);   // save stopwatch time
     //stream << *lapModel;            // save laps
 
+    // NEW: persistence using XML files
     QTextStream stream(&saveFile);
     createXml(stream);
 
@@ -441,23 +428,21 @@ void MainWindow::openFile(const QString& name)
 {
     QString buffer;
 
-    if (KIO::NetAccess::download(name, buffer, this))
-    {
+    if (KIO::NetAccess::download(name, buffer, this)) {
         QFile file(buffer);
         file.open(QIODevice::ReadOnly);
 
-        // old persistence using binary files
+        // OLD: persistence using binary files
         //QDataStream stream(&file);
         //stopwatch->deserialize(stream);     // load stopwatch time
         //stream >> *lapModel;                // load laps
 
+        // NEW: persistence using XML files
         QDomDocument doc;
         QString errorMsg;
 
-        if (doc.setContent(&file, &errorMsg))
-        {
-            if (parseXml(doc))
-            {
+        if (doc.setContent(&file, &errorMsg)) {
+            if (parseXml(doc)) {
                 paused();                       // enter in paused state
                 fileName = name;
 
@@ -465,24 +450,18 @@ void MainWindow::openFile(const QString& name)
                 QFileInfo fileInfo(fileName);
                 setWindowTitle(WINDOW_TITLE + " - " + fileInfo.fileName() + QT_PLACE_HOLDER);
             }
-
-            else
-            {
+            else {
                 KIO::NetAccess::removeTempFile(buffer);
                 close(); // files are opened in a new window, so if the open fails the new window has to be closed.
             }
         }
-
-        else
-        {
+        else {
             KMessageBox::error(this, "Cannot open file: " + errorMsg);
             KIO::NetAccess::removeTempFile(buffer);
             close();
         }
     }
-
-    else
-    {
+    else {
         KMessageBox::error(this, KIO::NetAccess::lastErrorString());
     }
 }
@@ -502,8 +481,7 @@ void MainWindow::createXml(QTextStream& out) // TODO: add XML comments
 
     QDomElement lapsElement = doc.createElement(LAPS_TAG);
 
-    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++)
-    {
+    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
         QDomElement lap = doc.createElement(LAP_TAG);
         lapModel->lapToXml(lap, PERSISTENCE_ATTR, i);
 
@@ -531,8 +509,7 @@ bool MainWindow::parseXml(const QDomDocument& doc)
 {
     QDomElement rootElement = doc.namedItem(ROOT_TAG).toElement();
 
-    if (rootElement.isNull())
-    {
+    if (rootElement.isNull()) {
         KMessageBox::error(this, i18n("Invalid XML file"));
         return false;
     }
@@ -540,8 +517,7 @@ bool MainWindow::parseXml(const QDomDocument& doc)
     QDomElement stopwatchElement = rootElement.namedItem(STOPWATCH_TAG).toElement();
     QDomElement lapsElement = rootElement.namedItem(LAPS_TAG).toElement();
 
-    if (stopwatchElement.isNull() or lapsElement.isNull())
-    {
+    if (stopwatchElement.isNull() or lapsElement.isNull()) {
         KMessageBox::error(this, i18n("Incomplete Kronometer save file"));
         return false;
     }
@@ -550,8 +526,7 @@ bool MainWindow::parseXml(const QDomDocument& doc)
 
     QDomElement lap = lapsElement.firstChildElement(LAP_TAG);
 
-    while (not lap.isNull())
-    {
+    while (not lap.isNull()) {
         lapModel->lapFromXml(lap, PERSISTENCE_ATTR);
         lap = lap.nextSiblingElement(LAP_TAG);
     }

@@ -42,29 +42,29 @@ int LapModel::rowCount(const QModelIndex& parent) const
 
 QVariant LapModel::data(const QModelIndex& index, int role) const
 {
-     if (!index.isValid())
-         return QVariant::Invalid;
+     if (!index.isValid()) {
+         return QVariant::Invalid;   
+     }
 
-     if (index.row() >= timeList.size() || index.row() < 0)
+     if (index.row() >= timeList.size() || index.row() < 0) {
          return QVariant::Invalid;
+     }
 
-     if (role == Qt::DisplayRole) 
-     {
+     if (role == Qt::DisplayRole) {
         QVariant variant;
 
-        switch (index.column())
-        {
-            case NUMBER:
-                variant = QString::number(index.row());
-                break;
+        switch (index.column()) {
+        case NUMBER:
+            variant = QString::number(index.row());
+            break;
 
-            case REL_TIME:
-                variant = relativeLapTime(index.row());
-                break;
+        case REL_TIME:
+            variant = relativeLapTime(index.row());
+            break;
 
-            case ABS_TIME:
-                variant = absoluteLapTime(index.row());
-                break;
+        case ABS_TIME:
+            variant = absoluteLapTime(index.row());
+            break;
         }
 
          return variant;
@@ -76,23 +76,20 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
 QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role == Qt::DisplayRole)
-    {
-        if (orientation == Qt::Horizontal)
-        {
-            switch (section)
-            {
-                case NUMBER:
-                    return i18n("Lap #");
-                    break;
+    if (role == Qt::DisplayRole) {
+        if (orientation == Qt::Horizontal) {
+            switch (section) {
+            case NUMBER:
+                return i18n("Lap #");
+                break;
 
-                case REL_TIME:
-                    return i18n("Lap time");
-                    break;
+            case REL_TIME:
+                return i18n("Lap time");
+                break;
 
-                case ABS_TIME:
-                    return i18n("Global time");
-                    break;
+            case ABS_TIME:
+                return i18n("Global time");
+                break;
             }
         }
     }
@@ -107,8 +104,7 @@ void LapModel::setTimeFormat(const TimeFormat& format)
 
 bool LapModel::lapToXml(QDomElement& element, const QString& attributeName, int lapIndex)
 {
-    if (lapIndex < 0 or lapIndex >= timeList.size() or attributeName.isEmpty())
-    {
+    if (lapIndex < 0 or lapIndex >= timeList.size() or attributeName.isEmpty()) {
         return false;
     }
 
@@ -122,26 +118,21 @@ bool LapModel::lapToXml(QDomElement& element, const QString& attributeName, int 
 
 bool LapModel::lapFromXml(const QDomElement& element, const QString& attributeName)
 {
-    if (attributeName.isEmpty())
-    {
+    if (attributeName.isEmpty()) {
         return false;
     }
 
     QString attributeValue = element.attribute(attributeName);
     qint64 milliseconds = attributeValue.toLongLong();
 
-    if (milliseconds == 0)
-    {
+    if (milliseconds == 0) {
         return false;  // invalid attribute name or value
     }
 
-    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
-
     QTime t(0, 0);
     t = t.addMSecs(milliseconds);
-
+    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
     timeList.append(t);
-
     endInsertRows();
 
     return true;
@@ -149,15 +140,13 @@ bool LapModel::lapFromXml(const QDomElement& element, const QString& attributeNa
 
 QString LapModel::relativeLapTime(int lapIndex) const
 {
-    if (lapIndex < 0 or lapIndex >= timeList.size())
-    {
+    if (lapIndex < 0 or lapIndex >= timeList.size()) {
         return QString();
     }
 
     QString time;
 
-    if (timeList.size() > 1 and lapIndex > 0)   // compute diff only starting from 2nd entry
-    {
+    if (timeList.size() > 1 and lapIndex > 0) {     // compute diff only starting from 2nd entry
         QTime prev = timeList.at(lapIndex - 1);
         QTime target = timeList.at(lapIndex);
         QTime diff(0, 0);
@@ -165,9 +154,7 @@ QString LapModel::relativeLapTime(int lapIndex) const
 
         time = timeFormat.format(diff);
     }
-
-    else  // first lap entry
-    {
+    else {  // first lap entry
         time = timeFormat.format(timeList.first());
     }
 
@@ -176,8 +163,7 @@ QString LapModel::relativeLapTime(int lapIndex) const
 
 QString LapModel::absoluteLapTime(int lapIndex) const
 {
-    if (lapIndex < 0 or lapIndex >= timeList.size())
-    {
+    if (lapIndex < 0 or lapIndex >= timeList.size()) {
         return QString();
     }
 
@@ -187,18 +173,14 @@ QString LapModel::absoluteLapTime(int lapIndex) const
 void LapModel::lap(const QTime& lapTime)
 {
     beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
-
     timeList.append(lapTime);
-
     endInsertRows();
 }
 
 void LapModel::clear()
 {
     beginResetModel();
-
     timeList.clear();
-
     endResetModel();
 }
 
@@ -214,12 +196,9 @@ QDataStream& operator>>(QDataStream& in, LapModel& m)
     QList<QTime> temp;
     in >> temp;
 
-    for (int i = 0; i < temp.size(); i++)
-    {
+    for (int i = 0; i < temp.size(); i++) {
         m.beginInsertRows(QModelIndex(), i, i);
-
         m.timeList.append(temp.at(i));
-
         m.endInsertRows();
     }
 

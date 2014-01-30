@@ -48,8 +48,7 @@ bool QStopwatch::isInactive()
 
 bool QStopwatch::serialize(QDataStream& out)
 {
-    if (state != State::PAUSED)
-    {
+    if (state != State::PAUSED) {
         return false;
     }
 
@@ -60,8 +59,7 @@ bool QStopwatch::serialize(QDataStream& out)
 
 bool QStopwatch::deserialize(QDataStream& in)
 {
-    if (state != State::INACTIVE)
-    {
+    if (state != State::INACTIVE) {
         return false;
     }
 
@@ -78,8 +76,7 @@ bool QStopwatch::deserialize(QDataStream& in)
 
 bool QStopwatch::serialize(QDomElement& element, const QString& attributeName)
 {
-    if (state != State::PAUSED or attributeName.isEmpty())
-    {
+    if (state != State::PAUSED or attributeName.isEmpty()) {
         return false;
     }
 
@@ -90,16 +87,14 @@ bool QStopwatch::serialize(QDomElement& element, const QString& attributeName)
 
 bool QStopwatch::deserialize(QDomElement& element, const QString& attributeName)
 {
-    if (state != State::INACTIVE or attributeName.isEmpty())
-    {
+    if (state != State::INACTIVE or attributeName.isEmpty()) {
         return false;
     }
 
     QString acc = element.attribute(attributeName);
     accumulator = acc.toLongLong();
 
-    if (accumulator == 0)
-    {
+    if (accumulator == 0) {
         return false;  // invalid attribute name or value
     }
 
@@ -115,18 +110,15 @@ bool QStopwatch::deserialize(QDomElement& element, const QString& attributeName)
 
 void QStopwatch::start()
 {
-    if (state == State::INACTIVE)
-    {
+    if (state == State::INACTIVE) {
         accumulator = 0;
         elapsedTimer.start();
 
-        if (timerId == INACTIVE_TIMER_ID)
-        {
+        if (timerId == INACTIVE_TIMER_ID) {
             timerId = startTimer(granularity);
         }
     }
-    else if (state == State::PAUSED)
-    {
+    else if (state == State::PAUSED) {
         elapsedTimer.restart();
         timerId = startTimer(granularity);
     }
@@ -136,8 +128,7 @@ void QStopwatch::start()
 
 void QStopwatch::pause()
 {
-    if (elapsedTimer.isValid())
-    {
+    if (elapsedTimer.isValid()) {
         accumulator += elapsedTimer.elapsed();
     }
 
@@ -147,14 +138,13 @@ void QStopwatch::pause()
 
 void QStopwatch::reset()
 {
-    elapsedTimer.invalidate();  // if state is running, it will emit a zero time at next timerEvent() call
+    elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
 
-    if (state == State::PAUSED) // if not, it must be done explicitly
-    {
-        emit time(QTime(0,0));  // in this way the stopwatch signals that it has been reset
+    if (state == State::PAUSED) {       // if not, it must be done explicitly
+        emit time(QTime(0,0));          // in this way the stopwatch signals that it has been reset
     }
 
-	state = State::INACTIVE;
+    state = State::INACTIVE;
 }
 
 void QStopwatch::lap()
@@ -164,8 +154,7 @@ void QStopwatch::lap()
 
     lapTime = lapTime.addMSecs(accumulator);
 
-    if (elapsedTimer.isValid())
-    {
+    if (elapsedTimer.isValid()) {
         lapTime = lapTime.addMSecs(elapsedTimer.elapsed());
     }
 
@@ -174,8 +163,7 @@ void QStopwatch::lap()
 
 void QStopwatch::timerEvent(QTimerEvent *event)
 {
-    if (event->timerId() != timerId)  // forward undesired events
-    {
+    if (event->timerId() != timerId) {      // forward undesired events
         QObject::timerEvent(event);
         return;
     }
@@ -184,13 +172,10 @@ void QStopwatch::timerEvent(QTimerEvent *event)
 
     t = t.addMSecs(accumulator);
 
-    if (elapsedTimer.isValid())
-    {
+    if (elapsedTimer.isValid()) {
         t = t.addMSecs(elapsedTimer.elapsed());
     }
-
-    else
-    {
+    else {
         killTimer(timerId);
         timerId = INACTIVE_TIMER_ID;
     }
