@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef COLOR_SETTINGS_H
-#define COLOR_SETTINGS_H
+#ifndef COLORSETTINGS_H
+#define COLORSETTINGS_H
 
 #include "ui_colorsettings.h"
 

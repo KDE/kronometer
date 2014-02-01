@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef LAP_MODEL_H
-#define LAP_MODEL_H
+#ifndef LAPMODEL_H
+#define LAPMODEL_H
 
 #include <QAbstractTableModel>
 

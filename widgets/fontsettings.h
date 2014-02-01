@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef FONT_SETTINGS_H
-#define FONT_SETTINGS_H
+#ifndef FONTSETTINGS_H
+#define FONTSETTINGS_H
 
 #include "ui_fontsettings.h"
 

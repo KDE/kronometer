@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef GENERAL_SETTINGS_H
-#define GENERAL_SETTINGS_H
+#ifndef GENERALSETTINGS_H
+#define GENERALSETTINGS_H
 
 #include "ui_generalsettings.h"
 

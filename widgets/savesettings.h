@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef SAVE_SETTINGS_H
-#define SAVE_SETTINGS_H
+#ifndef SAVESETTINGS_H
+#define SAVESETTINGS_H
 
 #include "ui_savesettings.h"
 

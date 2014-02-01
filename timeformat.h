@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef TIME_FORMAT_H
-#define TIME_FORMAT_H
+#ifndef TIMEFORMAT_H
+#define TIMEFORMAT_H
 
 #include <QString>
 
