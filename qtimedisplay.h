@@ -29,7 +29,7 @@ class QVBoxLayout;
 class QFrame;
 class QLabel;
 
-#include "timeformat.h"
+#include "qtimeformat.h"
 
 /**
  * @brief A custom widget displaying a QTime
@@ -48,7 +48,7 @@ public:
      * Set the internal time format of the display
      * @param format
      */
-    void setTimeFormat(const TimeFormat& format);
+    void setTimeFormat(const QTimeFormat& format);
 
     /**
      * Set a custom font for hours
@@ -138,7 +138,7 @@ private:
     QColor textColor;
 
     QTime displayTime;              /** Current display time */
-    TimeFormat timeFormat;          /** Current display time format */
+    QTimeFormat timeFormat;          /** Current display time format */
 
     /**
      * Refresh the labels text implementing the display timer

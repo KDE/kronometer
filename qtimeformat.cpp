@@ -19,9 +19,9 @@
 
 #include <QTime>
 
-#include "timeformat.h"
+#include "qtimeformat.h"
 
-TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec)
+QTimeFormat::QTimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec)
     :
     hour(h),
     min(mm),
@@ -40,7 +40,7 @@ TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec)
     setupFormat();
 }
 
-QString TimeFormat::format(const QTime& time) const
+QString QTimeFormat::format(const QTime& time) const
 {
     QString h = formatHours(time);
     QString m = formatMin(time);
@@ -50,7 +50,7 @@ QString TimeFormat::format(const QTime& time) const
     return h + m + s + f;
 }
 
-QString TimeFormat::formatHours(const QTime& time) const
+QString QTimeFormat::formatHours(const QTime& time) const
 {
     if (not hour) {
         return QString();
@@ -59,7 +59,7 @@ QString TimeFormat::formatHours(const QTime& time) const
     return time.toString(hourFormat);
 }
 
-QString TimeFormat::formatMin(const QTime& time) const
+QString QTimeFormat::formatMin(const QTime& time) const
 {
     if (not min) {
         return QString();
@@ -68,7 +68,7 @@ QString TimeFormat::formatMin(const QTime& time) const
     return time.toString(minFormat);
 }
 
-QString TimeFormat::formatSec(const QTime& time) const
+QString QTimeFormat::formatSec(const QTime& time) const
 {
     if (not sec) {
         return QString();
@@ -77,7 +77,7 @@ QString TimeFormat::formatSec(const QTime& time) const
     return time.toString(secFormat);
 }
 
-QString TimeFormat::formatSecFrac(const QTime& time) const
+QString QTimeFormat::formatSecFrac(const QTime& time) const
 {
     const QString fractFormat = "zzz";
 
@@ -97,42 +97,42 @@ QString TimeFormat::formatSecFrac(const QTime& time) const
     return QString();
 }
 
-bool TimeFormat::isHourEnabled() const
+bool QTimeFormat::isHourEnabled() const
 {
     return hour;
 }
 
-bool TimeFormat::isMinEnabled() const
+bool QTimeFormat::isMinEnabled() const
 {
     return min;
 }
 
-bool TimeFormat::isSecEnabled() const
+bool QTimeFormat::isSecEnabled() const
 {
     return sec;
 }
 
-bool TimeFormat::isSecFracEnabled() const
+bool QTimeFormat::isSecFracEnabled() const
 {
     return secFraction != SecFraction::NONE;
 }
 
-bool TimeFormat::isTenthEnabled() const
+bool QTimeFormat::isTenthEnabled() const
 {
     return secFraction == SecFraction::TENTH;
 }
 
-bool TimeFormat::isHundredthEnabled() const
+bool QTimeFormat::isHundredthEnabled() const
 {
     return secFraction == SecFraction::HUNDREDTH;
 }
 
-bool TimeFormat::isMSecEnabled() const
+bool QTimeFormat::isMSecEnabled() const
 {
     return secFraction == SecFraction::MILLISECOND;
 }
 
-void TimeFormat::setupFormat()
+void QTimeFormat::setupFormat()
 {
     if (hour) {
         if (min or sec or secFraction != SecFraction::NONE) {

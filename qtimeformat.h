@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef TIMEFORMAT_H
-#define TIMEFORMAT_H
+#ifndef QTIMEFORMAT_H
+#define QTIMEFORMAT_H
 
 #include <QString>
 
@@ -26,8 +26,8 @@ class QTime;
 
 /**
  * @brief A wrapper for a QTime-like format time string.
- * A TimeFormat is an abstraction for a QTime-like string used for time formats.
- * A TimeFormat can be customized using booleans in the constructor.
+ * A QTimeFormat is an abstraction for a QTime-like string used for time formats.
+ * A TQimeFormat can be customized using booleans in the constructor.
  * The QTime-syntax used is the following:
  * "h:" wheter to show hours (0 to 24)
  * "mm:" wheter to show minutes (00 to 59)
@@ -35,12 +35,12 @@ class QTime;
  * "zzz" wheter to show second fractions (tenths or hundredths or milliseconds)
  * An example of time formatted with the complete syntax might be the following: 0:05:38.582
  */
-class TimeFormat
+class QTimeFormat
 {
 
 public:
 
-    TimeFormat(bool h = false, bool mm = true, bool ss = true, bool t = true, bool hundr = true, bool msec = false);
+    QTimeFormat(bool h = false, bool mm = true, bool ss = true, bool t = true, bool hundr = true, bool msec = false);
 
     /**
      * Format the given time with the current time format.

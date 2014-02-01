@@ -115,7 +115,7 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     displayLayout->addWidget(splitter);
 }
 
-void QTimeDisplay::setTimeFormat(const TimeFormat& format)
+void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
 {
     timeFormat = format;
 

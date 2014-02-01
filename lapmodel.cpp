@@ -97,7 +97,7 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
     return QVariant::Invalid;
 }
 
-void LapModel::setTimeFormat(const TimeFormat& format)
+void LapModel::setTimeFormat(const QTimeFormat &format)
 {
     timeFormat = format;
 }

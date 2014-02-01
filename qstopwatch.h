@@ -30,7 +30,7 @@ class QDomElement;
 
 /**
  * @brief A Stopwatch class written in Qt.
- * QStopwatch is a simple QWidget implementing a real stopwatch, i.e. a stopwatch using a digital display.
+ * QStopwatch is a simple QObject implementing a real stopwatch.
  * The class provides public slots for start/pause/reset the timer.
  * A slot for lap recording exists too, but the computing of lap times is not a task of this class:
  * QStopwatch simply emits a signal, that the receiver can use to compute lap times.

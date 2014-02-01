@@ -351,7 +351,7 @@ void MainWindow::setupActions()
 
 void MainWindow::loadSettings()
 {
-    TimeFormat timeFormat(
+    QTimeFormat timeFormat(
         KronometerConfig::showHours(),
         KronometerConfig::showMinutes(),
         KronometerConfig::showSeconds(),
