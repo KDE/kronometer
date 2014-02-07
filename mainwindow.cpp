@@ -66,6 +66,8 @@ namespace
     const QString WINDOW_TITLE = "Kronometer";       /** Default Window title */
     const QString QT_PLACE_HOLDER = "[*]";           /** Qt standard placeholder for setWindowModified() */
 
+    const QString SAVE_FILE_MIMETYPE = "application/xml";
+
     // kronometerui.rc states
     const QString INACTIVE_STATE = "inactive";
     const QString RUNNING_STATE = "running";
@@ -234,10 +236,20 @@ void MainWindow::newFile()
 
 void MainWindow::openFile()
 {
-    QString f = KFileDialog::getOpenFileName();
+    KFileDialog *dialog = new KFileDialog(KUrl(), QString(), this);
+    dialog->setOperationMode(KFileDialog::Opening);
+    dialog->setWindowTitle(i18n("Choose a Kronometer save file"));
 
-    if (not f.isEmpty()) {
-        MainWindow *window = new MainWindow(nullptr, f);
+    QStringList mimeTypes;
+    mimeTypes << SAVE_FILE_MIMETYPE;
+    dialog->setMimeFilter(mimeTypes);
+
+    dialog->exec();
+
+    QString file = dialog->selectedFile();
+
+    if (not file.isEmpty()) {
+        MainWindow *window = new MainWindow(nullptr, file);
         window->show();
     }
 }
@@ -249,7 +261,18 @@ void MainWindow::saveFile()
 
 void MainWindow::saveFileAs()
 {
-    saveFileAs(KFileDialog::getSaveFileName());
+    KFileDialog *dialog = new KFileDialog(KUrl(), QString(), this);
+    dialog->setOperationMode(KFileDialog::Saving);
+    dialog->setConfirmOverwrite(true);
+    dialog->setWindowTitle(i18n("Choose Kronometer save file destination"));
+
+    QStringList mimeTypes;
+    mimeTypes << SAVE_FILE_MIMETYPE;
+    dialog->setMimeFilter(mimeTypes);
+
+    dialog->exec();
+
+    saveFileAs(dialog->selectedFile());
 }
 
 void MainWindow::copyToClipboard()
