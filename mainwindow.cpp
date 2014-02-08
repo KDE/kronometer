@@ -58,6 +58,7 @@ namespace
     const QString PAUSE_KEY = "pause";
     const QString RESET_KEY = "reset";
     const QString LAP_KEY = "lap";
+    const QString EXPORT_KEY = "export_laps";
 
     const char RUNNING_MSG[] = "Running...";
     const char PAUSED_MSG[] = "Paused";
@@ -274,6 +275,11 @@ void MainWindow::saveFileAs()
     saveFileAs(dialog->selectedFile());
 }
 
+void MainWindow::exportLapsAs()
+{
+
+}
+
 void MainWindow::copyToClipboard()
 {
     KApplication::clipboard()->setText(stopwatchDisplay->currentTime());
@@ -319,6 +325,7 @@ void MainWindow::setupActions()
     pauseAction = new KAction(this);
     resetAction = new KAction(this);
     lapAction = new KAction(this);
+    exportAction = new KAction(this);
 
     startAction->setIcon(KIcon("player-time"));
     startAction->setShortcut(Qt::Key_Space);
@@ -335,10 +342,14 @@ void MainWindow::setupActions()
     lapAction->setIcon(KIcon("chronometer"));
     lapAction->setShortcut(Qt::Key_Return);
 
+    exportAction->setText(i18n("&Export laps as..."));
+    exportAction->setIcon(KIcon("document-export"));
+
     actionCollection()->addAction(START_KEY, startAction);
     actionCollection()->addAction(PAUSE_KEY, pauseAction);
     actionCollection()->addAction(RESET_KEY, resetAction);
     actionCollection()->addAction(LAP_KEY, lapAction);
+    actionCollection()->addAction(EXPORT_KEY, exportAction);
 
     // triggers for QStopwatch "behavioral" slots
     connect(startAction, SIGNAL(triggered(bool)), stopwatch, SLOT(start()));
@@ -356,7 +367,7 @@ void MainWindow::setupActions()
     connect(resetAction, SIGNAL(triggered(bool)), this, SLOT(inactive()));
     connect(lapAction, SIGNAL(triggered(bool)), this, SLOT(updateLapDock()));
 
-    //KStandardAction::quit(kapp, SLOT(quit()), actionCollection());
+    // File menu triggers
     KStandardAction::quit(this, SLOT(close()), actionCollection());
     KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
     KStandardAction::openNew(this, SLOT(newFile()), actionCollection());
@@ -364,6 +375,7 @@ void MainWindow::setupActions()
     KStandardAction::saveAs(this, SLOT(saveFileAs()), actionCollection());
     KStandardAction::open(this, SLOT(openFile()), actionCollection());
     KStandardAction::copy(this, SLOT(copyToClipboard()), actionCollection());
+    connect(exportAction, SIGNAL(triggered(bool)), this, SLOT(exportLapsAs()));
 
     setupGUI(Default, "kronometerui.rc");
 

@@ -103,6 +103,11 @@ private slots:
     void saveFileAs();
 
     /**
+     * Export current lap times on a file.
+     */
+    void exportLapsAs();
+
+    /**
      * Copy current stopwatch time to clipboard.
      */
     void copyToClipboard();
@@ -119,6 +124,7 @@ private:
     KAction *pauseAction;
     KAction *resetAction;
     KAction *lapAction;
+    KAction *exportAction;
 
     LapModel *lapModel;
     QSortFilterProxyModel *proxyModel;
