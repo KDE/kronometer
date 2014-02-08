@@ -71,10 +71,10 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     minHeader->setAlignment(Qt::AlignCenter);
     secHeader->setAlignment(Qt::AlignCenter);
     fracHeader->setAlignment(Qt::AlignCenter);
-    hourHeader->setText(i18n(HOURS_MSG));
-    minHeader->setText(i18n(MIN_MSG));
-    secHeader->setText(i18n(SEC_MSG));
-    fracHeader->setText(i18n(HUNDREDTHS_MSG));
+    hourHeader->setText(i18n("Hours"));
+    minHeader->setText(i18n("Minutes"));
+    secHeader->setText(i18n("Seconds"));
+    fracHeader->setText(i18n("Hundredths"));
     hourHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
     minHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
     secHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
@@ -126,13 +126,13 @@ void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
 
     if (timeFormat.isSecFracEnabled()) {
         if (timeFormat.isMSecEnabled()) {
-            fracHeader->setText(i18n(MSEC_MSG));
+            fracHeader->setText(i18n("Milliseconds"));
         }
         else if (timeFormat.isHundredthEnabled()) {
-            fracHeader->setText(i18n(HUNDREDTHS_MSG));
+            fracHeader->setText(i18n("Hundredths"));
         }
         else if (timeFormat.isTenthEnabled()) {
-            fracHeader->setText(i18n(TENTHS_MSG));
+            fracHeader->setText(i18n("Tenths"));
         }
     }
 

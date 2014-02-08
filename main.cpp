@@ -45,17 +45,17 @@ int main (int argc, char **argv)
 {
     KAboutData aboutData(
         APP_NAME, APP_NAME,
-        ki18n(PROGRAM_NAME),
+        ki18n("Kronometer"),
         VERSION,
-        ki18n(SHORT_DESCRIPTION),
+        ki18n("Kronometer is a simple chronometer application built for KDE"),
         KAboutData::License_GPL,
-        ki18n(COPYRIGHT_STATEMENT),
+        ki18n("Copyright (C) 2014 Elvis Angelaccio"),
         ki18n(OTHER_TEXT),
         HOME_PAGE_ADDRESS,
         BUGS_EMAIL_ADDRESS
     );
 
-    aboutData.addAuthor(ki18n(AUTHOR_NAME), ki18n(AUTHOR_TASK), AUTHOR_EMAIL_ADDRESS, AUTHOR_WEB_ADDRESS);
+    aboutData.addAuthor(ki18n("Elvis Angelaccio"), ki18n("Developer"), AUTHOR_EMAIL_ADDRESS, AUTHOR_WEB_ADDRESS);
 
     KCmdLineArgs::init(argc, argv, &aboutData);
 

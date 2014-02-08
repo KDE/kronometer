@@ -10,9 +10,6 @@
     <height>300</height>
    </rect>
   </property>
-  <property name="windowTitle">
-   <string>Form</string>
-  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QScrollArea" name="scrollArea">
@@ -38,7 +35,7 @@
           <item>
            <widget class="QCheckBox" name="kcfg_showTimeHeaders">
             <property name="toolTip">
-             <string>Wheter to show the descriptive headers on top of the stopwatch display(s)</string>
+             <string>Whether to show the descriptive headers on top of the stopwatch display(s)</string>
             </property>
             <property name="text">
              <string>Show time headers</string>

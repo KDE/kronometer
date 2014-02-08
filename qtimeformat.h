@@ -29,10 +29,10 @@ class QTime;
  * A QTimeFormat is an abstraction for a QTime-like string used for time formats.
  * A TQimeFormat can be customized using booleans in the constructor.
  * The QTime-syntax used is the following:
- * "h:" wheter to show hours (0 to 24)
- * "mm:" wheter to show minutes (00 to 59)
- * "ss." wheter to show seconds (00 to 59)
- * "zzz" wheter to show second fractions (tenths or hundredths or milliseconds)
+ * "h:" whether to show hours (0 to 24)
+ * "mm:" whether to show minutes (00 to 59)
+ * "ss." whether to show seconds (00 to 59)
+ * "zzz" whether to show second fractions (tenths or hundredths or milliseconds)
  * An example of time formatted with the complete syntax might be the following: 0:05:38.582
  */
 class QTimeFormat
@@ -78,43 +78,43 @@ public:
     QString formatSecFrac(const QTime& time) const;
 
     /**
-     * Wheter the hour is in the time format.
+     * Whether the hour is in the time format.
      * @return true if hour is in the format, false otherwise.
      */
     bool isHourEnabled() const;
 
     /**
-     * Wheter the minute is in the time format.
+     * Whether the minute is in the time format.
      * @return true if minute is in the format, false otherwise.
      */
     bool isMinEnabled() const;
 
     /**
-     * Wheter the second is in the time format.
+     * Whether the second is in the time format.
      * @return true if second is in the format, false otherwise.
      */
     bool isSecEnabled() const;
 
     /**
-     * Wheter the second fraction is in the time format.
+     * Whether the second fraction is in the time format.
      * @return true if second fraction is in the format, false otherwise.
      */
     bool isSecFracEnabled() const;
 
     /**
-     * Wheter the second fractions in the time format is made by tenths of second.
+     * Whether the second fractions in the time format is made by tenths of second.
      * @return true if second fraction is tenths of second, false otherwise.
      */
     bool isTenthEnabled() const;
 
     /**
-     * Wheter the second fractions in the time format is made by hundredths of second.
+     * Whether the second fractions in the time format is made by hundredths of second.
      * @return true if second fraction is hundredths of second, false otherwise.
      */
     bool isHundredthEnabled() const;
 
     /**
-     * Wheter the second fractions in the time format is made by milliseconds.
+     * Whether the second fractions in the time format is made by milliseconds.
      * @return true if second fraction is milliseconds, false otherwise.
      */
     bool isMSecEnabled() const;
@@ -129,9 +129,9 @@ private:
         MILLISECOND     /**< Second fraction is milliseconds. */
     };
 
-    bool hour;                  /** Wheter hour is in the internal time format */
-    bool min;                   /** Wheter minute is in the internal time format */
-    bool sec;                   /** Wheter second is in the internal time format */
+    bool hour;                  /** Whether hour is in the internal time format */
+    bool min;                   /** Whether minute is in the internal time format */
+    bool sec;                   /** Whether second is in the internal time format */
     SecFraction secFraction;    /** Second fraction internal time format */
 
     QString hourFormat;         /** Hour string format */

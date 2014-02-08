@@ -88,7 +88,7 @@ public:
 
     /**
      * Show or hide the time headers of the display.
-     * @param show Wheter to show the time headers.
+     * @param show Whether to show the time headers.
      */
     void showHeaders(bool show);
 

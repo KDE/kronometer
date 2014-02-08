@@ -124,7 +124,7 @@ private:
     QSortFilterProxyModel *proxyModel;
 
     QString fileName;
-    bool unsavedTimes;          /** Wheter there are unsaved times */
+    bool unsavedTimes;          /** Whether there are unsaved times */
 
     /**
      * Setup the central widget of the window.
@@ -149,9 +149,9 @@ private:
     /**
      * Set the stopwatch refresh granularity.
      * By default, if all the arguments are false, the stopwatch is refreshed every second.
-     * @param tenths Wheter to refresh the stopwatch every tenth of second.
-     * @param hundredths Wheter to refresh the stopwatch every hundredth of second.
-     * @param msec Wheter to refresh the stopwatch every millisecond.
+     * @param tenths Whether to refresh the stopwatch every tenth of second.
+     * @param hundredths Whether to refresh the stopwatch every hundredth of second.
+     * @param msec Whether to refresh the stopwatch every millisecond.
      */
     void setupGranularity(bool tenths, bool hundredths, bool msec);
 

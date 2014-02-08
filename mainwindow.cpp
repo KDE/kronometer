@@ -134,8 +134,7 @@ bool MainWindow::queryClose()
     }
     else if (unsavedTimes) {
         QFileInfo fileInfo(fileName);
-        QString msg = "Save times on file " + fileInfo.fileName() + "?";
-        buttonCode = KMessageBox::warningYesNoCancel(this, i18n(msg.toAscii()));
+        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to file %1?", fileInfo.fileName()));
 
         switch (buttonCode) {
         case KMessageBox::Yes:
@@ -155,7 +154,7 @@ bool MainWindow::queryClose()
  
 void MainWindow::running()
 {
-    statusLabel->setText(i18n(RUNNING_MSG));
+    statusLabel->setText(i18n("Running..."));
 
     unsavedTimes = true;
     setWindowModified(unsavedTimes);
@@ -165,8 +164,8 @@ void MainWindow::running()
 
 void MainWindow::paused()
 {
-    startAction->setText(i18n(RESUME_MSG));
-    statusLabel->setText(i18n(PAUSED_MSG));
+    startAction->setText(i18n("Re&sume"));
+    statusLabel->setText(i18n("Paused"));
 
     if (not fileName.isEmpty()) {
         stateChanged(PAUSED_FILE_STATE);
@@ -178,8 +177,8 @@ void MainWindow::paused()
 
 void MainWindow::inactive()
 {
-    startAction->setText(i18n(START_MSG));
-    statusLabel->setText(i18n(INACTIVE_MSG));
+    startAction->setText(i18n("&Start"));
+    statusLabel->setText(i18n("Inactive"));
 
     stateChanged(INACTIVE_STATE);
 }
@@ -324,15 +323,15 @@ void MainWindow::setupActions()
     startAction->setIcon(KIcon("player-time"));
     startAction->setShortcut(Qt::Key_Space);
 
-    pauseAction->setText(i18n(PAUSE_MSG));  // pauseAction/resetAction have fixed text (startAction don't)
+    pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction don't)
     pauseAction->setIcon(KIcon("media-playback-pause"));
     pauseAction->setShortcut(Qt::Key_Space);
 
-    resetAction->setText(i18n(RESET_MSG));
+    resetAction->setText(i18n("&Reset"));
     resetAction->setIcon(KIcon("edit-clear-history"));
     resetAction->setShortcut(Qt::Key_F5);
 
-    lapAction->setText(i18n(LAP_MSG));
+    lapAction->setText(i18n("&Lap"));
     lapAction->setIcon(KIcon("chronometer"));
     lapAction->setShortcut(Qt::Key_Return);
 
