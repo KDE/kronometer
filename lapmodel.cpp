@@ -169,6 +169,11 @@ QString LapModel::absoluteLapTime(int lapIndex) const
     return timeFormat.format(timeList.at(lapIndex));
 }
 
+bool LapModel::isEmpty() const
+{
+    return timeList.isEmpty();
+}
+
 void LapModel::lap(const QTime& lapTime)
 {
     beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end

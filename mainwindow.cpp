@@ -178,6 +178,12 @@ void MainWindow::paused()
     else {
         stateChanged(PAUSED_STATE);
     }
+
+    // the export action can be used only if there are laps (in both the paused states).
+    // so, it can't be enabled directly from kronometerui.rc
+    if (not lapModel->isEmpty()) {
+        exportAction->setEnabled(true);
+    }
 }
 
 void MainWindow::inactive()

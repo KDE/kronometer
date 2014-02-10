@@ -52,6 +52,7 @@
             <Action name="lap" />
             <Action name="file_save" />
             <Action name="file_save_as" />
+            <Action name="export_laps" />
         </disable>
     </State>
 
@@ -66,6 +67,7 @@
             <Action name="start" />
             <Action name="file_save" />
             <Action name="file_save_as" />
+            <Action name="export_laps" />
         </disable>
     </State>
 

@@ -81,6 +81,12 @@ public:
      */
     QString absoluteLapTime(int lapIndex) const;
 
+    /**
+     * Whether the model is empty.
+     * @return true if the model holds at least one lap time, false otherwise.
+     */
+    bool isEmpty() const;
+
     friend QDataStream& operator<<(QDataStream& out, const LapModel& m);
     friend QDataStream& operator>>(QDataStream& in, LapModel& m);
 
