@@ -3,7 +3,6 @@ Kronometer README
 
 Description
 -----------
-Hello!
 
 Kronometer is a simple *chronometer* application, built for the KDE Linux Desktop Environment.
 
@@ -82,19 +81,6 @@ $ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ..
 $ sudo make install
 ```
 
-Now you should have **kronometer** installed under **/usr/bin** and it should be available under the *Utility* entry in your KMenu.
-If not, try to reboot your pc and now **kronomoter** should be in your KMenu.
-
-Most KDE distro should already provide the necessary software dependencies: **kdelibs**, **cmake**, **make**, **automoc** and **gcc-c++**.
-Some distro (e.g. Sabayon) might not provide **automoc** by default, so it must be installed before kronometer installation.
-
-Installation tested succesfully on:
-
-* Gentoo
-* Arch Linux
-* Chakra Linux
-* Sabayon Linux (need to install **automoc**)
-
 TODO list
 ---------
 
@@ -111,21 +97,5 @@ TODO list
 * System notification support (i.e. for lap times)
 * Text localization
 * System tray support? (pause/resume from tray icon). Hard because multiple windows may be running.
-
-Video
-------
-Kronometer demo on youtube: http://www.youtube.com/watch?v=gekQiZrHMcE
-
-Screenshot
-----------
-<!-- old relative screenshot links
-[![kronometer inactive](img/screen-v0.3.x/kronometer-inactive.png?raw=true)](img/screen-v0.3.x/kronometer-inactive.png?raw=true)
-[![kronometer running](img/screen-v0.3.x/kronometer-running.png?raw=true)](img/screen-v0.3.x/kronometer-running.png?raw=true)
-[![kronometer paused](img/screen-v0.3.x/kronometer-paused.png?raw=true)](img/screen-v0.3.x/kronometer-paused.png?raw=true)
-[![kronometer paused](img/screen-v0.3.x/kronometer-laps.png?raw=true)](img/screen-v0.3.x/kronometer-laps.png?raw=true)
--->
-[![kronometer running](http://abload.de/img/kronometer-runningwfsx4.png)](http://abload.de/img/kronometer-runningwfsx4.png)
-[![kronometer save](http://abload.de/img/kronometer-saveeysub.png)](http://abload.de/img/kronometer-saveeysub.png)
-[![kronometer settings](http://abload.de/img/kronometer-settingsh1sb0.png)](http://abload.de/img/kronometer-settingsh1sb0.png)
 
 
