@@ -86,6 +86,7 @@ namespace
     const QString ROOT_TAG = "kronometer";
     const QString PERSISTENCE_ATTR = "msec";
     const QString TYPE_ATTR = "type";
+    const QString LAP_ID_ATTR = "id";
     const QString REL_TYPE = "relative";
     const QString ABS_TYPE = "absolute";
 }
@@ -530,6 +531,7 @@ void MainWindow::createXmlSaveFile(QTextStream& out) // TODO: add XML comments
 
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
         QDomElement lap = doc.createElement(LAP_TAG);
+        lap.setAttribute(LAP_ID_ATTR, i);
         lapModel->lapToXml(lap, PERSISTENCE_ATTR, i);
 
         QDomElement relTime = doc.createElement(TIME_TAG);
@@ -622,7 +624,33 @@ void MainWindow::exportLapsAs(const QString& name, const QString& mimetype)
 
 void MainWindow::exportLapsAsXml(QTextStream& out)
 {
-    Q_UNUSED(out); // TODO
+    QDomDocument doc;
+    QDomProcessingInstruction metaData = doc.createProcessingInstruction("xml", "version='1.0' encoding='UTF-8'");
+    QDomElement rootElement = doc.createElement(ROOT_TAG);
+
+    QDomElement lapsElement = doc.createElement(LAPS_TAG);
+
+    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
+        QDomElement lap = doc.createElement(LAP_TAG);
+        lap.setAttribute(LAP_ID_ATTR, i);
+
+        QDomElement relTime = doc.createElement(TIME_TAG);
+        relTime.setAttribute(TYPE_ATTR, REL_TYPE);
+        relTime.appendChild(doc.createTextNode(lapModel->relativeLapTime(i)));
+
+        QDomElement absTime = doc.createElement(TIME_TAG);
+        absTime.setAttribute(TYPE_ATTR, ABS_TYPE);
+        absTime.appendChild(doc.createTextNode(lapModel->absoluteLapTime(i)));
+
+        lap.appendChild(relTime);
+        lap.appendChild(absTime);
+        lapsElement.appendChild(lap);
+    }
+
+    rootElement.appendChild(lapsElement);
+    doc.appendChild(metaData);
+    doc.appendChild(rootElement);
+    doc.save(out, KronometerConfig::saveFileIndentSize());
 }
 
 void MainWindow::exportLapsAsCsv(QTextStream& out)

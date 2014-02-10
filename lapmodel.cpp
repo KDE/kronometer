@@ -110,7 +110,6 @@ bool LapModel::lapToXml(QDomElement& element, const QString& attributeName, int 
 
     QTime zero(0, 0);
 
-    element.setAttribute("id", lapIndex);
     element.setAttribute(attributeName, zero.msecsTo(timeList.at(lapIndex)));
 
     return true;
