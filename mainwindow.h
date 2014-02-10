@@ -205,6 +205,12 @@ private:
      */
     void exportLapsAsCsv(QTextStream& out);
 
+    /**
+     * A "comment" message with timestamp, to be used in the created files.
+     * @return The string "Created by Kronomer on <timestamp>"
+     */
+    QString timestampMessage();
+
 };
 
  

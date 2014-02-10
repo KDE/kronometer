@@ -520,10 +520,11 @@ void MainWindow::openFile(const QString& name)
     }
 }
 
-void MainWindow::createXmlSaveFile(QTextStream& out) // TODO: add XML comments
+void MainWindow::createXmlSaveFile(QTextStream& out)
 {
     QDomDocument doc;
     QDomProcessingInstruction metaData = doc.createProcessingInstruction("xml", "version='1.0' encoding='UTF-8'");
+    QDomComment timestampComment = doc.createComment(timestampMessage());
     QDomElement rootElement = doc.createElement(ROOT_TAG);
 
     QDomElement stopwatchElement = doc.createElement(STOPWATCH_TAG);
@@ -556,6 +557,7 @@ void MainWindow::createXmlSaveFile(QTextStream& out) // TODO: add XML comments
     rootElement.appendChild(stopwatchElement);
     rootElement.appendChild(lapsElement);
     doc.appendChild(metaData);
+    doc.appendChild(timestampComment);
     doc.appendChild(rootElement);
     doc.save(out, KronometerConfig::saveFileIndentSize());
 }
@@ -632,6 +634,7 @@ void MainWindow::exportLapsAsXml(QTextStream& out)
 {
     QDomDocument doc;
     QDomProcessingInstruction metaData = doc.createProcessingInstruction("xml", "version='1.0' encoding='UTF-8'");
+    QDomComment timestampComment = doc.createComment(timestampMessage());
     QDomElement rootElement = doc.createElement(ROOT_TAG);
 
     QDomElement lapsElement = doc.createElement(LAPS_TAG);
@@ -655,16 +658,25 @@ void MainWindow::exportLapsAsXml(QTextStream& out)
 
     rootElement.appendChild(lapsElement);
     doc.appendChild(metaData);
+    doc.appendChild(timestampComment);
     doc.appendChild(rootElement);
     doc.save(out, KronometerConfig::saveFileIndentSize());
 }
 
 void MainWindow::exportLapsAsCsv(QTextStream& out)
 {
-    out << "#Lap number,Lap time,Global time \r\n";
+    out << '#' << timestampMessage() << '\r' << '\n';
+    out << '#' << i18n("Lap number,Lap time,Global time") << '\r' << '\n';
 
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
         out << i << ',' << lapModel->relativeLapTime(i) << ',' << lapModel->absoluteLapTime(i) << '\r' << '\n';
     }
+}
+
+QString MainWindow::timestampMessage()
+{
+    QDateTime timestamp = QDateTime::currentDateTime();
+
+    return i18n("Created by Kronometer on %1", timestamp.toString(Qt::DefaultLocaleLongDate));
 }
 
