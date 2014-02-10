@@ -8,6 +8,10 @@ Kronometer is a simple *chronometer* application, built for the KDE Linux Deskto
 
 Changelog
 ---------
+v1.1.0
+* Export lap times to CSV (Comma Separated Values) format
+* Export lap times to XML format
+
 v1.0.0
 * First "stable" release of Kronometer
 * Fixed the appereance of the laps table-widget
@@ -93,7 +97,7 @@ TODO list
 * ~~Copy current time to clipboard~~
 * ~~Color settings~~
 * ~~Replace binary files with XML files for persistence.~~
-* Laps export feature: CSV format, etc.
+* ~~Laps export feature: CSV and XML format~~
 * System notification support (i.e. for lap times)
 * Text localization
 * System tray support? (pause/resume from tray icon). Hard because multiple windows may be running.
