@@ -67,7 +67,10 @@ namespace
     const QString WINDOW_TITLE = "Kronometer";       /** Default Window title */
     const QString QT_PLACE_HOLDER = "[*]";           /** Qt standard placeholder for setWindowModified() */
 
-    const QString SAVE_FILE_MIMETYPE = "application/xml";
+    const QString XML_MIMETYPE = "application/xml";
+    const QString CSV_MIMETYPE = "text/csv";
+    const QString XML_EXTENSION = ".xml";
+    const QString CSV_EXTENSION = ".csv";
 
     // kronometerui.rc states
     const QString INACTIVE_STATE = "inactive";
@@ -241,7 +244,7 @@ void MainWindow::openFile()
     dialog->setWindowTitle(i18n("Choose a Kronometer save file"));
 
     QStringList mimeTypes;
-    mimeTypes << SAVE_FILE_MIMETYPE;
+    mimeTypes << XML_MIMETYPE;
     dialog->setMimeFilter(mimeTypes);
 
     dialog->exec();
@@ -267,7 +270,7 @@ void MainWindow::saveFileAs()
     dialog->setWindowTitle(i18n("Choose Kronometer save file destination"));
 
     QStringList mimeTypes;
-    mimeTypes << SAVE_FILE_MIMETYPE;
+    mimeTypes << XML_MIMETYPE;
     dialog->setMimeFilter(mimeTypes);
 
     dialog->exec();
@@ -277,7 +280,18 @@ void MainWindow::saveFileAs()
 
 void MainWindow::exportLapsAs()
 {
+    KFileDialog *dialog = new KFileDialog(KUrl(), QString(), this);
+    dialog->setOperationMode(KFileDialog::Saving);
+    dialog->setConfirmOverwrite(true);
+    dialog->setWindowTitle(i18n("Choose export file destination"));
 
+    QStringList mimeTypes;
+    mimeTypes << XML_MIMETYPE << CSV_MIMETYPE;
+    dialog->setMimeFilter(mimeTypes, CSV_MIMETYPE);
+
+    dialog->exec();
+
+    exportLapsAs(dialog->selectedFile(), dialog->currentMimeFilter());
 }
 
 void MainWindow::copyToClipboard()
@@ -430,11 +444,10 @@ void MainWindow::saveFileAs(const QString& name)
         return;
     }
 
-    const QString extension = ".xml";
     QString saveName = name;
 
-    if (not saveName.endsWith(extension)) {
-        saveName += extension;
+    if (not saveName.endsWith(XML_EXTENSION)) {
+        saveName += XML_EXTENSION;
     }
 
     KSaveFile saveFile(saveName);
@@ -447,7 +460,7 @@ void MainWindow::saveFileAs(const QString& name)
 
     // NEW: persistence using XML files
     QTextStream stream(&saveFile);
-    createXml(stream);
+    createXmlSaveFile(stream);
 
     saveFile.finalize();
     saveFile.close();
@@ -476,7 +489,7 @@ void MainWindow::openFile(const QString& name)
         QString errorMsg;
 
         if (doc.setContent(&file, &errorMsg)) {
-            if (parseXml(doc)) {
+            if (parseXmlSaveFile(doc)) {
                 paused();                       // enter in paused state
                 fileName = name;
 
@@ -500,7 +513,7 @@ void MainWindow::openFile(const QString& name)
     }
 }
 
-void MainWindow::createXml(QTextStream& out) // TODO: add XML comments
+void MainWindow::createXmlSaveFile(QTextStream& out) // TODO: add XML comments
 {
     QDomDocument doc;
     QDomProcessingInstruction metaData = doc.createProcessingInstruction("xml", "version='1.0' encoding='UTF-8'");
@@ -539,7 +552,7 @@ void MainWindow::createXml(QTextStream& out) // TODO: add XML comments
     doc.save(out, KronometerConfig::saveFileIndentSize());
 }
 
-bool MainWindow::parseXml(const QDomDocument& doc)
+bool MainWindow::parseXmlSaveFile(const QDomDocument& doc)
 {
     QDomElement rootElement = doc.namedItem(ROOT_TAG).toElement();
 
@@ -566,5 +579,58 @@ bool MainWindow::parseXml(const QDomDocument& doc)
     }
 
     return true;
+}
+
+void MainWindow::exportLapsAs(const QString& name, const QString& mimetype)
+{
+    if (name.isEmpty()) {
+        return;
+    }
+
+    QString exportName = name;
+
+    if (mimetype == XML_MIMETYPE) {
+        if (not exportName.endsWith(XML_EXTENSION)) {
+            exportName += XML_EXTENSION;
+        }
+
+        KSaveFile exportFile(exportName);
+        exportFile.open();
+
+        QTextStream stream(&exportFile);
+        exportLapsAsXml(stream);
+
+        exportFile.finalize();
+        exportFile.close();
+    }
+
+    else if (mimetype == CSV_MIMETYPE) {
+        if (not exportName.endsWith(CSV_EXTENSION)) {
+            exportName += CSV_EXTENSION;
+        }
+
+        KSaveFile exportFile(exportName);
+        exportFile.open();
+
+        QTextStream stream(&exportFile);
+        exportLapsAsCsv(stream);
+
+        exportFile.finalize();
+        exportFile.close();
+    }
+}
+
+void MainWindow::exportLapsAsXml(QTextStream& out)
+{
+    Q_UNUSED(out); // TODO
+}
+
+void MainWindow::exportLapsAsCsv(QTextStream& out)
+{
+    out << "#Lap number,Lap time,Global time \r\n";
+
+    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
+        out << i << ',' << lapModel->relativeLapTime(i) << ',' << lapModel->absoluteLapTime(i) << '\r' << '\n';
+    }
 }
 

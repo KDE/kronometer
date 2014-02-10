@@ -162,7 +162,7 @@ private:
     void setupGranularity(bool tenths, bool hundredths, bool msec);
 
     /**
-     * Crate a file with the current stopwatch time and lap times.
+     * Create a file with the current stopwatch time and lap times.
      * @param name The name of the file to be saved.
      */
     void saveFileAs(const QString& name);
@@ -177,14 +177,34 @@ private:
      * Write the XML save file on the given stream.
      * @param out The stream to be written.
      */
-    void createXml(QTextStream& out);
+    void createXmlSaveFile(QTextStream& out);
 
     /**
      * Parse the XML save file from the given DOM document.
      * @param doc The DOM document to be parsed.
      * @return true if doc is a valid Kronometer save file, false otherwise.
      */
-    bool parseXml(const QDomDocument& doc);
+    bool parseXmlSaveFile(const QDomDocument& doc);
+
+    /**
+     * Export current lap times on a new file.
+     * @param name The name of the file to be created.
+     * @param mimetype The mimetype of the file to be created.
+     */
+    void exportLapsAs(const QString& name, const QString& mimetype);
+
+    /**
+     * Write the XML laps representation on the given stream.
+     * @param out The stream to be written.
+     */
+    void exportLapsAsXml(QTextStream& out);
+
+    /**
+     * Write the CSV laps representation on the given stream.
+     * @param out The stream to be written.
+     */
+    void exportLapsAsCsv(QTextStream& out);
+
 };
 
  
