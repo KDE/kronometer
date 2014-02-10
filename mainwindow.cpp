@@ -660,7 +660,7 @@ void MainWindow::exportLapsAsXml(QTextStream& out)
     doc.appendChild(metaData);
     doc.appendChild(timestampComment);
     doc.appendChild(rootElement);
-    doc.save(out, KronometerConfig::saveFileIndentSize());
+    doc.save(out, KronometerConfig::exportedXmlIndentSize());
 }
 
 void MainWindow::exportLapsAsCsv(QTextStream& out)

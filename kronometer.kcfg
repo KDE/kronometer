@@ -95,6 +95,9 @@
         <entry name="saveFileIndentSize" type="Int">
             <default>4</default>
         </entry>
+        <entry name="exportedXmlIndentSize" type="Int">
+            <default>4</default>
+        </entry>
     </group>
 
     <group name="Gui">
