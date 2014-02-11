@@ -17,12 +17,12 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "lapmodel.h"
+
 #include <KLocale>
 
 #include <QTime>
 #include <QDomElement>
-
-#include "lapmodel.h"
 
 LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
 

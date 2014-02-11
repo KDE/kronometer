@@ -17,9 +17,9 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <QTime>
-
 #include "qtimeformat.h"
+
+#include <QTime>
 
 QTimeFormat::QTimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec)
     :

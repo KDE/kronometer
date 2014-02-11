@@ -17,12 +17,12 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "qstopwatch.h"
+
 #include <QTime>
 #include <QTimerEvent>
 #include <QDataStream>
 #include <QDomElement>
-
-#include "qstopwatch.h"
 
 QStopwatch::QStopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS) {}
 
@@ -31,17 +31,17 @@ void QStopwatch::setGranularity(Granularity g)
     granularity = g;
 }
 
-bool QStopwatch::isRunning()
+bool QStopwatch::isRunning() const
 {
     return state == State::RUNNING;
 }
 
-bool QStopwatch::isPaused()
+bool QStopwatch::isPaused() const
 {
     return state == State::PAUSED;
 }
 
-bool QStopwatch::isInactive()
+bool QStopwatch::isInactive() const
 {
     return state == State::INACTIVE;
 }

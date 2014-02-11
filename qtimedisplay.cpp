@@ -17,13 +17,13 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "qtimedisplay.h"
+
 #include <KLocale>
 
 #include <QLabel>
 #include <QBoxLayout>
 #include <QSplitter>
-
-#include "qtimedisplay.h"
 
 namespace
 {

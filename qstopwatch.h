@@ -61,19 +61,19 @@ public:
      * Check is the stopwatch is running
      * @return true if running, false otherwise
      */
-    bool isRunning();
+    bool isRunning() const;
 
     /**
      * Check is the stopwatch is paused
      * @return true if paused, false otherwise
      */
-    bool isPaused();
+    bool isPaused() const;
 
     /**
      * Check is the stopwatch is inactive
      * @return true if inactive, false otherwise
      */
-    bool isInactive();
+    bool isInactive() const;
 
     /**
      * Serialize the stopwatch on the given output stream.
