@@ -35,6 +35,7 @@
 #include <QClipboard>
 #include <QSortFilterProxyModel>
 #include <QDomDocument>
+#include <QPointer>
 
 #include "qstopwatch.h"
 #include "qtimedisplay.h"
@@ -246,7 +247,7 @@ void MainWindow::newFile()
 
 void MainWindow::openFile()
 {
-    KFileDialog *dialog = new KFileDialog(KUrl(), QString(), this);
+    QPointer<KFileDialog> dialog = new KFileDialog(KUrl(), QString(), this);
     dialog->setOperationMode(KFileDialog::Opening);
     dialog->setWindowTitle(i18n("Choose a Kronometer save file"));
 
@@ -254,14 +255,16 @@ void MainWindow::openFile()
     mimeTypes << XML_MIMETYPE;
     dialog->setMimeFilter(mimeTypes);
 
-    dialog->exec();
+    if (dialog->exec() == QDialog::Accepted) {
+        QString file = dialog->selectedFile();
 
-    QString file = dialog->selectedFile();
-
-    if (not file.isEmpty()) {
-        MainWindow *window = new MainWindow(nullptr, file);
-        window->show();
+        if (not file.isEmpty()) {
+            MainWindow *window = new MainWindow(nullptr, file);
+            window->show();
+        }
     }
+
+    delete dialog;
 }
 
 void MainWindow::saveFile()
@@ -271,7 +274,7 @@ void MainWindow::saveFile()
 
 void MainWindow::saveFileAs()
 {
-    KFileDialog *dialog = new KFileDialog(KUrl(), QString(), this);
+    QPointer<KFileDialog> dialog = new KFileDialog(KUrl(), QString(), this);
     dialog->setOperationMode(KFileDialog::Saving);
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18n("Choose Kronometer save file destination"));
@@ -280,14 +283,16 @@ void MainWindow::saveFileAs()
     mimeTypes << XML_MIMETYPE;
     dialog->setMimeFilter(mimeTypes);
 
-    dialog->exec();
+    if (dialog->exec() == QDialog::Accepted) {
+        saveFileAs(dialog->selectedFile());
+    }
 
-    saveFileAs(dialog->selectedFile());
+    delete dialog;
 }
 
 void MainWindow::exportLapsAs()
 {
-    KFileDialog *dialog = new KFileDialog(KUrl(), QString(), this);
+    QPointer<KFileDialog> dialog = new KFileDialog(KUrl(), QString(), this);
     dialog->setOperationMode(KFileDialog::Saving);
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18n("Choose export file destination"));
@@ -296,9 +301,11 @@ void MainWindow::exportLapsAs()
     mimeTypes << XML_MIMETYPE << CSV_MIMETYPE;
     dialog->setMimeFilter(mimeTypes, CSV_MIMETYPE);
 
-    dialog->exec();
+    if (dialog->exec() == QDialog::Accepted) {
+        exportLapsAs(dialog->selectedFile(), dialog->currentMimeFilter());
+    }
 
-    exportLapsAs(dialog->selectedFile(), dialog->currentMimeFilter());
+    delete dialog;
 }
 
 void MainWindow::copyToClipboard()
