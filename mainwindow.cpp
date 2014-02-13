@@ -49,21 +49,11 @@
 
 namespace
 {
-    const char START_MSG[] = "&Start";
-    const char PAUSE_MSG[] = "&Pause";
-    const char RESET_MSG[] = "&Reset";
-    const char RESUME_MSG[] = "Re&sume";
-    const char LAP_MSG[] = "&Lap";
-
     const QString START_KEY = "start";
     const QString PAUSE_KEY = "pause";
     const QString RESET_KEY = "reset";
     const QString LAP_KEY = "lap";
     const QString EXPORT_KEY = "export_laps";
-
-    const char RUNNING_MSG[] = "Running...";
-    const char PAUSED_MSG[] = "Paused";
-    const char INACTIVE_MSG[] = "Inactive";
 
     const QString WINDOW_TITLE = "Kronometer";       /** Default Window title */
     const QString QT_PLACE_HOLDER = "[*]";           /** Qt standard placeholder for setWindowModified() */
@@ -129,7 +119,6 @@ bool MainWindow::queryClose()
 
         switch (buttonCode) {
         case KMessageBox::Yes:
-          qDebug() << "chiamo saveFileAs() perchè non ho nessun file";
           saveFileAs();
           return true;  // TODO: return false if saving fails
         case KMessageBox::No:
@@ -145,7 +134,6 @@ bool MainWindow::queryClose()
         switch (buttonCode) {
         case KMessageBox::Yes:
           // save document here. If saving fails, return false;
-          qDebug() << "chiamo saveFile() e fa tutto lui!";
           saveFile();
           return true;
         case KMessageBox::No:

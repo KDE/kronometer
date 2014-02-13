@@ -27,16 +27,11 @@
 namespace
 {
     const QByteArray APP_NAME = "kronometer";
-    const QByteArray PROGRAM_NAME = "Kronometer";
     const QByteArray VERSION = "1.1.0";
-    const QByteArray SHORT_DESCRIPTION = "Kronometer is a simple chronometer application built for KDE";
-    const QByteArray COPYRIGHT_STATEMENT = "Copyright (C) 2014 Elvis Angelaccio";
     const QByteArray OTHER_TEXT = "";
     const QByteArray HOME_PAGE_ADDRESS = "https://github.com/elvisangelaccio/kronometer";
     const QByteArray BUGS_EMAIL_ADDRESS = "angelaccioelvis@gmail.com";
 
-    const QByteArray AUTHOR_NAME = "Elvis Angelaccio";
-    const QByteArray AUTHOR_TASK = "Developer";
     const QByteArray AUTHOR_EMAIL_ADDRESS = "angelaccioelvis@gmail.com";
     const QByteArray AUTHOR_WEB_ADDRESS = "https://github.com/elvisangelaccio/kronometer";
 }

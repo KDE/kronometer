@@ -27,13 +27,6 @@
 
 namespace
 {
-    const QByteArray HOURS_MSG = "Hours";
-    const QByteArray MIN_MSG = "Minutes";
-    const QByteArray SEC_MSG = "Seconds";
-    const QByteArray TENTHS_MSG = "Tenths";
-    const QByteArray HUNDREDTHS_MSG = "Hundredths";
-    const QByteArray MSEC_MSG = "Milliseconds";
-
     const QString FRAME_STYLE = "QFrame {background-clip: content; background: %1; color: %2}";
 }
 
