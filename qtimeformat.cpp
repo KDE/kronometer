@@ -139,7 +139,7 @@ void QTimeFormat::setupFormat()
             hourFormat = "h:";
         }
         else {
-            hourFormat = "h";
+            hourFormat = 'h';
         }
     }
 
