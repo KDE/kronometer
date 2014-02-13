@@ -220,7 +220,7 @@ void MainWindow::showSettings()
     KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
     savePage->setIcon(KIcon("document-save"));
 
-    connect(dialog, SIGNAL(settingsChanged(const QString&)), this, SLOT(writeSettings(QString)));
+    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(writeSettings(QString)));
 
     dialog->show();
 }
