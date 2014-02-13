@@ -40,7 +40,7 @@ class QTimeFormat
 
 public:
 
-    QTimeFormat(bool h = false, bool mm = true, bool ss = true, bool t = true, bool hundr = true, bool msec = false);
+    explicit QTimeFormat(bool h = false, bool mm = true, bool ss = true, bool t = true, bool hundr = true, bool msec = false);
 
     /**
      * Format the given time with the current time format.
