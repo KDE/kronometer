@@ -27,13 +27,13 @@
 namespace
 {
     const QByteArray APP_NAME = "kronometer";
-    const QByteArray VERSION = "1.1.1";
+    const QByteArray VERSION = "1.1.2";
     const QByteArray OTHER_TEXT = "";
-    const QByteArray HOME_PAGE_ADDRESS = "https://projects.kde.org/projects/playground/utils/kronometer";
-    const QByteArray BUGS_EMAIL_ADDRESS = "angelaccioelvis@gmail.com";
+    const QByteArray HOME_PAGE_ADDRESS = "http://aelog.org/kronometer";
+    const QByteArray BUGS_EMAIL_ADDRESS = "bug@aelog.org";
 
-    const QByteArray AUTHOR_EMAIL_ADDRESS = "angelaccioelvis@gmail.com";
-    const QByteArray AUTHOR_WEB_ADDRESS = "https://github.com/elvisangelaccio";
+    const QByteArray AUTHOR_EMAIL_ADDRESS = "elvis@aelog.org";
+    const QByteArray AUTHOR_WEB_ADDRESS = "http://aelog.org";
 }
 
 int main (int argc, char **argv)
