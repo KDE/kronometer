@@ -180,6 +180,9 @@ void MainWindow::inactive()
     startAction->setText(i18n("&Start"));
     statusLabel->setText(i18n("Inactive"));
 
+    unsavedTimes = false;
+    setWindowModified(unsavedTimes);
+
     stateChanged(INACTIVE_STATE);
 }
 
