@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014 by Elvis Angelaccio <angelaccioelvis@gmail.com>
+    Copyright (C) 2014 by Elvis Angelaccio <elvis [dot] angelaccio [at] kdemail [dot] net>
 
     This file is part of Kronometer.
 
@@ -32,7 +32,7 @@ namespace
     const QByteArray HOME_PAGE_ADDRESS = "http://aelog.org/kronometer";
     const QByteArray BUGS_EMAIL_ADDRESS = "bug@aelog.org";
 
-    const QByteArray AUTHOR_EMAIL_ADDRESS = "elvis@aelog.org";
+    const QByteArray AUTHOR_EMAIL_ADDRESS = "elvis.angelaccio@kdemail.net";
     const QByteArray AUTHOR_WEB_ADDRESS = "http://aelog.org";
 }
 
