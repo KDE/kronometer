@@ -6,8 +6,14 @@ Description
 
 Kronometer is a simple *chronometer* application, built for the KDE Linux Desktop Environment.
 
+Homepage: http://www.aelog.org/kronometer/
+
 Changelog
 ---------
+v1.2.0
+* Option to hide the statusbar from the main window
+* Official documentation, *Kronometer Handbook* now available in the Help menu
+
 v1.1.2
 * Fixed window-modified placeholder (*) bug on stopwatch reset
 
