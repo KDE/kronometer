@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014 by Elvis Angelaccio <elvis [dot] angelaccio [at] kdemail [dot] net>
+    Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
 
     This file is part of Kronometer.
 
