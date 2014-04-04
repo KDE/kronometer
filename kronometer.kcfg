@@ -104,6 +104,9 @@
         <entry name="showTimeHeaders" type="Bool">
             <default>true</default>
         </entry>
+        <entry name="showStatusBar" type="Bool">
+            <default>true</default>
+        </entry>
     </group>
 
 </kcfg>
