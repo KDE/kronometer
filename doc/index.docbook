@@ -116,7 +116,7 @@
   <sect1 id="update_a_session">
     <title>Update a session</title>
     <para>
-      When the session is restored, you can resume the stopwatch and you can record new lap times. If you want to save the updated session, you can simply click the <guibutton>Save</guibutton> button in the toolbar on in the <guimenu>File</guimenu> menu.
+      When the session is restored, you can resume the stopwatch and you can record new lap times. If you want to save the updated session, you can simply click the <guibutton>Save</guibutton> button in the toolbar or in the <guimenu>File</guimenu> menu.
     </para>
   </sect1>
   <sect1 id="export_lap_times">
@@ -168,11 +168,11 @@
       In the save setting you can choose whether to ask to save when you close the &kronometer; window, of course only if there are unsaved times.
     </para>
     <para>
-      You can also set the indent size (number of character) of the &XML; save files and exported files.
+      You can also set the indent size (number of characters) of the &XML; save files and exported files.
     </para>
   </sect1>
   <sect1 id="kde_built_in_settings">
-    <title>KDE Built-in settings</title>
+    <title>&kde; Built-in settings</title>
     <para>
       &kronometer; makes use of the standard &kde; configuration tools. You find them in the <guimenu>Settings</guimenu> menu, under the <guimenuitem>Configure shortcuts</guimenuitem> and <guimenuitem>Configure Toolbars</guimenuitem> entries. They allow you to change the shortcuts of the &kronometer;'s actions, and to change the position of the toolbar and its content.
     </para>
