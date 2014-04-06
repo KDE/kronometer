@@ -10,6 +10,9 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+v1.2.2
+* Fixed small bug preventing compilation on old compilers
+
 v1.2.1
 * Option to hide the statusbar from the main window
 * Official documentation, *Kronometer Handbook* now available in the Help menu
