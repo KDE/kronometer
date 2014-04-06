@@ -46,7 +46,7 @@ public:
         MILLISECONDS = 1, /**< Stopwatch refreshed every msec. */
         HUNDREDTHS = 10,  /**< Stopwatch refreshed every 10 msec. */
         TENTHS = 100,     /**< Stopwatch refreshed every 100 msec. */
-        SECONDS = 1000,   /**< Stopwatch refreshed every sec. */
+        SECONDS = 1000   /**< Stopwatch refreshed every sec. */
     };
 
     explicit QStopwatch(QObject *parent = nullptr);

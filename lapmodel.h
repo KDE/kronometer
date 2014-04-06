@@ -111,7 +111,7 @@ private:
     {
         NUMBER = 0,     /**< Index of the lap-number column */
         REL_TIME = 1,   /**< Index of the lap relative time column */
-        ABS_TIME = 2,   /**< Index of the lap absolute time column */
+        ABS_TIME = 2   /**< Index of the lap absolute time column */
     };
 
     QList<QTime> timeList;              /** Absolute lap times */
