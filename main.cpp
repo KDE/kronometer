@@ -30,7 +30,6 @@ namespace
     const QByteArray VERSION = "1.2.2";
     const QByteArray OTHER_TEXT = "";
     const QByteArray HOME_PAGE_ADDRESS = "http://aelog.org/kronometer";
-    const QByteArray BUGS_EMAIL_ADDRESS = "bug@aelog.org";
 
     const QByteArray AUTHOR_EMAIL_ADDRESS = "elvis.angelaccio@kdemail.net";
     const QByteArray AUTHOR_WEB_ADDRESS = "http://aelog.org";
@@ -46,8 +45,7 @@ int main (int argc, char **argv)
         KAboutData::License_GPL,
         ki18n("Copyright (C) 2014 Elvis Angelaccio"),
         ki18n(OTHER_TEXT),
-        HOME_PAGE_ADDRESS,
-        BUGS_EMAIL_ADDRESS
+        HOME_PAGE_ADDRESS
     );
 
     aboutData.addAuthor(ki18n("Elvis Angelaccio"), ki18n("Developer"), AUTHOR_EMAIL_ADDRESS, AUTHOR_WEB_ADDRESS);
