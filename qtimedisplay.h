@@ -108,7 +108,6 @@ public slots:
 
 private:
 
-    QSplitter *splitter;
     QHBoxLayout *displayLayout;
     QVBoxLayout *hourLayout;
     QVBoxLayout *minLayout;

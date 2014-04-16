@@ -34,14 +34,10 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
 {
     displayLayout = new QHBoxLayout(this);
 
-    splitter = new QSplitter(this);
-    splitter->setOrientation(Qt::Horizontal);
-    splitter->setChildrenCollapsible(false);
-
-    hourFrame = new QFrame(splitter);
-    minFrame = new QFrame(splitter);
-    secFrame = new QFrame(splitter);
-    fracFrame = new QFrame(splitter);
+    hourFrame = new QFrame(this);
+    minFrame = new QFrame(this);
+    secFrame = new QFrame(this);
+    fracFrame = new QFrame(this);
     hourFrame->setFrameShape(QFrame::StyledPanel);
     hourFrame->setFrameShadow(QFrame::Sunken);
     minFrame->setFrameShape(QFrame::StyledPanel);
@@ -100,12 +96,10 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     fracLayout->addWidget(fracHeader);
     fracLayout->addWidget(fracLabel);
 
-    splitter->addWidget(hourFrame);
-    splitter->addWidget(minFrame);
-    splitter->addWidget(secFrame);
-    splitter->addWidget(fracFrame);
-
-    displayLayout->addWidget(splitter);
+    displayLayout->addWidget(hourFrame);
+    displayLayout->addWidget(minFrame);
+    displayLayout->addWidget(secFrame);
+    displayLayout->addWidget(fracFrame);
 }
 
 void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
