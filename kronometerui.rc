@@ -21,14 +21,14 @@
     </MenuBar>
 
     <!-- Main toolbar with KStandardActions -->
-    <ToolBar position="top" name="mainToolBar" noMerge="1">
+<!--    <ToolBar position="top" name="mainToolBar" noMerge="1">
         <text>Main Toolbar</text>
         <Action name="file_new" />
         <Action name="file_open" />
         <Separator/>
         <Action name="file_save" />
         <Action name="file_save_as" />
-    </ToolBar>
+    </ToolBar>-->
 
     <!-- Toolbar with stopwatch actions -->
     <ToolBar position="bottom" iconSize="48" name="kronometerToolBar" noMerge="1">
