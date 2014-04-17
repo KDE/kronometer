@@ -74,10 +74,10 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     secLabel = new QLabel(secFrame);
     fracLabel = new QLabel(fracFrame);
 
-    hourLabel->setAlignment(Qt::AlignCenter);
-    minLabel->setAlignment(Qt::AlignCenter);
-    secLabel->setAlignment(Qt::AlignCenter);
-    fracLabel->setAlignment(Qt::AlignCenter);
+    hourLabel->setAlignment(Qt::AlignRight);
+    minLabel->setAlignment(Qt::AlignRight);
+    secLabel->setAlignment(Qt::AlignRight);
+    fracLabel->setAlignment(Qt::AlignRight);
     hourLabel->setText(timeFormat.formatHours(displayTime));
     minLabel->setText(timeFormat.formatMin(displayTime));
     secLabel->setText(timeFormat.formatSec(displayTime));
