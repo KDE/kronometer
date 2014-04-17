@@ -119,6 +119,12 @@ public:
      */
     bool isMSecEnabled() const;
 
+    /**
+     * Whether to show the symbols ':' and '.' used as dividers in the time format.
+     * @param show true Whether to show the dividers.
+     */
+    void showDividers(bool show);
+
 private:
 
     enum class SecFraction
@@ -134,6 +140,7 @@ private:
     bool sec;                   /** Whether second is in the internal time format */
     SecFraction secFraction;    /** Second fraction internal time format */
 
+    bool dividers;              /** Whether to show the symbols used as dividers */
     QString hourFormat;         /** Hour string format */
     QString minFormat;          /** Minute string format */
     QString secFormat;          /** Secondstring format */
