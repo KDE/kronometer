@@ -184,7 +184,11 @@ void QTimeDisplay::showHeaders(bool show)
 
 QString QTimeDisplay::currentTime()
 {
-    return timeFormat.format(displayTime);
+    timeFormat.showDividers(true);
+    QString currentTime = timeFormat.format(displayTime);
+    timeFormat.showDividers(false);
+
+    return currentTime;
 }
 
 
