@@ -108,6 +108,8 @@ public slots:
 
 private:
 
+    static const int MIN_FRAME_WIDTH = 100;     /** Minimum default frame width used by all frames */
+
     QHBoxLayout *displayLayout;
     QVBoxLayout *hourLayout;
     QVBoxLayout *minLayout;
@@ -143,6 +145,11 @@ private:
      * Refresh the labels text implementing the display timer
      */
     void updateTimer();
+
+    /**
+     * Refresh the minimum width of the frames, based on current font sizes
+     */
+    void updateWidth();
 };
 
 #endif

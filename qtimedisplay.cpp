@@ -130,24 +130,28 @@ void QTimeDisplay::setHourFont(const QFont& font)
 {
     hourFont = font;
     hourLabel->setFont(hourFont);
+    updateWidth();
 }
 
 void QTimeDisplay::setMinFont(const QFont& font)
 {
     minFont = font;
     minLabel->setFont(minFont);
+    updateWidth();
 }
 
 void QTimeDisplay::setSecFont(const QFont& font)
 {
     secFont = font;
     secLabel->setFont(secFont);
+    updateWidth();
 }
 
 void QTimeDisplay::setFracFont(const QFont& font)
 {
     fracFont = font;
     fracLabel->setFont(fracFont);
+    updateWidth();
 }
 
 void QTimeDisplay::setBackgroundColor(const QColor& color)
@@ -207,5 +211,30 @@ void QTimeDisplay::updateTimer()
     if (timeFormat.isSecFracEnabled()) {
         fracLabel->setText(timeFormat.formatSecFrac(displayTime));
     }
+}
+
+void QTimeDisplay::updateWidth()
+{
+    int width = MIN_FRAME_WIDTH;
+
+    QFontMetrics hourMetric(hourFont);
+    QFontMetrics minMetric(minFont);
+    QFontMetrics secMetric(secFont);
+    QFontMetrics fracMetric(fracFont);
+    int hourWidth = hourMetric.width(hourLabel->text());
+    int minWidth = minMetric.width(minLabel->text());
+    int secWidth = secMetric.width(secLabel->text());
+    int fracWidth = fracMetric.width(fracLabel->text());
+
+    int maxFontWidth = qMax(qMax(hourWidth, minWidth), qMax(secWidth, fracWidth));
+
+    if (maxFontWidth >= MIN_FRAME_WIDTH) {
+        width = maxFontWidth + (maxFontWidth / 10); // 10% of font width used as padding
+    }
+
+    hourFrame->setMinimumWidth(width);
+    minFrame->setMinimumWidth(width);
+    secFrame->setMinimumWidth(width);
+    fracFrame->setMinimumWidth(width);
 }
 
