@@ -25,6 +25,8 @@
 #include <QBoxLayout>
 #include <QSplitter>
 
+#include "qdigitdisplay.h"
+
 namespace
 {
     const QString FRAME_STYLE = "QFrame {background-clip: content; background: %1; color: %2}";
@@ -69,32 +71,24 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     secHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
     fracHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
-    hourLabel = new QLabel(hourFrame);
-    minLabel = new QLabel(minFrame);
-    secLabel = new QLabel(secFrame);
-    fracLabel = new QLabel(fracFrame);
+    hourDisplay = new QDigitDisplay(hourFrame);
+    minDisplay = new QDigitDisplay(minFrame);
+    secDisplay = new QDigitDisplay(secFrame);
+    fracDisplay = new QDigitDisplay(fracFrame);
 
-    hourLabel->setAlignment(Qt::AlignRight);
-    minLabel->setAlignment(Qt::AlignRight);
-    secLabel->setAlignment(Qt::AlignRight);
-    fracLabel->setAlignment(Qt::AlignRight);
-    hourLabel->setText(timeFormat.formatHours(displayTime));
-    minLabel->setText(timeFormat.formatMin(displayTime));
-    secLabel->setText(timeFormat.formatSec(displayTime));
-    fracLabel->setText(timeFormat.formatSecFrac(displayTime));
-    hourLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    minLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    secLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    fracLabel->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    hourDisplay->showDigits(timeFormat.formatHours(displayTime));
+    minDisplay->showDigits(timeFormat.formatMin(displayTime));
+    secDisplay->showDigits(timeFormat.formatSec(displayTime));
+    fracDisplay->showDigits(timeFormat.formatSecFrac(displayTime));
 
     hourLayout->addWidget(hourHeader);
-    hourLayout->addWidget(hourLabel);
+    hourLayout->addWidget(hourDisplay);
     minLayout->addWidget(minHeader);
-    minLayout->addWidget(minLabel);
+    minLayout->addWidget(minDisplay);
     secLayout->addWidget(secHeader);
-    secLayout->addWidget(secLabel);
+    secLayout->addWidget(secDisplay);
     fracLayout->addWidget(fracHeader);
-    fracLayout->addWidget(fracLabel);
+    fracLayout->addWidget(fracDisplay);
 
     displayLayout->addWidget(hourFrame);
     displayLayout->addWidget(minFrame);
@@ -111,15 +105,22 @@ void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
     secFrame->setVisible(timeFormat.isSecEnabled());
     fracFrame->setVisible(timeFormat.isSecFracEnabled());
 
+    hourDisplay->setDigitCounter(QDigitDisplay::ONE);
+    minDisplay->setDigitCounter(QDigitDisplay::TWO);
+    secDisplay->setDigitCounter(QDigitDisplay::TWO);
+
     if (timeFormat.isSecFracEnabled()) {
         if (timeFormat.isMSecEnabled()) {
             fracHeader->setText(i18n("Milliseconds"));
+            fracDisplay->setDigitCounter(QDigitDisplay::THREE);
         }
         else if (timeFormat.isHundredthEnabled()) {
             fracHeader->setText(i18n("Hundredths"));
+            fracDisplay->setDigitCounter(QDigitDisplay::TWO);
         }
         else if (timeFormat.isTenthEnabled()) {
             fracHeader->setText(i18n("Tenths"));
+            fracDisplay->setDigitCounter(QDigitDisplay::ONE);
         }
     }
 
@@ -129,28 +130,28 @@ void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
 void QTimeDisplay::setHourFont(const QFont& font)
 {
     hourFont = font;
-    hourLabel->setFont(hourFont);
+    hourDisplay->setFont(hourFont);
     updateWidth();
 }
 
 void QTimeDisplay::setMinFont(const QFont& font)
 {
     minFont = font;
-    minLabel->setFont(minFont);
+    minDisplay->setFont(minFont);
     updateWidth();
 }
 
 void QTimeDisplay::setSecFont(const QFont& font)
 {
     secFont = font;
-    secLabel->setFont(secFont);
+    secDisplay->setFont(secFont);
     updateWidth();
 }
 
 void QTimeDisplay::setFracFont(const QFont& font)
 {
     fracFont = font;
-    fracLabel->setFont(fracFont);
+    fracDisplay->setFont(fracFont);
     updateWidth();
 }
 
@@ -201,19 +202,19 @@ void QTimeDisplay::time(const QTime& t)
 void QTimeDisplay::updateTimer()
 {
     if (timeFormat.isHourEnabled()) {
-        hourLabel->setText(timeFormat.formatHours(displayTime));
+        hourDisplay->showDigits(timeFormat.formatHours(displayTime));
     }
 
     if (timeFormat.isMinEnabled()) {
-        minLabel->setText(timeFormat.formatMin(displayTime));
+        minDisplay->showDigits(timeFormat.formatMin(displayTime));
     }
 
     if (timeFormat.isSecEnabled()) {
-        secLabel->setText(timeFormat.formatSec(displayTime));
+        secDisplay->showDigits(timeFormat.formatSec(displayTime));
     }
 
     if (timeFormat.isSecFracEnabled()) {
-        fracLabel->setText(timeFormat.formatSecFrac(displayTime));
+        fracDisplay->showDigits(timeFormat.formatSecFrac(displayTime));
     }
 }
 
@@ -221,19 +222,10 @@ void QTimeDisplay::updateWidth()
 {
     int width = MIN_FRAME_WIDTH;
 
-    QFontMetrics hourMetric(hourFont);
-    QFontMetrics minMetric(minFont);
-    QFontMetrics secMetric(secFont);
-    QFontMetrics fracMetric(fracFont);
-    int hourWidth = hourMetric.width(hourLabel->text());
-    int minWidth = minMetric.width(minLabel->text());
-    int secWidth = secMetric.width(secLabel->text());
-    int fracWidth = fracMetric.width(fracLabel->text());
+    int maxWidth = qMax(qMax(hourDisplay->width(), minDisplay->width()), qMax(secDisplay->width(), fracDisplay->width()));
 
-    int maxFontWidth = qMax(qMax(hourWidth, minWidth), qMax(secWidth, fracWidth));
-
-    if (maxFontWidth >= MIN_FRAME_WIDTH) {
-        width = maxFontWidth + (maxFontWidth / 10); // 10% of font width used as padding
+    if (maxWidth >= MIN_FRAME_WIDTH) {
+        width = maxWidth + (maxWidth * 20 / 100); // 20% as padding, i.e. 10% as right padding and 10% as left padding
     }
 
     hourFrame->setMinimumWidth(width);

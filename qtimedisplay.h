@@ -28,6 +28,7 @@ class QHBoxLayout;
 class QVBoxLayout;
 class QFrame;
 class QLabel;
+class QDigitDisplay;
 
 #include "qtimeformat.h"
 
@@ -125,10 +126,10 @@ private:
     QLabel *minHeader;
     QLabel *secHeader;
     QLabel *fracHeader;
-    QLabel *hourLabel;
-    QLabel *minLabel;
-    QLabel *secLabel;
-    QLabel *fracLabel;
+    QDigitDisplay *hourDisplay;
+    QDigitDisplay *minDisplay;
+    QDigitDisplay *secDisplay;
+    QDigitDisplay *fracDisplay;
 
     QFont hourFont;
     QFont minFont;
