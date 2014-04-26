@@ -23,7 +23,6 @@
 #include <QWidget>
 #include <QTime>
 
-class QSplitter;
 class QHBoxLayout;
 class QVBoxLayout;
 class QFrame;
@@ -75,16 +74,16 @@ public:
      */
     void setFracFont(const QFont& font);
 
-	/**
-	 * Set a custom color for display background.
-	 * @param color The custom color to set.
-	 */
+    /**
+     * Set a custom color for display background.
+     * @param color The custom color to set.
+     */
     void setBackgroundColor(const QColor& color);
 
-	/**
-	 * Set a custom color for display fonts.
-	 * @param color The custom color to set.
-	 */
+    /**
+     * Set a custom color for display fonts.
+     * @param color The custom color to set.
+     */
     void setTextColor(const QColor& color);
 
     /**
@@ -130,11 +129,6 @@ private:
     QDigitDisplay *minDisplay;
     QDigitDisplay *secDisplay;
     QDigitDisplay *fracDisplay;
-
-    QFont hourFont;
-    QFont minFont;
-    QFont secFont;
-    QFont fracFont;
 
     QColor backgroundColor;
     QColor textColor;

@@ -23,7 +23,6 @@
 
 #include <QLabel>
 #include <QBoxLayout>
-#include <QSplitter>
 
 #include "qdigitdisplay.h"
 
@@ -129,29 +128,25 @@ void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
 
 void QTimeDisplay::setHourFont(const QFont& font)
 {
-    hourFont = font;
-    hourDisplay->setFont(hourFont);
+    hourDisplay->setFont(font);
     updateWidth();
 }
 
 void QTimeDisplay::setMinFont(const QFont& font)
 {
-    minFont = font;
-    minDisplay->setFont(minFont);
+    minDisplay->setFont(font);
     updateWidth();
 }
 
 void QTimeDisplay::setSecFont(const QFont& font)
 {
-    secFont = font;
-    secDisplay->setFont(secFont);
+    secDisplay->setFont(font);
     updateWidth();
 }
 
 void QTimeDisplay::setFracFont(const QFont& font)
 {
-    fracFont = font;
-    fracDisplay->setFont(fracFont);
+    fracDisplay->setFont(font);
     updateWidth();
 }
 
