@@ -104,7 +104,7 @@ void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
     secFrame->setVisible(timeFormat.isSecEnabled());
     fracFrame->setVisible(timeFormat.isSecFracEnabled());
 
-    hourDisplay->setDigitCounter(QDigitDisplay::ONE_DIGIT);
+    hourDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
     minDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
     secDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
 

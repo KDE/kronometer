@@ -143,10 +143,10 @@ void QTimeFormat::setupFormat()
 {
     if (hour) {
         if (dividers and (min or sec or secFraction != SecFraction::NONE)) {
-            hourFormat = "h:";
+            hourFormat = "hh:";
         }
         else {
-            hourFormat = 'h';
+            hourFormat = "hh";
         }
     }
 
