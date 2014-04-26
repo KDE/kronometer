@@ -105,22 +105,22 @@ void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
     secFrame->setVisible(timeFormat.isSecEnabled());
     fracFrame->setVisible(timeFormat.isSecFracEnabled());
 
-    hourDisplay->setDigitCounter(QDigitDisplay::ONE);
-    minDisplay->setDigitCounter(QDigitDisplay::TWO);
-    secDisplay->setDigitCounter(QDigitDisplay::TWO);
+    hourDisplay->setDigitCounter(QDigitDisplay::ONE_DIGIT);
+    minDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
+    secDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
 
     if (timeFormat.isSecFracEnabled()) {
         if (timeFormat.isMSecEnabled()) {
             fracHeader->setText(i18n("Milliseconds"));
-            fracDisplay->setDigitCounter(QDigitDisplay::THREE);
+            fracDisplay->setDigitCounter(QDigitDisplay::THREE_DIGITS);
         }
         else if (timeFormat.isHundredthEnabled()) {
             fracHeader->setText(i18n("Hundredths"));
-            fracDisplay->setDigitCounter(QDigitDisplay::TWO);
+            fracDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
         }
         else if (timeFormat.isTenthEnabled()) {
             fracHeader->setText(i18n("Tenths"));
-            fracDisplay->setDigitCounter(QDigitDisplay::ONE);
+            fracDisplay->setDigitCounter(QDigitDisplay::ONE_DIGIT);
         }
     }
 

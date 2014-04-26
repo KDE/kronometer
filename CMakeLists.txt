@@ -9,6 +9,7 @@ set(
     mainwindow.cpp
     qstopwatch.cpp
     qtimedisplay.cpp
+    qdigitdisplay.cpp
     lapmodel.cpp
     qtimeformat.cpp
 )
