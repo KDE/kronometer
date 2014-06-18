@@ -27,9 +27,9 @@ class QTime;
 /**
  * @brief A wrapper for a QTime-like format time string.
  * A QTimeFormat is an abstraction for a QTime-like string used for time formats.
- * A TQimeFormat can be customized using booleans in the constructor.
+ * A QTimeFormat can be customized using booleans in the constructor.
  * The QTime-syntax used is the following:
- * "h:" whether to show hours (0 to 24)
+ * "hh:" whether to show hours (00 to 24)
  * "mm:" whether to show minutes (00 to 59)
  * "ss." whether to show seconds (00 to 59)
  * "zzz" whether to show second fractions (tenths or hundredths or milliseconds)
@@ -119,6 +119,12 @@ public:
      */
     bool isMSecEnabled() const;
 
+    /**
+     * Whether to show the symbols ':' and '.' used as dividers in the time format.
+     * @param show true Whether to show the dividers.
+     */
+    void showDividers(bool show);
+
 private:
 
     enum class SecFraction
@@ -134,6 +140,7 @@ private:
     bool sec;                   /** Whether second is in the internal time format */
     SecFraction secFraction;    /** Second fraction internal time format */
 
+    bool dividers;              /** Whether to show the symbols used as dividers */
     QString hourFormat;         /** Hour string format */
     QString minFormat;          /** Minute string format */
     QString secFormat;          /** Secondstring format */

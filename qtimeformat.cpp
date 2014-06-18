@@ -25,7 +25,8 @@ QTimeFormat::QTimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec
     :
     hour(h),
     min(mm),
-    sec(ss)
+    sec(ss),
+    dividers(true)
 {
     if (msec) {
         secFraction = SecFraction::MILLISECOND;
@@ -132,19 +133,25 @@ bool QTimeFormat::isMSecEnabled() const
     return secFraction == SecFraction::MILLISECOND;
 }
 
+void QTimeFormat::showDividers(bool show)
+{
+    dividers = show;
+    setupFormat();
+}
+
 void QTimeFormat::setupFormat()
 {
     if (hour) {
-        if (min or sec or secFraction != SecFraction::NONE) {
-            hourFormat = "h:";
+        if (dividers and (min or sec or secFraction != SecFraction::NONE)) {
+            hourFormat = "hh:";
         }
         else {
-            hourFormat = 'h';
+            hourFormat = "hh";
         }
     }
 
     if (min) {
-        if (sec or secFraction != SecFraction::NONE) {
+        if (dividers and (sec or secFraction != SecFraction::NONE)) {
             minFormat = "mm:";
         }
         else {
@@ -153,7 +160,7 @@ void QTimeFormat::setupFormat()
     }
 
     if (sec) {
-        if (secFraction != SecFraction::NONE) {
+        if (dividers and (secFraction != SecFraction::NONE)) {
             secFormat = "ss.";
         }
         else {

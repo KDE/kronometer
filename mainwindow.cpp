@@ -415,6 +415,7 @@ void MainWindow::loadSettings()
     );
 
     lapModel->setTimeFormat(timeFormat);
+    timeFormat.showDividers(false);
     stopwatchDisplay->setTimeFormat(timeFormat);
     stopwatchDisplay->setHourFont(KronometerConfig::hourFont());
     stopwatchDisplay->setMinFont(KronometerConfig::minFont());

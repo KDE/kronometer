@@ -23,11 +23,11 @@
 #include <QWidget>
 #include <QTime>
 
-class QSplitter;
 class QHBoxLayout;
 class QVBoxLayout;
 class QFrame;
 class QLabel;
+class QDigitDisplay;
 
 #include "qtimeformat.h"
 
@@ -74,16 +74,16 @@ public:
      */
     void setFracFont(const QFont& font);
 
-	/**
-	 * Set a custom color for display background.
-	 * @param color The custom color to set.
-	 */
+    /**
+     * Set a custom color for display background.
+     * @param color The custom color to set.
+     */
     void setBackgroundColor(const QColor& color);
 
-	/**
-	 * Set a custom color for display fonts.
-	 * @param color The custom color to set.
-	 */
+    /**
+     * Set a custom color for display fonts.
+     * @param color The custom color to set.
+     */
     void setTextColor(const QColor& color);
 
     /**
@@ -108,7 +108,8 @@ public slots:
 
 private:
 
-    QSplitter *splitter;
+    static const int MIN_FRAME_WIDTH = 100;     /** Minimum default frame width used by all frames */
+
     QHBoxLayout *displayLayout;
     QVBoxLayout *hourLayout;
     QVBoxLayout *minLayout;
@@ -124,15 +125,10 @@ private:
     QLabel *minHeader;
     QLabel *secHeader;
     QLabel *fracHeader;
-    QLabel *hourLabel;
-    QLabel *minLabel;
-    QLabel *secLabel;
-    QLabel *fracLabel;
-
-    QFont hourFont;
-    QFont minFont;
-    QFont secFont;
-    QFont fracFont;
+    QDigitDisplay *hourDisplay;
+    QDigitDisplay *minDisplay;
+    QDigitDisplay *secDisplay;
+    QDigitDisplay *fracDisplay;
 
     QColor backgroundColor;
     QColor textColor;
@@ -144,6 +140,11 @@ private:
      * Refresh the labels text implementing the display timer
      */
     void updateTimer();
+
+    /**
+     * Refresh the minimum width of the frames, based on current font sizes
+     */
+    void updateWidth();
 };
 
 #endif
