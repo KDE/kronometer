@@ -10,6 +10,13 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+v.1.3.0
+* Major improvements in the stopwatch display UI
+* Fixed critical bug with exotic fonts in the stopwatch display
+* Removed the upper toolbar to make the UI less crowded. Those actions are always available in the File menu.
+* Use the official KDE bugtracking system
+* Minor layout fix in the settings dialog
+
 v1.2.2
 * Fixed small bug preventing compilation on old compilers
 
@@ -113,7 +120,7 @@ TODO list
 * ~~Color settings~~
 * ~~Replace binary files with XML files for persistence.~~
 * ~~Laps export feature: CSV and XML format~~
-* System notification support (i.e. for lap times)
+* Port to KF5
 * Text localization
 * System tray support? (pause/resume from tray icon). Hard because multiple windows may be running.
 
