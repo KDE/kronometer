@@ -94,13 +94,15 @@ private slots:
 
     /**
      * Save current times on the current file.
+     * @returns true if operation was successfull
      */
-    void saveFile();
+    bool saveFile();
 
     /**
      * Save current times on a new file.
+     * @returns true if operation was successfull
      */
-    void saveFileAs();
+    bool saveFileAs();
 
     /**
      * Export current lap times on a file.
@@ -165,8 +167,9 @@ private:
     /**
      * Create a file with the current stopwatch time and lap times.
      * @param name The name of the file to be saved.
+     * @return true if operation was successfull
      */
-    void saveFileAs(const QString& name);
+    bool saveFileAs(const QString& name);
 
     /**
      * Load the XML save file. If an error occurs, the window is closed.

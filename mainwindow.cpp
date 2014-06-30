@@ -119,8 +119,7 @@ bool MainWindow::queryClose()
 
         switch (buttonCode) {
         case KMessageBox::Yes:
-          saveFileAs();
-          return true;  // TODO: return false if saving fails
+          return saveFileAs();
         case KMessageBox::No:
           return true;
         default: // cancel
@@ -134,8 +133,7 @@ bool MainWindow::queryClose()
         switch (buttonCode) {
         case KMessageBox::Yes:
           // save document here. If saving fails, return false;
-          saveFile();
-          return true;
+          return saveFile();
         case KMessageBox::No:
           return true;
         default: // cancel
@@ -258,12 +256,12 @@ void MainWindow::openFile()
     delete dialog;
 }
 
-void MainWindow::saveFile()
+bool MainWindow::saveFile()
 {
-    saveFileAs(fileName);
+    return saveFileAs(fileName);
 }
 
-void MainWindow::saveFileAs()
+bool MainWindow::saveFileAs()
 {
     QPointer<KFileDialog> dialog = new KFileDialog(KUrl(), QString(), this);
     dialog->setOperationMode(KFileDialog::Saving);
@@ -274,11 +272,13 @@ void MainWindow::saveFileAs()
     mimeTypes << XML_MIMETYPE;
     dialog->setMimeFilter(mimeTypes);
 
+    bool rc = false;
     if (dialog->exec() == QDialog::Accepted) {
-        saveFileAs(dialog->selectedFile());
+        rc = saveFileAs(dialog->selectedFile());
     }
 
     delete dialog;
+    return rc;
 }
 
 void MainWindow::exportLapsAs()
@@ -446,10 +446,10 @@ void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
     }
 }
 
-void MainWindow::saveFileAs(const QString& name)
+bool MainWindow::saveFileAs(const QString& name)
 {
     if (name.isEmpty()) {
-        return;
+        return false;
     }
 
     QString saveName = name;
@@ -459,7 +459,10 @@ void MainWindow::saveFileAs(const QString& name)
     }
 
     KSaveFile saveFile(saveName);
-    saveFile.open();
+    if (!saveFile.open()) {
+         KMessageBox::error(this, i18n("Failed to open file"));
+        return false;
+    }
 
     // OLD: persistence using binary files
     //QDataStream stream(&saveFile);
@@ -470,13 +473,20 @@ void MainWindow::saveFileAs(const QString& name)
     QTextStream stream(&saveFile);
     createXmlSaveFile(stream);
 
-    saveFile.finalize();
+
+    bool isSaveSuccessfull = saveFile.finalize();
     saveFile.close();
 
-    fileName = saveName;
+    if (isSaveSuccessfull) {
+        fileName = saveName;
 
-    unsavedTimes = false;
-    setWindowModified(unsavedTimes);
+        unsavedTimes = false;
+        setWindowModified(unsavedTimes);
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 void MainWindow::openFile(const QString& name)
