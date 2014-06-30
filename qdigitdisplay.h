@@ -27,9 +27,13 @@ class QLabel;
 
 /**
  * @brief A custom widget displaying up to three digits.
- * This widget is meant to be used as a QLabel replacement to display the digits of a timer component (minutes, seconds, etc.).
- * By default a QLabel displays a single text and if the font is not monospace this might look bad when the text is refreshed very quickly, as in a stopwatch timer.
- * This widget instead displays the text by splitting it into up to three different strings, displayed in different QLabels within a horizontal layout. (i.e. simulating a monospace font using adequate padding).
+ * This widget is meant to be used as a QLabel replacement to display the digits
+ *  of a timer component (minutes, seconds, etc.). By default a QLabel displays
+ * a single text and if the font is not monospace this might look bad when the
+ * text is refreshed very quickly, as in a stopwatch timer. This widget instead
+ * displays the text by splitting it into up to three different strings, displayed
+ * in different QLabels within a horizontal layout. (i.e. simulating a monospace font
+ *  using adequate padding).
  */
 class QDigitDisplay : public QWidget
 {
