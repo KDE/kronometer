@@ -10,7 +10,7 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
-v.1.3.0
+v1.3.0
 * Major improvements in the stopwatch display UI
 * Fixed critical bug with exotic fonts in the stopwatch display
 * Removed the upper toolbar to make the UI less crowded. Those actions are always available in the File menu.

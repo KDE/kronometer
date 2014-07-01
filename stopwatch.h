@@ -58,19 +58,19 @@ public:
     void setGranularity(Granularity g);
 
     /**
-     * Check is the stopwatch is running
+     * Check if the stopwatch is running
      * @return true if running, false otherwise
      */
     bool isRunning() const;
 
     /**
-     * Check is the stopwatch is paused
+     * Check if the stopwatch is paused
      * @return true if paused, false otherwise
      */
     bool isPaused() const;
 
     /**
-     * Check is the stopwatch is inactive
+     * Check if the stopwatch is inactive
      * @return true if inactive, false otherwise
      */
     bool isInactive() const;

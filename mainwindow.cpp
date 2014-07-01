@@ -119,11 +119,11 @@ bool MainWindow::queryClose()
 
         switch (buttonCode) {
         case KMessageBox::Yes:
-          return saveFileAs();
+            return saveFileAs();
         case KMessageBox::No:
-          return true;
+            return true;
         default: // cancel
-          return false;
+            return false;
         }
     }
     else if (unsavedTimes) {
@@ -132,12 +132,12 @@ bool MainWindow::queryClose()
 
         switch (buttonCode) {
         case KMessageBox::Yes:
-          // save document here. If saving fails, return false;
-          return saveFile();
+            // save document here. If saving fails, return false;
+            return saveFile();
         case KMessageBox::No:
-          return true;
+            return true;
         default: // cancel
-          return false;
+            return false;
         }
     }
 
