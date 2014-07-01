@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef QSTOPWATCH_H
-#define QSTOPWATCH_H
+#ifndef STOPWATCH_H
+#define STOPWATCH_H
 
 #include <QObject>
 #include <QElapsedTimer>

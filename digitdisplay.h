@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef QDIGITDISPLAY_H
-#define QDIGITDISPLAY_H
+#ifndef DIGITDISPLAY_H
+#define DIGITDISPLAY_H
 
 #include <QWidget>
 

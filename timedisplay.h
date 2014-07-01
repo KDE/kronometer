@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef QTIMEDISPLAY_H
-#define QTIMEDISPLAY_H
+#ifndef TIMEDISPLAY_H
+#define TIMEDISPLAY_H
 
 #include <QWidget>
 #include <QTime>
