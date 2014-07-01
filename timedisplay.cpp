@@ -17,21 +17,21 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "qtimedisplay.h"
+#include "timedisplay.h"
 
 #include <KLocale>
 
 #include <QLabel>
 #include <QBoxLayout>
 
-#include "qdigitdisplay.h"
+#include "digitdisplay.h"
 
 namespace
 {
     const QString FRAME_STYLE = "QFrame {background-clip: content; background: %1; color: %2}";
 }
 
-QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
+TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
 {
     displayLayout = new QHBoxLayout(this);
 
@@ -70,10 +70,10 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     secHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
     fracHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
-    hourDisplay = new QDigitDisplay(hourFrame);
-    minDisplay = new QDigitDisplay(minFrame);
-    secDisplay = new QDigitDisplay(secFrame);
-    fracDisplay = new QDigitDisplay(fracFrame);
+    hourDisplay = new DigitDisplay(hourFrame);
+    minDisplay = new DigitDisplay(minFrame);
+    secDisplay = new DigitDisplay(secFrame);
+    fracDisplay = new DigitDisplay(fracFrame);
 
     hourDisplay->showDigits(timeFormat.formatHours(displayTime));
     minDisplay->showDigits(timeFormat.formatMin(displayTime));
@@ -95,7 +95,7 @@ QTimeDisplay::QTimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     displayLayout->addWidget(fracFrame);
 }
 
-void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
+void TimeDisplay::setTimeFormat(const TimeFormat &format)
 {
     timeFormat = format;
 
@@ -104,53 +104,53 @@ void QTimeDisplay::setTimeFormat(const QTimeFormat &format)
     secFrame->setVisible(timeFormat.isSecEnabled());
     fracFrame->setVisible(timeFormat.isSecFracEnabled());
 
-    hourDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
-    minDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
-    secDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
+    hourDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
+    minDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
+    secDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
 
     if (timeFormat.isSecFracEnabled()) {
         if (timeFormat.isMSecEnabled()) {
             fracHeader->setText(i18n("Milliseconds"));
-            fracDisplay->setDigitCounter(QDigitDisplay::THREE_DIGITS);
+            fracDisplay->setDigitCounter(DigitDisplay::THREE_DIGITS);
         }
         else if (timeFormat.isHundredthEnabled()) {
             fracHeader->setText(i18n("Hundredths"));
-            fracDisplay->setDigitCounter(QDigitDisplay::TWO_DIGITS);
+            fracDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
         }
         else if (timeFormat.isTenthEnabled()) {
             fracHeader->setText(i18n("Tenths"));
-            fracDisplay->setDigitCounter(QDigitDisplay::ONE_DIGIT);
+            fracDisplay->setDigitCounter(DigitDisplay::ONE_DIGIT);
         }
     }
 
     updateTimer();
 }
 
-void QTimeDisplay::setHourFont(const QFont& font)
+void TimeDisplay::setHourFont(const QFont& font)
 {
     hourDisplay->setFont(font);
     updateWidth();
 }
 
-void QTimeDisplay::setMinFont(const QFont& font)
+void TimeDisplay::setMinFont(const QFont& font)
 {
     minDisplay->setFont(font);
     updateWidth();
 }
 
-void QTimeDisplay::setSecFont(const QFont& font)
+void TimeDisplay::setSecFont(const QFont& font)
 {
     secDisplay->setFont(font);
     updateWidth();
 }
 
-void QTimeDisplay::setFracFont(const QFont& font)
+void TimeDisplay::setFracFont(const QFont& font)
 {
     fracDisplay->setFont(font);
     updateWidth();
 }
 
-void QTimeDisplay::setBackgroundColor(const QColor& color)
+void TimeDisplay::setBackgroundColor(const QColor& color)
 {
     backgroundColor = color;
 
@@ -160,7 +160,7 @@ void QTimeDisplay::setBackgroundColor(const QColor& color)
     fracFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
 }
 
-void QTimeDisplay::setTextColor(const QColor& color)
+void TimeDisplay::setTextColor(const QColor& color)
 {
     textColor = color;
 
@@ -170,7 +170,7 @@ void QTimeDisplay::setTextColor(const QColor& color)
     fracFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
 }
 
-void QTimeDisplay::showHeaders(bool show)
+void TimeDisplay::showHeaders(bool show)
 {
     hourHeader->setVisible(show);
     minHeader->setVisible(show);
@@ -178,7 +178,7 @@ void QTimeDisplay::showHeaders(bool show)
     fracHeader->setVisible(show);
 }
 
-QString QTimeDisplay::currentTime()
+QString TimeDisplay::currentTime()
 {
     timeFormat.showDividers(true);
     QString currentTime = timeFormat.format(displayTime);
@@ -188,13 +188,13 @@ QString QTimeDisplay::currentTime()
 }
 
 
-void QTimeDisplay::time(const QTime& t)
+void TimeDisplay::time(const QTime& t)
 {
     displayTime = t;
     updateTimer();
 }
 
-void QTimeDisplay::updateTimer()
+void TimeDisplay::updateTimer()
 {
     if (timeFormat.isHourEnabled()) {
         hourDisplay->showDigits(timeFormat.formatHours(displayTime));
@@ -213,7 +213,7 @@ void QTimeDisplay::updateTimer()
     }
 }
 
-void QTimeDisplay::updateWidth()
+void TimeDisplay::updateWidth()
 {
     int width = MIN_FRAME_WIDTH;
 

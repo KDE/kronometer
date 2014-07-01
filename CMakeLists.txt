@@ -7,11 +7,11 @@ set(
     kronometer_SRCS
     main.cpp
     mainwindow.cpp
-    qstopwatch.cpp
-    qtimedisplay.cpp
-    qdigitdisplay.cpp
+    stopwatch.cpp
+    timedisplay.cpp
+    digitdisplay.cpp
     lapmodel.cpp
-    qtimeformat.cpp
+    timeformat.cpp
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -ansi -pedantic -std=gnu++0x")

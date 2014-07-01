@@ -37,8 +37,8 @@
 #include <QDomDocument>
 #include <QPointer>
 
-#include "qstopwatch.h"
-#include "qtimedisplay.h"
+#include "stopwatch.h"
+#include "timedisplay.h"
 #include "lapmodel.h"
 #include "settings.h"
 #include "widgets/generalsettings.h"
@@ -85,8 +85,8 @@ namespace
  
 MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(parent), unsavedTimes(false)
 {
-    stopwatch = new QStopwatch(this);
-    stopwatchDisplay = new QTimeDisplay(this);
+    stopwatch = new Stopwatch(this);
+    stopwatchDisplay = new TimeDisplay(this);
     connect(stopwatch, SIGNAL(time(QTime)), stopwatchDisplay, SLOT(time(QTime)));  // bind stopwatch to its display
 
     setupCentralWidget();
@@ -372,7 +372,7 @@ void MainWindow::setupActions()
     actionCollection()->addAction(LAP_KEY, lapAction);
     actionCollection()->addAction(EXPORT_KEY, exportAction);
 
-    // triggers for QStopwatch "behavioral" slots
+    // triggers for Stopwatch "behavioral" slots
     connect(startAction, SIGNAL(triggered(bool)), stopwatch, SLOT(start()));
     connect(pauseAction, SIGNAL(triggered(bool)), stopwatch, SLOT(pause()));
     connect(resetAction, SIGNAL(triggered(bool)), stopwatch, SLOT(reset()));
@@ -405,7 +405,7 @@ void MainWindow::setupActions()
 
 void MainWindow::loadSettings()
 {
-    QTimeFormat timeFormat(
+    TimeFormat timeFormat(
         KronometerConfig::showHours(),
         KronometerConfig::showMinutes(),
         KronometerConfig::showSeconds(),
@@ -433,16 +433,16 @@ void MainWindow::loadSettings()
 void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
 {
     if (msec) {
-        stopwatch->setGranularity(QStopwatch::MILLISECONDS);
+        stopwatch->setGranularity(Stopwatch::MILLISECONDS);
     }
     else if (hundredths) {
-        stopwatch->setGranularity(QStopwatch::HUNDREDTHS);
+        stopwatch->setGranularity(Stopwatch::HUNDREDTHS);
     }
     else if (tenths) {
-        stopwatch->setGranularity(QStopwatch::TENTHS);
+        stopwatch->setGranularity(Stopwatch::TENTHS);
     }
     else {
-        stopwatch->setGranularity(QStopwatch::SECONDS);
+        stopwatch->setGranularity(Stopwatch::SECONDS);
     }
 }
 

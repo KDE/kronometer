@@ -35,12 +35,12 @@ class QTime;
  * "zzz" whether to show second fractions (tenths or hundredths or milliseconds)
  * An example of time formatted with the complete syntax might be the following: 0:05:38.582
  */
-class QTimeFormat
+class TimeFormat
 {
 
 public:
 
-    explicit QTimeFormat(bool h = false, bool mm = true, bool ss = true, bool t = true, bool hundr = true, bool msec = false);
+    explicit TimeFormat(bool h = false, bool mm = true, bool ss = true, bool t = true, bool hundr = true, bool msec = false);
 
     /**
      * Format the given time with the current time format.

@@ -17,36 +17,37 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "qstopwatch.h"
+#include "stopwatch.h"
 
 #include <QTime>
 #include <QTimerEvent>
 #include <QDataStream>
 #include <QDomElement>
+#include <QCoreApplication>
 
-QStopwatch::QStopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS) {}
+Stopwatch::Stopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS) {}
 
-void QStopwatch::setGranularity(Granularity g)
+void Stopwatch::setGranularity(Granularity g)
 {
     granularity = g;
 }
 
-bool QStopwatch::isRunning() const
+bool Stopwatch::isRunning() const
 {
     return state == State::RUNNING;
 }
 
-bool QStopwatch::isPaused() const
+bool Stopwatch::isPaused() const
 {
     return state == State::PAUSED;
 }
 
-bool QStopwatch::isInactive() const
+bool Stopwatch::isInactive() const
 {
     return state == State::INACTIVE;
 }
 
-bool QStopwatch::serialize(QDataStream& out)
+bool Stopwatch::serialize(QDataStream& out)
 {
     if (state != State::PAUSED) {
         return false;
@@ -57,7 +58,7 @@ bool QStopwatch::serialize(QDataStream& out)
     return true;
 }
 
-bool QStopwatch::deserialize(QDataStream& in)
+bool Stopwatch::deserialize(QDataStream& in)
 {
     if (state != State::INACTIVE) {
         return false;
@@ -74,7 +75,7 @@ bool QStopwatch::deserialize(QDataStream& in)
     return true;
 }
 
-bool QStopwatch::serialize(QDomElement& element, const QString& attributeName)
+bool Stopwatch::serialize(QDomElement& element, const QString& attributeName)
 {
     if (state != State::PAUSED or attributeName.isEmpty()) {
         return false;
@@ -85,7 +86,7 @@ bool QStopwatch::serialize(QDomElement& element, const QString& attributeName)
     return true;
 }
 
-bool QStopwatch::deserialize(QDomElement& element, const QString& attributeName)
+bool Stopwatch::deserialize(QDomElement& element, const QString& attributeName)
 {
     if (state != State::INACTIVE or attributeName.isEmpty()) {
         return false;
@@ -108,7 +109,7 @@ bool QStopwatch::deserialize(QDomElement& element, const QString& attributeName)
     return true;
 }
 
-void QStopwatch::start()
+void Stopwatch::start()
 {
     if (state == State::INACTIVE) {
         accumulator = 0;
@@ -126,7 +127,7 @@ void QStopwatch::start()
     state = State::RUNNING;
 }
 
-void QStopwatch::pause()
+void Stopwatch::pause()
 {
     if (elapsedTimer.isValid()) {
         accumulator += elapsedTimer.elapsed();
@@ -136,18 +137,15 @@ void QStopwatch::pause()
     state = State::PAUSED;
 }
 
-void QStopwatch::reset()
+void Stopwatch::reset()
 {
     elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
-
-    if (state == State::PAUSED) {       // if not, it must be done explicitly
-        emit time(QTime(0,0));          // in this way the stopwatch signals that it has been reset
-    }
-
+    QCoreApplication::processEvents();
+    emit time(QTime(0,0));
     state = State::INACTIVE;
 }
 
-void QStopwatch::lap()
+void Stopwatch::lap()
 {
 
     QTime lapTime(0, 0);
@@ -161,7 +159,7 @@ void QStopwatch::lap()
     emit lap(lapTime);
 }
 
-void QStopwatch::timerEvent(QTimerEvent *event)
+void Stopwatch::timerEvent(QTimerEvent *event)
 {
     if (event->timerId() != timerId) {      // forward undesired events
         QObject::timerEvent(event);

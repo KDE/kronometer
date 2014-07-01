@@ -35,7 +35,7 @@ class QLabel;
  * in different QLabels within a horizontal layout. (i.e. simulating a monospace font
  *  using adequate padding).
  */
-class QDigitDisplay : public QWidget
+class DigitDisplay : public QWidget
 {
 
 public:
@@ -48,7 +48,7 @@ public:
         NO_DIGIT           /**< Display no digit */
     };
 
-    explicit QDigitDisplay(QWidget *parent = nullptr, DigitCounter counter = NO_DIGIT);
+    explicit DigitDisplay(QWidget *parent = nullptr, DigitCounter counter = NO_DIGIT);
 
     /**
      * Set the number of digits to be displayed.

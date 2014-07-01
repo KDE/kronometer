@@ -27,28 +27,28 @@ class QHBoxLayout;
 class QVBoxLayout;
 class QFrame;
 class QLabel;
-class QDigitDisplay;
+class DigitDisplay;
 
-#include "qtimeformat.h"
+#include "timeformat.h"
 
 /**
  * @brief A custom widget displaying a QTime
  * This custom widget implements a "digital" display for a time, formatted according to a certain format.
  * This widget can be connected to a generic "time source" producing the time to be displayed.
  */
-class QTimeDisplay : public QWidget
+class TimeDisplay : public QWidget
 {
     Q_OBJECT
 
 public:
 
-    explicit QTimeDisplay(QWidget *parent = nullptr);
+    explicit TimeDisplay(QWidget *parent = nullptr);
 
     /**
      * Set the internal time format of the display
      * @param format
      */
-    void setTimeFormat(const QTimeFormat& format);
+    void setTimeFormat(const TimeFormat& format);
 
     /**
      * Set a custom font for hours
@@ -125,16 +125,16 @@ private:
     QLabel *minHeader;
     QLabel *secHeader;
     QLabel *fracHeader;
-    QDigitDisplay *hourDisplay;
-    QDigitDisplay *minDisplay;
-    QDigitDisplay *secDisplay;
-    QDigitDisplay *fracDisplay;
+    DigitDisplay *hourDisplay;
+    DigitDisplay *minDisplay;
+    DigitDisplay *secDisplay;
+    DigitDisplay *fracDisplay;
 
     QColor backgroundColor;
     QColor textColor;
 
     QTime displayTime;              /** Current display time */
-    QTimeFormat timeFormat;          /** Current display time format */
+    TimeFormat timeFormat;          /** Current display time format */
 
     /**
      * Refresh the labels text implementing the display timer

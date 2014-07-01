@@ -29,8 +29,8 @@ class QSplitter;
 class QTableView;
 class QSortFilterProxyModel;
 
-class QStopwatch;
-class QTimeDisplay;
+class Stopwatch;
+class TimeDisplay;
 class QTextStream;
 class LapModel;
 
@@ -116,8 +116,8 @@ private slots:
 
 private:
 
-    QStopwatch *stopwatch;
-    QTimeDisplay *stopwatchDisplay;
+    Stopwatch *stopwatch;
+    TimeDisplay *stopwatchDisplay;
     QSplitter *centralSplitter;
     QTableView *lapView;
     QLabel *statusLabel;

@@ -30,12 +30,12 @@ class QDomElement;
 
 /**
  * @brief A Stopwatch class written in Qt.
- * QStopwatch is a simple QObject implementing a real stopwatch.
+ * Stopwatch is a simple QObject implementing a real stopwatch.
  * The class provides public slots for start/pause/reset the timer.
  * A slot for lap recording exists too, but the computing of lap times is not a task of this class:
- * QStopwatch simply emits a signal, that the receiver can use to compute lap times.
+ * Stopwatch simply emits a signal, that the receiver can use to compute lap times.
  */
-class QStopwatch : public QObject
+class Stopwatch : public QObject
 {
     Q_OBJECT
 
@@ -49,7 +49,7 @@ public:
         SECONDS = 1000   /**< Stopwatch refreshed every sec. */
     };
 
-    explicit QStopwatch(QObject *parent = nullptr);
+    explicit Stopwatch(QObject *parent = nullptr);
 
     /**
      * Set the stopwatch refresh granularity

@@ -22,7 +22,7 @@
 
 #include <QAbstractTableModel>
 
-#include "qtimeformat.h"
+#include "timeformat.h"
 
 class QTime;
 class QDomElement;
@@ -45,7 +45,7 @@ public:
     QVariant data(const QModelIndex& index, int role) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
 
-    void setTimeFormat(const QTimeFormat& format);
+    void setTimeFormat(const TimeFormat& format);
 
     /**
      * Serialize the suggested lap time to the given XML DOM element.
@@ -115,7 +115,7 @@ private:
     };
 
     QList<QTime> timeList;              /** Absolute lap times */
-    QTimeFormat timeFormat;              /** Current lap times format */
+    TimeFormat timeFormat;              /** Current lap times format */
 
 
 };

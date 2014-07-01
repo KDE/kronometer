@@ -17,12 +17,12 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "qdigitdisplay.h"
+#include "digitdisplay.h"
 
 #include <QHBoxLayout>
 #include <QLabel>
 
-QDigitDisplay::QDigitDisplay(QWidget *parent, DigitCounter counter) : QWidget(parent)
+DigitDisplay::DigitDisplay(QWidget *parent, DigitCounter counter) : QWidget(parent)
 {
     layout = new QHBoxLayout(this);
     leftmostDigit = new QLabel(this);
@@ -40,7 +40,7 @@ QDigitDisplay::QDigitDisplay(QWidget *parent, DigitCounter counter) : QWidget(pa
     setDigitCounter(counter);
 }
 
-void QDigitDisplay::setDigitCounter(DigitCounter counter)
+void DigitDisplay::setDigitCounter(DigitCounter counter)
 {
     switch (counter) {
     case ONE_DIGIT:
@@ -70,7 +70,7 @@ void QDigitDisplay::setDigitCounter(DigitCounter counter)
     }
 }
 
-void QDigitDisplay::showDigits(const QString& digits) const
+void DigitDisplay::showDigits(const QString& digits) const
 {
     switch (digitCounter) {
     case ONE_DIGIT:
@@ -87,7 +87,7 @@ void QDigitDisplay::showDigits(const QString& digits) const
     }
 }
 
-void QDigitDisplay::setFont(const QFont& font)
+void DigitDisplay::setFont(const QFont& font)
 {
     displayFont = font;
 
@@ -96,7 +96,7 @@ void QDigitDisplay::setFont(const QFont& font)
     rightmostDigit->setFont(displayFont);
 }
 
-int QDigitDisplay::width() const
+int DigitDisplay::width() const
 {
     int width = 0;
     QFontMetrics fontMetrics(displayFont);
@@ -118,14 +118,14 @@ int QDigitDisplay::width() const
     return width + (width * 10 / 100); // 10% used as padding between digits
 }
 
-void QDigitDisplay::showOneDigit(const QString& digit) const
+void DigitDisplay::showOneDigit(const QString& digit) const
 {
     if (digit.size() == digitCounter) {
         leftmostDigit->setText(digit.at(0));
     }
 }
 
-void QDigitDisplay::showTwoDigits(const QString& digits) const
+void DigitDisplay::showTwoDigits(const QString& digits) const
 {
     if (digits.size() == digitCounter) {
         // digits are displayed from right to left
@@ -134,7 +134,7 @@ void QDigitDisplay::showTwoDigits(const QString& digits) const
     }
 }
 
-void QDigitDisplay::showThreeDigits(const QString& digits) const
+void DigitDisplay::showThreeDigits(const QString& digits) const
 {
     if (digits.size() == digitCounter) {
         // digits are displayed from right to left
