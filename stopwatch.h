@@ -116,22 +116,22 @@ public slots:
     /**
      * Start the stopwatch, if inactive or paused.
      */
-    void start();
+    void onStart();
 
     /**
      * Pause the stopwatch, if running.
      */
-    void pause();
+    void onPause();
 
     /**
      * Reset the stopwatch to the inactive state.
      */
-    void reset();
+    void onReset();
 
     /**
      * Tells the stopwatch to emits a signal with the last lap time.
      */
-    void lap();
+    void onLap();
 
 signals:
 

@@ -104,7 +104,7 @@ public slots:
      * Set the time to be displayed.
      * @param t The time to be displayed.
      */
-    void time(const QTime& t);
+    void onTime(const QTime& t);
 
 private:
 

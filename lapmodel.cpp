@@ -174,14 +174,14 @@ bool LapModel::isEmpty() const
     return timeList.isEmpty();
 }
 
-void LapModel::lap(const QTime& lapTime)
+void LapModel::onLap(const QTime& lapTime)
 {
     beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
     timeList.append(lapTime);
     endInsertRows();
 }
 
-void LapModel::clear()
+void LapModel::onClear()
 {
     beginResetModel();
     timeList.clear();

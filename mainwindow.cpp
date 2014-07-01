@@ -87,7 +87,7 @@ MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(par
 {
     stopwatch = new Stopwatch(this);
     stopwatchDisplay = new TimeDisplay(this);
-    connect(stopwatch, SIGNAL(time(QTime)), stopwatchDisplay, SLOT(time(QTime)));  // bind stopwatch to its display
+    connect(stopwatch, SIGNAL(time(QTime)), stopwatchDisplay, SLOT(onTime(QTime)));  // bind stopwatch to its display
 
     setupCentralWidget();
     setupStatusBar();
@@ -108,7 +108,7 @@ bool MainWindow::queryClose()
     }
 
     if (stopwatch->isRunning()) {
-        stopwatch->pause();
+        stopwatch->onPause();
         paused();
     }
 
@@ -373,14 +373,14 @@ void MainWindow::setupActions()
     actionCollection()->addAction(EXPORT_KEY, exportAction);
 
     // triggers for Stopwatch "behavioral" slots
-    connect(startAction, SIGNAL(triggered(bool)), stopwatch, SLOT(start()));
-    connect(pauseAction, SIGNAL(triggered(bool)), stopwatch, SLOT(pause()));
-    connect(resetAction, SIGNAL(triggered(bool)), stopwatch, SLOT(reset()));
-    connect(lapAction, SIGNAL(triggered(bool)), stopwatch, SLOT(lap()));
+    connect(startAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onStart()));
+    connect(pauseAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onPause()));
+    connect(resetAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onReset()));
+    connect(lapAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onLap()));
 
     // triggers for LapModel slots
-    connect(resetAction, SIGNAL(triggered(bool)), lapModel, SLOT(clear()));
-    connect(stopwatch, SIGNAL(lap(QTime)), lapModel, SLOT(lap(QTime)));
+    connect(resetAction, SIGNAL(triggered(bool)), lapModel, SLOT(onClear()));
+    connect(stopwatch, SIGNAL(lap(QTime)), lapModel, SLOT(onLap(QTime)));
 
     // triggers for MainWindow "gui" slots
     connect(startAction, SIGNAL(triggered(bool)), this, SLOT(running()));

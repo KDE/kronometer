@@ -109,7 +109,7 @@ bool Stopwatch::deserialize(QDomElement& element, const QString& attributeName)
     return true;
 }
 
-void Stopwatch::start()
+void Stopwatch::onStart()
 {
     if (state == State::INACTIVE) {
         accumulator = 0;
@@ -127,7 +127,7 @@ void Stopwatch::start()
     state = State::RUNNING;
 }
 
-void Stopwatch::pause()
+void Stopwatch::onPause()
 {
     if (elapsedTimer.isValid()) {
         accumulator += elapsedTimer.elapsed();
@@ -137,7 +137,7 @@ void Stopwatch::pause()
     state = State::PAUSED;
 }
 
-void Stopwatch::reset()
+void Stopwatch::onReset()
 {
     elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
@@ -145,7 +145,7 @@ void Stopwatch::reset()
     state = State::INACTIVE;
 }
 
-void Stopwatch::lap()
+void Stopwatch::onLap()
 {
 
     QTime lapTime(0, 0);
