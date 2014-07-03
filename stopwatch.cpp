@@ -24,7 +24,7 @@
 #include <QDomElement>
 #include <QCoreApplication>
 
-Stopwatch::Stopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS), zero(0, 0 ){}
+Stopwatch::Stopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS), zero(0, 0){}
 
 void Stopwatch::setGranularity(Granularity g)
 {
