@@ -21,9 +21,9 @@
 #define STOPWATCH_H
 
 #include <QObject>
+#include <QTime>
 #include <QElapsedTimer>
 
-class QTime;
 class QTimerEvent;
 class QDataStream;
 class QDomElement;
@@ -169,6 +169,7 @@ private:
     State state;                                /** Stopwatch current state */
     Granularity granularity;                    /** Stopwatch current granularity */
 
+    const QTime zero;                           /** Empty time to be used to add elapsed milliseconds */
     QElapsedTimer elapsedTimer;                 /** Stopwatch core class*/
 };
 

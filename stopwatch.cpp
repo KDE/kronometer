@@ -19,13 +19,12 @@
 
 #include "stopwatch.h"
 
-#include <QTime>
 #include <QTimerEvent>
 #include <QDataStream>
 #include <QDomElement>
 #include <QCoreApplication>
 
-Stopwatch::Stopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS) {}
+Stopwatch::Stopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS), zero(0, 0 ){}
 
 void Stopwatch::setGranularity(Granularity g)
 {
@@ -67,10 +66,7 @@ bool Stopwatch::deserialize(QDataStream& in)
     in >> accumulator;
     state = State::PAUSED;
 
-    QTime t(0, 0);
-    t = t.addMSecs(accumulator);
-
-    emit time(t);  // it signals that has been deserialized and can be resumed
+    emit time(zero.addMSecs(accumulator));  // it signals that has been deserialized and can be resumed
 
     return true;
 }
@@ -101,10 +97,7 @@ bool Stopwatch::deserialize(QDomElement& element, const QString& attributeName)
 
     state = State::PAUSED;
 
-    QTime t(0, 0);
-    t = t.addMSecs(accumulator);
-
-    emit time(t);  // it signals that has been deserialized and can be resumed
+    emit time(zero.addMSecs(accumulator));  // it signals that has been deserialized and can be resumed
 
     return true;
 }
@@ -141,22 +134,21 @@ void Stopwatch::onReset()
 {
     elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
-    emit time(QTime(0,0));
+    emit time(zero);
     state = State::INACTIVE;
 }
 
 void Stopwatch::onLap()
 {
+    qint64 lapTime = 0;
 
-    QTime lapTime(0, 0);
-
-    lapTime = lapTime.addMSecs(accumulator);
+    lapTime += accumulator;
 
     if (elapsedTimer.isValid()) {
-        lapTime = lapTime.addMSecs(elapsedTimer.elapsed());
+        lapTime += elapsedTimer.elapsed();
     }
 
-    emit lap(lapTime);
+    emit lap(zero.addMSecs(lapTime));
 }
 
 void Stopwatch::timerEvent(QTimerEvent *event)
@@ -166,17 +158,17 @@ void Stopwatch::timerEvent(QTimerEvent *event)
         return;
     }
 
-    QTime t(0, 0);
+    qint64 t = 0;
 
-    t = t.addMSecs(accumulator);
+    t += accumulator;
 
     if (elapsedTimer.isValid()) {
-        t = t.addMSecs(elapsedTimer.elapsed());
+        t += elapsedTimer.elapsed();
     }
     else {
         killTimer(timerId);
         timerId = INACTIVE_TIMER_ID;
     }
 
-    emit time(t);
+    emit time(zero.addMSecs(t));
 }
