@@ -226,6 +226,7 @@ void MainWindow::updateLapDock()
 {
     lapView->resizeColumnsToContents();
     lapView->horizontalHeader()->setStretchLastSection(true);
+    lapView->selectRow(lapModel->rowCount(QModelIndex()) - 1);  // rows indexes start from 0
 }
 
 void MainWindow::newFile()
