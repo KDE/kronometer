@@ -164,11 +164,10 @@ void Stopwatch::timerEvent(QTimerEvent *event)
 
     if (elapsedTimer.isValid()) {
         t += elapsedTimer.elapsed();
+        emit time(zero.addMSecs(t));
     }
     else {
         killTimer(timerId);
         timerId = INACTIVE_TIMER_ID;
     }
-
-    emit time(zero.addMSecs(t));
 }
