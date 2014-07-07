@@ -10,10 +10,15 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+v1.4.0
+* Latest lap time is now automatically selected
+* Fixed bug 336904: https://bugs.kde.org/show_bug.cgi?id=336904
+* First release with localization in over 11 languages
+
 v1.3.0
 * Major improvements in the stopwatch display UI
 * Fixed critical bug with exotic fonts in the stopwatch display
-* Removed the upper toolbar to make the UI less crowded. Those actions are always available in the File menu.
+* Removed the upper toolbar to make the UI less crowded (those actions are always available in the File menu)
 * Use the official KDE bugtracking system
 * Minor layout fix in the settings dialog
 
