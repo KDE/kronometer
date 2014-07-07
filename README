@@ -4,7 +4,7 @@ Kronometer README
 Description
 -----------
 
-Kronometer is a simple *chronometer* application, built for the KDE Linux Desktop Environment.
+Kronometer is a simple stopwatch application, built for the KDE Linux Desktop Environment.
 
 Homepage: http://www.aelog.org/kronometer/
 
@@ -96,32 +96,9 @@ v0.1.0
 Installation
 ------------
 
-Distro-agnostic installation instructions:
+http://www.aelog.org/kronometer/#installation 
 
-1. Download the latest source files archive from github
-2. Extract the archive in your preferred directory and run the following commands:
 
-```
-$ mkdir build && cd build
-$ cmake -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` ..
-$ sudo make install
-```
 
-TODO list
----------
-
-* ~~UI basic improvements: widget separator, labels, etc.~~
-* ~~*Laps* recording feature~~
-* ~~Granularity: ability to choose chronometer granularity~~
-* ~~Save support: ability to save/restore times~~
-* ~~Chronometer font customization: font famility, size, etc.~~
-* ~~Various UI enhancements~~
-* ~~Copy current time to clipboard~~
-* ~~Color settings~~
-* ~~Replace binary files with XML files for persistence.~~
-* ~~Laps export feature: CSV and XML format~~
-* Port to KF5
-* Text localization
-* System tray support? (pause/resume from tray icon). Hard because multiple windows may be running.
 
 
