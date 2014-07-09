@@ -10,6 +10,9 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+v1.4.1
+* Upper toolbar is now correctly removed from the UI
+
 v1.4.0
 * Latest lap time is now automatically selected
 * Fixed bug 336904: https://bugs.kde.org/show_bug.cgi?id=336904
