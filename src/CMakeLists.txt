@@ -13,7 +13,7 @@ set(
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -ansi -pedantic -std=gnu++0x")
 
-kde4_add_ui_files(kronometer_SRCS
+qt5_wrap_ui(kronometer_SRCS
     widgets/generalsettings.ui
     widgets/fontsettings.ui
     widgets/savesettings.ui
