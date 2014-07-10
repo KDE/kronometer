@@ -21,3 +21,5 @@ find_package(KF5 REQUIRED
 
 add_subdirectory(src)
 add_subdirectory(doc)
+
+feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
