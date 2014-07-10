@@ -25,7 +25,7 @@ kconfig_add_kcfg_files(kronometer_SRCS settings.kcfgc)
 
 add_executable(kronometer ${kronometer_SRCS})
 
-target_link_libraries(kronometer ${KDE4_KDEUI_LIBS} ${KDE4_KIO_LIBS})
+target_link_libraries(kronometer KF5::WidgetsAddons KF5::KIOWidgets)
 
 install(FILES kronometer.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(TARGETS kronometer DESTINATION ${BIN_INSTALL_DIR})

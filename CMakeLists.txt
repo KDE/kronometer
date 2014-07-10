@@ -18,8 +18,10 @@ find_package(Qt5 REQUIRED
 find_package(KF5 REQUIRED
     COMPONENTS
     Config
-    CoreAddons
+    CoreAddons # TODO: check if can be removed
     DocTools
+    KIO
+    WidgetsAddons
 )
 
 add_subdirectory(src)
