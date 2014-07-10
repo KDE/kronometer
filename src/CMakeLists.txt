@@ -1,5 +1,3 @@
-include_directories(${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
-
 set(
     kronometer_SRCS
     main.cpp
