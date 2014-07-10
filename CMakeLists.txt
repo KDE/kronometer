@@ -19,6 +19,7 @@ find_package(KF5 REQUIRED
     COMPONENTS
     Config
     CoreAddons
+    DocTools
 )
 
 add_subdirectory(src)
