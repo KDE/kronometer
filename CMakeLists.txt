@@ -37,7 +37,5 @@ install(TARGETS kronometer DESTINATION ${BIN_INSTALL_DIR})
 install(FILES kronometerui.rc DESTINATION  ${DATA_INSTALL_DIR}/kronometer)
 install(PROGRAMS kronometer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
 
-kde4_install_icons(${ICON_INSTALL_DIR})
-kde4_update_iconcache()
-
+add_subdirectory(src)
 add_subdirectory(doc)
