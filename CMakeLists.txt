@@ -8,6 +8,7 @@ set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH} ${ECM_KDE_MODULE_DIR})
 include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings)
+include(ECMInstallIcons)
 include(FeatureSummary)
 
 find_package(Qt5 REQUIRED
