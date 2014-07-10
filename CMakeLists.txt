@@ -16,6 +16,7 @@ find_package(Qt5 REQUIRED
 )
 find_package(KF5 REQUIRED
     COMPONENTS
+    Config
     CoreAddons
 )
 
