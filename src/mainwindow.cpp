@@ -28,7 +28,7 @@
 #include <QFileDialog>
 #include <KMessageBox>
 #include <KIO/NetAccess>
-#include <KSaveFile>
+#include <QSaveFile>
 
 #include <QTableView>
 #include <QSplitter>
@@ -457,8 +457,8 @@ bool MainWindow::saveFileAs(const QString& name)
         saveName += XML_EXTENSION;
     }
 
-    KSaveFile saveFile(saveName);
-    if (!saveFile.open()) {
+    QSaveFile saveFile(saveName);
+    if (!saveFile.open(QIODevice::WriteOnly)) {
          KMessageBox::error(this, i18n("Failed to open file"));
         return false;
     }
@@ -473,8 +473,7 @@ bool MainWindow::saveFileAs(const QString& name)
     createXmlSaveFile(stream);
 
 
-    bool isSaveSuccessfull = saveFile.finalize();
-    saveFile.close();
+    bool isSaveSuccessfull = saveFile.commit();
 
     if (isSaveSuccessfull) {
         fileName = saveName;
@@ -614,13 +613,13 @@ void MainWindow::exportLapsAs(const QString& name, const QString& mimetype)
             exportName += XML_EXTENSION;
         }
 
-        KSaveFile exportFile(exportName);
-        exportFile.open();
+        QSaveFile exportFile(exportName);
+        exportFile.open(QIODevice::WriteOnly);
 
         QTextStream stream(&exportFile);
         exportLapsAsXml(stream);
 
-        exportFile.finalize();
+        exportFile.commit();
         exportFile.close();
     }
 
@@ -629,14 +628,13 @@ void MainWindow::exportLapsAs(const QString& name, const QString& mimetype)
             exportName += CSV_EXTENSION;
         }
 
-        KSaveFile exportFile(exportName);
-        exportFile.open();
+        QSaveFile exportFile(exportName);
+        exportFile.open(QIODevice::WriteOnly);
 
         QTextStream stream(&exportFile);
         exportLapsAsCsv(stream);
 
-        exportFile.finalize();
-        exportFile.close();
+        exportFile.commit();
     }
 }
 
