@@ -122,7 +122,6 @@ private:
     QSplitter *centralSplitter;
     QTableView *lapView;
     QLabel *statusLabel;
-    KStatusBar *statusBar;
 
     QAction *startAction;
     QAction *pauseAction;
