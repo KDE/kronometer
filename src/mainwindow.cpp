@@ -217,7 +217,7 @@ void MainWindow::showSettings()
 void MainWindow::writeSettings(const QString& dialogName)
 {
     Q_UNUSED(dialogName);
-    KronometerConfig::self()->writeConfig();
+    KronometerConfig::self()->save();
 
     loadSettings();
 }
