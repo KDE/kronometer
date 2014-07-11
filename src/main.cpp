@@ -19,40 +19,37 @@
 
 #include <QApplication>
 #include <KAboutData>
-#include <KCmdLineArgs>
 #include <KIcon>
- 
-#include "mainwindow.h"
- 
-namespace
-{
-    const QByteArray APP_NAME = "kronometer";
-    const QByteArray VERSION = "1.4.1";
-    const QByteArray OTHER_TEXT = "";
-    const QByteArray HOME_PAGE_ADDRESS = "http://aelog.org/kronometer";
 
-    const QByteArray AUTHOR_EMAIL_ADDRESS = "elvis.angelaccio@kdemail.net";
-    const QByteArray AUTHOR_WEB_ADDRESS = "http://aelog.org";
-}
+#include "mainwindow.h"
 
 int main (int argc, char **argv)
 {
     KAboutData aboutData(
-        APP_NAME, APP_NAME,
-        ki18n("Kronometer"),
-        VERSION,
-        ki18n("Kronometer is a simple chronometer application built for KDE"),
-        KAboutData::License_GPL,
-        ki18n("Copyright (C) 2014 Elvis Angelaccio"),
-        ki18n(OTHER_TEXT),
-        HOME_PAGE_ADDRESS
+        QStringLiteral("kronometer"),   // componentName
+        i18n("Kronometer"), // displayName
+        QStringLiteral("1.4.1"),    // version
+        i18n("Kronometer is a simple stopwatch application built for KDE"), // shortDescription
+        KAboutData::License_GPL,    // licenseType
+        i18n("Copyright (C) 2014 Elvis Angelaccio"),    // copyrightStatement
+        QString(),  // otherText
+        QStringLiteral("http://aelog.org/kronometer")   // homePageAddress
     );
 
-    aboutData.addAuthor(ki18n("Elvis Angelaccio"), ki18n("Developer"), AUTHOR_EMAIL_ADDRESS, AUTHOR_WEB_ADDRESS);
+    aboutData.addAuthor(
+        i18n("Elvis Angelaccio"),
+        i18n("Developer"),
+        QStringLiteral("elvis.angelaccio@kdemail.net"),
+        QStringLiteral("http://aelog.org")
+    );
 
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    KAboutData::setApplicationData(aboutData);
 
-    QApplication app;
+    QApplication app(argv, argc);
+    app.setApplicationName(aboutData.componentName());
+    app.setApplicationDisplayName(aboutData.displayName());
+    app.setOrganizationDomain(aboutData.organizationDomain());
+    app.setApplicationVersion(aboutData.version());
 
     MainWindow* window = new MainWindow();
     window->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
