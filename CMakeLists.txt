@@ -22,6 +22,7 @@ find_package(KF5 REQUIRED
     DocTools
     KIO
     WidgetsAddons
+    XmlGui
 )
 
 add_subdirectory(src)
