@@ -30,7 +30,7 @@ int main (int argc, char **argv)
         i18n("Kronometer"), // displayName
         QStringLiteral("1.4.1"),    // version
         i18n("Kronometer is a simple stopwatch application built for KDE"), // shortDescription
-        KAboutData::License_GPL,    // licenseType
+        KAboutLicense::GPL_V2,    // licenseType
         i18n("Copyright (C) 2014 Elvis Angelaccio"),    // copyrightStatement
         QString(),  // otherText
         QStringLiteral("http://aelog.org/kronometer")   // homePageAddress
