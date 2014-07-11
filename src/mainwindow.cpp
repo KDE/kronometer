@@ -25,7 +25,7 @@
 #include <KActionCollection>
 #include <QStatusBar>
 #include <KConfigDialog>
-#include <KFileDialog>
+#include <QFileDialog>
 #include <KMessageBox>
 #include <KIO/NetAccess>
 #include <KSaveFile>
@@ -237,8 +237,8 @@ void MainWindow::newFile()
 
 void MainWindow::openFile()
 {
-    QPointer<KFileDialog> dialog = new KFileDialog(KUrl(), QString(), this);
-    dialog->setOperationMode(KFileDialog::Opening);
+    QPointer<QFileDialog> dialog = new QFileDialog(KUrl(), QString(), this);
+    dialog->setOperationMode(QFileDialog::Opening);
     dialog->setWindowTitle(i18n("Choose a Kronometer save file"));
 
     QStringList mimeTypes;
@@ -264,8 +264,8 @@ bool MainWindow::saveFile()
 
 bool MainWindow::saveFileAs()
 {
-    QPointer<KFileDialog> dialog = new KFileDialog(KUrl(), QString(), this);
-    dialog->setOperationMode(KFileDialog::Saving);
+    QPointer<QFileDialog> dialog = new QFileDialog(KUrl(), QString(), this);
+    dialog->setOperationMode(QFileDialog::Saving);
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18n("Choose Kronometer save file destination"));
 
@@ -284,8 +284,8 @@ bool MainWindow::saveFileAs()
 
 void MainWindow::exportLapsAs()
 {
-    QPointer<KFileDialog> dialog = new KFileDialog(KUrl(), QString(), this);
-    dialog->setOperationMode(KFileDialog::Saving);
+    QPointer<QFileDialog> dialog = new QFileDialog(KUrl(), QString(), this);
+    dialog->setOperationMode(QFileDialog::Saving);
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18n("Choose export file destination"));
 
