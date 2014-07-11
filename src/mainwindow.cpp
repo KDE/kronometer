@@ -21,7 +21,7 @@
   
 #include <QApplication>
 #include <KLocalizedString>
-#include <KAction>
+#include <QAction>
 #include <KActionCollection>
 #include <KStatusBar>
 #include <KConfigDialog>
@@ -343,11 +343,11 @@ void MainWindow::setupStatusBar()
 
 void MainWindow::setupActions() 
 {
-    startAction = new KAction(this);
-    pauseAction = new KAction(this);
-    resetAction = new KAction(this);
-    lapAction = new KAction(this);
-    exportAction = new KAction(this);
+    startAction = new QAction(this);
+    pauseAction = new QAction(this);
+    resetAction = new QAction(this);
+    lapAction = new QAction(this);
+    exportAction = new QAction(this);
 
     startAction->setIcon(QIcon::fromTheme("player-time"));
     startAction->setShortcut(Qt::Key_Space);

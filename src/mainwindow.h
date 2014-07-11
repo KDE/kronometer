@@ -23,7 +23,7 @@
  
 #include <KXmlGuiWindow>
 
-class KAction;
+class QAction;
 class KStatusBar;
 class QLabel;
 class QSplitter;
@@ -124,11 +124,11 @@ private:
     QLabel *statusLabel;
     KStatusBar *statusBar;
 
-    KAction *startAction;
-    KAction *pauseAction;
-    KAction *resetAction;
-    KAction *lapAction;
-    KAction *exportAction;
+    QAction *startAction;
+    QAction *pauseAction;
+    QAction *resetAction;
+    QAction *lapAction;
+    QAction *exportAction;
 
     LapModel *lapModel;
     QSortFilterProxyModel *proxyModel;
@@ -147,7 +147,7 @@ private:
     void setupStatusBar();
 
     /**
-     * Setup standard and custom KActions.
+     * Setup standard and custom QActions.
      */
     void setupActions();
 
