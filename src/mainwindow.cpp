@@ -333,12 +333,10 @@ void MainWindow::setupCentralWidget()
 
 void MainWindow::setupStatusBar()
 {
-    statusBar = new KStatusBar(this);
     statusLabel = new QLabel(this);
-
     statusLabel->setToolTip(i18n("Current chronometer status"));
-    statusBar->addWidget(statusLabel);
-    this->setStatusBar(statusBar);
+
+    statusBar()->addWidget(statusLabel);
 }
 
 void MainWindow::setupActions() 
@@ -404,6 +402,7 @@ void MainWindow::setupActions()
     inactive();	// inactive state is the default
 }
 
+
 void MainWindow::loadSettings()
 {
     TimeFormat timeFormat(
@@ -425,7 +424,6 @@ void MainWindow::loadSettings()
     stopwatchDisplay->setBackgroundColor(KronometerConfig::backgroundColor());
     stopwatchDisplay->setTextColor(KronometerConfig::textColor());
     stopwatchDisplay->showHeaders(KronometerConfig::showTimeHeaders());
-    statusBar->setVisible(KronometerConfig::showStatusBar());
 
     setupGranularity(KronometerConfig::showTenths(), KronometerConfig::showHundredths(), KronometerConfig::showMilliseconds());
 }
