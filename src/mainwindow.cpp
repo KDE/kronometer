@@ -19,7 +19,7 @@
 
 #include "mainwindow.h"
   
-#include <KApplication>
+#include <QApplication>
 #include <KLocalizedString>
 #include <KAction>
 #include <KActionCollection>
@@ -195,7 +195,7 @@ void MainWindow::showSettings()
     dialog->showButtonSeparator(true);
 
     KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
-    generalPage->setIcon(QIcon::fromTheme(KApplication::windowIcon()));
+    generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon()));
 
     KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
     fontPage->setIcon(QIcon::fromTheme("preferences-desktop-font"));
@@ -302,7 +302,7 @@ void MainWindow::exportLapsAs()
 
 void MainWindow::copyToClipboard()
 {
-    KApplication::clipboard()->setText(stopwatchDisplay->currentTime());
+    QApplication::clipboard()->setText(stopwatchDisplay->currentTime());
 }
 
 void MainWindow::setupCentralWidget()
