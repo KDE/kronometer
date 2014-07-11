@@ -27,7 +27,7 @@
 #include <KConfigDialog>
 #include <QFileDialog>
 #include <KMessageBox>
-#include <KIO/NetAccess>
+//#include <KIO/NetAccess>
 #include <QSaveFile>
 
 #include <QTableView>
@@ -489,6 +489,7 @@ bool MainWindow::saveFileAs(const QString& name)
 
 void MainWindow::openFile(const QString& name)
 {
+    /* TODO: figure out how to replace NetAccess::download() with KIO::file_copy()
     QString buffer;
 
     if (KIO::NetAccess::download(name, buffer, this)) {
@@ -527,6 +528,7 @@ void MainWindow::openFile(const QString& name)
     else {
         KMessageBox::error(this, KIO::NetAccess::lastErrorString());
     }
+    */
 }
 
 void MainWindow::createXmlSaveFile(QTextStream& out)
