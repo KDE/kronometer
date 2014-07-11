@@ -192,7 +192,7 @@ void MainWindow::showSettings()
 
     KConfigDialog* dialog = new KConfigDialog(this, "settings", KronometerConfig::self());
 
-    dialog->showButtonSeparator(true);
+    // dialog->showButtonSeparator(true); // TODO: figure out if and how to port to KF5
 
     KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
     generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon()));
