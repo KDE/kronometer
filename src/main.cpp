@@ -19,7 +19,6 @@
 
 #include <QApplication>
 #include <KAboutData>
-#include <KIcon>
 
 #include "mainwindow.h"
 
@@ -53,7 +52,7 @@ int main (int argc, char **argv)
 
     MainWindow* window = new MainWindow();
     window->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-    window->setWindowIcon(KIcon("kronometer"));
+    window->setWindowIcon(QIcon::fromTheme("kronometer"));
     window->show();
 
     return app.exec();

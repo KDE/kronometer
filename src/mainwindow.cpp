@@ -195,19 +195,19 @@ void MainWindow::showSettings()
     dialog->showButtonSeparator(true);
 
     KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
-    generalPage->setIcon(KIcon(KApplication::windowIcon()));
+    generalPage->setIcon(QIcon::fromTheme(KApplication::windowIcon()));
 
     KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
-    fontPage->setIcon(KIcon("preferences-desktop-font"));
+    fontPage->setIcon(QIcon::fromTheme("preferences-desktop-font"));
 
     KPageWidgetItem *colorPage = dialog->addPage(new ColorSettings(this), i18n("Color settings"));
-    colorPage->setIcon(KIcon("fill-color"));
+    colorPage->setIcon(QIcon::fromTheme("fill-color"));
 
     KPageWidgetItem *guiPage = dialog->addPage(new GuiSettings(this), i18n("Interface settings"));
-    guiPage->setIcon(KIcon("preferences-desktop-theme"));
+    guiPage->setIcon(QIcon::fromTheme("preferences-desktop-theme"));
 
     KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
-    savePage->setIcon(KIcon("document-save"));
+    savePage->setIcon(QIcon::fromTheme("document-save"));
 
     connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(writeSettings(QString)));
 
@@ -349,23 +349,23 @@ void MainWindow::setupActions()
     lapAction = new KAction(this);
     exportAction = new KAction(this);
 
-    startAction->setIcon(KIcon("player-time"));
+    startAction->setIcon(QIcon::fromTheme("player-time"));
     startAction->setShortcut(Qt::Key_Space);
 
     pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction don't)
-    pauseAction->setIcon(KIcon("media-playback-pause"));
+    pauseAction->setIcon(QIcon::fromTheme("media-playback-pause"));
     pauseAction->setShortcut(Qt::Key_Space);
 
     resetAction->setText(i18n("&Reset"));
-    resetAction->setIcon(KIcon("edit-clear-history"));
+    resetAction->setIcon(QIcon::fromTheme("edit-clear-history"));
     resetAction->setShortcut(Qt::Key_F5);
 
     lapAction->setText(i18n("&Lap"));
-    lapAction->setIcon(KIcon("chronometer"));
+    lapAction->setIcon(QIcon::fromTheme("chronometer"));
     lapAction->setShortcut(Qt::Key_Return);
 
     exportAction->setText(i18n("&Export laps as..."));
-    exportAction->setIcon(KIcon("document-export"));
+    exportAction->setIcon(QIcon::fromTheme("document-export"));
 
     actionCollection()->addAction(START_KEY, startAction);
     actionCollection()->addAction(PAUSE_KEY, pauseAction);
