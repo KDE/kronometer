@@ -195,7 +195,7 @@ void MainWindow::showSettings()
     // dialog->showButtonSeparator(true); // TODO: figure out if and how to port to KF5
 
     KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
-    generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon()));
+    generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon().name()));
 
     KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
     fontPage->setIcon(QIcon::fromTheme("preferences-desktop-font"));
