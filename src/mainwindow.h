@@ -24,6 +24,7 @@
 #include <KXmlGuiWindow>
 
 class KAction;
+class KStatusBar;
 class QLabel;
 class QSplitter;
 class QTableView;
