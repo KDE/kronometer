@@ -45,7 +45,7 @@ int main (int argc, char **argv)
 
     KAboutData::setApplicationData(aboutData);
 
-    QApplication app(argv, argc);
+    QApplication app(argc, argv);
     app.setApplicationName(aboutData.componentName());
     app.setApplicationDisplayName(aboutData.displayName());
     app.setOrganizationDomain(aboutData.organizationDomain());
