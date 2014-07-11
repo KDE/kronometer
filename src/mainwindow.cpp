@@ -237,6 +237,7 @@ void MainWindow::newFile()
 
 void MainWindow::openFile()
 {
+    /* TODO: figure out how to properly port KFileDialog to QFileDialog
     QPointer<QFileDialog> dialog = new QFileDialog(KUrl(), QString(), this);
     dialog->setOperationMode(QFileDialog::Opening);
     dialog->setWindowTitle(i18n("Choose a Kronometer save file"));
@@ -255,6 +256,7 @@ void MainWindow::openFile()
     }
 
     delete dialog;
+    */
 }
 
 bool MainWindow::saveFile()
@@ -264,6 +266,7 @@ bool MainWindow::saveFile()
 
 bool MainWindow::saveFileAs()
 {
+    /* TODO: figure out how to properly port KFileDialog to QFileDialog
     QPointer<QFileDialog> dialog = new QFileDialog(KUrl(), QString(), this);
     dialog->setOperationMode(QFileDialog::Saving);
     dialog->setConfirmOverwrite(true);
@@ -280,10 +283,13 @@ bool MainWindow::saveFileAs()
 
     delete dialog;
     return rc;
+    */
+    return false;
 }
 
 void MainWindow::exportLapsAs()
 {
+    /* TODO: figure out how to properly port KFileDialog to QFileDialog
     QPointer<QFileDialog> dialog = new QFileDialog(KUrl(), QString(), this);
     dialog->setOperationMode(QFileDialog::Saving);
     dialog->setConfirmOverwrite(true);
@@ -298,6 +304,7 @@ void MainWindow::exportLapsAs()
     }
 
     delete dialog;
+    */
 }
 
 void MainWindow::copyToClipboard()
@@ -529,6 +536,7 @@ void MainWindow::openFile(const QString& name)
         KMessageBox::error(this, KIO::NetAccess::lastErrorString());
     }
     */
+    Q_UNUSED(name);
 }
 
 void MainWindow::createXmlSaveFile(QTextStream& out)
