@@ -5,7 +5,7 @@
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
 
     <include>KColorScheme</include>
-    <include>kglobalsettings.h</include>
+    <include>QFontDatabase</include>
 
     <kcfgfile name="kronometerrc"/>
 
@@ -57,7 +57,7 @@
     <group name="Font">
         <entry name="hourFont" type="Font">
             <code>
-                QFont defaultFont(KGlobalSettings::generalFont().family(), 54);
+                QFont defaultFont(QFontDatabase::systemFont(QFontDatabase::GeneralFont).family(), 54);
             </code>
             <default code="true">defaultFont</default>
         </entry>
