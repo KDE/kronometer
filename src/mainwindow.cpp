@@ -23,7 +23,7 @@
 #include <KLocalizedString>
 #include <QAction>
 #include <KActionCollection>
-#include <KStatusBar>
+#include <QStatusBar>
 #include <KConfigDialog>
 #include <KFileDialog>
 #include <KMessageBox>
