@@ -17,9 +17,9 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <KApplication>
+#include <QApplication>
 #include <KAboutData>
-#include <KCmdLineArgs> 
+#include <KCmdLineArgs>
 #include <KIcon>
  
 #include "mainwindow.h"
@@ -52,7 +52,7 @@ int main (int argc, char **argv)
 
     KCmdLineArgs::init(argc, argv, &aboutData);
 
-    KApplication app;
+    QApplication app;
 
     MainWindow* window = new MainWindow();
     window->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
