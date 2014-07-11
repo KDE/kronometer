@@ -19,7 +19,7 @@
 
 #include "lapmodel.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <QTime>
 #include <QDomElement>

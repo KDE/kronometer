@@ -19,7 +19,7 @@
 
 #include "timedisplay.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
 #include <QLabel>
 #include <QBoxLayout>

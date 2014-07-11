@@ -20,7 +20,7 @@
 #include "mainwindow.h"
   
 #include <KApplication>
-#include <KLocale>
+#include <KLocalizedString>
 #include <KAction>
 #include <KActionCollection>
 #include <KStatusBar>

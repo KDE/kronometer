@@ -19,6 +19,7 @@
 
 #include <QApplication>
 #include <KAboutData>
+#include <KLocalizedString>
 
 #include "mainwindow.h"
 

@@ -23,7 +23,13 @@ kconfig_add_kcfg_files(kronometer_SRCS settings.kcfgc)
 
 add_executable(kronometer ${kronometer_SRCS})
 
-target_link_libraries(kronometer KF5::KIOWidgets KF5::WidgetsAddons KF5::XmlGui)
+target_link_libraries(
+    kronometer
+    KF5::I18n
+    KF5::KIOWidgets
+    KF5::WidgetsAddons
+    KF5::XmlGui
+)
 
 install(FILES kronometer.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(TARGETS kronometer DESTINATION ${BIN_INSTALL_DIR})
