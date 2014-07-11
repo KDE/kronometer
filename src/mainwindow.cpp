@@ -630,7 +630,6 @@ void MainWindow::exportLapsAs(const QString& name, const QString& mimetype)
         exportLapsAsXml(stream);
 
         exportFile.commit();
-        exportFile.close();
     }
 
     else if (mimetype == CSV_MIMETYPE) {
