@@ -242,7 +242,7 @@ void MainWindow::openFile()
 
     QStringList mimeTypes;
     mimeTypes << XML_MIMETYPE;
-    dialog->setMimeFilter(mimeTypes);
+    dialog->setMimeTypeFilters(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
         QString file = dialog->selectedFiles().first();
@@ -270,7 +270,7 @@ bool MainWindow::saveFileAs()
 
     QStringList mimeTypes;
     mimeTypes << XML_MIMETYPE;
-    dialog->setMimeFilter(mimeTypes);
+    dialog->setMimeTypeFilters(mimeTypes);
 
     bool rc = false;
     if (dialog->exec() == QDialog::Accepted) {
@@ -289,8 +289,8 @@ void MainWindow::exportLapsAs()
     dialog->setWindowTitle(i18n("Choose export file destination"));
 
     QStringList mimeTypes;
-    mimeTypes << XML_MIMETYPE << CSV_MIMETYPE;
-    dialog->setMimeFilter(mimeTypes, CSV_MIMETYPE);
+    mimeTypes << CSV_MIMETYPE << XML_MIMETYPE;
+    dialog->setMimeTypeFilters(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
         exportLapsAs(dialog->selectedFiles().first(), dialog->currentMimeFilter());
