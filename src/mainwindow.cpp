@@ -293,7 +293,8 @@ void MainWindow::exportLapsAs()
     dialog->setMimeTypeFilters(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
-        exportLapsAs(dialog->selectedFiles().first(), dialog->currentMimeFilter());
+        // TODO: figure out how to get the current mime filter from the QFileDialog
+        //exportLapsAs(dialog->selectedFiles().first(), dialog->currentMimeFilter());
     }
 
     delete dialog;
