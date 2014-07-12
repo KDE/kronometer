@@ -264,7 +264,7 @@ bool MainWindow::saveFile()
 bool MainWindow::saveFileAs()
 {
     QPointer<QFileDialog> dialog = new QFileDialog(this);
-    dialog->setOperationMode(QFileDialog::Saving);
+    dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18n("Choose Kronometer save file destination"));
 
@@ -284,7 +284,7 @@ bool MainWindow::saveFileAs()
 void MainWindow::exportLapsAs()
 {
     QPointer<QFileDialog> dialog = new QFileDialog(this);
-    dialog->setOperationMode(QFileDialog::Saving);
+    dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18n("Choose export file destination"));
 
