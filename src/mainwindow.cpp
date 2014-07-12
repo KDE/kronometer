@@ -238,7 +238,6 @@ void MainWindow::newFile()
 void MainWindow::openFile()
 {
     QPointer<QFileDialog> dialog = new QFileDialog(this);
-    dialog->setOperationMode(QFileDialog::Opening);
     dialog->setWindowTitle(i18n("Choose a Kronometer save file"));
 
     QStringList mimeTypes;
