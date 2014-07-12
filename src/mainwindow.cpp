@@ -245,7 +245,7 @@ void MainWindow::openFile()
     dialog->setMimeFilter(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
-        QString file = dialog->selectedFile();
+        QString file = dialog->selectedFiles().first();
 
         if (not file.isEmpty()) {
             MainWindow *window = new MainWindow(nullptr, file);
@@ -274,7 +274,7 @@ bool MainWindow::saveFileAs()
 
     bool rc = false;
     if (dialog->exec() == QDialog::Accepted) {
-        rc = saveFileAs(dialog->selectedFile());
+        rc = saveFileAs(dialog->selectedFiles().first());
     }
 
     delete dialog;
@@ -293,7 +293,7 @@ void MainWindow::exportLapsAs()
     dialog->setMimeFilter(mimeTypes, CSV_MIMETYPE);
 
     if (dialog->exec() == QDialog::Accepted) {
-        exportLapsAs(dialog->selectedFile(), dialog->currentMimeFilter());
+        exportLapsAs(dialog->selectedFiles().first(), dialog->currentMimeFilter());
     }
 
     delete dialog;
