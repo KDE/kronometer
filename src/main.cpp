@@ -55,7 +55,6 @@ int main (int argc, char **argv)
     KApplication app;
 
     MainWindow* window = new MainWindow();
-    window->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     window->setWindowIcon(KIcon("kronometer"));
     window->show();
 
