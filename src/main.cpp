@@ -50,10 +50,10 @@ int main (int argc, char **argv)
     app.setApplicationDisplayName(aboutData.displayName());
     app.setOrganizationDomain(aboutData.organizationDomain());
     app.setApplicationVersion(aboutData.version());
+    app.setWindowIcon(QIcon::fromTheme("kronometer"));
 
     MainWindow* window = new MainWindow();
     window->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
-    window->setWindowIcon(QIcon::fromTheme("kronometer"));
     window->show();
 
     return app.exec();
