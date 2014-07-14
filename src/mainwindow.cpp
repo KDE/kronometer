@@ -293,8 +293,7 @@ void MainWindow::exportLapsAs()
     dialog->setMimeTypeFilters(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
-        // TODO: figure out how to get the current mime filter from the QFileDialog
-        //exportLapsAs(dialog->selectedFiles().first(), dialog->currentMimeFilter());
+        exportLapsAs(dialog->selectedFiles().first(), dialog->selectedNameFilter());
     }
 
     delete dialog;
@@ -603,7 +602,7 @@ bool MainWindow::parseXmlSaveFile(const QDomDocument& doc)
     return true;
 }
 
-void MainWindow::exportLapsAs(const QString& name, const QString& mimetype)
+void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
 {
     if (name.isEmpty()) {
         return;
@@ -611,7 +610,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& mimetype)
 
     QString exportName = name;
 
-    if (mimetype == XML_MIMETYPE) {
+    if (nameFilter.contains(XML_EXTENSION)) {
         if (not exportName.endsWith(XML_EXTENSION)) {
             exportName += XML_EXTENSION;
         }
@@ -625,7 +624,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& mimetype)
         exportFile.commit();
     }
 
-    else if (mimetype == CSV_MIMETYPE) {
+    else if (nameFilter.contains(CSV_EXTENSION)) {
         if (not exportName.endsWith(CSV_EXTENSION)) {
             exportName += CSV_EXTENSION;
         }

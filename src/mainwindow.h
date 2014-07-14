@@ -193,9 +193,9 @@ private:
     /**
      * Export current lap times on a new file.
      * @param name The name of the file to be created.
-     * @param mimetype The mimetype of the file to be created.
+     * @param nameFilter The name filter of the file to be created.
      */
-    void exportLapsAs(const QString& name, const QString& mimetype);
+    void exportLapsAs(const QString& name, const QString& nameFilter);
 
     /**
      * Write the XML laps representation on the given stream.
