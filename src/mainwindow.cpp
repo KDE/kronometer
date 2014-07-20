@@ -83,7 +83,7 @@ namespace
 }
 
  
-MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(parent), unsavedTimes(false)
+MainWindow::MainWindow(QWidget *parent, const QUrl& url) : KXmlGuiWindow(parent), saveUrl(url), unsavedTimes(false)
 {
     stopwatch = new Stopwatch(this);
     stopwatchDisplay = new TimeDisplay(this);
@@ -96,8 +96,8 @@ MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(par
 
     setWindowTitle(WINDOW_TITLE + QT_PLACE_HOLDER);
 
-    if (not file.isEmpty()) {
-        openFile(file);
+    if (not saveUrl.isEmpty()) {
+        openUrl();
     }
 }
 
@@ -114,7 +114,7 @@ bool MainWindow::queryClose()
 
     int buttonCode;
 
-    if (fileName.isEmpty()) {
+    if (saveUrl.isEmpty()) {
         buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times on a new file?"));
 
         switch (buttonCode) {
@@ -127,8 +127,7 @@ bool MainWindow::queryClose()
         }
     }
     else if (unsavedTimes) {
-        QFileInfo fileInfo(fileName);
-        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to file %1?", fileInfo.fileName()));
+        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to file %1?", saveUrl.fileName()));
 
         switch (buttonCode) {
         case KMessageBox::Yes:
@@ -159,7 +158,7 @@ void MainWindow::paused()
     startAction->setText(i18n("Re&sume"));
     statusLabel->setText(i18n("Paused"));
 
-    if (not fileName.isEmpty()) {
+    if (not saveUrl.isEmpty()) {
         stateChanged(PAUSED_FILE_STATE);
     }
     else {
@@ -258,7 +257,7 @@ void MainWindow::openFile()
 
 bool MainWindow::saveFile()
 {
-    return saveFileAs(fileName);
+    return saveFileAs(saveUrl.fileName());
 }
 
 bool MainWindow::saveFileAs()
@@ -475,7 +474,7 @@ bool MainWindow::saveFileAs(const QString& name)
     bool isSaveSuccessfull = saveFile.commit();
 
     if (isSaveSuccessfull) {
-        fileName = saveName;
+        saveUrl = QUrl(saveName);
 
         unsavedTimes = false;
         setWindowModified(unsavedTimes);
@@ -486,7 +485,7 @@ bool MainWindow::saveFileAs(const QString& name)
     }
 }
 
-void MainWindow::openFile(const QString& name)
+void MainWindow::openUrl()
 {
     /* TODO: figure out how to replace NetAccess::download() with KIO::file_copy()
     QString buffer;
@@ -528,7 +527,6 @@ void MainWindow::openFile(const QString& name)
         KMessageBox::error(this, KIO::NetAccess::lastErrorString());
     }
     */
-    Q_UNUSED(name);
 }
 
 void MainWindow::createXmlSaveFile(QTextStream& out)

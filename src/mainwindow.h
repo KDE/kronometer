@@ -20,7 +20,9 @@
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
- 
+
+#include <QUrl>
+
 #include <KXmlGuiWindow>
 
 class QAction;
@@ -44,7 +46,7 @@ class MainWindow : public KXmlGuiWindow
 
 public:
 
-    explicit MainWindow(QWidget *parent = nullptr, const QString& file = "");
+    explicit MainWindow(QWidget *parent = nullptr, const QUrl& url = QUrl());
 
 protected:
 
@@ -132,7 +134,7 @@ private:
     LapModel *lapModel;
     QSortFilterProxyModel *proxyModel;
 
-    QString fileName;
+    QUrl saveUrl;               /** Save file URL */
     bool unsavedTimes;          /** Whether there are unsaved times */
 
     /**
@@ -172,10 +174,9 @@ private:
     bool saveFileAs(const QString& name);
 
     /**
-     * Load the XML save file. If an error occurs, the window is closed.
-     * @param name The name of the file with the saved times to be loaded.
+     * Load the XML save file from the member QUrl. If an error occurs, the window is closed.
      */
-    void openFile(const QString& name);
+    void openUrl();
 
     /**
      * Write the XML save file on the given stream.
