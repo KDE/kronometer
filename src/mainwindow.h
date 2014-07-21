@@ -21,20 +21,19 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QUrl>
-
 #include <KXmlGuiWindow>
 
+#include <QUrl>
+
 class QAction;
-class KStatusBar;
 class QLabel;
 class QSplitter;
 class QTableView;
+class QTextStream;
 class QSortFilterProxyModel;
 
 class Stopwatch;
 class TimeDisplay;
-class QTextStream;
 class LapModel;
 
 /**

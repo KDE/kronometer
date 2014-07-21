@@ -18,20 +18,20 @@
 */
 
 #include "mainwindow.h"
-  
-#include <QApplication>
+
 #include <KLocalizedString>
-#include <QAction>
 #include <KActionCollection>
-#include <QStatusBar>
 #include <KConfigDialog>
-#include <QFileDialog>
 #include <KMessageBox>
 #include <KJobUiDelegate>
 #include <KIO/FileCopyJob>
+
+#include <QApplication>
+#include <QAction>
+#include <QStatusBar>
+#include <QFileDialog>
 #include <QTemporaryFile>
 #include <QSaveFile>
-
 #include <QTableView>
 #include <QSplitter>
 #include <QClipboard>
