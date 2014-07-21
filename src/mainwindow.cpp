@@ -27,7 +27,9 @@
 #include <KConfigDialog>
 #include <QFileDialog>
 #include <KMessageBox>
-//#include <KIO/NetAccess>
+#include <KJobUiDelegate>
+#include <KIO/FileCopyJob>
+#include <QTemporaryFile>
 #include <QSaveFile>
 
 #include <QTableView>
@@ -244,7 +246,7 @@ void MainWindow::openFile()
     dialog->setMimeTypeFilters(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
-        QString file = dialog->selectedFiles().first();
+        QUrl file = QUrl::fromUserInput(dialog->selectedFiles().first());
 
         if (not file.isEmpty()) {
             MainWindow *window = new MainWindow(nullptr, file);
@@ -487,11 +489,30 @@ bool MainWindow::saveFileAs(const QString& name)
 
 void MainWindow::openUrl()
 {
-    /* TODO: figure out how to replace NetAccess::download() with KIO::file_copy()
-    QString buffer;
+    QString targetPath;
+    bool ready = false;
 
-    if (KIO::NetAccess::download(name, buffer, this)) {
-        QFile file(buffer);
+    if (saveUrl.isLocalFile()) {
+        targetPath = saveUrl.toLocalFile();
+        ready = true;
+    }
+
+    else {
+        QTemporaryFile tmpFile;
+        tmpFile.open();
+        QUrl tmpUrl = QUrl::fromLocalFile(tmpFile.fileName());
+
+        KIO::FileCopyJob *fileCopyJob = KIO::file_copy(saveUrl, tmpUrl, -1, KIO::Overwrite);
+        ready = fileCopyJob->exec();
+
+        if (!ready) {
+            fileCopyJob->uiDelegate()->showErrorMessage();
+            close();  // files are opened in a new window, so if the open fails the new window has to be closed.
+        }
+    }
+
+    if (ready) {
+        QFile file(targetPath);
         file.open(QIODevice::ReadOnly);
 
         // OLD: persistence using binary files
@@ -506,27 +527,18 @@ void MainWindow::openUrl()
         if (doc.setContent(&file, &errorMsg)) {
             if (parseXmlSaveFile(doc)) {
                 paused();                       // enter in paused state
-                fileName = name;
 
-                KIO::NetAccess::removeTempFile(buffer);
-                QFileInfo fileInfo(fileName);
-                setWindowTitle(WINDOW_TITLE + " - " + fileInfo.fileName() + QT_PLACE_HOLDER);
+                setWindowTitle(WINDOW_TITLE + " - " + saveUrl.fileName() + QT_PLACE_HOLDER);
             }
             else {
-                KIO::NetAccess::removeTempFile(buffer);
-                close(); // files are opened in a new window, so if the open fails the new window has to be closed.
+                close();
             }
         }
         else {
             KMessageBox::error(this, "Cannot open file: " + errorMsg);
-            KIO::NetAccess::removeTempFile(buffer);
             close();
         }
     }
-    else {
-        KMessageBox::error(this, KIO::NetAccess::lastErrorString());
-    }
-    */
 }
 
 void MainWindow::createXmlSaveFile(QTextStream& out)
