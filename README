@@ -10,6 +10,10 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+v1.4.2
+* Removed option to hide the statusbar, since it's a built-in KDE feature
+* Small fix for digits appereance
+
 v1.4.1
 * Upper toolbar is now correctly removed from the UI
 
