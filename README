@@ -12,7 +12,7 @@ Changelog
 ---------
 v1.4.2
 * Removed option to hide the statusbar, since it's a built-in KDE feature
-* Small fix for digits appereance
+* Small fix for digits appearance
 
 v1.4.1
 * Upper toolbar is now correctly removed from the UI
