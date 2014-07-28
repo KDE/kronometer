@@ -215,13 +215,9 @@ void TimeDisplay::updateTimer()
 
 void TimeDisplay::updateWidth()
 {
-    int width = MIN_FRAME_WIDTH;
+    int width = qMax(qMax(hourDisplay->width(), minDisplay->width()), qMax(secDisplay->width(), fracDisplay->width()));
 
-    int maxWidth = qMax(qMax(hourDisplay->width(), minDisplay->width()), qMax(secDisplay->width(), fracDisplay->width()));
-
-    if (maxWidth >= MIN_FRAME_WIDTH) {
-        width = maxWidth + (maxWidth * 20 / 100); // 20% as padding, i.e. 10% as right padding and 10% as left padding
-    }
+    width = width + (width * 20 / 100); // 20% as padding, i.e. 10% as right padding and 10% as left padding
 
     hourFrame->setMinimumWidth(width);
     minFrame->setMinimumWidth(width);

@@ -108,8 +108,6 @@ public slots:
 
 private:
 
-    static const int MIN_FRAME_WIDTH = 100;     /** Minimum default frame width used by all frames */
-
     QHBoxLayout *displayLayout;
     QVBoxLayout *hourLayout;
     QVBoxLayout *minLayout;
