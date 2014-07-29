@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio_at_kdemail.net> -->
+<component type="desktop">
+  <id>kronometer.desktop</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-2.0+</project_license>
+  <name>Kronometer</name>
+  <summary>Chronometer</summary>
+  <description>
+    <p>
+      Kronometer is a stopwatch application built for the KDE Desktop Environment. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times on a file and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.
+    </p>
+    <p>Features:</p>
+    <ul>
+      <li>Start/pause/resume the stopwatch widget</li>
+      <li>Laps recording: you can capture the stopwatch time when you want</li>
+      <li>Lap times sorting: you can easily find the shortest lap time or the longest one</li>
+      <li>Reset the stopwatch widget and the lap times</li>
+      <li>Time format settings: you can choose the stopwatch granularity</li>
+      <li>Times saving and resuming: you can save the stopwatch status on a file and resume it later</li>
+      <li>Font customization: you can choose the fonts for each of the stopwatch digits</li>
+      <li>Color customization: you can choose the color for the stopwatch digits and the stopwatch background</li>
+      <li>Lap times export: you can export the lap times on a file using the XML or CSV format</li>
+    </ul>
+  </description>
+  <screenshots>
+    <screenshot type="default" width="854" height="480">http://abload.de/img/kronometero1ec9.png</screenshot>
+  </screenshots>
+  <url type="homepage">http://aelog.org/kronometer/</url>
+  <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kronometer</url>
+  <url type="help">http://docs.kde.org/development/en/extragear-utils/kronometer/index.html</url>
+  <updatecontact>elvis.angelaccio_at_kdemail.net</updatecontact>
+  <project_group>KDE</project_group>
+  <provides>
+    <binary>kronometer</binary>
+  </provides>
+</component>
