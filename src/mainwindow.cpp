@@ -520,7 +520,7 @@ void MainWindow::openFile(const QString& name)
             }
         }
         else {
-            KMessageBox::error(this, "Cannot open file: " + errorMsg);
+            KMessageBox::error(this, i18n("Cannot open file: %1", errorMsg));
             KIO::NetAccess::removeTempFile(buffer);
             close();
         }
