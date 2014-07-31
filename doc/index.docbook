@@ -160,7 +160,6 @@
     <title>Interface settings</title>
     <para>
       In the interface settings page you can choose whether to show the time headers. The time headers are the labels on the upper space of the stopwatch display. They show the name of each timer component (hours, minutes, &etc;).
-	  You can also choose whether to show the Status Bar in the main window.
     </para>
   </sect1>
   <sect1 id="save_settings">
