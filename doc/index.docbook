@@ -92,7 +92,11 @@
       &kronometer; main use case is of course the interaction with the timer. You can start/pause/resume the timer by clicking on the proper actions in the toolbar or in the &kronometer; menu.
     </para>
     <para>
-      Even simpler, you can use the keyboard instead of the mouse: you start the timer with the keyboard's <keycap>Space</keycap>; and you pause the timer with <keycap>Space</keycap> too. You might recognize this behavior from many media player applications.
+      Even simpler, you can use the keyboard instead of the mouse: you start the timer with the keyboard's <keycap>Space</keycap> and you pause the timer with <keycap>Space</keycap> too. You might recognize this behavior from many media player applications.
+    </para>
+    <para>
+      By pressing the <keycap>Enter</keycap> key when the timer is running, you freeze that particular time and you create a new <emphasis>lap</emphasis> time. These times are always visible in the table on the left of the application, where you can sort them by clicking the <emphasis>Lap time</emphasis> column's header.
+      You can also add a custom text annotation to each lap, by double-clicking the cells within the <emphasis>Note</emphasis> column.
     </para>
   </sect1>
   <sect1 id="save_and_restore">
