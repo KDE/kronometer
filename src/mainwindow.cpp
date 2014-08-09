@@ -414,6 +414,9 @@ void MainWindow::loadSettings()
         KronometerConfig::showMilliseconds()
     );
 
+    lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
+    exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
+    lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
     lapModel->setTimeFormat(timeFormat);
     timeFormat.showDividers(false);
     stopwatchDisplay->setTimeFormat(timeFormat);
