@@ -65,8 +65,18 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         case ABS_TIME:
             variant = absoluteLapTime(index.row());
             break;
+
+        case NOTE:
+            variant = noteList.at(index.row());
+            break;
         }
 
+         return variant;
+     }
+
+     else if (role == Qt::EditRole && index.column() == NOTE) {
+         // prevent the disappear of the old value when double-clicking the item
+         QVariant variant = noteList.at(index.row());
          return variant;
      }
 
@@ -90,11 +100,40 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
             case ABS_TIME:
                 return i18n("Global time");
                 break;
+
+            case NOTE:
+                return i18n("Note");
+                break;
             }
         }
     }
 
     return QVariant::Invalid;
+}
+
+bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role)
+{
+    if (index.isValid() and role == Qt::EditRole) {
+        if (index.column() == NOTE) {
+            noteList[index.row()] = value.toString();
+            emit dataChanged(index, index);
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
+Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
+{
+    if (!index.isValid())
+        return Qt::ItemIsEnabled;
+
+    if (index.column() == NOTE)
+        return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
+
+    return QAbstractTableModel::flags(index);
 }
 
 void LapModel::setTimeFormat(const TimeFormat &format)
@@ -178,6 +217,7 @@ void LapModel::onLap(const QTime& lapTime)
 {
     beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
     timeList.append(lapTime);
+    noteList.append(QString());
     endInsertRows();
 }
 
@@ -185,6 +225,7 @@ void LapModel::onClear()
 {
     beginResetModel();
     timeList.clear();
+    noteList.clear();
     endResetModel();
 }
 

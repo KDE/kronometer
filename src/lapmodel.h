@@ -21,6 +21,7 @@
 #define LAPMODEL_H
 
 #include <QAbstractTableModel>
+#include <QStringList>
 
 #include "timeformat.h"
 
@@ -44,6 +45,8 @@ public:
     int columnCount(const QModelIndex& parent) const;
     QVariant data(const QModelIndex& index, int role) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    bool setData(const QModelIndex& index, const QVariant& value, int role);
+    Qt::ItemFlags flags(const QModelIndex &index) const;
 
     void setTimeFormat(const TimeFormat& format);
 
@@ -105,16 +108,18 @@ public slots:
 
 private:
 
-    static const int LAP_TAG_NUMBER = 3;    /** Number of tag/header in the model */
+    static const int LAP_TAG_NUMBER = 4;    /** Number of tag/header in the model */
 
     enum LapTag
     {
         NUMBER = 0,     /**< Index of the lap-number column */
         REL_TIME = 1,   /**< Index of the lap relative time column */
-        ABS_TIME = 2   /**< Index of the lap absolute time column */
+        ABS_TIME = 2,   /**< Index of the lap absolute time column */
+        NOTE = 3       /**< Index of the lap annotation column */
     };
 
     QList<QTime> timeList;              /** Absolute lap times */
+    QStringList noteList;               /** Laps annotations */
     TimeFormat timeFormat;              /** Current lap times format */
 
 
