@@ -159,7 +159,7 @@
   <sect1 id="interface_settings">
     <title>Interface settings</title>
     <para>
-      In the interface settings page you can choose whether to show the time headers. The time headers are the labels on the upper space of the stopwatch display. They show the name of each timer component (hours, minutes, &etc;).
+      In the interface settings page you can choose whether to disable the laps recording feature. This can be useful if you wish to optimize the window content. You can also choose whether to show the time headers. The time headers are the labels on the upper space of the stopwatch display. They show the name of each timer component (hours, minutes, &etc;).
     </para>
   </sect1>
   <sect1 id="save_settings">
