@@ -104,6 +104,9 @@
         <entry name="showTimeHeaders" type="Bool">
             <default>true</default>
         </entry>
+        <entry name="isLapsRecordingEnabled" type="Bool">
+            <default>true</default>
+        </entry>
     </group>
 
 </kcfg>
