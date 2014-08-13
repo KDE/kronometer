@@ -228,24 +228,3 @@ void LapModel::onClear()
     noteList.clear();
     endResetModel();
 }
-
-QDataStream& operator<<(QDataStream& out, const LapModel& m)
-{
-    out << m.timeList;
-
-    return out;
-}
-
-QDataStream& operator>>(QDataStream& in, LapModel& m)
-{
-    QList<QTime> temp;
-    in >> temp;
-
-    for (int i = 0; i < temp.size(); i++) {
-        m.beginInsertRows(QModelIndex(), i, i);
-        m.timeList.append(temp.at(i));
-        m.endInsertRows();
-    }
-
-    return in;
-}

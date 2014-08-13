@@ -90,9 +90,6 @@ public:
      */
     bool isEmpty() const;
 
-    friend QDataStream& operator<<(QDataStream& out, const LapModel& m);
-    friend QDataStream& operator>>(QDataStream& in, LapModel& m);
-
 public slots:	
 
     /**

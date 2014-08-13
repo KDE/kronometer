@@ -466,12 +466,7 @@ bool MainWindow::saveFileAs(const QString& name)
         return false;
     }
 
-    // OLD: persistence using binary files
-    //QDataStream stream(&saveFile);
-    //stopwatch->serialize(stream);   // save stopwatch time
-    //stream << *lapModel;            // save laps
-
-    // NEW: persistence using XML files
+    // Persistence using XML files
     QTextStream stream(&saveFile);
     createXmlSaveFile(stream);
 
@@ -499,12 +494,7 @@ void MainWindow::openFile(const QString& name)
         QFile file(buffer);
         file.open(QIODevice::ReadOnly);
 
-        // OLD: persistence using binary files
-        //QDataStream stream(&file);
-        //stopwatch->deserialize(stream);     // load stopwatch time
-        //stream >> *lapModel;                // load laps
-
-        // NEW: persistence using XML files
+        // Persistence using XML files
         QDomDocument doc;
         QString errorMsg;
 
