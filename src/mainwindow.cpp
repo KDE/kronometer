@@ -531,7 +531,7 @@ void MainWindow::createXmlSaveFile(QTextStream& out)
     QDomElement rootElement = doc.createElement(ROOT_TAG);
 
     QDomElement stopwatchElement = doc.createElement(STOPWATCH_TAG);
-    stopwatch->serialize(stopwatchElement, PERSISTENCE_ATTR);
+    stopwatchElement.setAttribute(PERSISTENCE_ATTR, stopwatch->raw());
     QDomElement stopwatchTime = doc.createElement(TIME_TAG);
     stopwatchTime.setAttribute(TYPE_ATTR, ABS_TYPE);
     stopwatchTime.appendChild(doc.createTextNode(stopwatchDisplay->currentTime()));
@@ -582,7 +582,8 @@ bool MainWindow::parseXmlSaveFile(const QDomDocument& doc)
         return false;
     }
 
-    stopwatch->deserialize(stopwatchElement, PERSISTENCE_ATTR);
+    QString data = stopwatchElement.attribute(PERSISTENCE_ATTR);
+    stopwatch->initialize(data.toLongLong());  // TODO: check return value
 
     QDomElement lap = lapsElement.firstChildElement(LAP_TAG);
 
