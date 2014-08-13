@@ -7,6 +7,7 @@ set(
     stopwatch.cpp
     timedisplay.cpp
     digitdisplay.cpp
+    lap.cpp
     lapmodel.cpp
     timeformat.cpp
 )

@@ -37,7 +37,7 @@ int LapModel::rowCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
 
-    return timeList.size();
+    return lapList.size();
 }
 
 QVariant LapModel::data(const QModelIndex& index, int role) const
@@ -46,7 +46,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
          return QVariant::Invalid;   
      }
 
-     if (index.row() >= timeList.size() || index.row() < 0) {
+     if (index.row() >= lapList.size() || index.row() < 0) {
          return QVariant::Invalid;
      }
 
@@ -59,15 +59,15 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
             break;
 
         case REL_TIME:
-            variant = relativeLapTime(index.row());
+            variant = lapList.at(index.row()).relativeTime();
             break;
 
         case ABS_TIME:
-            variant = absoluteLapTime(index.row());
+            variant = lapList.at(index.row()).absoluteTime();
             break;
 
         case NOTE:
-            variant = noteList.at(index.row());
+            variant = lapList.at(index.row()).note();
             break;
         }
 
@@ -76,7 +76,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
      else if (role == Qt::EditRole && index.column() == NOTE) {
          // prevent the disappear of the old value when double-clicking the item
-         QVariant variant = noteList.at(index.row());
+         QVariant variant = lapList.at(index.row()).note();
          return variant;
      }
 
@@ -115,7 +115,7 @@ bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role
 {
     if (index.isValid() and role == Qt::EditRole) {
         if (index.column() == NOTE) {
-            noteList[index.row()] = value.toString();
+            lapList[index.row()].setNote(value.toString());
             emit dataChanged(index, index);
 
             return true;
@@ -143,88 +143,116 @@ void LapModel::setTimeFormat(const TimeFormat &format)
 
 bool LapModel::lapToXml(QDomElement& element, const QString& attributeName, int lapIndex)
 {
-    if (lapIndex < 0 or lapIndex >= timeList.size() or attributeName.isEmpty()) {
-        return false;
-    }
+//    if (lapIndex < 0 or lapIndex >= timeList.size() or attributeName.isEmpty()) {
+//        return false;
+//    }
 
-    QTime zero(0, 0);
+//    QTime zero(0, 0);
 
-    element.setAttribute(attributeName, zero.msecsTo(timeList.at(lapIndex)));
+//    element.setAttribute(attributeName, zero.msecsTo(timeList.at(lapIndex)));
+
+    Q_UNUSED(element);
+    Q_UNUSED(attributeName);
+    Q_UNUSED(lapIndex);
 
     return true;
 }
 
 bool LapModel::lapFromXml(const QDomElement& element, const QString& attributeName)
 {
-    if (attributeName.isEmpty()) {
-        return false;
-    }
+//    if (attributeName.isEmpty()) {
+//        return false;
+//    }
 
-    QString attributeValue = element.attribute(attributeName);
-    qint64 milliseconds = attributeValue.toLongLong();
+//    QString attributeValue = element.attribute(attributeName);
+//    qint64 milliseconds = attributeValue.toLongLong();
 
-    if (milliseconds == 0) {
-        return false;  // invalid attribute name or value
-    }
+//    if (milliseconds == 0) {
+//        return false;  // invalid attribute name or value
+//    }
 
-    QTime t(0, 0);
-    t = t.addMSecs(milliseconds);
-    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
-    timeList.append(t);
-    endInsertRows();
+//    QTime t(0, 0);
+//    t = t.addMSecs(milliseconds);
+//    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
+//    timeList.append(t);
+//    endInsertRows();
+
+    Q_UNUSED(element);
+    Q_UNUSED(attributeName);
 
     return true;
 }
 
 QString LapModel::relativeLapTime(int lapIndex) const
 {
-    if (lapIndex < 0 or lapIndex >= timeList.size()) {
-        return QString();
-    }
+//    if (lapIndex < 0 or lapIndex >= timeList.size()) {
+//        return QString();
+//    }
 
-    QString time;
+//    QString time;
 
-    if (timeList.size() > 1 and lapIndex > 0) {     // compute diff only starting from 2nd entry
-        QTime prev = timeList.at(lapIndex - 1);
-        QTime target = timeList.at(lapIndex);
-        QTime diff(0, 0);
-        diff = diff.addMSecs(prev.msecsTo(target));
+//    if (timeList.size() > 1 and lapIndex > 0) {     // compute diff only starting from 2nd entry
+//        QTime prev = timeList.at(lapIndex - 1);
+//        QTime target = timeList.at(lapIndex);
+//        QTime diff(0, 0);
+//        diff = diff.addMSecs(prev.msecsTo(target));
 
-        time = timeFormat.format(diff);
-    }
-    else {  // first lap entry
-        time = timeFormat.format(timeList.first());
-    }
+//        time = timeFormat.format(diff);
+//    }
+//    else {  // first lap entry
+//        time = timeFormat.format(timeList.first());
+//    }
 
-    return time;
+//    return time;
+    Q_UNUSED(lapIndex);
+    return QString();
 }
 
 QString LapModel::absoluteLapTime(int lapIndex) const
 {
-    if (lapIndex < 0 or lapIndex >= timeList.size()) {
-        return QString();
-    }
+//    if (lapIndex < 0 or lapIndex >= timeList.size()) {
+//        return QString();
+//    }
 
-    return timeFormat.format(timeList.at(lapIndex));
+//    return timeFormat.format(timeList.at(lapIndex));
+    Q_UNUSED(lapIndex);
+    return QString();
 }
 
 bool LapModel::isEmpty() const
 {
-    return timeList.isEmpty();
+    return lapList.isEmpty();
 }
 
 void LapModel::onLap(const QTime& lapTime)
 {
-    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
-    timeList.append(lapTime);
-    noteList.append(QString());
+    beginInsertRows(QModelIndex(),lapList.size(),lapList.size());		// i.e. append the new row at table end
+
+    Lap lap(lapTime);
+    QString relTime;
+
+    if (lapList.size() >= 1) {     // computing the diff needs at least one previous entry
+        QTime prev = lapList.last().time();
+        QTime target = lap.time();
+        QTime diff(0, 0);
+        diff = diff.addMSecs(prev.msecsTo(target));
+
+        relTime = timeFormat.format(diff);
+    }
+    else {  // first lap entry
+        relTime = timeFormat.format(lap.time());
+    }
+
+    lap.setRelativeTime(relTime);
+    lap.setAbsoluteTime(timeFormat.format(lap.time()));
+
+    lapList.append(lap);
     endInsertRows();
 }
 
 void LapModel::onClear()
 {
     beginResetModel();
-    timeList.clear();
-    noteList.clear();
+    lapList.clear();
     endResetModel();
 }

@@ -23,6 +23,7 @@
 #include <QAbstractTableModel>
 #include <QStringList>
 
+#include "lap.h"
 #include "timeformat.h"
 
 class QTime;
@@ -115,10 +116,8 @@ private:
         NOTE = 3       /**< Index of the lap annotation column */
     };
 
-    QList<QTime> timeList;              /** Absolute lap times */
-    QStringList noteList;               /** Laps annotations */
-    TimeFormat timeFormat;              /** Current lap times format */
-
+    QList<Lap> lapList;              /** Lap times */
+    TimeFormat timeFormat;          /** Current lap times format */
 
 };
 
