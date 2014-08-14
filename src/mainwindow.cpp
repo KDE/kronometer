@@ -74,6 +74,7 @@ namespace
     const QString LAPS_TAG = "laps";
     const QString LAP_TAG = "lap";
     const QString TIME_TAG = "time";
+    const QString NOTE_TAG = "note";
     const QString ROOT_TAG = "kronometer";
     const QString PERSISTENCE_ATTR = "msec";
     const QString TYPE_ATTR = "type";
@@ -554,6 +555,14 @@ void MainWindow::createXmlSaveFile(QTextStream& out)
 
         lap.appendChild(relTime);
         lap.appendChild(absTime);
+
+        if (lapModel->at(i).hasNote()) {
+            QDomElement lapNote = doc.createElement(NOTE_TAG);
+            lapNote.appendChild(doc.createTextNode(lapModel->at(i).note()));
+
+            lap.appendChild(lapNote);
+        }
+
         lapsElement.appendChild(lap);
     }
 
@@ -589,7 +598,14 @@ bool MainWindow::parseXmlSaveFile(const QDomDocument& doc)
 
     while (not lap.isNull()) {
         QString data = lap.attribute(PERSISTENCE_ATTR);
-        lapModel->append(Lap::fromRawData(data.toLongLong()));
+        Lap newLap = Lap::fromRawData(data.toLongLong());
+        QDomElement note = lap.namedItem(NOTE_TAG).toElement();
+
+        if (not note.isNull()) {
+            newLap.setNote(note.text());
+        }
+
+        lapModel->append(newLap);
         lap = lap.nextSiblingElement(LAP_TAG);
     }
 
@@ -658,6 +674,14 @@ void MainWindow::exportLapsAsXml(QTextStream& out)
 
         lap.appendChild(relTime);
         lap.appendChild(absTime);
+
+        if (lapModel->at(i).hasNote()) {
+            QDomElement lapNote = doc.createElement(NOTE_TAG);
+            lapNote.appendChild(doc.createTextNode(lapModel->at(i).note()));
+
+            lap.appendChild(lapNote);
+        }
+
         lapsElement.appendChild(lap);
     }
 
@@ -671,10 +695,14 @@ void MainWindow::exportLapsAsXml(QTextStream& out)
 void MainWindow::exportLapsAsCsv(QTextStream& out)
 {
     out << '#' << timestampMessage() << '\r' << '\n';
-    out << '#' << i18n("Lap number,Lap time,Global time") << '\r' << '\n';
+    out << '#' << i18n("Lap number,Lap time,Global time,Note") << '\r' << '\n';
 
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
-        out << i << ',' << lapModel->at(i).relativeTime() << ',' << lapModel->at(i).absoluteTime() << '\r' << '\n';
+        out << i;
+        out << ',' << lapModel->at(i).relativeTime();
+        out << ',' << lapModel->at(i).absoluteTime();
+        out << ',' << lapModel->at(i).note();
+        out << '\r' << '\n';
     }
 }
 
