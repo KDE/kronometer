@@ -22,7 +22,6 @@
 #include <KLocale>
 
 #include <QTime>
-#include <QDomElement>
 
 LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
 
@@ -141,94 +140,16 @@ void LapModel::setTimeFormat(const TimeFormat &format)
     timeFormat = format;
 }
 
-bool LapModel::lapToXml(QDomElement& element, const QString& attributeName, int lapIndex)
+const Lap &LapModel::at(int lapIndex)
 {
-//    if (lapIndex < 0 or lapIndex >= timeList.size() or attributeName.isEmpty()) {
-//        return false;
-//    }
-
-//    QTime zero(0, 0);
-
-//    element.setAttribute(attributeName, zero.msecsTo(timeList.at(lapIndex)));
-
-    Q_UNUSED(element);
-    Q_UNUSED(attributeName);
-    Q_UNUSED(lapIndex);
-
-    return true;
+    return lapList.at(lapIndex);
 }
 
-bool LapModel::lapFromXml(const QDomElement& element, const QString& attributeName)
-{
-//    if (attributeName.isEmpty()) {
-//        return false;
-//    }
-
-//    QString attributeValue = element.attribute(attributeName);
-//    qint64 milliseconds = attributeValue.toLongLong();
-
-//    if (milliseconds == 0) {
-//        return false;  // invalid attribute name or value
-//    }
-
-//    QTime t(0, 0);
-//    t = t.addMSecs(milliseconds);
-//    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
-//    timeList.append(t);
-//    endInsertRows();
-
-    Q_UNUSED(element);
-    Q_UNUSED(attributeName);
-
-    return true;
-}
-
-QString LapModel::relativeLapTime(int lapIndex) const
-{
-//    if (lapIndex < 0 or lapIndex >= timeList.size()) {
-//        return QString();
-//    }
-
-//    QString time;
-
-//    if (timeList.size() > 1 and lapIndex > 0) {     // compute diff only starting from 2nd entry
-//        QTime prev = timeList.at(lapIndex - 1);
-//        QTime target = timeList.at(lapIndex);
-//        QTime diff(0, 0);
-//        diff = diff.addMSecs(prev.msecsTo(target));
-
-//        time = timeFormat.format(diff);
-//    }
-//    else {  // first lap entry
-//        time = timeFormat.format(timeList.first());
-//    }
-
-//    return time;
-    Q_UNUSED(lapIndex);
-    return QString();
-}
-
-QString LapModel::absoluteLapTime(int lapIndex) const
-{
-//    if (lapIndex < 0 or lapIndex >= timeList.size()) {
-//        return QString();
-//    }
-
-//    return timeFormat.format(timeList.at(lapIndex));
-    Q_UNUSED(lapIndex);
-    return QString();
-}
-
-bool LapModel::isEmpty() const
-{
-    return lapList.isEmpty();
-}
-
-void LapModel::onLap(const QTime& lapTime)
+void LapModel::append(const Lap& lap)
 {
     beginInsertRows(QModelIndex(),lapList.size(),lapList.size());		// i.e. append the new row at table end
 
-    Lap lap(lapTime);
+    Lap newLap(lap);
     QString relTime;
 
     if (lapList.size() >= 1) {     // computing the diff needs at least one previous entry
@@ -240,14 +161,24 @@ void LapModel::onLap(const QTime& lapTime)
         relTime = timeFormat.format(diff);
     }
     else {  // first lap entry
-        relTime = timeFormat.format(lap.time());
+        relTime = timeFormat.format(newLap.time());
     }
 
-    lap.setRelativeTime(relTime);
-    lap.setAbsoluteTime(timeFormat.format(lap.time()));
+    newLap.setRelativeTime(relTime);
+    newLap.setAbsoluteTime(timeFormat.format(newLap.time()));
 
-    lapList.append(lap);
+    lapList.append(newLap);
     endInsertRows();
+}
+
+bool LapModel::isEmpty() const
+{
+    return lapList.isEmpty();
+}
+
+void LapModel::onLap(const QTime& lapTime)
+{
+    append(Lap(lapTime));
 }
 
 void LapModel::onClear()

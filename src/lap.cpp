@@ -55,3 +55,21 @@ QString Lap::note() const
 {
     return lapNote;
 }
+
+qint64 Lap::raw() const
+{
+    QTime zero(0, 0);
+
+    return zero.msecsTo(lapTime);
+}
+
+Lap Lap::fromRawData(qint64 rawData)
+{
+    if (rawData < 0) {
+        return Lap();
+    }
+
+    QTime zero(0, 0);
+
+    return Lap(zero.addMSecs(rawData));
+}

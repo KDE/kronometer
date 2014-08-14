@@ -542,15 +542,15 @@ void MainWindow::createXmlSaveFile(QTextStream& out)
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
         QDomElement lap = doc.createElement(LAP_TAG);
         lap.setAttribute(LAP_ID_ATTR, i);
-        lapModel->lapToXml(lap, PERSISTENCE_ATTR, i);
+        lap.setAttribute(PERSISTENCE_ATTR, lapModel->at(i).raw());
 
         QDomElement relTime = doc.createElement(TIME_TAG);
         relTime.setAttribute(TYPE_ATTR, REL_TYPE);
-        relTime.appendChild(doc.createTextNode(lapModel->relativeLapTime(i)));
+        relTime.appendChild(doc.createTextNode(lapModel->at(i).relativeTime()));
 
         QDomElement absTime = doc.createElement(TIME_TAG);
         absTime.setAttribute(TYPE_ATTR, ABS_TYPE);
-        absTime.appendChild(doc.createTextNode(lapModel->absoluteLapTime(i)));
+        absTime.appendChild(doc.createTextNode(lapModel->at(i).absoluteTime()));
 
         lap.appendChild(relTime);
         lap.appendChild(absTime);
@@ -588,7 +588,8 @@ bool MainWindow::parseXmlSaveFile(const QDomDocument& doc)
     QDomElement lap = lapsElement.firstChildElement(LAP_TAG);
 
     while (not lap.isNull()) {
-        lapModel->lapFromXml(lap, PERSISTENCE_ATTR);
+        QString data = lap.attribute(PERSISTENCE_ATTR);
+        lapModel->append(Lap::fromRawData(data.toLongLong()));
         lap = lap.nextSiblingElement(LAP_TAG);
     }
 
@@ -649,11 +650,11 @@ void MainWindow::exportLapsAsXml(QTextStream& out)
 
         QDomElement relTime = doc.createElement(TIME_TAG);
         relTime.setAttribute(TYPE_ATTR, REL_TYPE);
-        relTime.appendChild(doc.createTextNode(lapModel->relativeLapTime(i)));
+        relTime.appendChild(doc.createTextNode(lapModel->at(i).relativeTime()));
 
         QDomElement absTime = doc.createElement(TIME_TAG);
         absTime.setAttribute(TYPE_ATTR, ABS_TYPE);
-        absTime.appendChild(doc.createTextNode(lapModel->absoluteLapTime(i)));
+        absTime.appendChild(doc.createTextNode(lapModel->at(i).absoluteTime()));
 
         lap.appendChild(relTime);
         lap.appendChild(absTime);
@@ -673,7 +674,7 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
     out << '#' << i18n("Lap number,Lap time,Global time") << '\r' << '\n';
 
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
-        out << i << ',' << lapModel->relativeLapTime(i) << ',' << lapModel->absoluteLapTime(i) << '\r' << '\n';
+        out << i << ',' << lapModel->at(i).relativeTime() << ',' << lapModel->at(i).absoluteTime() << '\r' << '\n';
     }
 }
 

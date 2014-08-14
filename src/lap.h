@@ -32,7 +32,7 @@ class Lap
 
 public:
 
-    explicit Lap(const QTime& lap = QTime());
+    explicit Lap(const QTime& lap = QTime(0, 0));
 
     /**
      * The specific lap's time
@@ -75,6 +75,19 @@ public:
      * @return The lap's annotation
      */
     QString note() const;
+
+    /**
+     * The underlying lap's raw data
+     * @return Lap's raw data counter
+     */
+    qint64 raw() const;
+
+    /**
+     * Create a new Lap object from raw data
+     * @param rawData The raw data counter of the new Lap
+     * @return A new Lap object created from the given raw data
+     */
+    static Lap fromRawData(qint64 rawData);
 
 private:
 
