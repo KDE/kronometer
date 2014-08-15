@@ -10,4 +10,5 @@ In both cases, it doesn't make sense to implement this feature before the port t
 
 3. Suspend/Hibernate awareness. Kronometer should be notified when the system is going to sleep (standby or hibernation) and then pause the stopwatch if running. (this probably needs dbus?)
 
-4. Lap times annotations feature. The user should be able to write an annotation over a certain lap time, to help him remember the meaning of that lap.
+4. Add the xml mimetype to the .desktop file and handle the QUrls passed by commands line (it's better to wait for the KF5 port)
+
