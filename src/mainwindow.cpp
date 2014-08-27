@@ -220,7 +220,15 @@ void MainWindow::writeSettings(const QString& dialogName)
     Q_UNUSED(dialogName);
     KronometerConfig::self()->writeConfig();
 
-    loadSettings();
+    MainWindow *window = nullptr;
+
+    foreach (QWidget *widget, KApplication::topLevelWidgets()) {
+        window = qobject_cast<MainWindow *>(widget);
+
+        if (window) {
+            window->loadSettings();
+        }
+    }
 }
 
 void MainWindow::updateLapDock()
