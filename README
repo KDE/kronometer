@@ -10,6 +10,9 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+v1.5.1
+* Fixed error preventing the building of Opensuse RPM packages
+
 v1.5.0
 * Laps annotations: now you can place a custom text note over a certain lap time
 * Option to disable the laps feature and hide the lap button and table
