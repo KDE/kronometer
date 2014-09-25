@@ -223,7 +223,7 @@ void MainWindow::writeSettings(const QString& dialogName)
 
     MainWindow *window = nullptr;
 
-    foreach (QWidget *widget, KApplication::topLevelWidgets()) {
+    foreach (QWidget *widget, QApplication::topLevelWidgets()) {
         window = qobject_cast<MainWindow *>(widget);
 
         if (window) {
