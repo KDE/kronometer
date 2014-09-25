@@ -1,11 +1,14 @@
 Kronometer TODO list
 =====================
 
-1. Port to KF5
+1. Release the port to KF5. It's better to wait the other extragear apps and see how they'll do it.
 
 2. Stopwatch controls while kronometer's window is in background. This can be done in at least to ways:
 	a. System Tray Icon using KStatusNotifierItem, whit a contextual menu which holds the relevant actions (start/pause/reset/lap).
 	b. KDE notifications, where the notification shows the running timer (while a tray icon doesn't) and the buttons to start/pause/reset the stopwatch.
 In both cases, it doesn't make sense to implement this feature before the port to KF5.
 
-3. Suspend/Hibernate awareness. Kronometer should be notified when the system is going to sleep (standby or hibernation) and then pause the stopwatch if running.
+3. Suspend/Hibernate awareness. Kronometer should be notified when the system is going to sleep (standby or hibernation) and then pause the stopwatch if running. (this probably needs dbus?)
+
+4. Add the xml mimetype to the .desktop file and handle the QUrls passed by commands line (it's better to wait for the KF5 port)
+

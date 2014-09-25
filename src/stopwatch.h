@@ -25,8 +25,6 @@
 #include <QElapsedTimer>
 
 class QTimerEvent;
-class QDataStream;
-class QDomElement;
 
 /**
  * @brief A Stopwatch class written in Qt.
@@ -76,40 +74,18 @@ public:
     bool isInactive() const;
 
     /**
-     * Serialize the stopwatch on the given output stream.
-     * Only a paused stopwatch is meant to be serialized.
-     * @param out The serialization output stream
-     * @return true if the serialization succeeds (i.e. the stopwatch is paused), false otherwise
+     * Read-only access to the stopwatch underlying data
+     * @return The stopwatch raw counter
      */
-    bool serialize(QDataStream& out);
+    qint64 raw() const;
 
     /**
-     * De-serialize the stopwatch from the given input stream.
-     * Only an inactive stopwatch is meant to be serialized.
-     * @param in The serialization input stream
-     * @return true if the deserialization succeeds (i.e. the stopwatch is inactive), false otherwise
+     * (Re)-initialize (deserialize) the stopwatch from the given raw data counter.
+     * Only an inactive stopwatch is meant to be (re)-initialized (deserialized).
+     * @param rawData The raw milliseconds counter for the stopwatch
+     * @return true if the operation succeeds (i.e. the stopwatch was inactive), false otherwise
      */
-    bool deserialize(QDataStream& in);
-
-    /**
-     * Serialize the stopwatch on the given XML DOM element.
-     * The serialization is implemented by adding an attribute (with the given name) to the element.
-     * Only a paused stopwatch is meant to be serialized.
-     * @param element The XML DOM element to be used as serialization output.
-     * @param attributeName The name of the attribute to be added to the element.
-     * @return true if the serialization succeeds (i.e. the stopwatch is paused), false otherwise
-     */
-    bool serialize(QDomElement& element, const QString& attributeName);
-
-    /**
-     * De-serialize the stopwatch from the given XML DOM element.
-     * The deserialization is implemented by reading an attribute (with the given name) from the element.
-     * Only an inactive stopwatch is meant to be serialized.
-     * @param element The XML DOM element to be used as serialization input.
-     * @param attributeName The name of the attribute to be read.
-     * @return true if the deserialization succeeds (i.e. the stopwatch is inactive and the attribute is valid), false otherwise
-     */
-    bool deserialize(QDomElement& element, const QString& attributeName);
+    bool initialize(qint64 rawData);
 
 public slots:
 

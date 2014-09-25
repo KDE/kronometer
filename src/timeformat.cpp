@@ -21,8 +21,7 @@
 
 #include <QTime>
 
-TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec)
-    :
+TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec) :
     hour(h),
     min(mm),
     sec(ss),

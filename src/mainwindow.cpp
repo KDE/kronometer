@@ -76,6 +76,7 @@ namespace
     const QString LAPS_TAG = "laps";
     const QString LAP_TAG = "lap";
     const QString TIME_TAG = "time";
+    const QString NOTE_TAG = "note";
     const QString ROOT_TAG = "kronometer";
     const QString PERSISTENCE_ATTR = "msec";
     const QString TYPE_ATTR = "type";
@@ -220,7 +221,15 @@ void MainWindow::writeSettings(const QString& dialogName)
     Q_UNUSED(dialogName);
     KronometerConfig::self()->save();
 
-    loadSettings();
+    MainWindow *window = nullptr;
+
+    foreach (QWidget *widget, KApplication::topLevelWidgets()) {
+        window = qobject_cast<MainWindow *>(widget);
+
+        if (window) {
+            window->loadSettings();
+        }
+    }
 }
 
 void MainWindow::updateLapDock()
@@ -414,6 +423,9 @@ void MainWindow::loadSettings()
         KronometerConfig::showMilliseconds()
     );
 
+    lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
+    exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
+    lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
     lapModel->setTimeFormat(timeFormat);
     timeFormat.showDividers(false);
     stopwatchDisplay->setTimeFormat(timeFormat);
@@ -463,12 +475,7 @@ bool MainWindow::saveFileAs(const QString& name)
         return false;
     }
 
-    // OLD: persistence using binary files
-    //QDataStream stream(&saveFile);
-    //stopwatch->serialize(stream);   // save stopwatch time
-    //stream << *lapModel;            // save laps
-
-    // NEW: persistence using XML files
+    // Persistence using XML files
     QTextStream stream(&saveFile);
     createXmlSaveFile(stream);
 
@@ -515,12 +522,7 @@ void MainWindow::openUrl()
         QFile file(targetPath);
         file.open(QIODevice::ReadOnly);
 
-        // OLD: persistence using binary files
-        //QDataStream stream(&file);
-        //stopwatch->deserialize(stream);     // load stopwatch time
-        //stream >> *lapModel;                // load laps
-
-        // NEW: persistence using XML files
+        // Persistence using XML files
         QDomDocument doc;
         QString errorMsg;
 
@@ -535,7 +537,7 @@ void MainWindow::openUrl()
             }
         }
         else {
-            KMessageBox::error(this, "Cannot open file: " + errorMsg);
+            KMessageBox::error(this, i18n("Cannot open file: %1", errorMsg));
             close();
         }
     }
@@ -549,7 +551,7 @@ void MainWindow::createXmlSaveFile(QTextStream& out)
     QDomElement rootElement = doc.createElement(ROOT_TAG);
 
     QDomElement stopwatchElement = doc.createElement(STOPWATCH_TAG);
-    stopwatch->serialize(stopwatchElement, PERSISTENCE_ATTR);
+    stopwatchElement.setAttribute(PERSISTENCE_ATTR, stopwatch->raw());
     QDomElement stopwatchTime = doc.createElement(TIME_TAG);
     stopwatchTime.setAttribute(TYPE_ATTR, ABS_TYPE);
     stopwatchTime.appendChild(doc.createTextNode(stopwatchDisplay->currentTime()));
@@ -560,18 +562,26 @@ void MainWindow::createXmlSaveFile(QTextStream& out)
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
         QDomElement lap = doc.createElement(LAP_TAG);
         lap.setAttribute(LAP_ID_ATTR, i);
-        lapModel->lapToXml(lap, PERSISTENCE_ATTR, i);
+        lap.setAttribute(PERSISTENCE_ATTR, lapModel->at(i).raw());
 
         QDomElement relTime = doc.createElement(TIME_TAG);
         relTime.setAttribute(TYPE_ATTR, REL_TYPE);
-        relTime.appendChild(doc.createTextNode(lapModel->relativeLapTime(i)));
+        relTime.appendChild(doc.createTextNode(lapModel->at(i).relativeTime()));
 
         QDomElement absTime = doc.createElement(TIME_TAG);
         absTime.setAttribute(TYPE_ATTR, ABS_TYPE);
-        absTime.appendChild(doc.createTextNode(lapModel->absoluteLapTime(i)));
+        absTime.appendChild(doc.createTextNode(lapModel->at(i).absoluteTime()));
 
         lap.appendChild(relTime);
         lap.appendChild(absTime);
+
+        if (lapModel->at(i).hasNote()) {
+            QDomElement lapNote = doc.createElement(NOTE_TAG);
+            lapNote.appendChild(doc.createTextNode(lapModel->at(i).note()));
+
+            lap.appendChild(lapNote);
+        }
+
         lapsElement.appendChild(lap);
     }
 
@@ -600,12 +610,21 @@ bool MainWindow::parseXmlSaveFile(const QDomDocument& doc)
         return false;
     }
 
-    stopwatch->deserialize(stopwatchElement, PERSISTENCE_ATTR);
+    QString data = stopwatchElement.attribute(PERSISTENCE_ATTR);
+    stopwatch->initialize(data.toLongLong());  // TODO: check return value
 
     QDomElement lap = lapsElement.firstChildElement(LAP_TAG);
 
     while (not lap.isNull()) {
-        lapModel->lapFromXml(lap, PERSISTENCE_ATTR);
+        QString data = lap.attribute(PERSISTENCE_ATTR);
+        Lap newLap = Lap::fromRawData(data.toLongLong());
+        QDomElement note = lap.namedItem(NOTE_TAG).toElement();
+
+        if (not note.isNull()) {
+            newLap.setNote(note.text());
+        }
+
+        lapModel->append(newLap);
         lap = lap.nextSiblingElement(LAP_TAG);
     }
 
@@ -664,14 +683,22 @@ void MainWindow::exportLapsAsXml(QTextStream& out)
 
         QDomElement relTime = doc.createElement(TIME_TAG);
         relTime.setAttribute(TYPE_ATTR, REL_TYPE);
-        relTime.appendChild(doc.createTextNode(lapModel->relativeLapTime(i)));
+        relTime.appendChild(doc.createTextNode(lapModel->at(i).relativeTime()));
 
         QDomElement absTime = doc.createElement(TIME_TAG);
         absTime.setAttribute(TYPE_ATTR, ABS_TYPE);
-        absTime.appendChild(doc.createTextNode(lapModel->absoluteLapTime(i)));
+        absTime.appendChild(doc.createTextNode(lapModel->at(i).absoluteTime()));
 
         lap.appendChild(relTime);
         lap.appendChild(absTime);
+
+        if (lapModel->at(i).hasNote()) {
+            QDomElement lapNote = doc.createElement(NOTE_TAG);
+            lapNote.appendChild(doc.createTextNode(lapModel->at(i).note()));
+
+            lap.appendChild(lapNote);
+        }
+
         lapsElement.appendChild(lap);
     }
 
@@ -685,10 +712,14 @@ void MainWindow::exportLapsAsXml(QTextStream& out)
 void MainWindow::exportLapsAsCsv(QTextStream& out)
 {
     out << '#' << timestampMessage() << '\r' << '\n';
-    out << '#' << i18n("Lap number,Lap time,Global time") << '\r' << '\n';
+    out << '#' << i18n("Lap number,Lap time,Global time,Note") << '\r' << '\n';
 
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
-        out << i << ',' << lapModel->relativeLapTime(i) << ',' << lapModel->absoluteLapTime(i) << '\r' << '\n';
+        out << i;
+        out << ',' << lapModel->at(i).relativeTime();
+        out << ',' << lapModel->at(i).absoluteTime();
+        out << ',' << lapModel->at(i).note();
+        out << '\r' << '\n';
     }
 }
 

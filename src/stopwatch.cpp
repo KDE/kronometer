@@ -20,11 +20,15 @@
 #include "stopwatch.h"
 
 #include <QTimerEvent>
-#include <QDataStream>
-#include <QDomElement>
 #include <QCoreApplication>
 
-Stopwatch::Stopwatch(QObject *parent) :  QObject(parent), timerId(INACTIVE_TIMER_ID), state(State::INACTIVE), granularity(HUNDREDTHS), zero(0, 0){}
+Stopwatch::Stopwatch(QObject *parent) :
+    QObject(parent),
+    timerId(INACTIVE_TIMER_ID),
+    state(State::INACTIVE),
+    granularity(HUNDREDTHS),
+    zero(0, 0)
+{}
 
 void Stopwatch::setGranularity(Granularity g)
 {
@@ -46,57 +50,19 @@ bool Stopwatch::isInactive() const
     return state == State::INACTIVE;
 }
 
-bool Stopwatch::serialize(QDataStream& out)
+qint64 Stopwatch::raw() const
 {
-    if (state != State::PAUSED) {
-        return false;
-    }
-
-    out << accumulator;
-
-    return true;
+    return accumulator;
 }
 
-bool Stopwatch::deserialize(QDataStream& in)
+bool Stopwatch::initialize(qint64 rawData)
 {
-    if (state != State::INACTIVE) {
+    if (state != State::INACTIVE or rawData <= 0) {
         return false;
     }
 
-    in >> accumulator;
+    accumulator = rawData;
     state = State::PAUSED;
-
-    emit time(zero.addMSecs(accumulator));  // it signals that has been deserialized and can be resumed
-
-    return true;
-}
-
-bool Stopwatch::serialize(QDomElement& element, const QString& attributeName)
-{
-    if (state != State::PAUSED or attributeName.isEmpty()) {
-        return false;
-    }
-
-    element.setAttribute(attributeName, accumulator);
-
-    return true;
-}
-
-bool Stopwatch::deserialize(QDomElement& element, const QString& attributeName)
-{
-    if (state != State::INACTIVE or attributeName.isEmpty()) {
-        return false;
-    }
-
-    QString acc = element.attribute(attributeName);
-    accumulator = acc.toLongLong();
-
-    if (accumulator == 0) {
-        return false;  // invalid attribute name or value
-    }
-
-    state = State::PAUSED;
-
     emit time(zero.addMSecs(accumulator));  // it signals that has been deserialized and can be resumed
 
     return true;

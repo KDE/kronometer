@@ -22,7 +22,6 @@
 #include <KLocalizedString>
 
 #include <QTime>
-#include <QDomElement>
 
 LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
 
@@ -37,7 +36,7 @@ int LapModel::rowCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent);
 
-    return timeList.size();
+    return lapList.size();
 }
 
 QVariant LapModel::data(const QModelIndex& index, int role) const
@@ -46,7 +45,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
          return QVariant::Invalid;   
      }
 
-     if (index.row() >= timeList.size() || index.row() < 0) {
+     if (index.row() >= lapList.size() || index.row() < 0) {
          return QVariant::Invalid;
      }
 
@@ -59,14 +58,24 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
             break;
 
         case REL_TIME:
-            variant = relativeLapTime(index.row());
+            variant = lapList.at(index.row()).relativeTime();
             break;
 
         case ABS_TIME:
-            variant = absoluteLapTime(index.row());
+            variant = lapList.at(index.row()).absoluteTime();
+            break;
+
+        case NOTE:
+            variant = lapList.at(index.row()).note();
             break;
         }
 
+         return variant;
+     }
+
+     else if (role == Qt::EditRole && index.column() == NOTE) {
+         // prevent the disappear of the old value when double-clicking the item
+         QVariant variant = lapList.at(index.row()).note();
          return variant;
      }
 
@@ -90,6 +99,10 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
             case ABS_TIME:
                 return i18n("Global time");
                 break;
+
+            case NOTE:
+                return i18n("Note");
+                break;
             }
         }
     }
@@ -97,114 +110,80 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
     return QVariant::Invalid;
 }
 
+bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role)
+{
+    if (index.isValid() and role == Qt::EditRole) {
+        if (index.column() == NOTE) {
+            lapList[index.row()].setNote(value.toString());
+            emit dataChanged(index, index);
+
+            return true;
+        }
+    }
+
+    return false;
+}
+
+Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
+{
+    if (!index.isValid())
+        return Qt::ItemIsEnabled;
+
+    if (index.column() == NOTE)
+        return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
+
+    return QAbstractTableModel::flags(index);
+}
+
 void LapModel::setTimeFormat(const TimeFormat &format)
 {
     timeFormat = format;
 }
 
-bool LapModel::lapToXml(QDomElement& element, const QString& attributeName, int lapIndex)
+const Lap &LapModel::at(int lapIndex)
 {
-    if (lapIndex < 0 or lapIndex >= timeList.size() or attributeName.isEmpty()) {
-        return false;
-    }
-
-    QTime zero(0, 0);
-
-    element.setAttribute(attributeName, zero.msecsTo(timeList.at(lapIndex)));
-
-    return true;
+    return lapList.at(lapIndex);
 }
 
-bool LapModel::lapFromXml(const QDomElement& element, const QString& attributeName)
+void LapModel::append(const Lap& lap)
 {
-    if (attributeName.isEmpty()) {
-        return false;
-    }
+    beginInsertRows(QModelIndex(),lapList.size(),lapList.size());		// i.e. append the new row at table end
 
-    QString attributeValue = element.attribute(attributeName);
-    qint64 milliseconds = attributeValue.toLongLong();
+    Lap newLap(lap);
+    QString relTime;
 
-    if (milliseconds == 0) {
-        return false;  // invalid attribute name or value
-    }
-
-    QTime t(0, 0);
-    t = t.addMSecs(milliseconds);
-    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
-    timeList.append(t);
-    endInsertRows();
-
-    return true;
-}
-
-QString LapModel::relativeLapTime(int lapIndex) const
-{
-    if (lapIndex < 0 or lapIndex >= timeList.size()) {
-        return QString();
-    }
-
-    QString time;
-
-    if (timeList.size() > 1 and lapIndex > 0) {     // compute diff only starting from 2nd entry
-        QTime prev = timeList.at(lapIndex - 1);
-        QTime target = timeList.at(lapIndex);
+    if (lapList.size() >= 1) {     // computing the diff needs at least one previous entry
+        QTime prev = lapList.last().time();
+        QTime target = lap.time();
         QTime diff(0, 0);
         diff = diff.addMSecs(prev.msecsTo(target));
 
-        time = timeFormat.format(diff);
+        relTime = timeFormat.format(diff);
     }
     else {  // first lap entry
-        time = timeFormat.format(timeList.first());
+        relTime = timeFormat.format(newLap.time());
     }
 
-    return time;
-}
+    newLap.setRelativeTime(relTime);
+    newLap.setAbsoluteTime(timeFormat.format(newLap.time()));
 
-QString LapModel::absoluteLapTime(int lapIndex) const
-{
-    if (lapIndex < 0 or lapIndex >= timeList.size()) {
-        return QString();
-    }
-
-    return timeFormat.format(timeList.at(lapIndex));
+    lapList.append(newLap);
+    endInsertRows();
 }
 
 bool LapModel::isEmpty() const
 {
-    return timeList.isEmpty();
+    return lapList.isEmpty();
 }
 
 void LapModel::onLap(const QTime& lapTime)
 {
-    beginInsertRows(QModelIndex(),timeList.size(),timeList.size());		// i.e. append the new row at table end
-    timeList.append(lapTime);
-    endInsertRows();
+    append(Lap(lapTime));
 }
 
 void LapModel::onClear()
 {
     beginResetModel();
-    timeList.clear();
+    lapList.clear();
     endResetModel();
-}
-
-QDataStream& operator<<(QDataStream& out, const LapModel& m)
-{
-    out << m.timeList;
-
-    return out;
-}
-
-QDataStream& operator>>(QDataStream& in, LapModel& m)
-{
-    QList<QTime> temp;
-    in >> temp;
-
-    for (int i = 0; i < temp.size(); i++) {
-        m.beginInsertRows(QModelIndex(), i, i);
-        m.timeList.append(temp.at(i));
-        m.endInsertRows();
-    }
-
-    return in;
 }

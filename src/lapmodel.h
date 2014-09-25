@@ -22,10 +22,10 @@
 
 #include <QAbstractTableModel>
 
+#include "lap.h"
 #include "timeformat.h"
 
 class QTime;
-class QDomElement;
 
 /**
  * @brief A LapModel is a Model for lap times.
@@ -44,51 +44,29 @@ public:
     int columnCount(const QModelIndex& parent) const;
     QVariant data(const QModelIndex& index, int role) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
+    bool setData(const QModelIndex& index, const QVariant& value, int role);
+    Qt::ItemFlags flags(const QModelIndex &index) const;
 
     void setTimeFormat(const TimeFormat& format);
 
     /**
-     * Serialize the suggested lap time to the given XML DOM element.
-     * The serialization is implemented by adding an attribute (with the given name) to the element.
-     * @param element The XML DOM element to be used as serialization output.
-     * @param attributeName The name of the attribute to be added to the element.
-     * @param lapIndex the index of the lap time to be serialized.
-     * @return true if the serialization succeeds, false otherwise.
+     * Retrieve a specific Lap object. The given index must be a valid index in the model.
+     * @param lapIndex The index of the lap
+     * @return The Lap at the given index
      */
-    bool lapToXml(QDomElement& element, const QString& attributeName, int lapIndex);
+    const Lap& at(int lapIndex);
 
     /**
-     * De-serialize the suggested lap time from the given XML DOM element.
-     * The deserialization is implemented by reading an attribute (with the given name) from the element.
-     * @param element The XML DOM element to be used as deserialization input.
-     * @param attributeName The name of the attribute to be read from the element.
-     * @param lapIndex the index of the lap time to be deserialized.
-     * @return true if the deserialization succeeds, false otherwise.
+     * Insert a new Lap object to the end of the model.
+     * @param lap The new Lap object.
      */
-    bool lapFromXml(const QDomElement& element, const QString& attributeName);
-
-    /**
-     * Compute the relative time of a lap.
-     * @param lapIndex The index of the lap.
-     * @return Relative time of the lap, formatted as string.
-     */
-    QString relativeLapTime(int lapIndex) const;
-
-    /**
-     * Compute the absolute time of a lap.
-     * @param lapIndex The index of the lap.
-     * @return Absolute time of the lap, formatted as string.
-     */
-    QString absoluteLapTime(int lapIndex) const;
+    void append(const Lap& lap);
 
     /**
      * Whether the model is empty.
      * @return true if the model holds at least one lap time, false otherwise.
      */
     bool isEmpty() const;
-
-    friend QDataStream& operator<<(QDataStream& out, const LapModel& m);
-    friend QDataStream& operator>>(QDataStream& in, LapModel& m);
 
 public slots:	
 
@@ -105,18 +83,18 @@ public slots:
 
 private:
 
-    static const int LAP_TAG_NUMBER = 3;    /** Number of tag/header in the model */
+    static const int LAP_TAG_NUMBER = 4;    /** Number of tag/header in the model */
 
     enum LapTag
     {
         NUMBER = 0,     /**< Index of the lap-number column */
         REL_TIME = 1,   /**< Index of the lap relative time column */
-        ABS_TIME = 2   /**< Index of the lap absolute time column */
+        ABS_TIME = 2,   /**< Index of the lap absolute time column */
+        NOTE = 3       /**< Index of the lap annotation column */
     };
 
-    QList<QTime> timeList;              /** Absolute lap times */
-    TimeFormat timeFormat;              /** Current lap times format */
-
+    QList<Lap> lapList;              /** Lap times */
+    TimeFormat timeFormat;          /** Current lap times format */
 
 };
 

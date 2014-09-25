@@ -23,12 +23,22 @@
 
 #include "mainwindow.h"
 
+namespace
+{
+    const QByteArray APP_NAME = "kronometer";
+    const QByteArray VERSION = "1.5.2";
+    const QByteArray OTHER_TEXT = "";
+    const QByteArray HOME_PAGE_ADDRESS = "http://aelog.org/kronometer";
+>>>>>>> master
+
+#include "mainwindow.h"
+
 int main (int argc, char **argv)
 {
     KAboutData aboutData(
         QStringLiteral("kronometer"),   // componentName
         i18n("Kronometer"), // displayName
-        QStringLiteral("1.4.1"),    // version
+        QStringLiteral("1.5.2"),    // version
         i18n("Kronometer is a simple stopwatch application built for KDE"), // shortDescription
         KAboutLicense::GPL_V2,    // licenseType
         i18n("Copyright (C) 2014 Elvis Angelaccio"),    // copyrightStatement
@@ -53,7 +63,6 @@ int main (int argc, char **argv)
     app.setWindowIcon(QIcon::fromTheme("kronometer"));
 
     MainWindow* window = new MainWindow();
-    window->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     window->show();
 
     return app.exec();

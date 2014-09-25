@@ -28,8 +28,8 @@
 <holder>Elvis Angelaccio</holder>
 </copyright>
 
-<date>2014-07-09</date>
-<releaseinfo>1.4.1 (&kde; 4.14)</releaseinfo>
+<date>2014-09-02</date>
+<releaseinfo>1.5.2 (&kde; 4.14)</releaseinfo>
 
 <legalnotice>
   &FDLNotice;
@@ -92,7 +92,11 @@
       &kronometer; main use case is of course the interaction with the timer. You can start/pause/resume the timer by clicking on the proper actions in the toolbar or in the &kronometer; menu.
     </para>
     <para>
-      Even simpler, you can use the keyboard instead of the mouse: you start the timer with the keyboard's <keycap>Space</keycap>; and you pause the timer with <keycap>Space</keycap> too. You might recognize this behavior from many media player applications.
+      Even simpler, you can use the keyboard instead of the mouse: you start the timer with the keyboard's <keycap>Space</keycap> and you pause the timer with <keycap>Space</keycap> too. You might recognize this behavior from many media player applications.
+    </para>
+    <para>
+      By pressing the <keycap>Enter</keycap> key when the timer is running, you freeze that particular time and you create a new <emphasis>lap</emphasis> time. These times are always visible in the table on the left of the application, where you can sort them by clicking the <emphasis>Lap time</emphasis> column's header.
+      You can also add a custom text annotation to each lap, by double-clicking the cells within the <emphasis>Note</emphasis> column.
     </para>
   </sect1>
   <sect1 id="save_and_restore">
@@ -159,8 +163,7 @@
   <sect1 id="interface_settings">
     <title>Interface settings</title>
     <para>
-      In the interface settings page you can choose whether to show the time headers. The time headers are the labels on the upper space of the stopwatch display. They show the name of each timer component (hours, minutes, &etc;).
-	  You can also choose whether to show the Status Bar in the main window.
+      In the interface settings page you can choose whether to disable the laps recording feature. This can be useful if you wish to optimize the window content. You can also choose whether to show the time headers. The time headers are the labels on the upper space of the stopwatch display. They show the name of each timer component (hours, minutes, &etc;).
     </para>
   </sect1>
   <sect1 id="save_settings">

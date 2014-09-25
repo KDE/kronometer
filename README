@@ -10,6 +10,22 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+v1.5.2
+* Fixed wrong GPLv2 version in COPYING file
+
+v1.5.1
+* Fixed error preventing the building of Opensuse RPM packages
+
+v1.5.0
+* Laps annotations: now you can place a custom text note over a certain lap time
+* Option to disable the laps feature and hide the lap button and table
+* AppData support
+* Fixed bug 338540: https://bugs.kde.org/show_bug.cgi?id=338540
+
+v1.4.2
+* Removed option to hide the statusbar, since it's a built-in KDE feature
+* Small fix for digits appearance
+
 v1.4.1
 * Upper toolbar is now correctly removed from the UI
 
