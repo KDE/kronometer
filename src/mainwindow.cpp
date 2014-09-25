@@ -357,19 +357,15 @@ void MainWindow::setupActions()
     exportAction = new QAction(this);
 
     startAction->setIcon(QIcon::fromTheme("player-time"));
-    startAction->setShortcut(Qt::Key_Space);
 
-    pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction don't)
+    pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction doesn't)
     pauseAction->setIcon(QIcon::fromTheme("media-playback-pause"));
-    pauseAction->setShortcut(Qt::Key_Space);
 
     resetAction->setText(i18n("&Reset"));
     resetAction->setIcon(QIcon::fromTheme("edit-clear-history"));
-    resetAction->setShortcut(Qt::Key_F5);
 
     lapAction->setText(i18n("&Lap"));
     lapAction->setIcon(QIcon::fromTheme("chronometer"));
-    lapAction->setShortcut(Qt::Key_Return);
 
     exportAction->setText(i18n("&Export laps as..."));
     exportAction->setIcon(QIcon::fromTheme("document-export"));
@@ -379,6 +375,10 @@ void MainWindow::setupActions()
     actionCollection()->addAction(RESET_KEY, resetAction);
     actionCollection()->addAction(LAP_KEY, lapAction);
     actionCollection()->addAction(EXPORT_KEY, exportAction);
+    actionCollection()->setDefaultShortcut(startAction, Qt::Key_Space);
+    actionCollection()->setDefaultShortcut(pauseAction, Qt::Key_Space);
+    actionCollection()->setDefaultShortcut(resetAction, Qt::Key_F5);
+    actionCollection()->setDefaultShortcut(lapAction, Qt::Key_Return);
 
     // triggers for Stopwatch "behavioral" slots
     connect(startAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onStart()));
