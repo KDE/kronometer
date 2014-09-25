@@ -23,16 +23,6 @@
 
 #include "mainwindow.h"
 
-namespace
-{
-    const QByteArray APP_NAME = "kronometer";
-    const QByteArray VERSION = "1.5.2";
-    const QByteArray OTHER_TEXT = "";
-    const QByteArray HOME_PAGE_ADDRESS = "http://aelog.org/kronometer";
->>>>>>> master
-
-#include "mainwindow.h"
-
 int main (int argc, char **argv)
 {
     KAboutData aboutData(
