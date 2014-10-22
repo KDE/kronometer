@@ -27,14 +27,14 @@ LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
 
 int LapModel::columnCount(const QModelIndex& parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
 
     return LAP_TAG_NUMBER;
 }
 
 int LapModel::rowCount(const QModelIndex& parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
 
     return lapList.size();
 }
