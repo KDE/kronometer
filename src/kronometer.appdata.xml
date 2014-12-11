@@ -51,6 +51,7 @@
     <p xml:lang="ca">El Kronometer és una aplicació de cronòmetre construïda per a l'entorn d'escriptori KDE. Compta amb les característiques bàsiques d'un cronòmetre (pausa/continua/inicialitza/voltes), així com la possibilitat de desar els temps en un fitxer i tornar-hi més tard. El Kronometer forma part de la col·lecció «KDE Extragear», dins del sub-mòdul «utils».</p>
     <p xml:lang="el">Το Kronometer είναι μια εφαρμογή χρονομετρητή για το περιβαλλον γραφείου KDE. Περιέχει τις βασικές λειτουργίες χρονομετρητή (παύση/συνέχεια/επαναφορά/γύροι) καθώς επίσης την ικανότητα να αποθηκεύει τους χρόνους σε αρχείο και να τους συνεχίζει αργότερα. Το Kronometer είναι τμήμα της συλλογής KDE Extragear στο υποάρθρωμα Utils.</p>
     <p xml:lang="en-GB">Kronometer is a stopwatch application built for the KDE Desktop Environment. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times in a file and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.</p>
+    <p xml:lang="es">Kronometer es una aplicación de cronómetro para el entorno de escritorio KDE. Contiene las acciones básicas de un cronómetro (pausa, continuar, reiniciar y vueltas), así como la posibilidad de guardar los tiempos en un archivo y continuar con ellos posteriormente. Kronometer es parte de la colección «Extragear» de KDE, dentro del submódulo «Utils».</p>
     <p xml:lang="fi">Kronometer on sekuntikello, joka on tehty KDE-työpöytäympäristölle. Siinä on sekuntikellon perustoiminnot (tauko/jatkaminen/nollaaminen/kierrokset) sekä mahdollisuus tallentaa ajat tiedostoon ja jatkaa tallennettuja aikoja myöhemmin. Kronometer kuuluu KDE Extragearin Työkalut-aliyksikköön.</p>
     <p xml:lang="fr">Kronometer est un chronomètre pour l'environnement de bureau KDE. Il fournit les actions de base d'un chronomètre (pause/reprise/remise à zéro/temps intermédiaires), ainsi que la possibilité d'enregistrer les temps dans un fichier et les reprendre plus tard. Kronometer fait partie du sous-module Utils de la collection KDE Extragear</p>
     <p xml:lang="nds">Kronometer is en Stoppklock-Programm för den KDE-Schriefdisch. Dat hett de normalen Stoppklock-Funkschonen (anhollen, wiedermaken, torüchsetten, Runnen), man kann de Tieden ok sekern un dor later mit wiedermaken. Kronometer is Deel vun de de KDE-Extragear-Sammeln, binnen dat Warktüüch-Ünnermoduul.</p>
@@ -87,6 +88,7 @@
       <li xml:lang="ca">Engega/pausa/continua l'estri de cronòmetre</li>
       <li xml:lang="el">Δώστε εκκίνηση/παύση/συνέχεια στο γραφικό συστατικό του χρονομετρητή</li>
       <li xml:lang="en-GB">Start/pause/resume the stopwatch widget</li>
+      <li xml:lang="es">Iniciar, pausar y continuar el elemento gráfico de cronómetro</li>
       <li xml:lang="fi">Sekuntikellon perustoiminnot: käynnistäminen, tauko, jatkaminen</li>
       <li xml:lang="fr">Démarrage/mise en pause/reprise du chronomètre</li>
       <li xml:lang="nds">Anfangen, anhollen un wiedermaken över dat Stoppklock-Lüttprogramm</li>
@@ -103,6 +105,7 @@
       <li xml:lang="ca">Enregistrament de les voltes: podeu capturar el temps del cronòmetre quan vulgueu</li>
       <li xml:lang="el">Εγγραφή γύρων: μπορείτε να συλλάβετε τη χρονομέτρηση όποτε θέλετε</li>
       <li xml:lang="en-GB">Laps recording: you can capture the stopwatch time when you want</li>
+      <li xml:lang="es">Grabación de las vueltas: puede capturar los tiempos del cronómetro cuando quiera</li>
       <li xml:lang="fi">Kierrosten tallentaminen: sekuntikellon nykyisen ajan voi tallentaa milloin haluaa</li>
       <li xml:lang="fr">Temps intermédiaires : vous pouvez mémoriser le temps du chronomètre quand vous voulez</li>
       <li xml:lang="nds">Runnen opnehmen: Du kannst de Stoppklock-Tiet aflesen, wenn Du dat wullt</li>
@@ -119,6 +122,7 @@
       <li xml:lang="ca">Ordenació dels temps per volta: podeu trobar amb facilitat els temps per volta més ràpida o més lenta</li>
       <li xml:lang="el">Ταξινόμηση χρόνων για γύρους: μπορείτε εύκολα να βρείτε το συντομότερο χρόνο γύρου ή τον βραδύτερο</li>
       <li xml:lang="en-GB">Lap times sorting: you can easily find the shortest lap time or the longest one</li>
+      <li xml:lang="es">Ordenación de los tiempos de las vueltas: puede encontrar con facilidad el tiempo de vuelta más corto o el más largo</li>
       <li xml:lang="fi">Kierrosaikojen järjestäminen: lyhimmän tai pisimmän kierrosajan löytäminen on helppoa</li>
       <li xml:lang="fr">Tri des temps intermédiaires : vous pouvez facilement trouver le temps le plus court et le plus long</li>
       <li xml:lang="nds">Runnentieden sorteren: Du kannst de körtste oder de längste Runntiet heel eenfach rutfinnen</li>
@@ -135,6 +139,7 @@
       <li xml:lang="ca">Inicialitzar l'estri de cronòmetre i els temps per volta</li>
       <li xml:lang="el">Επαναφορά γραφικού συστατικού χρονομετρητή και χρόνων γύρων</li>
       <li xml:lang="en-GB">Reset the stopwatch widget and the lap times</li>
+      <li xml:lang="es">Reiniciar el elemento gráfico del cronómetro y los tiempos por vuelta</li>
       <li xml:lang="fi">Sekuntikellon nollaaminen ja kierrosajat</li>
       <li xml:lang="fr">Remise à zéro du chronomètre et des temps intermédiaires</li>
       <li xml:lang="nds">Dat Stoppklock-Lüttprogramm un de Runnentieden torüchsetten</li>
@@ -151,6 +156,7 @@
       <li xml:lang="ca">Arranjament pel format del temps: podeu triar el nivell de detall del cronòmetre</li>
       <li xml:lang="el">Ρυθμίσεις ενδείξεων χρόνου: μπορείτε να επιλέξετε το βάθος λεπτομέρειας του χροομετρητή</li>
       <li xml:lang="en-GB">Time format settings: you can choose the stopwatch granularity</li>
+      <li xml:lang="es">Preferencias de formato de tiempos: puede escoger el nivel de detalle del cronómetro</li>
       <li xml:lang="fi">Ajan muodon asetukset: sekuntikellon tarkkuus on valittavissa</li>
       <li xml:lang="fr">Réglages du format d'heure : vous pouvez choisir la granularité du chronomètre</li>
       <li xml:lang="nds">Tietformaat instellen: Du kannst de Oplösen vun de Stoppklock utsöken</li>
@@ -167,6 +173,7 @@
       <li xml:lang="ca">Desat i continuació dels temps: podeu desar l'estat del cronòmetre a un fitxer per a continuar més tard</li>
       <li xml:lang="el">Αποθήκευση και συνέχεια χρόνων: μπορείτε να αποθηκεύσετε την κατάσταση του χρονομετρητή σε ένα αρχείο και να συνεχίσετε αργότερα</li>
       <li xml:lang="en-GB">Times saving and resuming: you can save the stopwatch status in a file and resume it later</li>
+      <li xml:lang="es">Grabación y reanudación de tiempos: puede guardar el estado del cronómetro en un archivo y reanudar dicho estado posteriormente</li>
       <li xml:lang="fi">Aikojen tallentaminen ja jatkaminen: sekuntikellon tilan voi tallentaa tiedostoon, ja siitä voi jatkaa myöhemmin</li>
       <li xml:lang="fr">Mémorisation et reprise des temps : vous pouvez enregistrer l'état du chronomètre dans un fichier et le reprendre plus tard</li>
       <li xml:lang="nds">Tieden sekern un wedder opnehmen: Du kannst de Stoppklockweerten sekern un later dor mit wiedermaken</li>
@@ -183,6 +190,7 @@
       <li xml:lang="ca">Personalització dels tipus de lletra: podeu triar els tipus de lletra per a cadascun dels digits del cronòmetre</li>
       <li xml:lang="el">Προσαρμογή γραμματοσειράς: μπορείτε να επιλέξετε τις γραμματοσειρές για καθένα από τα ψηφία του χρονομετρητή</li>
       <li xml:lang="en-GB">Font customisation: you can choose the fonts for each of the stopwatch digits</li>
+      <li xml:lang="es">Personalización de tipos de letra: puede escoger los tipos de letra para los dígitos del cronómetro</li>
       <li xml:lang="fi">Fonttien muokkaaminen: sekuntikellon jokaisen numeron fontti on valittavissa</li>
       <li xml:lang="fr">Personnalisation des fontes : vous pouvez choisir les fontes pour chaque chiffre du chronomètre</li>
       <li xml:lang="nds">Schrift topassen: Du kannst de Schrift för elkeen Tall op de Stoppklock utsöken</li>
@@ -199,6 +207,7 @@
       <li xml:lang="ca">Personalització dels colors: podeu triar el color per als dígits del cronòmetre i el fons del cronòmetre</li>
       <li xml:lang="el">Προσαρμογή χρώματος: μπορείτε να επιλέξετε το χρώμα για τα ψηφία και το φόντο του χρονομετρητή</li>
       <li xml:lang="en-GB">Colour customisation: you can choose the colour for the stopwatch digits and the stopwatch background</li>
+      <li xml:lang="es">Personalización de colores: puede escoger el color de los dígitos del cronómetro y de su fondo</li>
       <li xml:lang="fi">Värien muokkaaminen: sekuntikellon numeroiden ja taustan värit ovat valittavissa</li>
       <li xml:lang="fr">Personnalisation de la couleur : vous pouvez choisir la couleur des chiffres de la couleur de fond du chronomètre</li>
       <li xml:lang="nds">Klöör topassen: Du kannst de Klöör för de Stoppklock-Tallen un de Achtergrundklöör utsöken.</li>
@@ -215,6 +224,7 @@
       <li xml:lang="ca">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer usant el format XML o CSV</li>
       <li xml:lang="el">Εξαγωγή χρόνων γύρων: μπορείτε να εξάγετε τους χρόνους των γύρων σε ένα αρχείο τύπου XML ή CSV</li>
       <li xml:lang="en-GB">Lap times export: you can export the lap times to a file using the XML or CSV format</li>
+      <li xml:lang="es">Exportar los tiempos de las vueltas: puede exportar los tiempos de las vueltas en un archivo usando los formatos XML o CSV</li>
       <li xml:lang="fi">Kierrosaikojen vienti: kierrosajat voi viedä XML- tai CSV-muotoiseen tiedostoon</li>
       <li xml:lang="fr">Exportation des temps intermédiaires : vous pouvez exporter les temps intermédiaire dans un fichier au format XML ou CSV</li>
       <li xml:lang="nds">Runnentieden exporteren: Du kannst de Runnentieden na en XML- oder en CSV-Datei exporteren</li>
