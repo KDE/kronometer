@@ -22,7 +22,7 @@ kde4_add_ui_files(kronometer_SRCS
     widgets/colorsettings.ui
 )
 
-kde4_add_kcfg_files(kronometer_SRCS settings.kcfgc) 
+kde4_add_kcfg_files(kronometer_SRCS settings.kcfgc)
 
 kde4_add_executable(kronometer ${kronometer_SRCS})
 

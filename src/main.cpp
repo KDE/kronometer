@@ -19,11 +19,11 @@
 
 #include <KApplication>
 #include <KAboutData>
-#include <KCmdLineArgs> 
+#include <KCmdLineArgs>
 #include <KIcon>
- 
+
 #include "mainwindow.h"
- 
+
 namespace
 {
     const QByteArray APP_NAME = "kronometer";

@@ -20,7 +20,7 @@
 
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
- 
+
 #include <KXmlGuiWindow>
 
 class KAction;
@@ -216,5 +216,5 @@ private:
 
 };
 
- 
-#endif 
+
+#endif

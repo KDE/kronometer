@@ -18,7 +18,7 @@
 */
 
 #include "mainwindow.h"
-  
+
 #include <KApplication>
 #include <KLocale>
 #include <KAction>
@@ -83,7 +83,7 @@ namespace
     const QString ABS_TYPE = "absolute";
 }
 
- 
+
 MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(parent), unsavedTimes(false)
 {
     stopwatch = new Stopwatch(this);
@@ -144,7 +144,7 @@ bool MainWindow::queryClose()
 
     return true;  // there is an open file, but times are already saved.
 }
- 
+
 void MainWindow::running()
 {
     statusLabel->setText(i18n("Running..."));
@@ -348,7 +348,7 @@ void MainWindow::setupStatusBar()
     statusBar()->addWidget(statusLabel);
 }
 
-void MainWindow::setupActions() 
+void MainWindow::setupActions()
 {
     startAction = new KAction(this);
     pauseAction = new KAction(this);

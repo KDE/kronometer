@@ -42,7 +42,7 @@ int LapModel::rowCount(const QModelIndex& parent) const
 QVariant LapModel::data(const QModelIndex& index, int role) const
 {
      if (!index.isValid()) {
-         return QVariant::Invalid;   
+         return QVariant::Invalid;
      }
 
      if (index.row() >= lapList.size() || index.row() < 0) {
