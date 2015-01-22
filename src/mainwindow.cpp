@@ -104,7 +104,7 @@ MainWindow::MainWindow(QWidget *parent, const QString& file) : KXmlGuiWindow(par
 
 bool MainWindow::queryClose()
 {
-    if (stopwatch->isInactive() or not KronometerConfig::askOnExit()) {
+    if (stopwatch->isInactive()) {
         return true;  // exit without ask
     }
 
@@ -116,16 +116,18 @@ bool MainWindow::queryClose()
     int buttonCode;
 
     if (fileName.isEmpty()) {
-        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times on a new file?"));
+        buttonCode = KMessageBox::warningContinueCancel(
+                    this,
+                    i18n("Do you want to quit and lose your unsaved times?"),
+                    i18n("Confirm quit"),
+                    KStandardGuiItem::quit(),
+                    KStandardGuiItem::cancel(),
+                    "quit-and-lose-times");
 
-        switch (buttonCode) {
-        case KMessageBox::Yes:
-            return saveFileAs();
-        case KMessageBox::No:
+        if (buttonCode != KMessageBox::Cancel) {
             return true;
-        default: // cancel
-            return false;
         }
+        return false;
     }
     else if (unsavedTimes) {
         QFileInfo fileInfo(fileName);

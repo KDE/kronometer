@@ -12,28 +12,6 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QGroupBox" name="groupBox">
-     <property name="title">
-      <string>Unsaved times</string>
-     </property>
-     <layout class="QVBoxLayout" name="verticalLayout_2">
-      <item>
-       <widget class="QCheckBox" name="kcfg_askOnExit">
-        <property name="toolTip">
-         <string>Whether to show a save dialog on application exit, if there are unsaved times</string>
-        </property>
-        <property name="text">
-         <string>Ask to save on exit</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
     <widget class="QGroupBox" name="groupBox_2">
      <property name="title">
       <string>XML save files</string>
@@ -47,7 +25,7 @@
        </widget>
       </item>
       <item>
-       <widget class="KIntNumInput" name="kcfg_saveFileIndentSize">
+       <widget class="KIntNumInput" name="kcfg_saveFileIndentSize" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -57,16 +35,16 @@
         <property name="toolTip">
          <string>Indent size of the XML save files created by the program</string>
         </property>
-        <property name="value">
+        <property name="value" stdset="0">
          <number>4</number>
         </property>
-        <property name="minimum">
+        <property name="minimum" stdset="0">
          <number>1</number>
         </property>
-        <property name="maximum">
+        <property name="maximum" stdset="0">
          <number>16</number>
         </property>
-        <property name="suffix">
+        <property name="suffix" stdset="0">
          <string> characters</string>
         </property>
        </widget>
@@ -101,7 +79,7 @@
        </widget>
       </item>
       <item>
-       <widget class="KIntNumInput" name="kcfg_exportedXmlIndentSize">
+       <widget class="KIntNumInput" name="kcfg_exportedXmlIndentSize" native="true">
         <property name="sizePolicy">
          <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
           <horstretch>0</horstretch>
@@ -111,10 +89,10 @@
         <property name="toolTip">
          <string>Indent size of the XML exported files created by the program</string>
         </property>
-        <property name="relativeValue">
+        <property name="relativeValue" stdset="0">
          <double>0.000000000000000</double>
         </property>
-        <property name="suffix">
+        <property name="suffix" stdset="0">
          <string> characters</string>
         </property>
        </widget>

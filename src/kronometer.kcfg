@@ -89,9 +89,6 @@
     </group>
 
     <group name="Save">
-        <entry name="askOnExit" type="Bool">
-            <default>true</default>
-        </entry>
         <entry name="saveFileIndentSize" type="Int">
             <default>4</default>
         </entry>
