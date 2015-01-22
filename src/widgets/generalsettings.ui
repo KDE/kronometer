@@ -24,8 +24,8 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>391</width>
-        <height>405</height>
+        <width>409</width>
+        <height>381</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -35,7 +35,7 @@
           <string>Whether to hide second fractions in the laps</string>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -144,7 +144,7 @@
               <item>
                <widget class="QRadioButton" name="kcfg_showMilliseconds">
                 <property name="toolTip">
-                 <string>Whether to show milliseconds in the stopwatch. It requires an high CPU usage because the GUI is refresh every millisecond</string>
+                 <string>Whether to show milliseconds in the stopwatch. It requires an high CPU usage because the GUI is refreshed every millisecond</string>
                 </property>
                 <property name="text">
                  <string>Show also milliseconds (high CPU usage!)</string>
