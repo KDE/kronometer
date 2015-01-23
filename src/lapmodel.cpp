@@ -138,6 +138,10 @@ Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
 void LapModel::setTimeFormat(const TimeFormat &format)
 {
     timeFormat = format;
+
+    if (not isEmpty()) {
+        reload();
+    }
 }
 
 const Lap &LapModel::at(int lapIndex)
@@ -186,4 +190,14 @@ void LapModel::onClear()
     beginResetModel();
     lapList.clear();
     endResetModel();
+}
+
+void LapModel::reload()
+{
+    QList<Lap> tmp(lapList);
+    onClear();
+
+    foreach (const Lap& l, tmp) {
+        append(l);
+    }
 }

@@ -424,11 +424,19 @@ void MainWindow::loadSettings()
         KronometerConfig::showHundredths(),
         KronometerConfig::showMilliseconds()
     );
+    TimeFormat lapTimeFormat(
+        KronometerConfig::showLapHours(),
+        KronometerConfig::showLapMinutes(),
+        KronometerConfig::showLapSeconds(),
+        KronometerConfig::showLapTenths(),
+        KronometerConfig::showLapHundredths(),
+        KronometerConfig::showLapMilliseconds()
+    );
 
     lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
-    lapModel->setTimeFormat(timeFormat);
+    lapModel->setTimeFormat(lapTimeFormat);
     timeFormat.showDividers(false);
     stopwatchDisplay->setTimeFormat(timeFormat);
     stopwatchDisplay->setHourFont(KronometerConfig::hourFont());
