@@ -26,7 +26,10 @@ find_package(KF5 REQUIRED
     XmlGui
 )
 
-add_subdirectory(src)
 add_subdirectory(doc)
+add_subdirectory(src)
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
