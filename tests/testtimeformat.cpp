@@ -18,11 +18,60 @@
 */
 
 #include "testtimeformat.h"
+#include "timeformat.h"
+
+#include <QTime>
+
+void TestTimeFormat::testDefaultFormat()
+{
+    TimeFormat timeFormat;
+    QTime t(0, 0);
+
+    QCOMPARE(timeFormat.format(t), QString("00:00.00"));
+    QVERIFY(not timeFormat.isHourEnabled());
+    QVERIFY(timeFormat.isMinEnabled());
+    QVERIFY(timeFormat.isSecEnabled());
+    QVERIFY(not timeFormat.isTenthEnabled());
+    QVERIFY(timeFormat.isHundredthEnabled());
+    QVERIFY(not timeFormat.isMSecEnabled());
+}
+
+void TestTimeFormat::testFullFormat()
+{
+    TimeFormat timeFormat(true, true, true, true, true, true);
+    QTime t(0, 0);
+
+    QCOMPARE(timeFormat.format(t), QString("00:00:00.000"));
+    QVERIFY(timeFormat.isHourEnabled());
+    QVERIFY(timeFormat.isMinEnabled());
+    QVERIFY(timeFormat.isSecEnabled());
+    QVERIFY(not timeFormat.isTenthEnabled());
+    QVERIFY(not timeFormat.isHundredthEnabled());
+    QVERIFY(timeFormat.isMSecEnabled());
+}
+
+void TestTimeFormat::testMinimalFormat()
+{
+    TimeFormat timeFormat(false, false, false, true, false, false);
+    QTime t(0, 0);
+
+    QCOMPARE(timeFormat.format(t), QString("0"));
+    QVERIFY(not timeFormat.isHourEnabled());
+    QVERIFY(not timeFormat.isMinEnabled());
+    QVERIFY(not timeFormat.isSecEnabled());
+    QVERIFY(timeFormat.isTenthEnabled());
+    QVERIFY(not timeFormat.isHundredthEnabled());
+    QVERIFY(not timeFormat.isMSecEnabled());
+}
+
+void TestTimeFormat::testNoDividers()
+{
+    TimeFormat timeFormat;
+    QTime t(0, 0);
+
+    timeFormat.showDividers(false);
+
+    QCOMPARE(timeFormat.format(t), QString("000000"));
+}
 
 QTEST_MAIN(TestTimeFormat)
-
-void TestTimeFormat::testHello()
-{
-    QString str = "Hello";
-    QVERIFY(str.toUpper() == "HELLO");
-}

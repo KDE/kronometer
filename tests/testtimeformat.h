@@ -28,7 +28,10 @@ class TestTimeFormat : public QObject
 
 private slots:
 
-    void testHello();
+    void testDefaultFormat();
+    void testFullFormat();
+    void testMinimalFormat();
+    void testNoDividers();
 };
 
 #endif

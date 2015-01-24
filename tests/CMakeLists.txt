@@ -2,8 +2,10 @@ include(ECMAddTests)
 
 find_package(Qt5Test REQUIRED NO_MODULE)
 
-macro(add_unit_test testname testsrc)
-    set(${testname}_SRCS ${testsrc})
+include_directories(${CMAKE_SOURCE_DIR}/src)
+
+macro(add_unit_test testname testmain testsrc)
+    set(${testname}_SRCS ${testmain} ${testsrc})
     add_executable(${testname} ${${testname}_SRCS})
     add_test(${testname} ${testname})
     ecm_mark_as_test(${testname})
@@ -13,4 +15,4 @@ macro(add_unit_test testname testsrc)
     )
 endmacro(add_unit_test)
 
-add_unit_test(test_timeformat testtimeformat.cpp)
+add_unit_test(test_timeformat testtimeformat.cpp ${CMAKE_SOURCE_DIR}/src/timeformat.cpp)
