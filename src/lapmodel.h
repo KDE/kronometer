@@ -20,10 +20,10 @@
 #ifndef LAPMODEL_H
 #define LAPMODEL_H
 
-#include <QAbstractTableModel>
-
 #include "lap.h"
 #include "timeformat.h"
+
+#include <QAbstractTableModel>
 
 class QTime;
 

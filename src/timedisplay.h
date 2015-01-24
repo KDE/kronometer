@@ -20,16 +20,17 @@
 #ifndef TIMEDISPLAY_H
 #define TIMEDISPLAY_H
 
-#include <QWidget>
-#include <QTime>
+#include "timeformat.h"
 
-class QHBoxLayout;
-class QVBoxLayout;
-class QFrame;
-class QLabel;
+#include <QTime>
+#include <QWidget>
+
 class DigitDisplay;
 
-#include "timeformat.h"
+class QFrame;
+class QHBoxLayout;
+class QLabel;
+class QVBoxLayout;
 
 /**
  * @brief A custom widget displaying a QTime

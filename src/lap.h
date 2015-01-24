@@ -20,8 +20,8 @@
 #ifndef LAP_H
 #define LAP_H
 
-#include <QTime>
 #include <QString>
+#include <QTime>
 
 /**
  * @brief A Lap is a specific time instant.

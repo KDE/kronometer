@@ -19,8 +19,8 @@
 
 #include "stopwatch.h"
 
-#include <QTimerEvent>
 #include <QCoreApplication>
+#include <QTimerEvent>
 
 Stopwatch::Stopwatch(QObject *parent) :
     QObject(parent),

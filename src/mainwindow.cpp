@@ -17,37 +17,36 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "lapmodel.h"
 #include "mainwindow.h"
-
-#include <KLocalizedString>
-#include <KActionCollection>
-#include <KConfigDialog>
-#include <KMessageBox>
-#include <KJobUiDelegate>
-#include <KIO/FileCopyJob>
-
-#include <QApplication>
-#include <QAction>
-#include <QStatusBar>
-#include <QFileDialog>
-#include <QTemporaryFile>
-#include <QSaveFile>
-#include <QTableView>
-#include <QSplitter>
-#include <QClipboard>
-#include <QSortFilterProxyModel>
-#include <QDomDocument>
-#include <QPointer>
-
+#include "settings.h"
 #include "stopwatch.h"
 #include "timedisplay.h"
-#include "lapmodel.h"
-#include "settings.h"
-#include "widgets/generalsettings.h"
-#include "widgets/fontsettings.h"
 #include "widgets/colorsettings.h"
-#include "widgets/savesettings.h"
+#include "widgets/fontsettings.h"
+#include "widgets/generalsettings.h"
 #include "widgets/guisettings.h"
+#include "widgets/savesettings.h"
+
+#include <KActionCollection>
+#include <KConfigDialog>
+#include <KIO/FileCopyJob>
+#include <KJobUiDelegate>
+#include <KLocalizedString>
+#include <KMessageBox>
+
+#include <QAction>
+#include <QApplication>
+#include <QClipboard>
+#include <QDomDocument>
+#include <QFileDialog>
+#include <QPointer>
+#include <QSaveFile>
+#include <QSortFilterProxyModel>
+#include <QSplitter>
+#include <QStatusBar>
+#include <QTableView>
+#include <QTemporaryFile>
 
 namespace
 {

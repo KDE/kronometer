@@ -20,9 +20,9 @@
 #ifndef STOPWATCH_H
 #define STOPWATCH_H
 
+#include <QElapsedTimer>
 #include <QObject>
 #include <QTime>
-#include <QElapsedTimer>
 
 class QTimerEvent;
 

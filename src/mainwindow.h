@@ -25,16 +25,16 @@
 
 #include <QUrl>
 
+class LapModel;
+class Stopwatch;
+class TimeDisplay;
+
 class QAction;
 class QLabel;
+class QSortFilterProxyModel;
 class QSplitter;
 class QTableView;
 class QTextStream;
-class QSortFilterProxyModel;
-
-class Stopwatch;
-class TimeDisplay;
-class LapModel;
 
 /**
  * @brief Kronometer main window.
