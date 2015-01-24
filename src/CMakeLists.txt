@@ -10,7 +10,7 @@ set(
     timeformat.cpp
 )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -ansi -pedantic -std=gnu++0x")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic -std=gnu++0x")
 
 qt5_wrap_ui(kronometer_SRCS
     widgets/generalsettings.ui
@@ -20,7 +20,7 @@ qt5_wrap_ui(kronometer_SRCS
     widgets/colorsettings.ui
 )
 
-kconfig_add_kcfg_files(kronometer_SRCS settings.kcfgc) 
+kconfig_add_kcfg_files(kronometer_SRCS settings.kcfgc)
 
 add_executable(kronometer ${kronometer_SRCS})
 

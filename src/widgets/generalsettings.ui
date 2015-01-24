@@ -12,296 +12,274 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QScrollArea" name="scrollArea">
-     <property name="frameShape">
-      <enum>QFrame::NoFrame</enum>
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="toolTip">
+      <string>Whether to hide second fractions in the laps</string>
      </property>
-     <property name="widgetResizable">
-      <bool>true</bool>
+     <property name="currentIndex">
+      <number>0</number>
      </property>
-     <widget class="QWidget" name="scrollAreaWidgetContents">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>391</width>
-        <height>405</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Stopwatch</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>
-        <widget class="QTabWidget" name="tabWidget">
-         <property name="toolTip">
-          <string>Whether to hide second fractions in the laps</string>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="minimumSize">
+          <size>
+           <width>369</width>
+           <height>0</height>
+          </size>
          </property>
-         <property name="currentIndex">
-          <number>1</number>
+         <property name="title">
+          <string>Stopwatch time format</string>
          </property>
-         <widget class="QWidget" name="tab">
-          <attribute name="title">
-           <string>Stopwatch</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_7">
-           <item>
-            <widget class="QGroupBox" name="groupBox_4">
-             <property name="minimumSize">
-              <size>
-               <width>369</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="title">
-              <string>Stopwatch time format</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_2">
-              <item>
-               <widget class="QCheckBox" name="kcfg_showHours">
-                <property name="toolTip">
-                 <string>Whether to show hours in the stopwatch</string>
-                </property>
-                <property name="text">
-                 <string>Show hours</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="kcfg_showMinutes">
-                <property name="toolTip">
-                 <string>Whether to show minutes in the stopwatch</string>
-                </property>
-                <property name="text">
-                 <string>Show minutes</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="kcfg_showSeconds">
-                <property name="toolTip">
-                 <string>Whether to show seconds in the stopwatch</string>
-                </property>
-                <property name="text">
-                 <string>Show seconds</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="groupBox_2">
-             <property name="minimumSize">
-              <size>
-               <width>369</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="title">
-              <string>Stopwatch advanced time format</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_6">
-              <item>
-               <widget class="QRadioButton" name="kcfg_stopToSeconds">
-                <property name="toolTip">
-                 <string>Whether to hide second fractions in the stopwatch</string>
-                </property>
-                <property name="text">
-                 <string>Hide second fractions</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="kcfg_showTenths">
-                <property name="toolTip">
-                 <string>Whether to show tenths of second in the stopwatch</string>
-                </property>
-                <property name="text">
-                 <string>Show also tenths of second</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="kcfg_showHundredths">
-                <property name="toolTip">
-                 <string>Whether to show tenths and hundredths of second in the stopwatch</string>
-                </property>
-                <property name="text">
-                 <string>Show tenths and hundredths of second</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="kcfg_showMilliseconds">
-                <property name="toolTip">
-                 <string>Whether to show milliseconds in the stopwatch. It requires an high CPU usage because the GUI is refresh every millisecond</string>
-                </property>
-                <property name="text">
-                 <string>Show also milliseconds (high CPU usage!)</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-         <widget class="QWidget" name="tab_2">
-          <attribute name="title">
-           <string>Laps</string>
-          </attribute>
-          <layout class="QVBoxLayout" name="verticalLayout_8">
-           <item>
-            <widget class="QGroupBox" name="groupBox_3">
-             <property name="minimumSize">
-              <size>
-               <width>369</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="title">
-              <string>Lap times format</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_4">
-              <item>
-               <widget class="QCheckBox" name="kcfg_showLapHours">
-                <property name="toolTip">
-                 <string>Whether to show hours in the laps</string>
-                </property>
-                <property name="text">
-                 <string>Show hours</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="kcfg_showLapMinutes">
-                <property name="toolTip">
-                 <string>Whether to show minutes in the laps</string>
-                </property>
-                <property name="text">
-                 <string>Show minutes</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QCheckBox" name="kcfg_showLapSeconds">
-                <property name="toolTip">
-                 <string>Whether to show seconds in the laps</string>
-                </property>
-                <property name="text">
-                 <string>Show seconds</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <widget class="QGroupBox" name="groupBox">
-             <property name="minimumSize">
-              <size>
-               <width>369</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="title">
-              <string>Lap times advanced format</string>
-             </property>
-             <layout class="QVBoxLayout" name="verticalLayout_5">
-              <item>
-               <widget class="QRadioButton" name="kcfg_stopToLapSeconds">
-                <property name="toolTip">
-                 <string>Whether to hide second fractions in the laps</string>
-                </property>
-                <property name="text">
-                 <string>Hide second fractions</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="kcfg_showLapTenths">
-                <property name="toolTip">
-                 <string>Whether to show tenths of second in the lapswatch</string>
-                </property>
-                <property name="text">
-                 <string>Show also tenths of second</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="kcfg_showLapHundredths">
-                <property name="toolTip">
-                 <string>Whether to show tenths and hundredths of second in the laps</string>
-                </property>
-                <property name="text">
-                 <string>Show tenths and hundredths of second</string>
-                </property>
-                <property name="checked">
-                 <bool>true</bool>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QRadioButton" name="kcfg_showLapMilliseconds">
-                <property name="toolTip">
-                 <string>Whether to show milliseconds in the stopwatch</string>
-                </property>
-                <property name="text">
-                 <string>Show also milliseconds</string>
-                </property>
-               </widget>
-              </item>
-             </layout>
-            </widget>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_2">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>40</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <item>
+           <widget class="QCheckBox" name="kcfg_showHours">
+            <property name="toolTip">
+             <string>Whether to show hours in the stopwatch</string>
+            </property>
+            <property name="text">
+             <string>Show hours</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_showMinutes">
+            <property name="toolTip">
+             <string>Whether to show minutes in the stopwatch</string>
+            </property>
+            <property name="text">
+             <string>Show minutes</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_showSeconds">
+            <property name="toolTip">
+             <string>Whether to show seconds in the stopwatch</string>
+            </property>
+            <property name="text">
+             <string>Show seconds</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_2">
+         <property name="minimumSize">
+          <size>
+           <width>369</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Stopwatch advanced time format</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <item>
+           <widget class="QRadioButton" name="kcfg_stopToSeconds">
+            <property name="toolTip">
+             <string>Whether to hide second fractions in the stopwatch</string>
+            </property>
+            <property name="text">
+             <string>Hide second fractions</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="kcfg_showTenths">
+            <property name="toolTip">
+             <string>Whether to show tenths of second in the stopwatch</string>
+            </property>
+            <property name="text">
+             <string>Show also tenths of second</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="kcfg_showHundredths">
+            <property name="toolTip">
+             <string>Whether to show tenths and hundredths of second in the stopwatch</string>
+            </property>
+            <property name="text">
+             <string>Show tenths and hundredths of second</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="kcfg_showMilliseconds">
+            <property name="toolTip">
+             <string>Whether to show milliseconds in the stopwatch. It requires an high CPU usage because the GUI is refreshed every millisecond</string>
+            </property>
+            <property name="text">
+             <string>Show also milliseconds (high CPU usage!)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Laps</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QGroupBox" name="groupBox_3">
+         <property name="minimumSize">
+          <size>
+           <width>369</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Lap times format</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <item>
+           <widget class="QCheckBox" name="kcfg_showLapHours">
+            <property name="toolTip">
+             <string>Whether to show hours in the laps</string>
+            </property>
+            <property name="text">
+             <string>Show hours</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_showLapMinutes">
+            <property name="toolTip">
+             <string>Whether to show minutes in the laps</string>
+            </property>
+            <property name="text">
+             <string>Show minutes</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_showLapSeconds">
+            <property name="toolTip">
+             <string>Whether to show seconds in the laps</string>
+            </property>
+            <property name="text">
+             <string>Show seconds</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox">
+         <property name="minimumSize">
+          <size>
+           <width>369</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="title">
+          <string>Lap times advanced format</string>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <widget class="QRadioButton" name="kcfg_stopToLapSeconds">
+            <property name="toolTip">
+             <string>Whether to hide second fractions in the laps</string>
+            </property>
+            <property name="text">
+             <string>Hide second fractions</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="kcfg_showLapTenths">
+            <property name="toolTip">
+             <string>Whether to show tenths of second in the lapswatch</string>
+            </property>
+            <property name="text">
+             <string>Show also tenths of second</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="kcfg_showLapHundredths">
+            <property name="toolTip">
+             <string>Whether to show tenths and hundredths of second in the laps</string>
+            </property>
+            <property name="text">
+             <string>Show tenths and hundredths of second</string>
+            </property>
+            <property name="checked">
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="kcfg_showLapMilliseconds">
+            <property name="toolTip">
+             <string>Whether to show milliseconds in the stopwatch</string>
+            </property>
+            <property name="text">
+             <string>Show also milliseconds</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>

@@ -47,6 +47,10 @@ public:
     bool setData(const QModelIndex& index, const QVariant& value, int role);
     Qt::ItemFlags flags(const QModelIndex &index) const;
 
+    /**
+     * Update the lap times format used by the model.
+     * @param format The times format to be used.
+     */
     void setTimeFormat(const TimeFormat& format);
 
     /**
@@ -96,6 +100,10 @@ private:
     QList<Lap> lapList;              /** Lap times */
     TimeFormat timeFormat;          /** Current lap times format */
 
+    /**
+     *  Reload the model data.
+     */
+    void reload();
 };
 
 

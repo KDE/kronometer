@@ -27,14 +27,14 @@ LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
 
 int LapModel::columnCount(const QModelIndex& parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
 
     return LAP_TAG_NUMBER;
 }
 
 int LapModel::rowCount(const QModelIndex& parent) const
 {
-    Q_UNUSED(parent);
+    Q_UNUSED(parent)
 
     return lapList.size();
 }
@@ -42,7 +42,7 @@ int LapModel::rowCount(const QModelIndex& parent) const
 QVariant LapModel::data(const QModelIndex& index, int role) const
 {
      if (!index.isValid()) {
-         return QVariant::Invalid;   
+         return QVariant::Invalid;
      }
 
      if (index.row() >= lapList.size() || index.row() < 0) {
@@ -138,6 +138,10 @@ Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
 void LapModel::setTimeFormat(const TimeFormat &format)
 {
     timeFormat = format;
+
+    if (not isEmpty()) {
+        reload();
+    }
 }
 
 const Lap &LapModel::at(int lapIndex)
@@ -186,4 +190,14 @@ void LapModel::onClear()
     beginResetModel();
     lapList.clear();
     endResetModel();
+}
+
+void LapModel::reload()
+{
+    QList<Lap> tmp(lapList);
+    onClear();
+
+    foreach (const Lap& l, tmp) {
+        append(l);
+    }
 }

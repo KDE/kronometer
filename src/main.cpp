@@ -18,6 +18,7 @@
 */
 
 #include <QApplication>
+
 #include <KAboutData>
 #include <KLocalizedString>
 

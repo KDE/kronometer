@@ -5,7 +5,7 @@
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
- 
+
     <MenuBar>
         <Menu name="file">
             <text>&amp;File</text>
@@ -96,4 +96,4 @@
         </disable>
     </State>
 
-</gui> 
+</gui>

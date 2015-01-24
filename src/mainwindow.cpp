@@ -85,7 +85,7 @@ namespace
     const QString ABS_TYPE = "absolute";
 }
 
- 
+
 MainWindow::MainWindow(QWidget *parent, const QUrl& url) : KXmlGuiWindow(parent), saveUrl(url), unsavedTimes(false)
 {
     stopwatch = new Stopwatch(this);
@@ -106,7 +106,7 @@ MainWindow::MainWindow(QWidget *parent, const QUrl& url) : KXmlGuiWindow(parent)
 
 bool MainWindow::queryClose()
 {
-    if (stopwatch->isInactive() or not KronometerConfig::askOnExit()) {
+    if (stopwatch->isInactive()) {
         return true;  // exit without ask
     }
 
@@ -118,16 +118,18 @@ bool MainWindow::queryClose()
     int buttonCode;
 
     if (saveUrl.isEmpty()) {
-        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times on a new file?"));
+        buttonCode = KMessageBox::warningContinueCancel(
+                    this,
+                    i18n("Do you want to quit and lose your unsaved times?"),
+                    i18n("Confirm quit"),
+                    KStandardGuiItem::quit(),
+                    KStandardGuiItem::cancel(),
+                    "quit-and-lose-times");
 
-        switch (buttonCode) {
-        case KMessageBox::Yes:
-            return saveFileAs();
-        case KMessageBox::No:
+        if (buttonCode != KMessageBox::Cancel) {
             return true;
-        default: // cancel
-            return false;
         }
+        return false;
     }
     else if (unsavedTimes) {
         buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to file %1?", saveUrl.fileName()));
@@ -145,7 +147,7 @@ bool MainWindow::queryClose()
 
     return true;  // there is an open file, but times are already saved.
 }
- 
+
 void MainWindow::running()
 {
     statusLabel->setText(i18n("Running..."));
@@ -218,11 +220,11 @@ void MainWindow::showSettings()
 
 void MainWindow::writeSettings(const QString& dialogName)
 {
-    Q_UNUSED(dialogName);
+    Q_UNUSED(dialogName)
+
     KronometerConfig::self()->save();
 
     MainWindow *window = nullptr;
-
     foreach (QWidget *widget, QApplication::topLevelWidgets()) {
         window = qobject_cast<MainWindow *>(widget);
 
@@ -348,7 +350,7 @@ void MainWindow::setupStatusBar()
     statusBar()->addWidget(statusLabel);
 }
 
-void MainWindow::setupActions() 
+void MainWindow::setupActions()
 {
     startAction = new QAction(this);
     pauseAction = new QAction(this);
@@ -422,11 +424,19 @@ void MainWindow::loadSettings()
         KronometerConfig::showHundredths(),
         KronometerConfig::showMilliseconds()
     );
+    TimeFormat lapTimeFormat(
+        KronometerConfig::showLapHours(),
+        KronometerConfig::showLapMinutes(),
+        KronometerConfig::showLapSeconds(),
+        KronometerConfig::showLapTenths(),
+        KronometerConfig::showLapHundredths(),
+        KronometerConfig::showLapMilliseconds()
+    );
 
     lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
-    lapModel->setTimeFormat(timeFormat);
+    lapModel->setTimeFormat(lapTimeFormat);
     timeFormat.showDividers(false);
     stopwatchDisplay->setTimeFormat(timeFormat);
     stopwatchDisplay->setHourFont(KronometerConfig::hourFont());
