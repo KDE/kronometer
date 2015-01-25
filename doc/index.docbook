@@ -169,7 +169,7 @@
   <sect1 id="save_settings">
     <title>Save settings</title>
     <para>
-      In the save setting you can choose whether to ask to save when you close the &kronometer; window, of course only if there are unsaved times.
+      In the save settings you can choose the indentation size (that is the number of blank spaces) of the XML files created by &kronometer;. The dialog allows you to choose different sizes for the <emphasis>save files</emphasis> and the <emphasis>export files</emphasis>.
     </para>
     <para>
       You can also set the indent size (number of characters) of the &XML; save files and exported files.
