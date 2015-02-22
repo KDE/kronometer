@@ -27,7 +27,7 @@
 namespace
 {
     const QByteArray APP_NAME = "kronometer";
-    const QByteArray VERSION = "1.5.2";
+    const QByteArray VERSION = "1.6.0";
     const QByteArray OTHER_TEXT = "";
     const QByteArray HOME_PAGE_ADDRESS = "http://aelog.org/kronometer";
 

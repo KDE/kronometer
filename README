@@ -4,12 +4,17 @@ Kronometer README
 Description
 -----------
 
-Kronometer is a simple stopwatch application, built for the KDE Linux Desktop Environment.
+Kronometer is a simple stopwatch application, built for the KDE Desktop Environment.
 
 Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+v1.6.0
+* UI cleanup in the Settings dialog (bug 343127: http://bugs.kde.org/show_bug.cgi?id=343127)
+* Removed the 'Ask On Exit' option (bug 343126: http://bugs.kde.org/show_bug.cgi?id=343126)
+* Lap times format is no more ignored (bug 343128: http://bugs.kde.org/show_bug.cgi?id=343128)
+
 v1.5.2
 * Fixed wrong GPLv2 version in COPYING file
 
