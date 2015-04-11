@@ -33,10 +33,10 @@ target_link_libraries(
 )
 
 install(FILES kronometer.kcfg DESTINATION ${KCFG_INSTALL_DIR})
-install(TARGETS kronometer DESTINATION ${BIN_INSTALL_DIR})
-install(FILES kronometerui.rc DESTINATION  ${KXMLGUI_INSTALL_DIR}/kronometer)
-install(PROGRAMS kronometer.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})
-install(FILES kronometer.appdata.xml DESTINATION ${SHARE_INSTALL_PREFIX}/appdata)
+install(TARGETS kronometer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
+install(FILES kronometerui.rc DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/kronometer)
+install(PROGRAMS kronometer.desktop DESTINATION ${KDE_INSTALL_APPDIR})
+install(FILES kronometer.appdata.xml DESTINATION ${KDE_INSTALL_DATADIR}/kronometer)
 
 add_subdirectory(icons)
 
