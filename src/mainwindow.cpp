@@ -89,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent, const QUrl& url) : KXmlGuiWindow(parent)
 {
     stopwatch = new Stopwatch(this);
     stopwatchDisplay = new TimeDisplay(this);
-    connect(stopwatch, SIGNAL(time(QTime)), stopwatchDisplay, SLOT(onTime(QTime)));  // bind stopwatch to its display
+    connect(stopwatch, &Stopwatch::time, stopwatchDisplay, &TimeDisplay::onTime);  // bind stopwatch to its display
 
     setupCentralWidget();
     setupStatusBar();
@@ -111,7 +111,7 @@ bool MainWindow::queryClose()
 
     if (stopwatch->isRunning()) {
         stopwatch->onPause();
-        paused();
+        slotPaused();
     }
 
     int buttonCode;
@@ -136,7 +136,7 @@ bool MainWindow::queryClose()
         switch (buttonCode) {
         case KMessageBox::Yes:
             // save document here. If saving fails, return false;
-            return saveFile();
+            return slotSaveFile();
         case KMessageBox::No:
             return true;
         default: // cancel
@@ -147,7 +147,7 @@ bool MainWindow::queryClose()
     return true;  // there is an open file, but times are already saved.
 }
 
-void MainWindow::running()
+void MainWindow::slotRunning()
 {
     statusLabel->setText(i18n("Running..."));
 
@@ -157,7 +157,7 @@ void MainWindow::running()
     stateChanged(RUNNING_STATE);
 }
 
-void MainWindow::paused()
+void MainWindow::slotPaused()
 {
     startAction->setText(i18n("Re&sume"));
     statusLabel->setText(i18n("Paused"));
@@ -176,7 +176,7 @@ void MainWindow::paused()
     }
 }
 
-void MainWindow::inactive()
+void MainWindow::slotInactive()
 {
     startAction->setText(i18n("&Start"));
     statusLabel->setText(i18n("Inactive"));
@@ -187,7 +187,7 @@ void MainWindow::inactive()
     stateChanged(INACTIVE_STATE);
 }
 
-void MainWindow::showSettings()
+void MainWindow::slotShowSettings()
 {
     if (KConfigDialog::showDialog("settings")) {
         return;
@@ -210,12 +210,12 @@ void MainWindow::showSettings()
     KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
     savePage->setIcon(QIcon::fromTheme("document-save"));
 
-    connect(dialog, SIGNAL(settingsChanged(QString)), this, SLOT(writeSettings(QString)));
+    connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::slotWriteSettings);
 
     dialog->show();
 }
 
-void MainWindow::writeSettings(const QString& dialogName)
+void MainWindow::slotWriteSettings(const QString& dialogName)
 {
     Q_UNUSED(dialogName)
 
@@ -231,20 +231,20 @@ void MainWindow::writeSettings(const QString& dialogName)
     }
 }
 
-void MainWindow::updateLapDock()
+void MainWindow::slotUpdateLapDock()
 {
     lapView->resizeColumnsToContents();
     lapView->horizontalHeader()->setStretchLastSection(true);
     lapView->selectRow(lapModel->rowCount(QModelIndex()) - 1);  // rows indexes start from 0
 }
 
-void MainWindow::newFile()
+void MainWindow::slotNewFile()
 {
     MainWindow *window = new MainWindow();
     window->show();
 }
 
-void MainWindow::openFile()
+void MainWindow::slotOpenFile()
 {
     QPointer<QFileDialog> dialog = new QFileDialog(this);
     dialog->setWindowTitle(i18n("Choose a Kronometer save file"));
@@ -265,12 +265,12 @@ void MainWindow::openFile()
     delete dialog;
 }
 
-bool MainWindow::saveFile()
+bool MainWindow::slotSaveFile()
 {
-    return saveFileAs(saveUrl.fileName());
+    return slotSaveFileAs(saveUrl.fileName());
 }
 
-bool MainWindow::saveFileAs()
+bool MainWindow::slotSaveFileAs()
 {
     QPointer<QFileDialog> dialog = new QFileDialog(this);
     dialog->setAcceptMode(QFileDialog::AcceptSave);
@@ -283,14 +283,14 @@ bool MainWindow::saveFileAs()
 
     bool rc = false;
     if (dialog->exec() == QDialog::Accepted) {
-        rc = saveFileAs(dialog->selectedFiles().first());
+        rc = slotSaveFileAs(dialog->selectedFiles().first());
     }
 
     delete dialog;
     return rc;
 }
 
-void MainWindow::exportLapsAs()
+void MainWindow::slotExportLapsAs()
 {
     QPointer<QFileDialog> dialog = new QFileDialog(this);
     dialog->setAcceptMode(QFileDialog::AcceptSave);
@@ -308,7 +308,7 @@ void MainWindow::exportLapsAs()
     delete dialog;
 }
 
-void MainWindow::copyToClipboard()
+void MainWindow::slotCopyToClipboard()
 {
     QApplication::clipboard()->setText(stopwatchDisplay->currentTime());
 }
@@ -380,34 +380,34 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcut(lapAction, Qt::Key_Return);
 
     // triggers for Stopwatch "behavioral" slots
-    connect(startAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onStart()));
-    connect(pauseAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onPause()));
-    connect(resetAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onReset()));
-    connect(lapAction, SIGNAL(triggered(bool)), stopwatch, SLOT(onLap()));
+    connect(startAction, &QAction::triggered, stopwatch, &Stopwatch::onStart);
+    connect(pauseAction, &QAction::triggered, stopwatch, &Stopwatch::onPause);
+    connect(resetAction, &QAction::triggered, stopwatch, &Stopwatch::onReset);
+    connect(lapAction, &QAction::triggered, stopwatch, &Stopwatch::onLap);
 
     // triggers for LapModel slots
-    connect(resetAction, SIGNAL(triggered(bool)), lapModel, SLOT(onClear()));
-    connect(stopwatch, SIGNAL(lap(QTime)), lapModel, SLOT(onLap(QTime)));
+    connect(resetAction, &QAction::triggered, lapModel,&LapModel::onClear);
+    connect(stopwatch, &Stopwatch::lap, lapModel, &LapModel::onLap);
 
     // triggers for MainWindow "gui" slots
-    connect(startAction, SIGNAL(triggered(bool)), this, SLOT(running()));
-    connect(pauseAction, SIGNAL(triggered(bool)), this, SLOT(paused()));
-    connect(resetAction, SIGNAL(triggered(bool)), this, SLOT(inactive()));
-    connect(lapAction, SIGNAL(triggered(bool)), this, SLOT(updateLapDock()));
+    connect(startAction, &QAction::triggered, this, &MainWindow::slotRunning);
+    connect(pauseAction, &QAction::triggered, this, &MainWindow::slotPaused);
+    connect(resetAction, &QAction::triggered, this, &MainWindow::slotInactive);
+    connect(lapAction, &QAction::triggered, this, &MainWindow::slotUpdateLapDock);
 
     // File menu triggers
     KStandardAction::quit(this, SLOT(close()), actionCollection());
-    KStandardAction::preferences(this, SLOT(showSettings()), actionCollection());
-    KStandardAction::openNew(this, SLOT(newFile()), actionCollection());
-    KStandardAction::save(this, SLOT(saveFile()), actionCollection());
-    KStandardAction::saveAs(this, SLOT(saveFileAs()), actionCollection());
-    KStandardAction::open(this, SLOT(openFile()), actionCollection());
-    KStandardAction::copy(this, SLOT(copyToClipboard()), actionCollection());
-    connect(exportAction, SIGNAL(triggered(bool)), this, SLOT(exportLapsAs()));
+    KStandardAction::preferences(this, SLOT(slotShowSettings()), actionCollection());
+    KStandardAction::openNew(this, SLOT(slotNewFile()), actionCollection());
+    KStandardAction::save(this, SLOT(slotSaveFile()), actionCollection());
+    KStandardAction::saveAs(this, SLOT(slotSaveFileAs()), actionCollection());
+    KStandardAction::open(this, SLOT(slotOpenFile()), actionCollection());
+    KStandardAction::copy(this, SLOT(slotCopyToClipboard()), actionCollection());
+    connect(exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
 
     setupGUI(Default, "kronometerui.rc");
 
-    inactive();	// inactive state is the default
+    slotInactive();	// inactive state is the default
 }
 
 
@@ -464,7 +464,7 @@ void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
     }
 }
 
-bool MainWindow::saveFileAs(const QString& name)
+bool MainWindow::slotSaveFileAs(const QString& name)
 {
     if (name.isEmpty()) {
         return false;
@@ -535,7 +535,7 @@ void MainWindow::openUrl()
 
         if (doc.setContent(&file, &errorMsg)) {
             if (parseXmlSaveFile(doc)) {
-                paused();                       // enter in paused state
+                slotPaused();                       // enter in paused state
 
                 setWindowTitle(WINDOW_TITLE + " - " + saveUrl.fileName() + QT_PLACE_HOLDER);
             }

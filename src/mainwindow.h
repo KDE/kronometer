@@ -56,65 +56,65 @@ private slots:
     /**
      * Stopwatch running state triggers.
      */
-    void running();
+    void slotRunning();
 
     /**
      * Stopwatch paused state triggers.
      */
-    void paused();
+    void slotPaused();
 
     /**
      * Stopwatch inactive state triggers.
      */
-    void inactive();
+    void slotInactive();
 
     /**
      * Setup the settings dialog.
      */
-    void showSettings();
+    void slotShowSettings();
 
     /**
      * Write the new settings on filesystem.
      * @param dialogName Ignored argument.
      */
-    void writeSettings(const QString& dialogName);
+    void slotWriteSettings(const QString& dialogName);
 
     /**
      * Fix lap dock appereance.
      */
-    void updateLapDock();
+    void slotUpdateLapDock();
 
     /**
      * Open a new MainWindow instance.
      */
-    void newFile();
+    void slotNewFile();
 
     /**
      * Open an existing file in a new MainWindow instance.
      */
-    void openFile();
+    void slotOpenFile();
 
     /**
      * Save current times on the current file.
      * @returns true if operation was successful
      */
-    bool saveFile();
+    bool slotSaveFile();
 
     /**
      * Save current times on a new file.
      * @returns true if operation was successful
      */
-    bool saveFileAs();
+    bool slotSaveFileAs();
 
     /**
      * Export current lap times on a file.
      */
-    void exportLapsAs();
+    void slotExportLapsAs();
 
     /**
      * Copy current stopwatch time to clipboard.
      */
-    void copyToClipboard();
+    void slotCopyToClipboard();
 
 private:
 
@@ -170,7 +170,7 @@ private:
      * @param name The name of the file to be saved.
      * @return true if operation was successful
      */
-    bool saveFileAs(const QString& name);
+    bool slotSaveFileAs(const QString& name);
 
     /**
      * Load the XML save file from the member QUrl. If an error occurs, the window is closed.
