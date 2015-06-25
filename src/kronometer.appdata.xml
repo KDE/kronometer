@@ -53,7 +53,7 @@
     <p>
       Kronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times on a file and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.
     </p>
-    <p xml:lang="ca">El Kronometer és una aplicació de cronòmetre. Compta amb les característiques bàsiques d'un cronòmetre (pausa/continua/inicialitza/voltes), així com la possibilitat de desar els temps en un fitxer i tornar-hi més tard. El Kronometer forma part de la col·lecció «KDE Extragear», dins del sub-mòdul «Utils».</p>
+    <p xml:lang="ca">El Kronometer és una aplicació de cronòmetre. Compta amb les característiques bàsiques d'un cronòmetre (pausa/continua/inicialitza/voltes), així com la possibilitat de desar els temps en un fitxer i tornar-hi més tard. El Kronometer forma part de la col·lecció «KDE Extragear», dins del submòdul «Utils».</p>
     <p xml:lang="en-GB">Kronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times on a file and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.</p>
     <p xml:lang="es">Kronometer es una aplicación de cronómetro. Contiene las acciones básicas de un cronómetro (pausa, continuar, reiniciar y vueltas), así como la posibilidad de guardar los tiempos en un archivo y continuar con ellos posteriormente. Kronometer es parte de la colección «Extragear» de KDE, dentro del submódulo «Utils».</p>
     <p xml:lang="fi">Kronometer on sekuntikellosovellus. Siinä on sekuntikellon perustoiminnot (tauko/jatkaminen/nollaaminen/kierrokset) sekä mahdollisuus tallentaa ajat tiedostoon ja jatkaa tallennettuja aikoja myöhemmin. Kronometer kuuluu KDE Extragearin Työkalut-aliyksikköön.</p>
@@ -64,6 +64,7 @@
     <p xml:lang="pt">O Kronometer é uma aplicação de cronómetros. Oferece as acções básicas de um cronómetro (pausar/prosseguir/limpar/voltas), assim como a capacidade de gravar os tempos num ficheiro e retomá-los mais tarde. O Kronometer faz parte da colecção Extragear do KDE, dentro do sub-módulo Utils.</p>
     <p xml:lang="pt-BR">Kronometer é um aplicativo de cronômetro. Oferece as ações básicas de um cronômetro (pausar/continuar/reiniciar/voltas), assim como a capacidade de salvar os tempos em um arquivo e retomá-los mais tarde. O Kronometer é integrante da coleção Extragear do KDE, dentro do sub-módulo Utils.</p>
     <p xml:lang="sk">Kronometer je aplikácia stopiek pre KDE. Obsahuje základné akcie stopiek (pozastavenie/pokračovanie/vynulovanie/kolá), a tiež aj možnosť uložiť časy do súboru a pokračovanie neskôr. Kronometer je súčasťou kolekcie KDE Extragear, v rámci podmodulu Utils.</p>
+    <p xml:lang="sl">Kronometer je časomer. Ima osnovne zmožnosti časomera (premor/nadaljuj/ponastavi/krogi), kot tudi zmožnost shranjevanja časov v datoteko in kasnejšo nadaljevanje iz nje. Kronometer je del zbirke KDE extragear-utils.</p>
     <p xml:lang="sv">Kronometer är ett tidtagarur. Det tillhandahåller grundfunktioner för tidtagning (paus, återstarta, nollställ, varvtid) samt möjlighet att spara tiderna i en fil och senare återstarta dem. Kronometer ingår i KDE:s Extragear-samling i undermodulen Utils.</p>
     <p xml:lang="uk">Kronometer — програма-секундомір. У ній передбачено основні можливості секундоміра (призупинення відліку, відновлення відліку, скидання відліку, відлік часу за колами), а також можливість збереження даних щодо часу до файла і відновлення збережених даних із файла. Kronometer є частиною збірки додаткового програмного забезпечення KDE, а саме, модуля Utils.</p>
     <p xml:lang="x-test">xxKronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times on a file and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.xx</p>
@@ -205,7 +206,7 @@
       <li xml:lang="x-test">xxTimes saving and resuming: you can save the stopwatch status on a file and resume it laterxx</li>
       <li>Font customization: you can choose the fonts for each of the stopwatch digits</li>
       <li xml:lang="bs">Modificiranje fonta: možete izabrati font za svaku cifru štoperice</li>
-      <li xml:lang="ca">Personalització dels tipus de lletra: podeu triar els tipus de lletra per a cadascun dels digits del cronòmetre</li>
+      <li xml:lang="ca">Personalització dels tipus de lletra: podeu triar els tipus de lletra per a cadascun dels dígits del cronòmetre</li>
       <li xml:lang="el">Προσαρμογή γραμματοσειράς: μπορείτε να επιλέξετε τις γραμματοσειρές για καθένα από τα ψηφία του χρονομετρητή</li>
       <li xml:lang="en-GB">Font customisation: you can choose the fonts for each of the stopwatch digits</li>
       <li xml:lang="es">Personalización de tipos de letra: puede escoger los tipos de letra para los dígitos del cronómetro</li>
