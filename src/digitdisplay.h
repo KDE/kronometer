@@ -22,7 +22,6 @@
 
 #include <QWidget>
 
-class QHBoxLayout;
 class QLabel;
 
 /**
@@ -77,8 +76,6 @@ public:
     int width() const;
 
 private:
-
-    QHBoxLayout *layout;
 
     QLabel *leftmostDigit;
     QLabel *centerDigit;

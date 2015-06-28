@@ -24,7 +24,7 @@
 
 DigitDisplay::DigitDisplay(QWidget *parent, DigitCounter counter) : QWidget(parent)
 {
-    layout = new QHBoxLayout(this);
+    QHBoxLayout *layout = new QHBoxLayout(this);
     leftmostDigit = new QLabel(this);
     centerDigit = new QLabel(this);
     rightmostDigit = new QLabel(this);

@@ -32,7 +32,7 @@ namespace
 
 TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
 {
-    displayLayout = new QHBoxLayout(this);
+    QHBoxLayout *displayLayout = new QHBoxLayout(this);
 
     hourFrame = new QFrame(this);
     minFrame = new QFrame(this);
@@ -47,10 +47,10 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
     fracFrame->setFrameShape(QFrame::StyledPanel);
     fracFrame->setFrameShadow(QFrame::Sunken);
 
-    hourLayout = new QVBoxLayout(hourFrame);
-    minLayout = new QVBoxLayout(minFrame);
-    secLayout = new QVBoxLayout(secFrame);
-    fracLayout = new QVBoxLayout(fracFrame);
+    QVBoxLayout *hourLayout = new QVBoxLayout(hourFrame);
+    QVBoxLayout *minLayout = new QVBoxLayout(minFrame);
+    QVBoxLayout *secLayout = new QVBoxLayout(secFrame);
+    QVBoxLayout *fracLayout = new QVBoxLayout(fracFrame);
 
     hourHeader = new QLabel(hourFrame);
     minHeader = new QLabel(minFrame);

@@ -28,9 +28,7 @@
 class DigitDisplay;
 
 class QFrame;
-class QHBoxLayout;
 class QLabel;
-class QVBoxLayout;
 
 /**
  * @brief A custom widget displaying a QTime
@@ -108,12 +106,6 @@ public slots:
     void onTime(const QTime& t);
 
 private:
-
-    QHBoxLayout *displayLayout;
-    QVBoxLayout *hourLayout;
-    QVBoxLayout *minLayout;
-    QVBoxLayout *secLayout;
-    QVBoxLayout *fracLayout;
 
     QFrame *hourFrame;
     QFrame *minFrame;
