@@ -73,9 +73,9 @@ namespace
 
 MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent), m_session(session)
 {
-    stopwatch = new Stopwatch(this);
-    stopwatchDisplay = new TimeDisplay(this);
-    connect(stopwatch, &Stopwatch::time, stopwatchDisplay, &TimeDisplay::onTime);  // bind stopwatch to its display
+    m_stopwatch = new Stopwatch(this);
+    m_stopwatchDisplay = new TimeDisplay(this);
+    connect(m_stopwatch, &Stopwatch::time, m_stopwatchDisplay, &TimeDisplay::onTime);  // bind stopwatch to its display
 
     m_sessionModel = new SessionModel(this);
 
@@ -94,12 +94,12 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
 
 bool MainWindow::queryClose()
 {
-    if (stopwatch->isInactive()) {
+    if (m_stopwatch->isInactive()) {
         return true;  // exit without ask
     }
 
-    if (stopwatch->isRunning()) {
-        stopwatch->onPause();
+    if (m_stopwatch->isRunning()) {
+        m_stopwatch->onPause();
         slotPaused();
     }
 
@@ -138,7 +138,7 @@ bool MainWindow::queryClose()
 
 void MainWindow::slotRunning()
 {
-    statusLabel->setText(i18n("Running..."));
+    m_statusLabel->setText(i18n("Running..."));
 
     m_session.setOutdated(true);
     setWindowModified(true);
@@ -148,8 +148,8 @@ void MainWindow::slotRunning()
 
 void MainWindow::slotPaused()
 {
-    startAction->setText(i18n("Re&sume"));
-    statusLabel->setText(i18n("Paused"));
+    m_startAction->setText(i18n("Re&sume"));
+    m_statusLabel->setText(i18n("Paused"));
 
     if (not m_session.isEmpty()) {
         stateChanged(PAUSED_SESSION_STATE);
@@ -160,15 +160,15 @@ void MainWindow::slotPaused()
 
     // the export action can be used only if there are laps (in both the paused states).
     // so, it can't be enabled directly from kronometerui.rc
-    if (not lapModel->isEmpty()) {
-        exportAction->setEnabled(true);
+    if (not m_lapModel->isEmpty()) {
+        m_exportAction->setEnabled(true);
     }
 }
 
 void MainWindow::slotInactive()
 {
-    startAction->setText(i18n("&Start"));
-    statusLabel->setText(i18n("Inactive"));
+    m_startAction->setText(i18n("&Start"));
+    m_statusLabel->setText(i18n("Inactive"));
 
     m_session.setOutdated(false);
     setWindowModified(false);
@@ -222,9 +222,9 @@ void MainWindow::slotWriteSettings(const QString& dialogName)
 
 void MainWindow::slotUpdateLapDock()
 {
-    lapView->resizeColumnsToContents();
-    lapView->horizontalHeader()->setStretchLastSection(true);
-    lapView->selectRow(lapModel->rowCount(QModelIndex()) - 1);  // rows indexes start from 0
+    m_lapView->resizeColumnsToContents();
+    m_lapView->horizontalHeader()->setStretchLastSection(true);
+    m_lapView->selectRow(m_lapModel->rowCount(QModelIndex()) - 1);  // rows indexes start from 0
 }
 
 void MainWindow::slotNewSession()
@@ -252,10 +252,10 @@ void MainWindow::slotSaveSession()
         return;
 
     m_session.clear();    // required for laps consistency
-    m_session.setTime(stopwatch->raw());
+    m_session.setTime(m_stopwatch->raw());
 
-    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
-        m_session.addLap(lapModel->at(i));
+    for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
+        m_session.addLap(m_lapModel->at(i));
     }
 
     m_session.setOutdated(false);
@@ -294,90 +294,90 @@ void MainWindow::slotExportLapsAs()
 
 void MainWindow::slotCopyToClipboard()
 {
-    QApplication::clipboard()->setText(stopwatchDisplay->currentTime());
+    QApplication::clipboard()->setText(m_stopwatchDisplay->currentTime());
 }
 
 void MainWindow::setupCentralWidget()
 {
-    centralSplitter = new QSplitter(this);
+    m_centralSplitter = new QSplitter(this);
 
-    lapModel = new LapModel(this);
+    m_lapModel = new LapModel(this);
     QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
-    proxyModel->setSourceModel(lapModel);
+    proxyModel->setSourceModel(m_lapModel);
 
-    lapView = new QTableView(this);
-    lapView->setModel(proxyModel);
-    lapView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    lapView->setGridStyle(Qt::DotLine);
-    lapView->verticalHeader()->hide();
-    lapView->resizeColumnsToContents();
-    lapView->horizontalHeader()->setStretchLastSection(true);
-    lapView->setSortingEnabled(true);
-    lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Ignored);
+    m_lapView = new QTableView(this);
+    m_lapView->setModel(proxyModel);
+    m_lapView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    m_lapView->setGridStyle(Qt::DotLine);
+    m_lapView->verticalHeader()->hide();
+    m_lapView->resizeColumnsToContents();
+    m_lapView->horizontalHeader()->setStretchLastSection(true);
+    m_lapView->setSortingEnabled(true);
+    m_lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Ignored);
 
-    centralSplitter->setOrientation(Qt::Horizontal);
-    centralSplitter->setChildrenCollapsible(false);
-    centralSplitter->addWidget(stopwatchDisplay);
-    centralSplitter->addWidget(lapView);
+    m_centralSplitter->setOrientation(Qt::Horizontal);
+    m_centralSplitter->setChildrenCollapsible(false);
+    m_centralSplitter->addWidget(m_stopwatchDisplay);
+    m_centralSplitter->addWidget(m_lapView);
 
-    setCentralWidget(centralSplitter);
+    setCentralWidget(m_centralSplitter);
 }
 
 void MainWindow::setupStatusBar()
 {
-    statusLabel = new QLabel(this);
-    statusLabel->setToolTip(i18n("Current chronometer status"));
+    m_statusLabel = new QLabel(this);
+    m_statusLabel->setToolTip(i18n("Current chronometer status"));
 
-    statusBar()->addWidget(statusLabel);
+    statusBar()->addWidget(m_statusLabel);
 }
 
 void MainWindow::setupActions()
 {
-    startAction = new QAction(this);
-    pauseAction = new QAction(this);
-    resetAction = new QAction(this);
-    lapAction = new QAction(this);
-    exportAction = new QAction(this);
+    m_startAction = new QAction(this);
+    m_pauseAction = new QAction(this);
+    m_resetAction = new QAction(this);
+    m_lapAction = new QAction(this);
+    m_exportAction = new QAction(this);
 
-    startAction->setIcon(QIcon::fromTheme("player-time"));
+    m_startAction->setIcon(QIcon::fromTheme("player-time"));
 
-    pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction doesn't)
-    pauseAction->setIcon(QIcon::fromTheme("media-playback-pause"));
+    m_pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction doesn't)
+    m_pauseAction->setIcon(QIcon::fromTheme("media-playback-pause"));
 
-    resetAction->setText(i18n("&Reset"));
-    resetAction->setIcon(QIcon::fromTheme("edit-clear-history"));
+    m_resetAction->setText(i18n("&Reset"));
+    m_resetAction->setIcon(QIcon::fromTheme("edit-clear-history"));
 
-    lapAction->setText(i18n("&Lap"));
-    lapAction->setIcon(QIcon::fromTheme("chronometer"));
+    m_lapAction->setText(i18n("&Lap"));
+    m_lapAction->setIcon(QIcon::fromTheme("chronometer"));
 
-    exportAction->setText(i18n("&Export laps as..."));
-    exportAction->setIcon(QIcon::fromTheme("document-export"));
+    m_exportAction->setText(i18n("&Export laps as..."));
+    m_exportAction->setIcon(QIcon::fromTheme("document-export"));
 
-    actionCollection()->addAction(START_KEY, startAction);
-    actionCollection()->addAction(PAUSE_KEY, pauseAction);
-    actionCollection()->addAction(RESET_KEY, resetAction);
-    actionCollection()->addAction(LAP_KEY, lapAction);
-    actionCollection()->addAction(EXPORT_KEY, exportAction);
-    actionCollection()->setDefaultShortcut(startAction, Qt::Key_Space);
-    actionCollection()->setDefaultShortcut(pauseAction, Qt::Key_Space);
-    actionCollection()->setDefaultShortcut(resetAction, Qt::Key_F5);
-    actionCollection()->setDefaultShortcut(lapAction, Qt::Key_Return);
+    actionCollection()->addAction(START_KEY, m_startAction);
+    actionCollection()->addAction(PAUSE_KEY, m_pauseAction);
+    actionCollection()->addAction(RESET_KEY, m_resetAction);
+    actionCollection()->addAction(LAP_KEY, m_lapAction);
+    actionCollection()->addAction(EXPORT_KEY, m_exportAction);
+    actionCollection()->setDefaultShortcut(m_startAction, Qt::Key_Space);
+    actionCollection()->setDefaultShortcut(m_pauseAction, Qt::Key_Space);
+    actionCollection()->setDefaultShortcut(m_resetAction, Qt::Key_F5);
+    actionCollection()->setDefaultShortcut(m_lapAction, Qt::Key_Return);
 
     // triggers for Stopwatch "behavioral" slots
-    connect(startAction, &QAction::triggered, stopwatch, &Stopwatch::onStart);
-    connect(pauseAction, &QAction::triggered, stopwatch, &Stopwatch::onPause);
-    connect(resetAction, &QAction::triggered, stopwatch, &Stopwatch::onReset);
-    connect(lapAction, &QAction::triggered, stopwatch, &Stopwatch::onLap);
+    connect(m_startAction, &QAction::triggered, m_stopwatch, &Stopwatch::onStart);
+    connect(m_pauseAction, &QAction::triggered, m_stopwatch, &Stopwatch::onPause);
+    connect(m_resetAction, &QAction::triggered, m_stopwatch, &Stopwatch::onReset);
+    connect(m_lapAction, &QAction::triggered, m_stopwatch, &Stopwatch::onLap);
 
     // triggers for LapModel slots
-    connect(resetAction, &QAction::triggered, lapModel,&LapModel::onClear);
-    connect(stopwatch, &Stopwatch::lap, lapModel, &LapModel::onLap);
+    connect(m_resetAction, &QAction::triggered, m_lapModel,&LapModel::onClear);
+    connect(m_stopwatch, &Stopwatch::lap, m_lapModel, &LapModel::onLap);
 
     // triggers for MainWindow "gui" slots
-    connect(startAction, &QAction::triggered, this, &MainWindow::slotRunning);
-    connect(pauseAction, &QAction::triggered, this, &MainWindow::slotPaused);
-    connect(resetAction, &QAction::triggered, this, &MainWindow::slotInactive);
-    connect(lapAction, &QAction::triggered, this, &MainWindow::slotUpdateLapDock);
+    connect(m_startAction, &QAction::triggered, this, &MainWindow::slotRunning);
+    connect(m_pauseAction, &QAction::triggered, this, &MainWindow::slotPaused);
+    connect(m_resetAction, &QAction::triggered, this, &MainWindow::slotInactive);
+    connect(m_lapAction, &QAction::triggered, this, &MainWindow::slotUpdateLapDock);
 
     // File menu triggers
     KStandardAction::quit(this, SLOT(close()), actionCollection());
@@ -387,7 +387,7 @@ void MainWindow::setupActions()
     KStandardAction::saveAs(this, SLOT(slotSaveSessionAs()), actionCollection());
     KStandardAction::open(this, SLOT(slotOpenSession()), actionCollection());
     KStandardAction::copy(this, SLOT(slotCopyToClipboard()), actionCollection());
-    connect(exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
+    connect(m_exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
 
     setupGUI(Default, "kronometerui.rc");
 
@@ -414,19 +414,19 @@ void MainWindow::loadSettings()
         KronometerConfig::showLapMilliseconds()
     );
 
-    lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
-    exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
-    lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
-    lapModel->setTimeFormat(lapTimeFormat);
+    m_lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
+    m_exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
+    m_lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
+    m_lapModel->setTimeFormat(lapTimeFormat);
     timeFormat.showDividers(false);
-    stopwatchDisplay->setTimeFormat(timeFormat);
-    stopwatchDisplay->setHourFont(KronometerConfig::hourFont());
-    stopwatchDisplay->setMinFont(KronometerConfig::minFont());
-    stopwatchDisplay->setSecFont(KronometerConfig::secFont());
-    stopwatchDisplay->setFracFont(KronometerConfig::fracFont());
-    stopwatchDisplay->setBackgroundColor(KronometerConfig::backgroundColor());
-    stopwatchDisplay->setTextColor(KronometerConfig::textColor());
-    stopwatchDisplay->showHeaders(KronometerConfig::showTimeHeaders());
+    m_stopwatchDisplay->setTimeFormat(timeFormat);
+    m_stopwatchDisplay->setHourFont(KronometerConfig::hourFont());
+    m_stopwatchDisplay->setMinFont(KronometerConfig::minFont());
+    m_stopwatchDisplay->setSecFont(KronometerConfig::secFont());
+    m_stopwatchDisplay->setFracFont(KronometerConfig::fracFont());
+    m_stopwatchDisplay->setBackgroundColor(KronometerConfig::backgroundColor());
+    m_stopwatchDisplay->setTextColor(KronometerConfig::textColor());
+    m_stopwatchDisplay->showHeaders(KronometerConfig::showTimeHeaders());
 
     setupGranularity(KronometerConfig::showTenths(), KronometerConfig::showHundredths(), KronometerConfig::showMilliseconds());
 }
@@ -435,26 +435,26 @@ void MainWindow::loadSettings()
 void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
 {
     if (msec) {
-        stopwatch->setGranularity(Stopwatch::MILLISECONDS);
+        m_stopwatch->setGranularity(Stopwatch::MILLISECONDS);
     }
     else if (hundredths) {
-        stopwatch->setGranularity(Stopwatch::HUNDREDTHS);
+        m_stopwatch->setGranularity(Stopwatch::HUNDREDTHS);
     }
     else if (tenths) {
-        stopwatch->setGranularity(Stopwatch::TENTHS);
+        m_stopwatch->setGranularity(Stopwatch::TENTHS);
     }
     else {
-        stopwatch->setGranularity(Stopwatch::SECONDS);
+        m_stopwatch->setGranularity(Stopwatch::SECONDS);
     }
 }
 
 void MainWindow::slotSaveSessionAs(const QString& name)
 {
-    Session newSession(stopwatch->raw());
+    Session newSession(m_stopwatch->raw());
     newSession.setName(name);
 
-    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
-        newSession.addLap(lapModel->at(i));
+    for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
+        newSession.addLap(m_lapModel->at(i));
     }
 
     m_sessionModel->append(newSession);
@@ -468,10 +468,10 @@ void MainWindow::slotSaveSessionAs(const QString& name)
 
 void MainWindow::loadSession()
 {
-    stopwatch->initialize(m_session.time());
+    m_stopwatch->initialize(m_session.time());
 
     Q_FOREACH (const Lap& lap, m_session.laps()) {
-        lapModel->append(lap);
+        m_lapModel->append(lap);
     }
 
     slotPaused();   // enter in paused state
@@ -520,9 +520,9 @@ void MainWindow::exportLapsAsJson(QJsonObject& json)
 {
     QJsonArray laps;
 
-    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
+    for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
         QJsonObject object;
-        lapModel->at(i).write(object);
+        m_lapModel->at(i).write(object);
         laps.append(object);
     }
 
@@ -534,11 +534,11 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
     out << '#' << timestampMessage() << '\r' << '\n';
     out << '#' << i18n("Lap number,Lap time,Global time,Note") << '\r' << '\n';
 
-    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
+    for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
         out << i;
-        out << ',' << lapModel->at(i).relativeTime();
-        out << ',' << lapModel->at(i).absoluteTime();
-        out << ',' << lapModel->at(i).note();
+        out << ',' << m_lapModel->at(i).relativeTime();
+        out << ',' << m_lapModel->at(i).absoluteTime();
+        out << ',' << m_lapModel->at(i).note();
         out << '\r' << '\n';
     }
 }

@@ -25,17 +25,17 @@
 DigitDisplay::DigitDisplay(QWidget *parent, DigitCounter counter) : QWidget(parent)
 {
     QHBoxLayout *layout = new QHBoxLayout(this);
-    leftmostDigit = new QLabel(this);
-    centerDigit = new QLabel(this);
-    rightmostDigit = new QLabel(this);
+    m_leftmostDigit = new QLabel(this);
+    m_centerDigit = new QLabel(this);
+    m_rightmostDigit = new QLabel(this);
 
-    leftmostDigit->setAlignment(Qt::AlignCenter);
-    centerDigit->setAlignment(Qt::AlignCenter);
-    rightmostDigit->setAlignment(Qt::AlignCenter);
+    m_leftmostDigit->setAlignment(Qt::AlignCenter);
+    m_centerDigit->setAlignment(Qt::AlignCenter);
+    m_rightmostDigit->setAlignment(Qt::AlignCenter);
 
-    layout->addWidget(leftmostDigit);
-    layout->addWidget(centerDigit);
-    layout->addWidget(rightmostDigit);
+    layout->addWidget(m_leftmostDigit);
+    layout->addWidget(m_centerDigit);
+    layout->addWidget(m_rightmostDigit);
 
     setDigitCounter(counter);
 }
@@ -44,35 +44,35 @@ void DigitDisplay::setDigitCounter(DigitCounter counter)
 {
     switch (counter) {
     case ONE_DIGIT:
-        leftmostDigit->show();
-        centerDigit->hide();
-        rightmostDigit->hide();
-        digitCounter = counter;
+        m_leftmostDigit->show();
+        m_centerDigit->hide();
+        m_rightmostDigit->hide();
+        m_digitCounter = counter;
         break;
     case TWO_DIGITS:
-        leftmostDigit->show();
-        centerDigit->show();
-        rightmostDigit->hide();
-        digitCounter = counter;
+        m_leftmostDigit->show();
+        m_centerDigit->show();
+        m_rightmostDigit->hide();
+        m_digitCounter = counter;
         break;
     case THREE_DIGITS:
-        leftmostDigit->show();
-        centerDigit->show();
-        rightmostDigit->show();
-        digitCounter = counter;
+        m_leftmostDigit->show();
+        m_centerDigit->show();
+        m_rightmostDigit->show();
+        m_digitCounter = counter;
         break;
     default:
-        leftmostDigit->hide();
-        centerDigit->hide();
-        rightmostDigit->hide();
-        digitCounter = NO_DIGIT;
+        m_leftmostDigit->hide();
+        m_centerDigit->hide();
+        m_rightmostDigit->hide();
+        m_digitCounter = NO_DIGIT;
         break;
     }
 }
 
 void DigitDisplay::showDigits(const QString& digits) const
 {
-    switch (digitCounter) {
+    switch (m_digitCounter) {
     case ONE_DIGIT:
         showOneDigit(digits);
         break;
@@ -89,27 +89,27 @@ void DigitDisplay::showDigits(const QString& digits) const
 
 void DigitDisplay::setFont(const QFont& font)
 {
-    displayFont = font;
+    m_displayFont = font;
 
-    leftmostDigit->setFont(displayFont);
-    centerDigit->setFont(displayFont);
-    rightmostDigit->setFont(displayFont);
+    m_leftmostDigit->setFont(m_displayFont);
+    m_centerDigit->setFont(m_displayFont);
+    m_rightmostDigit->setFont(m_displayFont);
 }
 
 int DigitDisplay::width() const
 {
     int width = 0;
-    QFontMetrics fontMetrics(displayFont);
+    QFontMetrics fontMetrics(m_displayFont);
 
-    switch (digitCounter) {
+    switch (m_digitCounter) {
     case ONE_DIGIT:
-        width = fontMetrics.width(leftmostDigit->text());
+        width = fontMetrics.width(m_leftmostDigit->text());
         break;
     case TWO_DIGITS:
-        width = fontMetrics.width(leftmostDigit->text()) + fontMetrics.width(centerDigit->text());
+        width = fontMetrics.width(m_leftmostDigit->text()) + fontMetrics.width(m_centerDigit->text());
         break;
     case THREE_DIGITS:
-        width = fontMetrics.width(leftmostDigit->text()) + fontMetrics.width(centerDigit->text()) + fontMetrics.width(rightmostDigit->text());
+        width = fontMetrics.width(m_leftmostDigit->text()) + fontMetrics.width(m_centerDigit->text()) + fontMetrics.width(m_rightmostDigit->text());
         break;
     default:
         break;
@@ -120,26 +120,26 @@ int DigitDisplay::width() const
 
 void DigitDisplay::showOneDigit(const QString& digit) const
 {
-    if (digit.size() == digitCounter) {
-        leftmostDigit->setText(digit.at(0));
+    if (digit.size() == m_digitCounter) {
+        m_leftmostDigit->setText(digit.at(0));
     }
 }
 
 void DigitDisplay::showTwoDigits(const QString& digits) const
 {
-    if (digits.size() == digitCounter) {
+    if (digits.size() == m_digitCounter) {
         // digits are displayed from right to left
-        centerDigit->setText(digits.at(1));
-        leftmostDigit->setText(digits.at(0));
+        m_centerDigit->setText(digits.at(1));
+        m_leftmostDigit->setText(digits.at(0));
     }
 }
 
 void DigitDisplay::showThreeDigits(const QString& digits) const
 {
-    if (digits.size() == digitCounter) {
+    if (digits.size() == m_digitCounter) {
         // digits are displayed from right to left
-        rightmostDigit->setText(digits.at(2));
-        centerDigit->setText(digits.at(1));
-        leftmostDigit->setText(digits.at(0));
+        m_rightmostDigit->setText(digits.at(2));
+        m_centerDigit->setText(digits.at(1));
+        m_leftmostDigit->setText(digits.at(0));
     }
 }

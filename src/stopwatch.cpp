@@ -24,94 +24,94 @@
 
 Stopwatch::Stopwatch(QObject *parent) :
     QObject(parent),
-    timerId(INACTIVE_TIMER_ID),
-    state(State::INACTIVE),
-    granularity(HUNDREDTHS),
-    zero(0, 0)
+    zero(0, 0),
+    m_timerId(INACTIVE_TIMER_ID),
+    m_state(State::INACTIVE),
+    m_granularity(HUNDREDTHS)
 {}
 
 void Stopwatch::setGranularity(Granularity g)
 {
-    granularity = g;
+    m_granularity = g;
 }
 
 bool Stopwatch::isRunning() const
 {
-    return state == State::RUNNING;
+    return m_state == State::RUNNING;
 }
 
 bool Stopwatch::isPaused() const
 {
-    return state == State::PAUSED;
+    return m_state == State::PAUSED;
 }
 
 bool Stopwatch::isInactive() const
 {
-    return state == State::INACTIVE;
+    return m_state == State::INACTIVE;
 }
 
 qint64 Stopwatch::raw() const
 {
-    return accumulator;
+    return m_accumulator;
 }
 
 bool Stopwatch::initialize(qint64 rawData)
 {
-    if (state != State::INACTIVE or rawData <= 0) {
+    if (m_state != State::INACTIVE or rawData <= 0) {
         return false;
     }
 
-    accumulator = rawData;
-    state = State::PAUSED;
-    emit time(zero.addMSecs(accumulator));  // it signals that has been deserialized and can be resumed
+    m_accumulator = rawData;
+    m_state = State::PAUSED;
+    emit time(zero.addMSecs(m_accumulator));  // it signals that has been deserialized and can be resumed
 
     return true;
 }
 
 void Stopwatch::onStart()
 {
-    if (state == State::INACTIVE) {
-        accumulator = 0;
-        elapsedTimer.start();
+    if (m_state == State::INACTIVE) {
+        m_accumulator = 0;
+        m_elapsedTimer.start();
 
-        if (timerId == INACTIVE_TIMER_ID) {
-            timerId = startTimer(granularity);
+        if (m_timerId == INACTIVE_TIMER_ID) {
+            m_timerId = startTimer(m_granularity);
         }
     }
-    else if (state == State::PAUSED) {
-        elapsedTimer.restart();
-        timerId = startTimer(granularity);
+    else if (m_state == State::PAUSED) {
+        m_elapsedTimer.restart();
+        m_timerId = startTimer(m_granularity);
     }
 
-    state = State::RUNNING;
+    m_state = State::RUNNING;
 }
 
 void Stopwatch::onPause()
 {
-    if (elapsedTimer.isValid()) {
-        accumulator += elapsedTimer.elapsed();
+    if (m_elapsedTimer.isValid()) {
+        m_accumulator += m_elapsedTimer.elapsed();
     }
 
-    elapsedTimer.invalidate();
-    state = State::PAUSED;
+    m_elapsedTimer.invalidate();
+    m_state = State::PAUSED;
 }
 
 void Stopwatch::onReset()
 {
-    elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
+    m_elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
     emit time(zero);
-    state = State::INACTIVE;
+    m_state = State::INACTIVE;
 }
 
 void Stopwatch::onLap()
 {
     qint64 lapTime = 0;
 
-    lapTime += accumulator;
+    lapTime += m_accumulator;
 
-    if (elapsedTimer.isValid()) {
-        lapTime += elapsedTimer.elapsed();
+    if (m_elapsedTimer.isValid()) {
+        lapTime += m_elapsedTimer.elapsed();
     }
 
     emit lap(zero.addMSecs(lapTime));
@@ -119,21 +119,21 @@ void Stopwatch::onLap()
 
 void Stopwatch::timerEvent(QTimerEvent *event)
 {
-    if (event->timerId() != timerId) {      // forward undesired events
+    if (event->timerId() != m_timerId) {      // forward undesired events
         QObject::timerEvent(event);
         return;
     }
 
     qint64 t = 0;
 
-    t += accumulator;
+    t += m_accumulator;
 
-    if (elapsedTimer.isValid()) {
-        t += elapsedTimer.elapsed();
+    if (m_elapsedTimer.isValid()) {
+        t += m_elapsedTimer.elapsed();
         emit time(zero.addMSecs(t));
     }
     else {
-        killTimer(timerId);
-        timerId = INACTIVE_TIMER_ID;
+        killTimer(m_timerId);
+        m_timerId = INACTIVE_TIMER_ID;
     }
 }

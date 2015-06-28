@@ -22,19 +22,19 @@
 #include <QTime>
 
 TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec) :
-    hour(h),
-    min(mm),
-    sec(ss),
-    dividers(true)
+    m_hour(h),
+    m_min(mm),
+    m_sec(ss),
+    m_dividers(true)
 {
     if (msec) {
-        secFraction = SecFraction::MILLISECOND;
+        m_secFraction = SecFraction::MILLISECOND;
     }
     else if (hundr) {
-        secFraction = SecFraction::HUNDREDTH;
+        m_secFraction = SecFraction::HUNDREDTH;
     }
     else if (t) {
-        secFraction = SecFraction::TENTH;
+        m_secFraction = SecFraction::TENTH;
     }
 
     setupFormat();
@@ -52,44 +52,44 @@ QString TimeFormat::format(const QTime& time) const
 
 QString TimeFormat::formatHours(const QTime& time) const
 {
-    if (not hour) {
+    if (not m_hour) {
         return QString();
     }
 
-    return time.toString(hourFormat);
+    return time.toString(m_hourFormat);
 }
 
 QString TimeFormat::formatMin(const QTime& time) const
 {
-    if (not min) {
+    if (not m_min) {
         return QString();
     }
 
-    return time.toString(minFormat);
+    return time.toString(m_minFormat);
 }
 
 QString TimeFormat::formatSec(const QTime& time) const
 {
-    if (not sec) {
+    if (not m_sec) {
         return QString();
     }
 
-    return time.toString(secFormat);
+    return time.toString(m_secFormat);
 }
 
 QString TimeFormat::formatSecFrac(const QTime& time) const
 {
     const QString fractFormat = "zzz";
 
-    if (secFraction == SecFraction::MILLISECOND)
+    if (m_secFraction == SecFraction::MILLISECOND)
         return time.toString(fractFormat);
 
-    if (secFraction == SecFraction::HUNDREDTH) {
+    if (m_secFraction == SecFraction::HUNDREDTH) {
         QString temp = time.toString(fractFormat);
         return temp.left(temp.size() - 1);
     }
 
-    if (secFraction == SecFraction::TENTH) {
+    if (m_secFraction == SecFraction::TENTH) {
         QString temp = time.toString(fractFormat);
         return temp.left(temp.size() - 2);
     }
@@ -99,71 +99,71 @@ QString TimeFormat::formatSecFrac(const QTime& time) const
 
 bool TimeFormat::isHourEnabled() const
 {
-    return hour;
+    return m_hour;
 }
 
 bool TimeFormat::isMinEnabled() const
 {
-    return min;
+    return m_min;
 }
 
 bool TimeFormat::isSecEnabled() const
 {
-    return sec;
+    return m_sec;
 }
 
 bool TimeFormat::isSecFracEnabled() const
 {
-    return secFraction != SecFraction::NONE;
+    return m_secFraction != SecFraction::NONE;
 }
 
 bool TimeFormat::isTenthEnabled() const
 {
-    return secFraction == SecFraction::TENTH;
+    return m_secFraction == SecFraction::TENTH;
 }
 
 bool TimeFormat::isHundredthEnabled() const
 {
-    return secFraction == SecFraction::HUNDREDTH;
+    return m_secFraction == SecFraction::HUNDREDTH;
 }
 
 bool TimeFormat::isMSecEnabled() const
 {
-    return secFraction == SecFraction::MILLISECOND;
+    return m_secFraction == SecFraction::MILLISECOND;
 }
 
 void TimeFormat::showDividers(bool show)
 {
-    dividers = show;
+    m_dividers = show;
     setupFormat();
 }
 
 void TimeFormat::setupFormat()
 {
-    if (hour) {
-        if (dividers and (min or sec or secFraction != SecFraction::NONE)) {
-            hourFormat = "hh:";
+    if (m_hour) {
+        if (m_dividers and (m_min or m_sec or m_secFraction != SecFraction::NONE)) {
+            m_hourFormat = "hh:";
         }
         else {
-            hourFormat = "hh";
+            m_hourFormat = "hh";
         }
     }
 
-    if (min) {
-        if (dividers and (sec or secFraction != SecFraction::NONE)) {
-            minFormat = "mm:";
+    if (m_min) {
+        if (m_dividers and (m_sec or m_secFraction != SecFraction::NONE)) {
+            m_minFormat = "mm:";
         }
         else {
-            minFormat = "mm";
+            m_minFormat = "mm";
         }
     }
 
-    if (sec) {
-        if (dividers and (secFraction != SecFraction::NONE)) {
-            secFormat = "ss.";
+    if (m_sec) {
+        if (m_dividers and (m_secFraction != SecFraction::NONE)) {
+            m_secFormat = "ss.";
         }
         else {
-            secFormat = "ss";
+            m_secFormat = "ss";
         }
     }
 }

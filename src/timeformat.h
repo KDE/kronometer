@@ -135,15 +135,15 @@ private:
         MILLISECOND     /**< Second fraction is milliseconds. */
     };
 
-    bool hour;                  /** Whether hour is in the internal time format */
-    bool min;                   /** Whether minute is in the internal time format */
-    bool sec;                   /** Whether second is in the internal time format */
-    SecFraction secFraction;    /** Second fraction internal time format */
+    bool m_hour;                  /** Whether hour is in the internal time format */
+    bool m_min;                   /** Whether minute is in the internal time format */
+    bool m_sec;                   /** Whether second is in the internal time format */
+    SecFraction m_secFraction;    /** Second fraction internal time format */
 
-    bool dividers;              /** Whether to show the symbols used as dividers */
-    QString hourFormat;         /** Hour string format */
-    QString minFormat;          /** Minute string format */
-    QString secFormat;          /** Secondstring format */
+    bool m_dividers;              /** Whether to show the symbols used as dividers */
+    QString m_hourFormat;         /** Hour string format */
+    QString m_minFormat;          /** Minute string format */
+    QString m_secFormat;          /** Secondstring format */
 
     /**
      * Setup the format strings based on the internal formats

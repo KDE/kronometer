@@ -77,12 +77,12 @@ public:
 
 private:
 
-    QLabel *leftmostDigit;
-    QLabel *centerDigit;
-    QLabel *rightmostDigit;
+    QLabel *m_leftmostDigit;
+    QLabel *m_centerDigit;
+    QLabel *m_rightmostDigit;
 
-    QFont displayFont;
-    DigitCounter digitCounter;
+    QFont m_displayFont;
+    DigitCounter m_digitCounter;
 
     /**
      * Helper function to display a single digit.

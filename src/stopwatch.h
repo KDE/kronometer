@@ -139,14 +139,14 @@ private:
     };
 	
     static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
-
-    int timerId;                                /** ID for the QObject timer */
-    qint64 accumulator;                         /** milliseconds internal counter */
-    State state;                                /** Stopwatch current state */
-    Granularity granularity;                    /** Stopwatch current granularity */
-
     const QTime zero;                           /** Empty time to be used to add elapsed milliseconds */
-    QElapsedTimer elapsedTimer;                 /** Stopwatch core class*/
+
+    int m_timerId;                              /** ID for the QObject timer */
+    qint64 m_accumulator;                       /** milliseconds internal counter */
+    State m_state;                              /** Stopwatch current state */
+    Granularity m_granularity;                  /** Stopwatch current granularity */
+
+    QElapsedTimer m_elapsedTimer;               /** Stopwatch core class*/
 };
 
 

@@ -107,25 +107,25 @@ public slots:
 
 private:
 
-    QFrame *hourFrame;
-    QFrame *minFrame;
-    QFrame *secFrame;
-    QFrame *fracFrame;
+    QFrame *m_hourFrame;
+    QFrame *m_minFrame;
+    QFrame *m_secFrame;
+    QFrame *m_fracFrame;
 
-    QLabel *hourHeader;
-    QLabel *minHeader;
-    QLabel *secHeader;
-    QLabel *fracHeader;
-    DigitDisplay *hourDisplay;
-    DigitDisplay *minDisplay;
-    DigitDisplay *secDisplay;
-    DigitDisplay *fracDisplay;
+    QLabel *m_hourHeader;
+    QLabel *m_minHeader;
+    QLabel *m_secHeader;
+    QLabel *m_fracHeader;
+    DigitDisplay *m_hourDisplay;
+    DigitDisplay *m_minDisplay;
+    DigitDisplay *m_secDisplay;
+    DigitDisplay *m_fracDisplay;
 
-    QColor backgroundColor;
-    QColor textColor;
+    QColor m_backgroundColor;
+    QColor m_textColor;
 
-    QTime displayTime;              /** Current display time */
-    TimeFormat timeFormat;          /** Current display time format */
+    QTime m_displayTime;              /** Current display time */
+    TimeFormat m_timeFormat;          /** Current display time format */
 
     /**
      * Refresh the labels text implementing the display timer

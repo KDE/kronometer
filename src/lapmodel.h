@@ -72,7 +72,7 @@ public:
      */
     bool isEmpty() const;
 
-public slots:	
+public slots:
 
     /**
      * Add a new absolute lap time to the model.
@@ -97,8 +97,8 @@ private:
         NOTE = 3       /**< Index of the lap annotation column */
     };
 
-    QList<Lap> lapList;              /** Lap times */
-    TimeFormat timeFormat;          /** Current lap times format */
+    QList<Lap> m_lapList;              /** Lap times */
+    TimeFormat m_timeFormat;          /** Current lap times format */
 
     /**
      *  Reload the model data.

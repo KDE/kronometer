@@ -117,19 +117,19 @@ private slots:
 
 private:
 
-    Stopwatch *stopwatch;
-    TimeDisplay *stopwatchDisplay;
-    QSplitter *centralSplitter;
-    QTableView *lapView;
-    QLabel *statusLabel;
+    Stopwatch *m_stopwatch;
+    TimeDisplay *m_stopwatchDisplay;
+    QSplitter *m_centralSplitter;
+    QTableView *m_lapView;
+    QLabel *m_statusLabel;
 
-    QAction *startAction;
-    QAction *pauseAction;
-    QAction *resetAction;
-    QAction *lapAction;
-    QAction *exportAction;
+    QAction *m_startAction;
+    QAction *m_pauseAction;
+    QAction *m_resetAction;
+    QAction *m_lapAction;
+    QAction *m_exportAction;
 
-    LapModel *lapModel;
+    LapModel *m_lapModel;
     SessionModel *m_sessionModel;
 
     Session m_session;
