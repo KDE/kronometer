@@ -21,7 +21,6 @@ find_package(KF5 REQUIRED
     CoreAddons # TODO: check if can be removed
     DocTools
     I18n
-    KIO
     WidgetsAddons
     XmlGui
 )

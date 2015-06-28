@@ -21,11 +21,12 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "session.h"
+
 #include <KXmlGuiWindow>
 
-#include <QUrl>
-
 class LapModel;
+class SessionModel;
 class Stopwatch;
 class TimeDisplay;
 
@@ -45,7 +46,7 @@ class MainWindow : public KXmlGuiWindow
 
 public:
 
-    explicit MainWindow(QWidget *parent = nullptr, const QUrl& url = QUrl());
+    explicit MainWindow(QWidget *parent = nullptr, const Session& session = Session());
 
 protected:
 
@@ -87,24 +88,22 @@ private slots:
     /**
      * Open a new MainWindow instance.
      */
-    void slotNewFile();
+    void slotNewSession();
 
     /**
-     * Open an existing file in a new MainWindow instance.
+     * Open an existing session in a new MainWindow instance.
      */
-    void slotOpenFile();
+    void slotOpenSession();
 
     /**
-     * Save current times on the current file.
-     * @returns true if operation was successful
+     * Save current times in the current session.
      */
-    bool slotSaveFile();
+    void slotSaveSession();
 
     /**
-     * Save current times on a new file.
-     * @returns true if operation was successful
+     * Save current times as a new session.
      */
-    bool slotSaveFileAs();
+    void slotSaveSessionAs();
 
     /**
      * Export current lap times on a file.
@@ -131,10 +130,9 @@ private:
     QAction *exportAction;
 
     LapModel *lapModel;
-    QSortFilterProxyModel *proxyModel;
+    SessionModel *m_sessionModel;
 
-    QUrl saveUrl;               /** Save file URL */
-    bool unsavedTimes;          /** Whether there are unsaved times */
+    Session m_session;
 
     /**
      * Setup the central widget of the window.
@@ -166,29 +164,15 @@ private:
     void setupGranularity(bool tenths, bool hundredths, bool msec);
 
     /**
-     * Create a file with the current stopwatch time and lap times.
-     * @param name The name of the file to be saved.
-     * @return true if operation was successful
+     * Create a session with the current stopwatch time and lap times.
+     * @param name The name of the session to be saved.
      */
-    bool slotSaveFileAs(const QString& name);
+    void slotSaveSessionAs(const QString& name);
 
     /**
-     * Load the XML save file from the member QUrl. If an error occurs, the window is closed.
+     * Load a saved session.
      */
-    void openUrl();
-
-    /**
-     * Write the XML save file on the given stream.
-     * @param out The stream to be written.
-     */
-    void createXmlSaveFile(QTextStream& out);
-
-    /**
-     * Parse the XML save file from the given DOM document.
-     * @param doc The DOM document to be parsed.
-     * @return true if doc is a valid Kronometer save file, false otherwise.
-     */
-    bool parseXmlSaveFile(const QDomDocument& doc);
+    void loadSession();
 
     /**
      * Export current lap times on a new file.
@@ -198,10 +182,10 @@ private:
     void exportLapsAs(const QString& name, const QString& nameFilter);
 
     /**
-     * Write the XML laps representation on the given stream.
-     * @param out The stream to be written.
+     * Write the JSON laps representation on the given object.
+     * @param json The JSON object to be written.
      */
-    void exportLapsAsXml(QTextStream& out);
+    void exportLapsAsJson(QJsonObject& json);
 
     /**
      * Write the CSV laps representation on the given stream.

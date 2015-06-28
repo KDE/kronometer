@@ -5,6 +5,9 @@ set(
     lapmodel.cpp
     main.cpp
     mainwindow.cpp
+    session.cpp
+    sessiondialog.cpp
+    sessionmodel.cpp
     stopwatch.cpp
     timedisplay.cpp
     timeformat.cpp
@@ -27,7 +30,6 @@ add_executable(kronometer ${kronometer_SRCS})
 target_link_libraries(
     kronometer
     KF5::I18n
-    KF5::KIOWidgets
     KF5::WidgetsAddons
     KF5::XmlGui
 )

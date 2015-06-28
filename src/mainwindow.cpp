@@ -19,6 +19,8 @@
 
 #include "lapmodel.h"
 #include "mainwindow.h"
+#include "sessiondialog.h"
+#include "sessionmodel.h"
 #include "settings.h"
 #include "stopwatch.h"
 #include "timedisplay.h"
@@ -30,23 +32,22 @@
 
 #include <KActionCollection>
 #include <KConfigDialog>
-#include <KIO/FileCopyJob>
-#include <KJobUiDelegate>
 #include <KLocalizedString>
 #include <KMessageBox>
 
 #include <QAction>
 #include <QApplication>
 #include <QClipboard>
-#include <QDomDocument>
 #include <QFileDialog>
+#include <QInputDialog>
+#include <QJsonArray>
+#include <QJsonDocument>
 #include <QPointer>
 #include <QSaveFile>
 #include <QSortFilterProxyModel>
 #include <QSplitter>
 #include <QStatusBar>
 #include <QTableView>
-#include <QTemporaryFile>
 
 namespace
 {
@@ -56,50 +57,38 @@ namespace
     const QString LAP_KEY = "lap";
     const QString EXPORT_KEY = "export_laps";
 
-    const QString WINDOW_TITLE = "Kronometer";       /** Default Window title */
     const QString QT_PLACE_HOLDER = "[*]";           /** Qt standard placeholder for setWindowModified() */
 
-    const QString XML_MIMETYPE = "application/xml";
+    const QString JSON_MIMETYPE = "application/json";
     const QString CSV_MIMETYPE = "text/csv";
-    const QString XML_EXTENSION = ".xml";
+    const QString JSON_EXTENSION = ".json";
     const QString CSV_EXTENSION = ".csv";
 
     // kronometerui.rc states
     const QString INACTIVE_STATE = "inactive";
     const QString RUNNING_STATE = "running";
     const QString PAUSED_STATE = "paused";
-    const QString PAUSED_FILE_STATE = "pausedFile";  /** An open file has been paused */
-
-    // XML strings
-    const QString STOPWATCH_TAG = "stopwatch";
-    const QString LAPS_TAG = "laps";
-    const QString LAP_TAG = "lap";
-    const QString TIME_TAG = "time";
-    const QString NOTE_TAG = "note";
-    const QString ROOT_TAG = "kronometer";
-    const QString PERSISTENCE_ATTR = "msec";
-    const QString TYPE_ATTR = "type";
-    const QString LAP_ID_ATTR = "id";
-    const QString REL_TYPE = "relative";
-    const QString ABS_TYPE = "absolute";
+    const QString PAUSED_SESSION_STATE = "pausedSession";  /** An open file has been paused */
 }
 
-
-MainWindow::MainWindow(QWidget *parent, const QUrl& url) : KXmlGuiWindow(parent), saveUrl(url), unsavedTimes(false)
+MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent), m_session(session)
 {
     stopwatch = new Stopwatch(this);
     stopwatchDisplay = new TimeDisplay(this);
     connect(stopwatch, &Stopwatch::time, stopwatchDisplay, &TimeDisplay::onTime);  // bind stopwatch to its display
+
+    m_sessionModel = new SessionModel(this);
 
     setupCentralWidget();
     setupStatusBar();
     setupActions();
     loadSettings();
 
-    setWindowTitle(WINDOW_TITLE + QT_PLACE_HOLDER);
-
-    if (not saveUrl.isEmpty()) {
-        openUrl();
+    if (not m_session.isEmpty()) {
+        loadSession();
+    }
+    else {
+        setWindowTitle(i18n("Untitled") + QT_PLACE_HOLDER);
     }
 }
 
@@ -114,9 +103,9 @@ bool MainWindow::queryClose()
         slotPaused();
     }
 
-    int buttonCode;
+    KMessageBox::ButtonCode buttonCode;
 
-    if (saveUrl.isEmpty()) {
+    if (m_session.isEmpty()) {
         buttonCode = KMessageBox::warningContinueCancel(
                     this,
                     i18n("Do you want to quit and lose your unsaved times?"),
@@ -130,13 +119,13 @@ bool MainWindow::queryClose()
         }
         return false;
     }
-    else if (unsavedTimes) {
-        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to file %1?", saveUrl.fileName()));
+    else if (m_session.isOutdated()) {
+        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to session %1?", m_session.name()));
 
         switch (buttonCode) {
         case KMessageBox::Yes:
-            // save document here. If saving fails, return false;
-            return slotSaveFile();
+            slotSaveSession();
+            return true;
         case KMessageBox::No:
             return true;
         default: // cancel
@@ -144,15 +133,15 @@ bool MainWindow::queryClose()
         }
     }
 
-    return true;  // there is an open file, but times are already saved.
+    return true;  // there is an open session, but times are already saved.
 }
 
 void MainWindow::slotRunning()
 {
     statusLabel->setText(i18n("Running..."));
 
-    unsavedTimes = true;
-    setWindowModified(unsavedTimes);
+    m_session.setOutdated(true);
+    setWindowModified(true);
 
     stateChanged(RUNNING_STATE);
 }
@@ -162,8 +151,8 @@ void MainWindow::slotPaused()
     startAction->setText(i18n("Re&sume"));
     statusLabel->setText(i18n("Paused"));
 
-    if (not saveUrl.isEmpty()) {
-        stateChanged(PAUSED_FILE_STATE);
+    if (not m_session.isEmpty()) {
+        stateChanged(PAUSED_SESSION_STATE);
     }
     else {
         stateChanged(PAUSED_STATE);
@@ -181,8 +170,8 @@ void MainWindow::slotInactive()
     startAction->setText(i18n("&Start"));
     statusLabel->setText(i18n("Inactive"));
 
-    unsavedTimes = false;
-    setWindowModified(unsavedTimes);
+    m_session.setOutdated(false);
+    setWindowModified(false);
 
     stateChanged(INACTIVE_STATE);
 }
@@ -238,56 +227,51 @@ void MainWindow::slotUpdateLapDock()
     lapView->selectRow(lapModel->rowCount(QModelIndex()) - 1);  // rows indexes start from 0
 }
 
-void MainWindow::slotNewFile()
+void MainWindow::slotNewSession()
 {
     MainWindow *window = new MainWindow();
     window->show();
 }
 
-void MainWindow::slotOpenFile()
+void MainWindow::slotOpenSession()
 {
-    QPointer<QFileDialog> dialog = new QFileDialog(this);
-    dialog->setWindowTitle(i18n("Choose a Kronometer save file"));
+    QPointer<SessionDialog> dialog = new SessionDialog(nullptr, i18n("Sessions"));
+    dialog.data()->show();
 
-    QStringList mimeTypes;
-    mimeTypes << XML_MIMETYPE;
-    dialog->setMimeTypeFilters(mimeTypes);
-
-    if (dialog->exec() == QDialog::Accepted) {
-        QUrl file = QUrl::fromUserInput(dialog->selectedFiles().first());
-
-        if (not file.isEmpty()) {
-            MainWindow *window = new MainWindow(nullptr, file);
-            window->show();
-        }
+    if (dialog.data()->exec() == QDialog::Accepted) {
+        MainWindow *window = new MainWindow(nullptr, dialog.data()->selectedSession());
+        window->show();
     }
 
-    delete dialog;
+    delete dialog.data();
 }
 
-bool MainWindow::slotSaveFile()
+void MainWindow::slotSaveSession()
 {
-    return slotSaveFileAs(saveUrl.fileName());
-}
+    if (not m_session.isOutdated())
+        return;
 
-bool MainWindow::slotSaveFileAs()
-{
-    QPointer<QFileDialog> dialog = new QFileDialog(this);
-    dialog->setAcceptMode(QFileDialog::AcceptSave);
-    dialog->setConfirmOverwrite(true);
-    dialog->setWindowTitle(i18n("Choose Kronometer save file destination"));
+    m_session.clear();    // required for laps consistency
+    m_session.setTime(stopwatch->raw());
 
-    QStringList mimeTypes;
-    mimeTypes << XML_MIMETYPE;
-    dialog->setMimeTypeFilters(mimeTypes);
-
-    bool rc = false;
-    if (dialog->exec() == QDialog::Accepted) {
-        rc = slotSaveFileAs(dialog->selectedFiles().first());
+    for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
+        m_session.addLap(lapModel->at(i));
     }
 
-    delete dialog;
-    return rc;
+    m_session.setOutdated(false);
+    m_sessionModel->update(m_session);
+
+    setWindowModified(false);
+}
+
+void MainWindow::slotSaveSessionAs()
+{
+    QString name = QInputDialog::getText(this, i18n("Choose a name"), i18n("Session name:"));
+
+    if (name.isEmpty())
+        name = i18n("Untitled session");
+
+    slotSaveSessionAs(name);
 }
 
 void MainWindow::slotExportLapsAs()
@@ -298,7 +282,7 @@ void MainWindow::slotExportLapsAs()
     dialog->setWindowTitle(i18n("Choose export file destination"));
 
     QStringList mimeTypes;
-    mimeTypes << CSV_MIMETYPE << XML_MIMETYPE;
+    mimeTypes << CSV_MIMETYPE << JSON_MIMETYPE;
     dialog->setMimeTypeFilters(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
@@ -318,7 +302,7 @@ void MainWindow::setupCentralWidget()
     centralSplitter = new QSplitter(this);
 
     lapModel = new LapModel(this);
-    proxyModel = new QSortFilterProxyModel(this);
+    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
     proxyModel->setSourceModel(lapModel);
 
     lapView = new QTableView(this);
@@ -398,10 +382,10 @@ void MainWindow::setupActions()
     // File menu triggers
     KStandardAction::quit(this, SLOT(close()), actionCollection());
     KStandardAction::preferences(this, SLOT(slotShowSettings()), actionCollection());
-    KStandardAction::openNew(this, SLOT(slotNewFile()), actionCollection());
-    KStandardAction::save(this, SLOT(slotSaveFile()), actionCollection());
-    KStandardAction::saveAs(this, SLOT(slotSaveFileAs()), actionCollection());
-    KStandardAction::open(this, SLOT(slotOpenFile()), actionCollection());
+    KStandardAction::openNew(this, SLOT(slotNewSession()), actionCollection());
+    KStandardAction::save(this, SLOT(slotSaveSession()), actionCollection());
+    KStandardAction::saveAs(this, SLOT(slotSaveSessionAs()), actionCollection());
+    KStandardAction::open(this, SLOT(slotOpenSession()), actionCollection());
     KStandardAction::copy(this, SLOT(slotCopyToClipboard()), actionCollection());
     connect(exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
 
@@ -464,178 +448,34 @@ void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
     }
 }
 
-bool MainWindow::slotSaveFileAs(const QString& name)
+void MainWindow::slotSaveSessionAs(const QString& name)
 {
-    if (name.isEmpty()) {
-        return false;
-    }
-
-    QString saveName = name;
-
-    if (not saveName.endsWith(XML_EXTENSION)) {
-        saveName += XML_EXTENSION;
-    }
-
-    QSaveFile saveFile(saveName);
-    if (!saveFile.open(QIODevice::WriteOnly)) {
-         KMessageBox::error(this, i18n("Failed to open file"));
-        return false;
-    }
-
-    // Persistence using XML files
-    QTextStream stream(&saveFile);
-    createXmlSaveFile(stream);
-
-
-    bool isSaveSuccessfull = saveFile.commit();
-
-    if (isSaveSuccessfull) {
-        saveUrl = QUrl(saveName);
-
-        unsavedTimes = false;
-        setWindowModified(unsavedTimes);
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-
-void MainWindow::openUrl()
-{
-    QString targetPath;
-    bool ready = false;
-
-    if (saveUrl.isLocalFile()) {
-        targetPath = saveUrl.toLocalFile();
-        ready = true;
-    }
-
-    else {
-        QTemporaryFile tmpFile;
-        tmpFile.open();
-        QUrl tmpUrl = QUrl::fromLocalFile(tmpFile.fileName());
-
-        KIO::FileCopyJob *fileCopyJob = KIO::file_copy(saveUrl, tmpUrl, -1, KIO::Overwrite);
-        ready = fileCopyJob->exec();
-
-        if (!ready) {
-            fileCopyJob->uiDelegate()->showErrorMessage();
-            close();  // files are opened in a new window, so if the open fails the new window has to be closed.
-        }
-    }
-
-    if (ready) {
-        QFile file(targetPath);
-        file.open(QIODevice::ReadOnly);
-
-        // Persistence using XML files
-        QDomDocument doc;
-        QString errorMsg;
-
-        if (doc.setContent(&file, &errorMsg)) {
-            if (parseXmlSaveFile(doc)) {
-                slotPaused();                       // enter in paused state
-
-                setWindowTitle(WINDOW_TITLE + " - " + saveUrl.fileName() + QT_PLACE_HOLDER);
-            }
-            else {
-                close();
-            }
-        }
-        else {
-            KMessageBox::error(this, i18n("Cannot open file: %1", errorMsg));
-            close();
-        }
-    }
-}
-
-void MainWindow::createXmlSaveFile(QTextStream& out)
-{
-    QDomDocument doc;
-    QDomProcessingInstruction metaData = doc.createProcessingInstruction("xml", "version='1.0' encoding='UTF-8'");
-    QDomComment timestampComment = doc.createComment(timestampMessage());
-    QDomElement rootElement = doc.createElement(ROOT_TAG);
-
-    QDomElement stopwatchElement = doc.createElement(STOPWATCH_TAG);
-    stopwatchElement.setAttribute(PERSISTENCE_ATTR, stopwatch->raw());
-    QDomElement stopwatchTime = doc.createElement(TIME_TAG);
-    stopwatchTime.setAttribute(TYPE_ATTR, ABS_TYPE);
-    stopwatchTime.appendChild(doc.createTextNode(stopwatchDisplay->currentTime()));
-    stopwatchElement.appendChild(stopwatchTime);
-
-    QDomElement lapsElement = doc.createElement(LAPS_TAG);
+    Session newSession(stopwatch->raw());
+    newSession.setName(name);
 
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
-        QDomElement lap = doc.createElement(LAP_TAG);
-        lap.setAttribute(LAP_ID_ATTR, i);
-        lap.setAttribute(PERSISTENCE_ATTR, lapModel->at(i).raw());
-
-        QDomElement relTime = doc.createElement(TIME_TAG);
-        relTime.setAttribute(TYPE_ATTR, REL_TYPE);
-        relTime.appendChild(doc.createTextNode(lapModel->at(i).relativeTime()));
-
-        QDomElement absTime = doc.createElement(TIME_TAG);
-        absTime.setAttribute(TYPE_ATTR, ABS_TYPE);
-        absTime.appendChild(doc.createTextNode(lapModel->at(i).absoluteTime()));
-
-        lap.appendChild(relTime);
-        lap.appendChild(absTime);
-
-        if (lapModel->at(i).hasNote()) {
-            QDomElement lapNote = doc.createElement(NOTE_TAG);
-            lapNote.appendChild(doc.createTextNode(lapModel->at(i).note()));
-
-            lap.appendChild(lapNote);
-        }
-
-        lapsElement.appendChild(lap);
+        newSession.addLap(lapModel->at(i));
     }
 
-    rootElement.appendChild(stopwatchElement);
-    rootElement.appendChild(lapsElement);
-    doc.appendChild(metaData);
-    doc.appendChild(timestampComment);
-    doc.appendChild(rootElement);
-    doc.save(out, KronometerConfig::saveFileIndentSize());
+    m_sessionModel->append(newSession);
+    m_sessionModel->write();
+
+    m_session = newSession;
+
+    setWindowTitle(m_session.name() + QT_PLACE_HOLDER);
+    setWindowModified(false);
 }
 
-bool MainWindow::parseXmlSaveFile(const QDomDocument& doc)
+void MainWindow::loadSession()
 {
-    QDomElement rootElement = doc.namedItem(ROOT_TAG).toElement();
+    stopwatch->initialize(m_session.time());
 
-    if (rootElement.isNull()) {
-        KMessageBox::error(this, i18n("Invalid XML file"));
-        return false;
+    Q_FOREACH (const Lap& lap, m_session.laps()) {
+        lapModel->append(lap);
     }
 
-    QDomElement stopwatchElement = rootElement.namedItem(STOPWATCH_TAG).toElement();
-    QDomElement lapsElement = rootElement.namedItem(LAPS_TAG).toElement();
-
-    if (stopwatchElement.isNull() or lapsElement.isNull()) {
-        KMessageBox::error(this, i18n("Incomplete Kronometer save file"));
-        return false;
-    }
-
-    QString data = stopwatchElement.attribute(PERSISTENCE_ATTR);
-    stopwatch->initialize(data.toLongLong());  // TODO: check return value
-
-    QDomElement lap = lapsElement.firstChildElement(LAP_TAG);
-
-    while (not lap.isNull()) {
-        QString data = lap.attribute(PERSISTENCE_ATTR);
-        Lap newLap = Lap::fromRawData(data.toLongLong());
-        QDomElement note = lap.namedItem(NOTE_TAG).toElement();
-
-        if (not note.isNull()) {
-            newLap.setNote(note.text());
-        }
-
-        lapModel->append(newLap);
-        lap = lap.nextSiblingElement(LAP_TAG);
-    }
-
-    return true;
+    slotPaused();   // enter in paused state
+    setWindowTitle(m_session.name() + QT_PLACE_HOLDER);
 }
 
 void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
@@ -646,20 +486,21 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
 
     QString exportName = name;
 
-    if (nameFilter.contains(XML_EXTENSION)) {
-        if (not exportName.endsWith(XML_EXTENSION)) {
-            exportName += XML_EXTENSION;
+    if (nameFilter.contains(JSON_EXTENSION)) {
+        if (not exportName.endsWith(JSON_EXTENSION)) {
+            exportName += JSON_EXTENSION;
         }
 
         QSaveFile exportFile(exportName);
         exportFile.open(QIODevice::WriteOnly);
 
-        QTextStream stream(&exportFile);
-        exportLapsAsXml(stream);
+        QJsonObject json;
+        exportLapsAsJson(json);
 
+        QJsonDocument exportDoc(json);
+        exportFile.write(exportDoc.toJson());
         exportFile.commit();
     }
-
     else if (nameFilter.contains(CSV_EXTENSION)) {
         if (not exportName.endsWith(CSV_EXTENSION)) {
             exportName += CSV_EXTENSION;
@@ -675,45 +516,17 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
     }
 }
 
-void MainWindow::exportLapsAsXml(QTextStream& out)
+void MainWindow::exportLapsAsJson(QJsonObject& json)
 {
-    QDomDocument doc;
-    QDomProcessingInstruction metaData = doc.createProcessingInstruction("xml", "version='1.0' encoding='UTF-8'");
-    QDomComment timestampComment = doc.createComment(timestampMessage());
-    QDomElement rootElement = doc.createElement(ROOT_TAG);
-
-    QDomElement lapsElement = doc.createElement(LAPS_TAG);
+    QJsonArray laps;
 
     for (int i = 0; i < lapModel->rowCount(QModelIndex()); i++) {
-        QDomElement lap = doc.createElement(LAP_TAG);
-        lap.setAttribute(LAP_ID_ATTR, i);
-
-        QDomElement relTime = doc.createElement(TIME_TAG);
-        relTime.setAttribute(TYPE_ATTR, REL_TYPE);
-        relTime.appendChild(doc.createTextNode(lapModel->at(i).relativeTime()));
-
-        QDomElement absTime = doc.createElement(TIME_TAG);
-        absTime.setAttribute(TYPE_ATTR, ABS_TYPE);
-        absTime.appendChild(doc.createTextNode(lapModel->at(i).absoluteTime()));
-
-        lap.appendChild(relTime);
-        lap.appendChild(absTime);
-
-        if (lapModel->at(i).hasNote()) {
-            QDomElement lapNote = doc.createElement(NOTE_TAG);
-            lapNote.appendChild(doc.createTextNode(lapModel->at(i).note()));
-
-            lap.appendChild(lapNote);
-        }
-
-        lapsElement.appendChild(lap);
+        QJsonObject object;
+        lapModel->at(i).write(object);
+        laps.append(object);
     }
 
-    rootElement.appendChild(lapsElement);
-    doc.appendChild(metaData);
-    doc.appendChild(timestampComment);
-    doc.appendChild(rootElement);
-    doc.save(out, KronometerConfig::exportedXmlIndentSize());
+    json["laps"] = laps;
 }
 
 void MainWindow::exportLapsAsCsv(QTextStream& out)

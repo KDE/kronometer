@@ -23,6 +23,9 @@
 #include <KLocalizedString>
 
 #include <QApplication>
+#include <QDir>
+#include <QFileInfo>
+#include <QStandardPaths>
 
 int main (int argc, char **argv)
 {
@@ -52,6 +55,13 @@ int main (int argc, char **argv)
     app.setOrganizationDomain(aboutData.organizationDomain());
     app.setApplicationVersion(aboutData.version());
     app.setWindowIcon(QIcon::fromTheme("kronometer"));
+
+    // Make sure that the local data directory is available.
+    QFileInfo appdata(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation));
+    if (!appdata.exists()) {
+        QDir dir(appdata.absolutePath());
+        dir.mkdir(appdata.fileName());
+    }
 
     MainWindow* window = new MainWindow();
     window->show();

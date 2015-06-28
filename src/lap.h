@@ -20,6 +20,7 @@
 #ifndef LAP_H
 #define LAP_H
 
+#include <QJsonObject>
 #include <QString>
 #include <QTime>
 
@@ -88,6 +89,10 @@ public:
      */
     qint64 raw() const;
 
+    void write(QJsonObject& json) const;
+
+    static Lap fromJson(const QJsonObject& json);
+
     /**
      * Create a new Lap object from raw data
      * @param rawData The raw data counter of the new Lap
@@ -97,10 +102,10 @@ public:
 
 private:
 
-    QTime lapTime;      /**  The specific lap time */
-    QString relTime;    /** String representation of the relative lap time, i.e. compared to another lap */
-    QString absTime;    /** String representation of the specific (absolute) lap time */
-    QString lapNote;    /** Custom lap annotation */
+    QTime m_time;      /**  The specific lap time */
+    QString m_relativeTime;    /** String representation of the relative lap time, i.e. compared to another lap */
+    QString m_absoluteTime;    /** String representation of the specific (absolute) lap time */
+    QString m_note;    /** Custom lap annotation */
 };
 
 #endif
