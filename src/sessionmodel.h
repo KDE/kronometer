@@ -40,7 +40,7 @@ public:
     QVariant data(const QModelIndex& index, int role) const;
     QVariant headerData(int section, Qt::Orientation orientation, int role) const;
     bool setData(const QModelIndex& index, const QVariant& value, int role);
-    Qt::ItemFlags flags(const QModelIndex &index) const;
+    Qt::ItemFlags flags(const QModelIndex& index) const;
     bool removeRows(int row, int count, const QModelIndex& parent);
 
     /**

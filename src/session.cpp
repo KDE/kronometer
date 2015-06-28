@@ -22,7 +22,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-Session::Session(qint64 time, const QDateTime &date) :
+Session::Session(qint64 time, const QDateTime& date) :
     m_time(time),
     m_date(date),
     m_isOutdated(false)
@@ -33,7 +33,7 @@ void Session::setName(const QString& name)
     m_name = name;
 }
 
-void Session::setNote(const QString &note)
+void Session::setNote(const QString& note)
 {
     m_note = note;
 }
@@ -43,7 +43,7 @@ void Session::setTime(qint64 time)
     m_time = time;
 }
 
-void Session::setDate(const QDateTime &date)
+void Session::setDate(const QDateTime& date)
 {
     m_date = date;
 }
@@ -78,7 +78,7 @@ bool Session::isOutdated() const
     return m_isOutdated;
 }
 
-const QList<Lap> &Session::laps() const
+const QList<Lap>& Session::laps() const
 {
     return m_laps;
 }
@@ -88,7 +88,7 @@ bool Session::isEmpty() const
     return m_time == 0;
 }
 
-void Session::addLap(const Lap &lap)
+void Session::addLap(const Lap& lap)
 {
     m_laps.append(lap);
 }

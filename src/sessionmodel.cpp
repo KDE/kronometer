@@ -181,7 +181,7 @@ bool SessionModel::removeRows(int row, int count, const QModelIndex& parent)
     return true;
 }
 
-const Session &SessionModel::at(int sessionIndex)
+const Session& SessionModel::at(int sessionIndex)
 {
     return m_sessionList.at(sessionIndex);
 }

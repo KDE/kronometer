@@ -134,7 +134,7 @@ Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
     return QAbstractTableModel::flags(index);
 }
 
-void LapModel::setTimeFormat(const TimeFormat &format)
+void LapModel::setTimeFormat(const TimeFormat& format)
 {
     m_timeFormat = format;
 
@@ -143,7 +143,7 @@ void LapModel::setTimeFormat(const TimeFormat &format)
     }
 }
 
-const Lap &LapModel::at(int lapIndex)
+const Lap& LapModel::at(int lapIndex)
 {
     return m_lapList.at(lapIndex);
 }

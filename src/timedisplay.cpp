@@ -94,7 +94,7 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
     displayLayout->addWidget(m_fracFrame);
 }
 
-void TimeDisplay::setTimeFormat(const TimeFormat &format)
+void TimeDisplay::setTimeFormat(const TimeFormat& format)
 {
     m_timeFormat = format;
 
