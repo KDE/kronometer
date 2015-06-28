@@ -20,9 +20,10 @@
 #ifndef LAP_H
 #define LAP_H
 
-#include <QJsonObject>
 #include <QString>
 #include <QTime>
+
+class QJsonObject;
 
 /**
  * @brief A Lap is a specific time instant.

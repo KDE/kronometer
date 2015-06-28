@@ -24,6 +24,7 @@
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
+#include <QJsonObject>
 #include <QStandardPaths>
 
 SessionModel::SessionModel(QObject *parent) : QAbstractTableModel(parent)

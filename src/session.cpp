@@ -20,6 +20,7 @@
 #include "session.h"
 
 #include <QJsonArray>
+#include <QJsonObject>
 
 Session::Session(qint64 time, const QDateTime &date) :
     m_time(time),

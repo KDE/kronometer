@@ -19,6 +19,8 @@
 
 #include "lap.h"
 
+#include <QJsonObject>
+
 Lap::Lap(const QTime& lap) : m_time(lap) {}
 
 QTime Lap::time() const
