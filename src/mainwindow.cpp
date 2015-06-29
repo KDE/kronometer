@@ -172,6 +172,8 @@ void MainWindow::slotInactive()
     m_statusLabel->setText(i18n("Inactive"));
 
     m_session.setOutdated(false);
+
+    setWindowTitle(i18n("Untitled") + QT_PLACE_HOLDER);
     setWindowModified(false);
 
     stateChanged(INACTIVE_STATE);
