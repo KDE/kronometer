@@ -36,6 +36,7 @@ class QLabel;
  */
 class DigitDisplay : public QWidget
 {
+    Q_OBJECT
 
 public:
 
