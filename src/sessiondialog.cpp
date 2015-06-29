@@ -113,7 +113,7 @@ void SessionDialog::removeDialog()
                                         i18n("Confirm deletion"),
                                         KStandardGuiItem::cont(),
                                         KStandardGuiItem::cancel(),
-                                        "delete-session");
+                                        QStringLiteral("delete-session"));
 
     if (buttonCode != KMessageBox::Continue)
         return;

@@ -52,24 +52,10 @@
 
 namespace
 {
-    const QString START_KEY = "start";
-    const QString PAUSE_KEY = "pause";
-    const QString RESET_KEY = "reset";
-    const QString LAP_KEY = "lap";
-    const QString EXPORT_KEY = "export_laps";
-
     const QString QT_PLACE_HOLDER = "[*]";           /** Qt standard placeholder for setWindowModified() */
 
-    const QString JSON_MIMETYPE = "application/json";
-    const QString CSV_MIMETYPE = "text/csv";
     const QString JSON_EXTENSION = ".json";
     const QString CSV_EXTENSION = ".csv";
-
-    // kronometerui.rc states
-    const QString INACTIVE_STATE = "inactive";
-    const QString RUNNING_STATE = "running";
-    const QString PAUSED_STATE = "paused";
-    const QString PAUSED_SESSION_STATE = "pausedSession";  /** An open file has been paused */
 }
 
 MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent), m_session(session)
@@ -113,7 +99,7 @@ bool MainWindow::queryClose()
                     i18n("Confirm quit"),
                     KStandardGuiItem::quit(),
                     KStandardGuiItem::cancel(),
-                    "quit-and-lose-times");
+                    QStringLiteral("quit-and-lose-times"));
 
         if (buttonCode != KMessageBox::Cancel) {
             return true;
@@ -144,7 +130,7 @@ void MainWindow::slotRunning()
     m_session.setOutdated(true);
     setWindowModified(true);
 
-    stateChanged(RUNNING_STATE);
+    stateChanged(QStringLiteral("running"));
 }
 
 void MainWindow::slotPaused()
@@ -153,10 +139,10 @@ void MainWindow::slotPaused()
     m_statusLabel->setText(i18n("Paused"));
 
     if (not m_session.isEmpty()) {
-        stateChanged(PAUSED_SESSION_STATE);
+        stateChanged(QStringLiteral("pausedSession"));
     }
     else {
-        stateChanged(PAUSED_STATE);
+        stateChanged(QStringLiteral("paused"));
     }
 
     // the export action can be used only if there are laps (in both the paused states).
@@ -176,7 +162,7 @@ void MainWindow::slotInactive()
     setWindowTitle(i18n("Untitled") + QT_PLACE_HOLDER);
     setWindowModified(false);
 
-    stateChanged(INACTIVE_STATE);
+    stateChanged(QStringLiteral("inactive"));
 }
 
 void MainWindow::slotShowSettings()
@@ -191,16 +177,16 @@ void MainWindow::slotShowSettings()
     generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon().name()));
 
     KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
-    fontPage->setIcon(QIcon::fromTheme("preferences-desktop-font"));
+    fontPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
 
     KPageWidgetItem *colorPage = dialog->addPage(new ColorSettings(this), i18n("Color settings"));
-    colorPage->setIcon(QIcon::fromTheme("fill-color"));
+    colorPage->setIcon(QIcon::fromTheme(QStringLiteral("fill-color")));
 
     KPageWidgetItem *guiPage = dialog->addPage(new GuiSettings(this), i18n("Interface settings"));
-    guiPage->setIcon(QIcon::fromTheme("preferences-desktop-theme"));
+    guiPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-theme")));
 
     KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
-    savePage->setIcon(QIcon::fromTheme("document-save"));
+    savePage->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::slotWriteSettings);
 
@@ -285,7 +271,7 @@ void MainWindow::slotExportLapsAs()
     dialog->setWindowTitle(i18n("Choose export file destination"));
 
     QStringList mimeTypes;
-    mimeTypes << CSV_MIMETYPE << JSON_MIMETYPE;
+    mimeTypes << QStringLiteral("text/csv") << QStringLiteral("application/json");
     dialog->setMimeTypeFilters(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
@@ -345,22 +331,22 @@ void MainWindow::setupActions()
     m_startAction->setIcon(QIcon::fromTheme("player-time"));
 
     m_pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction doesn't)
-    m_pauseAction->setIcon(QIcon::fromTheme("media-playback-pause"));
+    m_pauseAction->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
 
     m_resetAction->setText(i18n("&Reset"));
-    m_resetAction->setIcon(QIcon::fromTheme("edit-clear-history"));
+    m_resetAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear-history")));
 
     m_lapAction->setText(i18n("&Lap"));
-    m_lapAction->setIcon(QIcon::fromTheme("chronometer"));
+    m_lapAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer")));
 
     m_exportAction->setText(i18n("&Export laps as..."));
-    m_exportAction->setIcon(QIcon::fromTheme("document-export"));
+    m_exportAction->setIcon(QIcon::fromTheme(QStringLiteral("document-export")));
 
-    actionCollection()->addAction(START_KEY, m_startAction);
-    actionCollection()->addAction(PAUSE_KEY, m_pauseAction);
-    actionCollection()->addAction(RESET_KEY, m_resetAction);
-    actionCollection()->addAction(LAP_KEY, m_lapAction);
-    actionCollection()->addAction(EXPORT_KEY, m_exportAction);
+    actionCollection()->addAction(QStringLiteral("start"), m_startAction);
+    actionCollection()->addAction(QStringLiteral("pause"), m_pauseAction);
+    actionCollection()->addAction(QStringLiteral("reset"), m_resetAction);
+    actionCollection()->addAction(QStringLiteral("lap"), m_lapAction);
+    actionCollection()->addAction(QStringLiteral("export_laps"), m_exportAction);
     actionCollection()->setDefaultShortcut(m_startAction, Qt::Key_Space);
     actionCollection()->setDefaultShortcut(m_pauseAction, Qt::Key_Space);
     actionCollection()->setDefaultShortcut(m_resetAction, Qt::Key_F5);
@@ -392,7 +378,7 @@ void MainWindow::setupActions()
     KStandardAction::copy(this, SLOT(slotCopyToClipboard()), actionCollection());
     connect(m_exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
 
-    setupGUI(Default, "kronometerui.rc");
+    setupGUI(Default, QStringLiteral("kronometerui.rc"));
 
     slotInactive();	// inactive state is the default
 }
@@ -529,7 +515,7 @@ void MainWindow::exportLapsAsJson(QJsonObject& json)
         laps.append(object);
     }
 
-    json["laps"] = laps;
+    json[QStringLiteral("laps")] = laps;
 }
 
 void MainWindow::exportLapsAsCsv(QTextStream& out)

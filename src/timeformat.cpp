@@ -79,7 +79,7 @@ QString TimeFormat::formatSec(const QTime& time) const
 
 QString TimeFormat::formatSecFrac(const QTime& time) const
 {
-    const QString fractFormat = "zzz";
+    const QString fractFormat = QStringLiteral("zzz");
 
     if (m_secFraction == SecFraction::MILLISECOND)
         return time.toString(fractFormat);
@@ -142,28 +142,28 @@ void TimeFormat::setupFormat()
 {
     if (m_hour) {
         if (m_dividers and (m_min or m_sec or m_secFraction != SecFraction::NONE)) {
-            m_hourFormat = "hh:";
+            m_hourFormat = QStringLiteral("hh:");
         }
         else {
-            m_hourFormat = "hh";
+            m_hourFormat = QStringLiteral("hh");
         }
     }
 
     if (m_min) {
         if (m_dividers and (m_sec or m_secFraction != SecFraction::NONE)) {
-            m_minFormat = "mm:";
+            m_minFormat = QStringLiteral("mm:");
         }
         else {
-            m_minFormat = "mm";
+            m_minFormat = QStringLiteral("mm");
         }
     }
 
     if (m_sec) {
         if (m_dividers and (m_secFraction != SecFraction::NONE)) {
-            m_secFormat = "ss.";
+            m_secFormat = QStringLiteral("ss.");
         }
         else {
-            m_secFormat = "ss";
+            m_secFormat = QStringLiteral("ss");
         }
     }
 }
