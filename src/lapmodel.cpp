@@ -179,12 +179,12 @@ bool LapModel::isEmpty() const
     return m_lapList.isEmpty();
 }
 
-void LapModel::onLap(const QTime& lapTime)
+void LapModel::slotLap(const QTime& lapTime)
 {
     append(Lap(lapTime));
 }
 
-void LapModel::onClear()
+void LapModel::slotClear()
 {
     beginResetModel();
     m_lapList.clear();
@@ -194,7 +194,7 @@ void LapModel::onClear()
 void LapModel::reload()
 {
     QList<Lap> tmp(m_lapList);
-    onClear();
+    slotClear();
 
     foreach (const Lap& l, tmp) {
         append(l);

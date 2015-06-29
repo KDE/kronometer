@@ -87,7 +87,7 @@ public slots:
     /**
      * Update the global sessions file with the data in the model.
      */
-    void write();
+    void slotWrite();
 
 private:
 

@@ -35,7 +35,7 @@ void TestStopwatch::testRunning()
 {
     Stopwatch stopwatch;
 
-    stopwatch.onStart();
+    stopwatch.slotStart();
 
     QVERIFY(stopwatch.isRunning());
     QVERIFY(not stopwatch.isPaused());
@@ -46,7 +46,7 @@ void TestStopwatch::testPaused()
 {
     Stopwatch stopwatch;
 
-    stopwatch.onPause();
+    stopwatch.slotPause();
 
     QVERIFY(not stopwatch.isRunning());
     QVERIFY(stopwatch.isPaused());
@@ -57,7 +57,7 @@ void TestStopwatch::testReset()
 {
     Stopwatch stopwatch;
 
-    stopwatch.onReset();
+    stopwatch.slotReset();
 
     QVERIFY(not stopwatch.isRunning());
     QVERIFY(not stopwatch.isPaused());
@@ -68,9 +68,9 @@ void TestStopwatch::testInitialize()
 {
     Stopwatch s1, s2;
 
-    s1.onStart();
+    s1.slotStart();
     QTest::qSleep(100);
-    s1.onPause();
+    s1.slotPause();
     qint64 t = s1.raw();
 
     QVERIFY(s2.initialize(t));

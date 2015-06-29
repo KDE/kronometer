@@ -68,7 +68,7 @@ bool Stopwatch::initialize(qint64 rawData)
     return true;
 }
 
-void Stopwatch::onStart()
+void Stopwatch::slotStart()
 {
     if (m_state == State::INACTIVE) {
         m_accumulator = 0;
@@ -86,7 +86,7 @@ void Stopwatch::onStart()
     m_state = State::RUNNING;
 }
 
-void Stopwatch::onPause()
+void Stopwatch::slotPause()
 {
     if (m_elapsedTimer.isValid()) {
         m_accumulator += m_elapsedTimer.elapsed();
@@ -96,7 +96,7 @@ void Stopwatch::onPause()
     m_state = State::PAUSED;
 }
 
-void Stopwatch::onReset()
+void Stopwatch::slotReset()
 {
     m_elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
@@ -104,7 +104,7 @@ void Stopwatch::onReset()
     m_state = State::INACTIVE;
 }
 
-void Stopwatch::onLap()
+void Stopwatch::slotLap()
 {
     qint64 lapTime = 0;
 

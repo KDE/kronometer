@@ -92,22 +92,22 @@ public slots:
     /**
      * Start the stopwatch, if inactive or paused.
      */
-    void onStart();
+    void slotStart();
 
     /**
      * Pause the stopwatch, if running.
      */
-    void onPause();
+    void slotPause();
 
     /**
      * Reset the stopwatch to the inactive state.
      */
-    void onReset();
+    void slotReset();
 
     /**
      * Tells the stopwatch to emits a signal with the last lap time.
      */
-    void onLap();
+    void slotLap();
 
 signals:
 
@@ -137,7 +137,7 @@ private:
         RUNNING,  /**< Running stopwatch. */
         PAUSED    /**< Paused stopwatch. */
     };
-	
+
     static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
     const QTime zero;                           /** Empty time to be used to add elapsed milliseconds */
 

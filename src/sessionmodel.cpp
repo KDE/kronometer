@@ -37,9 +37,9 @@ SessionModel::SessionModel(QObject *parent) : QAbstractTableModel(parent)
     QJsonDocument saveDoc = QJsonDocument::fromJson(saveData);
     read(saveDoc.object());
 
-    connect(this, &QAbstractTableModel::dataChanged, this, &SessionModel::write);
-    connect(this, &QAbstractTableModel::rowsInserted, this, &SessionModel::write);
-    connect(this, &QAbstractTableModel::rowsRemoved, this, &SessionModel::write);
+    connect(this, &QAbstractTableModel::dataChanged, this, &SessionModel::slotWrite);
+    connect(this, &QAbstractTableModel::rowsInserted, this, &SessionModel::slotWrite);
+    connect(this, &QAbstractTableModel::rowsRemoved, this, &SessionModel::slotWrite);
 }
 
 int SessionModel::columnCount(const QModelIndex& parent) const
@@ -225,7 +225,7 @@ void SessionModel::read(const QJsonObject& json)
     }
 }
 
-void SessionModel::write()
+void SessionModel::slotWrite()
 {
     QJsonObject json;
     QJsonArray sessions;

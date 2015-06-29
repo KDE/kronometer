@@ -86,7 +86,7 @@ bool MainWindow::queryClose()
     }
 
     if (m_stopwatch->isRunning()) {
-        m_stopwatch->onPause();
+        m_stopwatch->slotPause();
         slotPaused();
     }
 
@@ -353,14 +353,14 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcut(m_lapAction, Qt::Key_Return);
 
     // triggers for Stopwatch "behavioral" slots
-    connect(m_startAction, &QAction::triggered, m_stopwatch, &Stopwatch::onStart);
-    connect(m_pauseAction, &QAction::triggered, m_stopwatch, &Stopwatch::onPause);
-    connect(m_resetAction, &QAction::triggered, m_stopwatch, &Stopwatch::onReset);
-    connect(m_lapAction, &QAction::triggered, m_stopwatch, &Stopwatch::onLap);
+    connect(m_startAction, &QAction::triggered, m_stopwatch, &Stopwatch::slotStart);
+    connect(m_pauseAction, &QAction::triggered, m_stopwatch, &Stopwatch::slotPause);
+    connect(m_resetAction, &QAction::triggered, m_stopwatch, &Stopwatch::slotReset);
+    connect(m_lapAction, &QAction::triggered, m_stopwatch, &Stopwatch::slotLap);
 
     // triggers for LapModel slots
-    connect(m_resetAction, &QAction::triggered, m_lapModel,&LapModel::onClear);
-    connect(m_stopwatch, &Stopwatch::lap, m_lapModel, &LapModel::onLap);
+    connect(m_resetAction, &QAction::triggered, m_lapModel,&LapModel::slotClear);
+    connect(m_stopwatch, &Stopwatch::lap, m_lapModel, &LapModel::slotLap);
 
     // triggers for MainWindow "gui" slots
     connect(m_startAction, &QAction::triggered, this, &MainWindow::slotRunning);
@@ -447,7 +447,7 @@ void MainWindow::slotSaveSessionAs(const QString& name)
     }
 
     m_sessionModel->append(newSession);
-    m_sessionModel->write();
+    m_sessionModel->slotWrite();
 
     m_session = newSession;
 
