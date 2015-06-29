@@ -447,7 +447,6 @@ void MainWindow::slotSaveSessionAs(const QString& name)
     }
 
     m_sessionModel->append(newSession);
-    m_sessionModel->slotWrite();
 
     m_session = newSession;
 
