@@ -13,7 +13,8 @@ set(
     timeformat.cpp
 )
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic -std=gnu++0x")
+set(CMAKE_CXX_FLAGS
+    "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic -std=gnu++0x")
 
 qt5_wrap_ui(kronometer_SRCS
     widgets/colorsettings.ui
@@ -34,11 +35,15 @@ target_link_libraries(
     KF5::XmlGui
 )
 
-install(FILES kronometer.kcfg DESTINATION ${KCFG_INSTALL_DIR})
 install(TARGETS kronometer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES kronometerui.rc DESTINATION  ${KDE_INSTALL_KXMLGUI5DIR}/kronometer)
-install(PROGRAMS org.kde.kronometer.desktop DESTINATION ${KDE_INSTALL_APPDIR})
-install(FILES kronometer.appdata.xml DESTINATION ${KDE_INSTALL_DATADIR}/kronometer)
+install(FILES kronometer.appdata.xml
+        DESTINATION ${KDE_INSTALL_DATADIR}/kronometer)
+install(FILES kronometer.kcfg
+        DESTINATION ${KCFG_INSTALL_DIR})
+install(FILES kronometerui.rc
+        DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kronometer)
+install(PROGRAMS org.kde.kronometer.desktop
+        DESTINATION ${KDE_INSTALL_APPDIR})
 
 add_subdirectory(icons)
 

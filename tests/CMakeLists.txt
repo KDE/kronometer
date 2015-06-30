@@ -15,6 +15,9 @@ macro(add_unit_test testname testmain testsrc)
     )
 endmacro(add_unit_test)
 
-add_unit_test(test_timeformat testtimeformat.cpp ${CMAKE_SOURCE_DIR}/src/timeformat.cpp)
-add_unit_test(test_stopwatch teststopwatch.cpp ${CMAKE_SOURCE_DIR}/src/stopwatch.cpp)
-add_unit_test(test_lap testlap.cpp ${CMAKE_SOURCE_DIR}/src/lap.cpp)
+add_unit_test(test_timeformat
+    testtimeformat.cpp ${CMAKE_SOURCE_DIR}/src/timeformat.cpp)
+add_unit_test(test_stopwatch
+    teststopwatch.cpp ${CMAKE_SOURCE_DIR}/src/stopwatch.cpp)
+add_unit_test(test_lap
+    testlap.cpp ${CMAKE_SOURCE_DIR}/src/lap.cpp)
