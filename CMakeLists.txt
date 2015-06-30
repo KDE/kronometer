@@ -25,7 +25,8 @@ find_package(KF5 REQUIRED
 
 add_definitions(
     -DQT_NO_CAST_FROM_ASCII
-    -DQT_NO_CAST_TO_ASCII)
+    -DQT_NO_CAST_TO_ASCII
+    -DQT_USE_QSTRINGBUILDER)
 
 add_subdirectory(doc)
 add_subdirectory(src)
