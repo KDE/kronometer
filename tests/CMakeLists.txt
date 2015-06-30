@@ -11,7 +11,7 @@ macro(add_unit_test testname testmain testsrc)
     ecm_mark_as_test(${testname})
     target_link_libraries(${testname}
         Qt5::Test)
-endmacro(add_unit_test)
+endmacro()
 
 add_unit_test(test_timeformat
     testtimeformat.cpp ${CMAKE_SOURCE_DIR}/src/timeformat.cpp)
