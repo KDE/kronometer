@@ -1,5 +1,4 @@
-set(
-    kronometer_SRCS
+set(kronometer_SRCS
     digitdisplay.cpp
     lap.cpp
     lapmodel.cpp
@@ -10,8 +9,7 @@ set(
     sessionmodel.cpp
     stopwatch.cpp
     timedisplay.cpp
-    timeformat.cpp
-)
+    timeformat.cpp)
 
 set(CMAKE_CXX_FLAGS
     "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic -std=gnu++0x")
@@ -21,19 +19,16 @@ qt5_wrap_ui(kronometer_SRCS
     widgets/fontsettings.ui
     widgets/generalsettings.ui
     widgets/guisettings.ui
-    widgets/savesettings.ui
-)
+    widgets/savesettings.ui)
 
 kconfig_add_kcfg_files(kronometer_SRCS settings.kcfgc)
 
 add_executable(kronometer ${kronometer_SRCS})
 
-target_link_libraries(
-    kronometer
+target_link_libraries(kronometer
     KF5::I18n
     KF5::WidgetsAddons
-    KF5::XmlGui
-)
+    KF5::XmlGui)
 
 install(TARGETS kronometer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES kronometer.appdata.xml

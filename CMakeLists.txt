@@ -13,8 +13,8 @@ include(FeatureSummary)
 
 find_package(Qt5 REQUIRED
     COMPONENTS
-    Widgets
-)
+    Widgets)
+
 find_package(KF5 REQUIRED
     COMPONENTS
     Config
@@ -22,8 +22,7 @@ find_package(KF5 REQUIRED
     DocTools
     I18n
     WidgetsAddons
-    XmlGui
-)
+    XmlGui)
 
 add_subdirectory(doc)
 add_subdirectory(src)
