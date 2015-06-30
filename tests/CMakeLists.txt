@@ -9,10 +9,8 @@ macro(add_unit_test testname testmain testsrc)
     add_executable(${testname} ${${testname}_SRCS})
     add_test(${testname} ${testname})
     ecm_mark_as_test(${testname})
-    target_link_libraries(
-        ${testname}
-        Qt5::Test
-    )
+    target_link_libraries(${testname}
+        Qt5::Test)
 endmacro(add_unit_test)
 
 add_unit_test(test_timeformat
