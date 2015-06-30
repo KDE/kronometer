@@ -48,6 +48,10 @@ public:
 
     explicit MainWindow(QWidget *parent = nullptr, const Session& session = Session());
 
+public slots:
+
+    void setWindowTitle(const QString& title);
+
 protected:
 
     bool queryClose();

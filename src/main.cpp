@@ -54,7 +54,7 @@ int main (int argc, char **argv)
     app.setApplicationDisplayName(aboutData.displayName());
     app.setOrganizationDomain(aboutData.organizationDomain());
     app.setApplicationVersion(aboutData.version());
-    app.setWindowIcon(QIcon::fromTheme("kronometer"));
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kronometer")));
 
     // Make sure that the local data directory is available.
     QFileInfo appdata(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation));

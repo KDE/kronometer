@@ -29,7 +29,7 @@
 
 SessionModel::SessionModel(QObject *parent) : QAbstractTableModel(parent)
 {
-    QFile saveFile(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/sessions.json");
+    QFile saveFile(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json"));
     saveFile.open(QIODevice::ReadOnly);
 
     QByteArray saveData = saveFile.readAll();
@@ -218,7 +218,7 @@ bool SessionModel::isEditable(const QModelIndex& index) const
 
 void SessionModel::read(const QJsonObject& json)
 {
-    QJsonArray sessions = json["sessions"].toArray();
+    QJsonArray sessions = json[QLatin1String("sessions")].toArray();
 
     for (int i = 0; i < sessions.size(); i++) {
         append(Session::fromJson(sessions[i].toObject()));
@@ -236,9 +236,9 @@ void SessionModel::slotWrite()
         sessions.append(object);
     }
 
-    json["sessions"] = sessions;
+    json[QLatin1String("sessions")] = sessions;
 
-    QFile saveFile(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + "/sessions.json");
+    QFile saveFile(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json"));
     saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate);
 
     QJsonDocument saveDoc(json);

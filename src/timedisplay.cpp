@@ -27,7 +27,7 @@
 
 namespace
 {
-    const QString FRAME_STYLE = "QFrame {background-clip: content; background: %1; color: %2}";
+    const QString FRAME_STYLE = QStringLiteral("QFrame {background-clip: content; background: %1; color: %2}");
 }
 
 TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)

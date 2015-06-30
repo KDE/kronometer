@@ -101,10 +101,10 @@ void Session::clear()
 
 void Session::write(QJsonObject& json) const
 {
-    json["name"] = m_name;
-    json["note"] = m_note;
-    json["time"] = m_time;
-    json["date"] = m_date.toString();
+    json[QLatin1String("name")] = m_name;
+    json[QLatin1String("note")] = m_note;
+    json[QLatin1String("time")] = m_time;
+    json[QLatin1String("date")] = m_date.toString();
 
     QJsonArray laps;
 
@@ -114,19 +114,19 @@ void Session::write(QJsonObject& json) const
         laps.append(object);
     }
 
-    json["laps"] = laps;
+    json[QLatin1String("laps")] = laps;
 }
 
 Session Session::fromJson(const QJsonObject& json)
 {
     Session session;
 
-    session.m_name = json["name"].toString();
-    session.m_note = json["note"].toString();
-    session.m_time = json["time"].toInt();
-    session.m_date = QDateTime::fromString(json["date"].toString());
+    session.m_name = json[QLatin1String("name")].toString();
+    session.m_note = json[QLatin1String("note")].toString();
+    session.m_time = json[QLatin1String("time")].toInt();
+    session.m_date = QDateTime::fromString(json[QLatin1String("date")].toString());
 
-    QJsonArray laps = json["laps"].toArray();
+    QJsonArray laps = json[QLatin1String("laps")].toArray();
 
     for (int i = 0; i < laps.size(); i++) {
         session.addLap(Lap::fromJson(laps[i].toObject()));

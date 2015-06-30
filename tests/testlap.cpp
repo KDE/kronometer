@@ -44,7 +44,7 @@ void TestLap::testLapTime()
 void TestLap::testRelativeTime()
 {
     Lap lap;
-    QString test = "test";
+    QString test = QLatin1String("test");
 
     lap.setRelativeTime(test);
 
@@ -54,7 +54,7 @@ void TestLap::testRelativeTime()
 void TestLap::testAbsoluteTime()
 {
     Lap lap;
-    QString test = "test";
+    QString test = QLatin1String("test");
 
     lap.setAbsoluteTime(test);
 
@@ -64,7 +64,7 @@ void TestLap::testAbsoluteTime()
 void TestLap::testNote()
 {
     Lap lap;
-    QString test = "test";
+    QString test = QLatin1String("test");
 
     lap.setNote(test);
 

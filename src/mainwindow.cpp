@@ -50,14 +50,6 @@
 #include <QStatusBar>
 #include <QTableView>
 
-namespace
-{
-    const QString QT_PLACE_HOLDER = "[*]";           /** Qt standard placeholder for setWindowModified() */
-
-    const QString JSON_EXTENSION = ".json";
-    const QString CSV_EXTENSION = ".csv";
-}
-
 MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent), m_session(session)
 {
     m_stopwatch = new Stopwatch(this);
@@ -75,7 +67,17 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
         loadSession();
     }
     else {
-        setWindowTitle(i18n("Untitled") + QT_PLACE_HOLDER);
+        setWindowTitle(i18n("Untitled"));
+    }
+}
+
+void MainWindow::setWindowTitle(const QString& title)
+{
+    if (title.endsWith(QLatin1String("[*]"))) {
+        KXmlGuiWindow::setWindowTitle(title);
+    }
+    else {
+        KXmlGuiWindow::setWindowTitle(title + QLatin1String("[*]"));
     }
 }
 
@@ -159,7 +161,7 @@ void MainWindow::slotInactive()
 
     m_session.setOutdated(false);
 
-    setWindowTitle(i18n("Untitled") + QT_PLACE_HOLDER);
+    setWindowTitle(i18n("Untitled"));
     setWindowModified(false);
 
     stateChanged(QStringLiteral("inactive"));
@@ -167,11 +169,11 @@ void MainWindow::slotInactive()
 
 void MainWindow::slotShowSettings()
 {
-    if (KConfigDialog::showDialog("settings")) {
+    if (KConfigDialog::showDialog(QLatin1String("settings"))) {
         return;
     }
 
-    KConfigDialog* dialog = new KConfigDialog(this, "settings", KronometerConfig::self());
+    KConfigDialog* dialog = new KConfigDialog(this, QLatin1String("settings"), KronometerConfig::self());
 
     KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
     generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon().name()));
@@ -328,7 +330,7 @@ void MainWindow::setupActions()
     m_lapAction = new QAction(this);
     m_exportAction = new QAction(this);
 
-    m_startAction->setIcon(QIcon::fromTheme("player-time"));
+    m_startAction->setIcon(QIcon::fromTheme(QStringLiteral("player-time")));
 
     m_pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction doesn't)
     m_pauseAction->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
@@ -450,7 +452,7 @@ void MainWindow::slotSaveSessionAs(const QString& name)
 
     m_session = newSession;
 
-    setWindowTitle(m_session.name() + QT_PLACE_HOLDER);
+    setWindowTitle(m_session.name());
     setWindowModified(false);
 }
 
@@ -463,7 +465,7 @@ void MainWindow::loadSession()
     }
 
     slotPaused();   // enter in paused state
-    setWindowTitle(m_session.name() + QT_PLACE_HOLDER);
+    setWindowTitle(m_session.name());
 }
 
 void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
@@ -474,9 +476,9 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
 
     QString exportName = name;
 
-    if (nameFilter.contains(JSON_EXTENSION)) {
-        if (not exportName.endsWith(JSON_EXTENSION)) {
-            exportName += JSON_EXTENSION;
+    if (nameFilter.contains(QLatin1String(".json"))) {
+        if (not exportName.endsWith(QLatin1String(".json"))) {
+            exportName += QLatin1String(".json");
         }
 
         QSaveFile exportFile(exportName);
@@ -489,9 +491,9 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
         exportFile.write(exportDoc.toJson());
         exportFile.commit();
     }
-    else if (nameFilter.contains(CSV_EXTENSION)) {
-        if (not exportName.endsWith(CSV_EXTENSION)) {
-            exportName += CSV_EXTENSION;
+    else if (nameFilter.contains(QLatin1String(".csv"))) {
+        if (not exportName.endsWith(QLatin1String(".csv"))) {
+            exportName += QLatin1String(".csv");
         }
 
         QSaveFile exportFile(exportName);
