@@ -58,7 +58,7 @@ int SessionModel::rowCount(const QModelIndex& parent) const
 
 QVariant SessionModel::data(const QModelIndex& index, int role) const
 {
-     if (!index.isValid()) {
+     if (not index.isValid()) {
          return QVariant::Invalid;
      }
 
@@ -156,7 +156,7 @@ bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int 
 
 Qt::ItemFlags SessionModel::flags(const QModelIndex& index) const
 {
-    if (!index.isValid())
+    if (not index.isValid())
         return Qt::ItemIsEnabled;
 
     if (index.column() == NAME || index.column() == NOTE)

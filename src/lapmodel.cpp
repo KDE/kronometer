@@ -41,7 +41,7 @@ int LapModel::rowCount(const QModelIndex& parent) const
 
 QVariant LapModel::data(const QModelIndex& index, int role) const
 {
-     if (!index.isValid()) {
+     if (not index.isValid()) {
          return QVariant::Invalid;
      }
 
@@ -125,7 +125,7 @@ bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role
 
 Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
 {
-    if (!index.isValid())
+    if (not index.isValid())
         return Qt::ItemIsEnabled;
 
     if (index.column() == NOTE)

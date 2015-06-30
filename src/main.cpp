@@ -58,7 +58,7 @@ int main (int argc, char **argv)
 
     // Make sure that the local data directory is available.
     QFileInfo appdata(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation));
-    if (!appdata.exists()) {
+    if (not appdata.exists()) {
         QDir dir(appdata.absolutePath());
         dir.mkdir(appdata.fileName());
     }
