@@ -12,7 +12,7 @@ set(kronometer_SRCS
     timeformat.cpp)
 
 set(CMAKE_CXX_FLAGS
-    "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic -std=gnu++0x")
+    "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
 
 qt5_wrap_ui(kronometer_SRCS
     widgets/colorsettings.ui
