@@ -18,7 +18,6 @@ find_package(Qt5 REQUIRED
 find_package(KF5 REQUIRED
     COMPONENTS
     Config
-    CoreAddons # TODO: check if can be removed
     DocTools
     I18n
     WidgetsAddons
