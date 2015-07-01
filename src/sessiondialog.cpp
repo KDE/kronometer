@@ -26,6 +26,7 @@
 #include <QDialogButtonBox>
 #include <QHeaderView>
 #include <QKeyEvent>
+#include <QPushButton>
 #include <QSortFilterProxyModel>
 #include <QTableView>
 #include <QVBoxLayout>
@@ -52,15 +53,19 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     QVBoxLayout *vlayout = new QVBoxLayout(this);
     vlayout->addWidget(m_sessionView);
 
-    QDialogButtonBox *buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
-    vlayout->addWidget(buttonBox);
+    m_buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    vlayout->addWidget(m_buttonBox);
 
     connect(m_sessionView, &QTableView::doubleClicked, this, &SessionDialog::slotDoubleClicked);
-    connect(buttonBox, &QDialogButtonBox::accepted, this, &SessionDialog::accept);
-    connect(buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(m_buttonBox, &QDialogButtonBox::accepted, this, &SessionDialog::accept);
+    connect(m_buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
+    connect(m_sessionModel, &SessionModel::rowsInserted, this, &SessionDialog::slotSessionAdded);
+    connect(m_sessionModel, &SessionModel::rowsRemoved, this, &SessionDialog::slotEmptyModel);
 
     setLayout(vlayout);
     setWindowTitle(title);
+
+    slotEmptyModel();
 }
 
 Session SessionDialog::selectedSession() const
@@ -96,6 +101,24 @@ void SessionDialog::slotDoubleClicked(const QModelIndex& index)
         return;
 
     this->accept();
+}
+
+void SessionDialog::slotSessionAdded()
+{
+    if (m_buttonBox->button(QDialogButtonBox::Ok)->isEnabled())
+        return;
+
+    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
+    m_buttonBox->button(QDialogButtonBox::Ok)->setToolTip(QString());
+}
+
+void SessionDialog::slotEmptyModel()
+{
+    if (not m_sessionModel->isEmpty())
+        return;
+
+    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+    m_buttonBox->button(QDialogButtonBox::Ok)->setToolTip(i18n("No session saved yet."));
 }
 
 QModelIndex SessionDialog::selectedIndex()

@@ -26,6 +26,7 @@
 
 class SessionModel;
 
+class QDialogButtonBox;
 class QSortFilterProxyModel;
 class QTableView;
 
@@ -52,11 +53,26 @@ protected slots:
 
 private slots:
 
+    /**
+     * Call accept() if the selection's column is not editable.
+     * @param index The selected index.
+     */
     void slotDoubleClicked(const QModelIndex& index);
+
+    /**
+     * Enable the OK button after the first session is added.
+     */
+    void slotSessionAdded();
+
+    /**
+     * Disable the OK button if no session is available.
+     */
+    void slotEmptyModel();
 
 private:
 
     QTableView *m_sessionView;
+    QDialogButtonBox *m_buttonBox;
     SessionModel *m_sessionModel;
     QSortFilterProxyModel *m_proxyModel;
     Session m_selectedSession;
