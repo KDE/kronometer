@@ -75,18 +75,11 @@ Session SessionDialog::selectedSession() const
 
 void SessionDialog::keyPressEvent(QKeyEvent *event)
 {
-    switch (event->key())
-    {
-    case Qt::Key_Return:
-    case Qt::Key_Enter:
-        this->accept();
-        break;
-    case Qt::Key_Delete:
+    if (event->key() == Qt::Key_Delete) {
         removeDialog();
-        break;
-    default:
-        break;
     }
+
+    QDialog::keyPressEvent(event);
 }
 
 void SessionDialog::accept()
