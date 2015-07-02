@@ -127,7 +127,7 @@ signals:
 
 protected:
 
-    void timerEvent(QTimerEvent *event);
+    void timerEvent(QTimerEvent *event) Q_DECL_OVERRIDE;
 
 private:
 

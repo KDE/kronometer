@@ -54,7 +54,7 @@ public slots:
 
 protected:
 
-    bool queryClose();
+    bool queryClose() Q_DECL_OVERRIDE;
 
 private slots:
 

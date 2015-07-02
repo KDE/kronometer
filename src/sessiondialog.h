@@ -45,7 +45,7 @@ public:
 
 protected:
 
-    virtual void keyPressEvent(QKeyEvent *event);
+    virtual void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
 
 protected slots:
 
