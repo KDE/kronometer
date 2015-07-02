@@ -103,7 +103,7 @@ public slots:
      * Set the time to be displayed.
      * @param t The time to be displayed.
      */
-    void onTime(const QTime& t);
+    void slotTime(const QTime& t);
 
 private:
 

@@ -187,7 +187,7 @@ QString TimeDisplay::currentTime()
 }
 
 
-void TimeDisplay::onTime(const QTime& t)
+void TimeDisplay::slotTime(const QTime& t)
 {
     m_displayTime = t;
     updateTimer();

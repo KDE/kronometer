@@ -54,7 +54,7 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
 {
     m_stopwatch = new Stopwatch(this);
     m_stopwatchDisplay = new TimeDisplay(this);
-    connect(m_stopwatch, &Stopwatch::time, m_stopwatchDisplay, &TimeDisplay::onTime);  // bind stopwatch to its display
+    connect(m_stopwatch, &Stopwatch::time, m_stopwatchDisplay, &TimeDisplay::slotTime);  // bind stopwatch to its display
 
     m_sessionModel = new SessionModel(this);
 
