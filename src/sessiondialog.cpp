@@ -50,7 +50,7 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     // TODO: the user may want to select/remove more than one session
     m_sessionView->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    QVBoxLayout *vlayout = new QVBoxLayout(this);
+    auto vlayout = new QVBoxLayout(this);
     vlayout->addWidget(m_sessionView);
 
     m_buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -123,20 +123,20 @@ void SessionDialog::slotEmptyModel()
 
 QModelIndex SessionDialog::selectedIndex()
 {
-    QModelIndex sortedIndex = m_sessionView->selectionModel()->currentIndex();
+    auto sortedIndex = m_sessionView->selectionModel()->currentIndex();
 
     return m_proxyModel->mapToSource(sortedIndex);
 }
 
 void SessionDialog::removeDialog()
 {
-    KMessageBox::ButtonCode buttonCode = KMessageBox::warningContinueCancel(
-                                        this,
-                                        i18n("Do you want to remove the selected session?"),
-                                        i18n("Confirm deletion"),
-                                        KStandardGuiItem::cont(),
-                                        KStandardGuiItem::cancel(),
-                                        QStringLiteral("delete-session"));
+    auto buttonCode = KMessageBox::warningContinueCancel(
+                this,
+                i18n("Do you want to remove the selected session?"),
+                i18n("Confirm deletion"),
+                KStandardGuiItem::cont(),
+                KStandardGuiItem::cancel(),
+                QStringLiteral("delete-session"));
 
     if (buttonCode != KMessageBox::Continue)
         return;

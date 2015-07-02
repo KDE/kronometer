@@ -63,7 +63,7 @@ int main (int argc, char **argv)
         dir.mkdir(appdata.fileName());
     }
 
-    MainWindow* window = new MainWindow();
+    auto window = new MainWindow();
     window->show();
 
     return app.exec();

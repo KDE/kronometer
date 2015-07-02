@@ -126,7 +126,7 @@ Session Session::fromJson(const QJsonObject& json)
     session.m_time = json[QLatin1String("time")].toInt();
     session.m_date = QDateTime::fromString(json[QLatin1String("date")].toString());
 
-    QJsonArray laps = json[QLatin1String("laps")].toArray();
+    auto laps = json[QLatin1String("laps")].toArray();
 
     for (int i = 0; i < laps.size(); i++) {
         session.addLap(Lap::fromJson(laps[i].toObject()));

@@ -32,7 +32,7 @@ namespace
 
 TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
 {
-    QHBoxLayout *displayLayout = new QHBoxLayout(this);
+    auto displayLayout = new QHBoxLayout(this);
 
     m_hourFrame = new QFrame(this);
     m_minFrame = new QFrame(this);
@@ -47,10 +47,10 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
     m_fracFrame->setFrameShape(QFrame::StyledPanel);
     m_fracFrame->setFrameShadow(QFrame::Sunken);
 
-    QVBoxLayout *hourLayout = new QVBoxLayout(m_hourFrame);
-    QVBoxLayout *minLayout = new QVBoxLayout(m_minFrame);
-    QVBoxLayout *secLayout = new QVBoxLayout(m_secFrame);
-    QVBoxLayout *fracLayout = new QVBoxLayout(m_fracFrame);
+    auto hourLayout = new QVBoxLayout(m_hourFrame);
+    auto minLayout = new QVBoxLayout(m_minFrame);
+    auto secLayout = new QVBoxLayout(m_secFrame);
+    auto fracLayout = new QVBoxLayout(m_fracFrame);
 
     m_hourHeader = new QLabel(m_hourFrame);
     m_minHeader = new QLabel(m_minFrame);
@@ -180,7 +180,7 @@ void TimeDisplay::showHeaders(bool show)
 QString TimeDisplay::currentTime()
 {
     m_timeFormat.showDividers(true);
-    QString currentTime = m_timeFormat.format(m_displayTime);
+    auto currentTime = m_timeFormat.format(m_displayTime);
     m_timeFormat.showDividers(false);
 
     return currentTime;

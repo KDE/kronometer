@@ -92,10 +92,8 @@ bool MainWindow::queryClose()
         slotPaused();
     }
 
-    KMessageBox::ButtonCode buttonCode;
-
     if (m_session.isEmpty()) {
-        buttonCode = KMessageBox::warningContinueCancel(
+        auto buttonCode = KMessageBox::warningContinueCancel(
                     this,
                     i18n("Do you want to quit and lose your unsaved times?"),
                     i18n("Confirm quit"),
@@ -109,7 +107,7 @@ bool MainWindow::queryClose()
         return false;
     }
     else if (m_session.isOutdated()) {
-        buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to session %1?", m_session.name()));
+        auto buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to session %1?", m_session.name()));
 
         switch (buttonCode) {
         case KMessageBox::Yes:
@@ -173,21 +171,21 @@ void MainWindow::slotShowSettings()
         return;
     }
 
-    KConfigDialog* dialog = new KConfigDialog(this, QLatin1String("settings"), KronometerConfig::self());
+    auto dialog = new KConfigDialog(this, QLatin1String("settings"), KronometerConfig::self());
 
-    KPageWidgetItem *generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
+    auto generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
     generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon().name()));
 
-    KPageWidgetItem *fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
+    auto fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
     fontPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
 
-    KPageWidgetItem *colorPage = dialog->addPage(new ColorSettings(this), i18n("Color settings"));
+    auto colorPage = dialog->addPage(new ColorSettings(this), i18n("Color settings"));
     colorPage->setIcon(QIcon::fromTheme(QStringLiteral("fill-color")));
 
-    KPageWidgetItem *guiPage = dialog->addPage(new GuiSettings(this), i18n("Interface settings"));
+    auto guiPage = dialog->addPage(new GuiSettings(this), i18n("Interface settings"));
     guiPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-theme")));
 
-    KPageWidgetItem *savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
+    auto savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
     savePage->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::slotWriteSettings);
@@ -201,9 +199,8 @@ void MainWindow::slotWriteSettings(const QString& dialogName)
 
     KronometerConfig::self()->save();
 
-    MainWindow *window = nullptr;
     foreach (QWidget *widget, QApplication::topLevelWidgets()) {
-        window = qobject_cast<MainWindow *>(widget);
+        auto window = qobject_cast<MainWindow*>(widget);
 
         if (window) {
             window->loadSettings();
@@ -220,7 +217,7 @@ void MainWindow::slotUpdateLapDock()
 
 void MainWindow::slotNewSession()
 {
-    MainWindow *window = new MainWindow();
+    auto window = new MainWindow();
     window->show();
 }
 
@@ -229,7 +226,7 @@ void MainWindow::slotOpenSession()
     QPointer<SessionDialog> dialog = new SessionDialog(nullptr, i18n("Sessions"));
 
     if (dialog.data()->exec() == QDialog::Accepted) {
-        MainWindow *window = new MainWindow(nullptr, dialog.data()->selectedSession());
+        auto window = new MainWindow(nullptr, dialog.data()->selectedSession());
         window->show();
     }
 
@@ -256,7 +253,7 @@ void MainWindow::slotSaveSession()
 
 void MainWindow::slotSaveSessionAs()
 {
-    QString name = QInputDialog::getText(this, i18n("Choose a name"), i18n("Session name:"));
+    auto name = QInputDialog::getText(this, i18n("Choose a name"), i18n("Session name:"));
 
     if (name.isEmpty())
         name = i18n("Untitled session");
@@ -292,7 +289,7 @@ void MainWindow::setupCentralWidget()
     m_centralSplitter = new QSplitter(this);
 
     m_lapModel = new LapModel(this);
-    QSortFilterProxyModel *proxyModel = new QSortFilterProxyModel(this);
+    auto proxyModel = new QSortFilterProxyModel(this);
     proxyModel->setSourceModel(m_lapModel);
 
     m_lapView = new QTableView(this);
@@ -473,7 +470,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
         return;
     }
 
-    QString exportName = name;
+    auto exportName = name;
 
     if (nameFilter.contains(QLatin1String(".json"))) {
         if (not exportName.endsWith(QLatin1String(".json"))) {
@@ -534,7 +531,7 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
 
 QString MainWindow::timestampMessage()
 {
-    QDateTime timestamp = QDateTime::currentDateTime();
+    auto timestamp = QDateTime::currentDateTime();
 
     return i18n("Created by Kronometer on %1", timestamp.toString(Qt::DefaultLocaleLongDate));
 }

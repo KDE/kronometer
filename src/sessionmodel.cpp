@@ -32,9 +32,8 @@ SessionModel::SessionModel(QObject *parent) : QAbstractTableModel(parent)
     QFile saveFile(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json"));
     saveFile.open(QIODevice::ReadOnly);
 
-    QByteArray saveData = saveFile.readAll();
-
-    QJsonDocument saveDoc = QJsonDocument::fromJson(saveData);
+    auto saveData = saveFile.readAll();
+    auto saveDoc = QJsonDocument::fromJson(saveData);
     read(saveDoc.object());
 
     connect(this, &QAbstractTableModel::dataChanged, this, &SessionModel::slotWrite);
@@ -92,12 +91,10 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
      }
      else if (role == Qt::EditRole && index.column() == NAME) {
          // prevent the disappear of the old value when double-clicking the item
-         QVariant variant = m_sessionList.at(index.row()).name();
-         return variant;
+         return m_sessionList.at(index.row()).name();
      }
      else if (role == Qt::EditRole && index.column() == NOTE) {
-         QVariant variant = m_sessionList.at(index.row()).note();
-         return variant;
+         return m_sessionList.at(index.row()).note();
      }
 
      return QVariant::Invalid;
@@ -218,7 +215,7 @@ bool SessionModel::isEditable(const QModelIndex& index) const
 
 void SessionModel::read(const QJsonObject& json)
 {
-    QJsonArray sessions = json[QLatin1String("sessions")].toArray();
+    auto sessions = json[QLatin1String("sessions")].toArray();
 
     for (int i = 0; i < sessions.size(); i++) {
         append(Session::fromJson(sessions[i].toObject()));

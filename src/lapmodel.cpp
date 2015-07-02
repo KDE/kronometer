@@ -75,8 +75,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
      else if (role == Qt::EditRole && index.column() == NOTE) {
          // prevent the disappear of the old value when double-clicking the item
-         QVariant variant = m_lapList.at(index.row()).note();
-         return variant;
+         return m_lapList.at(index.row()).note();
      }
 
      return QVariant::Invalid;

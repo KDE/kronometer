@@ -42,10 +42,10 @@ TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec) 
 
 QString TimeFormat::format(const QTime& time) const
 {
-    QString h = formatHours(time);
-    QString m = formatMin(time);
-    QString s = formatSec(time);
-    QString f = formatSecFrac(time);
+    auto h = formatHours(time);
+    auto m = formatMin(time);
+    auto s = formatSec(time);
+    auto f = formatSecFrac(time);
 
     return h + m + s + f;
 }
@@ -79,7 +79,7 @@ QString TimeFormat::formatSec(const QTime& time) const
 
 QString TimeFormat::formatSecFrac(const QTime& time) const
 {
-    const QString fractFormat = QStringLiteral("zzz");
+    auto fractFormat = QStringLiteral("zzz");
 
     if (m_secFraction == SecFraction::MILLISECOND)
         return time.toString(fractFormat);
