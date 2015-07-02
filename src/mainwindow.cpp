@@ -456,7 +456,7 @@ void MainWindow::loadSession()
 {
     m_stopwatch->initialize(m_session.time());
 
-    Q_FOREACH (const Lap& lap, m_session.laps()) {
+    foreach (const Lap& lap, m_session.laps()) {
         m_lapModel->append(lap);
     }
 

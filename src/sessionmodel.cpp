@@ -222,7 +222,7 @@ void SessionModel::slotWrite()
     QJsonObject json;
     QJsonArray sessions;
 
-    Q_FOREACH (const Session& session, m_sessionList) {
+    foreach (const Session& session, m_sessionList) {
         QJsonObject object;
         session.write(object);
         sessions.append(object);
