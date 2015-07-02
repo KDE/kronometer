@@ -193,10 +193,8 @@ void MainWindow::slotShowSettings()
     dialog->show();
 }
 
-void MainWindow::slotWriteSettings(const QString& dialogName)
+void MainWindow::slotWriteSettings()
 {
-    Q_UNUSED(dialogName)
-
     KronometerConfig::self()->save();
 
     foreach (QWidget *widget, QApplication::topLevelWidgets()) {

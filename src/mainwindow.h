@@ -80,9 +80,8 @@ private slots:
 
     /**
      * Write the new settings on filesystem.
-     * @param dialogName Ignored argument.
      */
-    void slotWriteSettings(const QString& dialogName);
+    void slotWriteSettings();
 
     /**
      * Fix lap dock appereance.
