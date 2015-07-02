@@ -57,22 +57,21 @@ int SessionModel::rowCount(const QModelIndex& parent) const
 
 QVariant SessionModel::data(const QModelIndex& index, int role) const
 {
-     if (not index.isValid()) {
-         return QVariant::Invalid;
-     }
+    if (not index.isValid()) {
+        return QVariant::Invalid;
+    }
 
-     if (index.row() >= m_sessionList.size() || index.row() < 0) {
-         return QVariant::Invalid;
-     }
+    if (index.row() >= m_sessionList.size() || index.row() < 0) {
+        return QVariant::Invalid;
+    }
 
-     if (role == Qt::DisplayRole) {
+    if (role == Qt::DisplayRole) {
         QVariant variant;
 
         switch (index.column()) {
         case NUMBER:
             variant = QString::number(index.row());
             break;
-
         case NAME:
             variant = m_sessionList.at(index.row()).name();
             break;
@@ -81,23 +80,22 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
             variant = m_sessionList.at(index.row()).date();
             break;
             return QVariant::Invalid;
-
         case NOTE:
             variant = m_sessionList.at(index.row()).note();
             break;
         }
 
-         return variant;
-     }
-     else if (role == Qt::EditRole && index.column() == NAME) {
-         // prevent the disappear of the old value when double-clicking the item
-         return m_sessionList.at(index.row()).name();
-     }
-     else if (role == Qt::EditRole && index.column() == NOTE) {
-         return m_sessionList.at(index.row()).note();
-     }
+        return variant;
+    }
+    else if (role == Qt::EditRole && index.column() == NAME) {
+        // prevent the disappear of the old value when double-clicking the item
+        return m_sessionList.at(index.row()).name();
+    }
+    else if (role == Qt::EditRole && index.column() == NOTE) {
+        return m_sessionList.at(index.row()).note();
+    }
 
-     return QVariant::Invalid;
+    return QVariant::Invalid;
 }
 
 
@@ -109,15 +107,12 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
             case NUMBER:
                 return i18n("Session #");
                 break;
-
             case NAME:
                 return i18n("Name");
                 break;
-
             case DATE:
                 return i18n("Date");
                 break;
-
             case NOTE:
                 return i18n("Note");
                 break;

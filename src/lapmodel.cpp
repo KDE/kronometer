@@ -41,44 +41,41 @@ int LapModel::rowCount(const QModelIndex& parent) const
 
 QVariant LapModel::data(const QModelIndex& index, int role) const
 {
-     if (not index.isValid()) {
-         return QVariant::Invalid;
-     }
+    if (not index.isValid()) {
+        return QVariant::Invalid;
+    }
 
-     if (index.row() >= m_lapList.size() || index.row() < 0) {
-         return QVariant::Invalid;
-     }
+    if (index.row() >= m_lapList.size() || index.row() < 0) {
+        return QVariant::Invalid;
+    }
 
-     if (role == Qt::DisplayRole) {
+    if (role == Qt::DisplayRole) {
         QVariant variant;
 
         switch (index.column()) {
         case NUMBER:
             variant = QString::number(index.row());
             break;
-
         case REL_TIME:
             variant = m_lapList.at(index.row()).relativeTime();
             break;
-
         case ABS_TIME:
             variant = m_lapList.at(index.row()).absoluteTime();
             break;
-
         case NOTE:
             variant = m_lapList.at(index.row()).note();
             break;
         }
 
-         return variant;
-     }
+        return variant;
+    }
 
-     else if (role == Qt::EditRole && index.column() == NOTE) {
-         // prevent the disappear of the old value when double-clicking the item
-         return m_lapList.at(index.row()).note();
-     }
+    else if (role == Qt::EditRole && index.column() == NOTE) {
+        // prevent the disappear of the old value when double-clicking the item
+        return m_lapList.at(index.row()).note();
+    }
 
-     return QVariant::Invalid;
+    return QVariant::Invalid;
 }
 
 QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role) const
@@ -89,15 +86,12 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
             case NUMBER:
                 return i18n("Lap #");
                 break;
-
             case REL_TIME:
                 return i18n("Lap time");
                 break;
-
             case ABS_TIME:
                 return i18n("Global time");
                 break;
-
             case NOTE:
                 return i18n("Note");
                 break;
