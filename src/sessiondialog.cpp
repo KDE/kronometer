@@ -75,7 +75,7 @@ Session SessionDialog::selectedSession() const
 
 void SessionDialog::keyPressEvent(QKeyEvent *event)
 {
-    if (event->key() == Qt::Key_Delete) {
+    if (event->key() == Qt::Key_Delete and not m_sessionModel->isEmpty()) {
         removeDialog();
     }
 
