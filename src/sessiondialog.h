@@ -49,7 +49,7 @@ protected:
 
 protected slots:
 
-    void accept();
+    void accept() Q_DECL_OVERRIDE;
 
 private slots:
 
