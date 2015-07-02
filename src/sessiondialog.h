@@ -43,13 +43,13 @@ public:
 
     Session selectedSession() const;
 
+public slots:
+
+    virtual void accept() Q_DECL_OVERRIDE;
+
 protected:
 
     virtual void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
-
-protected slots:
-
-    void accept() Q_DECL_OVERRIDE;
 
 private slots:
 
