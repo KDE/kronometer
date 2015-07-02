@@ -266,8 +266,7 @@ void MainWindow::slotExportLapsAs()
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18n("Choose export file destination"));
 
-    QStringList mimeTypes;
-    mimeTypes << QStringLiteral("text/csv") << QStringLiteral("application/json");
+    auto mimeTypes = { QStringLiteral("text/csv"), QStringLiteral("application/json") };
     dialog->setMimeTypeFilters(mimeTypes);
 
     if (dialog->exec() == QDialog::Accepted) {
