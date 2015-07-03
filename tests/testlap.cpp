@@ -80,4 +80,15 @@ void TestLap::testRawData()
     QCOMPARE(lap.raw(), t);
 }
 
+void TestLap::testTimeTo()
+{
+    int t1 = 50;
+    int t2 = 100;
+
+    Lap lap1 = Lap::fromRawData(t1);
+    Lap lap2 = Lap::fromRawData(t2);
+
+    QCOMPARE(lap1.timeTo(lap2).msec(), t2 - t1);
+}
+
 QTEST_MAIN(TestLap)

@@ -34,6 +34,7 @@ private slots:
     void testAbsoluteTime();
     void testNote();
     void testRawData();
+    void testTimeTo();
 };
 
 #endif
