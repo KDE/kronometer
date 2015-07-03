@@ -145,21 +145,17 @@ void LapModel::append(const Lap& lap)
 {
     beginInsertRows(QModelIndex(),m_lapList.size(),m_lapList.size());		// i.e. append the new row at table end
 
-    Lap newLap(lap);
     QString relTime;
 
-    if (m_lapList.size() >= 1) {     // computing the diff needs at least one previous entry
-        QTime prev = m_lapList.last().time();
-        QTime target = lap.time();
-        QTime diff(0, 0);
-        diff = diff.addMSecs(prev.msecsTo(target));
-
-        relTime = m_timeFormat.format(diff);
+    // to compute a relative time we need an older lap entry
+    if (not m_lapList.isEmpty()) {
+        relTime = m_timeFormat.format(m_lapList.last().timeTo(lap));
     }
     else {  // first lap entry
-        relTime = m_timeFormat.format(newLap.time());
+        relTime = m_timeFormat.format(lap.time());
     }
 
+    Lap newLap(lap);
     newLap.setRelativeTime(relTime);
     newLap.setAbsoluteTime(m_timeFormat.format(newLap.time()));
 

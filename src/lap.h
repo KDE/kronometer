@@ -43,6 +43,13 @@ public:
     QTime time() const;
 
     /**
+     * Compute the difference with the given Lap.
+     * @param lap A Lap object.
+     * @return QTime difference if the given Lap is "greater", otherwise a zero QTime.
+     */
+    QTime timeTo(const Lap& lap) const;
+
+    /**
      * Set the lap's relative time
      * @param rel The string to be set as relative time
      */

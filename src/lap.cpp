@@ -28,6 +28,16 @@ QTime Lap::time() const
     return m_time;
 }
 
+QTime Lap::timeTo(const Lap& lap) const
+{
+    if (lap.time() < m_time)
+        return QTime(0, 0);
+
+    QTime zero(0, 0);
+
+    return zero.addMSecs(m_time.msecsTo(lap.time()));
+}
+
 void Lap::setRelativeTime(const QString& rel)
 {
     m_relativeTime = rel;
