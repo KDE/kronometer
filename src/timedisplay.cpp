@@ -186,7 +186,7 @@ QString TimeDisplay::currentTime()
     return currentTime;
 }
 
-void TimeDisplay::slotTime(qint64 time)
+void TimeDisplay::slotTime(int time)
 {
     m_displayTime.setHMS(time / MSECS_PER_HOUR,
                         (time % MSECS_PER_HOUR) / MSECS_PER_MIN,

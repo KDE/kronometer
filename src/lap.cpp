@@ -63,7 +63,7 @@ bool Lap::hasNote() const
     return not m_note.isEmpty();
 }
 
-qint64 Lap::raw() const
+int Lap::raw() const
 {
     QTime zero(0, 0);
 
@@ -88,7 +88,7 @@ Lap Lap::fromJson(const QJsonObject& json)
     return lap;
 }
 
-Lap Lap::fromRawData(qint64 rawData)
+Lap Lap::fromRawData(int rawData)
 {
     if (rawData < 0) {
         return Lap();

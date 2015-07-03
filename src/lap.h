@@ -88,7 +88,7 @@ public:
      * The underlying lap's raw data
      * @return Lap's raw data counter
      */
-    qint64 raw() const;
+    int raw() const;
 
     void write(QJsonObject& json) const;
 
@@ -99,7 +99,7 @@ public:
      * @param rawData The raw data counter of the new Lap
      * @return A new Lap object created from the given raw data
      */
-    static Lap fromRawData(qint64 rawData);
+    static Lap fromRawData(int rawData);
 
 private:
 

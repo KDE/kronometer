@@ -103,7 +103,7 @@ public slots:
      * Set the time to be displayed.
      * @param time The time to be displayed.
      */
-    void slotTime(qint64 time);
+    void slotTime(int time);
 
 private:
 

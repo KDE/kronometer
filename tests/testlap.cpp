@@ -74,7 +74,7 @@ void TestLap::testNote()
 
 void TestLap::testRawData()
 {
-    qint64 t = 1000;
+    int t = 1000;
     Lap lap = Lap::fromRawData(t);
 
     QCOMPARE(lap.raw(), t);

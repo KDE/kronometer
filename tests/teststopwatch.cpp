@@ -71,7 +71,7 @@ void TestStopwatch::testInitialize()
     s1.slotStart();
     QTest::qSleep(100);
     s1.slotPause();
-    qint64 t = s1.raw();
+    int t = s1.raw();
 
     QVERIFY(s2.initialize(t));
     QVERIFY(s2.isPaused());

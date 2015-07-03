@@ -32,7 +32,7 @@ class Session
 
 public:
 
-    explicit Session(qint64 time = 0, const QDateTime& date = QDateTime::currentDateTime());
+    explicit Session(int time = 0, const QDateTime& date = QDateTime::currentDateTime());
 
     /**
      * Set the session's name.
@@ -50,7 +50,7 @@ public:
      * Set the session's stopwatch (raw) time.
      * @param time The stopwatch raw time.
      */
-    void setTime(qint64 time);
+    void setTime(int time);
 
     /**
      * Set the session's date (timestamp).
@@ -77,7 +77,7 @@ public:
     /**
      * @return The session stopwatch raw time.
      */
-    qint64 time() const;
+    int time() const;
 
     /**
      * @return The session date.
@@ -131,7 +131,7 @@ private:
 
     QString m_name;       /** Session name. */
     QString m_note;       /** Custom session annotation. */
-    qint64  m_time;       /** Session stopwatch time. */
+    int  m_time;          /** Session stopwatch time. */
     QDateTime m_date;     /** Session date (timestamp of the last update). */
     QList<Lap> m_laps;    /** Session laps. */
     bool m_isOutdated;    /** Whether the session data is outdated. */

@@ -22,7 +22,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-Session::Session(qint64 time, const QDateTime& date) :
+Session::Session(int time, const QDateTime& date) :
     m_time(time),
     m_date(date),
     m_isOutdated(false)
@@ -38,7 +38,7 @@ void Session::setNote(const QString& note)
     m_note = note;
 }
 
-void Session::setTime(qint64 time)
+void Session::setTime(int time)
 {
     m_time = time;
 }
@@ -63,7 +63,7 @@ QString Session::note() const
     return m_note;
 }
 
-qint64 Session::time() const
+int Session::time() const
 {
     return m_time;
 }

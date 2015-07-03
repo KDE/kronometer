@@ -49,12 +49,12 @@ bool Stopwatch::isInactive() const
     return m_state == State::INACTIVE;
 }
 
-qint64 Stopwatch::raw() const
+int Stopwatch::raw() const
 {
     return m_accumulator;
 }
 
-bool Stopwatch::initialize(qint64 rawData)
+bool Stopwatch::initialize(int rawData)
 {
     if (m_state != State::INACTIVE or rawData <= 0) {
         return false;
@@ -105,9 +105,7 @@ void Stopwatch::slotReset()
 
 void Stopwatch::slotLap()
 {
-    qint64 lapTime = 0;
-
-    lapTime += m_accumulator;
+    int lapTime = m_accumulator;
 
     if (m_elapsedTimer.isValid()) {
         lapTime += m_elapsedTimer.elapsed();
@@ -124,9 +122,7 @@ void Stopwatch::timerEvent(QTimerEvent *event)
         return;
     }
 
-    qint64 t = 0;
-
-    t += m_accumulator;
+    int t = m_accumulator;
 
     if (m_elapsedTimer.isValid()) {
         t += m_elapsedTimer.elapsed();

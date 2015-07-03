@@ -77,7 +77,7 @@ public:
      * Read-only access to the stopwatch underlying data
      * @return The stopwatch raw counter
      */
-    qint64 raw() const;
+    int raw() const;
 
     /**
      * (Re)-initialize (deserialize) the stopwatch from the given raw data counter.
@@ -85,7 +85,7 @@ public:
      * @param rawData The raw milliseconds counter for the stopwatch
      * @return true if the operation succeeds (i.e. the stopwatch was inactive), false otherwise
      */
-    bool initialize(qint64 rawData);
+    bool initialize(int rawData);
 
 public slots:
 
@@ -123,7 +123,7 @@ signals:
      * Emits a signal with the current stopwatch time.
      * @param t Current stopwatch time.
      */
-    void time(qint64 t);
+    void time(int t);
 
 protected:
 
@@ -141,7 +141,7 @@ private:
     static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
 
     int m_timerId;                              /** ID for the QObject timer */
-    qint64 m_accumulator;                       /** milliseconds internal counter */
+    int m_accumulator;                       /** milliseconds internal counter */
     State m_state;                              /** Stopwatch current state */
     Granularity m_granularity;                  /** Stopwatch current granularity */
 
