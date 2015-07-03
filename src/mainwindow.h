@@ -74,6 +74,12 @@ private slots:
     void slotInactive();
 
     /**
+     * Slot for the system bus PrepareForSleep signal.
+     * @param beforeSleep Whether the signal has been emitted before suspension.
+     */
+    void slotPrepareForSleep(bool beforeSleep);
+
+    /**
      * Setup the settings dialog.
      */
     void slotShowSettings();

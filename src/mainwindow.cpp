@@ -38,6 +38,7 @@
 #include <QAction>
 #include <QApplication>
 #include <QClipboard>
+#include <QDBusConnection>
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QJsonArray>
@@ -69,6 +70,14 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     else {
         setWindowTitle(i18n("Untitled"));
     }
+
+    // TODO: replace this whit solid-power API, once it's released.
+    QDBusConnection::systemBus().connect(
+                QStringLiteral("org.freedesktop.login1"),
+                QStringLiteral("/org/freedesktop/login1"),
+                QStringLiteral("org.freedesktop.login1.Manager"),
+                QStringLiteral("PrepareForSleep"),
+                this, SLOT(slotPrepareForSleep(bool)));
 }
 
 void MainWindow::setWindowTitle(const QString& title)
@@ -163,6 +172,15 @@ void MainWindow::slotInactive()
     setWindowModified(false);
 
     stateChanged(QStringLiteral("inactive"));
+}
+
+void MainWindow::slotPrepareForSleep(bool beforeSleep)
+{
+    if (not beforeSleep)
+        return;
+
+    m_stopwatch->slotPause();
+    slotPaused();
 }
 
 void MainWindow::slotShowSettings()
