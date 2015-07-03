@@ -32,7 +32,7 @@ int main (int argc, char **argv)
     KAboutData aboutData(
         QStringLiteral("kronometer"),   // componentName
         i18n("Kronometer"), // displayName
-        QStringLiteral("1.5.2"),    // version
+        QStringLiteral("2.0.0"),    // version
         i18n("Kronometer is a simple stopwatch application built for KDE"), // shortDescription
         KAboutLicense::GPL_V2,    // licenseType
         i18n("Copyright (C) 2014 Elvis Angelaccio"),    // copyrightStatement
