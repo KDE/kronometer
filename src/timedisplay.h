@@ -101,11 +101,16 @@ public slots:
 
     /**
      * Set the time to be displayed.
-     * @param t The time to be displayed.
+     * @param time The time to be displayed.
      */
-    void slotTime(const QTime& t);
+    void slotTime(qint64 time);
 
 private:
+
+    static const int MSECS_PER_HOUR = 3600000;
+    static const int MSECS_PER_MIN = 60000;
+    static const int MSECS_PER_SEC = 1000;
+    static const int SECS_PER_MIN = 60;
 
     QFrame *m_hourFrame;
     QFrame *m_minFrame;

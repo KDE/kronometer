@@ -24,7 +24,6 @@
 
 Stopwatch::Stopwatch(QObject *parent) :
     QObject(parent),
-    zero(0, 0),
     m_timerId(INACTIVE_TIMER_ID),
     m_state(State::INACTIVE),
     m_granularity(HUNDREDTHS)
@@ -63,7 +62,7 @@ bool Stopwatch::initialize(qint64 rawData)
 
     m_accumulator = rawData;
     m_state = State::PAUSED;
-    emit time(zero.addMSecs(m_accumulator));  // it signals that has been deserialized and can be resumed
+    emit time(m_accumulator);  // it signals that has been deserialized and can be resumed
 
     return true;
 }
@@ -100,7 +99,7 @@ void Stopwatch::slotReset()
 {
     m_elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
-    emit time(zero);
+    emit time(0);
     m_state = State::INACTIVE;
 }
 
@@ -114,6 +113,7 @@ void Stopwatch::slotLap()
         lapTime += m_elapsedTimer.elapsed();
     }
 
+    QTime zero(0, 0);
     emit lap(zero.addMSecs(lapTime));
 }
 
@@ -130,7 +130,7 @@ void Stopwatch::timerEvent(QTimerEvent *event)
 
     if (m_elapsedTimer.isValid()) {
         t += m_elapsedTimer.elapsed();
-        emit time(zero.addMSecs(t));
+        emit time(t);
     }
     else {
         killTimer(m_timerId);

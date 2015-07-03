@@ -123,7 +123,7 @@ signals:
      * Emits a signal with the current stopwatch time.
      * @param t Current stopwatch time.
      */
-    void time(const QTime& t);
+    void time(qint64 t);
 
 protected:
 
@@ -139,7 +139,6 @@ private:
     };
 
     static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
-    const QTime zero;                           /** Empty time to be used to add elapsed milliseconds */
 
     int m_timerId;                              /** ID for the QObject timer */
     qint64 m_accumulator;                       /** milliseconds internal counter */
