@@ -120,26 +120,32 @@ int DigitDisplay::width() const
 
 void DigitDisplay::showOneDigit(const QString& digit) const
 {
-    if (digit.size() == m_digitCounter) {
-        m_leftmostDigit->setText(digit.at(0));
+    if (digit.size() != m_digitCounter) {
+        return;
     }
+
+    m_leftmostDigit->setText(digit.at(0));
 }
 
 void DigitDisplay::showTwoDigits(const QString& digits) const
 {
-    if (digits.size() == m_digitCounter) {
-        // digits are displayed from right to left
-        m_centerDigit->setText(digits.at(1));
-        m_leftmostDigit->setText(digits.at(0));
+    if (digits.size() != m_digitCounter) {
+        return;
     }
+
+    // digits are displayed from right to left
+    m_centerDigit->setText(digits.at(1));
+    m_leftmostDigit->setText(digits.at(0));
 }
 
 void DigitDisplay::showThreeDigits(const QString& digits) const
 {
-    if (digits.size() == m_digitCounter) {
-        // digits are displayed from right to left
-        m_rightmostDigit->setText(digits.at(2));
-        m_centerDigit->setText(digits.at(1));
-        m_leftmostDigit->setText(digits.at(0));
+    if (digits.size() != m_digitCounter) {
+        return;
     }
+
+    // digits are displayed from right to left
+    m_rightmostDigit->setText(digits.at(2));
+    m_centerDigit->setText(digits.at(1));
+    m_leftmostDigit->setText(digits.at(0));
 }

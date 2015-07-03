@@ -80,26 +80,21 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
 QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role == Qt::DisplayRole) {
-        if (orientation == Qt::Horizontal) {
-            switch (section) {
-            case NUMBER:
-                return i18n("Lap #");
-                break;
-            case REL_TIME:
-                return i18n("Lap time");
-                break;
-            case ABS_TIME:
-                return i18n("Global time");
-                break;
-            case NOTE:
-                return i18n("Note");
-                break;
-            }
-        }
-    }
+    if (role != Qt::DisplayRole or orientation != Qt::Horizontal)
+        return QVariant::Invalid;
 
-    return QVariant::Invalid;
+    switch (section) {
+    case NUMBER:
+        return i18n("Lap #");
+    case REL_TIME:
+        return i18n("Lap time");
+    case ABS_TIME:
+        return i18n("Global time");
+    case NOTE:
+        return i18n("Note");
+    default:
+        return QVariant::Invalid;
+    }
 }
 
 bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role)
@@ -121,10 +116,10 @@ Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
     if (not index.isValid())
         return Qt::ItemIsEnabled;
 
-    if (index.column() == NOTE)
-        return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
+    if (index.column() != NOTE)
+        return QAbstractTableModel::flags(index);
 
-    return QAbstractTableModel::flags(index);
+    return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
 }
 
 void LapModel::setTimeFormat(const TimeFormat& format)

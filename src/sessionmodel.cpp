@@ -101,26 +101,21 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
 
 QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role == Qt::DisplayRole) {
-        if (orientation == Qt::Horizontal) {
-            switch (section) {
-            case NUMBER:
-                return i18n("Session #");
-                break;
-            case NAME:
-                return i18n("Name");
-                break;
-            case DATE:
-                return i18n("Date");
-                break;
-            case NOTE:
-                return i18n("Note");
-                break;
-            }
-        }
-    }
+    if (role != Qt::DisplayRole or orientation != Qt::Horizontal)
+        return QVariant::Invalid;
 
-    return QVariant::Invalid;
+    switch (section) {
+    case NUMBER:
+        return i18n("Session #");
+    case NAME:
+        return i18n("Name");
+    case DATE:
+        return i18n("Date");
+    case NOTE:
+        return i18n("Note");
+    default:
+        return QVariant::Invalid;
+    }
 }
 
 bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int role)
@@ -151,10 +146,10 @@ Qt::ItemFlags SessionModel::flags(const QModelIndex& index) const
     if (not index.isValid())
         return Qt::ItemIsEnabled;
 
-    if (index.column() == NAME || index.column() == NOTE)
-        return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
+    if (index.column() != NAME and index.column() != NOTE)
+        return QAbstractTableModel::flags(index);
 
-    return QAbstractTableModel::flags(index);
+    return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
 }
 
 bool SessionModel::removeRows(int row, int count, const QModelIndex& parent)
