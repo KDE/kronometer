@@ -375,7 +375,7 @@ void MainWindow::setupActions()
 
     setupGUI(Default, QStringLiteral("kronometerui.rc"));
 
-    slotInactive();	// inactive state is the default
+    slotInactive();    // inactive state is the default
 }
 
 

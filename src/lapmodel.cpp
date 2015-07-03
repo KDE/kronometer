@@ -143,7 +143,8 @@ const Lap& LapModel::at(int lapIndex)
 
 void LapModel::append(const Lap& lap)
 {
-    beginInsertRows(QModelIndex(),m_lapList.size(),m_lapList.size());		// i.e. append the new row at table end
+    // Append the new row at the end.
+    beginInsertRows(QModelIndex(), m_lapList.size(), m_lapList.size());
 
     QString relTime;
 
