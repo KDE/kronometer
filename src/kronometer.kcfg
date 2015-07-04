@@ -88,15 +88,6 @@
         </entry>
     </group>
 
-    <group name="Save">
-        <entry name="saveFileIndentSize" type="Int">
-            <default>4</default>
-        </entry>
-        <entry name="exportedXmlIndentSize" type="Int">
-            <default>4</default>
-        </entry>
-    </group>
-
     <group name="Gui">
         <entry name="showTimeHeaders" type="Bool">
             <default>true</default>

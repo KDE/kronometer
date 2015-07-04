@@ -28,7 +28,6 @@
 #include "widgets/fontsettings.h"
 #include "widgets/generalsettings.h"
 #include "widgets/guisettings.h"
-#include "widgets/savesettings.h"
 
 #include <KActionCollection>
 #include <KConfigDialog>
@@ -202,9 +201,6 @@ void MainWindow::slotShowSettings()
 
     auto guiPage = dialog->addPage(new GuiSettings(this), i18n("Interface settings"));
     guiPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-theme")));
-
-    auto savePage = dialog->addPage(new SaveSettings(this), i18n("Save settings"));
-    savePage->setIcon(QIcon::fromTheme(QStringLiteral("document-save")));
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::slotWriteSettings);
 

@@ -15,8 +15,7 @@ qt5_wrap_ui(kronometer_SRCS
     widgets/colorsettings.ui
     widgets/fontsettings.ui
     widgets/generalsettings.ui
-    widgets/guisettings.ui
-    widgets/savesettings.ui)
+    widgets/guisettings.ui)
 
 kconfig_add_kcfg_files(kronometer_SRCS settings.kcfgc)
 
