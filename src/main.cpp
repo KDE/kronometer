@@ -47,6 +47,12 @@ int main (int argc, char **argv)
         QStringLiteral("http://aelog.org")
     );
 
+    aboutData.addCredit(
+        i18n("Ken Vermette"),
+        i18n("Kronometer icon"),
+        QStringLiteral("vermette@gmail.com")
+    );
+
     KAboutData::setApplicationData(aboutData);
 
     QApplication app(argc, argv);
