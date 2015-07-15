@@ -39,6 +39,3 @@ install(FILES kronometerui.rc
         DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kronometer)
 install(PROGRAMS org.kde.kronometer.desktop
         DESTINATION ${KDE_INSTALL_APPDIR})
-
-add_subdirectory(icons)
-

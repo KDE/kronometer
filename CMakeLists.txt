@@ -32,6 +32,7 @@ add_definitions(
 
 add_subdirectory(doc)
 add_subdirectory(src)
+add_subdirectory(icons)
 if(BUILD_TESTING)
     add_subdirectory(tests)
 endif()
