@@ -337,16 +337,16 @@ void MainWindow::setupActions()
     m_lapAction = new QAction(this);
     m_exportAction = new QAction(this);
 
-    m_startAction->setIcon(QIcon::fromTheme(QStringLiteral("player-time")));
+    m_startAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-start")));
 
     m_pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction doesn't)
-    m_pauseAction->setIcon(QIcon::fromTheme(QStringLiteral("media-playback-pause")));
+    m_pauseAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-pause")));
 
     m_resetAction->setText(i18n("&Reset"));
-    m_resetAction->setIcon(QIcon::fromTheme(QStringLiteral("edit-clear-history")));
+    m_resetAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-reset")));
 
     m_lapAction->setText(i18n("&Lap"));
-    m_lapAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer")));
+    m_lapAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-lap")));
 
     m_exportAction->setText(i18n("&Export laps as..."));
     m_exportAction->setIcon(QIcon::fromTheme(QStringLiteral("document-export")));
