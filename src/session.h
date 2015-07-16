@@ -113,7 +113,7 @@ public:
     void clear();
 
     /**
-     * Serializa the session on the given JSON object.
+     * Serialize the session on the given JSON object.
      * @param json A JSON object.
      */
     void write(QJsonObject& json) const;
