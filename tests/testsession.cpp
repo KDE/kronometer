@@ -77,7 +77,7 @@ void TestSession::testLaps()
         session.addLap(lap);
     }
 
-    QCOMPARE(laps.size(), session.laps().size());
+    QCOMPARE(session.laps().size(), laps.size());
 }
 
 void TestSession::testEquality()
