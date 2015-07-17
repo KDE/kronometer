@@ -34,7 +34,7 @@ add_subdirectory(doc)
 add_subdirectory(src)
 add_subdirectory(icons)
 if(BUILD_TESTING)
-    add_subdirectory(tests)
+    add_subdirectory(autotests)
 endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)

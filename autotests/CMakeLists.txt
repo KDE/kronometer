@@ -13,21 +13,18 @@ set(libtest_SRCS
 add_library(libtest STATIC ${libtest_SRCS})
 target_link_libraries(libtest Qt5::Core)
 
-macro(add_unit_test testname)
-    add_executable(${testname} ${testname}.cpp)
-    add_test(${testname} ${testname})
-    ecm_mark_as_test(${testname})
-    target_link_libraries(${testname}
-        libtest
-        Qt5::Test)
+macro(autotests)
+    foreach(testname ${ARGN})
+        add_executable(${testname} ${testname}.cpp)
+        add_test(${testname} ${testname})
+        ecm_mark_as_test(${testname})
+        target_link_libraries(${testname}
+            libtest
+            Qt5::Test)
+    endforeach()
 endmacro()
 
-set(unit_tests
-    testlap
-    testsession
-    teststopwatch
-    testtimeformat)
-
-foreach(unit_test ${unit_tests})
-    add_unit_test(${unit_test})
-endforeach()
+autotests(testlap
+          testsession
+          teststopwatch
+          testtimeformat)
