@@ -88,6 +88,11 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
     fracLayout->addWidget(m_fracHeader);
     fracLayout->addWidget(m_fracDisplay);
 
+    QMargins margins = displayLayout->contentsMargins();
+    margins.setTop(0);
+    margins.setBottom(0);
+
+    displayLayout->setContentsMargins(margins);
     displayLayout->addWidget(m_hourFrame);
     displayLayout->addWidget(m_minFrame);
     displayLayout->addWidget(m_secFrame);
