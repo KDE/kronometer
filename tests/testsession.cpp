@@ -92,7 +92,8 @@ void TestSession::testEquality()
 
 void TestSession::testJson()
 {
-    Session session1(1000);
+    auto date = QDateTime::currentDateTime();
+    Session session1(1000, QDateTime::fromString(date.toString(Qt::ISODate), Qt::ISODate));
     session1.setName(QStringLiteral("test-name"));
     session1.setNote(QStringLiteral("test-note"));
 
@@ -106,9 +107,7 @@ void TestSession::testJson()
 
     Session session2 = Session::fromJson(json);
 
-    QEXPECT_FAIL("", "To be fixed ASAP", Continue);
     QCOMPARE(session1, session2);
-
     QCOMPARE(session1.time(), session2.time());
     QCOMPARE(session1.name(), session2.name());
     QCOMPARE(session1.note(), session2.note());

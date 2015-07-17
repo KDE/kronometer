@@ -104,7 +104,7 @@ void Session::write(QJsonObject& json) const
     json[QLatin1String("name")] = m_name;
     json[QLatin1String("note")] = m_note;
     json[QLatin1String("time")] = m_time;
-    json[QLatin1String("date")] = m_date.toString();
+    json[QLatin1String("date")] = m_date.toString(Qt::ISODate);
 
     QJsonArray laps;
 
@@ -124,7 +124,7 @@ Session Session::fromJson(const QJsonObject& json)
     session.m_name = json[QLatin1String("name")].toString();
     session.m_note = json[QLatin1String("note")].toString();
     session.m_time = json[QLatin1String("time")].toInt();
-    session.m_date = QDateTime::fromString(json[QLatin1String("date")].toString());
+    session.m_date = QDateTime::fromString(json[QLatin1String("date")].toString(), Qt::ISODate);
 
     auto laps = json[QLatin1String("laps")].toArray();
 
