@@ -33,6 +33,7 @@ private slots:
 
     void showFractionsToggled(bool toggled);
     void showLapFractionsToggled(bool toggled);
+    void enableLapsToggled(bool toggled);
 };
 
 #endif

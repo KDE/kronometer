@@ -132,6 +132,13 @@
         </widget>
        </item>
        <item>
+        <widget class="QCheckBox" name="kcfg_showTimeHeaders">
+         <property name="text">
+          <string>Show time headers in the display</string>
+         </property>
+        </widget>
+       </item>
+       <item>
         <spacer name="verticalSpacer">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -152,68 +159,34 @@
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
-        <widget class="QGroupBox" name="groupBox_3">
-         <property name="minimumSize">
-          <size>
-           <width>369</width>
-           <height>0</height>
-          </size>
+        <widget class="QCheckBox" name="kcfg_isLapsRecordingEnabled">
+         <property name="text">
+          <string>Enable laps recording</string>
          </property>
-         <property name="title">
-          <string>Lap times format</string>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_2" native="true">
+         <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QCheckBox" name="kcfg_showLapHours">
-            <property name="toolTip">
-             <string>Whether to show hours in the laps</string>
+           <widget class="QGroupBox" name="lapTimesFormat">
+            <property name="minimumSize">
+             <size>
+              <width>369</width>
+              <height>0</height>
+             </size>
             </property>
-            <property name="text">
-             <string>Show hours</string>
+            <property name="title">
+             <string>Lap times format</string>
             </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QCheckBox" name="kcfg_showLapMinutes">
-            <property name="toolTip">
-             <string>Whether to show minutes in the laps</string>
-            </property>
-            <property name="text">
-             <string>Show minutes</string>
-            </property>
-            <property name="checked">
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QWidget" name="widget_2" native="true">
-            <layout class="QHBoxLayout" name="horizontalLayout_2">
-             <property name="spacing">
-              <number>0</number>
-             </property>
-             <property name="leftMargin">
-              <number>0</number>
-             </property>
-             <property name="topMargin">
-              <number>0</number>
-             </property>
-             <property name="rightMargin">
-              <number>0</number>
-             </property>
-             <property name="bottomMargin">
-              <number>0</number>
-             </property>
+            <layout class="QVBoxLayout" name="verticalLayout_4">
              <item>
-              <widget class="QCheckBox" name="kcfg_showLapSecondFractions">
+              <widget class="QCheckBox" name="kcfg_showLapHours">
                <property name="toolTip">
-                <string>Whether to show seconds in the laps</string>
+                <string>Whether to show hours in the laps</string>
                </property>
                <property name="text">
-                <string>Show second fractions:</string>
+                <string>Show hours</string>
                </property>
                <property name="checked">
                 <bool>true</bool>
@@ -221,36 +194,83 @@
               </widget>
              </item>
              <item>
-              <widget class="QComboBox" name="kcfg_lapFractionsType">
-               <item>
-                <property name="text">
-                 <string>up to tenths</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>up to hundredths</string>
-                </property>
-               </item>
-               <item>
-                <property name="text">
-                 <string>up to milliseconds</string>
-                </property>
-               </item>
+              <widget class="QCheckBox" name="kcfg_showLapMinutes">
+               <property name="toolTip">
+                <string>Whether to show minutes in the laps</string>
+               </property>
+               <property name="text">
+                <string>Show minutes</string>
+               </property>
+               <property name="checked">
+                <bool>true</bool>
+               </property>
               </widget>
              </item>
              <item>
-              <spacer name="horizontalSpacer_2">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
+              <widget class="QWidget" name="widget_3" native="true">
+               <layout class="QHBoxLayout" name="horizontalLayout_2">
+                <property name="spacing">
+                 <number>0</number>
+                </property>
+                <property name="leftMargin">
+                 <number>0</number>
+                </property>
+                <property name="topMargin">
+                 <number>0</number>
+                </property>
+                <property name="rightMargin">
+                 <number>0</number>
+                </property>
+                <property name="bottomMargin">
+                 <number>0</number>
+                </property>
+                <item>
+                 <widget class="QCheckBox" name="kcfg_showLapSecondFractions">
+                  <property name="toolTip">
+                   <string>Whether to show seconds in the laps</string>
+                  </property>
+                  <property name="text">
+                   <string>Show second fractions:</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="kcfg_lapFractionsType">
+                  <item>
+                   <property name="text">
+                    <string>up to tenths</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>up to hundredths</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>up to milliseconds</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_2">
+                  <property name="orientation">
+                   <enum>Qt::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </widget>
              </item>
             </layout>
            </widget>

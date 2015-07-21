@@ -21,6 +21,7 @@
 
 #include <QCheckBox>
 #include <QComboBox>
+#include <QGroupBox>
 
 GeneralSettings::GeneralSettings(QWidget *parent) : QWidget(parent)
 {
@@ -28,6 +29,7 @@ GeneralSettings::GeneralSettings(QWidget *parent) : QWidget(parent)
 
     connect(kcfg_showSecondFractions, &QCheckBox::toggled, this, &GeneralSettings::showFractionsToggled);
     connect(kcfg_showLapSecondFractions, &QCheckBox::toggled, this, &GeneralSettings::showLapFractionsToggled);
+    connect(kcfg_isLapsRecordingEnabled, &QCheckBox::toggled, this, &GeneralSettings::enableLapsToggled);
 }
 
 void GeneralSettings::showFractionsToggled(bool toggled)
@@ -38,4 +40,9 @@ void GeneralSettings::showFractionsToggled(bool toggled)
 void GeneralSettings::showLapFractionsToggled(bool toggled)
 {
     kcfg_lapFractionsType->setEnabled(toggled);
+}
+
+void GeneralSettings::enableLapsToggled(bool toggled)
+{
+    lapTimesFormat->setVisible(toggled);
 }

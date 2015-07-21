@@ -27,7 +27,6 @@
 #include "widgets/colorsettings.h"
 #include "widgets/fontsettings.h"
 #include "widgets/generalsettings.h"
-#include "widgets/guisettings.h"
 
 #include <KActionCollection>
 #include <KConfigDialog>
@@ -198,9 +197,6 @@ void MainWindow::slotShowSettings()
 
     auto colorPage = dialog->addPage(new ColorSettings(this), i18n("Color settings"));
     colorPage->setIcon(QIcon::fromTheme(QStringLiteral("fill-color")));
-
-    auto guiPage = dialog->addPage(new GuiSettings(this), i18n("Interface settings"));
-    guiPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-theme")));
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::slotWriteSettings);
 
