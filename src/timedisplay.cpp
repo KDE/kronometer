@@ -74,7 +74,7 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
     m_secDisplay = new DigitDisplay(m_secFrame);
     m_fracDisplay = new DigitDisplay(m_fracFrame);
 
-    m_hourDisplay->showDigits(m_timeFormat.formatHours(m_displayTime));
+    m_hourDisplay->showDigits(m_timeFormat.formatHour(m_displayTime));
     m_minDisplay->showDigits(m_timeFormat.formatMin(m_displayTime));
     m_secDisplay->showDigits(m_timeFormat.formatSec(m_displayTime));
     m_fracDisplay->showDigits(m_timeFormat.formatSecFrac(m_displayTime));
@@ -105,7 +105,6 @@ void TimeDisplay::setTimeFormat(const TimeFormat& format)
 
     m_hourFrame->setVisible(m_timeFormat.isHourEnabled());
     m_minFrame->setVisible(m_timeFormat.isMinEnabled());
-    m_secFrame->setVisible(m_timeFormat.isSecEnabled());
     m_fracFrame->setVisible(m_timeFormat.isSecFracEnabled());
 
     m_hourDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
@@ -204,16 +203,14 @@ void TimeDisplay::slotTime(int time)
 void TimeDisplay::updateTimer()
 {
     if (m_timeFormat.isHourEnabled()) {
-        m_hourDisplay->showDigits(m_timeFormat.formatHours(m_displayTime));
+        m_hourDisplay->showDigits(m_timeFormat.formatHour(m_displayTime));
     }
 
     if (m_timeFormat.isMinEnabled()) {
         m_minDisplay->showDigits(m_timeFormat.formatMin(m_displayTime));
     }
 
-    if (m_timeFormat.isSecEnabled()) {
-        m_secDisplay->showDigits(m_timeFormat.formatSec(m_displayTime));
-    }
+    m_secDisplay->showDigits(m_timeFormat.formatSec(m_displayTime));
 
     if (m_timeFormat.isSecFracEnabled()) {
         m_fracDisplay->showDigits(m_timeFormat.formatSecFrac(m_displayTime));

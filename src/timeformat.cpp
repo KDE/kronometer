@@ -21,28 +21,18 @@
 
 #include <QTime>
 
-TimeFormat::TimeFormat(bool h, bool mm, bool ss, bool t, bool hundr, bool msec) :
-    m_hour(h),
-    m_min(mm),
-    m_sec(ss),
-    m_dividers(true)
+TimeFormat::TimeFormat(bool showHours, bool showMinutes, TimeFormat::FractionType fractionType) :
+    m_showHours(showHours),
+    m_showMinutes(showMinutes),
+    m_showDividers(true),
+    m_fractionType(fractionType)
 {
-    if (msec) {
-        m_secFraction = SecFraction::MILLISECOND;
-    }
-    else if (hundr) {
-        m_secFraction = SecFraction::HUNDREDTH;
-    }
-    else if (t) {
-        m_secFraction = SecFraction::TENTH;
-    }
-
     setupFormat();
 }
 
 QString TimeFormat::format(const QTime& time) const
 {
-    auto h = formatHours(time);
+    auto h = formatHour(time);
     auto m = formatMin(time);
     auto s = formatSec(time);
     auto f = formatSecFrac(time);
@@ -50,9 +40,9 @@ QString TimeFormat::format(const QTime& time) const
     return h + m + s + f;
 }
 
-QString TimeFormat::formatHours(const QTime& time) const
+QString TimeFormat::formatHour(const QTime& time) const
 {
-    if (not m_hour) {
+    if (not m_showHours) {
         return QString();
     }
 
@@ -61,7 +51,7 @@ QString TimeFormat::formatHours(const QTime& time) const
 
 QString TimeFormat::formatMin(const QTime& time) const
 {
-    if (not m_min) {
+    if (not m_showMinutes) {
         return QString();
     }
 
@@ -70,78 +60,68 @@ QString TimeFormat::formatMin(const QTime& time) const
 
 QString TimeFormat::formatSec(const QTime& time) const
 {
-    if (not m_sec) {
-        return QString();
-    }
-
     return time.toString(m_secFormat);
 }
 
 QString TimeFormat::formatSecFrac(const QTime& time) const
 {
-    auto fractFormat = QStringLiteral("zzz");
+    auto fracFormat = QStringLiteral("zzz");
+    QString temp;
 
-    if (m_secFraction == SecFraction::MILLISECOND)
-        return time.toString(fractFormat);
-
-    if (m_secFraction == SecFraction::HUNDREDTH) {
-        QString temp = time.toString(fractFormat);
-        return temp.left(temp.size() - 1);
-    }
-
-    if (m_secFraction == SecFraction::TENTH) {
-        QString temp = time.toString(fractFormat);
+    switch (m_fractionType) {
+    case UpToTenths:
+        temp = time.toString(fracFormat);
         return temp.left(temp.size() - 2);
+    case UpToHundredths:
+        temp = time.toString(fracFormat);
+        return temp.left(temp.size() - 1);
+    case UpToMilliseconds:
+        return time.toString(fracFormat);
+    default:
+        return QString();
     }
-
-    return QString();
 }
 
 bool TimeFormat::isHourEnabled() const
 {
-    return m_hour;
+    return m_showHours;
 }
 
 bool TimeFormat::isMinEnabled() const
 {
-    return m_min;
-}
-
-bool TimeFormat::isSecEnabled() const
-{
-    return m_sec;
+    return m_showMinutes;
 }
 
 bool TimeFormat::isSecFracEnabled() const
 {
-    return m_secFraction != SecFraction::NONE;
+    return m_fractionType != NoFractions;
 }
 
 bool TimeFormat::isTenthEnabled() const
 {
-    return m_secFraction == SecFraction::TENTH;
+    return m_fractionType == UpToTenths;
 }
 
 bool TimeFormat::isHundredthEnabled() const
 {
-    return m_secFraction == SecFraction::HUNDREDTH;
+    return m_fractionType == UpToHundredths;
 }
 
 bool TimeFormat::isMSecEnabled() const
 {
-    return m_secFraction == SecFraction::MILLISECOND;
+    return m_fractionType == UpToMilliseconds;
 }
 
 void TimeFormat::showDividers(bool show)
 {
-    m_dividers = show;
+    m_showDividers = show;
     setupFormat();
 }
 
 void TimeFormat::setupFormat()
 {
-    if (m_hour) {
-        if (m_dividers and (m_min or m_sec or m_secFraction != SecFraction::NONE)) {
+    if (m_showHours) {
+        if (m_showDividers) {
             m_hourFormat = QStringLiteral("hh:");
         }
         else {
@@ -149,8 +129,8 @@ void TimeFormat::setupFormat()
         }
     }
 
-    if (m_min) {
-        if (m_dividers and (m_sec or m_secFraction != SecFraction::NONE)) {
+    if (m_showMinutes) {
+        if (m_showDividers) {
             m_minFormat = QStringLiteral("mm:");
         }
         else {
@@ -158,12 +138,10 @@ void TimeFormat::setupFormat()
         }
     }
 
-    if (m_sec) {
-        if (m_dividers and (m_secFraction != SecFraction::NONE)) {
-            m_secFormat = QStringLiteral("ss.");
-        }
-        else {
-            m_secFormat = QStringLiteral("ss");
-        }
+    if (m_showDividers and m_fractionType != NoFractions) {
+        m_secFormat = QStringLiteral("ss.");
+    }
+    else {
+        m_secFormat = QStringLiteral("ss");
     }
 }

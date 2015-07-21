@@ -392,25 +392,13 @@ void MainWindow::setupActions()
     slotInactive();    // inactive state is the default
 }
 
-
 void MainWindow::loadSettings()
 {
-    TimeFormat timeFormat(
-        KronometerConfig::showHours(),
-        KronometerConfig::showMinutes(),
-        KronometerConfig::showSeconds(),
-        KronometerConfig::showTenths(),
-        KronometerConfig::showHundredths(),
-        KronometerConfig::showMilliseconds()
-    );
-    TimeFormat lapTimeFormat(
-        KronometerConfig::showLapHours(),
-        KronometerConfig::showLapMinutes(),
-        KronometerConfig::showLapSeconds(),
-        KronometerConfig::showLapTenths(),
-        KronometerConfig::showLapHundredths(),
-        KronometerConfig::showLapMilliseconds()
-    );
+    auto timeFrac = KronometerConfig::showSecondFractions() ? KronometerConfig::fractionsType() : TimeFormat::NoFractions;
+    auto lapFrac = KronometerConfig::showSecondFractions() ? KronometerConfig::lapFractionsType() : TimeFormat::NoFractions;
+
+    TimeFormat timeFormat(KronometerConfig::showHours(), KronometerConfig::showMinutes(), timeFrac);
+    TimeFormat lapTimeFormat(KronometerConfig::showLapHours(), KronometerConfig::showLapMinutes(), lapFrac);
 
     m_lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
@@ -426,23 +414,28 @@ void MainWindow::loadSettings()
     m_stopwatchDisplay->setTextColor(KronometerConfig::textColor());
     m_stopwatchDisplay->showHeaders(KronometerConfig::showTimeHeaders());
 
-    setupGranularity(KronometerConfig::showTenths(), KronometerConfig::showHundredths(), KronometerConfig::showMilliseconds());
+    setupGranularity();
 }
 
-
-void MainWindow::setupGranularity(bool tenths, bool hundredths, bool msec)
+void MainWindow::setupGranularity()
 {
-    if (msec) {
-        m_stopwatch->setGranularity(Stopwatch::MILLISECONDS);
-    }
-    else if (hundredths) {
-        m_stopwatch->setGranularity(Stopwatch::HUNDREDTHS);
-    }
-    else if (tenths) {
-        m_stopwatch->setGranularity(Stopwatch::TENTHS);
-    }
-    else {
+    if (not KronometerConfig::showSecondFractions()) {
         m_stopwatch->setGranularity(Stopwatch::SECONDS);
+        return;
+    }
+
+    switch (KronometerConfig::fractionsType()) {
+    case TimeFormat::UpToTenths:
+        m_stopwatch->setGranularity(Stopwatch::TENTHS);
+        break;
+    case TimeFormat::UpToHundredths:
+        m_stopwatch->setGranularity(Stopwatch::HUNDREDTHS);
+        break;
+    case TimeFormat::UpToMilliseconds:
+        m_stopwatch->setGranularity(Stopwatch::MILLISECONDS);
+        break;
+    default:
+        break;
     }
 }
 

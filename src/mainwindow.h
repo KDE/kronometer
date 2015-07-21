@@ -165,12 +165,8 @@ private:
 
     /**
      * Set the stopwatch refresh granularity.
-     * By default, if all the arguments are false, the stopwatch is refreshed every second.
-     * @param tenths Whether to refresh the stopwatch every tenth of second.
-     * @param hundredths Whether to refresh the stopwatch every hundredth of second.
-     * @param msec Whether to refresh the stopwatch every millisecond.
      */
-    void setupGranularity(bool tenths, bool hundredths, bool msec);
+    void setupGranularity();
 
     /**
      * Create a session with the current stopwatch time and lap times.

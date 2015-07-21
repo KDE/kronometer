@@ -6,6 +6,7 @@
 
     <include>KColorScheme</include>
     <include>QFontDatabase</include>
+    <include>"timeformat.h"</include>
 
     <kcfgfile name="kronometerrc"/>
 
@@ -16,20 +17,12 @@
         <entry name="showMinutes" type="Bool">
                 <default>true</default>
         </entry>
-        <entry name="showSeconds" type="Bool">
+        <entry name="showSecondFractions" type="Bool">
                 <default>true</default>
         </entry>
-        <entry name="stopToSeconds" type="Bool">
-                <default>false</default>
-        </entry>
-        <entry name="showTenths" type="Bool">
-                <default>false</default>
-        </entry>
-        <entry name="showHundredths" type="Bool">
-                <default>true</default>
-        </entry>
-        <entry name="showMilliseconds" type="Bool">
-                <default>false</default>
+        <entry name="fractionsType" type="Enum">
+            <choices name="TimeFormat::FractionType"/>
+            <default>TimeFormat::UpToHundredths</default>
         </entry>
         <entry name="showLapHours" type="Bool">
                 <default>true</default>
@@ -37,20 +30,12 @@
         <entry name="showLapMinutes" type="Bool">
                 <default>true</default>
         </entry>
-        <entry name="showLapSeconds" type="Bool">
+        <entry name="showLapSecondFractions" type="Bool">
                 <default>true</default>
         </entry>
-        <entry name="stopToLapSeconds" type="Bool">
-                <default>false</default>
-        </entry>
-        <entry name="showLapTenths" type="Bool">
-                <default>false</default>
-        </entry>
-        <entry name="showLapHundredths" type="Bool">
-                <default>true</default>
-        </entry>
-        <entry name="showLapMilliseconds" type="Bool">
-                <default>false</default>
+        <entry name="lapFractionsType" type="Enum">
+            <choices name="TimeFormat::FractionType"/>
+            <default>TimeFormat::UpToHundredths</default>
         </entry>
     </group>
 

@@ -2,3 +2,4 @@ File=kronometer.kcfg
 ClassName=KronometerConfig
 Singleton=true
 Mutators=true
+UseEnumTypes=true

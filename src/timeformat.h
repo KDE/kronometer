@@ -31,7 +31,7 @@ class QTime;
  * The QTime-syntax used is the following:
  * "hh:" whether to show hours (00 to 24)
  * "mm:" whether to show minutes (00 to 59)
- * "ss." whether to show seconds (00 to 59)
+ * "ss." whether to show seconds (00 to 59). Seconds are always showed.
  * "zzz" whether to show second fractions (tenths or hundredths or milliseconds)
  * An example of time formatted with the complete syntax might be the following: 0:05:38.582
  */
@@ -40,7 +40,15 @@ class TimeFormat
 
 public:
 
-    explicit TimeFormat(bool h = false, bool mm = true, bool ss = true, bool t = true, bool hundr = true, bool msec = false);
+    enum FractionType
+    {
+        UpToTenths,          /**< Second fraction is tenths of second. */
+        UpToHundredths,      /**< Second fraction is hundrdths of second. */
+        UpToMilliseconds,    /**< Second fraction is milliseconds. */
+        NoFractions          /**< Second fraction disabled. */
+    };
+
+    explicit TimeFormat(bool showHours = false, bool showMinutes = true, FractionType fractionType = UpToHundredths);
 
     /**
      * Format the given time with the current time format.
@@ -54,7 +62,7 @@ public:
      * @param time The time to be formatted.
      * @return The time's hours formatted as string, or empty string if hour is not in the format.
      */
-    QString formatHours(const QTime& time) const;
+    QString formatHour(const QTime& time) const;
 
     /**
      * Format the given time's minutes with the current time format.
@@ -90,12 +98,6 @@ public:
     bool isMinEnabled() const;
 
     /**
-     * Whether the second is in the time format.
-     * @return true if second is in the format, false otherwise.
-     */
-    bool isSecEnabled() const;
-
-    /**
      * Whether the second fraction is in the time format.
      * @return true if second fraction is in the format, false otherwise.
      */
@@ -127,23 +129,14 @@ public:
 
 private:
 
-    enum class SecFraction
-    {
-        NONE,           /**< Null second fraction. */
-        TENTH,          /**< Second fraction is tenths of second. */
-        HUNDREDTH,      /**< Second fraction is hundrdths of second. */
-        MILLISECOND     /**< Second fraction is milliseconds. */
-    };
+    bool m_showHours;             /** Whether hour is in the internal time format */
+    bool m_showMinutes;           /** Whether minute is in the internal time format */
+    bool m_showDividers;          /** Whether to show the symbols used as dividers */
 
-    bool m_hour;                  /** Whether hour is in the internal time format */
-    bool m_min;                   /** Whether minute is in the internal time format */
-    bool m_sec;                   /** Whether second is in the internal time format */
-    SecFraction m_secFraction;    /** Second fraction internal time format */
-
-    bool m_dividers;              /** Whether to show the symbols used as dividers */
     QString m_hourFormat;         /** Hour string format */
     QString m_minFormat;          /** Minute string format */
     QString m_secFormat;          /** Secondstring format */
+    FractionType m_fractionType;  /** Second fraction internal time format */
 
     /**
      * Setup the format strings based on the internal formats

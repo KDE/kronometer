@@ -9,7 +9,8 @@ set(kronometer_SRCS
     sessionmodel.cpp
     stopwatch.cpp
     timedisplay.cpp
-    timeformat.cpp)
+    timeformat.cpp
+    widgets/generalsettings.cpp)
 
 qt5_wrap_ui(kronometer_SRCS
     widgets/colorsettings.ui

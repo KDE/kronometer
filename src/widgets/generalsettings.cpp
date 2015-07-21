@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
+    Copyright (C) 2015 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
 
     This file is part of Kronometer.
 
@@ -17,22 +17,25 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef GENERALSETTINGS_H
-#define GENERALSETTINGS_H
+#include "generalsettings.h"
 
-#include "ui_generalsettings.h"
+#include <QCheckBox>
+#include <QComboBox>
 
-class GeneralSettings : public QWidget, public Ui::GeneralSettings
+GeneralSettings::GeneralSettings(QWidget *parent) : QWidget(parent)
 {
-    Q_OBJECT
+    setupUi(this);
 
-public:
-    explicit GeneralSettings(QWidget *parent = nullptr);
+    connect(kcfg_showSecondFractions, &QCheckBox::toggled, this, &GeneralSettings::showFractionsToggled);
+    connect(kcfg_showLapSecondFractions, &QCheckBox::toggled, this, &GeneralSettings::showLapFractionsToggled);
+}
 
-private slots:
+void GeneralSettings::showFractionsToggled(bool toggled)
+{
+    kcfg_fractionsType->setEnabled(toggled);
+}
 
-    void showFractionsToggled(bool toggled);
-    void showLapFractionsToggled(bool toggled);
-};
-
-#endif
+void GeneralSettings::showLapFractionsToggled(bool toggled)
+{
+    kcfg_lapFractionsType->setEnabled(toggled);
+}
