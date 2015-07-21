@@ -45,7 +45,7 @@ public:
 
     /**
      * Set the internal time format of the display
-     * @param format
+     * @param format The format to be used as time format.
      */
     void setTimeFormat(const TimeFormat& format);
 
@@ -105,6 +105,11 @@ public slots:
      */
     void slotTime(int time);
 
+    /**
+     * Reset the display to the default time format. The overriden format (if any) is lost.
+     */
+    void slotReset();
+
 private:
 
     static const int MSECS_PER_HOUR = 3600000;
@@ -130,7 +135,8 @@ private:
     QColor m_textColor;
 
     QTime m_displayTime;              /** Current display time */
-    TimeFormat m_timeFormat;          /** Current display time format */
+    TimeFormat m_currentFormat;       /** Current display time format. */
+    TimeFormat m_defaultFormat;       /** Default time format, to be restored on reset. */
 
     /**
      * Refresh the labels text implementing the display timer
@@ -141,6 +147,12 @@ private:
      * Refresh the minimum width of the frames, based on current font sizes
      */
     void updateWidth();
+
+    /**
+     * Helper function, called when setting and overriding the time format.
+     */
+    void updateTimeFormat();
+
 };
 
 #endif

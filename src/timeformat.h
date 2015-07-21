@@ -86,6 +86,16 @@ public:
     QString formatSecFrac(const QTime& time) const;
 
     /**
+     * Enable the hours in the time format.
+     */
+    void overrideHours();
+
+    /**
+     * Enable minutes in the time format.
+     */
+    void overrideMin();
+
+    /**
      * Whether the hour is in the time format.
      * @return true if hour is in the format, false otherwise.
      */
@@ -101,31 +111,21 @@ public:
      * Whether the second fraction is in the time format.
      * @return true if second fraction is in the format, false otherwise.
      */
-    bool isSecFracEnabled() const;
+    bool isFractionEnabled() const;
 
     /**
-     * Whether the second fractions in the time format is made by tenths of second.
-     * @return true if second fraction is tenths of second, false otherwise.
+     * @return The current FractionType in the time format.
      */
-    bool isTenthEnabled() const;
-
-    /**
-     * Whether the second fractions in the time format is made by hundredths of second.
-     * @return true if second fraction is hundredths of second, false otherwise.
-     */
-    bool isHundredthEnabled() const;
-
-    /**
-     * Whether the second fractions in the time format is made by milliseconds.
-     * @return true if second fraction is milliseconds, false otherwise.
-     */
-    bool isMSecEnabled() const;
+    FractionType secondFractions() const;
 
     /**
      * Whether to show the symbols ':' and '.' used as dividers in the time format.
      * @param show true Whether to show the dividers.
      */
     void showDividers(bool show);
+
+    bool operator==(const TimeFormat& right) const;
+    bool operator!=(const TimeFormat& right) const;
 
 private:
 

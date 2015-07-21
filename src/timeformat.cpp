@@ -82,6 +82,24 @@ QString TimeFormat::formatSecFrac(const QTime& time) const
     }
 }
 
+void TimeFormat::overrideHours()
+{
+    if (m_showHours)
+        return;
+
+    m_showHours = true;
+    setupFormat();
+}
+
+void TimeFormat::overrideMin()
+{
+    if (m_showMinutes)
+        return;
+
+    m_showMinutes = true;
+    setupFormat();
+}
+
 bool TimeFormat::isHourEnabled() const
 {
     return m_showHours;
@@ -92,30 +110,33 @@ bool TimeFormat::isMinEnabled() const
     return m_showMinutes;
 }
 
-bool TimeFormat::isSecFracEnabled() const
+bool TimeFormat::isFractionEnabled() const
 {
     return m_fractionType != NoFractions;
 }
 
-bool TimeFormat::isTenthEnabled() const
+TimeFormat::FractionType TimeFormat::secondFractions() const
 {
-    return m_fractionType == UpToTenths;
-}
-
-bool TimeFormat::isHundredthEnabled() const
-{
-    return m_fractionType == UpToHundredths;
-}
-
-bool TimeFormat::isMSecEnabled() const
-{
-    return m_fractionType == UpToMilliseconds;
+    return m_fractionType;
 }
 
 void TimeFormat::showDividers(bool show)
 {
     m_showDividers = show;
     setupFormat();
+}
+
+bool TimeFormat::operator==(const TimeFormat &right) const
+{
+    return m_showHours == right.m_showHours and
+            m_showMinutes == right.m_showMinutes and
+            m_fractionType == right.m_fractionType and
+            m_showDividers == right.m_showDividers;
+}
+
+bool TimeFormat::operator!=(const TimeFormat &right) const
+{
+    return not (*this == right);
 }
 
 void TimeFormat::setupFormat()

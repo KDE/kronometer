@@ -74,10 +74,14 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
     m_secDisplay = new DigitDisplay(m_secFrame);
     m_fracDisplay = new DigitDisplay(m_fracFrame);
 
-    m_hourDisplay->showDigits(m_timeFormat.formatHour(m_displayTime));
-    m_minDisplay->showDigits(m_timeFormat.formatMin(m_displayTime));
-    m_secDisplay->showDigits(m_timeFormat.formatSec(m_displayTime));
-    m_fracDisplay->showDigits(m_timeFormat.formatSecFrac(m_displayTime));
+    m_hourDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
+    m_minDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
+    m_secDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
+
+    m_hourDisplay->showDigits(m_currentFormat.formatHour(m_displayTime));
+    m_minDisplay->showDigits(m_currentFormat.formatMin(m_displayTime));
+    m_secDisplay->showDigits(m_currentFormat.formatSec(m_displayTime));
+    m_fracDisplay->showDigits(m_currentFormat.formatSecFrac(m_displayTime));
 
     hourLayout->addWidget(m_hourHeader);
     hourLayout->addWidget(m_hourDisplay);
@@ -101,32 +105,9 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
 
 void TimeDisplay::setTimeFormat(const TimeFormat& format)
 {
-    m_timeFormat = format;
-
-    m_hourFrame->setVisible(m_timeFormat.isHourEnabled());
-    m_minFrame->setVisible(m_timeFormat.isMinEnabled());
-    m_fracFrame->setVisible(m_timeFormat.isSecFracEnabled());
-
-    m_hourDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-    m_minDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-    m_secDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-
-    if (m_timeFormat.isSecFracEnabled()) {
-        if (m_timeFormat.isMSecEnabled()) {
-            m_fracHeader->setText(i18n("Milliseconds"));
-            m_fracDisplay->setDigitCounter(DigitDisplay::THREE_DIGITS);
-        }
-        else if (m_timeFormat.isHundredthEnabled()) {
-            m_fracHeader->setText(i18n("Hundredths"));
-            m_fracDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-        }
-        else if (m_timeFormat.isTenthEnabled()) {
-            m_fracHeader->setText(i18n("Tenths"));
-            m_fracDisplay->setDigitCounter(DigitDisplay::ONE_DIGIT);
-        }
-    }
-
-    updateTimer();
+    m_defaultFormat = format;
+    m_currentFormat = format;
+    updateTimeFormat();
 }
 
 void TimeDisplay::setHourFont(const QFont& font)
@@ -183,9 +164,9 @@ void TimeDisplay::showHeaders(bool show)
 
 QString TimeDisplay::currentTime()
 {
-    m_timeFormat.showDividers(true);
-    auto currentTime = m_timeFormat.format(m_displayTime);
-    m_timeFormat.showDividers(false);
+    m_currentFormat.showDividers(true);
+    auto currentTime = m_currentFormat.format(m_displayTime);
+    m_currentFormat.showDividers(false);
 
     return currentTime;
 }
@@ -200,20 +181,36 @@ void TimeDisplay::slotTime(int time)
     updateTimer();
 }
 
+void TimeDisplay::slotReset()
+{
+    if (m_currentFormat == m_defaultFormat)
+        return;
+
+    setTimeFormat(m_defaultFormat);
+}
+
 void TimeDisplay::updateTimer()
 {
-    if (m_timeFormat.isHourEnabled()) {
-        m_hourDisplay->showDigits(m_timeFormat.formatHour(m_displayTime));
+    if (m_currentFormat.isHourEnabled()) {
+        m_hourDisplay->showDigits(m_currentFormat.formatHour(m_displayTime));
+    }
+    else if (m_displayTime.hour() >= 1) {
+        m_currentFormat.overrideHours();
+        updateTimeFormat();
     }
 
-    if (m_timeFormat.isMinEnabled()) {
-        m_minDisplay->showDigits(m_timeFormat.formatMin(m_displayTime));
+    if (m_currentFormat.isMinEnabled()) {
+        m_minDisplay->showDigits(m_currentFormat.formatMin(m_displayTime));
+    }
+    else if (m_displayTime.minute() >= 1) {
+        m_currentFormat.overrideMin();
+        updateTimeFormat();
     }
 
-    m_secDisplay->showDigits(m_timeFormat.formatSec(m_displayTime));
+    m_secDisplay->showDigits(m_currentFormat.formatSec(m_displayTime));
 
-    if (m_timeFormat.isSecFracEnabled()) {
-        m_fracDisplay->showDigits(m_timeFormat.formatSecFrac(m_displayTime));
+    if (m_currentFormat.isFractionEnabled()) {
+        m_fracDisplay->showDigits(m_currentFormat.formatSecFrac(m_displayTime));
     }
 }
 
@@ -227,5 +224,33 @@ void TimeDisplay::updateWidth()
     m_minFrame->setMinimumWidth(width);
     m_secFrame->setMinimumWidth(width);
     m_fracFrame->setMinimumWidth(width);
+}
+
+void TimeDisplay::updateTimeFormat()
+{
+    m_hourFrame->setVisible(m_currentFormat.isHourEnabled());
+    m_minFrame->setVisible(m_currentFormat.isMinEnabled());
+    m_fracFrame->setVisible(m_currentFormat.isFractionEnabled());
+
+    if (m_currentFormat.isFractionEnabled()) {
+        switch (m_currentFormat.secondFractions()) {
+        case TimeFormat::UpToTenths:
+            m_fracHeader->setText(i18n("Tenths"));
+            m_fracDisplay->setDigitCounter(DigitDisplay::ONE_DIGIT);
+            break;
+        case TimeFormat::UpToHundredths:
+            m_fracHeader->setText(i18n("Hundredths"));
+            m_fracDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
+            break;
+        case TimeFormat::UpToMilliseconds:
+            m_fracHeader->setText(i18n("Milliseconds"));
+            m_fracDisplay->setDigitCounter(DigitDisplay::THREE_DIGITS);
+            break;
+        default:
+            break;
+        }
+    }
+
+    updateTimer();
 }
 

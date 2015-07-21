@@ -373,6 +373,9 @@ void MainWindow::setupActions()
     connect(m_resetAction, &QAction::triggered, this, &MainWindow::slotInactive);
     connect(m_lapAction, &QAction::triggered, this, &MainWindow::slotUpdateLapDock);
 
+    // triggers for TimeDisplay slots
+    connect(m_resetAction, &QAction::triggered, m_stopwatchDisplay, &TimeDisplay::slotReset);
+
     // File menu triggers
     KStandardAction::quit(this, SLOT(close()), actionCollection());
     KStandardAction::preferences(this, SLOT(slotShowSettings()), actionCollection());
