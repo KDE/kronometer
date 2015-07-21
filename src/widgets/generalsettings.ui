@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>399</width>
+    <width>407</width>
     <height>413</height>
    </rect>
   </property>
@@ -166,10 +166,10 @@
         </widget>
        </item>
        <item>
-        <widget class="QWidget" name="widget_2" native="true">
+        <widget class="QWidget" name="lapSettings" native="true">
          <layout class="QVBoxLayout" name="verticalLayout_3">
           <item>
-           <widget class="QGroupBox" name="lapTimesFormat">
+           <widget class="QGroupBox" name="groupBox">
             <property name="minimumSize">
              <size>
               <width>369</width>
@@ -273,6 +273,20 @@
               </widget>
              </item>
             </layout>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_showLapAbsoluteTimes">
+            <property name="text">
+             <string>Show absolute times</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QCheckBox" name="kcfg_showLapNotes">
+            <property name="text">
+             <string>Show notes</string>
+            </property>
            </widget>
           </item>
          </layout>

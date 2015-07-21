@@ -44,5 +44,5 @@ void GeneralSettings::showLapFractionsToggled(bool toggled)
 
 void GeneralSettings::enableLapsToggled(bool toggled)
 {
-    lapTimesFormat->setVisible(toggled);
+    lapSettings->setVisible(toggled);
 }

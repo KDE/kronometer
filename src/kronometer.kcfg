@@ -12,30 +12,42 @@
 
     <group name="General">
         <entry name="showHours" type="Bool">
-                <default>true</default>
+            <default>false</default>
         </entry>
         <entry name="showMinutes" type="Bool">
-                <default>true</default>
+            <default>true</default>
         </entry>
         <entry name="showSecondFractions" type="Bool">
-                <default>true</default>
+            <default>true</default>
         </entry>
         <entry name="fractionsType" type="Enum">
             <choices name="TimeFormat::FractionType"/>
             <default>TimeFormat::UpToHundredths</default>
         </entry>
+        <entry name="showTimeHeaders" type="Bool">
+            <default>true</default>
+        </entry>
+        <entry name="isLapsRecordingEnabled" type="Bool">
+            <default>true</default>
+        </entry>
         <entry name="showLapHours" type="Bool">
-                <default>true</default>
+            <default>false</default>
         </entry>
         <entry name="showLapMinutes" type="Bool">
-                <default>true</default>
+            <default>true</default>
         </entry>
         <entry name="showLapSecondFractions" type="Bool">
-                <default>true</default>
+            <default>true</default>
         </entry>
         <entry name="lapFractionsType" type="Enum">
             <choices name="TimeFormat::FractionType"/>
             <default>TimeFormat::UpToHundredths</default>
+        </entry>
+        <entry name="showLapAbsoluteTimes" type="Bool">
+            <default>false</default>
+        </entry>
+        <entry name="showLapNotes" type="Bool">
+            <default>true</default>
         </entry>
     </group>
 
@@ -70,16 +82,6 @@
                 defaultColor = schemeView.foreground().color();
             </code>
             <default code="true">defaultColor</default>
-        </entry>
-    </group>
-
-    <group name="Gui">
-        <entry name="showTimeHeaders" type="Bool">
-            <default>true</default>
-        </entry>
-
-        <entry name="isLapsRecordingEnabled" type="Bool">
-            <default>true</default>
         </entry>
     </group>
 

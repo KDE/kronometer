@@ -38,6 +38,14 @@ class LapModel : public QAbstractTableModel
 
 public:
 
+    enum LapTag
+    {
+        LapId = 0,           /**< Index of the lap-number column */
+        RelativeTime = 1,    /**< Index of the lap relative time column */
+        AbsoluteTime = 2,    /**< Index of the lap absolute time column */
+        Note = 3             /**< Index of the lap annotation column */
+    };
+
     explicit LapModel(QObject *parent = nullptr);
 
     int rowCount(const QModelIndex& parent) const Q_DECL_OVERRIDE;
@@ -88,14 +96,6 @@ public slots:
 private:
 
     static const int LAP_TAG_NUMBER = 4;    /** Number of tag/header in the model */
-
-    enum LapTag
-    {
-        LapId = 0,           /**< Index of the lap-number column */
-        RelativeTime = 1,    /**< Index of the lap relative time column */
-        AbsoluteTime = 2,    /**< Index of the lap absolute time column */
-        Note = 3             /**< Index of the lap annotation column */
-    };
 
     QList<Lap> m_lapList;              /** Lap times */
     TimeFormat m_timeFormat;          /** Current lap times format */
