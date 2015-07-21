@@ -35,6 +35,7 @@ private slots:
     void testDate();
     void testLaps();
     void testEquality();
+    void testInequality();
     void testJson();
 };
 

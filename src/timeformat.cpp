@@ -126,7 +126,7 @@ void TimeFormat::showDividers(bool show)
     setupFormat();
 }
 
-bool TimeFormat::operator==(const TimeFormat &right) const
+bool TimeFormat::operator==(const TimeFormat& right) const
 {
     return m_showHours == right.m_showHours and
             m_showMinutes == right.m_showMinutes and
@@ -134,7 +134,7 @@ bool TimeFormat::operator==(const TimeFormat &right) const
             m_showDividers == right.m_showDividers;
 }
 
-bool TimeFormat::operator!=(const TimeFormat &right) const
+bool TimeFormat::operator!=(const TimeFormat& right) const
 {
     return not (*this == right);
 }

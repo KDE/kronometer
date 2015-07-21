@@ -68,4 +68,44 @@ void TestTimeFormat::testNoDividers()
     QCOMPARE(timeFormat.format(t), QStringLiteral("000000"));
 }
 
+void TestTimeFormat::testEquality()
+{
+    TimeFormat timeFormat1;
+    TimeFormat timeFormat2;
+
+    QCOMPARE(timeFormat1, timeFormat2);
+}
+
+void TestTimeFormat::testInequality()
+{
+    TimeFormat timeFormat1;
+    TimeFormat timeFormat2(true, false);
+
+    QVERIFY(timeFormat1 != timeFormat2);
+}
+
+void TestTimeFormat::testOverrideHours()
+{
+    TimeFormat timeFormat(false, true, TimeFormat::NoFractions);
+    QTime t(0, 0);
+
+    QCOMPARE(timeFormat.format(t), QStringLiteral("00:00"));
+
+    timeFormat.overrideHours();
+
+    QCOMPARE(timeFormat.format(t), QStringLiteral("00:00:00"));
+}
+
+void TestTimeFormat::testOverrideMinutes()
+{
+    TimeFormat timeFormat(false, false, TimeFormat::UpToTenths);
+    QTime t(0, 0);
+
+    QCOMPARE(timeFormat.format(t), QStringLiteral("00.0"));
+
+    timeFormat.overrideMin();
+
+    QCOMPARE(timeFormat.format(t), QStringLiteral("00:00.0"));
+}
+
 QTEST_MAIN(TestTimeFormat)

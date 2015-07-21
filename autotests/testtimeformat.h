@@ -32,6 +32,10 @@ private slots:
     void testFullFormat();
     void testMinimalFormat();
     void testNoDividers();
+    void testEquality();
+    void testInequality();
+    void testOverrideHours();
+    void testOverrideMinutes();
 };
 
 #endif

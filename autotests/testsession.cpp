@@ -90,6 +90,15 @@ void TestSession::testEquality()
     QCOMPARE(session1, session2);
 }
 
+void TestSession::testInequality()
+{
+    Session session1(0, QDateTime::currentDateTime());
+    QTest::qSleep(100);
+    Session session2(0, QDateTime::currentDateTime());
+
+    QVERIFY(session1 != session2);
+}
+
 void TestSession::testJson()
 {
     auto date = QDateTime::currentDateTime();

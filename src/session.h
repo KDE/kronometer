@@ -126,6 +126,7 @@ public:
     static Session fromJson(const QJsonObject& json);
 
     bool operator==(const Session& right) const;
+    bool operator!=(const Session& right) const;
 
 private:
 

@@ -140,3 +140,8 @@ bool Session::operator==(const Session& right) const
     return m_date == right.m_date;
 }
 
+bool Session::operator!=(const Session& right) const
+{
+    return not (*this == right);
+}
+
