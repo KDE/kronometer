@@ -25,8 +25,8 @@
 Stopwatch::Stopwatch(QObject *parent) :
     QObject(parent),
     m_timerId(INACTIVE_TIMER_ID),
-    m_state(State::INACTIVE),
-    m_granularity(HUNDREDTHS)
+    m_state(State::Inactive),
+    m_granularity(Hundredths)
 {}
 
 void Stopwatch::setGranularity(Granularity g)
@@ -36,17 +36,17 @@ void Stopwatch::setGranularity(Granularity g)
 
 bool Stopwatch::isRunning() const
 {
-    return m_state == State::RUNNING;
+    return m_state == State::Running;
 }
 
 bool Stopwatch::isPaused() const
 {
-    return m_state == State::PAUSED;
+    return m_state == State::Paused;
 }
 
 bool Stopwatch::isInactive() const
 {
-    return m_state == State::INACTIVE;
+    return m_state == State::Inactive;
 }
 
 int Stopwatch::raw() const
@@ -56,12 +56,12 @@ int Stopwatch::raw() const
 
 bool Stopwatch::initialize(int rawData)
 {
-    if (m_state != State::INACTIVE or rawData <= 0) {
+    if (m_state != State::Inactive or rawData <= 0) {
         return false;
     }
 
     m_accumulator = rawData;
-    m_state = State::PAUSED;
+    m_state = State::Paused;
     emit time(m_accumulator);  // it signals that has been deserialized and can be resumed
 
     return true;
@@ -69,7 +69,7 @@ bool Stopwatch::initialize(int rawData)
 
 void Stopwatch::slotStart()
 {
-    if (m_state == State::INACTIVE) {
+    if (m_state == State::Inactive) {
         m_accumulator = 0;
         m_elapsedTimer.start();
 
@@ -77,12 +77,12 @@ void Stopwatch::slotStart()
             m_timerId = startTimer(m_granularity);
         }
     }
-    else if (m_state == State::PAUSED) {
+    else if (m_state == State::Paused) {
         m_elapsedTimer.restart();
         m_timerId = startTimer(m_granularity);
     }
 
-    m_state = State::RUNNING;
+    m_state = State::Running;
 }
 
 void Stopwatch::slotPause()
@@ -92,7 +92,7 @@ void Stopwatch::slotPause()
     }
 
     m_elapsedTimer.invalidate();
-    m_state = State::PAUSED;
+    m_state = State::Paused;
 }
 
 void Stopwatch::slotReset()
@@ -100,7 +100,7 @@ void Stopwatch::slotReset()
     m_elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
     emit time(0);
-    m_state = State::INACTIVE;
+    m_state = State::Inactive;
 }
 
 void Stopwatch::slotLap()

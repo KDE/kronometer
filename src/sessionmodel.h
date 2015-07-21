@@ -95,10 +95,10 @@ private:
 
     enum SessionTag
     {
-        NUMBER = 0,     /**< Index of the session-number column. */
-        NAME = 1,       /**< Index of the session name column. */
-        DATE = 2,       /**< Index of the session date column. */
-        NOTE = 3        /**< Index of the session annotation column. */
+        SessionId = 0,    /**< Index of the session-number column. */
+        Name = 1,         /**< Index of the session name column. */
+        Date = 2,         /**< Index of the session date column. */
+        Note = 3          /**< Index of the session annotation column. */
     };
 
     QList<Session> m_sessionList;    /** Sessions in the model. */

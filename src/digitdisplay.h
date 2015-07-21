@@ -42,13 +42,13 @@ public:
 
     enum DigitCounter
     {
-        ONE_DIGIT = 1,     /**< Display one digit */
-        TWO_DIGITS = 2,    /**< Display two digits */
-        THREE_DIGITS = 3,  /**< Display three digits */
-        NO_DIGIT           /**< Display no digit */
+        OneDigit = 1,     /**< Display one digit */
+        TwoDigits = 2,    /**< Display two digits */
+        ThreeDigits = 3,  /**< Display three digits */
+        NoDigit           /**< Display no digit */
     };
 
-    explicit DigitDisplay(QWidget *parent = nullptr, DigitCounter counter = NO_DIGIT);
+    explicit DigitDisplay(QWidget *parent = nullptr, DigitCounter counter = NoDigit);
 
     /**
      * Set the number of digits to be displayed.

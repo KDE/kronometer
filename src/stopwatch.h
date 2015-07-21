@@ -41,10 +41,10 @@ public:
 
     enum Granularity
     {
-        MILLISECONDS = 1, /**< Stopwatch refreshed every msec. */
-        HUNDREDTHS = 10,  /**< Stopwatch refreshed every 10 msec. */
-        TENTHS = 100,     /**< Stopwatch refreshed every 100 msec. */
-        SECONDS = 1000   /**< Stopwatch refreshed every sec. */
+        Milliseconds = 1, /**< Stopwatch refreshed every msec. */
+        Hundredths = 10,  /**< Stopwatch refreshed every 10 msec. */
+        Tenths = 100,     /**< Stopwatch refreshed every 100 msec. */
+        Seconds = 1000   /**< Stopwatch refreshed every sec. */
     };
 
     explicit Stopwatch(QObject *parent = nullptr);
@@ -133,9 +133,9 @@ private:
 
     enum class State
     {
-        INACTIVE, /**< Inactive stopwatch. */
-        RUNNING,  /**< Running stopwatch. */
-        PAUSED    /**< Paused stopwatch. */
+        Inactive, /**< Inactive stopwatch. */
+        Running,  /**< Running stopwatch. */
+        Paused    /**< Paused stopwatch. */
     };
 
     static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */

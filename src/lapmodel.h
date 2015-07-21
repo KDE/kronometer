@@ -91,10 +91,10 @@ private:
 
     enum LapTag
     {
-        NUMBER = 0,     /**< Index of the lap-number column */
-        REL_TIME = 1,   /**< Index of the lap relative time column */
-        ABS_TIME = 2,   /**< Index of the lap absolute time column */
-        NOTE = 3       /**< Index of the lap annotation column */
+        LapId = 0,           /**< Index of the lap-number column */
+        RelativeTime = 1,    /**< Index of the lap relative time column */
+        AbsoluteTime = 2,    /**< Index of the lap absolute time column */
+        Note = 3             /**< Index of the lap annotation column */
     };
 
     QList<Lap> m_lapList;              /** Lap times */

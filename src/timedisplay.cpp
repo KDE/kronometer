@@ -74,9 +74,9 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
     m_secDisplay = new DigitDisplay(m_secFrame);
     m_fracDisplay = new DigitDisplay(m_fracFrame);
 
-    m_hourDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-    m_minDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-    m_secDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
+    m_hourDisplay->setDigitCounter(DigitDisplay::TwoDigits);
+    m_minDisplay->setDigitCounter(DigitDisplay::TwoDigits);
+    m_secDisplay->setDigitCounter(DigitDisplay::TwoDigits);
 
     m_hourDisplay->showDigits(m_currentFormat.formatHour(m_displayTime));
     m_minDisplay->showDigits(m_currentFormat.formatMin(m_displayTime));
@@ -236,15 +236,15 @@ void TimeDisplay::updateTimeFormat()
         switch (m_currentFormat.secondFractions()) {
         case TimeFormat::UpToTenths:
             m_fracHeader->setText(i18n("Tenths"));
-            m_fracDisplay->setDigitCounter(DigitDisplay::ONE_DIGIT);
+            m_fracDisplay->setDigitCounter(DigitDisplay::OneDigit);
             break;
         case TimeFormat::UpToHundredths:
             m_fracHeader->setText(i18n("Hundredths"));
-            m_fracDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
+            m_fracDisplay->setDigitCounter(DigitDisplay::TwoDigits);
             break;
         case TimeFormat::UpToMilliseconds:
             m_fracHeader->setText(i18n("Milliseconds"));
-            m_fracDisplay->setDigitCounter(DigitDisplay::THREE_DIGITS);
+            m_fracDisplay->setDigitCounter(DigitDisplay::ThreeDigits);
             break;
         default:
             break;

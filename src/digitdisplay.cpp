@@ -43,19 +43,19 @@ DigitDisplay::DigitDisplay(QWidget *parent, DigitCounter counter) : QWidget(pare
 void DigitDisplay::setDigitCounter(DigitCounter counter)
 {
     switch (counter) {
-    case ONE_DIGIT:
+    case OneDigit:
         m_leftmostDigit->show();
         m_centerDigit->hide();
         m_rightmostDigit->hide();
         m_digitCounter = counter;
         break;
-    case TWO_DIGITS:
+    case TwoDigits:
         m_leftmostDigit->show();
         m_centerDigit->show();
         m_rightmostDigit->hide();
         m_digitCounter = counter;
         break;
-    case THREE_DIGITS:
+    case ThreeDigits:
         m_leftmostDigit->show();
         m_centerDigit->show();
         m_rightmostDigit->show();
@@ -65,7 +65,7 @@ void DigitDisplay::setDigitCounter(DigitCounter counter)
         m_leftmostDigit->hide();
         m_centerDigit->hide();
         m_rightmostDigit->hide();
-        m_digitCounter = NO_DIGIT;
+        m_digitCounter = NoDigit;
         break;
     }
 }
@@ -73,13 +73,13 @@ void DigitDisplay::setDigitCounter(DigitCounter counter)
 void DigitDisplay::showDigits(const QString& digits) const
 {
     switch (m_digitCounter) {
-    case ONE_DIGIT:
+    case OneDigit:
         showOneDigit(digits);
         break;
-    case TWO_DIGITS:
+    case TwoDigits:
         showTwoDigits(digits);
         break;
-    case THREE_DIGITS:
+    case ThreeDigits:
         showThreeDigits(digits);
         break;
     default:
@@ -102,13 +102,13 @@ int DigitDisplay::width() const
     QFontMetrics fontMetrics(m_displayFont);
 
     switch (m_digitCounter) {
-    case ONE_DIGIT:
+    case OneDigit:
         width = fontMetrics.width(m_leftmostDigit->text());
         break;
-    case TWO_DIGITS:
+    case TwoDigits:
         width = fontMetrics.width(m_leftmostDigit->text()) + fontMetrics.width(m_centerDigit->text());
         break;
-    case THREE_DIGITS:
+    case ThreeDigits:
         width = fontMetrics.width(m_leftmostDigit->text()) + fontMetrics.width(m_centerDigit->text()) + fontMetrics.width(m_rightmostDigit->text());
         break;
     default:

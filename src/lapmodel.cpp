@@ -53,16 +53,16 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         QVariant variant;
 
         switch (index.column()) {
-        case NUMBER:
+        case LapId:
             variant = QString::number(index.row());
             break;
-        case REL_TIME:
+        case RelativeTime:
             variant = m_lapList.at(index.row()).relativeTime();
             break;
-        case ABS_TIME:
+        case AbsoluteTime:
             variant = m_lapList.at(index.row()).absoluteTime();
             break;
-        case NOTE:
+        case Note:
             variant = m_lapList.at(index.row()).note();
             break;
         }
@@ -70,7 +70,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         return variant;
     }
 
-    else if (role == Qt::EditRole && index.column() == NOTE) {
+    else if (role == Qt::EditRole && index.column() == Note) {
         // prevent the disappear of the old value when double-clicking the item
         return m_lapList.at(index.row()).note();
     }
@@ -84,13 +84,13 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
         return QVariant::Invalid;
 
     switch (section) {
-    case NUMBER:
+    case LapId:
         return i18n("Lap #");
-    case REL_TIME:
+    case RelativeTime:
         return i18n("Lap time");
-    case ABS_TIME:
+    case AbsoluteTime:
         return i18n("Global time");
-    case NOTE:
+    case Note:
         return i18n("Note");
     default:
         return QVariant::Invalid;
@@ -100,7 +100,7 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
     if (index.isValid() and role == Qt::EditRole) {
-        if (index.column() == NOTE) {
+        if (index.column() == Note) {
             m_lapList[index.row()].setNote(value.toString());
             emit dataChanged(index, index);
 
@@ -116,7 +116,7 @@ Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
     if (not index.isValid())
         return Qt::ItemIsEnabled;
 
-    if (index.column() != NOTE)
+    if (index.column() != Note)
         return QAbstractTableModel::flags(index);
 
     return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;

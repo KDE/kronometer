@@ -419,19 +419,19 @@ void MainWindow::loadSettings()
 void MainWindow::setupGranularity()
 {
     if (not KronometerConfig::showSecondFractions()) {
-        m_stopwatch->setGranularity(Stopwatch::SECONDS);
+        m_stopwatch->setGranularity(Stopwatch::Seconds);
         return;
     }
 
     switch (KronometerConfig::fractionsType()) {
     case TimeFormat::UpToTenths:
-        m_stopwatch->setGranularity(Stopwatch::TENTHS);
+        m_stopwatch->setGranularity(Stopwatch::Tenths);
         break;
     case TimeFormat::UpToHundredths:
-        m_stopwatch->setGranularity(Stopwatch::HUNDREDTHS);
+        m_stopwatch->setGranularity(Stopwatch::Hundredths);
         break;
     case TimeFormat::UpToMilliseconds:
-        m_stopwatch->setGranularity(Stopwatch::MILLISECONDS);
+        m_stopwatch->setGranularity(Stopwatch::Milliseconds);
         break;
     default:
         break;

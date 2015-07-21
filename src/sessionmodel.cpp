@@ -69,29 +69,29 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
         QVariant variant;
 
         switch (index.column()) {
-        case NUMBER:
+        case SessionId:
             variant = QString::number(index.row());
             break;
-        case NAME:
+        case Name:
             variant = m_sessionList.at(index.row()).name();
             break;
 
-        case DATE:
+        case Date:
             variant = m_sessionList.at(index.row()).date();
             break;
             return QVariant::Invalid;
-        case NOTE:
+        case Note:
             variant = m_sessionList.at(index.row()).note();
             break;
         }
 
         return variant;
     }
-    else if (role == Qt::EditRole && index.column() == NAME) {
+    else if (role == Qt::EditRole && index.column() == Name) {
         // prevent the disappear of the old value when double-clicking the item
         return m_sessionList.at(index.row()).name();
     }
-    else if (role == Qt::EditRole && index.column() == NOTE) {
+    else if (role == Qt::EditRole && index.column() == Note) {
         return m_sessionList.at(index.row()).note();
     }
 
@@ -105,13 +105,13 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
         return QVariant::Invalid;
 
     switch (section) {
-    case NUMBER:
+    case SessionId:
         return i18n("Session #");
-    case NAME:
+    case Name:
         return i18n("Name");
-    case DATE:
+    case Date:
         return i18n("Date");
-    case NOTE:
+    case Note:
         return i18n("Note");
     default:
         return QVariant::Invalid;
@@ -121,7 +121,7 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
 bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
     if (index.isValid() and role == Qt::EditRole) {
-        if (index.column() == NAME) {
+        if (index.column() == Name) {
             if (value.toString().isEmpty())
                 return false;
 
@@ -130,7 +130,7 @@ bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int 
 
             return true;
         }
-        else if (index.column() == NOTE) {
+        else if (index.column() == Note) {
             m_sessionList[index.row()].setNote(value.toString());
             emit dataChanged(index, index);
 
@@ -146,7 +146,7 @@ Qt::ItemFlags SessionModel::flags(const QModelIndex& index) const
     if (not index.isValid())
         return Qt::ItemIsEnabled;
 
-    if (index.column() != NAME and index.column() != NOTE)
+    if (index.column() != Name and index.column() != Note)
         return QAbstractTableModel::flags(index);
 
     return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
@@ -200,7 +200,7 @@ bool SessionModel::isEmpty() const
 
 bool SessionModel::isEditable(const QModelIndex& index) const
 {
-    return index.column() == NAME || index.column() == NOTE;
+    return index.column() == Name || index.column() == Note;
 }
 
 void SessionModel::read(const QJsonObject& json)
