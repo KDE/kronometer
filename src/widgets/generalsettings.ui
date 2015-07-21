@@ -83,7 +83,7 @@
              <item>
               <widget class="QCheckBox" name="kcfg_showSecondFractions">
                <property name="toolTip">
-                <string>Whether to show seconds in the stopwatch</string>
+                <string>Whether to show second fractions in the stopwatch</string>
                </property>
                <property name="text">
                 <string>Show second fractions:</string>
@@ -133,6 +133,9 @@
        </item>
        <item>
         <widget class="QCheckBox" name="kcfg_showTimeHeaders">
+         <property name="toolTip">
+          <string>Whether to show the descriptive headers on top of the stopwatch display</string>
+         </property>
          <property name="text">
           <string>Show time headers in the display</string>
          </property>
@@ -160,6 +163,9 @@
       <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
         <widget class="QCheckBox" name="kcfg_isLapsRecordingEnabled">
+         <property name="toolTip">
+          <string>Whether to enable the laps recording feature</string>
+         </property>
          <property name="text">
           <string>Enable laps recording</string>
          </property>
@@ -227,7 +233,7 @@
                 <item>
                  <widget class="QCheckBox" name="kcfg_showLapSecondFractions">
                   <property name="toolTip">
-                   <string>Whether to show seconds in the laps</string>
+                   <string>Whether to show second fractions in the laps</string>
                   </property>
                   <property name="text">
                    <string>Show second fractions:</string>
