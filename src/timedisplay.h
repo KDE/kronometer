@@ -53,25 +53,25 @@ public:
      * Set a custom font for hours
      * @param font The custom font to set.
      */
-    void setHourFont(const QFont& font);
+    void setHoursFont(const QFont& font);
 
     /**
      * Set a custom font for minutes
      * @param font The custom font to set.
      */
-    void setMinFont(const QFont& font);
+    void setMinutesFont(const QFont& font);
 
     /**
      * Set a custom font for seconds
      * @param font The custom font to set.
      */
-    void setSecFont(const QFont& font);
+    void setSecondsFont(const QFont& font);
 
     /**
      * Set a custom font for second fractions
      * @param font The custom font to set.
      */
-    void setFracFont(const QFont& font);
+    void setFractionsFont(const QFont& font);
 
     /**
      * Set a custom color for display background.

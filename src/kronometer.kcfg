@@ -21,7 +21,7 @@
             <default>true</default>
         </entry>
         <entry name="fractionsType" type="Enum">
-            <choices name="TimeFormat::FractionType"/>
+            <choices name="TimeFormat::SecondFraction"/>
             <default>TimeFormat::UpToHundredths</default>
         </entry>
         <entry name="showTimeHeaders" type="Bool">
@@ -36,11 +36,11 @@
         <entry name="showLapMinutes" type="Bool">
             <default>true</default>
         </entry>
-        <entry name="showLapSecondFractions" type="Bool">
+        <entry name="showLapSecondFraction" type="Bool">
             <default>true</default>
         </entry>
         <entry name="lapFractionsType" type="Enum">
-            <choices name="TimeFormat::FractionType"/>
+            <choices name="TimeFormat::SecondFraction"/>
             <default>TimeFormat::UpToHundredths</default>
         </entry>
         <entry name="showLapAbsoluteTimes" type="Bool">

@@ -30,7 +30,6 @@ void TestLap::testDefaultLap()
     QCOMPARE(lap.raw(), 0);
     QVERIFY(lap.relativeTime().isEmpty());
     QVERIFY(lap.absoluteTime().isEmpty());
-    QVERIFY(not lap.hasNote());
 }
 
 void TestLap::testLapTime()
@@ -69,7 +68,6 @@ void TestLap::testNote()
     lap.setNote(test);
 
     QCOMPARE(lap.note(), test);
-    QVERIFY(lap.hasNote());
 }
 
 void TestLap::testRawData()

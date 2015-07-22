@@ -407,10 +407,10 @@ void MainWindow::loadSettings()
     m_lapModel->setTimeFormat(lapTimeFormat);
     timeFormat.showDividers(false);
     m_stopwatchDisplay->setTimeFormat(timeFormat);
-    m_stopwatchDisplay->setHourFont(KronometerConfig::hourFont());
-    m_stopwatchDisplay->setMinFont(KronometerConfig::minFont());
-    m_stopwatchDisplay->setSecFont(KronometerConfig::secFont());
-    m_stopwatchDisplay->setFracFont(KronometerConfig::fracFont());
+    m_stopwatchDisplay->setHoursFont(KronometerConfig::hourFont());
+    m_stopwatchDisplay->setMinutesFont(KronometerConfig::minFont());
+    m_stopwatchDisplay->setSecondsFont(KronometerConfig::secFont());
+    m_stopwatchDisplay->setFractionsFont(KronometerConfig::fracFont());
     m_stopwatchDisplay->setBackgroundColor(KronometerConfig::backgroundColor());
     m_stopwatchDisplay->setTextColor(KronometerConfig::textColor());
     m_stopwatchDisplay->showHeaders(KronometerConfig::showTimeHeaders());

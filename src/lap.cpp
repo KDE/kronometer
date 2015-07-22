@@ -68,11 +68,6 @@ QString Lap::note() const
     return m_note;
 }
 
-bool Lap::hasNote() const
-{
-    return not m_note.isEmpty();
-}
-
 int Lap::raw() const
 {
     QTime zero(0, 0);

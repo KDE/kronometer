@@ -29,9 +29,9 @@ void TestTimeFormat::testDefaultFormat()
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00:00.00"));
     QCOMPARE(timeFormat.secondFractions(), TimeFormat::UpToHundredths);
-    QVERIFY(not timeFormat.isHourEnabled());
-    QVERIFY(timeFormat.isMinEnabled());
-    QVERIFY(timeFormat.isFractionEnabled());
+    QVERIFY(not timeFormat.hasHours());
+    QVERIFY(timeFormat.hasMinutes());
+    QVERIFY(timeFormat.hasFractions());
 }
 
 void TestTimeFormat::testFullFormat()
@@ -41,9 +41,9 @@ void TestTimeFormat::testFullFormat()
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00:00:00.000"));
     QCOMPARE(timeFormat.secondFractions(), TimeFormat::UpToMilliseconds);
-    QVERIFY(timeFormat.isHourEnabled());
-    QVERIFY(timeFormat.isMinEnabled());
-    QVERIFY(timeFormat.isFractionEnabled());
+    QVERIFY(timeFormat.hasHours());
+    QVERIFY(timeFormat.hasMinutes());
+    QVERIFY(timeFormat.hasFractions());
 }
 
 void TestTimeFormat::testMinimalFormat()
@@ -53,9 +53,9 @@ void TestTimeFormat::testMinimalFormat()
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00"));
     QCOMPARE(timeFormat.secondFractions(), TimeFormat::NoFractions);
-    QVERIFY(not timeFormat.isHourEnabled());
-    QVERIFY(not timeFormat.isMinEnabled());
-    QVERIFY(not timeFormat.isFractionEnabled());
+    QVERIFY(not timeFormat.hasHours());
+    QVERIFY(not timeFormat.hasMinutes());
+    QVERIFY(not timeFormat.hasFractions());
 }
 
 void TestTimeFormat::testNoDividers()
@@ -103,7 +103,7 @@ void TestTimeFormat::testOverrideMinutes()
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00.0"));
 
-    timeFormat.overrideMin();
+    timeFormat.overrideMinutes();
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00:00.0"));
 }

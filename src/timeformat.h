@@ -40,7 +40,7 @@ class TimeFormat
 
 public:
 
-    enum FractionType
+    enum SecondFraction
     {
         UpToTenths,          /**< Second fraction is tenths of second. */
         UpToHundredths,      /**< Second fraction is hundrdths of second. */
@@ -48,7 +48,7 @@ public:
         NoFractions          /**< Second fraction disabled. */
     };
 
-    explicit TimeFormat(bool showHours = false, bool showMinutes = true, FractionType fractionType = UpToHundredths);
+    explicit TimeFormat(bool showHours = false, bool showMinutes = true, SecondFraction fractions = UpToHundredths);
 
     /**
      * Format the given time with the current time format.
@@ -62,28 +62,28 @@ public:
      * @param time The time to be formatted.
      * @return The time's hours formatted as string, or empty string if hour is not in the format.
      */
-    QString formatHour(const QTime& time) const;
+    QString formatHours(const QTime& time) const;
 
     /**
      * Format the given time's minutes with the current time format.
      * @param time The time to be formatted.
      * @return The time's minutes formatted as string, or empty string if minute is not in the format.
      */
-    QString formatMin(const QTime& time) const;
+    QString formatMinutes(const QTime& time) const;
 
     /**
      * Format the given time's seconds with the current time format.
      * @param time The time to be formatted.
      * @return The time's seconds formatted as string, or empty string if second is not in the format.
      */
-    QString formatSec(const QTime& time) const;
+    QString formatSeconds(const QTime& time) const;
 
     /**
      * Format the given time's second fractions with the current time format.
      * @param time The time to be formatted.
      * @return The time's second fractions formatted as string, or empty string if second fraction is not in the format.
      */
-    QString formatSecFrac(const QTime& time) const;
+    QString formatFractions(const QTime& time) const;
 
     /**
      * Enable the hours in the time format.
@@ -93,30 +93,30 @@ public:
     /**
      * Enable minutes in the time format.
      */
-    void overrideMin();
+    void overrideMinutes();
 
     /**
      * Whether the hour is in the time format.
      * @return true if hour is in the format, false otherwise.
      */
-    bool isHourEnabled() const;
+    bool hasHours() const;
 
     /**
      * Whether the minute is in the time format.
      * @return true if minute is in the format, false otherwise.
      */
-    bool isMinEnabled() const;
+    bool hasMinutes() const;
 
     /**
      * Whether the second fraction is in the time format.
      * @return true if second fraction is in the format, false otherwise.
      */
-    bool isFractionEnabled() const;
+    bool hasFractions() const;
 
     /**
      * @return The current FractionType in the time format.
      */
-    FractionType secondFractions() const;
+    SecondFraction secondFractions() const;
 
     /**
      * Whether to show the symbols ':' and '.' used as dividers in the time format.
@@ -136,7 +136,7 @@ private:
     QString m_hourFormat;         /** Hour string format */
     QString m_minFormat;          /** Minute string format */
     QString m_secFormat;          /** Secondstring format */
-    FractionType m_fractionType;  /** Second fraction internal time format */
+    SecondFraction m_fractions;  /** Second fraction internal time format */
 
     /**
      * Setup the format strings based on the internal formats

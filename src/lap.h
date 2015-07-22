@@ -86,12 +86,6 @@ public:
     QString note() const;
 
     /**
-     * Whether the lap has an annotation
-     * @return True if there is a note, false otherwise
-     */
-    bool hasNote() const;
-
-    /**
      * The underlying lap's raw data
      * @return Lap's raw data counter
      */
