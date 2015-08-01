@@ -55,6 +55,8 @@ int main (int argc, char **argv)
 
     KAboutData::setApplicationData(aboutData);
 
+    KLocalizedString::setApplicationDomain("kronometer");
+
     QApplication app(argc, argv);
     app.setApplicationName(aboutData.componentName());
     app.setApplicationDisplayName(aboutData.displayName());

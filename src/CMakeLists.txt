@@ -12,7 +12,7 @@ set(kronometer_SRCS
     timeformat.cpp
     widgets/generalsettings.cpp)
 
-qt5_wrap_ui(kronometer_SRCS
+ki18n_wrap_ui(kronometer_SRCS
     widgets/colorsettings.ui
     widgets/fontsettings.ui
     widgets/generalsettings.ui)
