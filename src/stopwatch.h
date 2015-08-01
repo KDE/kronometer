@@ -141,7 +141,7 @@ private:
     static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
 
     int m_timerId;                              /** ID for the QObject timer */
-    int m_accumulator;                       /** milliseconds internal counter */
+    int m_accumulator;                          /** milliseconds internal counter */
     State m_state;                              /** Stopwatch current state */
     Granularity m_granularity;                  /** Stopwatch current granularity */
 

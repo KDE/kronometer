@@ -91,8 +91,17 @@ public:
      */
     int raw() const;
 
+    /**
+     * Serialize the lap on the given JSON object.
+     * @param json A JSON object.
+     */
     void write(QJsonObject& json) const;
 
+    /**
+     * Deserialize a lap from the given JSON object.
+     * @param json A JSON object.
+     * @return A deserialized lap.
+     */
     static Lap fromJson(const QJsonObject& json);
 
     /**
@@ -104,10 +113,10 @@ public:
 
 private:
 
-    QTime m_time;      /**  The specific lap time */
+    QTime m_time;              /** The specific lap time */
     QString m_relativeTime;    /** String representation of the relative lap time, i.e. compared to another lap */
     QString m_absoluteTime;    /** String representation of the specific (absolute) lap time */
-    QString m_note;    /** Custom lap annotation */
+    QString m_note;            /** Custom lap annotation */
 };
 
 #endif

@@ -136,7 +136,7 @@ private:
     QString m_hourFormat;         /** Hour string format */
     QString m_minFormat;          /** Minute string format */
     QString m_secFormat;          /** Secondstring format */
-    SecondFraction m_fractions;  /** Second fraction internal time format */
+    SecondFraction m_fractions;   /** Second fraction internal time format */
 
     /**
      * Setup the format strings based on the internal formats
