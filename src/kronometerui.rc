@@ -81,8 +81,8 @@
         </disable>
     </State>
 
-    <!-- There is an opened/saved file that has been modified and then paused -->
-    <State name="pausedFile" >
+    <!-- There is a session that has been modified and then paused -->
+    <State name="pausedSession" >
         <enable>
             <Action name="start" />
             <Action name="reset" />

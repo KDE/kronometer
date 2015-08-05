@@ -17,45 +17,61 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <KApplication>
-#include <KAboutData>
-#include <KCmdLineArgs>
-#include <KIcon>
-
 #include "mainwindow.h"
 
-namespace
-{
-    const QByteArray APP_NAME = "kronometer";
-    const QByteArray VERSION = "1.6.0";
-    const QByteArray OTHER_TEXT = "";
-    const QByteArray HOME_PAGE_ADDRESS = "http://aelog.org/kronometer";
+#include <KAboutData>
+#include <KLocalizedString>
 
-    const QByteArray AUTHOR_EMAIL_ADDRESS = "elvis.angelaccio@kdemail.net";
-    const QByteArray AUTHOR_WEB_ADDRESS = "http://aelog.org";
-}
+#include <QApplication>
+#include <QDir>
+#include <QFileInfo>
+#include <QStandardPaths>
 
 int main (int argc, char **argv)
 {
     KAboutData aboutData(
-        APP_NAME, APP_NAME,
-        ki18n("Kronometer"),
-        VERSION,
-        ki18n("Kronometer is a simple chronometer application built for KDE"),
-        KAboutData::License_GPL,
-        ki18n("Copyright (C) 2014 Elvis Angelaccio"),
-        ki18n(OTHER_TEXT),
-        HOME_PAGE_ADDRESS
+        QStringLiteral("kronometer"),   // componentName
+        i18n("Kronometer"), // displayName
+        QStringLiteral("2.0.0"),    // version
+        i18n("Kronometer is a simple stopwatch application built for KDE"), // shortDescription
+        KAboutLicense::GPL_V2,    // licenseType
+        i18n("Copyright (C) 2014 Elvis Angelaccio"),    // copyrightStatement
+        QString(),  // otherText
+        QStringLiteral("http://aelog.org/kronometer")   // homePageAddress
     );
 
-    aboutData.addAuthor(ki18n("Elvis Angelaccio"), ki18n("Developer"), AUTHOR_EMAIL_ADDRESS, AUTHOR_WEB_ADDRESS);
+    aboutData.addAuthor(
+        i18n("Elvis Angelaccio"),
+        i18n("Developer"),
+        QStringLiteral("elvis.angelaccio@kdemail.net"),
+        QStringLiteral("http://aelog.org")
+    );
 
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    aboutData.addCredit(
+        i18n("Ken Vermette"),
+        i18n("Kronometer icon"),
+        QStringLiteral("vermette@gmail.com")
+    );
 
-    KApplication app;
+    KAboutData::setApplicationData(aboutData);
 
-    MainWindow* window = new MainWindow();
-    window->setWindowIcon(KIcon("kronometer"));
+    KLocalizedString::setApplicationDomain("kronometer");
+
+    QApplication app(argc, argv);
+    app.setApplicationName(aboutData.componentName());
+    app.setApplicationDisplayName(aboutData.displayName());
+    app.setOrganizationDomain(aboutData.organizationDomain());
+    app.setApplicationVersion(aboutData.version());
+    app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kronometer")));
+
+    // Make sure that the local data directory is available.
+    QFileInfo appdata(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation));
+    if (not appdata.exists()) {
+        QDir dir(appdata.absolutePath());
+        dir.mkdir(appdata.fileName());
+    }
+
+    auto window = new MainWindow();
     window->show();
 
     return app.exec();

@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
+    Copyright (C) 2015 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
 
     This file is part of Kronometer.
 
@@ -17,19 +17,26 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef SAVESETTINGS_H
-#define SAVESETTINGS_H
+#ifndef TESTSESSION_H
+#define TESTSESSION_H
 
-#include "ui_savesettings.h"
+#include <QtTest>
 
-class SaveSettings : public QWidget, public Ui::SaveSettings
+class TestSession : public QObject
 {
+    Q_OBJECT
 
-public:
-    explicit SaveSettings(QWidget *parent) : QWidget(parent)
-    {
-        setupUi(this);
-    }
+private slots:
+
+    void testDefaultSession();
+    void testTime();
+    void testName();
+    void testNote();
+    void testDate();
+    void testLaps();
+    void testEquality();
+    void testInequality();
+    void testJson();
 };
 
 #endif

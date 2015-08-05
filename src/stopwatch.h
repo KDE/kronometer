@@ -20,9 +20,9 @@
 #ifndef STOPWATCH_H
 #define STOPWATCH_H
 
+#include <QElapsedTimer>
 #include <QObject>
 #include <QTime>
-#include <QElapsedTimer>
 
 class QTimerEvent;
 
@@ -41,10 +41,10 @@ public:
 
     enum Granularity
     {
-        MILLISECONDS = 1, /**< Stopwatch refreshed every msec. */
-        HUNDREDTHS = 10,  /**< Stopwatch refreshed every 10 msec. */
-        TENTHS = 100,     /**< Stopwatch refreshed every 100 msec. */
-        SECONDS = 1000   /**< Stopwatch refreshed every sec. */
+        Milliseconds = 1, /**< Stopwatch refreshed every msec. */
+        Hundredths = 10,  /**< Stopwatch refreshed every 10 msec. */
+        Tenths = 100,     /**< Stopwatch refreshed every 100 msec. */
+        Seconds = 1000   /**< Stopwatch refreshed every sec. */
     };
 
     explicit Stopwatch(QObject *parent = nullptr);
@@ -77,7 +77,7 @@ public:
      * Read-only access to the stopwatch underlying data
      * @return The stopwatch raw counter
      */
-    qint64 raw() const;
+    int raw() const;
 
     /**
      * (Re)-initialize (deserialize) the stopwatch from the given raw data counter.
@@ -85,29 +85,29 @@ public:
      * @param rawData The raw milliseconds counter for the stopwatch
      * @return true if the operation succeeds (i.e. the stopwatch was inactive), false otherwise
      */
-    bool initialize(qint64 rawData);
+    bool initialize(int rawData);
 
 public slots:
 
     /**
      * Start the stopwatch, if inactive or paused.
      */
-    void onStart();
+    void slotStart();
 
     /**
      * Pause the stopwatch, if running.
      */
-    void onPause();
+    void slotPause();
 
     /**
      * Reset the stopwatch to the inactive state.
      */
-    void onReset();
+    void slotReset();
 
     /**
      * Tells the stopwatch to emits a signal with the last lap time.
      */
-    void onLap();
+    void slotLap();
 
 signals:
 
@@ -123,30 +123,29 @@ signals:
      * Emits a signal with the current stopwatch time.
      * @param t Current stopwatch time.
      */
-    void time(const QTime& t);
+    void time(int t);
 
 protected:
 
-    void timerEvent(QTimerEvent *event);
+    void timerEvent(QTimerEvent *event) Q_DECL_OVERRIDE;
 
 private:
 
     enum class State
     {
-        INACTIVE, /**< Inactive stopwatch. */
-        RUNNING,  /**< Running stopwatch. */
-        PAUSED    /**< Paused stopwatch. */
+        Inactive, /**< Inactive stopwatch. */
+        Running,  /**< Running stopwatch. */
+        Paused    /**< Paused stopwatch. */
     };
-	
+
     static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
 
-    int timerId;                                /** ID for the QObject timer */
-    qint64 accumulator;                         /** milliseconds internal counter */
-    State state;                                /** Stopwatch current state */
-    Granularity granularity;                    /** Stopwatch current granularity */
+    int m_timerId;                              /** ID for the QObject timer */
+    int m_accumulator;                          /** milliseconds internal counter */
+    State m_state;                              /** Stopwatch current state */
+    Granularity m_granularity;                  /** Stopwatch current granularity */
 
-    const QTime zero;                           /** Empty time to be used to add elapsed milliseconds */
-    QElapsedTimer elapsedTimer;                 /** Stopwatch core class*/
+    QElapsedTimer m_elapsedTimer;               /** Stopwatch core class*/
 };
 
 

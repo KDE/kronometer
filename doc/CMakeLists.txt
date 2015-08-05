@@ -1,7 +1,9 @@
-# Create and install documentation (handbook)
+# Create and install documentation files
 
-kde4_create_handbook(
-    index.docbook
+kdoctools_create_handbook(index.docbook
     INSTALL_DESTINATION ${HTML_INSTALL_DIR}/en
-    SUBDIR kronometer
-)
+    SUBDIR kronometer)
+kdoctools_create_manpage(man-kronometer.1.docbook
+    1
+    INSTALL_DESTINATION
+    ${MAN_INSTALL_DIR})

@@ -22,7 +22,6 @@
 
 #include <QWidget>
 
-class QHBoxLayout;
 class QLabel;
 
 /**
@@ -37,18 +36,19 @@ class QLabel;
  */
 class DigitDisplay : public QWidget
 {
+    Q_OBJECT
 
 public:
 
     enum DigitCounter
     {
-        ONE_DIGIT = 1,     /**< Display one digit */
-        TWO_DIGITS = 2,    /**< Display two digits */
-        THREE_DIGITS = 3,  /**< Display three digits */
-        NO_DIGIT           /**< Display no digit */
+        OneDigit = 1,     /**< Display one digit */
+        TwoDigits = 2,    /**< Display two digits */
+        ThreeDigits = 3,  /**< Display three digits */
+        NoDigit           /**< Display no digit */
     };
 
-    explicit DigitDisplay(QWidget *parent = nullptr, DigitCounter counter = NO_DIGIT);
+    explicit DigitDisplay(QWidget *parent = nullptr, DigitCounter counter = NoDigit);
 
     /**
      * Set the number of digits to be displayed.
@@ -78,14 +78,12 @@ public:
 
 private:
 
-    QHBoxLayout *layout;
+    QLabel *m_leftmostDigit;
+    QLabel *m_centerDigit;
+    QLabel *m_rightmostDigit;
 
-    QLabel *leftmostDigit;
-    QLabel *centerDigit;
-    QLabel *rightmostDigit;
-
-    QFont displayFont;
-    DigitCounter digitCounter;
+    QFont m_displayFont;
+    DigitCounter m_digitCounter;
 
     /**
      * Helper function to display a single digit.

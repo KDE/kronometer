@@ -20,10 +20,10 @@
 #ifndef LAPMODEL_H
 #define LAPMODEL_H
 
-#include <QAbstractTableModel>
-
 #include "lap.h"
 #include "timeformat.h"
+
+#include <QAbstractTableModel>
 
 class QTime;
 
@@ -38,14 +38,22 @@ class LapModel : public QAbstractTableModel
 
 public:
 
+    enum LapTag
+    {
+        LapId = 0,           /**< Index of the lap-number column */
+        RelativeTime = 1,    /**< Index of the lap relative time column */
+        AbsoluteTime = 2,    /**< Index of the lap absolute time column */
+        Note = 3             /**< Index of the lap annotation column */
+    };
+
     explicit LapModel(QObject *parent = nullptr);
 
-    int rowCount(const QModelIndex& parent) const;
-    int columnCount(const QModelIndex& parent) const;
-    QVariant data(const QModelIndex& index, int role) const;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const;
-    bool setData(const QModelIndex& index, const QVariant& value, int role);
-    Qt::ItemFlags flags(const QModelIndex &index) const;
+    int rowCount(const QModelIndex& parent) const Q_DECL_OVERRIDE;
+    int columnCount(const QModelIndex& parent) const Q_DECL_OVERRIDE;
+    QVariant data(const QModelIndex& index, int role) const Q_DECL_OVERRIDE;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const Q_DECL_OVERRIDE;
+    bool setData(const QModelIndex& index, const QVariant& value, int role) Q_DECL_OVERRIDE;
+    Qt::ItemFlags flags(const QModelIndex& index) const Q_DECL_OVERRIDE;
 
     /**
      * Update the lap times format used by the model.
@@ -72,33 +80,25 @@ public:
      */
     bool isEmpty() const;
 
-public slots:	
+public slots:
 
     /**
      * Add a new absolute lap time to the model.
      * @param lapTime The absolute time of the new lap.
      */
-    void onLap(const QTime& lapTime);
+    void slotLap(const QTime& lapTime);
 
     /**
      * Clear all the model data
      */
-    void onClear();
+    void slotClear();
 
 private:
 
     static const int LAP_TAG_NUMBER = 4;    /** Number of tag/header in the model */
 
-    enum LapTag
-    {
-        NUMBER = 0,     /**< Index of the lap-number column */
-        REL_TIME = 1,   /**< Index of the lap relative time column */
-        ABS_TIME = 2,   /**< Index of the lap absolute time column */
-        NOTE = 3       /**< Index of the lap annotation column */
-    };
-
-    QList<Lap> lapList;              /** Lap times */
-    TimeFormat timeFormat;          /** Current lap times format */
+    QList<Lap> m_lapList;             /** Lap times */
+    TimeFormat m_timeFormat;          /** Current lap times format */
 
     /**
      *  Reload the model data.

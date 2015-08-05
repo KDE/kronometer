@@ -20,16 +20,15 @@
 #ifndef TIMEDISPLAY_H
 #define TIMEDISPLAY_H
 
-#include <QWidget>
-#include <QTime>
+#include "timeformat.h"
 
-class QHBoxLayout;
-class QVBoxLayout;
-class QFrame;
-class QLabel;
+#include <QTime>
+#include <QWidget>
+
 class DigitDisplay;
 
-#include "timeformat.h"
+class QFrame;
+class QLabel;
 
 /**
  * @brief A custom widget displaying a QTime
@@ -46,7 +45,7 @@ public:
 
     /**
      * Set the internal time format of the display
-     * @param format
+     * @param format The format to be used as time format.
      */
     void setTimeFormat(const TimeFormat& format);
 
@@ -54,25 +53,25 @@ public:
      * Set a custom font for hours
      * @param font The custom font to set.
      */
-    void setHourFont(const QFont& font);
+    void setHoursFont(const QFont& font);
 
     /**
      * Set a custom font for minutes
      * @param font The custom font to set.
      */
-    void setMinFont(const QFont& font);
+    void setMinutesFont(const QFont& font);
 
     /**
      * Set a custom font for seconds
      * @param font The custom font to set.
      */
-    void setSecFont(const QFont& font);
+    void setSecondsFont(const QFont& font);
 
     /**
      * Set a custom font for second fractions
      * @param font The custom font to set.
      */
-    void setFracFont(const QFont& font);
+    void setFractionsFont(const QFont& font);
 
     /**
      * Set a custom color for display background.
@@ -102,37 +101,42 @@ public slots:
 
     /**
      * Set the time to be displayed.
-     * @param t The time to be displayed.
+     * @param time The time to be displayed.
      */
-    void onTime(const QTime& t);
+    void slotTime(int time);
+
+    /**
+     * Reset the display to the default time format. The overriden format (if any) is lost.
+     */
+    void slotReset();
 
 private:
 
-    QHBoxLayout *displayLayout;
-    QVBoxLayout *hourLayout;
-    QVBoxLayout *minLayout;
-    QVBoxLayout *secLayout;
-    QVBoxLayout *fracLayout;
+    static const int MSECS_PER_HOUR = 3600000;
+    static const int MSECS_PER_MIN = 60000;
+    static const int MSECS_PER_SEC = 1000;
+    static const int SECS_PER_MIN = 60;
 
-    QFrame *hourFrame;
-    QFrame *minFrame;
-    QFrame *secFrame;
-    QFrame *fracFrame;
+    QFrame *m_hourFrame;
+    QFrame *m_minFrame;
+    QFrame *m_secFrame;
+    QFrame *m_fracFrame;
 
-    QLabel *hourHeader;
-    QLabel *minHeader;
-    QLabel *secHeader;
-    QLabel *fracHeader;
-    DigitDisplay *hourDisplay;
-    DigitDisplay *minDisplay;
-    DigitDisplay *secDisplay;
-    DigitDisplay *fracDisplay;
+    QLabel *m_hourHeader;
+    QLabel *m_minHeader;
+    QLabel *m_secHeader;
+    QLabel *m_fracHeader;
+    DigitDisplay *m_hourDisplay;
+    DigitDisplay *m_minDisplay;
+    DigitDisplay *m_secDisplay;
+    DigitDisplay *m_fracDisplay;
 
-    QColor backgroundColor;
-    QColor textColor;
+    QColor m_backgroundColor;
+    QColor m_textColor;
 
-    QTime displayTime;              /** Current display time */
-    TimeFormat timeFormat;          /** Current display time format */
+    QTime m_displayTime;              /** Current display time */
+    TimeFormat m_currentFormat;       /** Current display time format. */
+    TimeFormat m_defaultFormat;       /** Default time format, to be restored on reset. */
 
     /**
      * Refresh the labels text implementing the display timer
@@ -143,6 +147,12 @@ private:
      * Refresh the minimum width of the frames, based on current font sizes
      */
     void updateWidth();
+
+    /**
+     * Helper function, called when setting and overriding the time format.
+     */
+    void updateTimeFormat();
+
 };
 
 #endif

@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
+    Copyright (C) 2015 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
 
     This file is part of Kronometer.
 
@@ -17,19 +17,22 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef GUISETTINGS_H
-#define GUISETTINGS_H
+#ifndef TESTSTOPWATCH_H
+#define TESTSTOPWATCH_H
 
-#include "ui_guisettings.h"
+#include <QtTest>
 
-class GuiSettings : public QWidget, public Ui::GuiSettings
+class TestStopwatch : public QObject
 {
+    Q_OBJECT
 
-public:
-    explicit GuiSettings(QWidget *parent) : QWidget(parent)
-    {
-        setupUi(this);
-    }
+private slots:
+
+    void testInactive();
+    void testRunning();
+    void testPaused();
+    void testReset();
+    void testInitialize();
 };
 
 #endif

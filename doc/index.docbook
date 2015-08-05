@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.2-Based Variant V1.1//EN" "dtd/kdex.dtd" [
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kronometer "<application>Kronometer</application>">
   <!ENTITY kappname "&kronometer;">
   <!ENTITY package "extragear-utils">
@@ -28,8 +28,8 @@
 <holder>Elvis Angelaccio</holder>
 </copyright>
 
-<date>2015-02-22</date>
-<releaseinfo>1.6.0 (&kde; 4.14)</releaseinfo>
+<date>2015-08-24</date>
+<releaseinfo>&kronometer; 2.0</releaseinfo>
 
 <legalnotice>
   &FDLNotice;
@@ -37,7 +37,7 @@
 
 <abstract>
   <para>
-    &kronometer; is a stopwatch for &kde;. It can be used for basic tasks like timer start/pause/resume, as well as lap times recording.
+    &kronometer; is a stopwatch application. It can be used for basic tasks like timer start/pause/resume, as well as lap times recording.
   </para>
   <para>
     &kronometer; is able to save a complete session (timer and lap times) and to restore it later.
@@ -78,7 +78,7 @@
     </listitem>
     <listitem>
       <para>
-	&kronometer; allows you to copy timer numbers from display.
+	&kronometer; allows you to copy the timer numbers from its display.
       </para>
     </listitem>
   </itemizedlist>
@@ -102,31 +102,31 @@
   <sect1 id="save_and_restore">
     <title>Save and restore sessions</title>
     <para>
-      When you pause a running stopwatch you create a session: a stopwatch time and zero or more lap times. You can save a session on a file and you can restore it later.
+      When you pause a running stopwatch you create a session: a stopwatch time and zero or more lap times. You can save a session and you can restore it later.
     </para>
   </sect1>
   <sect1 id="save_a_session">
     <title>Save a session</title>
     <para>
-      Pause a running stopwatch, then click on the <guibutton>Save As</guibutton> button on the toolbar or in the <guimenu>File</guimenu> menu. Then choose a name for the session's file to be stored on your computer.
+      Pause a running stopwatch, then click on the <guibutton>Save As</guibutton> button in the <guimenu>File</guimenu> menu. You can choose a name for the session that you are going to save.
     </para>
   </sect1>
   <sect1 id="restore_a_session">
     <title>Restore a session</title>
     <para>
-      Click the <guibutton>Open</guibutton> button on the toolbar or in the <guimenu>File</guimenu> menu. Then choose an existing session's file to be loaded.
+      Click the <guibutton>Open</guibutton> button on the toolbar or in the <guimenu>File</guimenu> menu. Then choose an existing session to be loaded from the session's dialog.
     </para>
   </sect1>
   <sect1 id="update_a_session">
     <title>Update a session</title>
     <para>
-      When the session is restored, you can resume the stopwatch and you can record new lap times. If you want to save the updated session, you can simply click the <guibutton>Save</guibutton> button in the toolbar or in the <guimenu>File</guimenu> menu.
+      When the session is restored, you can resume the stopwatch and you can record new lap times. If you want to save the updated session, you can simply click the <guibutton>Save</guibutton> button in the <guimenu>File</guimenu> menu.
     </para>
   </sect1>
   <sect1 id="export_lap_times">
     <title>Export lap times</title>
     <para>
-      When you record one or more lap times, the export features in the <guimenu>File</guimenu> menu is made available, under the entry <guimenuitem>Export laps as</guimenuitem>. Click on it and then choose a name for the exported file. You can export in the Comma Separated Values (CSV) format or in the &XML; one.
+      When you record one or more lap times, the export features in the <guimenu>File</guimenu> menu is made available, under the entry <guimenuitem>Export laps as</guimenuitem>. Click on it and then choose a name for the exported file. You can export in the Comma Separated Values (CSV) format or in the JSON one.
     </para>
   </sect1>
   <sect1 id="clipboard_support">
@@ -145,7 +145,10 @@
   <sect1 id="general_settings">
     <title>General settings</title>
     <para>
-      In the general settings page you can choose the preferred time format for the stopwatch display and for the lap times. You choose whether to show hours, minutes, seconds or second fractions. &kronometer; supports time granularity up to millisecond, although it requires high CPU usage due to the high refresh rate of the UI.
+      In the general settings page you can find the settings for the stopwatch and for the laps. Under the stopwatch tab you can set your preferred time format for the stopwatch display. You can choose whether to show hours, minutes or second fractions (while seconds are always shown). &kronometer; supports time granularity up to millisecond, although this requires high CPU usage due to the high refresh rate of the User Interface. In the stopwatch tab you can also choose whether to show the time headers. The time headers are the labels on the upper space of the stopwatch display. They show the name of each timer component (hours, minutes, &etc;).
+    </para>
+    <para>
+      Within the laps tab you can enable or disable the laps recording feature. If the laps are enabled, you can choose their time format, whether to show their notes and whether to show their absolute times, which are the stopwatch times when they were recorded.
     </para>
   </sect1>
   <sect1 id="font_settings">
@@ -158,21 +161,6 @@
     <title>Color settings</title>
     <para>
       In the color settings page you can customize the default color of the stopwatch display. You can change the background color and the text color.
-    </para>
-  </sect1>
-  <sect1 id="interface_settings">
-    <title>Interface settings</title>
-    <para>
-      In the interface settings page you can choose whether to disable the laps recording feature. This can be useful if you wish to optimize the window content. You can also choose whether to show the time headers. The time headers are the labels on the upper space of the stopwatch display. They show the name of each timer component (hours, minutes, &etc;).
-    </para>
-  </sect1>
-  <sect1 id="save_settings">
-    <title>Save settings</title>
-    <para>
-      In the save settings you can choose the indentation size (that is the number of blank spaces) of the XML files created by &kronometer;. The dialog allows you to choose different sizes for the <emphasis>save files</emphasis> and the <emphasis>export files</emphasis>.
-    </para>
-    <para>
-      You can also set the indent size (number of characters) of the &XML; save files and exported files.
     </para>
   </sect1>
   <sect1 id="kde_built_in_settings">

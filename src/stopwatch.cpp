@@ -19,121 +19,117 @@
 
 #include "stopwatch.h"
 
-#include <QTimerEvent>
 #include <QCoreApplication>
+#include <QTimerEvent>
 
 Stopwatch::Stopwatch(QObject *parent) :
     QObject(parent),
-    timerId(INACTIVE_TIMER_ID),
-    state(State::INACTIVE),
-    granularity(HUNDREDTHS),
-    zero(0, 0)
+    m_timerId(INACTIVE_TIMER_ID),
+    m_state(State::Inactive),
+    m_granularity(Hundredths)
 {}
 
 void Stopwatch::setGranularity(Granularity g)
 {
-    granularity = g;
+    m_granularity = g;
 }
 
 bool Stopwatch::isRunning() const
 {
-    return state == State::RUNNING;
+    return m_state == State::Running;
 }
 
 bool Stopwatch::isPaused() const
 {
-    return state == State::PAUSED;
+    return m_state == State::Paused;
 }
 
 bool Stopwatch::isInactive() const
 {
-    return state == State::INACTIVE;
+    return m_state == State::Inactive;
 }
 
-qint64 Stopwatch::raw() const
+int Stopwatch::raw() const
 {
-    return accumulator;
+    return m_accumulator;
 }
 
-bool Stopwatch::initialize(qint64 rawData)
+bool Stopwatch::initialize(int rawData)
 {
-    if (state != State::INACTIVE or rawData <= 0) {
+    if (m_state != State::Inactive or rawData <= 0) {
         return false;
     }
 
-    accumulator = rawData;
-    state = State::PAUSED;
-    emit time(zero.addMSecs(accumulator));  // it signals that has been deserialized and can be resumed
+    m_accumulator = rawData;
+    m_state = State::Paused;
+    emit time(m_accumulator);  // it signals that has been deserialized and can be resumed
 
     return true;
 }
 
-void Stopwatch::onStart()
+void Stopwatch::slotStart()
 {
-    if (state == State::INACTIVE) {
-        accumulator = 0;
-        elapsedTimer.start();
+    if (m_state == State::Inactive) {
+        m_accumulator = 0;
+        m_elapsedTimer.start();
 
-        if (timerId == INACTIVE_TIMER_ID) {
-            timerId = startTimer(granularity);
+        if (m_timerId == INACTIVE_TIMER_ID) {
+            m_timerId = startTimer(m_granularity);
         }
     }
-    else if (state == State::PAUSED) {
-        elapsedTimer.restart();
-        timerId = startTimer(granularity);
+    else if (m_state == State::Paused) {
+        m_elapsedTimer.restart();
+        m_timerId = startTimer(m_granularity);
     }
 
-    state = State::RUNNING;
+    m_state = State::Running;
 }
 
-void Stopwatch::onPause()
+void Stopwatch::slotPause()
 {
-    if (elapsedTimer.isValid()) {
-        accumulator += elapsedTimer.elapsed();
+    if (m_elapsedTimer.isValid()) {
+        m_accumulator += m_elapsedTimer.elapsed();
     }
 
-    elapsedTimer.invalidate();
-    state = State::PAUSED;
+    m_elapsedTimer.invalidate();
+    m_state = State::Paused;
 }
 
-void Stopwatch::onReset()
+void Stopwatch::slotReset()
 {
-    elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
+    m_elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
-    emit time(zero);
-    state = State::INACTIVE;
+    emit time(0);
+    m_state = State::Inactive;
 }
 
-void Stopwatch::onLap()
+void Stopwatch::slotLap()
 {
-    qint64 lapTime = 0;
+    int lapTime = m_accumulator;
 
-    lapTime += accumulator;
-
-    if (elapsedTimer.isValid()) {
-        lapTime += elapsedTimer.elapsed();
+    if (m_elapsedTimer.isValid()) {
+        lapTime += m_elapsedTimer.elapsed();
     }
 
+    QTime zero(0, 0);
     emit lap(zero.addMSecs(lapTime));
 }
 
 void Stopwatch::timerEvent(QTimerEvent *event)
 {
-    if (event->timerId() != timerId) {      // forward undesired events
+    if (event->timerId() != m_timerId) {      // forward undesired events
         QObject::timerEvent(event);
         return;
     }
 
-    qint64 t = 0;
+    int t = m_accumulator;
 
-    t += accumulator;
-
-    if (elapsedTimer.isValid()) {
-        t += elapsedTimer.elapsed();
-        emit time(zero.addMSecs(t));
+    if (m_elapsedTimer.isValid()) {
+        t += m_elapsedTimer.elapsed();
+        emit time(t);
     }
     else {
-        killTimer(timerId);
-        timerId = INACTIVE_TIMER_ID;
+        killTimer(m_timerId);
+        m_timerId = INACTIVE_TIMER_ID;
     }
 }

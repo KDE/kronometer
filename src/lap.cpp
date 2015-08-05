@@ -19,56 +19,81 @@
 
 #include "lap.h"
 
-Lap::Lap(const QTime& lap) : lapTime(lap) {}
+#include <QJsonObject>
+
+Lap::Lap(const QTime& lap) : m_time(lap) {}
 
 QTime Lap::time() const
 {
-    return lapTime;
+    return m_time;
+}
+
+QTime Lap::timeTo(const Lap& lap) const
+{
+    if (lap.time() < m_time)
+        return QTime(0, 0);
+
+    QTime zero(0, 0);
+
+    return zero.addMSecs(m_time.msecsTo(lap.time()));
 }
 
 void Lap::setRelativeTime(const QString& rel)
 {
-    relTime = rel;
+    m_relativeTime = rel;
 }
 
 QString Lap::relativeTime() const
 {
-    return relTime;
+    return m_relativeTime;
 }
 
 void Lap::setAbsoluteTime(const QString& abs)
 {
-    absTime = abs;
+    m_absoluteTime = abs;
 }
 
 QString Lap::absoluteTime() const
 {
-    return absTime;
+    return m_absoluteTime;
 }
 
 void Lap::setNote(const QString& note)
 {
-    lapNote = note;
+    m_note = note;
 }
 
 QString Lap::note() const
 {
-    return lapNote;
+    return m_note;
 }
 
-bool Lap::hasNote() const
-{
-    return not lapNote.isEmpty();
-}
-
-qint64 Lap::raw() const
+int Lap::raw() const
 {
     QTime zero(0, 0);
 
-    return zero.msecsTo(lapTime);
+    return zero.msecsTo(m_time);
 }
 
-Lap Lap::fromRawData(qint64 rawData)
+void Lap::write(QJsonObject& json) const
+{
+    json[QLatin1String("time")] = raw();
+    json[QLatin1String("reltime")] = m_relativeTime;
+    json[QLatin1String("abstime")] = m_absoluteTime;
+    json[QLatin1String("note")] = m_note;
+}
+
+Lap Lap::fromJson(const QJsonObject& json)
+{
+    Lap lap = fromRawData(json[QLatin1String("time")].toInt());
+    lap.m_relativeTime = json[QLatin1String("reltime")].toString();
+    lap.m_absoluteTime = json[QLatin1String("abstime")].toString();
+    lap.m_note = json[QLatin1String("note")].toString();
+
+    return lap;
+}
+
+Lap Lap::fromRawData(int rawData)
 {
     if (rawData < 0) {
         return Lap();

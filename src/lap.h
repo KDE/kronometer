@@ -20,8 +20,10 @@
 #ifndef LAP_H
 #define LAP_H
 
-#include <QTime>
 #include <QString>
+#include <QTime>
+
+class QJsonObject;
 
 /**
  * @brief A Lap is a specific time instant.
@@ -39,6 +41,13 @@ public:
      * @return The underlying lap's time object
      */
     QTime time() const;
+
+    /**
+     * Compute the difference with the given Lap.
+     * @param lap A Lap object.
+     * @return QTime difference if the given Lap is "greater", otherwise a zero QTime.
+     */
+    QTime timeTo(const Lap& lap) const;
 
     /**
      * Set the lap's relative time
@@ -77,30 +86,37 @@ public:
     QString note() const;
 
     /**
-     * Whether the lap has an annotation
-     * @return True if there is a note, false otherwise
-     */
-    bool hasNote() const;
-
-    /**
      * The underlying lap's raw data
      * @return Lap's raw data counter
      */
-    qint64 raw() const;
+    int raw() const;
+
+    /**
+     * Serialize the lap on the given JSON object.
+     * @param json A JSON object.
+     */
+    void write(QJsonObject& json) const;
+
+    /**
+     * Deserialize a lap from the given JSON object.
+     * @param json A JSON object.
+     * @return A deserialized lap.
+     */
+    static Lap fromJson(const QJsonObject& json);
 
     /**
      * Create a new Lap object from raw data
      * @param rawData The raw data counter of the new Lap
      * @return A new Lap object created from the given raw data
      */
-    static Lap fromRawData(qint64 rawData);
+    static Lap fromRawData(int rawData);
 
 private:
 
-    QTime lapTime;      /**  The specific lap time */
-    QString relTime;    /** String representation of the relative lap time, i.e. compared to another lap */
-    QString absTime;    /** String representation of the specific (absolute) lap time */
-    QString lapNote;    /** Custom lap annotation */
+    QTime m_time;              /** The specific lap time */
+    QString m_relativeTime;    /** String representation of the relative lap time, i.e. compared to another lap */
+    QString m_absoluteTime;    /** String representation of the specific (absolute) lap time */
+    QString m_note;            /** Custom lap annotation */
 };
 
 #endif

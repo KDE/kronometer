@@ -1,18 +1,6 @@
 Kronometer TODO list
 =====================
 
-1. Release the port to KF5.
-
-2. Stopwatch controls while kronometer's window is in background. This can be done in at least to ways:
+1. Stopwatch controls while kronometer's window is in background. This can be done in at least to ways:
 	a. System Tray Icon using KStatusNotifierItem, whit a contextual menu which holds the relevant actions (start/pause/reset/lap).
 	b. KDE notifications, where the notification shows the running timer (while a tray icon doesn't) and the buttons to start/pause/reset the stopwatch.
-In both cases, it doesn't make sense to implement this feature before the port to KF5.
-
-3. Suspend/Hibernate awareness. Kronometer should be notified when the system is going to sleep (standby or hibernation) and then pause the stopwatch if running. (this probably needs dbus?)
-
-4. Simplify how the user opens a saved Kronometer file/session. Possible solutions:
-	a. Add the xml mimetype to the .desktop file and handle the QUrls passed by commands line.
-	b. [BETTER] Get rid of "save files"! Since a file/session is just a stopwatch time with a bunch of lap times, why don't we save all the sessions in a global file (e.g. in .kde/something/kronometer_sessions.xml) ?
-		In this way we could just show a user-friendly dialog to the users, in order to select a session from a list of all saved sessions.
-
-5. Unit tests. Again, not on master until is not KF5 based.

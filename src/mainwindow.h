@@ -21,18 +21,21 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "session.h"
+
 #include <KXmlGuiWindow>
 
-class KAction;
-class QLabel;
-class QSplitter;
-class QTableView;
-class QSortFilterProxyModel;
-
+class LapModel;
+class SessionModel;
 class Stopwatch;
 class TimeDisplay;
+
+class QAction;
+class QLabel;
+class QSortFilterProxyModel;
+class QSplitter;
+class QTableView;
 class QTextStream;
-class LapModel;
 
 /**
  * @brief Kronometer main window.
@@ -43,96 +46,102 @@ class MainWindow : public KXmlGuiWindow
 
 public:
 
-    explicit MainWindow(QWidget *parent = nullptr, const QString& file = "");
+    explicit MainWindow(QWidget *parent = nullptr, const Session& session = Session());
+
+public slots:
+
+    void setWindowTitle(const QString& title);
 
 protected:
 
-    bool queryClose();
+    bool queryClose() Q_DECL_OVERRIDE;
 
 private slots:
 
     /**
      * Stopwatch running state triggers.
      */
-    void running();
+    void slotRunning();
 
     /**
      * Stopwatch paused state triggers.
      */
-    void paused();
+    void slotPaused();
 
     /**
      * Stopwatch inactive state triggers.
      */
-    void inactive();
+    void slotInactive();
+
+    /**
+     * Slot for the system bus PrepareForSleep signal.
+     * @param beforeSleep Whether the signal has been emitted before suspension.
+     */
+    void slotPrepareForSleep(bool beforeSleep);
 
     /**
      * Setup the settings dialog.
      */
-    void showSettings();
+    void slotShowSettings();
 
     /**
      * Write the new settings on filesystem.
-     * @param dialogName Ignored argument.
      */
-    void writeSettings(const QString& dialogName);
+    void slotWriteSettings();
 
     /**
      * Fix lap dock appereance.
      */
-    void updateLapDock();
+    void slotUpdateLapDock();
 
     /**
      * Open a new MainWindow instance.
      */
-    void newFile();
+    void slotNewSession();
 
     /**
-     * Open an existing file in a new MainWindow instance.
+     * Open an existing session in a new MainWindow instance.
      */
-    void openFile();
+    void slotOpenSession();
 
     /**
-     * Save current times on the current file.
-     * @returns true if operation was successful
+     * Save current times in the current session.
      */
-    bool saveFile();
+    void slotSaveSession();
 
     /**
-     * Save current times on a new file.
-     * @returns true if operation was successful
+     * Save current times as a new session.
      */
-    bool saveFileAs();
+    void slotSaveSessionAs();
 
     /**
      * Export current lap times on a file.
      */
-    void exportLapsAs();
+    void slotExportLapsAs();
 
     /**
      * Copy current stopwatch time to clipboard.
      */
-    void copyToClipboard();
+    void slotCopyToClipboard();
 
 private:
 
-    Stopwatch *stopwatch;
-    TimeDisplay *stopwatchDisplay;
-    QSplitter *centralSplitter;
-    QTableView *lapView;
-    QLabel *statusLabel;
+    Stopwatch *m_stopwatch;
+    TimeDisplay *m_stopwatchDisplay;
+    QSplitter *m_centralSplitter;
+    QTableView *m_lapView;
+    QLabel *m_statusLabel;
 
-    KAction *startAction;
-    KAction *pauseAction;
-    KAction *resetAction;
-    KAction *lapAction;
-    KAction *exportAction;
+    QAction *m_startAction;
+    QAction *m_pauseAction;
+    QAction *m_resetAction;
+    QAction *m_lapAction;
+    QAction *m_exportAction;
 
-    LapModel *lapModel;
-    QSortFilterProxyModel *proxyModel;
+    LapModel *m_lapModel;
+    SessionModel *m_sessionModel;
 
-    QString fileName;
-    bool unsavedTimes;          /** Whether there are unsaved times */
+    Session m_session;
 
     /**
      * Setup the central widget of the window.
@@ -145,7 +154,7 @@ private:
     void setupStatusBar();
 
     /**
-     * Setup standard and custom KActions.
+     * Setup standard and custom QActions.
      */
     void setupActions();
 
@@ -156,51 +165,32 @@ private:
 
     /**
      * Set the stopwatch refresh granularity.
-     * By default, if all the arguments are false, the stopwatch is refreshed every second.
-     * @param tenths Whether to refresh the stopwatch every tenth of second.
-     * @param hundredths Whether to refresh the stopwatch every hundredth of second.
-     * @param msec Whether to refresh the stopwatch every millisecond.
      */
-    void setupGranularity(bool tenths, bool hundredths, bool msec);
+    void setupGranularity();
 
     /**
-     * Create a file with the current stopwatch time and lap times.
-     * @param name The name of the file to be saved.
-     * @return true if operation was successful
+     * Create a session with the current stopwatch time and lap times.
+     * @param name The name of the session to be saved.
      */
-    bool saveFileAs(const QString& name);
+    void slotSaveSessionAs(const QString& name);
 
     /**
-     * Load the XML save file. If an error occurs, the window is closed.
-     * @param name The name of the file with the saved times to be loaded.
+     * Load a saved session.
      */
-    void openFile(const QString& name);
-
-    /**
-     * Write the XML save file on the given stream.
-     * @param out The stream to be written.
-     */
-    void createXmlSaveFile(QTextStream& out);
-
-    /**
-     * Parse the XML save file from the given DOM document.
-     * @param doc The DOM document to be parsed.
-     * @return true if doc is a valid Kronometer save file, false otherwise.
-     */
-    bool parseXmlSaveFile(const QDomDocument& doc);
+    void loadSession();
 
     /**
      * Export current lap times on a new file.
      * @param name The name of the file to be created.
-     * @param mimetype The mimetype of the file to be created.
+     * @param nameFilter The name filter of the file to be created.
      */
-    void exportLapsAs(const QString& name, const QString& mimetype);
+    void exportLapsAs(const QString& name, const QString& nameFilter);
 
     /**
-     * Write the XML laps representation on the given stream.
-     * @param out The stream to be written.
+     * Write the JSON laps representation on the given object.
+     * @param json The JSON object to be written.
      */
-    void exportLapsAsXml(QTextStream& out);
+    void exportLapsAsJson(QJsonObject& json);
 
     /**
      * Write the CSV laps representation on the given stream.

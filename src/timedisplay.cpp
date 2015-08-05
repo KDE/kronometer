@@ -17,211 +17,240 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "digitdisplay.h"
 #include "timedisplay.h"
 
-#include <KLocale>
+#include <KLocalizedString>
 
-#include <QLabel>
 #include <QBoxLayout>
-
-#include "digitdisplay.h"
+#include <QLabel>
 
 namespace
 {
-    const QString FRAME_STYLE = "QFrame {background-clip: content; background: %1; color: %2}";
+    const QString FRAME_STYLE = QStringLiteral("QFrame {background-clip: content; background: %1; color: %2}");
 }
 
-TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), displayTime(0, 0)
+TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
 {
-    displayLayout = new QHBoxLayout(this);
+    auto displayLayout = new QHBoxLayout(this);
 
-    hourFrame = new QFrame(this);
-    minFrame = new QFrame(this);
-    secFrame = new QFrame(this);
-    fracFrame = new QFrame(this);
-    hourFrame->setFrameShape(QFrame::StyledPanel);
-    hourFrame->setFrameShadow(QFrame::Sunken);
-    minFrame->setFrameShape(QFrame::StyledPanel);
-    minFrame->setFrameShadow(QFrame::Sunken);
-    secFrame->setFrameShape(QFrame::StyledPanel);
-    secFrame->setFrameShadow(QFrame::Sunken);
-    fracFrame->setFrameShape(QFrame::StyledPanel);
-    fracFrame->setFrameShadow(QFrame::Sunken);
+    m_hourFrame = new QFrame(this);
+    m_minFrame = new QFrame(this);
+    m_secFrame = new QFrame(this);
+    m_fracFrame = new QFrame(this);
+    m_hourFrame->setFrameShape(QFrame::StyledPanel);
+    m_hourFrame->setFrameShadow(QFrame::Sunken);
+    m_minFrame->setFrameShape(QFrame::StyledPanel);
+    m_minFrame->setFrameShadow(QFrame::Sunken);
+    m_secFrame->setFrameShape(QFrame::StyledPanel);
+    m_secFrame->setFrameShadow(QFrame::Sunken);
+    m_fracFrame->setFrameShape(QFrame::StyledPanel);
+    m_fracFrame->setFrameShadow(QFrame::Sunken);
 
-    hourLayout = new QVBoxLayout(hourFrame);
-    minLayout = new QVBoxLayout(minFrame);
-    secLayout = new QVBoxLayout(secFrame);
-    fracLayout = new QVBoxLayout(fracFrame);
+    auto hourLayout = new QVBoxLayout(m_hourFrame);
+    auto minLayout = new QVBoxLayout(m_minFrame);
+    auto secLayout = new QVBoxLayout(m_secFrame);
+    auto fracLayout = new QVBoxLayout(m_fracFrame);
 
-    hourHeader = new QLabel(hourFrame);
-    minHeader = new QLabel(minFrame);
-    secHeader = new QLabel(secFrame);
-    fracHeader = new QLabel(fracFrame);
-    hourHeader->setAlignment(Qt::AlignCenter);
-    minHeader->setAlignment(Qt::AlignCenter);
-    secHeader->setAlignment(Qt::AlignCenter);
-    fracHeader->setAlignment(Qt::AlignCenter);
-    hourHeader->setText(i18n("Hours"));
-    minHeader->setText(i18n("Minutes"));
-    secHeader->setText(i18n("Seconds"));
-    fracHeader->setText(i18n("Hundredths"));
-    hourHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    minHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    secHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    fracHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    m_hourHeader = new QLabel(m_hourFrame);
+    m_minHeader = new QLabel(m_minFrame);
+    m_secHeader = new QLabel(m_secFrame);
+    m_fracHeader = new QLabel(m_fracFrame);
+    m_hourHeader->setAlignment(Qt::AlignCenter);
+    m_minHeader->setAlignment(Qt::AlignCenter);
+    m_secHeader->setAlignment(Qt::AlignCenter);
+    m_fracHeader->setAlignment(Qt::AlignCenter);
+    m_hourHeader->setText(i18n("Hours"));
+    m_minHeader->setText(i18n("Minutes"));
+    m_secHeader->setText(i18n("Seconds"));
+    m_fracHeader->setText(i18n("Hundredths"));
+    m_hourHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    m_minHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    m_secHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
+    m_fracHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
 
-    hourDisplay = new DigitDisplay(hourFrame);
-    minDisplay = new DigitDisplay(minFrame);
-    secDisplay = new DigitDisplay(secFrame);
-    fracDisplay = new DigitDisplay(fracFrame);
+    m_hourDisplay = new DigitDisplay(m_hourFrame);
+    m_minDisplay = new DigitDisplay(m_minFrame);
+    m_secDisplay = new DigitDisplay(m_secFrame);
+    m_fracDisplay = new DigitDisplay(m_fracFrame);
 
-    hourDisplay->showDigits(timeFormat.formatHours(displayTime));
-    minDisplay->showDigits(timeFormat.formatMin(displayTime));
-    secDisplay->showDigits(timeFormat.formatSec(displayTime));
-    fracDisplay->showDigits(timeFormat.formatSecFrac(displayTime));
+    m_hourDisplay->setDigitCounter(DigitDisplay::TwoDigits);
+    m_minDisplay->setDigitCounter(DigitDisplay::TwoDigits);
+    m_secDisplay->setDigitCounter(DigitDisplay::TwoDigits);
 
-    hourLayout->addWidget(hourHeader);
-    hourLayout->addWidget(hourDisplay);
-    minLayout->addWidget(minHeader);
-    minLayout->addWidget(minDisplay);
-    secLayout->addWidget(secHeader);
-    secLayout->addWidget(secDisplay);
-    fracLayout->addWidget(fracHeader);
-    fracLayout->addWidget(fracDisplay);
+    m_hourDisplay->showDigits(m_currentFormat.formatHours(m_displayTime));
+    m_minDisplay->showDigits(m_currentFormat.formatMinutes(m_displayTime));
+    m_secDisplay->showDigits(m_currentFormat.formatSeconds(m_displayTime));
+    m_fracDisplay->showDigits(m_currentFormat.formatFractions(m_displayTime));
 
-    displayLayout->addWidget(hourFrame);
-    displayLayout->addWidget(minFrame);
-    displayLayout->addWidget(secFrame);
-    displayLayout->addWidget(fracFrame);
+    hourLayout->addWidget(m_hourHeader);
+    hourLayout->addWidget(m_hourDisplay);
+    minLayout->addWidget(m_minHeader);
+    minLayout->addWidget(m_minDisplay);
+    secLayout->addWidget(m_secHeader);
+    secLayout->addWidget(m_secDisplay);
+    fracLayout->addWidget(m_fracHeader);
+    fracLayout->addWidget(m_fracDisplay);
+
+    QMargins margins = displayLayout->contentsMargins();
+    margins.setTop(0);
+    margins.setBottom(0);
+
+    displayLayout->setContentsMargins(margins);
+    displayLayout->addWidget(m_hourFrame);
+    displayLayout->addWidget(m_minFrame);
+    displayLayout->addWidget(m_secFrame);
+    displayLayout->addWidget(m_fracFrame);
 }
 
-void TimeDisplay::setTimeFormat(const TimeFormat &format)
+void TimeDisplay::setTimeFormat(const TimeFormat& format)
 {
-    timeFormat = format;
-
-    hourFrame->setVisible(timeFormat.isHourEnabled());
-    minFrame->setVisible(timeFormat.isMinEnabled());
-    secFrame->setVisible(timeFormat.isSecEnabled());
-    fracFrame->setVisible(timeFormat.isSecFracEnabled());
-
-    hourDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-    minDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-    secDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-
-    if (timeFormat.isSecFracEnabled()) {
-        if (timeFormat.isMSecEnabled()) {
-            fracHeader->setText(i18n("Milliseconds"));
-            fracDisplay->setDigitCounter(DigitDisplay::THREE_DIGITS);
-        }
-        else if (timeFormat.isHundredthEnabled()) {
-            fracHeader->setText(i18n("Hundredths"));
-            fracDisplay->setDigitCounter(DigitDisplay::TWO_DIGITS);
-        }
-        else if (timeFormat.isTenthEnabled()) {
-            fracHeader->setText(i18n("Tenths"));
-            fracDisplay->setDigitCounter(DigitDisplay::ONE_DIGIT);
-        }
-    }
-
-    updateTimer();
+    m_defaultFormat = format;
+    m_currentFormat = format;
+    updateTimeFormat();
 }
 
-void TimeDisplay::setHourFont(const QFont& font)
+void TimeDisplay::setHoursFont(const QFont& font)
 {
-    hourDisplay->setFont(font);
+    m_hourDisplay->setFont(font);
     updateWidth();
 }
 
-void TimeDisplay::setMinFont(const QFont& font)
+void TimeDisplay::setMinutesFont(const QFont& font)
 {
-    minDisplay->setFont(font);
+    m_minDisplay->setFont(font);
     updateWidth();
 }
 
-void TimeDisplay::setSecFont(const QFont& font)
+void TimeDisplay::setSecondsFont(const QFont& font)
 {
-    secDisplay->setFont(font);
+    m_secDisplay->setFont(font);
     updateWidth();
 }
 
-void TimeDisplay::setFracFont(const QFont& font)
+void TimeDisplay::setFractionsFont(const QFont& font)
 {
-    fracDisplay->setFont(font);
+    m_fracDisplay->setFont(font);
     updateWidth();
 }
 
 void TimeDisplay::setBackgroundColor(const QColor& color)
 {
-    backgroundColor = color;
+    m_backgroundColor = color;
 
-    hourFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
-    minFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
-    secFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
-    fracFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+    m_hourFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
+    m_minFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
+    m_secFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
+    m_fracFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
 }
 
 void TimeDisplay::setTextColor(const QColor& color)
 {
-    textColor = color;
+    m_textColor = color;
 
-    hourFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
-    minFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
-    secFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
-    fracFrame->setStyleSheet(FRAME_STYLE.arg(backgroundColor.name(), textColor.name()));
+    m_hourFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
+    m_minFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
+    m_secFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
+    m_fracFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
 }
 
 void TimeDisplay::showHeaders(bool show)
 {
-    hourHeader->setVisible(show);
-    minHeader->setVisible(show);
-    secHeader->setVisible(show);
-    fracHeader->setVisible(show);
+    m_hourHeader->setVisible(show);
+    m_minHeader->setVisible(show);
+    m_secHeader->setVisible(show);
+    m_fracHeader->setVisible(show);
 }
 
 QString TimeDisplay::currentTime()
 {
-    timeFormat.showDividers(true);
-    QString currentTime = timeFormat.format(displayTime);
-    timeFormat.showDividers(false);
+    m_currentFormat.showDividers(true);
+    auto currentTime = m_currentFormat.format(m_displayTime);
+    m_currentFormat.showDividers(false);
 
     return currentTime;
 }
 
-
-void TimeDisplay::onTime(const QTime& t)
+void TimeDisplay::slotTime(int time)
 {
-    displayTime = t;
+    m_displayTime.setHMS(time / MSECS_PER_HOUR,
+                        (time % MSECS_PER_HOUR) / MSECS_PER_MIN,
+                        (time / MSECS_PER_SEC) % 60,
+                        time % MSECS_PER_SEC);
+
     updateTimer();
+}
+
+void TimeDisplay::slotReset()
+{
+    if (m_currentFormat == m_defaultFormat)
+        return;
+
+    setTimeFormat(m_defaultFormat);
 }
 
 void TimeDisplay::updateTimer()
 {
-    if (timeFormat.isHourEnabled()) {
-        hourDisplay->showDigits(timeFormat.formatHours(displayTime));
+    if (m_currentFormat.hasHours()) {
+        m_hourDisplay->showDigits(m_currentFormat.formatHours(m_displayTime));
+    }
+    else if (m_displayTime.hour() >= 1) {
+        m_currentFormat.overrideHours();
+        updateTimeFormat();
     }
 
-    if (timeFormat.isMinEnabled()) {
-        minDisplay->showDigits(timeFormat.formatMin(displayTime));
+    if (m_currentFormat.hasMinutes()) {
+        m_minDisplay->showDigits(m_currentFormat.formatMinutes(m_displayTime));
+    }
+    else if (m_displayTime.minute() >= 1) {
+        m_currentFormat.overrideMinutes();
+        updateTimeFormat();
     }
 
-    if (timeFormat.isSecEnabled()) {
-        secDisplay->showDigits(timeFormat.formatSec(displayTime));
-    }
+    m_secDisplay->showDigits(m_currentFormat.formatSeconds(m_displayTime));
 
-    if (timeFormat.isSecFracEnabled()) {
-        fracDisplay->showDigits(timeFormat.formatSecFrac(displayTime));
+    if (m_currentFormat.hasFractions()) {
+        m_fracDisplay->showDigits(m_currentFormat.formatFractions(m_displayTime));
     }
 }
 
 void TimeDisplay::updateWidth()
 {
-    int width = qMax(qMax(hourDisplay->width(), minDisplay->width()), qMax(secDisplay->width(), fracDisplay->width()));
+    int width = qMax(qMax(m_hourDisplay->width(), m_minDisplay->width()), qMax(m_secDisplay->width(), m_fracDisplay->width()));
 
     width = width + (width * 20 / 100); // 20% as padding, i.e. 10% as right padding and 10% as left padding
 
-    hourFrame->setMinimumWidth(width);
-    minFrame->setMinimumWidth(width);
-    secFrame->setMinimumWidth(width);
-    fracFrame->setMinimumWidth(width);
+    m_hourFrame->setMinimumWidth(width);
+    m_minFrame->setMinimumWidth(width);
+    m_secFrame->setMinimumWidth(width);
+    m_fracFrame->setMinimumWidth(width);
+}
+
+void TimeDisplay::updateTimeFormat()
+{
+    m_hourFrame->setVisible(m_currentFormat.hasHours());
+    m_minFrame->setVisible(m_currentFormat.hasMinutes());
+    m_fracFrame->setVisible(m_currentFormat.hasFractions());
+
+    if (m_currentFormat.hasFractions()) {
+        switch (m_currentFormat.secondFractions()) {
+        case TimeFormat::UpToTenths:
+            m_fracHeader->setText(i18n("Tenths"));
+            m_fracDisplay->setDigitCounter(DigitDisplay::OneDigit);
+            break;
+        case TimeFormat::UpToHundredths:
+            m_fracHeader->setText(i18n("Hundredths"));
+            m_fracDisplay->setDigitCounter(DigitDisplay::TwoDigits);
+            break;
+        case TimeFormat::UpToMilliseconds:
+            m_fracHeader->setText(i18n("Milliseconds"));
+            m_fracDisplay->setDigitCounter(DigitDisplay::ThreeDigits);
+            break;
+        default:
+            break;
+        }
+    }
+
+    updateTimer();
 }
 

@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
+    Copyright (C) 2015 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
 
     This file is part of Kronometer.
 
@@ -17,23 +17,24 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef GENERALSETTINGS_H
-#define GENERALSETTINGS_H
+#ifndef TESTLAP_H
+#define TESTLAP_H
 
-#include "ui_generalsettings.h"
+#include <QtTest>
 
-class GeneralSettings : public QWidget, public Ui::GeneralSettings
+class TestLap : public QObject
 {
     Q_OBJECT
 
-public:
-    explicit GeneralSettings(QWidget *parent = nullptr);
-
 private slots:
 
-    void showFractionsToggled(bool toggled);
-    void showLapFractionsToggled(bool toggled);
-    void enableLapsToggled(bool toggled);
+    void testDefaultLap();
+    void testLapTime();
+    void testRelativeTime();
+    void testAbsoluteTime();
+    void testNote();
+    void testRawData();
+    void testTimeTo();
 };
 
 #endif

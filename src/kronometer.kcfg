@@ -5,59 +5,56 @@
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
 
     <include>KColorScheme</include>
-    <include>kglobalsettings.h</include>
+    <include>QFontDatabase</include>
+    <include>"timeformat.h"</include>
 
     <kcfgfile name="kronometerrc"/>
 
     <group name="General">
         <entry name="showHours" type="Bool">
-                <default>true</default>
+            <default>false</default>
         </entry>
         <entry name="showMinutes" type="Bool">
-                <default>true</default>
+            <default>true</default>
         </entry>
-        <entry name="showSeconds" type="Bool">
-                <default>true</default>
+        <entry name="showSecondFractions" type="Bool">
+            <default>true</default>
         </entry>
-        <entry name="stopToSeconds" type="Bool">
-                <default>false</default>
+        <entry name="fractionsType" type="Enum">
+            <choices name="TimeFormat::SecondFraction"/>
+            <default>TimeFormat::UpToHundredths</default>
         </entry>
-        <entry name="showTenths" type="Bool">
-                <default>false</default>
+        <entry name="showTimeHeaders" type="Bool">
+            <default>true</default>
         </entry>
-        <entry name="showHundredths" type="Bool">
-                <default>true</default>
-        </entry>
-        <entry name="showMilliseconds" type="Bool">
-                <default>false</default>
+        <entry name="isLapsRecordingEnabled" type="Bool">
+            <default>true</default>
         </entry>
         <entry name="showLapHours" type="Bool">
-                <default>true</default>
+            <default>false</default>
         </entry>
         <entry name="showLapMinutes" type="Bool">
-                <default>true</default>
+            <default>true</default>
         </entry>
-        <entry name="showLapSeconds" type="Bool">
-                <default>true</default>
+        <entry name="showLapSecondFraction" type="Bool">
+            <default>true</default>
         </entry>
-        <entry name="stopToLapSeconds" type="Bool">
-                <default>false</default>
+        <entry name="lapFractionsType" type="Enum">
+            <choices name="TimeFormat::SecondFraction"/>
+            <default>TimeFormat::UpToHundredths</default>
         </entry>
-        <entry name="showLapTenths" type="Bool">
-                <default>false</default>
+        <entry name="showLapAbsoluteTimes" type="Bool">
+            <default>false</default>
         </entry>
-        <entry name="showLapHundredths" type="Bool">
-                <default>true</default>
-        </entry>
-        <entry name="showLapMilliseconds" type="Bool">
-                <default>false</default>
+        <entry name="showLapNotes" type="Bool">
+            <default>true</default>
         </entry>
     </group>
 
     <group name="Font">
         <entry name="hourFont" type="Font">
             <code>
-                QFont defaultFont(KGlobalSettings::generalFont().family(), 54);
+                QFont defaultFont(QFontDatabase::systemFont(QFontDatabase::GeneralFont).family(), 54);
             </code>
             <default code="true">defaultFont</default>
         </entry>
@@ -85,24 +82,6 @@
                 defaultColor = schemeView.foreground().color();
             </code>
             <default code="true">defaultColor</default>
-        </entry>
-    </group>
-
-    <group name="Save">
-        <entry name="saveFileIndentSize" type="Int">
-            <default>4</default>
-        </entry>
-        <entry name="exportedXmlIndentSize" type="Int">
-            <default>4</default>
-        </entry>
-    </group>
-
-    <group name="Gui">
-        <entry name="showTimeHeaders" type="Bool">
-            <default>true</default>
-        </entry>
-        <entry name="isLapsRecordingEnabled" type="Bool">
-            <default>true</default>
         </entry>
     </group>
 
