@@ -83,3 +83,4 @@ Comment[uk]=Проста програма-хронометр для KDE
 Comment[x-test]=xxA simple chronometer application for KDExx
 Comment[zh_TW]=KDE 的精密計時應用程式
 Categories=Qt;KDE;Utility;Clock;
+X-DocPath=kronometer/index.html
