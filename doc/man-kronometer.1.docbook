@@ -2,8 +2,9 @@
 <!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
 <!ENTITY % English "INCLUDE">
 ]>
+
+<refentry lang="&language;">
 <!-- lifted from man+troff by doclifter -->
-<refentry id='kronometer1'>
 <refmeta>
 <refentrytitle>kronometer</refentrytitle>
 <manvolnum>1</manvolnum>
