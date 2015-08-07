@@ -34,7 +34,7 @@ install(TARGETS kronometer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES org.kde.kronometer.appdata.xml
         DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES kronometer.kcfg
-        DESTINATION ${KCFG_INSTALL_DIR})
+        DESTINATION ${KDE_INSTALL_KCFGDIR})
 install(FILES kronometerui.rc
         DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kronometer)
 install(PROGRAMS org.kde.kronometer.desktop

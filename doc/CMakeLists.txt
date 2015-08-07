@@ -1,9 +1,9 @@
 # Create and install documentation files
 
 kdoctools_create_handbook(index.docbook
-    INSTALL_DESTINATION ${HTML_INSTALL_DIR}/en
+    INSTALL_DESTINATION ${KDE_INSTALL_DOCBUNDLEDIR}/en
     SUBDIR kronometer)
 kdoctools_create_manpage(man-kronometer.1.docbook
     1
     INSTALL_DESTINATION
-    ${MAN_INSTALL_DIR})
+    ${KDE_INSTALL_MANDIR})
