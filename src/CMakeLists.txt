@@ -32,7 +32,7 @@ target_link_libraries(kronometer
 
 install(TARGETS kronometer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES org.kde.kronometer.appdata.xml
-        DESTINATION ${KDE_INSTALL_DATADIR}/kronometer)
+        DESTINATION ${KDE_INSTALL_METAINFODIR})
 install(FILES kronometer.kcfg
         DESTINATION ${KCFG_INSTALL_DIR})
 install(FILES kronometerui.rc
