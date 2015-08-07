@@ -4,6 +4,10 @@
 ]>
 
 <refentry lang="&language;">
+<refentryinfo>
+    <date>2015-08-24</date>
+    <releaseinfo>kronometer 2.0</releaseinfo>
+</refentryinfo>
 <!-- lifted from man+troff by doclifter -->
 <refmeta>
 <refentrytitle>kronometer</refentrytitle>
