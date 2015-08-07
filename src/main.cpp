@@ -29,6 +29,10 @@
 
 int main (int argc, char **argv)
 {
+    KLocalizedString::setApplicationDomain("kronometer");
+
+    QApplication app(argc, argv);
+
     KAboutData aboutData(
         QStringLiteral("kronometer"),   // componentName
         i18n("Kronometer"), // displayName
@@ -55,9 +59,6 @@ int main (int argc, char **argv)
 
     KAboutData::setApplicationData(aboutData);
 
-    KLocalizedString::setApplicationDomain("kronometer");
-
-    QApplication app(argc, argv);
     app.setApplicationName(aboutData.componentName());
     app.setApplicationDisplayName(aboutData.displayName());
     app.setOrganizationDomain(aboutData.organizationDomain());
