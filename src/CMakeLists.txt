@@ -31,7 +31,7 @@ target_link_libraries(kronometer
     KF5::XmlGui)
 
 install(TARGETS kronometer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
-install(FILES kronometer.appdata.xml
+install(FILES org.kde.kronometer.appdata.xml
         DESTINATION ${KDE_INSTALL_DATADIR}/kronometer)
 install(FILES kronometer.kcfg
         DESTINATION ${KCFG_INSTALL_DIR})
