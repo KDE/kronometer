@@ -106,7 +106,7 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
 
     switch (section) {
     case SessionId:
-        return i18n("Session #");
+        return i18nc("session number", "Session #");
     case Name:
         return i18n("Name");
     case Date:

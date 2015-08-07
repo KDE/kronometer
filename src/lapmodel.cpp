@@ -85,7 +85,7 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 
     switch (section) {
     case LapId:
-        return i18n("Lap #");
+        return i18nc("lap number", "Lap #");
     case RelativeTime:
         return i18n("Lap time");
     case AbsoluteTime:

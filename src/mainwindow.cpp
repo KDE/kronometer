@@ -66,7 +66,7 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
         loadSession();
     }
     else {
-        setWindowTitle(i18n("Untitled"));
+        setWindowTitle(i18nc("untitled window", "Untitled"));
     }
 
     // TODO: replace this whit solid-power API, once it's released.
@@ -166,7 +166,7 @@ void MainWindow::slotInactive()
 
     m_session.setOutdated(false);
 
-    setWindowTitle(i18n("Untitled"));
+    setWindowTitle(i18nc("untitled window", "Untitled"));
     setWindowModified(false);
 
     stateChanged(QStringLiteral("inactive"));
@@ -264,7 +264,7 @@ void MainWindow::slotSaveSessionAs()
     auto name = QInputDialog::getText(this, i18n("Choose a name"), i18n("Session name:"));
 
     if (name.isEmpty())
-        name = i18n("Untitled session");
+        name = i18nc("untitled session", "Untitled session");
 
     slotSaveSessionAs(name);
 }
