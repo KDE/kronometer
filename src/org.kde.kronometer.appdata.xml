@@ -6,6 +6,7 @@
   <project_license>GPL-2.0+</project_license>
   <name>Kronometer</name>
   <name xml:lang="ca">Kronometer</name>
+  <name xml:lang="cs">Kronometer</name>
   <name xml:lang="es">Kronometer</name>
   <name xml:lang="gl">Kronometer</name>
   <name xml:lang="nl">Kronometer</name>
@@ -17,6 +18,7 @@
   <name xml:lang="x-test">xxKronometerxx</name>
   <summary>Chronometer</summary>
   <summary xml:lang="ca">Cronòmetre</summary>
+  <summary xml:lang="cs">Chronometr</summary>
   <summary xml:lang="es">Cronómetro</summary>
   <summary xml:lang="gl">Cronómetro</summary>
   <summary xml:lang="nl">Chronometer</summary>
@@ -41,6 +43,7 @@
     <p xml:lang="x-test">xxKronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.xx</p>
     <p>Features:</p>
     <p xml:lang="ca">Característiques:</p>
+    <p xml:lang="cs">Vlastnosti:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
