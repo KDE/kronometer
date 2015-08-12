@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "lap.h"
 #include "testlap.h"
+#include "lap.h"
 
 #include <QTime>
 

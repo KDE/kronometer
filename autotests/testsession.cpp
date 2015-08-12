@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "session.h"
 #include "testsession.h"
+#include "session.h"
 
 void TestSession::testDefaultSession()
 {

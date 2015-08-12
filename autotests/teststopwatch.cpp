@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "stopwatch.h"
 #include "teststopwatch.h"
+#include "stopwatch.h"
 
 #include <QTime>
 

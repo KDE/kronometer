@@ -17,8 +17,8 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include "lapmodel.h"
 #include "mainwindow.h"
+#include "lapmodel.h"
 #include "sessiondialog.h"
 #include "sessionmodel.h"
 #include "settings.h"
