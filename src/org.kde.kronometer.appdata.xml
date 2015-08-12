@@ -16,6 +16,7 @@
   <name xml:lang="sv">Kronometer</name>
   <name xml:lang="uk">Kronometer</name>
   <name xml:lang="x-test">xxKronometerxx</name>
+  <name xml:lang="zh-CN">Kronometer</name>
   <summary>Chronometer</summary>
   <summary xml:lang="ca">Cronòmetre</summary>
   <summary xml:lang="cs">Chronometr</summary>
@@ -53,6 +54,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
+    <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Start/pause/resume the stopwatch widget</li>
       <li xml:lang="ca">Engega/pausa/continua l'estri de cronòmetre</li>
