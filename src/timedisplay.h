@@ -106,7 +106,7 @@ public slots:
     void slotTime(int time);
 
     /**
-     * Reset the display to the default time format. The overriden format (if any) is lost.
+     * Reset the display to the default time format. The overridden format (if any) is lost.
      */
     void slotReset();
 
