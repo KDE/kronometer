@@ -36,7 +36,7 @@
         <entry name="showLapMinutes" type="Bool">
             <default>true</default>
         </entry>
-        <entry name="showLapSecondFraction" type="Bool">
+        <entry name="showLapSecondFractions" type="Bool">
             <default>true</default>
         </entry>
         <entry name="lapFractionsType" type="Enum">
