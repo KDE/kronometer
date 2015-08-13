@@ -52,7 +52,7 @@ public:
 
     /**
      * Insert a new Session object to the end of the model.
-     * @param Session The new Session object.
+     * @param session The new Session object.
      */
     void append(const Session& session);
 

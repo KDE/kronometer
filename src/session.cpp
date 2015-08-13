@@ -48,9 +48,9 @@ void Session::setDate(const QDateTime& date)
     m_date = date;
 }
 
-void Session::setOutdated(bool outdated)
+void Session::setIsOutdated(bool isOutdated)
 {
-    m_isOutdated = outdated;
+    m_isOutdated = isOutdated;
 }
 
 QString Session::name() const

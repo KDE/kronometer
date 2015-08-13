@@ -134,7 +134,7 @@ void MainWindow::slotRunning()
 {
     m_statusLabel->setText(i18n("Running..."));
 
-    m_session.setOutdated(true);
+    m_session.setIsOutdated(true);
     setWindowModified(true);
 
     stateChanged(QStringLiteral("running"));
@@ -164,7 +164,7 @@ void MainWindow::slotInactive()
     m_startAction->setText(i18n("&Start"));
     m_statusLabel->setText(i18n("Inactive"));
 
-    m_session.setOutdated(false);
+    m_session.setIsOutdated(false);
 
     setWindowTitle(i18nc("untitled window", "Untitled"));
     setWindowModified(false);
@@ -253,7 +253,7 @@ void MainWindow::slotSaveSession()
         m_session.addLap(m_lapModel->at(i));
     }
 
-    m_session.setOutdated(false);
+    m_session.setIsOutdated(false);
     m_sessionModel->update(m_session);
 
     setWindowModified(false);

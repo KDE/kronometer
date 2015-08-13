@@ -62,7 +62,7 @@ public:
      * Set whether the session data is outdated.
      * @param isOutdated Whether the session is outdated.
      */
-    void setOutdated(bool outdated);
+    void setIsOutdated(bool isOutdated);
 
     /**
      * @return The session name.
