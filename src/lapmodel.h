@@ -104,6 +104,8 @@ private:
      *  Reload the model data.
      */
     void reload();
+
+    Q_DISABLE_COPY(LapModel)
 };
 
 

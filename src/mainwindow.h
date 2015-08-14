@@ -205,6 +205,7 @@ private:
      */
     QString timestampMessage();
 
+    Q_DISABLE_COPY(MainWindow)
 };
 
 

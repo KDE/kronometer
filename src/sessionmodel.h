@@ -102,6 +102,8 @@ private:
     };
 
     QList<Session> m_sessionList;    /** Sessions in the model. */
+
+    Q_DISABLE_COPY(SessionModel)
 };
 
 

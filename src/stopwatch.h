@@ -146,6 +146,8 @@ private:
     Granularity m_granularity;                  /** Stopwatch current granularity */
 
     QElapsedTimer m_elapsedTimer;               /** Stopwatch core class*/
+
+    Q_DISABLE_COPY(Stopwatch)
 };
 
 

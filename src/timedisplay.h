@@ -153,6 +153,7 @@ private:
      */
     void updateTimeFormat();
 
+    Q_DISABLE_COPY(TimeDisplay)
 };
 
 #endif

@@ -86,6 +86,8 @@ private:
      * Ask confirm to the user before removing a session.
      */
     void removeDialog();
+
+    Q_DISABLE_COPY(SessionDialog)
 };
 
 #endif

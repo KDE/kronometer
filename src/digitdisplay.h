@@ -103,6 +103,7 @@ private:
      */
     void showThreeDigits(const QString& digits) const;
 
+    Q_DISABLE_COPY(DigitDisplay)
 };
 
 #endif
