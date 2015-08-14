@@ -12,6 +12,7 @@
   <name xml:lang="gl">Kronometer</name>
   <name xml:lang="nl">Kronometer</name>
   <name xml:lang="pl">Kronometer</name>
+  <name xml:lang="pt">Kronometer</name>
   <name xml:lang="pt-BR">Kronometer</name>
   <name xml:lang="sk">Kronometer</name>
   <name xml:lang="sv">Kronometer</name>
@@ -26,6 +27,7 @@
   <summary xml:lang="gl">Cronómetro</summary>
   <summary xml:lang="nl">Chronometer</summary>
   <summary xml:lang="pl">Chronometr</summary>
+  <summary xml:lang="pt">Cronómetro</summary>
   <summary xml:lang="pt-BR">Cronômetro</summary>
   <summary xml:lang="sk">Chronometer</summary>
   <summary xml:lang="sv">Kronometer</summary>
@@ -41,6 +43,7 @@
     <p xml:lang="gl">Kronometer é un programa para cronometrar. Conta con accións básicas de cronometraxe (deter, continuar, reiniciar, voltas), e permite gardar tempos para continualos máis adiante. Kronometer é parte do módulo de ferramentas da colección Extragear de KDE.</p>
     <p xml:lang="nl">Kronometer is een toepassing voor een stopwatch gemaakt. Het biedt de basisacties van een stopwatch (pauzeren/hervatten/reset/rondetijden), evenals de mogelijkheid om de tijden op te slaan en later te hervatten. Kronometer is onderdeel van de verzameling KDE Extragear, binnen de sub-module Utils.</p>
     <p xml:lang="pl">Kronometer jest programem stopera. Zapewnia podstawowe działania stopera (wstrzymanie/wznawianie/zerowanie/okrążenia), a także możliwość zapisywania czasów i wznawiania ich w czasie późniejszym. Kronometer jest częścią zbioru KDE Extragear, wewnątrz pod-modułu Utils.</p>
+    <p xml:lang="pt">O Kronometer é uma aplicação de cronómetros. Oferece as acções básicas de um cronómetro (pausar/prosseguir/limpar/voltas), assim como a capacidade de gravar os tempos num ficheiro e retomá-los mais tarde. O Kronometer faz parte da colecção Extragear do KDE, dentro do sub-módulo Utils.</p>
     <p xml:lang="pt-BR">Kronometer é um aplicativo de cronômetro. Oferece as ações básicas de um cronômetro (pausar/continuar/reiniciar/voltas), assim como a capacidade de salvar os tempos e retomá-los mais tarde. O Kronometer é integrante da coleção Extragear do KDE, dentro do sub-módulo Utils.</p>
     <p xml:lang="sv">Kronometer är ett tidtagarurprogram. Det tillhandahåller grundfunktioner för tidtagning (paus, återstarta, nollställ, varvtid) samt möjlighet att spara tiderna och senare återstarta dem. Kronometer ingår i KDE:s Extragear-samling i undermodulen Utils.</p>
     <p xml:lang="uk">Kronometer — програма-секундомір. У ній передбачено основні можливості секундоміра (призупинення відліку, відновлення відліку, скидання відліку, відлік часу за колами), а також можливість збереження даних щодо часу і відновлення збережених даних із файла. Kronometer є частиною збірки додаткового програмного забезпечення KDE, а саме, модуля Utils.</p>
@@ -53,6 +56,7 @@
     <p xml:lang="gl">Funcionalidades:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
     <p xml:lang="pl">Możliwości:</p>
+    <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sv">Funktioner:</p>
@@ -67,6 +71,7 @@
       <li xml:lang="gl">Permite iniciar, deter e continuar o cronómetro.</li>
       <li xml:lang="nl">Start/pauzeer/hervat het stopwatch-widget</li>
       <li xml:lang="pl">Uruchamianie/wstrzymywanie/wznawianie elementu interfejsu stopera</li>
+      <li xml:lang="pt">Iniciar/pausar/prosseguir o item do cronómetro</li>
       <li xml:lang="pt-BR">Iniciar/pausar/continuar o cronômetro</li>
       <li xml:lang="sk">Widget stopiek pre spustnie/pozastavenie/pokračovanie</li>
       <li xml:lang="sv">Starta, pausa, återstarta tidtagarurets grafiska komponent</li>
@@ -79,6 +84,7 @@
       <li xml:lang="gl">Captura de voltas: permite capturar o tempo do cronómetro en calquera momento.</li>
       <li xml:lang="nl">Rondetijden opnemen: u kunt de tijd van de stopwatch opnemen wanneer u wilt</li>
       <li xml:lang="pl">Nagrania okrążeń: można podejrzeć czas stopera w dowolnym momencie</li>
+      <li xml:lang="pt">Registo de voltas: poderá capturar o tempo do cronómetro sempre que quiser</li>
       <li xml:lang="pt-BR">Registro de voltas: Você pode capturar o tempo do cronômetro sempre que quiser</li>
       <li xml:lang="sk">Záznam kôl: môžete zachytiť čas stopiek, kedy chcete</li>
       <li xml:lang="sv">Varvtider: Det går att lagra tidtagarurets tid när man vill</li>
@@ -91,6 +97,7 @@
       <li xml:lang="gl">Ordenación dos tempos de voltas: permite atopar facilmente os tempos de volta máis curtos ou máis longos.</li>
       <li xml:lang="nl">Rondetijden sorteren: u kunt gemakkelijk de kortste of de langste rondetijd vinden</li>
       <li xml:lang="pl">Szeregowanie czasów okrążeń: można łatwo znaleźć okrążenie o najkrótszym lub najdłuższym czasie</li>
+      <li xml:lang="pt">Ordenação dos tempos das voltas: poderá descobrir facilmente o tempo mais curto ou mais longo</li>
       <li xml:lang="pt-BR">Ordenação dos tempos das voltas: Você pode localizar facilmente o tempo mais curto ou mais longo</li>
       <li xml:lang="sk">Triedenie časov kôl: môžete jednoducho nájsť najkratší čas kola alebo najdlhší</li>
       <li xml:lang="sv">Sortering av varvtider: Det är enkelt att hitta den kortaste eller längsta varvtiden</li>
@@ -103,6 +110,7 @@
       <li xml:lang="gl">Permite reiniciar o cronómetro e mailos tempos de voltas.</li>
       <li xml:lang="nl">Reset het stopwatch-widget en de rondetijden</li>
       <li xml:lang="pl">Zerowanie elementu interfejsu stopera i czasów okrążeń</li>
+      <li xml:lang="pt">Reiniciar o item do cronómetro e os tempos das voltas</li>
       <li xml:lang="pt-BR">Reiniciar o cronômetro e os tempos das voltas</li>
       <li xml:lang="sk">Vynulovať widget stopiek a časy kôl</li>
       <li xml:lang="sv">Nollställ tidtagarurets grafiska komponent och varvtiderna</li>
@@ -115,6 +123,7 @@
       <li xml:lang="gl">Configuración do formato de tempo: permite seleccionar o nivel de detalle do tempo do cronómetro.</li>
       <li xml:lang="nl">Instellingen van de tijdopmaak: u kunt de nauwkeurigheid van de stopwatch kiezen</li>
       <li xml:lang="pl">Ustawienia formatu czasu: można wybrać dokładność stopera</li>
+      <li xml:lang="pt">Configuração do formato dos tempos: poderá escolher a granularidade dos cronómetros</li>
       <li xml:lang="pt-BR">Configuração do formato dos tempos: Você pode escolher a granularidade dos cronômetros</li>
       <li xml:lang="sk">Nastavenia formátu času: môžete si zvoliť granularitu stopiek</li>
       <li xml:lang="sv">Inställning av tidsformat: Det går att välja tidtagarurets upplösning</li>
@@ -127,6 +136,7 @@
       <li xml:lang="gl">Gardar e cargar tempos: permite gardar o estado do cronómetro e continualo máis adiante.</li>
       <li xml:lang="nl">Tijden opslaan en hervatten: u kunt de status van de stopwatch opslaan en deze later hervatten</li>
       <li xml:lang="pl">Zapisywanie i wznawianie czasów: można zapisać stan stopera i wznowić go później</li>
+      <li xml:lang="pt">Gravação e reposição dos tempos: poderá gravar o estado do cronómetro num ficheiro para o retomar mais tarde</li>
       <li xml:lang="pt-BR">Gravação e continuação dos tempos: Você pode salvar o status do cronômetro para continuar mais tarde</li>
       <li xml:lang="sv">Spara och återstarta tider: Det går att spara tidtagarurets status och senare återstarta det</li>
       <li xml:lang="uk">Збереження та відновлення записаних даних щодо часу: ви можете записати стан секундоміра на диск і згодом відновити його.</li>
@@ -138,6 +148,7 @@
       <li xml:lang="gl">Personalización do tipo de letra: pode escoller o tipo de letra que queira para os díxitos do cronómetro.</li>
       <li xml:lang="nl">Aanpassen van het lettertype: u kunt het lettertype van elk van de cijfers van de stopwatch kiezen</li>
       <li xml:lang="pl">Własne czcionki: można wybrać czcionki dla każdej cyfry stopera</li>
+      <li xml:lang="pt">Personalização dos tipos de letra: poderá escolher os tipos de letra para cada um dos números do cronómetro</li>
       <li xml:lang="pt-BR">Personalização de fontes: Você pode escolher as fontes para cada um dos dígitos do cronômetro</li>
       <li xml:lang="sk">Prispôsobenie písma: môžete si vybrať písma pre každú číslicu stopiek</li>
       <li xml:lang="sv">Anpassning av teckensnitt: Det går att välja teckensnitten för varje siffra i tidtagaruret</li>
@@ -150,6 +161,7 @@
       <li xml:lang="gl">Personalización das cores: pode escoller as cores que queira para os díxitos e mailo fondo do cronómetro.</li>
       <li xml:lang="nl">Aanpassen van kleur: u kunt de kleur van de cijfers en de achtergrond van de stopwatch kiezen</li>
       <li xml:lang="pl">Własne kolory: można wybrać kolory dla cyfr i tła stopera</li>
+      <li xml:lang="pt">Personalização das cores: Poderá escolher a cor dos números do cronómetro e o fundo do mesmo</li>
       <li xml:lang="pt-BR">Personalização de cores: Você pode escolher a cor dos dígitos e do fundo do cronômetro</li>
       <li xml:lang="sk">Prispôsobenie farieb: môžete si vybrať farbu číslic stopiek a pozadie stopiek</li>
       <li xml:lang="sv">Anpassning av färger: Det går att välja färg för tidtagarurets siffror och bakgrund</li>
@@ -162,6 +174,7 @@
       <li xml:lang="gl">Exportar os tempos de voltas: permítelle exportar os tempos de voltas a un ficheiro en formato JSON ou CSV.</li>
       <li xml:lang="nl">Exporteren van rondetijden: u kunt de rondetijden exporteren in een bestand met het JSON- of CSV-formaat</li>
       <li xml:lang="pl">Eksportowanie czasów okrążeń: można eksportować czasy okrążeń do pliku przy użyciu formatu JSON lub CSV</li>
+      <li xml:lang="pt">Exportação dos tempos das voltas: poderá exportar os tempos das voltas para um ficheiro em JSON ou CSV</li>
       <li xml:lang="pt-BR">Exportação dos tempos das voltas: Você pode exportar os tempos das voltas para um arquivo no formato JSON ou CSV</li>
       <li xml:lang="sv">Export av varvtider: Det går att exportera varvtider till en fil med JSON- eller CSV-format</li>
       <li xml:lang="uk">Експортування даних щодо часу проходження кіл: ви можете експортувати дані до файла у форматі XML або CSV.</li>
