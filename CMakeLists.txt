@@ -1,6 +1,8 @@
 project(kronometer)
 
 cmake_minimum_required(VERSION 3.1)
+set(QT_MIN_VERSION 5.0.0)
+set(KF5_MIN_VERSION 5.0.0)
 
 set(CMAKE_CXX_STANDARD 11)
 
@@ -13,11 +15,11 @@ include(KDECompilerSettings)
 include(ECMInstallIcons)
 include(FeatureSummary)
 
-find_package(Qt5 REQUIRED
+find_package(Qt5 ${QT_MIN_VERSION} REQUIRED
     COMPONENTS
     Widgets)
 
-find_package(KF5 REQUIRED
+find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     COMPONENTS
     Config
     DocTools

@@ -1,6 +1,6 @@
 include(ECMAddTests)
 
-find_package(Qt5Test REQUIRED NO_MODULE)
+find_package(Qt5Test ${QT_MIN_VERSION} REQUIRED NO_MODULE)
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
