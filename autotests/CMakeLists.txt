@@ -4,27 +4,18 @@ find_package(Qt5Test ${QT_MIN_VERSION} REQUIRED NO_MODULE)
 
 include_directories(${CMAKE_SOURCE_DIR}/src)
 
-set(libtest_SRCS
+set(tested_SRCS
     ${CMAKE_SOURCE_DIR}/src/lap.cpp
     ${CMAKE_SOURCE_DIR}/src/session.cpp
     ${CMAKE_SOURCE_DIR}/src/stopwatch.cpp
     ${CMAKE_SOURCE_DIR}/src/timeformat.cpp)
 
-add_library(libtest STATIC ${libtest_SRCS})
-target_link_libraries(libtest Qt5::Core)
+add_library(autotests STATIC ${tested_SRCS})
+target_link_libraries(autotests Qt5::Core)
 
-macro(autotests)
-    foreach(testname ${ARGN})
-        add_executable(${testname} ${testname}.cpp)
-        add_test(${testname} ${testname})
-        ecm_mark_as_test(${testname})
-        target_link_libraries(${testname}
-            libtest
-            Qt5::Test)
-    endforeach()
-endmacro()
-
-autotests(testlap
-          testsession
-          teststopwatch
-          testtimeformat)
+ecm_add_tests(
+    testlap.cpp
+    testsession.cpp
+    teststopwatch.cpp
+    testtimeformat.cpp
+    LINK_LIBRARIES autotests Qt5::Test)
