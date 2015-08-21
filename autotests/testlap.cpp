@@ -34,8 +34,8 @@ void TestLap::testDefaultLap()
 
 void TestLap::testLapTime()
 {
-    QTime time(1, 30);
-    Lap lap(time);
+    QTime time {1, 30};
+    Lap lap {time};
 
     QCOMPARE(lap.time(), time);
 }

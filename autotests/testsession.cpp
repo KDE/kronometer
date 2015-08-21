@@ -35,7 +35,7 @@ void TestSession::testDefaultSession()
 void TestSession::testTime()
 {
     int time = 1000;
-    Session session(time);
+    Session session {time};
 
     QCOMPARE(session.time(), time);
 }
@@ -63,7 +63,7 @@ void TestSession::testNote()
 void TestSession::testDate()
 {
     auto date = QDateTime::currentDateTime();
-    Session session(0, date);
+    Session session {0, date};
 
     QCOMPARE(session.date(), date);
 }
@@ -84,17 +84,17 @@ void TestSession::testEquality()
 {
     auto date = QDateTime::currentDateTime();
 
-    Session session1(0, date);
-    Session session2(1000, date);
+    Session session1 {0, date};
+    Session session2 {1000, date};
 
     QCOMPARE(session1, session2);
 }
 
 void TestSession::testInequality()
 {
-    Session session1(0, QDateTime::currentDateTime());
+    Session session1 {0, QDateTime::currentDateTime()};
     QTest::qSleep(100);
-    Session session2(0, QDateTime::currentDateTime());
+    Session session2 {0, QDateTime::currentDateTime()};
 
     QVERIFY(session1 != session2);
 }
@@ -102,7 +102,7 @@ void TestSession::testInequality()
 void TestSession::testJson()
 {
     auto date = QDateTime::currentDateTime();
-    Session session1(1000, QDateTime::fromString(date.toString(Qt::ISODate), Qt::ISODate));
+    Session session1 {1000, QDateTime::fromString(date.toString(Qt::ISODate), Qt::ISODate)};
     session1.setName(QStringLiteral("test-name"));
     session1.setNote(QStringLiteral("test-note"));
 

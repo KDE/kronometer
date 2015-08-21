@@ -49,7 +49,8 @@
 #include <QStatusBar>
 #include <QTableView>
 
-MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent), m_session(session)
+MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
+    m_session {session}
 {
     m_stopwatch = new Stopwatch(this);
     m_stopwatchDisplay = new TimeDisplay(this);
@@ -396,8 +397,8 @@ void MainWindow::loadSettings()
     auto timeFrac = KronometerConfig::showSecondFractions() ? KronometerConfig::fractionsType() : TimeFormat::NoFractions;
     auto lapFrac = KronometerConfig::showSecondFractions() ? KronometerConfig::lapFractionsType() : TimeFormat::NoFractions;
 
-    TimeFormat timeFormat(KronometerConfig::showHours(), KronometerConfig::showMinutes(), timeFrac);
-    TimeFormat lapTimeFormat(KronometerConfig::showLapHours(), KronometerConfig::showLapMinutes(), lapFrac);
+    TimeFormat timeFormat {KronometerConfig::showHours(), KronometerConfig::showMinutes(), timeFrac};
+    TimeFormat lapTimeFormat {KronometerConfig::showLapHours(), KronometerConfig::showLapMinutes(), lapFrac};
 
     m_lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
@@ -442,7 +443,7 @@ void MainWindow::setupGranularity()
 
 void MainWindow::slotSaveSessionAs(const QString& name)
 {
-    Session newSession(m_stopwatch->raw());
+    Session newSession {m_stopwatch->raw()};
     newSession.setName(name);
 
     for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
@@ -482,13 +483,13 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
             exportName += QLatin1String(".json");
         }
 
-        QSaveFile exportFile(exportName);
+        QSaveFile exportFile {exportName};
         exportFile.open(QIODevice::WriteOnly);
 
         QJsonObject json;
         exportLapsAsJson(json);
 
-        QJsonDocument exportDoc(json);
+        QJsonDocument exportDoc {json};
         exportFile.write(exportDoc.toJson());
         exportFile.commit();
     }
@@ -497,10 +498,10 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
             exportName += QLatin1String(".csv");
         }
 
-        QSaveFile exportFile(exportName);
+        QSaveFile exportFile {exportName};
         exportFile.open(QIODevice::WriteOnly);
 
-        QTextStream stream(&exportFile);
+        QTextStream stream {&exportFile};
         exportLapsAsCsv(stream);
 
         exportFile.commit();

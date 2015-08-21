@@ -29,7 +29,7 @@
 
 SessionModel::SessionModel(QObject *parent) : QAbstractTableModel(parent)
 {
-    QFile saveFile(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json"));
+    QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
     saveFile.open(QIODevice::ReadOnly);
 
     auto saveData = saveFile.readAll();
@@ -225,10 +225,10 @@ void SessionModel::slotWrite()
 
     json[QLatin1String("sessions")] = sessions;
 
-    QFile saveFile(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json"));
+    QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
     saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate);
 
-    QJsonDocument saveDoc(json);
+    QJsonDocument saveDoc {json};
     saveFile.write(saveDoc.toJson());
 }
 

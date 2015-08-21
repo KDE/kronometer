@@ -31,9 +31,9 @@ int main (int argc, char **argv)
 {
     KLocalizedString::setApplicationDomain("kronometer");
 
-    QApplication app(argc, argv);
+    QApplication app {argc, argv};
 
-    KAboutData aboutData(
+    KAboutData aboutData {
         QStringLiteral("kronometer"),   // componentName
         i18n("Kronometer"), // displayName
         QStringLiteral("2.0.0"),    // version
@@ -42,7 +42,7 @@ int main (int argc, char **argv)
         i18n("Copyright (C) 2014 Elvis Angelaccio"),    // copyrightStatement
         QString(),  // otherText
         QStringLiteral("http://aelog.org/kronometer")   // homePageAddress
-    );
+    };
 
     aboutData.addAuthor(
         i18n("Elvis Angelaccio"),
@@ -66,9 +66,9 @@ int main (int argc, char **argv)
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kronometer")));
 
     // Make sure that the local data directory is available.
-    QFileInfo appdata(QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation));
+    QFileInfo appdata {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation)};
     if (not appdata.exists()) {
-        QDir dir(appdata.absolutePath());
+        QDir dir {appdata.absolutePath()};
         dir.mkdir(appdata.fileName());
     }
 

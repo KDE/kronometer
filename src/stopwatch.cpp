@@ -22,11 +22,10 @@
 #include <QCoreApplication>
 #include <QTimerEvent>
 
-Stopwatch::Stopwatch(QObject *parent) :
-    QObject(parent),
-    m_timerId(INACTIVE_TIMER_ID),
-    m_state(State::Inactive),
-    m_granularity(Hundredths)
+Stopwatch::Stopwatch(QObject *parent) : QObject(parent),
+    m_timerId {INACTIVE_TIMER_ID},
+    m_state {State::Inactive},
+    m_granularity {Hundredths}
 {}
 
 void Stopwatch::setGranularity(Granularity g)
@@ -111,7 +110,7 @@ void Stopwatch::slotLap()
         lapTime += m_elapsedTimer.elapsed();
     }
 
-    QTime zero(0, 0);
+    QTime zero {0, 0};
     emit lap(zero.addMSecs(lapTime));
 }
 

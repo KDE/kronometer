@@ -99,7 +99,7 @@ void DigitDisplay::setFont(const QFont& font)
 int DigitDisplay::width() const
 {
     int width = 0;
-    QFontMetrics fontMetrics(m_displayFont);
+    QFontMetrics fontMetrics {m_displayFont};
 
     switch (m_digitCounter) {
     case OneDigit:

@@ -23,7 +23,8 @@
 
 #include <QTime>
 
-LapModel::LapModel(QObject* parent): QAbstractTableModel(parent) {}
+LapModel::LapModel(QObject* parent) : QAbstractTableModel(parent)
+{}
 
 int LapModel::columnCount(const QModelIndex& parent) const
 {
@@ -178,7 +179,7 @@ void LapModel::slotClear()
 
 void LapModel::reload()
 {
-    QList<Lap> tmp(m_lapList);
+    auto tmp = m_lapList;
     slotClear();
 
     foreach (const Lap& l, tmp) {

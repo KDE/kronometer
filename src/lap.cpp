@@ -21,7 +21,9 @@
 
 #include <QJsonObject>
 
-Lap::Lap(const QTime& lap) : m_time(lap) {}
+Lap::Lap(const QTime& lap) :
+    m_time {lap}
+{}
 
 QTime Lap::time() const
 {
@@ -33,7 +35,7 @@ QTime Lap::timeTo(const Lap& lap) const
     if (lap.time() < m_time)
         return QTime(0, 0);
 
-    QTime zero(0, 0);
+    QTime zero {0, 0};
 
     return zero.addMSecs(m_time.msecsTo(lap.time()));
 }
@@ -70,7 +72,7 @@ QString Lap::note() const
 
 int Lap::raw() const
 {
-    QTime zero(0, 0);
+    QTime zero {0, 0};
 
     return zero.msecsTo(m_time);
 }
@@ -99,7 +101,7 @@ Lap Lap::fromRawData(int rawData)
         return Lap();
     }
 
-    QTime zero(0, 0);
+    QTime zero {0, 0};
 
     return Lap(zero.addMSecs(rawData));
 }

@@ -25,7 +25,7 @@
 void TestTimeFormat::testDefaultFormat()
 {
     TimeFormat timeFormat;
-    QTime t(0, 0);
+    QTime t {0, 0};
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00:00.00"));
     QCOMPARE(timeFormat.secondFractions(), TimeFormat::UpToHundredths);
@@ -36,8 +36,8 @@ void TestTimeFormat::testDefaultFormat()
 
 void TestTimeFormat::testFullFormat()
 {
-    TimeFormat timeFormat(true, true, TimeFormat::UpToMilliseconds);
-    QTime t(0, 0);
+    TimeFormat timeFormat {true, true, TimeFormat::UpToMilliseconds};
+    QTime t {0, 0};
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00:00:00.000"));
     QCOMPARE(timeFormat.secondFractions(), TimeFormat::UpToMilliseconds);
@@ -48,8 +48,8 @@ void TestTimeFormat::testFullFormat()
 
 void TestTimeFormat::testMinimalFormat()
 {
-    TimeFormat timeFormat(false, false, TimeFormat::NoFractions);
-    QTime t(0, 0);
+    TimeFormat timeFormat {false, false, TimeFormat::NoFractions};
+    QTime t {0, 0};
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00"));
     QCOMPARE(timeFormat.secondFractions(), TimeFormat::NoFractions);
@@ -61,7 +61,7 @@ void TestTimeFormat::testMinimalFormat()
 void TestTimeFormat::testNoDividers()
 {
     TimeFormat timeFormat;
-    QTime t(0, 0);
+    QTime t {0, 0};
 
     timeFormat.showDividers(false);
 
@@ -79,15 +79,15 @@ void TestTimeFormat::testEquality()
 void TestTimeFormat::testInequality()
 {
     TimeFormat timeFormat1;
-    TimeFormat timeFormat2(true, false);
+    TimeFormat timeFormat2 {true, false};
 
     QVERIFY(timeFormat1 != timeFormat2);
 }
 
 void TestTimeFormat::testOverrideHours()
 {
-    TimeFormat timeFormat(false, true, TimeFormat::NoFractions);
-    QTime t(0, 0);
+    TimeFormat timeFormat {false, true, TimeFormat::NoFractions};
+    QTime t {0, 0};
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00:00"));
 
@@ -98,8 +98,8 @@ void TestTimeFormat::testOverrideHours()
 
 void TestTimeFormat::testOverrideMinutes()
 {
-    TimeFormat timeFormat(false, false, TimeFormat::UpToTenths);
-    QTime t(0, 0);
+    TimeFormat timeFormat {false, false, TimeFormat::UpToTenths};
+    QTime t {0, 0};
 
     QCOMPARE(timeFormat.format(t), QStringLiteral("00.0"));
 

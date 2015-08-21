@@ -30,7 +30,8 @@ namespace
     const QString FRAME_STYLE = QStringLiteral("QFrame {background-clip: content; background: %1; color: %2}");
 }
 
-TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
+TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
+    m_displayTime {0, 0}
 {
     auto displayLayout = new QHBoxLayout(this);
 
@@ -92,7 +93,7 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent), m_displayTime(0, 0)
     fracLayout->addWidget(m_fracHeader);
     fracLayout->addWidget(m_fracDisplay);
 
-    QMargins margins = displayLayout->contentsMargins();
+    auto margins = displayLayout->contentsMargins();
     margins.setTop(0);
     margins.setBottom(0);
 
