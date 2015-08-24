@@ -10,6 +10,24 @@ Homepage: http://www.aelog.org/kronometer/
 
 Changelog
 ---------
+
+v2.0.0
+* Port to Qt5 and KDE Frameworks 5
+* New Breeze icons: app icon and start/pause/reset/lap icons
+* Sessions persistence through a simple Session dialog, instead of XML files
+* Improved the Settings dialog and removed useless settings
+* Hours are now hidden by default, both in stopwatch time and laps times.
+* Laps absolute times are now hidden by default
+* Laps notes can now be hidden
+* Suspension awareness: pause running stopwatch if the OS is going to sleep (BUG 349824)
+* Cleaned up UI and visible string messages
+* Stopwatch time format is automatically ovverridden when needed (BUG 343130)
+* Fixed BUG 344714
+* Laps can now be exported to the JSON format, but not anymore to XML
+* Fixed Kronometer handbook not being shown from Help -> Kronometer Handbook
+* Added manpage
+* Development: added autotests
+
 v1.6.0
 * UI cleanup in the Settings dialog (bug 343127: http://bugs.kde.org/show_bug.cgi?id=343127)
 * Removed the 'Ask On Exit' option (bug 343126: http://bugs.kde.org/show_bug.cgi?id=343126)
