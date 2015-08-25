@@ -387,7 +387,7 @@ void MainWindow::setupActions()
     KStandardAction::copy(this, SLOT(slotCopyToClipboard()), actionCollection());
     connect(m_exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
 
-    setupGUI(Default, QStringLiteral("kronometerui.rc"));
+    setupGUI(KXmlGuiWindow::Default, QStringLiteral("kronometerui.rc"));
 
     slotInactive();    // inactive state is the default
 }
