@@ -61,6 +61,8 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     setupCentralWidget();
     setupStatusBar();
     setupActions();
+    setupGUI(KXmlGuiWindow::Default, QStringLiteral("kronometerui.rc"));
+    slotInactive();    // inactive state is the default
     loadSettings();
 
     if (not m_session.isEmpty()) {
@@ -386,10 +388,6 @@ void MainWindow::setupActions()
     KStandardAction::open(this, SLOT(slotOpenSession()), actionCollection());
     KStandardAction::copy(this, SLOT(slotCopyToClipboard()), actionCollection());
     connect(m_exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
-
-    setupGUI(KXmlGuiWindow::Default, QStringLiteral("kronometerui.rc"));
-
-    slotInactive();    // inactive state is the default
 }
 
 void MainWindow::loadSettings()
