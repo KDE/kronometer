@@ -217,7 +217,10 @@ void TimeDisplay::updateTimer()
 
 void TimeDisplay::updateWidth()
 {
-    int width = qMax(qMax(m_hourDisplay->width(), m_minDisplay->width()), qMax(m_secDisplay->width(), m_fracDisplay->width()));
+    int width = qMax(qMax(m_hourDisplay->minimumSizeHint().width(),
+                          m_minDisplay->minimumSizeHint().width()),
+                     qMax(m_secDisplay->minimumSizeHint().width(),
+                          m_fracDisplay->minimumSizeHint().width()));
 
     width = width + (width * 20 / 100); // 20% as padding, i.e. 10% as right padding and 10% as left padding
 

@@ -96,7 +96,7 @@ void DigitDisplay::setFont(const QFont& font)
     m_rightmostDigit->setFont(m_displayFont);
 }
 
-int DigitDisplay::width() const
+QSize DigitDisplay::minimumSizeHint() const
 {
     int width = 0;
     QFontMetrics fontMetrics {m_displayFont};
@@ -115,7 +115,9 @@ int DigitDisplay::width() const
         break;
     }
 
-    return width + (width * 10 / 100); // 10% used as padding between digits
+    width += (width * 10 / 100); // 10% used as padding between digits
+
+    return {width, QWidget::minimumSizeHint().height()};
 }
 
 void DigitDisplay::showOneDigit(const QString& digit) const

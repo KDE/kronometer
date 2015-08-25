@@ -70,11 +70,7 @@ public:
      */
     void setFont(const QFont& font);
 
-    /**
-     * The current widget's width, computed on the current font size and number of digits displayed.
-     * @return The current widget's width.
-     */
-    int width() const;
+    virtual QSize minimumSizeHint() const Q_DECL_OVERRIDE;
 
 private:
 
