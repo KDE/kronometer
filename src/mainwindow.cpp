@@ -308,7 +308,7 @@ void MainWindow::setupCentralWidget()
     m_lapView->resizeColumnsToContents();
     m_lapView->horizontalHeader()->setStretchLastSection(true);
     m_lapView->setSortingEnabled(true);
-    m_lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Ignored);
+    m_lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
 
     splitter->setOrientation(Qt::Horizontal);
     splitter->setChildrenCollapsible(false);
