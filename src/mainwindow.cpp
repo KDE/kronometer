@@ -61,7 +61,8 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     setupCentralWidget();
     setupStatusBar();
     setupActions();
-    setupGUI(KXmlGuiWindow::Default, QStringLiteral("kronometerui.rc"));
+    // TODO: find a better fix for #351746 than QSize(0, 0);
+    setupGUI(QSize(0, 0), KXmlGuiWindow::Default, QStringLiteral("kronometerui.rc"));
     slotInactive();    // inactive state is the default
     loadSettings();
 
