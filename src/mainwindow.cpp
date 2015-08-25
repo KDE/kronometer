@@ -294,7 +294,7 @@ void MainWindow::slotCopyToClipboard()
 
 void MainWindow::setupCentralWidget()
 {
-    m_centralSplitter = new QSplitter(this);
+    auto splitter = new QSplitter(this);
 
     m_lapModel = new LapModel(this);
     auto proxyModel = new QSortFilterProxyModel(this);
@@ -310,12 +310,12 @@ void MainWindow::setupCentralWidget()
     m_lapView->setSortingEnabled(true);
     m_lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Ignored);
 
-    m_centralSplitter->setOrientation(Qt::Horizontal);
-    m_centralSplitter->setChildrenCollapsible(false);
-    m_centralSplitter->addWidget(m_stopwatchDisplay);
-    m_centralSplitter->addWidget(m_lapView);
+    splitter->setOrientation(Qt::Horizontal);
+    splitter->setChildrenCollapsible(false);
+    splitter->addWidget(m_stopwatchDisplay);
+    splitter->addWidget(m_lapView);
 
-    setCentralWidget(m_centralSplitter);
+    setCentralWidget(splitter);
 }
 
 void MainWindow::setupStatusBar()

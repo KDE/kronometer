@@ -129,7 +129,6 @@ private:
 
     Stopwatch *m_stopwatch;
     TimeDisplay *m_stopwatchDisplay;
-    QSplitter *m_centralSplitter;
     QTableView *m_lapView;
     QLabel *m_statusLabel;
 
