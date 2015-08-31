@@ -45,11 +45,11 @@ public:
 
 public slots:
 
-    virtual void accept() Q_DECL_OVERRIDE;
+    virtual void accept() override;
 
 protected:
 
-    virtual void keyPressEvent(QKeyEvent *event) Q_DECL_OVERRIDE;
+    virtual void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
 

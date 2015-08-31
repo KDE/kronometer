@@ -70,7 +70,7 @@ public:
      */
     void setFont(const QFont& font);
 
-    virtual QSize minimumSizeHint() const Q_DECL_OVERRIDE;
+    virtual QSize minimumSizeHint() const override;
 
 private:
 

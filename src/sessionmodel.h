@@ -35,13 +35,13 @@ public:
 
     explicit SessionModel(QObject *parent = nullptr);
 
-    int rowCount(const QModelIndex& parent) const Q_DECL_OVERRIDE;
-    int columnCount(const QModelIndex& parent) const Q_DECL_OVERRIDE;
-    QVariant data(const QModelIndex& index, int role) const Q_DECL_OVERRIDE;
-    QVariant headerData(int section, Qt::Orientation orientation, int role) const Q_DECL_OVERRIDE;
-    bool setData(const QModelIndex& index, const QVariant& value, int role) Q_DECL_OVERRIDE;
-    Qt::ItemFlags flags(const QModelIndex& index) const Q_DECL_OVERRIDE;
-    bool removeRows(int row, int count, const QModelIndex& parent) Q_DECL_OVERRIDE;
+    int rowCount(const QModelIndex& parent) const override;
+    int columnCount(const QModelIndex& parent) const override;
+    QVariant data(const QModelIndex& index, int role) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role) const override;
+    bool setData(const QModelIndex& index, const QVariant& value, int role) override;
+    Qt::ItemFlags flags(const QModelIndex& index) const override;
+    bool removeRows(int row, int count, const QModelIndex& parent) override;
 
     /**
      * Retrieve a specific Session object. The given index must be a valid index in the model.
