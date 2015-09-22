@@ -61,6 +61,7 @@
     <p xml:lang="en-GB">Kronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.</p>
     <p xml:lang="es">Kronometer es una aplicación de cronómetro. Contiene las acciones básicas de un cronómetro (pausa, continuar, reiniciar y vueltas), así como la posibilidad de guardar los tiempos y continuar con ellos posteriormente. Kronometer es parte de la colección «Extragear» de KDE, dentro del submódulo «Utils».</p>
     <p xml:lang="fi">Kronometer on sekuntikellosovellus. Siinä on sekuntikellon perustoiminnot (tauko/jatkaminen/nollaaminen/kierrokset) sekä mahdollisuus tallentaa ajat ja jatkaa tallennettuja aikoja myöhemmin. Kronometer kuuluu KDE Extragearin Työkalut-aliyksikköön.</p>
+    <p xml:lang="fr">Kronometer est une application de chronomètre. Il fournit les actions de base d'un chronomètre (pause/reprise/remise à zéro/temps intermédiaires), ainsi que la possibilité d'enregistrer les temps dans un fichier et les reprendre plus tard. Kronometer fait partie du sous-module Utils de la collection KDE Extragear</p>
     <p xml:lang="gl">Kronometer é un programa para cronometrar. Conta con accións básicas de cronometraxe (deter, continuar, reiniciar, voltas), e permite gardar tempos para continualos máis adiante. Kronometer é parte do módulo de ferramentas da colección Extragear de KDE.</p>
     <p xml:lang="it">Kronometer è un cronometro. Include le azioni fondamentali di un cronometro (pausa, riavvio, azzeramento, giri), oltre alla possibilità di salvare i tempi e caricarli in seguito. Kronometer fa parte della raccolta Extragear di KDE, nel modulo delle Utilità.</p>
     <p xml:lang="nl">Kronometer is een toepassing voor een stopwatch gemaakt. Het biedt de basisacties van een stopwatch (pauzeren/hervatten/reset/rondetijden), evenals de mogelijkheid om de tijden op te slaan en later te hervatten. Kronometer is onderdeel van de verzameling KDE Extragear, binnen de sub-module Utils.</p>
@@ -201,6 +202,7 @@
       <li xml:lang="en-GB">Times saving and resuming: you can save the stopwatch status and resume it later</li>
       <li xml:lang="es">Grabación y reanudación de tiempos: puede guardar el estado del cronómetro y reanudar dicho estado posteriormente</li>
       <li xml:lang="fi">Aikojen tallentaminen ja jatkaminen: sekuntikellon tilan voi tallentaa, ja siitä voi jatkaa myöhemmin</li>
+      <li xml:lang="fr">Mémorisation et reprise des temps : vous pouvez enregistrer l'état du chronomètre dans un fichier et le reprendre plus tard</li>
       <li xml:lang="gl">Gardar e cargar tempos: permite gardar o estado do cronómetro e continualo máis adiante.</li>
       <li xml:lang="it">Salvataggio e ripristino dei tempi: puoi salvare lo stato del cronometro e ripristinarlo più avanti</li>
       <li xml:lang="nl">Tijden opslaan en hervatten: u kunt de status van de stopwatch opslaan en deze later hervatten</li>
@@ -257,6 +259,7 @@
       <li xml:lang="en-GB">Lap times export: you can export the lap times on a file using the JSON or CSV format</li>
       <li xml:lang="es">Exportar los tiempos de las vueltas: puede exportar los tiempos de las vueltas en un archivo usando los formatos JSON o CSV</li>
       <li xml:lang="fi">Kierrosaikojen vienti: kierrosajat voi viedä JSON- tai CSV-muotoiseen tiedostoon</li>
+      <li xml:lang="fr">Exportation des temps intermédiaires : vous pouvez exporter les temps intermédiaire dans un fichier au format JSON ou CSV</li>
       <li xml:lang="gl">Exportar os tempos de voltas: permítelle exportar os tempos de voltas a un ficheiro en formato JSON ou CSV.</li>
       <li xml:lang="it">Esportazione dei tempi sul giro: puoi esportare i tempi sul giro su file nei formati JSON o CSV</li>
       <li xml:lang="nl">Exporteren van rondetijden: u kunt de rondetijden exporteren in een bestand met het JSON- of CSV-formaat</li>
