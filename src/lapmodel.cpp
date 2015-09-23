@@ -55,7 +55,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
         switch (index.column()) {
         case LapId:
-            variant = QString::number(index.row());
+            variant = QString::number(index.row() + 1);
             break;
         case RelativeTime:
             variant = m_lapList.at(index.row()).relativeTime();

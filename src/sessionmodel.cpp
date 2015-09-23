@@ -70,7 +70,7 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
 
         switch (index.column()) {
         case SessionId:
-            variant = QString::number(index.row());
+            variant = QString::number(index.row() + 1);
             break;
         case Name:
             variant = m_sessionList.at(index.row()).name();
