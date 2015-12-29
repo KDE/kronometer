@@ -135,15 +135,15 @@ QModelIndex SessionDialog::selectedIndex()
 
 void SessionDialog::removeDialog()
 {
-    auto buttonCode = KMessageBox::warningContinueCancel(
+    auto buttonCode = KMessageBox::warningYesNo(
                 this,
-                i18n("Do you want to remove the selected session?"),
-                i18n("Confirm deletion"),
-                KStandardGuiItem::cont(),
-                KStandardGuiItem::cancel(),
+                i18nc("@info", "Do you want to remove the selected session?"),
+                i18nc("@title:window", "Confirm deletion"),
+                KStandardGuiItem::yes(),
+                KStandardGuiItem::no(),
                 QStringLiteral("delete-session"));
 
-    if (buttonCode != KMessageBox::Continue)
+    if (buttonCode != KMessageBox::Yes)
         return;
 
     m_sessionModel->removeRow(selectedIndex().row());
