@@ -54,6 +54,7 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     vlayout->addWidget(m_sessionView);
 
     m_buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    m_buttonBox->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Open session"));
     vlayout->addWidget(m_buttonBox);
 
     connect(m_sessionView, &QTableView::doubleClicked, this, &SessionDialog::slotDoubleClicked);
