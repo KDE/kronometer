@@ -26,6 +26,8 @@
 
 class SessionModel;
 
+class KMessageWidget;
+
 class QDialogButtonBox;
 class QSortFilterProxyModel;
 class QTableView;
@@ -76,6 +78,7 @@ private:
     SessionModel *m_sessionModel;
     QSortFilterProxyModel *m_proxyModel;
     Session m_selectedSession;
+    KMessageWidget *m_msgWidget;
 
     /**
      * @return The actual selected index in the view.

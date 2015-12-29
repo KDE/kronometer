@@ -22,6 +22,7 @@
 
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KMessageWidget>
 
 #include <QDialogButtonBox>
 #include <QHeaderView>
@@ -50,7 +51,11 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     // TODO: the user may want to select/remove more than one session
     m_sessionView->setSelectionMode(QAbstractItemView::SingleSelection);
 
+    m_msgWidget = new KMessageWidget(this);
+    m_msgWidget->hide();
+
     auto vlayout = new QVBoxLayout(this);
+    vlayout->addWidget(m_msgWidget);
     vlayout->addWidget(m_sessionView);
 
     m_buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
@@ -111,8 +116,14 @@ void SessionDialog::slotEmptyModel()
     if (not m_sessionModel->isEmpty())
         return;
 
+    const QString message = i18n("You don't have any saved session yet.");
+
     m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
-    m_buttonBox->button(QDialogButtonBox::Ok)->setToolTip(i18n("No session saved yet."));
+    m_buttonBox->button(QDialogButtonBox::Ok)->setToolTip(message);
+
+    m_msgWidget->setMessageType(KMessageWidget::Information);
+    m_msgWidget->setText(message);
+    m_msgWidget->animatedShow();
 }
 
 QModelIndex SessionDialog::selectedIndex()
