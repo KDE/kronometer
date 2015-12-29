@@ -116,7 +116,7 @@ void SessionDialog::slotEmptyModel()
     if (not m_sessionModel->isEmpty())
         return;
 
-    const QString message = i18n("You don't have any saved session yet.");
+    const QString message = i18nc("@info", "You don't have any saved session yet.");
 
     m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
     m_buttonBox->button(QDialogButtonBox::Ok)->setToolTip(message);

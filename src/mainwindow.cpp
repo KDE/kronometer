@@ -136,7 +136,7 @@ bool MainWindow::queryClose()
 
 void MainWindow::slotRunning()
 {
-    m_statusLabel->setText(i18n("Running..."));
+    m_statusLabel->setText(i18nc("@info:status", "Running..."));
 
     m_session.setIsOutdated(true);
     setWindowModified(true);
@@ -146,8 +146,8 @@ void MainWindow::slotRunning()
 
 void MainWindow::slotPaused()
 {
-    m_startAction->setText(i18n("Re&sume"));
-    m_statusLabel->setText(i18n("Paused"));
+    m_startAction->setText(i18nc("@action", "Re&sume"));
+    m_statusLabel->setText(i18nc("@info:status", "Paused"));
 
     if (not m_session.isEmpty()) {
         stateChanged(QStringLiteral("pausedSession"));
@@ -165,8 +165,8 @@ void MainWindow::slotPaused()
 
 void MainWindow::slotInactive()
 {
-    m_startAction->setText(i18n("&Start"));
-    m_statusLabel->setText(i18n("Inactive"));
+    m_startAction->setText(i18nc("@action", "&Start"));
+    m_statusLabel->setText(i18nc("@info:status", "Inactive"));
 
     m_session.setIsOutdated(false);
 
@@ -278,7 +278,7 @@ void MainWindow::slotExportLapsAs()
     QPointer<QFileDialog> dialog = new QFileDialog(this);
     dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setConfirmOverwrite(true);
-    dialog->setWindowTitle(i18n("Choose export file destination"));
+    dialog->setWindowTitle(i18nc("@title:window", "Export laps"));
 
     auto mimeTypes = { QStringLiteral("text/csv"), QStringLiteral("application/json") };
     dialog->setMimeTypeFilters(mimeTypes);
@@ -324,7 +324,7 @@ void MainWindow::setupCentralWidget()
 void MainWindow::setupStatusBar()
 {
     m_statusLabel = new QLabel(this);
-    m_statusLabel->setToolTip(i18n("Current chronometer status"));
+    m_statusLabel->setToolTip(i18nc("@info:tooltip", "Current chronometer status"));
 
     statusBar()->addWidget(m_statusLabel);
 }
@@ -339,16 +339,16 @@ void MainWindow::setupActions()
 
     m_startAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-start")));
 
-    m_pauseAction->setText(i18n("&Pause"));  // pauseAction/resetAction have fixed text (startAction doesn't)
+    m_pauseAction->setText(i18nc("@action", "&Pause"));  // pauseAction/resetAction have fixed text (startAction doesn't)
     m_pauseAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-pause")));
 
-    m_resetAction->setText(i18n("&Reset"));
+    m_resetAction->setText(i18nc("@action", "&Reset"));
     m_resetAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-reset")));
 
-    m_lapAction->setText(i18n("&Lap"));
+    m_lapAction->setText(i18nc("@action", "&Lap"));
     m_lapAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-lap")));
 
-    m_exportAction->setText(i18n("&Export laps as..."));
+    m_exportAction->setText(i18nc("@action:inmenu", "&Export laps as..."));
     m_exportAction->setIcon(QIcon::fromTheme(QStringLiteral("document-export")));
 
     actionCollection()->addAction(QStringLiteral("start"), m_startAction);
@@ -523,7 +523,7 @@ void MainWindow::exportLapsAsJson(QJsonObject& json)
 void MainWindow::exportLapsAsCsv(QTextStream& out)
 {
     out << '#' << timestampMessage() << '\r' << '\n';
-    out << '#' << i18n("Lap number,Lap time,Global time,Note") << '\r' << '\n';
+    out << '#' << i18nc("@info:shell", "Lap number,Lap time,Global time,Note") << '\r' << '\n';
 
     for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
         out << i;
@@ -538,6 +538,6 @@ QString MainWindow::timestampMessage()
 {
     auto timestamp = QDateTime::currentDateTime();
 
-    return i18n("Created by Kronometer on %1", timestamp.toString(Qt::DefaultLocaleLongDate));
+    return i18nc("@info:shell", "Created by Kronometer on %1", timestamp.toString(Qt::DefaultLocaleLongDate));
 }
 

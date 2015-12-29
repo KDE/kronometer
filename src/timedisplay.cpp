@@ -61,10 +61,10 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
     m_minHeader->setAlignment(Qt::AlignCenter);
     m_secHeader->setAlignment(Qt::AlignCenter);
     m_fracHeader->setAlignment(Qt::AlignCenter);
-    m_hourHeader->setText(i18n("Hours"));
-    m_minHeader->setText(i18n("Minutes"));
-    m_secHeader->setText(i18n("Seconds"));
-    m_fracHeader->setText(i18n("Hundredths"));
+    m_hourHeader->setText(i18nc("@title:column", "Hours"));
+    m_minHeader->setText(i18nc("@title:column", "Minutes"));
+    m_secHeader->setText(i18nc("@title:column", "Seconds"));
+    m_fracHeader->setText(i18nc("@title:column", "Hundredths"));
     m_hourHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
     m_minHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
     m_secHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
@@ -239,15 +239,15 @@ void TimeDisplay::updateTimeFormat()
     if (m_currentFormat.hasFractions()) {
         switch (m_currentFormat.secondFractions()) {
         case TimeFormat::UpToTenths:
-            m_fracHeader->setText(i18n("Tenths"));
+            m_fracHeader->setText(i18nc("@title:column", "Tenths"));
             m_fracDisplay->setDigitCounter(DigitDisplay::OneDigit);
             break;
         case TimeFormat::UpToHundredths:
-            m_fracHeader->setText(i18n("Hundredths"));
+            m_fracHeader->setText(i18nc("@title:column", "Hundredths"));
             m_fracDisplay->setDigitCounter(DigitDisplay::TwoDigits);
             break;
         case TimeFormat::UpToMilliseconds:
-            m_fracHeader->setText(i18n("Milliseconds"));
+            m_fracHeader->setText(i18nc("@title:column", "Milliseconds"));
             m_fracDisplay->setDigitCounter(DigitDisplay::ThreeDigits);
             break;
         default:

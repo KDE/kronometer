@@ -88,11 +88,11 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
     case LapId:
         return i18nc("lap number", "Lap #");
     case RelativeTime:
-        return i18n("Lap time");
+        return i18nc("@title:column", "Lap time");
     case AbsoluteTime:
-        return i18n("Global time");
+        return i18nc("@title:column", "Global time");
     case Note:
-        return i18n("Note");
+        return i18nc("@title:column", "Note");
     default:
         return QVariant::Invalid;
     }
