@@ -39,6 +39,7 @@ add_definitions(
     -DQT_NO_CAST_TO_ASCII
     -DQT_USE_QSTRINGBUILDER)
 
+add_subdirectory(desktop)
 add_subdirectory(doc)
 add_subdirectory(src)
 add_subdirectory(icons)
