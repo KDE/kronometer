@@ -413,7 +413,6 @@ void MainWindow::loadSettings()
     m_stopwatchDisplay->setFractionsFont(KronometerConfig::fracFont());
     m_stopwatchDisplay->setBackgroundColor(KronometerConfig::backgroundColor());
     m_stopwatchDisplay->setTextColor(KronometerConfig::textColor());
-    m_stopwatchDisplay->showHeaders(KronometerConfig::showTimeHeaders());
 
     setupGranularity();
 }

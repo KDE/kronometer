@@ -29,9 +29,6 @@
             </choices>
             <default>TimeFormat::UpToHundredths</default>
         </entry>
-        <entry name="showTimeHeaders" type="Bool">
-            <default>true</default>
-        </entry>
         <entry name="isLapsRecordingEnabled" type="Bool">
             <default>true</default>
         </entry>

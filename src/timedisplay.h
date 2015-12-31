@@ -27,8 +27,7 @@
 
 class DigitDisplay;
 
-class QFrame;
-class QLabel;
+class QGroupBox;
 
 /**
  * @brief A custom widget displaying a QTime
@@ -86,12 +85,6 @@ public:
     void setTextColor(const QColor& color);
 
     /**
-     * Show or hide the time headers of the display.
-     * @param show Whether to show the time headers.
-     */
-    void showHeaders(bool show);
-
-    /**
      * Get the current time formatted with the current format.
      * @return Current time formatted as string.
      */
@@ -117,22 +110,15 @@ private:
     static const int MSECS_PER_SEC = 1000;
     static const int SECS_PER_MIN = 60;
 
-    QFrame *m_hourFrame;
-    QFrame *m_minFrame;
-    QFrame *m_secFrame;
-    QFrame *m_fracFrame;
+    QGroupBox *m_hourGroup;
+    QGroupBox *m_minGroup;
+    QGroupBox *m_secGroup;
+    QGroupBox *m_fracGroup;
 
-    QLabel *m_hourHeader;
-    QLabel *m_minHeader;
-    QLabel *m_secHeader;
-    QLabel *m_fracHeader;
     DigitDisplay *m_hourDisplay;
     DigitDisplay *m_minDisplay;
     DigitDisplay *m_secDisplay;
     DigitDisplay *m_fracDisplay;
-
-    QColor m_backgroundColor;
-    QColor m_textColor;
 
     QTime m_displayTime;              /** Current display time */
     TimeFormat m_currentFormat;       /** Current display time format. */
@@ -152,6 +138,11 @@ private:
      * Helper function, called when setting and overriding the time format.
      */
     void updateTimeFormat();
+
+    /**
+     * Helper function, called to set frame colors.
+     */
+    void setGroupboxColor(QGroupBox *groupBox, QPalette::ColorRole role, const QColor& color);
 
     Q_DISABLE_COPY(TimeDisplay)
 };

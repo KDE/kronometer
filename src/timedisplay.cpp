@@ -23,57 +23,27 @@
 #include <KLocalizedString>
 
 #include <QBoxLayout>
-#include <QLabel>
-
-namespace
-{
-    const QString FRAME_STYLE = QStringLiteral("QFrame {background-clip: content; background: %1; color: %2}");
-}
+#include <QGroupBox>
 
 TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
     m_displayTime {0, 0}
 {
     auto displayLayout = new QHBoxLayout(this);
 
-    m_hourFrame = new QFrame(this);
-    m_minFrame = new QFrame(this);
-    m_secFrame = new QFrame(this);
-    m_fracFrame = new QFrame(this);
-    m_hourFrame->setFrameShape(QFrame::StyledPanel);
-    m_hourFrame->setFrameShadow(QFrame::Sunken);
-    m_minFrame->setFrameShape(QFrame::StyledPanel);
-    m_minFrame->setFrameShadow(QFrame::Sunken);
-    m_secFrame->setFrameShape(QFrame::StyledPanel);
-    m_secFrame->setFrameShadow(QFrame::Sunken);
-    m_fracFrame->setFrameShape(QFrame::StyledPanel);
-    m_fracFrame->setFrameShadow(QFrame::Sunken);
+    m_hourGroup = new QGroupBox(i18nc("@title:column", "Hours"), this);
+    m_minGroup = new QGroupBox(i18nc("@title:column", "Minutes"), this);
+    m_secGroup = new QGroupBox(i18nc("@title:column", "Seconds"), this);
+    m_fracGroup = new QGroupBox(i18nc("@title:column", "Hundredths"), this);
 
-    auto hourLayout = new QVBoxLayout(m_hourFrame);
-    auto minLayout = new QVBoxLayout(m_minFrame);
-    auto secLayout = new QVBoxLayout(m_secFrame);
-    auto fracLayout = new QVBoxLayout(m_fracFrame);
+    auto hourLayout = new QVBoxLayout(m_hourGroup);
+    auto minLayout = new QVBoxLayout(m_minGroup);
+    auto secLayout = new QVBoxLayout(m_secGroup);
+    auto fracLayout = new QVBoxLayout(m_fracGroup);
 
-    m_hourHeader = new QLabel(m_hourFrame);
-    m_minHeader = new QLabel(m_minFrame);
-    m_secHeader = new QLabel(m_secFrame);
-    m_fracHeader = new QLabel(m_fracFrame);
-    m_hourHeader->setAlignment(Qt::AlignCenter);
-    m_minHeader->setAlignment(Qt::AlignCenter);
-    m_secHeader->setAlignment(Qt::AlignCenter);
-    m_fracHeader->setAlignment(Qt::AlignCenter);
-    m_hourHeader->setText(i18nc("@title:column", "Hours"));
-    m_minHeader->setText(i18nc("@title:column", "Minutes"));
-    m_secHeader->setText(i18nc("@title:column", "Seconds"));
-    m_fracHeader->setText(i18nc("@title:column", "Hundredths"));
-    m_hourHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    m_minHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    m_secHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
-    m_fracHeader->setTextInteractionFlags(Qt::TextSelectableByMouse);
-
-    m_hourDisplay = new DigitDisplay(m_hourFrame);
-    m_minDisplay = new DigitDisplay(m_minFrame);
-    m_secDisplay = new DigitDisplay(m_secFrame);
-    m_fracDisplay = new DigitDisplay(m_fracFrame);
+    m_hourDisplay = new DigitDisplay(m_hourGroup);
+    m_minDisplay = new DigitDisplay(m_minGroup);
+    m_secDisplay = new DigitDisplay(m_secGroup);
+    m_fracDisplay = new DigitDisplay(m_fracGroup);
 
     m_hourDisplay->setDigitCounter(DigitDisplay::TwoDigits);
     m_minDisplay->setDigitCounter(DigitDisplay::TwoDigits);
@@ -84,13 +54,9 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
     m_secDisplay->showDigits(m_currentFormat.formatSeconds(m_displayTime));
     m_fracDisplay->showDigits(m_currentFormat.formatFractions(m_displayTime));
 
-    hourLayout->addWidget(m_hourHeader);
     hourLayout->addWidget(m_hourDisplay);
-    minLayout->addWidget(m_minHeader);
     minLayout->addWidget(m_minDisplay);
-    secLayout->addWidget(m_secHeader);
     secLayout->addWidget(m_secDisplay);
-    fracLayout->addWidget(m_fracHeader);
     fracLayout->addWidget(m_fracDisplay);
 
     auto margins = displayLayout->contentsMargins();
@@ -98,10 +64,10 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
     margins.setBottom(0);
 
     displayLayout->setContentsMargins(margins);
-    displayLayout->addWidget(m_hourFrame);
-    displayLayout->addWidget(m_minFrame);
-    displayLayout->addWidget(m_secFrame);
-    displayLayout->addWidget(m_fracFrame);
+    displayLayout->addWidget(m_hourGroup);
+    displayLayout->addWidget(m_minGroup);
+    displayLayout->addWidget(m_secGroup);
+    displayLayout->addWidget(m_fracGroup);
 }
 
 void TimeDisplay::setTimeFormat(const TimeFormat& format)
@@ -137,30 +103,20 @@ void TimeDisplay::setFractionsFont(const QFont& font)
 
 void TimeDisplay::setBackgroundColor(const QColor& color)
 {
-    m_backgroundColor = color;
-
-    m_hourFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
-    m_minFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
-    m_secFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
-    m_fracFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
+    setGroupboxColor(m_hourGroup, m_hourGroup->backgroundRole(), color);
+    setGroupboxColor(m_minGroup, m_minGroup->backgroundRole(), color);
+    setGroupboxColor(m_secGroup, m_secGroup->backgroundRole(), color);
+    setGroupboxColor(m_fracGroup, m_fracGroup->backgroundRole(), color);
+    update();
 }
 
 void TimeDisplay::setTextColor(const QColor& color)
 {
-    m_textColor = color;
-
-    m_hourFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
-    m_minFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
-    m_secFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
-    m_fracFrame->setStyleSheet(FRAME_STYLE.arg(m_backgroundColor.name(), m_textColor.name()));
-}
-
-void TimeDisplay::showHeaders(bool show)
-{
-    m_hourHeader->setVisible(show);
-    m_minHeader->setVisible(show);
-    m_secHeader->setVisible(show);
-    m_fracHeader->setVisible(show);
+    setGroupboxColor(m_hourGroup, m_hourGroup->foregroundRole(), color);
+    setGroupboxColor(m_minGroup, m_minGroup->foregroundRole(), color);
+    setGroupboxColor(m_secGroup, m_secGroup->foregroundRole(), color);
+    setGroupboxColor(m_fracGroup, m_fracGroup->foregroundRole(), color);
+    update();
 }
 
 QString TimeDisplay::currentTime()
@@ -224,30 +180,30 @@ void TimeDisplay::updateWidth()
 
     width = width + (width * 20 / 100); // 20% as padding, i.e. 10% as right padding and 10% as left padding
 
-    m_hourFrame->setMinimumWidth(width);
-    m_minFrame->setMinimumWidth(width);
-    m_secFrame->setMinimumWidth(width);
-    m_fracFrame->setMinimumWidth(width);
+    m_hourGroup->setMinimumWidth(width);
+    m_minGroup->setMinimumWidth(width);
+    m_secGroup->setMinimumWidth(width);
+    m_fracGroup->setMinimumWidth(width);
 }
 
 void TimeDisplay::updateTimeFormat()
 {
-    m_hourFrame->setVisible(m_currentFormat.hasHours());
-    m_minFrame->setVisible(m_currentFormat.hasMinutes());
-    m_fracFrame->setVisible(m_currentFormat.hasFractions());
+    m_hourGroup->setVisible(m_currentFormat.hasHours());
+    m_minGroup->setVisible(m_currentFormat.hasMinutes());
+    m_fracGroup->setVisible(m_currentFormat.hasFractions());
 
     if (m_currentFormat.hasFractions()) {
         switch (m_currentFormat.secondFractions()) {
         case TimeFormat::UpToTenths:
-            m_fracHeader->setText(i18nc("@title:column", "Tenths"));
+            m_fracGroup->setTitle(i18nc("@title:column", "Tenths"));
             m_fracDisplay->setDigitCounter(DigitDisplay::OneDigit);
             break;
         case TimeFormat::UpToHundredths:
-            m_fracHeader->setText(i18nc("@title:column", "Hundredths"));
+            m_fracGroup->setTitle(i18nc("@title:column", "Hundredths"));
             m_fracDisplay->setDigitCounter(DigitDisplay::TwoDigits);
             break;
         case TimeFormat::UpToMilliseconds:
-            m_fracHeader->setText(i18nc("@title:column", "Milliseconds"));
+            m_fracGroup->setTitle(i18nc("@title:column", "Milliseconds"));
             m_fracDisplay->setDigitCounter(DigitDisplay::ThreeDigits);
             break;
         default:
@@ -256,5 +212,13 @@ void TimeDisplay::updateTimeFormat()
     }
 
     updateTimer();
+}
+
+void TimeDisplay::setGroupboxColor(QGroupBox *groupBox, QPalette::ColorRole role, const QColor& color)
+{
+    Q_ASSERT(groupBox);
+    QPalette palette = groupBox->palette();
+    palette.setColor(role, color);
+    groupBox->setPalette(palette);
 }
 
