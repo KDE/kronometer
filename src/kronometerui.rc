@@ -20,21 +20,12 @@
         </Menu>
     </MenuBar>
 
-    <!-- Empty "mainToolBar" on top position. Without this bogus toolbar:
-    1. A default top-position "mainToolBar" is created with the KDE standard actions used by kronometer. We want to prevent this.
-    2. "kronometerToolBar" refuses to stay on bottom position. It seems like a top toolbar is mandatory in order to have toolbars in other positions. -->
-    <ToolBar position="top" name="mainToolBar" noMerge="1">
-        <text>Empty Toolbar</text>
-    </ToolBar>
-
-    <!-- Toolbar with stopwatch actions -->
-    <ToolBar position="bottom" iconSize="48" name="kronometerToolBar" noMerge="1">
+    <ToolBar position="top" iconSize="48" name="mainToolBar" noMerge="1">
         <text>Kronometer Toolbar</text>
         <Action name="start" />
         <Action name="pause" />
         <Action name="reset" />
-        <Action name="lap" />
-    </ToolBar>
+        <Action name="lap" />    </ToolBar>
 
     <!-- State rules definition (enabling/disabling actions) -->
 
