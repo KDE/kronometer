@@ -101,10 +101,10 @@ void Session::clear()
 
 void Session::write(QJsonObject& json) const
 {
-    json[QLatin1String("name")] = m_name;
-    json[QLatin1String("note")] = m_note;
-    json[QLatin1String("time")] = m_time;
-    json[QLatin1String("date")] = m_date.toString(Qt::ISODate);
+    json[QStringLiteral("name")] = m_name;
+    json[QStringLiteral("note")] = m_note;
+    json[QStringLiteral("time")] = m_time;
+    json[QStringLiteral("date")] = m_date.toString(Qt::ISODate);
 
     QJsonArray laps;
 
@@ -114,19 +114,19 @@ void Session::write(QJsonObject& json) const
         laps.append(object);
     }
 
-    json[QLatin1String("laps")] = laps;
+    json[QStringLiteral("laps")] = laps;
 }
 
 Session Session::fromJson(const QJsonObject& json)
 {
     Session session;
 
-    session.m_name = json[QLatin1String("name")].toString();
-    session.m_note = json[QLatin1String("note")].toString();
-    session.m_time = json[QLatin1String("time")].toInt();
-    session.m_date = QDateTime::fromString(json[QLatin1String("date")].toString(), Qt::ISODate);
+    session.m_name = json[QStringLiteral("name")].toString();
+    session.m_note = json[QStringLiteral("note")].toString();
+    session.m_time = json[QStringLiteral("time")].toInt();
+    session.m_date = QDateTime::fromString(json[QStringLiteral("date")].toString(), Qt::ISODate);
 
-    auto laps = json[QLatin1String("laps")].toArray();
+    auto laps = json[QStringLiteral("laps")].toArray();
 
     for (int i = 0; i < laps.size(); i++) {
         session.addLap(Lap::fromJson(laps[i].toObject()));

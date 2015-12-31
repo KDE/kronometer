@@ -79,18 +79,18 @@ int Lap::raw() const
 
 void Lap::write(QJsonObject& json) const
 {
-    json[QLatin1String("time")] = raw();
-    json[QLatin1String("reltime")] = m_relativeTime;
-    json[QLatin1String("abstime")] = m_absoluteTime;
-    json[QLatin1String("note")] = m_note;
+    json[QStringLiteral("time")] = raw();
+    json[QStringLiteral("reltime")] = m_relativeTime;
+    json[QStringLiteral("abstime")] = m_absoluteTime;
+    json[QStringLiteral("note")] = m_note;
 }
 
 Lap Lap::fromJson(const QJsonObject& json)
 {
-    Lap lap = fromRawData(json[QLatin1String("time")].toInt());
-    lap.m_relativeTime = json[QLatin1String("reltime")].toString();
-    lap.m_absoluteTime = json[QLatin1String("abstime")].toString();
-    lap.m_note = json[QLatin1String("note")].toString();
+    Lap lap = fromRawData(json[QStringLiteral("time")].toInt());
+    lap.m_relativeTime = json[QStringLiteral("reltime")].toString();
+    lap.m_absoluteTime = json[QStringLiteral("abstime")].toString();
+    lap.m_note = json[QStringLiteral("note")].toString();
 
     return lap;
 }

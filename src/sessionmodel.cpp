@@ -205,7 +205,7 @@ bool SessionModel::isEditable(const QModelIndex& index) const
 
 void SessionModel::read(const QJsonObject& json)
 {
-    auto sessions = json[QLatin1String("sessions")].toArray();
+    auto sessions = json[QStringLiteral("sessions")].toArray();
 
     for (int i = 0; i < sessions.size(); i++) {
         append(Session::fromJson(sessions[i].toObject()));
@@ -223,7 +223,7 @@ void SessionModel::slotWrite()
         sessions.append(object);
     }
 
-    json[QLatin1String("sessions")] = sessions;
+    json[QStringLiteral("sessions")] = sessions;
 
     QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
     saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate);

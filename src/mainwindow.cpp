@@ -187,11 +187,11 @@ void MainWindow::slotPrepareForSleep(bool beforeSleep)
 
 void MainWindow::slotShowSettings()
 {
-    if (KConfigDialog::showDialog(QLatin1String("settings"))) {
+    if (KConfigDialog::showDialog(QStringLiteral("settings"))) {
         return;
     }
 
-    auto dialog = new KConfigDialog(this, QLatin1String("settings"), KronometerConfig::self());
+    auto dialog = new KConfigDialog(this, QStringLiteral("settings"), KronometerConfig::self());
 
     auto generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
     generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon().name()));
