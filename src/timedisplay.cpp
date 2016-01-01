@@ -62,6 +62,7 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
     auto margins = displayLayout->contentsMargins();
     margins.setTop(0);
     margins.setBottom(0);
+    margins.setLeft(0);
 
     displayLayout->setContentsMargins(margins);
     displayLayout->addWidget(m_hourGroup);
