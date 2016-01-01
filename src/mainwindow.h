@@ -137,7 +137,6 @@ private:
     Stopwatch *m_stopwatch;
     TimeDisplay *m_stopwatchDisplay;
     QTableView *m_lapView;
-    QLabel *m_statusLabel;
 
     QAction *m_startAction;
     QAction *m_pauseAction;
@@ -155,11 +154,6 @@ private:
      * Setup the central widget of the window.
      */
     void setupCentralWidget();
-
-    /**
-     * Setup application status bar.
-     */
-    void setupStatusBar();
 
     /**
      * Setup standard and custom QActions.

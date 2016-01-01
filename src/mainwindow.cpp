@@ -61,12 +61,12 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     m_sessionModel = new SessionModel(this);
 
     setupCentralWidget();
-    setupStatusBar();
     setupActions();
     // TODO: find a better fix for #351746 than QSize(0, 0);
-    setupGUI(QSize(0, 0), KXmlGuiWindow::Default, QStringLiteral("kronometerui.rc"));
+    setupGUI(QSize(0, 0), ToolBar | Keys | Save | Create, QStringLiteral("kronometerui.rc"));
     slotInactive();    // inactive state is the default
     loadSettings();
+    statusBar()->hide();
 
     if (not m_session.isEmpty()) {
         loadSession();
@@ -138,8 +138,6 @@ bool MainWindow::queryClose()
 
 void MainWindow::slotRunning()
 {
-    m_statusLabel->setText(i18nc("@info:status", "Running..."));
-
     m_session.setIsOutdated(true);
     setWindowModified(true);
 
@@ -149,7 +147,6 @@ void MainWindow::slotRunning()
 void MainWindow::slotPaused()
 {
     m_startAction->setText(i18nc("@action", "Re&sume"));
-    m_statusLabel->setText(i18nc("@info:status", "Paused"));
 
     if (not m_session.isEmpty()) {
         stateChanged(QStringLiteral("pausedSession"));
@@ -168,7 +165,6 @@ void MainWindow::slotPaused()
 void MainWindow::slotInactive()
 {
     m_startAction->setText(i18nc("@action", "&Start"));
-    m_statusLabel->setText(i18nc("@info:status", "Inactive"));
 
     m_session.setIsOutdated(false);
 
@@ -334,14 +330,6 @@ void MainWindow::setupCentralWidget()
     splitter->addWidget(m_lapView);
 
     setCentralWidget(splitter);
-}
-
-void MainWindow::setupStatusBar()
-{
-    m_statusLabel = new QLabel(this);
-    m_statusLabel->setToolTip(i18nc("@info:tooltip", "Current chronometer status"));
-
-    statusBar()->addWidget(m_statusLabel);
 }
 
 void MainWindow::setupActions()
