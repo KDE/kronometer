@@ -56,6 +56,9 @@
         <entry name="showLapNotes" type="Bool">
             <default>true</default>
         </entry>
+        <entry name="menuBarNeverShown" type="Bool">
+            <default>true</default>
+        </entry>
     </group>
 
     <group name="Font">

@@ -30,6 +30,8 @@ class SessionModel;
 class Stopwatch;
 class TimeDisplay;
 
+class KToggleAction;
+
 class QAction;
 class QLabel;
 class QSortFilterProxyModel;
@@ -125,6 +127,11 @@ private slots:
      */
     void slotCopyToClipboard();
 
+    /**
+     * Toggle menubar visibility.
+     */
+    void slotToggleMenuBar();
+
 private:
 
     Stopwatch *m_stopwatch;
@@ -137,6 +144,7 @@ private:
     QAction *m_resetAction;
     QAction *m_lapAction;
     QAction *m_exportAction;
+    KToggleAction *m_toggleMenuAction;
 
     LapModel *m_lapModel;
     SessionModel *m_sessionModel;

@@ -32,6 +32,7 @@
 #include <KConfigDialog>
 #include <KLocalizedString>
 #include <KMessageBox>
+#include <KToggleAction>
 
 #include <QAction>
 #include <QApplication>
@@ -42,6 +43,7 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMenuBar>
 #include <QPointer>
 #include <QSaveFile>
 #include <QSortFilterProxyModel>
@@ -295,6 +297,19 @@ void MainWindow::slotCopyToClipboard()
     QApplication::clipboard()->setText(m_stopwatchDisplay->currentTime());
 }
 
+void MainWindow::slotToggleMenuBar()
+{
+    // Menubar shown for the first time.
+    if (KronometerConfig::menuBarNeverShown()) {
+        KronometerConfig::setMenuBarNeverShown(false);
+        slotWriteSettings();
+    }
+
+    menuBar()->setVisible(!menuBar()->isVisible());
+    m_toggleMenuAction->setChecked(menuBar()->isVisible());
+    // TODO: toggle also the "control button"
+}
+
 void MainWindow::setupCentralWidget()
 {
     auto splitter = new QSplitter(this);
@@ -389,6 +404,9 @@ void MainWindow::setupActions()
     KStandardAction::open(this, SLOT(slotOpenSession()), actionCollection());
     KStandardAction::copy(this, SLOT(slotCopyToClipboard()), actionCollection());
     connect(m_exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
+
+    m_toggleMenuAction = KStandardAction::showMenubar(nullptr, nullptr, actionCollection());
+    connect(m_toggleMenuAction, &KToggleAction::triggered, this, &MainWindow::slotToggleMenuBar);
 }
 
 void MainWindow::loadSettings()
@@ -415,6 +433,12 @@ void MainWindow::loadSettings()
     m_stopwatchDisplay->setTextColor(KronometerConfig::textColor());
 
     setupGranularity();
+
+    // Always hide the menubar until the user shows it for the first time.
+    if (KronometerConfig::menuBarNeverShown()) {
+        menuBar()->hide();
+        m_toggleMenuAction->setChecked(false);
+    }
 }
 
 void MainWindow::setupGranularity()
