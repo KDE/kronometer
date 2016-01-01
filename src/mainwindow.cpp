@@ -33,6 +33,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KToggleAction>
+#include <KToolBar>
 
 #include <QAction>
 #include <QApplication>
@@ -50,8 +51,10 @@
 #include <QSplitter>
 #include <QStatusBar>
 #include <QTableView>
+#include <QToolButton>
 
 MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
+    m_controlMenuButton {nullptr},
     m_session {session}
 {
     m_stopwatch = new Stopwatch(this);
@@ -303,7 +306,63 @@ void MainWindow::slotToggleMenuBar()
 
     menuBar()->setVisible(!menuBar()->isVisible());
     m_toggleMenuAction->setChecked(menuBar()->isVisible());
-    // TODO: toggle also the "control button"
+
+    menuBar()->isVisible() ? deleteControlMenuButton() : createControlMenuButton();
+}
+
+void MainWindow::slotUpdateControlMenu()
+{
+    QMenu* menu = qobject_cast<QMenu*>(sender());
+    Q_ASSERT(menu);
+
+    // All actions get cleared by QMenu::clear(). The sub-menus are deleted
+    // by connecting to the aboutToHide() signal from the parent-menu.
+    menu->clear();
+
+    KActionCollection* ac = actionCollection();
+
+    // Add "File" actions
+    bool added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::New))), menu) |
+                 addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Open))), menu);
+
+    if (added) menu->addSeparator();
+
+    added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))), menu) |
+            addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::SaveAs))), menu);
+
+    if (added) menu->addSeparator();
+
+    added = addActionToMenu(m_exportAction, menu);
+
+    if (added) menu->addSeparator();
+
+    // Add "Edit actions
+    added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Copy))), menu);
+
+    if (added) menu->addSeparator();
+
+
+    // Add "Settings" menu entries
+    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::KeyBindings))), menu);
+    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ConfigureToolbars))), menu);
+    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Preferences))), menu);
+
+    // Add "Help" menu
+    QMenu* helpMenu = new QMenu(i18nc("@action:inmenu", "Help"), menu);
+    connect(menu, &QMenu::aboutToHide, helpMenu, &QMenu::deleteLater);
+    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::HelpContents))));
+    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::WhatsThis))));
+    helpMenu->addSeparator();
+    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ReportBug))));
+    helpMenu->addSeparator();
+    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::SwitchApplicationLanguage))));
+    helpMenu->addSeparator();
+    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::AboutApp))));
+    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::AboutKDE))));
+    menu->addMenu(helpMenu);
+
+    menu->addSeparator();
+    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ShowMenubar))), menu);
 }
 
 void MainWindow::setupCentralWidget()
@@ -426,6 +485,7 @@ void MainWindow::loadSettings()
     if (KronometerConfig::menuBarNeverShown()) {
         menuBar()->hide();
         m_toggleMenuAction->setChecked(false);
+        createControlMenuButton();
     }
 }
 
@@ -550,5 +610,52 @@ QString MainWindow::timestampMessage()
     auto timestamp = QDateTime::currentDateTime();
 
     return i18nc("@info:shell", "Created by Kronometer on %1", timestamp.toString(Qt::DefaultLocaleLongDate));
+}
+
+void MainWindow::createControlMenuButton()
+{
+    if (m_controlMenuButton) {
+        return;
+    }
+    Q_ASSERT(!m_controlMenuButton);
+
+    m_controlMenuButton = new QToolButton(this);
+    m_controlMenuButton->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
+    m_controlMenuButton->setText(i18nc("@action:intoolbar", "Control"));
+    m_controlMenuButton->setPopupMode(QToolButton::InstantPopup);
+    m_controlMenuButton->setToolButtonStyle(toolBar()->toolButtonStyle());
+
+    QMenu* controlMenu = new QMenu(m_controlMenuButton);
+    connect(controlMenu, &QMenu::aboutToShow, this, &MainWindow::slotUpdateControlMenu);
+
+    m_controlMenuButton->setMenu(controlMenu);
+
+    toolBar()->addWidget(m_controlMenuButton);
+    connect(toolBar(), &KToolBar::iconSizeChanged,
+            m_controlMenuButton, &QToolButton::setIconSize);
+    connect(toolBar(), &KToolBar::toolButtonStyleChanged,
+            m_controlMenuButton, &QToolButton::setToolButtonStyle);
+}
+
+void MainWindow::deleteControlMenuButton()
+{
+    delete m_controlMenuButton;
+    m_controlMenuButton = nullptr;
+}
+
+bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
+{
+    Q_ASSERT(action);
+    Q_ASSERT(menu);
+
+    const KToolBar *toolBarWidget = toolBar();
+    foreach (const QWidget* widget, action->associatedWidgets()) {
+        if (widget == toolBarWidget) {
+            return false;
+        }
+    }
+
+    menu->addAction(action);
+    return true;
 }
 

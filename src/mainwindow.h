@@ -38,6 +38,7 @@ class QSortFilterProxyModel;
 class QSplitter;
 class QTableView;
 class QTextStream;
+class QToolButton;
 
 /**
  * @brief Kronometer main window.
@@ -132,6 +133,8 @@ private slots:
      */
     void slotToggleMenuBar();
 
+    void slotUpdateControlMenu();
+
 private:
 
     Stopwatch *m_stopwatch;
@@ -143,6 +146,7 @@ private:
     QAction *m_resetAction;
     QAction *m_lapAction;
     QAction *m_exportAction;
+    QToolButton *m_controlMenuButton;
     KToggleAction *m_toggleMenuAction;
 
     LapModel *m_lapModel;
@@ -205,6 +209,12 @@ private:
      * @return The string "Created by Kronomer on <timestamp>"
      */
     QString timestampMessage();
+
+    void createControlMenuButton();
+
+    void deleteControlMenuButton();
+
+    bool addActionToMenu(QAction* action, QMenu* menu);
 
     Q_DISABLE_COPY(MainWindow)
 };
