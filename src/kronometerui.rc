@@ -20,7 +20,7 @@
         </Menu>
     </MenuBar>
 
-    <ToolBar position="top" iconSize="48" name="mainToolBar" noMerge="1">
+    <ToolBar position="top" iconSize="32" name="mainToolBar" noMerge="1">
         <text>Kronometer Toolbar</text>
         <Action name="start" />
         <Action name="pause" />

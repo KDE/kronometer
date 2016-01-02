@@ -621,7 +621,6 @@ void MainWindow::createControlMenuButton()
 
     m_controlMenuButton = new QToolButton(this);
     m_controlMenuButton->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
-    m_controlMenuButton->setText(i18nc("@action:intoolbar", "Control"));
     m_controlMenuButton->setPopupMode(QToolButton::InstantPopup);
     m_controlMenuButton->setToolButtonStyle(toolBar()->toolButtonStyle());
 
