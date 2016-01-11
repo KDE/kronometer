@@ -485,6 +485,9 @@ void MainWindow::loadSettings()
     // Always hide the menubar until the user shows it for the first time.
     if (KronometerConfig::menuBarNeverShown()) {
         menuBar()->hide();
+    }
+
+    if (menuBar()->isHidden()) {
         m_toggleMenuAction->setChecked(false);
         createControlMenuButton();
     }
