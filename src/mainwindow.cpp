@@ -314,7 +314,8 @@ void MainWindow::slotToggleMenuBar()
 void MainWindow::slotUpdateControlMenu()
 {
     QMenu* menu = qobject_cast<QMenu*>(sender());
-    Q_ASSERT(menu);
+    if (not menu)
+        return;
 
     // All actions get cleared by QMenu::clear(). The sub-menus are deleted
     // by connecting to the aboutToHide() signal from the parent-menu.
@@ -326,22 +327,25 @@ void MainWindow::slotUpdateControlMenu()
     bool added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::New))), menu) |
                  addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Open))), menu);
 
-    if (added) menu->addSeparator();
+    if (added)
+        menu->addSeparator();
 
     added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))), menu) |
             addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::SaveAs))), menu);
 
-    if (added) menu->addSeparator();
+    if (added)
+        menu->addSeparator();
 
     added = addActionToMenu(m_exportAction, menu);
 
-    if (added) menu->addSeparator();
+    if (added)
+        menu->addSeparator();
 
     // Add "Edit actions
     added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Copy))), menu);
 
-    if (added) menu->addSeparator();
-
+    if (added)
+        menu->addSeparator();
 
     // Add "Settings" menu entries
     addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::KeyBindings))), menu);
@@ -356,7 +360,10 @@ void MainWindow::slotUpdateControlMenu()
     helpMenu->addSeparator();
     helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ReportBug))));
     helpMenu->addSeparator();
-    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::SwitchApplicationLanguage))));
+
+    // This action may be null, so must be checked before adding it to the help menu.
+    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::SwitchApplicationLanguage))), helpMenu);
+
     helpMenu->addSeparator();
     helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::AboutApp))));
     helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::AboutKDE))));
@@ -635,7 +642,6 @@ void MainWindow::createControlMenuButton()
     if (m_controlMenuButton) {
         return;
     }
-    Q_ASSERT(!m_controlMenuButton);
 
     m_controlMenuButton = new QToolButton(this);
     m_controlMenuButton->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
@@ -673,8 +679,8 @@ void MainWindow::deleteControlMenuButton()
 
 bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
 {
-    Q_ASSERT(action);
-    Q_ASSERT(menu);
+    if (not action or not menu)
+        return false;
 
     const KToolBar *toolBarWidget = toolBar();
     foreach (const QWidget* widget, action->associatedWidgets()) {
