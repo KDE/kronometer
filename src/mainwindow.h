@@ -135,6 +135,10 @@ private slots:
 
     void slotUpdateControlMenu();
 
+    void slotControlMenuButtonDeleted();
+
+    void slotToolBarUpdated();
+
 private:
 
     Stopwatch *m_stopwatch;
@@ -146,6 +150,7 @@ private:
     QAction *m_resetAction;
     QAction *m_lapAction;
     QAction *m_exportAction;
+    QTimer *m_controlMenuTimer;
     QToolButton *m_controlMenuButton;
     KToggleAction *m_toggleMenuAction;
 

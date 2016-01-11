@@ -51,6 +51,7 @@
 #include <QSplitter>
 #include <QStatusBar>
 #include <QTableView>
+#include <QTimer>
 #include <QToolButton>
 
 MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
@@ -365,6 +366,19 @@ void MainWindow::slotUpdateControlMenu()
     addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ShowMenubar))), menu);
 }
 
+void MainWindow::slotControlMenuButtonDeleted()
+{
+    m_controlMenuButton = nullptr;
+    m_controlMenuTimer->start();
+}
+
+void MainWindow::slotToolBarUpdated()
+{
+    if (!menuBar()->isVisible()) {
+        createControlMenuButton();
+    }
+}
+
 void MainWindow::setupCentralWidget()
 {
     auto splitter = new QSplitter(this);
@@ -638,12 +652,23 @@ void MainWindow::createControlMenuButton()
             m_controlMenuButton, &QToolButton::setIconSize);
     connect(toolBar(), &KToolBar::toolButtonStyleChanged,
             m_controlMenuButton, &QToolButton::setToolButtonStyle);
+
+    // The control button may get deleted when e.g. the toolbar gets edited.
+    // In this case we must add it again. The adding is done asynchronously using a QTimer.
+    connect(m_controlMenuButton, &QToolButton::destroyed, this, &MainWindow::slotControlMenuButtonDeleted);
+    m_controlMenuTimer = new QTimer(this);
+    m_controlMenuTimer->setInterval(500);
+    m_controlMenuTimer->setSingleShot(true);
+    connect(m_controlMenuTimer, &QTimer::timeout, this, &MainWindow::slotToolBarUpdated);
 }
 
 void MainWindow::deleteControlMenuButton()
 {
     delete m_controlMenuButton;
     m_controlMenuButton = nullptr;
+
+    delete m_controlMenuTimer;
+    m_controlMenuTimer = nullptr;
 }
 
 bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
