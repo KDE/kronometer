@@ -453,7 +453,8 @@ void MainWindow::setupActions()
     connect(m_exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
 
     m_toggleMenuAction = KStandardAction::showMenubar(nullptr, nullptr, actionCollection());
-    connect(m_toggleMenuAction, &KToggleAction::triggered, this, &MainWindow::slotToggleMenuBar);
+    // QueuedConnection prevents crashes when toggling the visibility
+    connect(m_toggleMenuAction, &KToggleAction::triggered, this, &MainWindow::slotToggleMenuBar, Qt::QueuedConnection);
 }
 
 void MainWindow::loadSettings()
