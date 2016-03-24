@@ -237,7 +237,7 @@ void MainWindow::slotNewSession()
 
 void MainWindow::slotOpenSession()
 {
-    QPointer<SessionDialog> dialog = new SessionDialog {nullptr, i18n("Sessions")};
+    QPointer<SessionDialog> dialog = new SessionDialog {nullptr, i18nc("@title:window", "Sessions")};
 
     if (dialog.data()->exec() == QDialog::Accepted) {
         auto window = new MainWindow {nullptr, dialog.data()->selectedSession()};
