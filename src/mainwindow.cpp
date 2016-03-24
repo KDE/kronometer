@@ -317,8 +317,8 @@ void MainWindow::slotUpdateControlMenu()
     if (not menu)
         return;
 
-    // All actions get cleared by QMenu::clear(). The sub-menus are deleted
-    // by connecting to the aboutToHide() signal from the parent-menu.
+    // All actions get cleared by QMenu::clear().
+    // This includes the sub-menus because 'menu' is their parent.
     menu->clear();
 
     auto ac = actionCollection();
@@ -354,7 +354,6 @@ void MainWindow::slotUpdateControlMenu()
 
     // Add "Help" menu
     auto helpMenu = new QMenu {i18nc("@action:inmenu", "Help"), menu};
-    connect(menu, &QMenu::aboutToHide, helpMenu, &QMenu::deleteLater);
     helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::HelpContents))));
     helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::WhatsThis))));
     helpMenu->addSeparator();
