@@ -33,7 +33,7 @@ int main (int argc, char **argv)
 
     QApplication app {argc, argv};
 
-    KAboutData aboutData {
+    auto aboutData = KAboutData {
         QStringLiteral("kronometer"),   // componentName
         i18n("Kronometer"), // displayName
         QStringLiteral("2.0.1"),    // version
@@ -66,13 +66,13 @@ int main (int argc, char **argv)
     app.setWindowIcon(QIcon::fromTheme(QStringLiteral("kronometer")));
 
     // Make sure that the local data directory is available.
-    QFileInfo appdata {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation)};
+    auto appdata = QFileInfo {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation)};
     if (not appdata.exists()) {
-        QDir dir {appdata.absolutePath()};
+        auto dir = QDir {appdata.absolutePath()};
         dir.mkdir(appdata.fileName());
     }
 
-    auto window = new MainWindow();
+    auto window = new MainWindow {};
     window->show();
 
     return app.exec();

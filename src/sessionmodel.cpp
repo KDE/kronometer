@@ -66,7 +66,7 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
     }
 
     if (role == Qt::DisplayRole) {
-        QVariant variant;
+        auto variant = QVariant {};
 
         switch (index.column()) {
         case SessionId:
@@ -87,11 +87,13 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
 
         return variant;
     }
-    else if (role == Qt::EditRole && index.column() == Name) {
+
+    if (role == Qt::EditRole && index.column() == Name) {
         // prevent the disappear of the old value when double-clicking the item
         return m_sessionList.at(index.row()).name();
     }
-    else if (role == Qt::EditRole && index.column() == Note) {
+
+    if (role == Qt::EditRole && index.column() == Note) {
         return m_sessionList.at(index.row()).note();
     }
 
@@ -190,7 +192,7 @@ void SessionModel::update(const Session& session)
     m_sessionList[i] = session;
     m_sessionList[i].setDate(QDateTime::currentDateTime());
 
-    emit dataChanged(QModelIndex(), QModelIndex());
+    emit dataChanged({}, {});
 }
 
 bool SessionModel::isEmpty() const
@@ -205,30 +207,28 @@ bool SessionModel::isEditable(const QModelIndex& index) const
 
 void SessionModel::read(const QJsonObject& json)
 {
-    auto sessions = json[QStringLiteral("sessions")].toArray();
-
-    for (int i = 0; i < sessions.size(); i++) {
+    const auto sessions = json[QStringLiteral("sessions")].toArray();
+    for (auto i = 0; i < sessions.size(); i++) {
         append(Session::fromJson(sessions[i].toObject()));
     }
 }
 
 void SessionModel::slotWrite()
 {
-    QJsonObject json;
-    QJsonArray sessions;
-
+    auto sessions = QJsonArray {};
     foreach (const Session& session, m_sessionList) {
-        QJsonObject object;
+        auto object = QJsonObject {};
         session.write(object);
         sessions.append(object);
     }
 
+    auto json = QJsonObject {};
     json[QStringLiteral("sessions")] = sessions;
 
     QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
     saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate);
 
-    QJsonDocument saveDoc {json};
+    auto saveDoc = QJsonDocument {json};
     saveFile.write(saveDoc.toJson());
 }
 

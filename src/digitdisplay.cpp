@@ -24,10 +24,10 @@
 
 DigitDisplay::DigitDisplay(QWidget *parent, DigitCounter counter) : QWidget(parent)
 {
-    auto layout = new QHBoxLayout(this);
-    m_leftmostDigit = new QLabel(this);
-    m_centerDigit = new QLabel(this);
-    m_rightmostDigit = new QLabel(this);
+    auto layout = new QHBoxLayout {this};
+    m_leftmostDigit = new QLabel {this};
+    m_centerDigit = new QLabel {this};
+    m_rightmostDigit = new QLabel {this};
 
     m_leftmostDigit->setAlignment(Qt::AlignCenter);
     m_centerDigit->setAlignment(Qt::AlignCenter);
@@ -98,8 +98,8 @@ void DigitDisplay::setFont(const QFont& font)
 
 QSize DigitDisplay::minimumSizeHint() const
 {
-    int width = 0;
-    QFontMetrics fontMetrics {m_displayFont};
+    auto width = 0;
+    auto fontMetrics = QFontMetrics {m_displayFont};
 
     switch (m_digitCounter) {
     case OneDigit:

@@ -34,12 +34,12 @@
 
 SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(parent, Qt::Dialog)
 {
-    m_sessionModel = new SessionModel(this);
+    m_sessionModel = new SessionModel {this};
 
-    m_proxyModel = new QSortFilterProxyModel(this);
+    m_proxyModel = new QSortFilterProxyModel {this};
     m_proxyModel->setSourceModel(m_sessionModel);
 
-    m_sessionView = new QTableView(this);
+    m_sessionView = new QTableView {this};
     m_sessionView->setModel(m_proxyModel);
     m_sessionView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_sessionView->setGridStyle(Qt::DotLine);
@@ -51,10 +51,10 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     // TODO: the user may want to select/remove more than one session
     m_sessionView->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    m_msgWidget = new KMessageWidget(this);
+    m_msgWidget = new KMessageWidget {this};
     m_msgWidget->hide();
 
-    auto vlayout = new QVBoxLayout(this);
+    auto vlayout = new QVBoxLayout {this};
     vlayout->addWidget(m_msgWidget);
     vlayout->addWidget(m_sessionView);
 
@@ -135,7 +135,7 @@ QModelIndex SessionDialog::selectedIndex()
 
 void SessionDialog::removeDialog()
 {
-    auto buttonCode = KMessageBox::warningYesNo(
+    const auto buttonCode = KMessageBox::warningYesNo(
                 this,
                 i18nc("@info", "Do you want to remove the selected session?"),
                 i18nc("@title:window", "Confirm deletion"),

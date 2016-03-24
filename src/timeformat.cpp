@@ -32,10 +32,10 @@ TimeFormat::TimeFormat(bool showHours, bool showMinutes, SecondFraction fraction
 
 QString TimeFormat::format(const QTime& time) const
 {
-    auto h = formatHours(time);
-    auto m = formatMinutes(time);
-    auto s = formatSeconds(time);
-    auto f = formatFractions(time);
+    const auto h = formatHours(time);
+    const auto m = formatMinutes(time);
+    const auto s = formatSeconds(time);
+    const auto f = formatFractions(time);
 
     return h + m + s + f;
 }
@@ -43,7 +43,7 @@ QString TimeFormat::format(const QTime& time) const
 QString TimeFormat::formatHours(const QTime& time) const
 {
     if (not m_showHours) {
-        return QString();
+        return {};
     }
 
     return time.toString(m_hourFormat);
@@ -52,7 +52,7 @@ QString TimeFormat::formatHours(const QTime& time) const
 QString TimeFormat::formatMinutes(const QTime& time) const
 {
     if (not m_showMinutes) {
-        return QString();
+        return {};
     }
 
     return time.toString(m_minFormat);
@@ -66,7 +66,7 @@ QString TimeFormat::formatSeconds(const QTime& time) const
 QString TimeFormat::formatFractions(const QTime& time) const
 {
     auto fracFormat = QStringLiteral("zzz");
-    QString temp;
+    auto temp = QString {};
 
     switch (m_fractions) {
     case UpToTenths:

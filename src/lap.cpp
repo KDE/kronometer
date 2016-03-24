@@ -33,10 +33,9 @@ QTime Lap::time() const
 QTime Lap::timeTo(const Lap& lap) const
 {
     if (lap.time() < m_time)
-        return QTime(0, 0);
+        return {0, 0};
 
-    QTime zero {0, 0};
-
+    const auto zero = QTime {0, 0};
     return zero.addMSecs(m_time.msecsTo(lap.time()));
 }
 
@@ -72,8 +71,7 @@ QString Lap::note() const
 
 int Lap::raw() const
 {
-    QTime zero {0, 0};
-
+    const auto zero = QTime {0, 0};
     return zero.msecsTo(m_time);
 }
 
@@ -87,7 +85,7 @@ void Lap::write(QJsonObject& json) const
 
 Lap Lap::fromJson(const QJsonObject& json)
 {
-    Lap lap = fromRawData(json[QStringLiteral("time")].toInt());
+    auto lap = fromRawData(json[QStringLiteral("time")].toInt());
     lap.m_relativeTime = json[QStringLiteral("reltime")].toString();
     lap.m_absoluteTime = json[QStringLiteral("abstime")].toString();
     lap.m_note = json[QStringLiteral("note")].toString();
@@ -98,10 +96,9 @@ Lap Lap::fromJson(const QJsonObject& json)
 Lap Lap::fromRawData(int rawData)
 {
     if (rawData < 0) {
-        return Lap();
+        return Lap {};
     }
 
-    QTime zero {0, 0};
-
-    return Lap(zero.addMSecs(rawData));
+    const auto zero = QTime {0, 0};
+    return Lap {zero.addMSecs(rawData)};
 }

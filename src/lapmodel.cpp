@@ -71,7 +71,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         return variant;
     }
 
-    else if (role == Qt::EditRole && index.column() == Note) {
+    if (role == Qt::EditRole && index.column() == Note) {
         // prevent the disappear of the old value when double-clicking the item
         return m_laps.at(index.row()).note();
     }
@@ -142,18 +142,11 @@ void LapModel::append(const Lap& lap)
     // Append the new row at the end.
     beginInsertRows(QModelIndex(), m_laps.size(), m_laps.size());
 
-    QString relTime;
+    // Either the time of the first lap or the time relative to the last lap.
+    const auto relativeTime = m_laps.isEmpty() ? lap.time() : m_laps.last().timeTo(lap);
 
-    // to compute a relative time we need an older lap entry
-    if (not m_laps.isEmpty()) {
-        relTime = m_timeFormat.format(m_laps.last().timeTo(lap));
-    }
-    else {  // first lap entry
-        relTime = m_timeFormat.format(lap.time());
-    }
-
-    Lap newLap(lap);
-    newLap.setRelativeTime(relTime);
+    auto newLap = Lap {lap};
+    newLap.setRelativeTime(m_timeFormat.format(relativeTime));
     newLap.setAbsoluteTime(m_timeFormat.format(newLap.time()));
 
     m_laps.append(newLap);
@@ -167,7 +160,7 @@ bool LapModel::isEmpty() const
 
 void LapModel::slotLap(const QTime& lapTime)
 {
-    append(Lap(lapTime));
+    append(Lap {lapTime});
 }
 
 void LapModel::slotClear()
@@ -179,10 +172,10 @@ void LapModel::slotClear()
 
 void LapModel::reload()
 {
-    auto tmp = m_laps;
+    const auto laps = m_laps;
     slotClear();
 
-    foreach (const Lap& l, tmp) {
-        append(l);
+    foreach (const auto& lap, laps) {
+        append(lap);
     }
 }

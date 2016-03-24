@@ -58,16 +58,16 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     m_controlMenuButton {nullptr},
     m_session {session}
 {
-    m_stopwatch = new Stopwatch(this);
-    m_stopwatchDisplay = new TimeDisplay(this);
+    m_stopwatch = new Stopwatch {this};
+    m_stopwatchDisplay = new TimeDisplay {this};
     connect(m_stopwatch, &Stopwatch::time, m_stopwatchDisplay, &TimeDisplay::slotTime);  // bind stopwatch to its display
 
-    m_sessionModel = new SessionModel(this);
+    m_sessionModel = new SessionModel {this};
 
     setupCentralWidget();
     setupActions();
     // TODO: find a better fix for #351746 than QSize(0, 0);
-    setupGUI(QSize(0, 0), ToolBar | Keys | Save | Create, QStringLiteral("kronometerui.rc"));
+    setupGUI({0, 0}, ToolBar | Keys | Save | Create, QStringLiteral("kronometerui.rc"));
     slotInactive();    // inactive state is the default
     loadSettings();
     statusBar()->hide();
@@ -193,15 +193,15 @@ void MainWindow::slotShowSettings()
         return;
     }
 
-    auto dialog = new KConfigDialog(this, QStringLiteral("settings"), KronometerConfig::self());
+    auto dialog = new KConfigDialog {this, QStringLiteral("settings"), KronometerConfig::self()};
 
-    auto generalPage = dialog->addPage(new GeneralSettings(this), i18nc("@title:tab", "General Settings"));
+    auto generalPage = dialog->addPage(new GeneralSettings {this}, i18nc("@title:tab", "General Settings"));
     generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon().name()));
 
-    auto fontPage = dialog->addPage(new FontSettings(this), i18nc("@title:tab", "Font Settings"));
+    auto fontPage = dialog->addPage(new FontSettings {this}, i18nc("@title:tab", "Font Settings"));
     fontPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
 
-    auto colorPage = dialog->addPage(new ColorSettings(this), i18nc("@title:tab", "Color Settings"));
+    auto colorPage = dialog->addPage(new ColorSettings {this}, i18nc("@title:tab", "Color Settings"));
     colorPage->setIcon(QIcon::fromTheme(QStringLiteral("fill-color")));
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::slotWriteSettings);
@@ -213,7 +213,7 @@ void MainWindow::slotWriteSettings()
 {
     KronometerConfig::self()->save();
 
-    foreach (QWidget *widget, QApplication::topLevelWidgets()) {
+    foreach (auto widget, QApplication::topLevelWidgets()) {
         auto window = qobject_cast<MainWindow*>(widget);
 
         if (window) {
@@ -226,21 +226,21 @@ void MainWindow::slotUpdateLapDock()
 {
     m_lapView->resizeColumnsToContents();
     m_lapView->horizontalHeader()->setStretchLastSection(true);
-    m_lapView->selectRow(m_lapModel->rowCount(QModelIndex()) - 1);  // rows indexes start from 0
+    m_lapView->selectRow(m_lapModel->rowCount({}) - 1);  // rows indexes start from 0
 }
 
 void MainWindow::slotNewSession()
 {
-    auto window = new MainWindow();
+    auto window = new MainWindow {};
     window->show();
 }
 
 void MainWindow::slotOpenSession()
 {
-    QPointer<SessionDialog> dialog = new SessionDialog(nullptr, i18n("Sessions"));
+    QPointer<SessionDialog> dialog = new SessionDialog {nullptr, i18n("Sessions")};
 
     if (dialog.data()->exec() == QDialog::Accepted) {
-        auto window = new MainWindow(nullptr, dialog.data()->selectedSession());
+        auto window = new MainWindow {nullptr, dialog.data()->selectedSession()};
         window->show();
     }
 
@@ -255,7 +255,7 @@ void MainWindow::slotSaveSession()
     m_session.clear();    // required for laps consistency
     m_session.setTime(m_stopwatch->raw());
 
-    for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
+    for (int i = 0; i < m_lapModel->rowCount({}); i++) {
         m_session.addLap(m_lapModel->at(i));
     }
 
@@ -277,7 +277,7 @@ void MainWindow::slotSaveSessionAs()
 
 void MainWindow::slotExportLapsAs()
 {
-    QPointer<QFileDialog> dialog = new QFileDialog(this);
+    QPointer<QFileDialog> dialog = new QFileDialog {this};
     dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18nc("@title:window", "Export laps"));
@@ -313,7 +313,7 @@ void MainWindow::slotToggleMenuBar()
 
 void MainWindow::slotUpdateControlMenu()
 {
-    QMenu* menu = qobject_cast<QMenu*>(sender());
+    auto menu = qobject_cast<QMenu*>(sender());
     if (not menu)
         return;
 
@@ -321,10 +321,10 @@ void MainWindow::slotUpdateControlMenu()
     // by connecting to the aboutToHide() signal from the parent-menu.
     menu->clear();
 
-    KActionCollection* ac = actionCollection();
+    auto ac = actionCollection();
 
     // Add "File" actions
-    bool added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::New))), menu) |
+    auto added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::New))), menu) |
                  addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Open))), menu);
 
     if (added)
@@ -353,7 +353,7 @@ void MainWindow::slotUpdateControlMenu()
     addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Preferences))), menu);
 
     // Add "Help" menu
-    QMenu* helpMenu = new QMenu(i18nc("@action:inmenu", "Help"), menu);
+    auto helpMenu = new QMenu {i18nc("@action:inmenu", "Help"), menu};
     connect(menu, &QMenu::aboutToHide, helpMenu, &QMenu::deleteLater);
     helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::HelpContents))));
     helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::WhatsThis))));
@@ -388,13 +388,13 @@ void MainWindow::slotToolBarUpdated()
 
 void MainWindow::setupCentralWidget()
 {
-    auto splitter = new QSplitter(this);
+    auto splitter = new QSplitter {this};
 
-    m_lapModel = new LapModel(this);
-    auto proxyModel = new QSortFilterProxyModel(this);
+    m_lapModel = new LapModel {this};
+    auto proxyModel = new QSortFilterProxyModel {this};
     proxyModel->setSourceModel(m_lapModel);
 
-    m_lapView = new QTableView(this);
+    m_lapView = new QTableView {this};
     m_lapView->setModel(proxyModel);
     m_lapView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_lapView->setGridStyle(Qt::DotLine);
@@ -414,11 +414,11 @@ void MainWindow::setupCentralWidget()
 
 void MainWindow::setupActions()
 {
-    m_startAction = new QAction(this);
-    m_pauseAction = new QAction(this);
-    m_resetAction = new QAction(this);
-    m_lapAction = new QAction(this);
-    m_exportAction = new QAction(this);
+    m_startAction = new QAction {this};
+    m_pauseAction = new QAction {this};
+    m_resetAction = new QAction {this};
+    m_lapAction = new QAction {this};
+    m_exportAction = new QAction {this};
 
     m_startAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-start")));
 
@@ -483,8 +483,8 @@ void MainWindow::loadSettings()
     auto timeFrac = KronometerConfig::showSecondFractions() ? KronometerConfig::fractionsType() : TimeFormat::NoFractions;
     auto lapFrac = KronometerConfig::showSecondFractions() ? KronometerConfig::lapFractionsType() : TimeFormat::NoFractions;
 
-    TimeFormat timeFormat {KronometerConfig::showHours(), KronometerConfig::showMinutes(), timeFrac};
-    TimeFormat lapTimeFormat {KronometerConfig::showLapHours(), KronometerConfig::showLapMinutes(), lapFrac};
+    auto timeFormat = TimeFormat {KronometerConfig::showHours(), KronometerConfig::showMinutes(), timeFrac};
+    auto lapTimeFormat = TimeFormat {KronometerConfig::showLapHours(), KronometerConfig::showLapMinutes(), lapFrac};
 
     m_lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
@@ -538,10 +538,10 @@ void MainWindow::setupGranularity()
 
 void MainWindow::slotSaveSessionAs(const QString& name)
 {
-    Session newSession {m_stopwatch->raw()};
+    auto newSession = Session {m_stopwatch->raw()};
     newSession.setName(name);
 
-    for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
+    for (int i = 0; i < m_lapModel->rowCount({}); i++) {
         newSession.addLap(m_lapModel->at(i));
     }
 
@@ -557,7 +557,7 @@ void MainWindow::loadSession()
 {
     m_stopwatch->initialize(m_session.time());
 
-    foreach (const Lap& lap, m_session.laps()) {
+    foreach (const auto& lap, m_session.laps()) {
         m_lapModel->append(lap);
     }
 
@@ -584,7 +584,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
         QJsonObject json;
         exportLapsAsJson(json);
 
-        QJsonDocument exportDoc {json};
+        auto exportDoc = QJsonDocument {json};
         exportFile.write(exportDoc.toJson());
         exportFile.commit();
     }
@@ -605,10 +605,9 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
 
 void MainWindow::exportLapsAsJson(QJsonObject& json)
 {
-    QJsonArray laps;
-
-    for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
-        QJsonObject object;
+    auto laps = QJsonArray {};
+    for (auto i = 0; i < m_lapModel->rowCount({}); i++) {
+        auto object = QJsonObject {};
         m_lapModel->at(i).write(object);
         laps.append(object);
     }
@@ -621,7 +620,7 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
     out << '#' << timestampMessage() << '\r' << '\n';
     out << '#' << i18nc("@info:shell", "Lap number,Lap time,Global time,Note") << '\r' << '\n';
 
-    for (int i = 0; i < m_lapModel->rowCount(QModelIndex()); i++) {
+    for (auto i = 0; i < m_lapModel->rowCount({}); i++) {
         out << i;
         out << ',' << m_lapModel->at(i).relativeTime();
         out << ',' << m_lapModel->at(i).absoluteTime();
@@ -632,7 +631,7 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
 
 QString MainWindow::timestampMessage()
 {
-    auto timestamp = QDateTime::currentDateTime();
+    const auto timestamp = QDateTime::currentDateTime();
 
     return i18nc("@info:shell", "Created by Kronometer on %1", timestamp.toString(Qt::DefaultLocaleLongDate));
 }
@@ -643,12 +642,12 @@ void MainWindow::createControlMenuButton()
         return;
     }
 
-    m_controlMenuButton = new QToolButton(this);
+    m_controlMenuButton = new QToolButton {this};
     m_controlMenuButton->setIcon(QIcon::fromTheme(QStringLiteral("application-menu")));
     m_controlMenuButton->setPopupMode(QToolButton::InstantPopup);
     m_controlMenuButton->setToolButtonStyle(toolBar()->toolButtonStyle());
 
-    QMenu* controlMenu = new QMenu(m_controlMenuButton);
+    auto controlMenu = new QMenu {m_controlMenuButton};
     connect(controlMenu, &QMenu::aboutToShow, this, &MainWindow::slotUpdateControlMenu);
 
     m_controlMenuButton->setMenu(controlMenu);
@@ -662,7 +661,7 @@ void MainWindow::createControlMenuButton()
     // The control button may get deleted when e.g. the toolbar gets edited.
     // In this case we must add it again. The adding is done asynchronously using a QTimer.
     connect(m_controlMenuButton, &QToolButton::destroyed, this, &MainWindow::slotControlMenuButtonDeleted);
-    m_controlMenuTimer = new QTimer(this);
+    m_controlMenuTimer = new QTimer {this};
     m_controlMenuTimer->setInterval(500);
     m_controlMenuTimer->setSingleShot(true);
     connect(m_controlMenuTimer, &QTimer::timeout, this, &MainWindow::slotToolBarUpdated);
@@ -682,8 +681,8 @@ bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
     if (not action or not menu)
         return false;
 
-    const KToolBar *toolBarWidget = toolBar();
-    foreach (const QWidget* widget, action->associatedWidgets()) {
+    const auto toolBarWidget = toolBar();
+    foreach (const auto widget, action->associatedWidgets()) {
         if (widget == toolBarWidget) {
             return false;
         }

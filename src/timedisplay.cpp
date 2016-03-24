@@ -28,22 +28,22 @@
 TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
     m_displayTime {0, 0}
 {
-    auto displayLayout = new QHBoxLayout(this);
+    auto displayLayout = new QHBoxLayout {this};
 
-    m_hourGroup = new QGroupBox(i18nc("@title:column", "Hours"), this);
-    m_minGroup = new QGroupBox(i18nc("@title:column", "Minutes"), this);
-    m_secGroup = new QGroupBox(i18nc("@title:column", "Seconds"), this);
-    m_fracGroup = new QGroupBox(i18nc("@title:column", "Hundredths"), this);
+    m_hourGroup = new QGroupBox {i18nc("@title:column", "Hours"), this};
+    m_minGroup = new QGroupBox {i18nc("@title:column", "Minutes"), this};
+    m_secGroup = new QGroupBox {i18nc("@title:column", "Seconds"), this};
+    m_fracGroup = new QGroupBox {i18nc("@title:column", "Hundredths"), this};
 
-    auto hourLayout = new QVBoxLayout(m_hourGroup);
-    auto minLayout = new QVBoxLayout(m_minGroup);
-    auto secLayout = new QVBoxLayout(m_secGroup);
-    auto fracLayout = new QVBoxLayout(m_fracGroup);
+    auto hourLayout = new QVBoxLayout {m_hourGroup};
+    auto minLayout = new QVBoxLayout {m_minGroup};
+    auto secLayout = new QVBoxLayout {m_secGroup};
+    auto fracLayout = new QVBoxLayout {m_fracGroup};
 
-    m_hourDisplay = new DigitDisplay(m_hourGroup);
-    m_minDisplay = new DigitDisplay(m_minGroup);
-    m_secDisplay = new DigitDisplay(m_secGroup);
-    m_fracDisplay = new DigitDisplay(m_fracGroup);
+    m_hourDisplay = new DigitDisplay {m_hourGroup};
+    m_minDisplay = new DigitDisplay {m_minGroup};
+    m_secDisplay = new DigitDisplay {m_secGroup};
+    m_fracDisplay = new DigitDisplay {m_fracGroup};
 
     m_hourDisplay->setDigitCounter(DigitDisplay::TwoDigits);
     m_minDisplay->setDigitCounter(DigitDisplay::TwoDigits);
@@ -123,7 +123,7 @@ void TimeDisplay::setTextColor(const QColor& color)
 QString TimeDisplay::currentTime()
 {
     m_currentFormat.showDividers(true);
-    auto currentTime = m_currentFormat.format(m_displayTime);
+    const auto currentTime = m_currentFormat.format(m_displayTime);
     m_currentFormat.showDividers(false);
 
     return currentTime;
@@ -174,7 +174,7 @@ void TimeDisplay::updateTimer()
 
 void TimeDisplay::updateWidth()
 {
-    int width = qMax(qMax(m_hourDisplay->minimumSizeHint().width(),
+    auto width = qMax(qMax(m_hourDisplay->minimumSizeHint().width(),
                           m_minDisplay->minimumSizeHint().width()),
                      qMax(m_secDisplay->minimumSizeHint().width(),
                           m_fracDisplay->minimumSizeHint().width()));
@@ -217,8 +217,11 @@ void TimeDisplay::updateTimeFormat()
 
 void TimeDisplay::setGroupboxColor(QGroupBox *groupBox, QPalette::ColorRole role, const QColor& color)
 {
-    Q_ASSERT(groupBox);
-    QPalette palette = groupBox->palette();
+    if (not groupBox) {
+        return;
+    }
+
+    auto palette = QPalette {groupBox->palette()};
     palette.setColor(role, color);
     groupBox->setPalette(palette);
 }

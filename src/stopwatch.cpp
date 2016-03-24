@@ -104,13 +104,13 @@ void Stopwatch::slotReset()
 
 void Stopwatch::slotLap()
 {
-    int lapTime = m_accumulator;
+    auto lapTime = m_accumulator;
 
     if (m_elapsedTimer.isValid()) {
         lapTime += m_elapsedTimer.elapsed();
     }
 
-    QTime zero {0, 0};
+    const auto zero = QTime {0, 0};
     emit lap(zero.addMSecs(lapTime));
 }
 
@@ -121,7 +121,7 @@ void Stopwatch::timerEvent(QTimerEvent *event)
         return;
     }
 
-    int t = m_accumulator;
+    auto t = m_accumulator;
 
     if (m_elapsedTimer.isValid()) {
         t += m_elapsedTimer.elapsed();
