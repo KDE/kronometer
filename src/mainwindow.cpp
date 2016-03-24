@@ -195,13 +195,13 @@ void MainWindow::slotShowSettings()
 
     auto dialog = new KConfigDialog(this, QStringLiteral("settings"), KronometerConfig::self());
 
-    auto generalPage = dialog->addPage(new GeneralSettings(this), i18n("General settings"));
+    auto generalPage = dialog->addPage(new GeneralSettings(this), i18nc("@title:tab", "General Settings"));
     generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon().name()));
 
-    auto fontPage = dialog->addPage(new FontSettings(this), i18n("Font settings"));
+    auto fontPage = dialog->addPage(new FontSettings(this), i18nc("@title:tab", "Font Settings"));
     fontPage->setIcon(QIcon::fromTheme(QStringLiteral("preferences-desktop-font")));
 
-    auto colorPage = dialog->addPage(new ColorSettings(this), i18n("Color settings"));
+    auto colorPage = dialog->addPage(new ColorSettings(this), i18nc("@title:tab", "Color Settings"));
     colorPage->setIcon(QIcon::fromTheme(QStringLiteral("fill-color")));
 
     connect(dialog, &KConfigDialog::settingsChanged, this, &MainWindow::slotWriteSettings);
@@ -431,7 +431,7 @@ void MainWindow::setupActions()
     m_lapAction->setText(i18nc("@action", "&Lap"));
     m_lapAction->setIcon(QIcon::fromTheme(QStringLiteral("chronometer-lap")));
 
-    m_exportAction->setText(i18nc("@action:inmenu", "&Export laps as..."));
+    m_exportAction->setText(i18nc("@action:inmenu", "&Export Laps as..."));
     m_exportAction->setIcon(QIcon::fromTheme(QStringLiteral("document-export")));
 
     actionCollection()->addAction(QStringLiteral("start"), m_startAction);

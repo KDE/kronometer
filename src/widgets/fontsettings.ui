@@ -17,7 +17,7 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Hours font:</string>
+         <string>Hours Font:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -52,7 +52,7 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Minutes font:</string>
+         <string>Minutes Font:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -87,7 +87,7 @@
       <item>
        <widget class="QLabel" name="label_3">
         <property name="text">
-         <string>Seconds font:</string>
+         <string>Seconds Font:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -122,7 +122,7 @@
       <item>
        <widget class="QLabel" name="label_4">
         <property name="text">
-         <string>Second fractions font:</string>
+         <string>Second Fractions Font:</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
