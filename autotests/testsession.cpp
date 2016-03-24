@@ -72,7 +72,7 @@ void TestSession::testLaps()
 {
     Session session;
 
-    QList<Lap> laps = { Lap(QTime(1, 30)), Lap(QTime(2, 0)), Lap(QTime(1, 45)) };
+    const auto laps = QVector<Lap> {Lap(QTime(1, 30)), Lap(QTime(2, 0)), Lap(QTime(1, 45))};
     foreach (const Lap& lap, laps) {
         session.addLap(lap);
     }
@@ -106,7 +106,7 @@ void TestSession::testJson()
     session1.setName(QStringLiteral("test-name"));
     session1.setNote(QStringLiteral("test-note"));
 
-    QList<Lap> laps = { Lap(QTime(1, 30)), Lap(QTime(2, 0)), Lap(QTime(1, 45)) };
+    const auto laps = QVector<Lap> {Lap(QTime(1, 30)), Lap(QTime(2, 0)), Lap(QTime(1, 45))};
     foreach (const Lap& lap, laps) {
         session1.addLap(lap);
     }

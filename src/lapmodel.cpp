@@ -37,7 +37,7 @@ int LapModel::rowCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent)
 
-    return m_lapList.size();
+    return m_laps.size();
 }
 
 QVariant LapModel::data(const QModelIndex& index, int role) const
@@ -46,7 +46,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         return QVariant::Invalid;
     }
 
-    if (index.row() >= m_lapList.size() || index.row() < 0) {
+    if (index.row() >= m_laps.size() || index.row() < 0) {
         return QVariant::Invalid;
     }
 
@@ -58,13 +58,13 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
             variant = QString::number(index.row() + 1);
             break;
         case RelativeTime:
-            variant = m_lapList.at(index.row()).relativeTime();
+            variant = m_laps.at(index.row()).relativeTime();
             break;
         case AbsoluteTime:
-            variant = m_lapList.at(index.row()).absoluteTime();
+            variant = m_laps.at(index.row()).absoluteTime();
             break;
         case Note:
-            variant = m_lapList.at(index.row()).note();
+            variant = m_laps.at(index.row()).note();
             break;
         }
 
@@ -73,7 +73,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
     else if (role == Qt::EditRole && index.column() == Note) {
         // prevent the disappear of the old value when double-clicking the item
-        return m_lapList.at(index.row()).note();
+        return m_laps.at(index.row()).note();
     }
 
     return QVariant::Invalid;
@@ -102,7 +102,7 @@ bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role
 {
     if (index.isValid() and role == Qt::EditRole) {
         if (index.column() == Note) {
-            m_lapList[index.row()].setNote(value.toString());
+            m_laps[index.row()].setNote(value.toString());
             emit dataChanged(index, index);
 
             return true;
@@ -134,19 +134,19 @@ void LapModel::setTimeFormat(const TimeFormat& format)
 
 const Lap& LapModel::at(int lapIndex)
 {
-    return m_lapList.at(lapIndex);
+    return m_laps.at(lapIndex);
 }
 
 void LapModel::append(const Lap& lap)
 {
     // Append the new row at the end.
-    beginInsertRows(QModelIndex(), m_lapList.size(), m_lapList.size());
+    beginInsertRows(QModelIndex(), m_laps.size(), m_laps.size());
 
     QString relTime;
 
     // to compute a relative time we need an older lap entry
-    if (not m_lapList.isEmpty()) {
-        relTime = m_timeFormat.format(m_lapList.last().timeTo(lap));
+    if (not m_laps.isEmpty()) {
+        relTime = m_timeFormat.format(m_laps.last().timeTo(lap));
     }
     else {  // first lap entry
         relTime = m_timeFormat.format(lap.time());
@@ -156,13 +156,13 @@ void LapModel::append(const Lap& lap)
     newLap.setRelativeTime(relTime);
     newLap.setAbsoluteTime(m_timeFormat.format(newLap.time()));
 
-    m_lapList.append(newLap);
+    m_laps.append(newLap);
     endInsertRows();
 }
 
 bool LapModel::isEmpty() const
 {
-    return m_lapList.isEmpty();
+    return m_laps.isEmpty();
 }
 
 void LapModel::slotLap(const QTime& lapTime)
@@ -173,13 +173,13 @@ void LapModel::slotLap(const QTime& lapTime)
 void LapModel::slotClear()
 {
     beginResetModel();
-    m_lapList.clear();
+    m_laps.clear();
     endResetModel();
 }
 
 void LapModel::reload()
 {
-    auto tmp = m_lapList;
+    auto tmp = m_laps;
     slotClear();
 
     foreach (const Lap& l, tmp) {
