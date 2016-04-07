@@ -47,6 +47,7 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     m_buttonBox->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Open session"));
 
     connect(m_sessionView, &QTableView::doubleClicked, this, &SessionDialog::slotDoubleClicked);
+    connect(m_sessionView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SessionDialog::slotSelectionChanged);
     connect(m_buttonBox, &QDialogButtonBox::accepted, this, &SessionDialog::accept);
     connect(m_buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     connect(m_sessionModel, &SessionModel::rowsInserted, this, &SessionDialog::slotSessionAdded);
@@ -55,6 +56,7 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     setWindowTitle(title);
 
     slotEmptyModel();
+    slotSelectionChanged();
 }
 
 Session SessionDialog::selectedSession() const
@@ -83,6 +85,12 @@ void SessionDialog::slotDoubleClicked(const QModelIndex& index)
         return;
 
     this->accept();
+}
+
+void SessionDialog::slotSelectionChanged()
+{
+    auto openButton = m_buttonBox->button(QDialogButtonBox::Ok);
+    m_sessionView->selectionModel()->hasSelection() ? openButton->setEnabled(true) : openButton->setEnabled(false);
 }
 
 void SessionDialog::slotSessionAdded()

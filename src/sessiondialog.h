@@ -63,6 +63,11 @@ private slots:
     void slotDoubleClicked(const QModelIndex& index);
 
     /**
+     * Disable the OK button if no session is selected.
+     */
+    void slotSelectionChanged();
+
+    /**
      * Enable the OK button after the first session is added.
      */
     void slotSessionAdded();
