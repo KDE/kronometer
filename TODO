@@ -1,9 +1,0 @@
-Kronometer TODO list
-=====================
-
-1. Rewrite the entire UI in QtQuick? With fancy effects like those on Gnome and Android stopwatch apps?
-
-2. Stopwatch controls while kronometer's window is in background.
-   QSystemTrayIcon or KStatusNotifierItem? What if there is more than one Kronometer window?
-
-3. Fix race condition when the same session is opened on more than one window.
