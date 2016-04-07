@@ -30,37 +30,21 @@
 #include <QPushButton>
 #include <QSortFilterProxyModel>
 #include <QTableView>
-#include <QVBoxLayout>
 
 SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(parent, Qt::Dialog)
 {
+    setupUi(this);
     m_sessionModel = new SessionModel {this};
 
     m_proxyModel = new QSortFilterProxyModel {this};
     m_proxyModel->setSourceModel(m_sessionModel);
 
-    m_sessionView = new QTableView {this};
     m_sessionView->setModel(m_proxyModel);
-    m_sessionView->setSelectionBehavior(QAbstractItemView::SelectRows);
-    m_sessionView->setGridStyle(Qt::DotLine);
-    m_sessionView->verticalHeader()->hide();
     m_sessionView->resizeColumnsToContents();
-    m_sessionView->horizontalHeader()->setStretchLastSection(true);
-    m_sessionView->setSortingEnabled(true);
-    m_sessionView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::MinimumExpanding);
     // TODO: the user may want to select/remove more than one session
-    m_sessionView->setSelectionMode(QAbstractItemView::SingleSelection);
 
-    m_msgWidget = new KMessageWidget {this};
     m_msgWidget->hide();
-
-    auto vlayout = new QVBoxLayout {this};
-    vlayout->addWidget(m_msgWidget);
-    vlayout->addWidget(m_sessionView);
-
-    m_buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
     m_buttonBox->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Open session"));
-    vlayout->addWidget(m_buttonBox);
 
     connect(m_sessionView, &QTableView::doubleClicked, this, &SessionDialog::slotDoubleClicked);
     connect(m_buttonBox, &QDialogButtonBox::accepted, this, &SessionDialog::accept);
@@ -68,7 +52,6 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     connect(m_sessionModel, &SessionModel::rowsInserted, this, &SessionDialog::slotSessionAdded);
     connect(m_sessionModel, &SessionModel::rowsRemoved, this, &SessionDialog::slotEmptyModel);
 
-    setLayout(vlayout);
     setWindowTitle(title);
 
     slotEmptyModel();
@@ -104,11 +87,13 @@ void SessionDialog::slotDoubleClicked(const QModelIndex& index)
 
 void SessionDialog::slotSessionAdded()
 {
-    if (m_buttonBox->button(QDialogButtonBox::Ok)->isEnabled())
+    auto openButton = m_buttonBox->button(QDialogButtonBox::Ok);
+
+    if (openButton->isEnabled())
         return;
 
-    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
-    m_buttonBox->button(QDialogButtonBox::Ok)->setToolTip(QString());
+    openButton->setEnabled(true);
+    openButton->setToolTip(QString());
 }
 
 void SessionDialog::slotEmptyModel()
@@ -116,10 +101,11 @@ void SessionDialog::slotEmptyModel()
     if (not m_sessionModel->isEmpty())
         return;
 
-    const QString message = i18nc("@info", "You don't have any saved session yet.");
+    const auto message = i18nc("@info", "You don't have any saved session yet.");
 
-    m_buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
-    m_buttonBox->button(QDialogButtonBox::Ok)->setToolTip(message);
+    auto openButton = m_buttonBox->button(QDialogButtonBox::Ok);
+    openButton->setEnabled(false);
+    openButton->setToolTip(message);
 
     m_msgWidget->setMessageType(KMessageWidget::Information);
     m_msgWidget->setText(message);

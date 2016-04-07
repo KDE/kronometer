@@ -20,6 +20,7 @@
 #ifndef SESSIONDIALOG_H
 #define SESSIONDIALOG_H
 
+#include "ui_sessiondialog.h"
 #include "session.h"
 
 #include <QDialog>
@@ -35,7 +36,7 @@ class QTableView;
 /**
  * @brief Dialog for sessions interaction.
  */
-class SessionDialog : public QDialog
+class SessionDialog : public QDialog, public Ui::SessionDialog
 {
     Q_OBJECT
 
@@ -73,12 +74,9 @@ private slots:
 
 private:
 
-    QTableView *m_sessionView;
-    QDialogButtonBox *m_buttonBox;
     SessionModel *m_sessionModel;
     QSortFilterProxyModel *m_proxyModel;
     Session m_selectedSession;
-    KMessageWidget *m_msgWidget;
 
     /**
      * @return The actual selected index in the view.

@@ -13,6 +13,7 @@ set(kronometer_SRCS
     widgets/generalsettings.cpp)
 
 ki18n_wrap_ui(kronometer_SRCS
+    sessiondialog.ui
     widgets/colorsettings.ui
     widgets/fontsettings.ui
     widgets/generalsettings.ui)
