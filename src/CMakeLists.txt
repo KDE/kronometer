@@ -26,6 +26,7 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 target_link_libraries(kronometer
+    KF5::Crash
     KF5::I18n
     KF5::WidgetsAddons
     KF5::XmlGui)

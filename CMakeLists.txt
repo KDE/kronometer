@@ -2,7 +2,7 @@ project(kronometer)
 
 cmake_minimum_required(VERSION 3.1)
 set(QT_MIN_VERSION 5.0.0)
-set(KF5_MIN_VERSION 5.0.0)
+set(KF5_MIN_VERSION 5.15.0)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CXX_STANDARD_REQUIRED ON)
@@ -29,6 +29,7 @@ find_package(Qt5 ${QT_MIN_VERSION} REQUIRED
 find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
     COMPONENTS
     Config
+    Crash
     DocTools
     I18n
     WidgetsAddons

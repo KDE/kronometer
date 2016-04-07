@@ -20,6 +20,7 @@
 #include "mainwindow.h"
 
 #include <KAboutData>
+#include <KCrash>
 #include <KLocalizedString>
 
 #include <QApplication>
@@ -32,6 +33,8 @@ int main (int argc, char **argv)
     KLocalizedString::setApplicationDomain("kronometer");
 
     QApplication app {argc, argv};
+
+    KCrash::initialize();
 
     auto aboutData = KAboutData {
         QStringLiteral("kronometer"),   // componentName
