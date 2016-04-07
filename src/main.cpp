@@ -42,14 +42,14 @@ int main (int argc, char **argv)
         QStringLiteral("2.0.2"),    // version
         i18n("Kronometer is a simple stopwatch application"), // shortDescription
         KAboutLicense::GPL_V2,    // licenseType
-        i18n("Copyright (C) 2014 Elvis Angelaccio"),    // copyrightStatement
+        i18n("Copyright (C) 2016 Elvis Angelaccio"),    // copyrightStatement
         QString(),  // otherText
         QStringLiteral("http://aelog.org/kronometer")   // homePageAddress
     };
 
     aboutData.addAuthor(
         i18n("Elvis Angelaccio"),
-        i18n("Developer"),
+        i18n("Maintainer"),
         QStringLiteral("elvis.angelaccio@kdemail.net"),
         QStringLiteral("http://aelog.org")
     );
