@@ -116,7 +116,7 @@ bool MainWindow::queryClose()
         auto buttonCode = KMessageBox::warningContinueCancel(
                     this,
                     i18n("Do you want to quit and lose your unsaved times?"),
-                    i18n("Confirm quit"),
+                    i18nc("@title:window", "Confirm Quit"),
                     KStandardGuiItem::quit(),
                     KStandardGuiItem::cancel(),
                     QStringLiteral("quit-and-lose-times"));
