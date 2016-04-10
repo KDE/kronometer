@@ -24,7 +24,7 @@
 </authorgroup>
 
 <copyright>
-<year>2014</year>
+<year>2016</year>
 <holder>Elvis Angelaccio</holder>
 </copyright>
 
@@ -145,7 +145,7 @@
   <sect1 id="general_settings">
     <title>General settings</title>
     <para>
-      In the general settings page you can find the settings for the stopwatch and for the laps. Under the stopwatch tab you can set your preferred time format for the stopwatch display. You can choose whether to show hours, minutes or second fractions (while seconds are always shown). &kronometer; supports time granularity up to millisecond, although this requires high CPU usage due to the high refresh rate of the User Interface. In the stopwatch tab you can also choose whether to show the time headers. The time headers are the labels on the upper space of the stopwatch display. They show the name of each timer component (hours, minutes, &etc;).
+      In the general settings page you can find the settings for the stopwatch and for the laps. Under the stopwatch tab you can set your preferred time format for the stopwatch display. You can choose whether to show hours, minutes or second fractions (while seconds are always shown). &kronometer; supports time granularity up to millisecond, although this requires high CPU usage due to the high refresh rate of the User Interface.
     </para>
     <para>
       Within the laps tab you can enable or disable the laps recording feature. If the laps are enabled, you can choose their time format, whether to show their notes and whether to show their absolute times, which are the stopwatch times when they were recorded.
@@ -177,11 +177,11 @@
     &kronometer;
   </para>
   <para>
-    Program copyright &copy; 2014 Elvis Angelaccio
+    Program copyright &copy; 2016 Elvis Angelaccio
     <email>elvis.angelaccio@kdemail.net</email>
   </para>
   <para>
-    Documentation copyright &copy; 2014 Elvis Angelaccio
+    Documentation copyright &copy; 2016 Elvis Angelaccio
     <email>elvis.angelaccio@kdemail.net</email>
   </para>
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
