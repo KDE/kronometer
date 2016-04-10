@@ -2,7 +2,6 @@
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
   <!ENTITY kronometer "<application>Kronometer</application>">
   <!ENTITY kappname "&kronometer;">
-  <!ENTITY package "extragear-utils">
   <!ENTITY % addindex "IGNORE">
   <!ENTITY % English "INCLUDE">
 ]>
@@ -28,8 +27,8 @@
 <holder>Elvis Angelaccio</holder>
 </copyright>
 
-<date>2015-08-24</date>
-<releaseinfo>&kronometer; 2.0</releaseinfo>
+<date>2016-04-10</date>
+<releaseinfo>&kronometer; 2.1</releaseinfo>
 
 <legalnotice>
   &FDLNotice;
@@ -95,9 +94,14 @@
       Even simpler, you can use the keyboard instead of the mouse: you start the timer with the keyboard's <keycap>Space</keycap> and you pause the timer with <keycap>Space</keycap> too. You might recognize this behavior from many media player applications.
     </para>
     <para>
-      By pressing the <keycap>Enter</keycap> key when the timer is running, you freeze that particular time and you create a new <emphasis>lap</emphasis> time. These times are always visible in the table on the left of the application, where you can sort them by clicking the <emphasis>Lap time</emphasis> column's header.
+      By pressing the &Enter; key when the timer is running, you freeze that particular time and you create a new <emphasis>lap</emphasis> time. These times are always visible in the table on the left of the application, where you can sort them by clicking the <emphasis>Lap time</emphasis> column's header.
       You can also add a custom text annotation to each lap, by double-clicking the cells within the <emphasis>Note</emphasis> column.
     </para>
+    <para>
+      The menubar (hidden by default) provides access to all commands and configuration options.
+      The menubar can be toggled with <guimenuitem>Show Menubar</guimenuitem> (<keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>)
+      from the <guimenu>Settings</guimenu> menu or the menu button in the toolbar.
+   </para>
   </sect1>
   <sect1 id="save_and_restore">
     <title>Save and restore sessions</title>

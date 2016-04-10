@@ -5,15 +5,15 @@
 
 <refentry lang="&language;">
 <refentryinfo>
-    <date>2015-08-24</date>
+    <date>2016-04-10</date>
     <releaseinfo>kronometer 2.0</releaseinfo>
 </refentryinfo>
 <!-- lifted from man+troff by doclifter -->
 <refmeta>
 <refentrytitle>kronometer</refentrytitle>
 <manvolnum>1</manvolnum>
-<refmiscinfo class='source'>August 2015</refmiscinfo>
-<refmiscinfo class='manual'>KRONOMETER 2.0.0</refmiscinfo>
+<refmiscinfo class='source'>April 2016</refmiscinfo>
+<refmiscinfo class='manual'>KRONOMETER 2.1.0</refmiscinfo>
 </refmeta>
 <refnamediv>
 <refname>kronometer</refname>
