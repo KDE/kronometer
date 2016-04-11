@@ -101,77 +101,120 @@
       The menubar (hidden by default) provides access to all commands and configuration options.
       The menubar can be toggled with <guimenuitem>Show Menubar</guimenuitem> (<keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>)
       from the <guimenu>Settings</guimenu> menu or the menu button in the toolbar.
-   </para>
-  </sect1>
-  <sect1 id="save_and_restore">
-    <title>Save and restore sessions</title>
-    <para>
-      When you pause a running stopwatch you create a session: a stopwatch time and zero or more lap times. You can save a session and you can restore it later.
     </para>
+    <sect2 id="save_and_restore">
+      <title>Save and Restore Sessions</title>
+      <para>
+        When you pause a running stopwatch you create a session: a stopwatch time and zero or more lap times.
+        You can save a session and you can restore it later.
+      </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title>Save a Session</title>
+      <para>
+        Pause a running stopwatch, then click on the <guibutton>Save As</guibutton> button in the <guimenu>File</guimenu> menu.
+        You can choose a name for the session that you are going to save.
+      </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title>Restore a Session</title>
+      <para>
+        Click the <guibutton>Open</guibutton> button on the toolbar or in the <guimenu>File</guimenu> menu.
+        Then choose an existing session to be loaded from the session's dialog.
+      </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title>Update a Session</title>
+      <para>
+        When the session is restored, you can resume the stopwatch and you can record new lap times.
+        If you want to save the updated session, you can simply click the <guibutton>Save</guibutton> button in the <guimenu>File</guimenu> menu.
+      </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title>Edit a Session</title>
+      <para>
+        Click the <guibutton>Open</guibutton> button on the toolbar or in the <guimenu>File</guimenu> menu.
+        If you select an existing session in the session's dialog, you will be able to:
+        <itemizedlist>
+          <listitem>
+            <para>Rename the session, by double-clicking on its name.</para>
+          </listitem>
+          <listitem>
+            <para>Delete the session, by pressing <keycap>Del</keycap>.</para>
+          </listitem>
+          <listitem>
+            <para>Add a note the the session or edit it.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
   </sect1>
-  <sect1 id="save_a_session">
-    <title>Save a session</title>
-    <para>
-      Pause a running stopwatch, then click on the <guibutton>Save As</guibutton> button in the <guimenu>File</guimenu> menu. You can choose a name for the session that you are going to save.
-    </para>
-  </sect1>
-  <sect1 id="restore_a_session">
-    <title>Restore a session</title>
-    <para>
-      Click the <guibutton>Open</guibutton> button on the toolbar or in the <guimenu>File</guimenu> menu. Then choose an existing session to be loaded from the session's dialog.
-    </para>
-  </sect1>
-  <sect1 id="update_a_session">
-    <title>Update a session</title>
-    <para>
-      When the session is restored, you can resume the stopwatch and you can record new lap times. If you want to save the updated session, you can simply click the <guibutton>Save</guibutton> button in the <guimenu>File</guimenu> menu.
-    </para>
-  </sect1>
-  <sect1 id="export_lap_times">
-    <title>Export lap times</title>
-    <para>
-      When you record one or more lap times, the export features in the <guimenu>File</guimenu> menu is made available, under the entry <guimenuitem>Export laps as</guimenuitem>. Click on it and then choose a name for the exported file. You can export in the Comma Separated Values (CSV) format or in the JSON one.
-    </para>
-  </sect1>
-  <sect1 id="clipboard_support">
-    <title>Clipboard support</title>
-    <para>
-      &kronometer; is able to copy the current stopwatch time to the system clipboard. Use the <keycombo>&Ctrl;<keycap>C</keycap></keycombo> key combination or the <guimenuitem>Copy</guimenuitem> entry in the <guimenu>Edit</guimenu> menu.
-    </para>
+  <sect1 id="additional_features">
+    <title>Additional Features</title>
+    <sect2 id="export_lap_times">
+      <title>Export Lap Times</title>
+      <para>
+        When you record one or more lap times, the export features in the <guimenu>File</guimenu> menu is made available, under the entry <guimenuitem>Export laps as</guimenuitem>.
+        Click on it and then choose a name for the exported file.
+        You can export in the Comma Separated Values (CSV) format or in the JSON one.
+      </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title>Clipboard Support</title>
+      <para>
+        &kronometer; is able to copy the current stopwatch time to the system clipboard.
+        Use the <keycombo>&Ctrl;<keycap>C</keycap></keycombo> key combination or the <guimenuitem>Copy</guimenuitem> entry in the <guimenu>Edit</guimenu> menu.
+      </para>
+    </sect2>
   </sect1>
 </chapter>
 
 <chapter id="configuration">
   <title>Configuration</title>
-  <para>
-    &kronometer; is customizable in many aspects. You can open the settings dialog clicking on the <guimenuitem>Configure &kronometer;</guimenuitem> entry in the <guimenu>Settings</guimenu> menu. The settings dialog is organized in the following categories.
-  </para>
-  <sect1 id="general_settings">
-    <title>General settings</title>
+  <sect1 id="settings_dialog">
+    <title>Settings Dialog</title>
     <para>
-      In the general settings page you can find the settings for the stopwatch and for the laps. Under the stopwatch tab you can set your preferred time format for the stopwatch display. You can choose whether to show hours, minutes or second fractions (while seconds are always shown). &kronometer; supports time granularity up to millisecond, although this requires high CPU usage due to the high refresh rate of the User Interface.
+      &kronometer; is customizable in many aspects.
+      You can open the settings dialog clicking on the <guimenuitem>Configure &kronometer;</guimenuitem> entry in the <guimenu>Settings</guimenu> menu.
+      The settings dialog is organized in the following categories.
     </para>
-    <para>
-      Within the laps tab you can enable or disable the laps recording feature. If the laps are enabled, you can choose their time format, whether to show their notes and whether to show their absolute times, which are the stopwatch times when they were recorded.
-    </para>
-  </sect1>
-  <sect1 id="font_settings">
-    <title>Font settings</title>
-    <para>
-      In the font settings page you can customize the font of the stopwatch display. You can choose different font families, styles and sizes for each timer component (hours, minutes, &etc;).
-    </para>
-  </sect1>
-  <sect1 id="color_settings">
-    <title>Color settings</title>
-    <para>
-      In the color settings page you can customize the default color of the stopwatch display. You can change the background color and the text color.
-    </para>
-  </sect1>
-  <sect1 id="kde_built_in_settings">
-    <title>&kde; Built-in settings</title>
-    <para>
-      &kronometer; makes use of the standard &kde; configuration tools. You find them in the <guimenu>Settings</guimenu> menu, under the <guimenuitem>Configure shortcuts</guimenuitem> and <guimenuitem>Configure Toolbars</guimenuitem> entries. They allow you to change the shortcuts of the &kronometer;'s actions, and to change the position of the toolbar and its content.
-    </para>
+    <sect2 id="general_settings">
+      <title>General Settings</title>
+      <para>
+        In the general settings page you can find the settings for the stopwatch and for the laps.
+        Under the stopwatch tab you can set your preferred time format for the stopwatch display.
+        You can choose whether to show hours, minutes or second fractions (while seconds are always shown).
+        &kronometer; supports time granularity up to millisecond, although this requires high CPU usage due to the high refresh rate of the User Interface.
+      </para>
+      <para>
+        Within the laps tab you can enable or disable the laps recording feature.
+        If the laps are enabled, you can choose their time format, whether to show their notes and whether to show their absolute times, which are the stopwatch times when they were recorded.
+      </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title>Font Settings</title>
+      <para>
+        In the font settings page you can customize the font of the stopwatch display.
+        You can choose different font families, styles and sizes for each timer component (hours, minutes, &etc;).
+        By default every timer component will use the same font, according the current default font in the system.
+      </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title>Color Settings</title>
+      <para>
+        In the color settings page you can customize the default color of the stopwatch display.
+        You can change the background color and the text color.
+        The default colors will respect the currently selected system's theme.
+      </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title>&kde; Built-in Settings</title>
+      <para>
+        &kronometer; makes use of the standard &kde; configuration tools.
+        You find them in the <guimenu>Settings</guimenu> menu, under the <guimenuitem>Configure shortcuts</guimenuitem> and <guimenuitem>Configure Toolbars</guimenuitem> entries.
+        They allow you to change the shortcuts of the &kronometer;'s actions, and to change the position of the toolbar and its content.
+      </para>
+    </sect2>
   </sect1>
 </chapter>
 
