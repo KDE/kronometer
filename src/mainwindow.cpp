@@ -270,7 +270,16 @@ void MainWindow::slotSaveSession()
 
 void MainWindow::slotSaveSessionAs()
 {
-    auto name = QInputDialog::getText(this, i18nc("@title:window", "Save session"), i18n("You can choose a name for this session:"));
+    auto accepted = false;
+    auto name = QInputDialog::getText(this,
+                                      i18nc("@title:window", "Save session"),
+                                      i18n("You can choose a name for this session:"),
+                                      QLineEdit::Normal,
+                                      {},
+                                      &accepted);
+
+    if (not accepted)
+        return;
 
     if (name.isEmpty())
         name = i18nc("untitled session", "Untitled session");
