@@ -1,3 +1,9 @@
+v2.1.0
+* Improved usability of dialogs.
+* Moved toolbar to top position.
+* Menubar is now hidden by default.
+* Dropped statusbar.
+
 v2.0.2
 * Fixed invisible main window with Qt 5.6
 
