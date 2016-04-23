@@ -1,0 +1,134 @@
+v2.0.2
+* Fixed invisible main window with Qt 5.6
+
+v2.0.1
+* Fixed default height of the Kronometer window (BUG 351746)
+
+v2.0.0
+* Port to Qt5 and KDE Frameworks 5
+* New Breeze icons: app icon and start/pause/reset/lap icons
+* Sessions persistence through a simple Session dialog, instead of XML files
+* Improved the Settings dialog and removed useless settings
+* Hours are now hidden by default, both in stopwatch time and laps times.
+* Laps absolute times are now hidden by default
+* Laps notes can now be hidden
+* Suspension awareness: pause running stopwatch if the OS is going to sleep (BUG 349824)
+* Cleaned up UI and visible string messages
+* Stopwatch time format is automatically ovverridden when needed (BUG 343130)
+* Fixed BUG 344714
+* Laps can now be exported to the JSON format, but not anymore to XML
+* Fixed Kronometer handbook not being shown from Help -> Kronometer Handbook
+* Added manpage
+* Development: added autotests
+
+v1.6.0
+* UI cleanup in the Settings dialog (bug 343127: http://bugs.kde.org/show_bug.cgi?id=343127)
+* Removed the 'Ask On Exit' option (bug 343126: http://bugs.kde.org/show_bug.cgi?id=343126)
+* Lap times format is no more ignored (bug 343128: http://bugs.kde.org/show_bug.cgi?id=343128)
+
+v1.5.2
+* Fixed wrong GPLv2 version in COPYING file
+
+v1.5.1
+* Fixed error preventing the building of Opensuse RPM packages
+
+v1.5.0
+* Laps annotations: now you can place a custom text note over a certain lap time
+* Option to disable the laps feature and hide the lap button and table
+* AppData support
+* Fixed bug 338540: https://bugs.kde.org/show_bug.cgi?id=338540
+
+v1.4.2
+* Removed option to hide the statusbar, since it's a built-in KDE feature
+* Small fix for digits appearance
+
+v1.4.1
+* Upper toolbar is now correctly removed from the UI
+
+v1.4.0
+* Latest lap time is now automatically selected
+* Fixed bug 336904: https://bugs.kde.org/show_bug.cgi?id=336904
+* First release with localization in over 11 languages
+
+v1.3.0
+* Major improvements in the stopwatch display UI
+* Fixed critical bug with exotic fonts in the stopwatch display
+* Removed the upper toolbar to make the UI less crowded (those actions are always available in the File menu)
+* Use the official KDE bugtracking system
+* Minor layout fix in the settings dialog
+
+v1.2.2
+* Fixed small bug preventing compilation on old compilers
+
+v1.2.1
+* Option to hide the statusbar from the main window
+* Official documentation, *Kronometer Handbook* now available in the Help menu
+
+v1.1.2
+* Fixed window-modified placeholder (*) bug on stopwatch reset
+
+v1.1.1
+* Minor bug fixes and improvements
+
+v1.1.0
+* Export lap times to CSV (Comma Separated Values) format
+* Export lap times to XML format
+
+v1.0.0
+* First "stable" release of Kronometer
+* Fixed the appereance of the laps table-widget
+* Added tooltips in Settings dialogs
+
+v0.9.0
+* Times saved on XML files instead of binary files
+* Fixed bug on aborting a file opening
+
+v0.8.0
+* Added *Edit* menu with the ability to copy current stopwatch time to clipboard
+* Color settings: choose stopwatch display background/text color
+
+v0.7.1
+* Fix compilation bug
+
+v0.7.0
+* Timer central *display* re-designed
+* Now each time "slot" has its own display
+* The displays are *splittable* between them
+* Display *time headers*, which can be disabled from settings
+
+v0.6.0
+* Initial implementation of times saving on binary files
+* You can save a stopwatch *frame* (time and laps) to a file and resume it (open it) later
+* Due to the new *save toolbar* (new/open/save/save as buttons), the old *main* toolbar is moved on the window bottom by default. If you don't like it, you can always move it by right-clicking on it
+* Added **Kronometer** menu, separating the *save* actions (menu File) from the *stopwatch* actions
+* Save settings. You can disable the dialog on application exit if there are unsaved times
+
+v0.5.0
+* Now you can choose also the time format for lap times
+* Font settings for timer display font
+* Fixed general settings appereance, with a scrollable layout
+
+v0.4.0
+* Initial implementantation of Kronometer settings dialog (Settings -> Configure Kronometer)
+* Stopwatch time format settings: show or not show hours/minutes/seconds/tenths/hundredths/milliseconds
+* Now you can resize time label and lap times table without resize the application window
+
+v0.3.0
+* Lap recording feature
+* Lap times sorting
+
+v0.2.0
+* *Panel-like* look for time label
+* Time format in statusbar
+* Tooltip messages for labels in statusbar
+
+v0.1.2
+* Switched install prefix from (cmake-default) **/usr/local** to **/usr**
+
+v0.1.1
+* Added **.desktop** file for KMenu integration
+
+v0.1.0
+* First public and stable release
+* Initial basic features: start, pause, resume and reset the stopwatch widget
+* Basic KDE settings: toolbar/shortcuts configuration, statusbar visibility
