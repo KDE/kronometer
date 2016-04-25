@@ -265,7 +265,7 @@
       <li xml:lang="sv">Anpassning av färger: Det går att välja färg för tidtagarurets siffror och bakgrund</li>
       <li xml:lang="uk">Можливість налаштовування кольорів: ви можете вибрати колір для числових даних секундоміра та колір тла.</li>
       <li xml:lang="x-test">xxColor customization: you can choose the color for the stopwatch digits and the stopwatch backgroundxx</li>
-      <li>Lap times export: you can export the lap times on a file using the JSON or CSV format</li>
+      <li>Lap times export: you can export the lap times to a file using the JSON or CSV format</li>
       <li xml:lang="ca">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer usant el format JSON o CSV</li>
       <li xml:lang="ca-valencia">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer usant el format JSON o CSV</li>
       <li xml:lang="el">Εξαγωγή χρόνων γύρων: μπορείτε να εξάγετε τους χρόνους των γύρων σε ένα αρχείο τύπου JSON ή CSV</li>
