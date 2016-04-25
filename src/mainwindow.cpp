@@ -272,7 +272,7 @@ void MainWindow::slotSaveSessionAs()
 {
     auto accepted = false;
     auto name = QInputDialog::getText(this,
-                                      i18nc("@title:window", "Save session"),
+                                      i18nc("@title:window", "Save Session"),
                                       i18n("You can choose a name for this session:"),
                                       QLineEdit::Normal,
                                       {},
@@ -292,7 +292,7 @@ void MainWindow::slotExportLapsAs()
     QPointer<QFileDialog> dialog = new QFileDialog {this};
     dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setConfirmOverwrite(true);
-    dialog->setWindowTitle(i18nc("@title:window", "Export laps"));
+    dialog->setWindowTitle(i18nc("@title:window", "Export Laps"));
 
     auto mimeTypes = { QStringLiteral("text/csv"), QStringLiteral("application/json") };
     dialog->setMimeTypeFilters(mimeTypes);
