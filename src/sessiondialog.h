@@ -42,7 +42,7 @@ class SessionDialog : public QDialog, public Ui::SessionDialog
 
 public:
 
-    explicit SessionDialog(QWidget *parent = nullptr, const QString& title = QString());
+    explicit SessionDialog(QWidget *parent = nullptr, const QString& title = {});
 
     Session selectedSession() const;
 

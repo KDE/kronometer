@@ -49,7 +49,7 @@ class MainWindow : public KXmlGuiWindow
 
 public:
 
-    explicit MainWindow(QWidget *parent = nullptr, const Session& session = Session());
+    explicit MainWindow(QWidget *parent = nullptr, const Session& session = Session {});
 
     /**
      * @param title The title for this window.

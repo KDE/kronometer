@@ -34,7 +34,7 @@ class Lap
 
 public:
 
-    explicit Lap(const QTime& lap = QTime(0, 0));
+    explicit Lap(const QTime& lap = {0, 0});
 
     /**
      * The specific lap's time

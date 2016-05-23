@@ -24,7 +24,7 @@
 
 Stopwatch::Stopwatch(QObject *parent) : QObject(parent),
     m_timerId {INACTIVE_TIMER_ID},
-    m_accumulator(0),
+    m_accumulator {0},
     m_state {State::Inactive},
     m_granularity {Hundredths}
 {}
