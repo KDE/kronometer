@@ -240,14 +240,17 @@ void MainWindow::slotNewSession()
 
 void MainWindow::slotOpenSession()
 {
-    QPointer<SessionDialog> dialog = new SessionDialog {this, i18nc("@title:window", "Open Session")};
+    auto dialog = new SessionDialog {this, i18nc("@title:window", "Open Session")};
 
-    if (dialog.data()->exec() == QDialog::Accepted) {
-        auto window = new MainWindow {nullptr, dialog.data()->selectedSession()};
-        window->show();
-    }
+    connect(dialog, &QDialog::finished, this, [this, dialog](int result) {
+        if (result == QDialog::Accepted) {
+            auto window = new MainWindow {nullptr, dialog->selectedSession()};
+            window->show();
+        }
+        dialog->deleteLater();
+    });
 
-    delete dialog.data();
+    dialog->open();
 }
 
 void MainWindow::slotSaveSession()
@@ -289,19 +292,20 @@ void MainWindow::slotSaveSessionAs()
 
 void MainWindow::slotExportLapsAs()
 {
-    QPointer<QFileDialog> dialog = new QFileDialog {this};
+    auto dialog = new QFileDialog {this};
     dialog->setAcceptMode(QFileDialog::AcceptSave);
     dialog->setConfirmOverwrite(true);
     dialog->setWindowTitle(i18nc("@title:window", "Export Laps"));
+    dialog->setMimeTypeFilters({ QStringLiteral("text/csv"), QStringLiteral("application/json") });
 
-    auto mimeTypes = { QStringLiteral("text/csv"), QStringLiteral("application/json") };
-    dialog->setMimeTypeFilters(mimeTypes);
+    connect(dialog, &QDialog::finished, this, [this, dialog](int result) {
+        if (result == QDialog::Accepted) {
+            exportLapsAs(dialog->selectedFiles().first(), dialog->selectedNameFilter());
+        }
+        dialog->deleteLater();
+    });
 
-    if (dialog->exec() == QDialog::Accepted) {
-        exportLapsAs(dialog->selectedFiles().first(), dialog->selectedNameFilter());
-    }
-
-    delete dialog;
+    dialog->open();
 }
 
 void MainWindow::slotCopyToClipboard()
