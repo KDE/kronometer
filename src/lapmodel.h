@@ -30,7 +30,7 @@ class QTime;
 /**
  * @brief A LapModel is a Model for lap times.
  * A LapModel holds a list of times. Every time is meant to be the absolute time of a lap.
- * Then the model show the relative time of the lap, computing the difference between two consecutive absolute times.
+ * The model can also show the relative time of the lap, computing the difference between two consecutive absolute times.
  */
 class LapModel : public QAbstractTableModel
 {

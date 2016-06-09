@@ -27,10 +27,10 @@
 class QTimerEvent;
 
 /**
- * @brief A Stopwatch class written in Qt.
+ * @brief A Stopwatch class.
  * Stopwatch is a simple QObject implementing a real stopwatch.
- * The class provides public slots for start/pause/reset the timer.
- * A slot for lap recording exists too, but the computing of lap times is not a task of this class:
+ * The class provides public slots to start/pause/reset its internal timer.
+ * A slot for laps recording exists too, but the computing of lap times is not a task of this class:
  * Stopwatch simply emits a signal, that the receiver can use to compute lap times.
  */
 class Stopwatch : public QObject
