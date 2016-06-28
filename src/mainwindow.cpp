@@ -73,7 +73,6 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
         resize(minimumSizeHint());
     }
 
-    slotInactive();    // inactive state is the default
     loadSettings();
     statusBar()->hide();
 
@@ -81,7 +80,7 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
         loadSession();
     }
     else {
-        setWindowTitle(i18nc("untitled window", "Untitled"));
+        slotInactive();
     }
 
     // TODO: replace this whit solid-power API, once it's released.
@@ -175,7 +174,7 @@ void MainWindow::slotInactive()
 {
     m_startAction->setText(i18nc("@action", "&Start"));
 
-    m_session.setIsOutdated(false);
+    m_session = Session {};
 
     setWindowTitle(i18nc("untitled window", "Untitled"));
     setWindowModified(false);
