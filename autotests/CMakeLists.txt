@@ -12,6 +12,9 @@ set(tested_SRCS
     ${CMAKE_SOURCE_DIR}/src/timedisplay.cpp
     ${CMAKE_SOURCE_DIR}/src/timeformat.cpp)
 
+ki18n_wrap_ui(tested_SRCS
+    ${CMAKE_SOURCE_DIR}/src/timedisplay.ui)
+
 add_library(autotests STATIC ${tested_SRCS})
 target_link_libraries(autotests
     Qt5::Core

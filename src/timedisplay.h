@@ -20,6 +20,7 @@
 #ifndef TIMEDISPLAY_H
 #define TIMEDISPLAY_H
 
+#include "ui_timedisplay.h"
 #include "timeformat.h"
 
 #include <QTime>
@@ -34,7 +35,7 @@ class QGroupBox;
  * This custom widget implements a "digital" display for a time, formatted according to a certain format.
  * This widget can be connected to a generic "time source" producing the time to be displayed.
  */
-class TimeDisplay : public QWidget
+class TimeDisplay : public QWidget, public Ui::TimeDisplay
 {
     Q_OBJECT
 
@@ -109,16 +110,6 @@ private:
     static const int MSECS_PER_MIN = 60000;
     static const int MSECS_PER_SEC = 1000;
     static const int SECS_PER_MIN = 60;
-
-    QGroupBox *m_hourGroup;
-    QGroupBox *m_minGroup;
-    QGroupBox *m_secGroup;
-    QGroupBox *m_fracGroup;
-
-    DigitDisplay *m_hourDisplay;
-    DigitDisplay *m_minDisplay;
-    DigitDisplay *m_secDisplay;
-    DigitDisplay *m_fracDisplay;
 
     QTime m_displayTime;              /** Current display time */
     TimeFormat m_currentFormat;       /** Current display time format. */

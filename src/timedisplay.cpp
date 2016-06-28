@@ -28,22 +28,7 @@
 TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
     m_displayTime {0, 0}
 {
-    auto displayLayout = new QHBoxLayout {this};
-
-    m_hourGroup = new QGroupBox {i18nc("@title:column", "Hours"), this};
-    m_minGroup = new QGroupBox {i18nc("@title:column", "Minutes"), this};
-    m_secGroup = new QGroupBox {i18nc("@title:column", "Seconds"), this};
-    m_fracGroup = new QGroupBox {i18nc("@title:column", "Hundredths"), this};
-
-    auto hourLayout = new QVBoxLayout {m_hourGroup};
-    auto minLayout = new QVBoxLayout {m_minGroup};
-    auto secLayout = new QVBoxLayout {m_secGroup};
-    auto fracLayout = new QVBoxLayout {m_fracGroup};
-
-    m_hourDisplay = new DigitDisplay {m_hourGroup};
-    m_minDisplay = new DigitDisplay {m_minGroup};
-    m_secDisplay = new DigitDisplay {m_secGroup};
-    m_fracDisplay = new DigitDisplay {m_fracGroup};
+    setupUi(this);
 
     m_hourDisplay->setDigitCounter(DigitDisplay::TwoDigits);
     m_minDisplay->setDigitCounter(DigitDisplay::TwoDigits);
@@ -53,22 +38,6 @@ TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
     m_minDisplay->showDigits(m_currentFormat.formatMinutes(m_displayTime));
     m_secDisplay->showDigits(m_currentFormat.formatSeconds(m_displayTime));
     m_fracDisplay->showDigits(m_currentFormat.formatFractions(m_displayTime));
-
-    hourLayout->addWidget(m_hourDisplay);
-    minLayout->addWidget(m_minDisplay);
-    secLayout->addWidget(m_secDisplay);
-    fracLayout->addWidget(m_fracDisplay);
-
-    auto margins = displayLayout->contentsMargins();
-    margins.setTop(0);
-    margins.setBottom(0);
-    margins.setLeft(0);
-
-    displayLayout->setContentsMargins(margins);
-    displayLayout->addWidget(m_hourGroup);
-    displayLayout->addWidget(m_minGroup);
-    displayLayout->addWidget(m_secGroup);
-    displayLayout->addWidget(m_fracGroup);
 }
 
 void TimeDisplay::setTimeFormat(const TimeFormat& format)

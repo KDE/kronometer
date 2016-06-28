@@ -14,6 +14,7 @@ set(kronometer_SRCS
 
 ki18n_wrap_ui(kronometer_SRCS
     sessiondialog.ui
+    timedisplay.ui
     widgets/colorsettings.ui
     widgets/fontsettings.ui
     widgets/generalsettings.ui)
