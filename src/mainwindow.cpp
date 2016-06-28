@@ -75,11 +75,11 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     loadSettings();
     statusBar()->hide();
 
-    if (not m_session.isEmpty()) {
-        loadSession();
+    if (m_session.isEmpty()) {
+        setWindowTitle(i18nc("untitled window", "Untitled"));
     }
     else {
-        setWindowTitle(i18nc("untitled window", "Untitled"));
+        loadSession();
     }
 
     // TODO: replace this whit solid-power API, once it's released.
@@ -155,11 +155,11 @@ void MainWindow::slotPaused()
 {
     m_startAction->setText(i18nc("@action", "Re&sume"));
 
-    if (not m_session.isEmpty()) {
-        stateChanged(QStringLiteral("pausedSession"));
+    if (m_session.isEmpty()) {
+        stateChanged(QStringLiteral("paused"));
     }
     else {
-        stateChanged(QStringLiteral("paused"));
+        stateChanged(QStringLiteral("pausedSession"));
     }
 
     // the export action can be used only if there are laps (in both the paused states).
@@ -396,9 +396,10 @@ void MainWindow::slotControlMenuButtonDeleted()
 
 void MainWindow::slotToolBarUpdated()
 {
-    if (!menuBar()->isVisible()) {
-        createControlMenuButton();
-    }
+    if (menuBar()->isVisible())
+        return;
+
+    createControlMenuButton();
 }
 
 void MainWindow::setupCentralWidget()
