@@ -68,8 +68,10 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     setupActions();
     setupGUI(ToolBar | Keys | Save | Create, QStringLiteral("kronometerui.rc"));
 
-    // TODO: find a better fix for #351746
-    resize(minimumSizeHint());
+    // #351746: prevent ugly 640x480 default size (unless there is a previous size to be restored, see #361494).
+    if (not isWindowSizeSaved()) {
+        resize(minimumSizeHint());
+    }
 
     slotInactive();    // inactive state is the default
     loadSettings();
@@ -638,6 +640,20 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
         out << ',' << m_lapModel->at(i).note();
         out << '\r' << '\n';
     }
+}
+
+bool MainWindow::isWindowSizeSaved() const
+{
+    KConfigGroup group {KSharedConfig::openConfig(), "MainWindow"};
+
+    foreach (const auto& key, group.keyList()) {
+        // Size keys contain the screen size, e.g. 'Width 1920' and 'Height 1080'.
+        if (key.startsWith(QLatin1String("Height")) or key.startsWith(QLatin1String("Width"))) {
+            return true;
+        }
+    }
+
+    return false;
 }
 
 QString MainWindow::timestampMessage()

@@ -210,6 +210,11 @@ private:
     void exportLapsAsCsv(QTextStream& out);
 
     /**
+     * @return Whether there is a window size saved in the kronometer config.
+     */
+    bool isWindowSizeSaved() const;
+
+    /**
      * A "comment" message with timestamp, to be used in the created files.
      * @return The string "Created by Kronomer on <timestamp>"
      */
