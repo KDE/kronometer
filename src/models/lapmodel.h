@@ -95,7 +95,7 @@ public slots:
 
 private:
 
-    static const int LAP_TAG_NUMBER = 4;    /** Number of tag/header in the model */
+    static constexpr int LAP_TAG_NUMBER = 4;    /** Number of tag/header in the model */
 
     QVector<Lap> m_laps;             /** Lap times */
     TimeFormat m_timeFormat;          /** Current lap times format */

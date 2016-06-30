@@ -138,7 +138,7 @@ private:
         Paused    /**< Paused stopwatch. */
     };
 
-    static const int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
+    static constexpr int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
 
     int m_timerId;                              /** ID for the QObject timer */
     int m_accumulator;                          /** milliseconds internal counter */

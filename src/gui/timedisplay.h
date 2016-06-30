@@ -106,10 +106,10 @@ public slots:
 
 private:
 
-    static const int MSECS_PER_HOUR = 3600000;
-    static const int MSECS_PER_MIN = 60000;
-    static const int MSECS_PER_SEC = 1000;
-    static const int SECS_PER_MIN = 60;
+    static constexpr int MSECS_PER_HOUR = 3600000;
+    static constexpr int MSECS_PER_MIN = 60000;
+    static constexpr int MSECS_PER_SEC = 1000;
+    static constexpr int SECS_PER_MIN = 60;
 
     QTime m_displayTime;              /** Current display time */
     TimeFormat m_currentFormat;       /** Current display time format. */

@@ -91,7 +91,7 @@ public slots:
 
 private:
 
-    static const int SESSION_TAG_NUMBER = 4;    /** Number of tag/header in the model. */
+    static constexpr int SESSION_TAG_NUMBER = 4;    /** Number of tag/header in the model. */
 
     enum SessionTag
     {
