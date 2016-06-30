@@ -18,15 +18,15 @@
 */
 
 #include "mainwindow.h"
+#include "colorsettings.h"
+#include "fontsettings.h"
+#include "generalsettings.h"
 #include "lapmodel.h"
 #include "sessiondialog.h"
 #include "sessionmodel.h"
 #include "settings.h"
 #include "stopwatch.h"
 #include "timedisplay.h"
-#include "widgets/colorsettings.h"
-#include "widgets/fontsettings.h"
-#include "widgets/generalsettings.h"
 
 #include <KActionCollection>
 #include <KConfigDialog>
