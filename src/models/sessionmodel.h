@@ -64,8 +64,7 @@ public:
     void update(const Session& session);
 
     /**
-     * Whether the model is empty.
-     * @return true if the model holds at least one session, false otherwise.
+     * @return Whether the model does not hold any session.
      */
     bool isEmpty() const;
 

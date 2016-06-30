@@ -75,8 +75,7 @@ public:
     void append(const Lap& lap);
 
     /**
-     * Whether the model is empty.
-     * @return true if the model holds at least one lap time, false otherwise.
+     * @return Whether the model does not hold any lap.
      */
     bool isEmpty() const;
 
