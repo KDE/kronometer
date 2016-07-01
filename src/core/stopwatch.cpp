@@ -56,7 +56,7 @@ int Stopwatch::raw() const
 
 bool Stopwatch::initialize(int rawData)
 {
-    if (m_state != State::Inactive or rawData <= 0) {
+    if (not isInactive() or rawData <= 0) {
         return false;
     }
 
@@ -69,7 +69,7 @@ bool Stopwatch::initialize(int rawData)
 
 void Stopwatch::slotStart()
 {
-    if (m_state == State::Inactive) {
+    if (isInactive()) {
         m_accumulator = 0;
         m_elapsedTimer.start();
 
@@ -77,7 +77,7 @@ void Stopwatch::slotStart()
             m_timerId = startTimer(granularity());
         }
     }
-    else if (m_state == State::Paused) {
+    else if (isPaused()) {
         m_elapsedTimer.restart();
         m_timerId = startTimer(granularity());
     }
