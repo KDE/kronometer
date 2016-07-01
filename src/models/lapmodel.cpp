@@ -102,16 +102,16 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 
 bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
-    if (index.isValid() and role == Qt::EditRole) {
-        if (index.column() == static_cast<int>(Column::Note)) {
-            m_laps[index.row()].setNote(value.toString());
-            emit dataChanged(index, index);
+    if (not index.isValid() or role != Qt::EditRole)
+        return false;
 
-            return true;
-        }
-    }
+    if (index.column() != static_cast<int>(Column::Note))
+        return false;
 
-    return false;
+    m_laps[index.row()].setNote(value.toString());
+    emit dataChanged(index, index);
+
+    return true;
 }
 
 Qt::ItemFlags LapModel::flags(const QModelIndex& index) const

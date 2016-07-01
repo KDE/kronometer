@@ -124,22 +124,24 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
 
 bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
-    if (index.isValid() and role == Qt::EditRole) {
-        if (index.column() == static_cast<int>(Column::Name)) {
-            if (value.toString().isEmpty())
-                return false;
+    if (not index.isValid() or role != Qt::EditRole)
+        return false;
 
-            m_sessionList[index.row()].setName(value.toString());
-            emit dataChanged(index, index);
+    if (index.column() == static_cast<int>(Column::Name)) {
+        if (value.toString().isEmpty())
+            return false;
 
-            return true;
-        }
-        else if (index.column() == static_cast<int>(Column::Note)) {
-            m_sessionList[index.row()].setNote(value.toString());
-            emit dataChanged(index, index);
+        m_sessionList[index.row()].setName(value.toString());
+        emit dataChanged(index, index);
 
-            return true;
-        }
+        return true;
+    }
+
+    if (index.column() == static_cast<int>(Column::Note)) {
+        m_sessionList[index.row()].setNote(value.toString());
+        emit dataChanged(index, index);
+
+        return true;
     }
 
     return false;
