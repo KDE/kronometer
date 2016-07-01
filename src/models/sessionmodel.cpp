@@ -152,11 +152,10 @@ Qt::ItemFlags SessionModel::flags(const QModelIndex& index) const
     if (not index.isValid())
         return Qt::ItemIsEnabled;
 
-    auto column = static_cast<Column>(index.column());
-    if (column != Column::Name and column != Column::Note)
-        return QAbstractTableModel::flags(index);
+    if (isEditable(index))
+        return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
 
-    return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
+    return QAbstractTableModel::flags(index);
 }
 
 bool SessionModel::removeRows(int row, int count, const QModelIndex& parent)
