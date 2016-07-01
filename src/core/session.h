@@ -22,6 +22,8 @@
 
 #include "lap.h"
 
+#include <QVector>
+
 /**
  * @brief A session represents a single Kronometer instance.
  * A session is made by a stopwatch time, a date timestamp and by zero or more laps.
@@ -93,7 +95,7 @@ public:
     /**
      * @return The session laps.
      */
-    const QList<Lap>& laps() const;
+    const QVector<Lap>& laps() const;
 
     /**
      * Whether the session is empty.
@@ -134,7 +136,7 @@ private:
     QString m_note;       /** Custom session annotation. */
     int  m_time;          /** Session stopwatch time. */
     QDateTime m_date;     /** Session date (timestamp of the last update). */
-    QList<Lap> m_laps;    /** Session laps. */
+    QVector<Lap> m_laps;    /** Session laps. */
     bool m_isOutdated;    /** Whether the session data is outdated. */
 };
 

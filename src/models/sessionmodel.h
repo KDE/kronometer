@@ -100,7 +100,7 @@ private:
 
     const QVector<Column> m_columns {Column::SessionId, Column::Name, Column::Date, Column::Note};
 
-    QList<Session> m_sessionList;    /** Sessions in the model. */
+    QVector<Session> m_sessionList;    /** Sessions in the model. */
 
     Q_DISABLE_COPY(SessionModel)
 };

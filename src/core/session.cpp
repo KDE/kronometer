@@ -78,7 +78,7 @@ bool Session::isOutdated() const
     return m_isOutdated;
 }
 
-const QList<Lap>& Session::laps() const
+const QVector<Lap> &Session::laps() const
 {
     return m_laps;
 }
