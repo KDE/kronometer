@@ -122,11 +122,8 @@ void Stopwatch::timerEvent(QTimerEvent *event)
         return;
     }
 
-    auto t = m_accumulator;
-
     if (m_elapsedTimer.isValid()) {
-        t += m_elapsedTimer.elapsed();
-        emit time(t);
+        emit time(m_accumulator + m_elapsedTimer.elapsed());
     }
     else {
         killTimer(m_timerId);
