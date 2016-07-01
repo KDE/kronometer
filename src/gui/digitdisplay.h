@@ -40,21 +40,21 @@ class DigitDisplay : public QWidget
 
 public:
 
-    enum DigitCounter
+    enum class Digits
     {
-        OneDigit = 1,     /**< Display one digit */
-        TwoDigits = 2,    /**< Display two digits */
-        ThreeDigits = 3,  /**< Display three digits */
-        NoDigit           /**< Display no digit */
+        One,      /**< Display one digit. */
+        Two,      /**< Display two digits. */
+        Three,    /**< Display three digits. */
+        None      /**< Display no digit. */
     };
 
-    explicit DigitDisplay(QWidget *parent = nullptr, DigitCounter counter = NoDigit);
+    explicit DigitDisplay(QWidget *parent = nullptr, Digits digits = Digits::None);
 
     /**
      * Set the number of digits to be displayed.
-     * @param counter The number of digits to be displayed.
+     * @param digits The number of digits to be displayed.
      */
-    void setDigitCounter(DigitCounter counter);
+    void setDigits(Digits digits);
 
     /**
      * The digits to be displayed.
@@ -79,7 +79,12 @@ private:
     QLabel *m_rightmostDigit;
 
     QFont m_displayFont;
-    DigitCounter m_digitCounter;
+    Digits m_digits;
+
+    /**
+     * @return Whether the length of @p text is consistent with the display digits.
+     */
+    bool isValid(const QString& text) const;
 
     /**
      * Helper function to display a single digit.

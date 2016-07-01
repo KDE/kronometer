@@ -45,7 +45,7 @@ int SessionModel::columnCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent)
 
-    return SESSION_TAG_NUMBER;
+    return m_columns.count();
 }
 
 int SessionModel::rowCount(const QModelIndex& parent) const
@@ -65,22 +65,24 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
         return QVariant::Invalid;
     }
 
+    auto column = static_cast<Column>(index.column());
+
     if (role == Qt::DisplayRole) {
         auto variant = QVariant {};
 
-        switch (index.column()) {
-        case SessionId:
+        switch (column) {
+        case Column::SessionId:
             variant = QString::number(index.row() + 1);
             break;
-        case Name:
+        case Column::Name:
             variant = m_sessionList.at(index.row()).name();
             break;
 
-        case Date:
+        case Column::Date:
             variant = m_sessionList.at(index.row()).date();
             break;
             return QVariant::Invalid;
-        case Note:
+        case Column::Note:
             variant = m_sessionList.at(index.row()).note();
             break;
         }
@@ -88,12 +90,12 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
         return variant;
     }
 
-    if (role == Qt::EditRole && index.column() == Name) {
+    if (role == Qt::EditRole && column == Column::Name) {
         // prevent the disappear of the old value when double-clicking the item
         return m_sessionList.at(index.row()).name();
     }
 
-    if (role == Qt::EditRole && index.column() == Note) {
+    if (role == Qt::EditRole && column == Column::Note) {
         return m_sessionList.at(index.row()).note();
     }
 
@@ -106,14 +108,14 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
     if (role != Qt::DisplayRole or orientation != Qt::Horizontal)
         return QVariant::Invalid;
 
-    switch (section) {
-    case SessionId:
+    switch (static_cast<Column>(section)) {
+    case Column::SessionId:
         return i18nc("session number", "Session #");
-    case Name:
+    case Column::Name:
         return i18n("Name");
-    case Date:
+    case Column::Date:
         return i18n("Date");
-    case Note:
+    case Column::Note:
         return i18n("Note");
     default:
         return QVariant::Invalid;
@@ -123,7 +125,7 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
 bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
     if (index.isValid() and role == Qt::EditRole) {
-        if (index.column() == Name) {
+        if (index.column() == static_cast<int>(Column::Name)) {
             if (value.toString().isEmpty())
                 return false;
 
@@ -132,7 +134,7 @@ bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int 
 
             return true;
         }
-        else if (index.column() == Note) {
+        else if (index.column() == static_cast<int>(Column::Note)) {
             m_sessionList[index.row()].setNote(value.toString());
             emit dataChanged(index, index);
 
@@ -148,7 +150,8 @@ Qt::ItemFlags SessionModel::flags(const QModelIndex& index) const
     if (not index.isValid())
         return Qt::ItemIsEnabled;
 
-    if (index.column() != Name and index.column() != Note)
+    auto column = static_cast<Column>(index.column());
+    if (column != Column::Name and column != Column::Note)
         return QAbstractTableModel::flags(index);
 
     return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
@@ -202,7 +205,8 @@ bool SessionModel::isEmpty() const
 
 bool SessionModel::isEditable(const QModelIndex& index) const
 {
-    return index.column() == Name || index.column() == Note;
+    auto column = static_cast<Column>(index.column());
+    return column == Column::Name || column == Column::Note;
 }
 
 void SessionModel::read(const QJsonObject& json)

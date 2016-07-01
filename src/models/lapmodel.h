@@ -38,7 +38,7 @@ class LapModel : public QAbstractTableModel
 
 public:
 
-    enum LapTag
+    enum class Column
     {
         LapId = 0,           /**< Index of the lap-number column */
         RelativeTime = 1,    /**< Index of the lap relative time column */
@@ -94,7 +94,7 @@ public slots:
 
 private:
 
-    static constexpr int LAP_TAG_NUMBER = 4;    /** Number of tag/header in the model */
+    const QVector<Column> m_columns {Column::LapId, Column::RelativeTime, Column::AbsoluteTime, Column::Note};
 
     QVector<Lap> m_laps;             /** Lap times */
     TimeFormat m_timeFormat;          /** Current lap times format */

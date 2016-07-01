@@ -39,7 +39,7 @@ class Stopwatch : public QObject
 
 public:
 
-    enum Granularity
+    enum class Granularity : int
     {
         Milliseconds = 1, /**< Stopwatch refreshed every msec. */
         Hundredths = 10,  /**< Stopwatch refreshed every 10 msec. */
@@ -130,6 +130,8 @@ protected:
     void timerEvent(QTimerEvent *event) override;
 
 private:
+
+    int granularity() const;
 
     enum class State
     {

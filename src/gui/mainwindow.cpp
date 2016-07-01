@@ -506,8 +506,8 @@ void MainWindow::loadSettings()
     m_lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
-    m_lapView->setColumnHidden(LapModel::AbsoluteTime, not KronometerConfig::showLapAbsoluteTimes());
-    m_lapView->setColumnHidden(LapModel::Note, not KronometerConfig::showLapNotes());
+    m_lapView->setColumnHidden(static_cast<int>(LapModel::Column::AbsoluteTime), not KronometerConfig::showLapAbsoluteTimes());
+    m_lapView->setColumnHidden(static_cast<int>(LapModel::Column::Note), not KronometerConfig::showLapNotes());
     m_lapModel->setTimeFormat(lapTimeFormat);
     timeFormat.showDividers(false);
     m_stopwatchDisplay->setTimeFormat(timeFormat);
@@ -534,19 +534,19 @@ void MainWindow::loadSettings()
 void MainWindow::setupGranularity()
 {
     if (not KronometerConfig::showSecondFractions()) {
-        m_stopwatch->setGranularity(Stopwatch::Seconds);
+        m_stopwatch->setGranularity(Stopwatch::Granularity::Seconds);
         return;
     }
 
     switch (KronometerConfig::fractionsType()) {
     case TimeFormat::UpToTenths:
-        m_stopwatch->setGranularity(Stopwatch::Tenths);
+        m_stopwatch->setGranularity(Stopwatch::Granularity::Tenths);
         break;
     case TimeFormat::UpToHundredths:
-        m_stopwatch->setGranularity(Stopwatch::Hundredths);
+        m_stopwatch->setGranularity(Stopwatch::Granularity::Hundredths);
         break;
     case TimeFormat::UpToMilliseconds:
-        m_stopwatch->setGranularity(Stopwatch::Milliseconds);
+        m_stopwatch->setGranularity(Stopwatch::Granularity::Milliseconds);
         break;
     default:
         break;

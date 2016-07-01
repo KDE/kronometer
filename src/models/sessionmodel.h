@@ -90,15 +90,15 @@ public slots:
 
 private:
 
-    static constexpr int SESSION_TAG_NUMBER = 4;    /** Number of tag/header in the model. */
-
-    enum SessionTag
+    enum class Column
     {
         SessionId = 0,    /**< Index of the session-number column. */
         Name = 1,         /**< Index of the session name column. */
         Date = 2,         /**< Index of the session date column. */
         Note = 3          /**< Index of the session annotation column. */
     };
+
+    const QVector<Column> m_columns {Column::SessionId, Column::Name, Column::Date, Column::Note};
 
     QList<Session> m_sessionList;    /** Sessions in the model. */
 

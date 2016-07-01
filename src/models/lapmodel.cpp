@@ -30,7 +30,7 @@ int LapModel::columnCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent)
 
-    return LAP_TAG_NUMBER;
+    return m_columns.count();
 }
 
 int LapModel::rowCount(const QModelIndex& parent) const
@@ -50,20 +50,22 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         return QVariant::Invalid;
     }
 
+    auto column = static_cast<Column>(index.column());
+
     if (role == Qt::DisplayRole) {
         QVariant variant;
 
-        switch (index.column()) {
-        case LapId:
+        switch (column) {
+        case Column::LapId:
             variant = QString::number(index.row() + 1);
             break;
-        case RelativeTime:
+        case Column::RelativeTime:
             variant = m_laps.at(index.row()).relativeTime();
             break;
-        case AbsoluteTime:
+        case Column::AbsoluteTime:
             variant = m_laps.at(index.row()).absoluteTime();
             break;
-        case Note:
+        case Column::Note:
             variant = m_laps.at(index.row()).note();
             break;
         }
@@ -71,7 +73,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         return variant;
     }
 
-    if (role == Qt::EditRole && index.column() == Note) {
+    if (role == Qt::EditRole && column == Column::Note) {
         // prevent the disappear of the old value when double-clicking the item
         return m_laps.at(index.row()).note();
     }
@@ -84,14 +86,14 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
     if (role != Qt::DisplayRole or orientation != Qt::Horizontal)
         return QVariant::Invalid;
 
-    switch (section) {
-    case LapId:
+    switch (static_cast<Column>(section)) {
+    case Column::LapId:
         return i18nc("lap number", "Lap #");
-    case RelativeTime:
+    case Column::RelativeTime:
         return i18nc("@title:column", "Lap Time");
-    case AbsoluteTime:
+    case Column::AbsoluteTime:
         return i18nc("@title:column", "Global Time");
-    case Note:
+    case Column::Note:
         return i18nc("@title:column", "Note");
     default:
         return QVariant::Invalid;
@@ -101,7 +103,7 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
     if (index.isValid() and role == Qt::EditRole) {
-        if (index.column() == Note) {
+        if (index.column() == static_cast<int>(Column::Note)) {
             m_laps[index.row()].setNote(value.toString());
             emit dataChanged(index, index);
 
@@ -117,7 +119,7 @@ Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
     if (not index.isValid())
         return Qt::ItemIsEnabled;
 
-    if (index.column() != Note)
+    if (index.column() != static_cast<int>(Column::Note))
         return QAbstractTableModel::flags(index);
 
     return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;

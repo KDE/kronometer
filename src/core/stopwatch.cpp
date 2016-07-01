@@ -26,7 +26,7 @@ Stopwatch::Stopwatch(QObject *parent) : QObject(parent),
     m_timerId {INACTIVE_TIMER_ID},
     m_accumulator {0},
     m_state {State::Inactive},
-    m_granularity {Hundredths}
+    m_granularity {Granularity::Hundredths}
 {}
 
 void Stopwatch::setGranularity(Granularity g)
@@ -74,12 +74,12 @@ void Stopwatch::slotStart()
         m_elapsedTimer.start();
 
         if (m_timerId == INACTIVE_TIMER_ID) {
-            m_timerId = startTimer(m_granularity);
+            m_timerId = startTimer(granularity());
         }
     }
     else if (m_state == State::Paused) {
         m_elapsedTimer.restart();
-        m_timerId = startTimer(m_granularity);
+        m_timerId = startTimer(granularity());
     }
 
     m_state = State::Running;
@@ -132,4 +132,9 @@ void Stopwatch::timerEvent(QTimerEvent *event)
         killTimer(m_timerId);
         m_timerId = INACTIVE_TIMER_ID;
     }
+}
+
+int Stopwatch::granularity() const
+{
+    return static_cast<int>(m_granularity);
 }
