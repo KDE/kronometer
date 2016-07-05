@@ -228,7 +228,6 @@ void MainWindow::slotWriteSettings()
 
 void MainWindow::slotUpdateLapDock()
 {
-    m_lapView->resizeColumnsToContents();
     m_lapView->horizontalHeader()->setStretchLastSection(true);
     m_lapView->selectRow(m_lapModel->rowCount({}) - 1);  // rows indexes start from 0
 }
