@@ -183,7 +183,7 @@ private:
      * Create a session with the current stopwatch time and lap times.
      * @param name The name of the session to be saved.
      */
-    void slotSaveSessionAs(const QString& name);
+    void saveSessionAs(const QString& name);
 
     /**
      * Load a saved session.

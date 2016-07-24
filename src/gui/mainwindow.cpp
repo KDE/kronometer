@@ -288,7 +288,7 @@ void MainWindow::slotSaveSessionAs()
     if (name.isEmpty())
         name = i18nc("untitled session", "Untitled session");
 
-    slotSaveSessionAs(name);
+    saveSessionAs(name);
 }
 
 void MainWindow::slotExportLapsAs()
@@ -553,7 +553,7 @@ void MainWindow::setupGranularity()
     }
 }
 
-void MainWindow::slotSaveSessionAs(const QString& name)
+void MainWindow::saveSessionAs(const QString& name)
 {
     auto newSession = Session {m_stopwatch->raw()};
     newSession.setName(name);
