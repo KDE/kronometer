@@ -83,7 +83,7 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
         loadSession();
     }
 
-    // TODO: replace this whit solid-power API, once it's released.
+    // TODO: replace this with solid-power API, once it's released.
     QDBusConnection::systemBus().connect(
                 QStringLiteral("org.freedesktop.login1"),
                 QStringLiteral("/org/freedesktop/login1"),
