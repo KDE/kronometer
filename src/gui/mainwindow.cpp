@@ -481,13 +481,13 @@ void MainWindow::setupActions()
     connect(m_resetAction, &QAction::triggered, m_stopwatchDisplay, &TimeDisplay::slotReset);
 
     // File menu triggers
-    KStandardAction::quit(this, SLOT(close()), actionCollection());
-    KStandardAction::preferences(this, SLOT(slotShowSettings()), actionCollection());
-    KStandardAction::openNew(this, SLOT(slotNewSession()), actionCollection());
-    KStandardAction::save(this, SLOT(slotSaveSession()), actionCollection());
-    KStandardAction::saveAs(this, SLOT(slotSaveSessionAs()), actionCollection());
-    KStandardAction::open(this, SLOT(slotOpenSession()), actionCollection());
-    KStandardAction::copy(this, SLOT(slotCopyToClipboard()), actionCollection());
+    KStandardAction::quit(this, &QWidget::close, actionCollection());
+    KStandardAction::preferences(this, &MainWindow::slotShowSettings, actionCollection());
+    KStandardAction::openNew(this, &MainWindow::slotNewSession, actionCollection());
+    KStandardAction::save(this, &MainWindow::slotSaveSession, actionCollection());
+    KStandardAction::saveAs(this, &MainWindow::slotSaveSessionAs, actionCollection());
+    KStandardAction::open(this, &MainWindow::slotOpenSession, actionCollection());
+    KStandardAction::copy(this, &MainWindow::slotCopyToClipboard, actionCollection());
     connect(m_exportAction, &QAction::triggered, this, &MainWindow::slotExportLapsAs);
 
     m_toggleMenuAction = KStandardAction::showMenubar(nullptr, nullptr, actionCollection());
