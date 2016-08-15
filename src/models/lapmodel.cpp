@@ -177,7 +177,7 @@ void LapModel::reload()
     const auto laps = m_laps;
     slotClear();
 
-    foreach (const auto& lap, laps) {
+    for (const auto& lap : laps) {
         append(lap);
     }
 }

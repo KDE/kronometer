@@ -573,7 +573,7 @@ void MainWindow::loadSession()
 {
     m_stopwatch->initialize(m_session.time());
 
-    foreach (const auto& lap, m_session.laps()) {
+    for (const auto& lap : m_session.laps()) {
         m_lapModel->append(lap);
     }
 
@@ -649,7 +649,8 @@ bool MainWindow::isWindowSizeSaved() const
 {
     KConfigGroup group {KSharedConfig::openConfig(), "MainWindow"};
 
-    foreach (const auto& key, group.keyList()) {
+    const auto keys = group.keyList();
+    for (const auto& key : keys) {
         // Size keys contain the screen size, e.g. 'Width 1920' and 'Height 1080'.
         if (key.startsWith(QLatin1String("Height")) or key.startsWith(QLatin1String("Width"))) {
             return true;
@@ -712,7 +713,8 @@ bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
         return false;
 
     const auto toolBarWidget = toolBar();
-    foreach (const auto widget, action->associatedWidgets()) {
+    const auto widgets = action->associatedWidgets();
+    for (const auto widget : widgets) {
         if (widget == toolBarWidget) {
             return false;
         }

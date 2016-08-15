@@ -28,10 +28,10 @@ void TestTimeDisplay::testDefaultWidget()
 {
     TimeDisplay timeDisplay;
 
-    auto groupBoxes = timeDisplay.findChildren<QGroupBox*>();
+    const auto groupBoxes = timeDisplay.findChildren<QGroupBox*>();
     QCOMPARE(groupBoxes.size(), 4);
 
-    foreach (auto group, groupBoxes) {
+    for (auto group : groupBoxes) {
         QCOMPARE(group->findChildren<DigitDisplay*>().size(), 1);
         QVERIFY(!group->title().isEmpty());
     }
@@ -44,8 +44,8 @@ void TestTimeDisplay::testSetBackgroundColor()
     TimeDisplay timeDisplay;
     timeDisplay.setBackgroundColor(color);
 
-    auto groupBoxes = timeDisplay.findChildren<QGroupBox*>();
-    foreach (auto group, groupBoxes) {
+    const auto groupBoxes = timeDisplay.findChildren<QGroupBox*>();
+    for (auto group : groupBoxes) {
         QCOMPARE(group->palette().color(group->backgroundRole()), color);
     }
 }
@@ -57,8 +57,8 @@ void TestTimeDisplay::testSetTextColor()
     TimeDisplay timeDisplay;
     timeDisplay.setTextColor(color);
 
-    auto groupBoxes = timeDisplay.findChildren<QGroupBox*>();
-    foreach (auto group, groupBoxes) {
+    const auto groupBoxes = timeDisplay.findChildren<QGroupBox*>();
+    for (auto group : groupBoxes) {
         QCOMPARE(group->palette().color(group->foregroundRole()), color);
     }
 }

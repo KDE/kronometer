@@ -73,7 +73,7 @@ void TestSession::testLaps()
     Session session;
 
     const auto laps = QVector<Lap> {Lap {{1, 30}}, Lap {{2, 0}}, Lap {{1, 45}}};
-    foreach (const Lap& lap, laps) {
+    for (const auto& lap : laps) {
         session.addLap(lap);
     }
 
@@ -107,7 +107,7 @@ void TestSession::testJson()
     session1.setNote(QStringLiteral("test-note"));
 
     const auto laps = QVector<Lap> {Lap {{1, 30}}, Lap {{2, 0}}, Lap {{1, 45}}};
-    foreach (const Lap& lap, laps) {
+    for (const auto& lap : laps) {
         session1.addLap(lap);
     }
 

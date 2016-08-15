@@ -108,7 +108,7 @@ void Session::write(QJsonObject& json) const
 
     auto laps = QJsonArray {};
 
-    foreach (const auto& lap, m_laps) {
+    for (const auto& lap : m_laps) {
         auto object = QJsonObject {};
         lap.write(object);
         laps.append(object);

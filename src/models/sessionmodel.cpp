@@ -213,7 +213,7 @@ bool SessionModel::isEditable(const QModelIndex& index) const
 void SessionModel::read(const QJsonObject& json)
 {
     const auto sessions = json[QStringLiteral("sessions")].toArray();
-    foreach (const auto& session, sessions) {
+    for (const auto& session : sessions) {
         append(Session::fromJson(session.toObject()));
     }
 }
@@ -221,7 +221,7 @@ void SessionModel::read(const QJsonObject& json)
 void SessionModel::slotWrite()
 {
     auto sessions = QJsonArray {};
-    foreach (const auto& session, m_sessionList) {
+    for (const auto& session : m_sessionList) {
         auto object = QJsonObject {};
         session.write(object);
         sessions.append(object);
