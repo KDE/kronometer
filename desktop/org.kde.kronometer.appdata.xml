@@ -75,6 +75,7 @@
     <p xml:lang="pl">Kronometer jest programem stopera. Zapewnia podstawowe działania stopera (wstrzymanie/wznawianie/zerowanie/okrążenia), a także możliwość zapisywania czasów i wznawiania ich w czasie późniejszym. Kronometer jest częścią zbioru KDE Extragear, wewnątrz pod-modułu Utils.</p>
     <p xml:lang="pt">O Kronometer é uma aplicação de cronómetros. Oferece as acções básicas de um cronómetro (pausar/prosseguir/limpar/voltas), assim como a capacidade de gravar os tempos num ficheiro e retomá-los mais tarde. O Kronometer faz parte da colecção Extragear do KDE, dentro do sub-módulo Utils.</p>
     <p xml:lang="pt-BR">Kronometer é um aplicativo de cronômetro. Oferece as ações básicas de um cronômetro (pausar/continuar/reiniciar/voltas), assim como a capacidade de salvar os tempos e retomá-los mais tarde. O Kronometer é integrante da coleção Extragear do KDE, dentro do sub-módulo Utils.</p>
+    <p xml:lang="sk">Kronometer je aplikácia stopiek. Poskytuje základné akcie stopiek (pauza/pokračovanie/reset/kolá), ako aj schopnosť ukladať časy a neskôr v nich pokračovať. Kronometer je súčasťou kolekcie KDE Extragear, v podmodule Utils.</p>
     <p xml:lang="sl">Kronometer je časomer. Ima osnovne zmožnosti časomera (premor/nadaljuj/ponastavi/krogi), kot tudi zmožnost shranjevanja časov in kasnejše nadaljevanje. Kronometer je del zbirke KDE extragear-utils.</p>
     <p xml:lang="sv">Kronometer är ett tidtagarurprogram. Det tillhandahåller grundfunktioner för tidtagning (paus, återstarta, nollställ, varvtid) samt möjlighet att spara tiderna och senare återstarta dem. Kronometer ingår i KDE:s Extragear-samling i undermodulen Utils.</p>
     <p xml:lang="uk">Kronometer — програма-секундомір. У ній передбачено основні можливості секундоміра (призупинення відліку, відновлення відліку, скидання відліку, відлік часу за колами), а також можливість збереження даних щодо часу і відновлення збережених даних із файла. Kronometer є частиною збірки додаткового програмного забезпечення KDE, а саме, модуля Utils.</p>
@@ -236,6 +237,7 @@
       <li xml:lang="pl">Zapisywanie i wznawianie czasów: można zapisać stan stopera i wznowić go później</li>
       <li xml:lang="pt">Gravação e reposição dos tempos: poderá gravar o estado do cronómetro num ficheiro para o retomar mais tarde</li>
       <li xml:lang="pt-BR">Gravação e continuação dos tempos: Você pode salvar o status do cronômetro para continuar mais tarde</li>
+      <li xml:lang="sk">Ukladanie a pokračovania v časoch: môžete uložiť stav stopiek a pokračovať v nich neskôr</li>
       <li xml:lang="sl">Shranjevanje časov in nadaljevanje: stanje časomera lahko shranite in kasneje nadaljujete</li>
       <li xml:lang="sv">Spara och återstarta tider: Det går att spara tidtagarurets status och senare återstarta det</li>
       <li xml:lang="uk">Збереження та відновлення записаних даних щодо часу: ви можете записати стан секундоміра на диск і згодом відновити його.</li>
