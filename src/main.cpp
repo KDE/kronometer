@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio@kdemail.net>
+    Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio@kde.org>
 
     This file is part of Kronometer.
 
@@ -50,7 +50,7 @@ int main (int argc, char **argv)
     aboutData.addAuthor(
         i18n("Elvis Angelaccio"),
         i18n("Maintainer"),
-        QStringLiteral("elvis.angelaccio@kdemail.net"),
+        QStringLiteral("elvis.angelaccio@kde.org"),
         QStringLiteral("http://aelog.org")
     );
 

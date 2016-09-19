@@ -15,7 +15,7 @@
   <author><firstname>Elvis</firstname><surname>Angelaccio</surname>
     <affiliation>
       <address>
-	<email>elvis.angelaccio@kdemail.net</email>
+	<email>elvis.angelaccio@kde.org</email>
       </address>
     </affiliation>
   </author>
@@ -225,11 +225,11 @@
   </para>
   <para>
     Program copyright &copy; 2014-2016 Elvis Angelaccio
-    <email>elvis.angelaccio@kdemail.net</email>
+    <email>elvis.angelaccio@kde.org</email>
   </para>
   <para>
     Documentation copyright &copy; 2014-2016 Elvis Angelaccio
-    <email>elvis.angelaccio@kdemail.net</email>
+    <email>elvis.angelaccio@kde.org</email>
   </para>
 <!-- TRANS:CREDIT_FOR_TRANSLATORS -->
 &underFDL;
