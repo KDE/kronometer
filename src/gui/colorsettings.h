@@ -24,13 +24,10 @@
 
 class ColorSettings : public QWidget, public Ui::ColorSettings
 {
+    Q_OBJECT
 
 public:
-    explicit ColorSettings(QWidget *parent) : QWidget(parent)
-    {
-        setupUi(this);
-    }
+    explicit ColorSettings(QWidget *parent = nullptr);
 };
-
 
 #endif

@@ -1,5 +1,7 @@
 set(gui_SRCS
+    colorsettings.cpp
     digitdisplay.cpp
+    fontsettings.cpp
     generalsettings.cpp
     mainwindow.cpp
     sessiondialog.cpp

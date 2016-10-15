@@ -1,5 +1,5 @@
 /*
-    Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio@kde.org>
+    Copyright (C) 2016 by Elvis Angelaccio <elvis.angelaccio@kde.org>
 
     This file is part of Kronometer.
 
@@ -17,17 +17,9 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef FONTSETTINGS_H
-#define FONTSETTINGS_H
+#include "fontsettings.h"
 
-#include "ui_fontsettings.h"
-
-class FontSettings : public QWidget, public Ui::FontSettings
+FontSettings::FontSettings(QWidget *parent) : QWidget(parent)
 {
-    Q_OBJECT
-
-public:
-    explicit FontSettings(QWidget *parent = nullptr);
-};
-
-#endif
+    setupUi(this);
+}
