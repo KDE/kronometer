@@ -3,3 +3,4 @@ ClassName=KronometerConfig
 Singleton=true
 Mutators=true
 UseEnumTypes=true
+GenerateProperties=true

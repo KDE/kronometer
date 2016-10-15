@@ -12,7 +12,7 @@ ki18n_wrap_ui(gui_SRCS
     sessiondialog.ui
     timedisplay.ui)
 
-kconfig_add_kcfg_files(gui_SRCS settings.kcfgc)
+kconfig_add_kcfg_files(gui_SRCS settings.kcfgc GENERATE_MOC)
 
 add_library(gui STATIC ${gui_SRCS})
 target_link_libraries(gui
