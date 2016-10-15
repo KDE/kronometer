@@ -131,7 +131,7 @@ private:
 
     bool m_showHours;             /** Whether hour is in the internal time format */
     bool m_showMinutes;           /** Whether minute is in the internal time format */
-    bool m_showDividers;          /** Whether to show the symbols used as dividers */
+    bool m_showDividers = true;   /** Whether to show the symbols used as dividers */
 
     QString m_hourFormat;         /** Hour string format */
     QString m_minFormat;          /** Minute string format */

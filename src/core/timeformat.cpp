@@ -24,7 +24,6 @@
 TimeFormat::TimeFormat(bool showHours, bool showMinutes, SecondFraction fractions) :
     m_showHours {showHours},
     m_showMinutes {showMinutes},
-    m_showDividers {true},
     m_fractions {fractions}
 {
     setupFormat();

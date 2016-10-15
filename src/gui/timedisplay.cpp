@@ -25,8 +25,7 @@
 #include <QBoxLayout>
 #include <QGroupBox>
 
-TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent),
-    m_displayTime {0, 0}
+TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent)
 {
     setupUi(this);
 

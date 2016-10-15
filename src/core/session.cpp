@@ -24,8 +24,7 @@
 
 Session::Session(int time, const QDateTime& date) :
     m_time {time},
-    m_date {date},
-    m_isOutdated {false}
+    m_date {date}
 {}
 
 void Session::setName(const QString& name)

@@ -22,12 +22,7 @@
 #include <QCoreApplication>
 #include <QTimerEvent>
 
-Stopwatch::Stopwatch(QObject *parent) : QObject(parent),
-    m_timerId {INACTIVE_TIMER_ID},
-    m_accumulator {0},
-    m_state {State::Inactive},
-    m_granularity {Granularity::Hundredths}
-{}
+Stopwatch::Stopwatch(QObject *parent) : QObject(parent) {}
 
 void Stopwatch::setGranularity(Granularity g)
 {

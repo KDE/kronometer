@@ -137,7 +137,7 @@ private:
     int  m_time;          /** Session stopwatch time. */
     QDateTime m_date;     /** Session date (timestamp of the last update). */
     QVector<Lap> m_laps;    /** Session laps. */
-    bool m_isOutdated;    /** Whether the session data is outdated. */
+    bool m_isOutdated = false;    /** Whether the session data is outdated. */
 };
 
 #endif

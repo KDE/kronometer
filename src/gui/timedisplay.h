@@ -111,7 +111,7 @@ private:
     static constexpr int MSECS_PER_SEC = 1000;
     static constexpr int SECS_PER_MIN = 60;
 
-    QTime m_displayTime;              /** Current display time */
+    QTime m_displayTime = {0, 0};     /** Current display time */
     TimeFormat m_currentFormat;       /** Current display time format. */
     TimeFormat m_defaultFormat;       /** Default time format, to be restored on reset. */
 

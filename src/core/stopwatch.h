@@ -142,10 +142,10 @@ private:
 
     static constexpr int INACTIVE_TIMER_ID = -1;    /** Used for timerId initialization */
 
-    int m_timerId;                              /** ID for the QObject timer */
-    int m_accumulator;                          /** milliseconds internal counter */
-    State m_state;                              /** Stopwatch current state */
-    Granularity m_granularity;                  /** Stopwatch current granularity */
+    int m_timerId = INACTIVE_TIMER_ID;                      /** ID for the QObject timer */
+    int m_accumulator = 0;                                  /** milliseconds internal counter */
+    State m_state = State::Inactive;                        /** Stopwatch current state */
+    Granularity m_granularity = Granularity::Hundredths;    /** Stopwatch current granularity */
 
     QElapsedTimer m_elapsedTimer;               /** Stopwatch core class*/
 
