@@ -300,7 +300,7 @@ void MainWindow::slotExportLapsAs()
 
     connect(dialog, &QDialog::finished, this, [this, dialog](int result) {
         if (result == QDialog::Accepted) {
-            exportLapsAs(dialog->selectedFiles().first(), dialog->selectedNameFilter());
+            exportLapsAs(dialog->selectedFiles().at(0), dialog->selectedNameFilter());
         }
         dialog->deleteLater();
     });
