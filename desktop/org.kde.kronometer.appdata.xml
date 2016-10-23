@@ -21,6 +21,7 @@
   <name xml:lang="it">Kronometer</name>
   <name xml:lang="nds">Kronometer</name>
   <name xml:lang="nl">Kronometer</name>
+  <name xml:lang="nn">Kronometer</name>
   <name xml:lang="pl">Kronometer</name>
   <name xml:lang="pt">Kronometer</name>
   <name xml:lang="pt-BR">Kronometer</name>
@@ -47,6 +48,7 @@
   <summary xml:lang="it">Cronometro</summary>
   <summary xml:lang="nds">Tietmeter</summary>
   <summary xml:lang="nl">Chronometer</summary>
+  <summary xml:lang="nn">Kronometer</summary>
   <summary xml:lang="pl">Chronometr</summary>
   <summary xml:lang="pt">Cronómetro</summary>
   <summary xml:lang="pt-BR">Cronômetro</summary>
@@ -96,6 +98,7 @@
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="nds">Markmalen:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
+    <p xml:lang="nn">Funksjonar:</p>
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
