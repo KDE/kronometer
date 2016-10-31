@@ -74,6 +74,7 @@
     <p xml:lang="gl">Kronometer é un programa para cronometrar. Conta con accións básicas de cronometraxe (deter, continuar, reiniciar, voltas), e permite gardar tempos para continualos máis adiante. Kronometer é parte do módulo de ferramentas da colección Extragear de KDE.</p>
     <p xml:lang="it">Kronometer è un cronometro. Include le azioni fondamentali di un cronometro (pausa, riavvio, azzeramento, giri), oltre alla possibilità di salvare i tempi e caricarli in seguito. Kronometer fa parte della raccolta Extragear di KDE, nel modulo delle Utilità.</p>
     <p xml:lang="nl">Kronometer is een toepassing voor een stopwatch gemaakt. Het biedt de basisacties van een stopwatch (pauzeren/hervatten/reset/rondetijden), evenals de mogelijkheid om de tijden op te slaan en later te hervatten. Kronometer is onderdeel van de verzameling KDE Extragear, binnen de sub-module Utils.</p>
+    <p xml:lang="nn">Kronometer er eit stoppeklokkeprogram. Det har grunnleggjande stoppeklokkefunksjonar (pause / hald fram / rundetid) og kan lagra tider for seinare framhald. Kronometer er ein del av «utils»-modulen i «extragear»-samlinga.</p>
     <p xml:lang="pl">Kronometer jest programem stopera. Zapewnia podstawowe działania stopera (wstrzymanie/wznawianie/zerowanie/okrążenia), a także możliwość zapisywania czasów i wznawiania ich w czasie późniejszym. Kronometer jest częścią zbioru KDE Extragear, wewnątrz pod-modułu Utils.</p>
     <p xml:lang="pt">O Kronometer é uma aplicação de cronómetros. Oferece as acções básicas de um cronómetro (pausar/prosseguir/limpar/voltas), assim como a capacidade de gravar os tempos num ficheiro e retomá-los mais tarde. O Kronometer faz parte da colecção Extragear do KDE, dentro do sub-módulo Utils.</p>
     <p xml:lang="pt-BR">Kronometer é um aplicativo de cronômetro. Oferece as ações básicas de um cronômetro (pausar/continuar/reiniciar/voltas), assim como a capacidade de salvar os tempos e retomá-los mais tarde. O Kronometer é integrante da coleção Extragear do KDE, dentro do sub-módulo Utils.</p>
@@ -124,6 +125,7 @@
       <li xml:lang="it">Oggetto per avviare, mettere in pausa e riavviare il cronometro</li>
       <li xml:lang="nds">Anfangen, anhollen un wiedermaken över dat Stoppklock-Lüttprogramm</li>
       <li xml:lang="nl">Start/pauzeer/hervat het stopwatch-widget</li>
+      <li xml:lang="nn">Start / pause / hald fram stoppeklokka</li>
       <li xml:lang="pl">Uruchamianie/wstrzymywanie/wznawianie elementu interfejsu stopera</li>
       <li xml:lang="pt">Iniciar/pausar/prosseguir o item do cronómetro</li>
       <li xml:lang="pt-BR">Iniciar/pausar/continuar o cronômetro</li>
@@ -147,6 +149,7 @@
       <li xml:lang="it">Registrazione dei giri: puoi catturare il tempo del cronometro ogni volta che vuoi</li>
       <li xml:lang="nds">Runnen opnehmen: Du kannst de Stoppklock-Tiet aflesen, wenn Du dat wullt</li>
       <li xml:lang="nl">Rondetijden opnemen: u kunt de tijd van de stopwatch opnemen wanneer u wilt</li>
+      <li xml:lang="nn">Rundetider: Du kan registrera gjeldande tid fleire gongar</li>
       <li xml:lang="pl">Nagrania okrążeń: można podejrzeć czas stopera w dowolnym momencie</li>
       <li xml:lang="pt">Registo de voltas: poderá capturar o tempo do cronómetro sempre que quiser</li>
       <li xml:lang="pt-BR">Registro de voltas: Você pode capturar o tempo do cronômetro sempre que quiser</li>
@@ -170,6 +173,7 @@
       <li xml:lang="it">Ordinamento dei tempi sul giro: puoi facilmente trovare il tempo sul giro più breve o più lungo</li>
       <li xml:lang="nds">Runnentieden sorteren: Du kannst de körtste oder de längste Runntiet heel eenfach rutfinnen</li>
       <li xml:lang="nl">Rondetijden sorteren: u kunt gemakkelijk de kortste of de langste rondetijd vinden</li>
+      <li xml:lang="nn">Sortering av rundetider: Du kan lett finna den kortaste eller lengste rundetida</li>
       <li xml:lang="pl">Szeregowanie czasów okrążeń: można łatwo znaleźć okrążenie o najkrótszym lub najdłuższym czasie</li>
       <li xml:lang="pt">Ordenação dos tempos das voltas: poderá descobrir facilmente o tempo mais curto ou mais longo</li>
       <li xml:lang="pt-BR">Ordenação dos tempos das voltas: Você pode localizar facilmente o tempo mais curto ou mais longo</li>
@@ -193,6 +197,7 @@
       <li xml:lang="it">Oggetto per azzerare il cronometro e i tempi sul giro</li>
       <li xml:lang="nds">Dat Stoppklock-Lüttprogramm un de Runnentieden torüchsetten</li>
       <li xml:lang="nl">Reset het stopwatch-widget en de rondetijden</li>
+      <li xml:lang="nn">Nullstilling av stoppeklokka og rundetider</li>
       <li xml:lang="pl">Zerowanie elementu interfejsu stopera i czasów okrążeń</li>
       <li xml:lang="pt">Reiniciar o item do cronómetro e os tempos das voltas</li>
       <li xml:lang="pt-BR">Reiniciar o cronômetro e os tempos das voltas</li>
@@ -216,6 +221,7 @@
       <li xml:lang="it">Impostazioni del formato del tempo: puoi scegliere la risoluzione del cronometro</li>
       <li xml:lang="nds">Tietformaat instellen: Du kannst de Oplösen vun de Stoppklock utsöken</li>
       <li xml:lang="nl">Instellingen van de tijdopmaak: u kunt de nauwkeurigheid van de stopwatch kiezen</li>
+      <li xml:lang="nn">Tidsformat: Du kan velja kor fin- eller grovinndelt tider skal visast</li>
       <li xml:lang="pl">Ustawienia formatu czasu: można wybrać dokładność stopera</li>
       <li xml:lang="pt">Configuração do formato dos tempos: poderá escolher a granularidade dos cronómetros</li>
       <li xml:lang="pt-BR">Configuração do formato dos tempos: Você pode escolher a granularidade dos cronômetros</li>
@@ -237,6 +243,7 @@
       <li xml:lang="gl">Gardar e cargar tempos: permite gardar o estado do cronómetro e continualo máis adiante.</li>
       <li xml:lang="it">Salvataggio e ripristino dei tempi: puoi salvare lo stato del cronometro e ripristinarlo più avanti</li>
       <li xml:lang="nl">Tijden opslaan en hervatten: u kunt de status van de stopwatch opslaan en deze later hervatten</li>
+      <li xml:lang="nn">Lagring og framhald av tider: Du kan lagra statusen til stoppeklokka for seinare framhald</li>
       <li xml:lang="pl">Zapisywanie i wznawianie czasów: można zapisać stan stopera i wznowić go później</li>
       <li xml:lang="pt">Gravação e reposição dos tempos: poderá gravar o estado do cronómetro num ficheiro para o retomar mais tarde</li>
       <li xml:lang="pt-BR">Gravação e continuação dos tempos: Você pode salvar o status do cronômetro para continuar mais tarde</li>
@@ -260,6 +267,7 @@
       <li xml:lang="it">Configurazione dei caratteri: puoi scegliere i caratteri per ciascuna cifra del cronometro</li>
       <li xml:lang="nds">Schrift topassen: Du kannst de Schrift för elkeen Tall op de Stoppklock utsöken</li>
       <li xml:lang="nl">Aanpassen van het lettertype: u kunt het lettertype van elk van de cijfers van de stopwatch kiezen</li>
+      <li xml:lang="nn">Tilpassa skrift: Du kan velja eigne skrifter for kvart tidselement (minutt, sekund, …) i stoppeklokka</li>
       <li xml:lang="pl">Własne czcionki: można wybrać czcionki dla każdej cyfry stopera</li>
       <li xml:lang="pt">Personalização dos tipos de letra: poderá escolher os tipos de letra para cada um dos números do cronómetro</li>
       <li xml:lang="pt-BR">Personalização de fontes: Você pode escolher as fontes para cada um dos dígitos do cronômetro</li>
@@ -283,6 +291,7 @@
       <li xml:lang="it">Configurazione dei colori: puoi scegliere il colore delle cifre e dello sfondo del cronometro</li>
       <li xml:lang="nds">Klöör topassen: Du kannst de Klöör för de Stoppklock-Tallen un de Achtergrundklöör utsöken.</li>
       <li xml:lang="nl">Aanpassen van kleur: u kunt de kleur van de cijfers en de achtergrond van de stopwatch kiezen</li>
+      <li xml:lang="nn">Tilpassa fargar: Du kan velja farge for tala og bakgrunnen til stoppeklokka</li>
       <li xml:lang="pl">Własne kolory: można wybrać kolory dla cyfr i tła stopera</li>
       <li xml:lang="pt">Personalização das cores: Poderá escolher a cor dos números do cronómetro e o fundo do mesmo</li>
       <li xml:lang="pt-BR">Personalização de cores: Você pode escolher a cor dos dígitos e do fundo do cronômetro</li>
@@ -304,6 +313,7 @@
       <li xml:lang="gl">Exportar os tempos de voltas: permítelle exportar os tempos de voltas a un ficheiro en formato JSON ou CSV.</li>
       <li xml:lang="it">Esportazione dei tempi sul giro: puoi esportare i tempi sul giro su file nei formati JSON o CSV</li>
       <li xml:lang="nl">Exporteren van rondetijden: u kunt de rondetijden exporteren in een bestand met het JSON- of CSV-formaat</li>
+      <li xml:lang="nn">Eksportering av rundetider. Du kan eksportera rundetidene til JSON- og CSV-format</li>
       <li xml:lang="pl">Eksportowanie czasów okrążeń: można eksportować czasy okrążeń do pliku przy użyciu formatu JSON lub CSV</li>
       <li xml:lang="pt">Exportação dos tempos das voltas: poderá exportar os tempos das voltas para um ficheiro em JSON ou CSV</li>
       <li xml:lang="pt-BR">Exportação dos tempos das voltas: Você pode exportar os tempos das voltas para um arquivo no formato JSON ou CSV</li>
