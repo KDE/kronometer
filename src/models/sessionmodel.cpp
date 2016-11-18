@@ -21,6 +21,7 @@
 
 #include <KLocalizedString>
 
+#include <QDebug>
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -30,11 +31,15 @@
 SessionModel::SessionModel(QObject *parent) : QAbstractTableModel(parent)
 {
     QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
-    saveFile.open(QIODevice::ReadOnly);
-
-    auto saveData = saveFile.readAll();
-    auto saveDoc = QJsonDocument::fromJson(saveData);
-    read(saveDoc.object());
+    if (saveFile.exists()) {
+        if (saveFile.open(QIODevice::ReadOnly)) {
+            auto saveData = saveFile.readAll();
+            auto saveDoc = QJsonDocument::fromJson(saveData);
+            read(saveDoc.object());
+        } else {
+            qDebug().nospace() << "cannot open " << saveFile.fileName() << ": " << saveFile.errorString();
+        }
+    }
 
     connect(this, &QAbstractTableModel::dataChanged, this, &SessionModel::slotWrite);
     connect(this, &QAbstractTableModel::rowsInserted, this, &SessionModel::slotWrite);
