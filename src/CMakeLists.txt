@@ -23,7 +23,7 @@ kconfig_add_kcfg_files(kronometer_SRCS settings.kcfgc)
 add_executable(kronometer ${kronometer_SRCS})
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-    target_compile_options(kronometer PRIVATE -Werror -pedantic)
+    target_compile_options(kronometer PRIVATE -pedantic)
 endif()
 
 target_link_libraries(kronometer
