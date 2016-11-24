@@ -505,8 +505,8 @@ void MainWindow::loadSettings()
     m_lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
-    m_lapView->setColumnHidden(static_cast<int>(LapModel::Column::AbsoluteTime), not KronometerConfig::showLapAbsoluteTimes());
-    m_lapView->setColumnHidden(static_cast<int>(LapModel::Column::Note), not KronometerConfig::showLapNotes());
+    m_lapView->setColumnHidden(m_lapModel->columnForRole(LapModel::Roles::AbsoluteTimeRole), not KronometerConfig::showLapAbsoluteTimes());
+    m_lapView->setColumnHidden(m_lapModel->columnForRole(LapModel::Roles::NoteRole), not KronometerConfig::showLapNotes());
     m_lapModel->setTimeFormat(lapTimeFormat);
     timeFormat.showDividers(false);
     m_stopwatchDisplay->setTimeFormat(timeFormat);

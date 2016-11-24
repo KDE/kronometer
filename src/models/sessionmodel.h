@@ -90,15 +90,25 @@ public slots:
 
 private:
 
-    enum class Column
+    enum class Roles
     {
-        SessionId = 0,    /**< Index of the session-number column. */
-        Name = 1,         /**< Index of the session name column. */
-        Date = 2,         /**< Index of the session date column. */
-        Note = 3          /**< Index of the session annotation column. */
+        SessionIdRole = Qt::UserRole,    /**< Index of the session-number column. */
+        NameRole,                        /**< Index of the session name column. */
+        DateRole,                        /**< Index of the session date column. */
+        NoteRole                         /**< Index of the session annotation column. */
     };
 
-    const QVector<Column> m_columns {Column::SessionId, Column::Name, Column::Date, Column::Note};
+    /**
+     * @return The index of the column for the given role.
+     */
+    int columnForRole(Roles role) const;
+
+    /**
+     * @return The role for the given column.
+     */
+    Roles roleForColumn(int column) const;
+
+    const QVector<Roles> m_roles {Roles::SessionIdRole, Roles::NameRole, Roles::DateRole, Roles::NoteRole};
 
     QVector<Session> m_sessionList;    /** Sessions in the model. */
 

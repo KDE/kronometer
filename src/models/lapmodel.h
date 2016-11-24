@@ -38,12 +38,12 @@ class LapModel : public QAbstractTableModel
 
 public:
 
-    enum class Column
+    enum class Roles
     {
-        LapId = 0,           /**< Index of the lap-number column */
-        RelativeTime = 1,    /**< Index of the lap relative time column */
-        AbsoluteTime = 2,    /**< Index of the lap absolute time column */
-        Note = 3             /**< Index of the lap annotation column */
+        LapIdRole = Qt::UserRole,    /**< Index of the lap-number column */
+        RelativeTimeRole,            /**< Index of the lap relative time column */
+        AbsoluteTimeRole,            /**< Index of the lap absolute time column */
+        NoteRole                     /**< Index of the lap annotation column */
     };
 
     explicit LapModel(QObject *parent = nullptr);
@@ -79,6 +79,11 @@ public:
      */
     bool isEmpty() const;
 
+    /**
+     * @return The index of the column for the given role.
+     */
+    int columnForRole(Roles role) const;
+
 public slots:
 
     /**
@@ -94,7 +99,7 @@ public slots:
 
 private:
 
-    const QVector<Column> m_columns {Column::LapId, Column::RelativeTime, Column::AbsoluteTime, Column::Note};
+    const QVector<Roles> m_roles {Roles::LapIdRole, Roles::RelativeTimeRole, Roles::AbsoluteTimeRole, Roles::NoteRole};
 
     QVector<Lap> m_laps;             /** Lap times */
     TimeFormat m_timeFormat;          /** Current lap times format */
@@ -103,6 +108,11 @@ private:
      *  Reload the model data.
      */
     void reload();
+
+    /**
+     * @return The role for the given column.
+     */
+    Roles roleForColumn(int column) const;
 
     Q_DISABLE_COPY(LapModel)
 };

@@ -30,7 +30,7 @@ int LapModel::columnCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent)
 
-    return m_columns.count();
+    return m_roles.count();
 }
 
 int LapModel::rowCount(const QModelIndex& parent) const
@@ -50,30 +50,22 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         return QVariant::Invalid;
     }
 
-    auto column = static_cast<Column>(index.column());
-
     if (role == Qt::DisplayRole) {
-        QVariant variant;
-
-        switch (column) {
-        case Column::LapId:
-            variant = QString::number(index.row() + 1);
-            break;
-        case Column::RelativeTime:
-            variant = m_laps.at(index.row()).relativeTime();
-            break;
-        case Column::AbsoluteTime:
-            variant = m_laps.at(index.row()).absoluteTime();
-            break;
-        case Column::Note:
-            variant = m_laps.at(index.row()).note();
-            break;
-        }
-
-        return variant;
+        return data(index, Qt::UserRole + index.column());
     }
 
-    if (role == Qt::EditRole && column == Column::Note) {
+    switch (static_cast<Roles>(role)) {
+    case Roles::LapIdRole:
+        return QString::number(index.row() + 1);
+    case Roles::RelativeTimeRole:
+        return m_laps.at(index.row()).relativeTime();
+    case Roles::AbsoluteTimeRole:
+        return m_laps.at(index.row()).absoluteTime();
+    case Roles::NoteRole:
+        return m_laps.at(index.row()).note();
+    }
+
+    if (role == Qt::EditRole && index.column() == columnForRole(Roles::NoteRole)) {
         // prevent the disappear of the old value when double-clicking the item
         return m_laps.at(index.row()).note();
     }
@@ -86,18 +78,18 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
     if (role != Qt::DisplayRole or orientation != Qt::Horizontal)
         return QVariant::Invalid;
 
-    switch (static_cast<Column>(section)) {
-    case Column::LapId:
+    switch (roleForColumn(section)) {
+    case Roles::LapIdRole:
         return i18nc("lap number", "Lap #");
-    case Column::RelativeTime:
+    case Roles::RelativeTimeRole:
         return i18nc("@title:column", "Lap Time");
-    case Column::AbsoluteTime:
+    case Roles::AbsoluteTimeRole:
         return i18nc("@title:column", "Global Time");
-    case Column::Note:
+    case Roles::NoteRole:
         return i18nc("@title:column", "Note");
-    default:
-        return QVariant::Invalid;
     }
+
+    return QVariant::Invalid;
 }
 
 bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role)
@@ -105,7 +97,7 @@ bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role
     if (not index.isValid() or role != Qt::EditRole)
         return false;
 
-    if (index.column() != static_cast<int>(Column::Note))
+    if (index.column() != columnForRole(Roles::NoteRole))
         return false;
 
     m_laps[index.row()].setNote(value.toString());
@@ -119,7 +111,7 @@ Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
     if (not index.isValid())
         return Qt::ItemIsEnabled;
 
-    if (index.column() != static_cast<int>(Column::Note))
+    if (index.column() != columnForRole(Roles::NoteRole))
         return QAbstractTableModel::flags(index);
 
     return QAbstractTableModel::flags(index) | Qt::ItemIsEditable;
@@ -160,6 +152,11 @@ bool LapModel::isEmpty() const
     return m_laps.isEmpty();
 }
 
+int LapModel::columnForRole(LapModel::Roles role) const
+{
+    return m_roles.indexOf(role);
+}
+
 void LapModel::slotLap(const QTime& lapTime)
 {
     append(Lap {lapTime});
@@ -180,4 +177,9 @@ void LapModel::reload()
     for (const auto& lap : laps) {
         append(lap);
     }
+}
+
+LapModel::Roles LapModel::roleForColumn(int column) const
+{
+    return m_roles.at(column);
 }

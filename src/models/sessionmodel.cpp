@@ -50,7 +50,7 @@ int SessionModel::columnCount(const QModelIndex& parent) const
 {
     Q_UNUSED(parent)
 
-    return m_columns.count();
+    return m_roles.count();
 }
 
 int SessionModel::rowCount(const QModelIndex& parent) const
@@ -70,37 +70,27 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
         return QVariant::Invalid;
     }
 
-    auto column = static_cast<Column>(index.column());
-
     if (role == Qt::DisplayRole) {
-        auto variant = QVariant {};
-
-        switch (column) {
-        case Column::SessionId:
-            variant = QString::number(index.row() + 1);
-            break;
-        case Column::Name:
-            variant = m_sessionList.at(index.row()).name();
-            break;
-
-        case Column::Date:
-            variant = m_sessionList.at(index.row()).date();
-            break;
-            return QVariant::Invalid;
-        case Column::Note:
-            variant = m_sessionList.at(index.row()).note();
-            break;
-        }
-
-        return variant;
+        return data(index, Qt::UserRole + index.column());
     }
 
-    if (role == Qt::EditRole && column == Column::Name) {
+    switch (static_cast<Roles>(role)) {
+    case Roles::SessionIdRole:
+        return QString::number(index.row() + 1);
+    case Roles::NameRole:
+        return m_sessionList.at(index.row()).name();
+    case Roles::DateRole:
+        return m_sessionList.at(index.row()).date();
+    case Roles::NoteRole:
+        return m_sessionList.at(index.row()).note();
+    }
+
+    if (role == Qt::EditRole && index.column() == columnForRole(Roles::NameRole)) {
         // prevent the disappear of the old value when double-clicking the item
         return m_sessionList.at(index.row()).name();
     }
 
-    if (role == Qt::EditRole && column == Column::Note) {
+    if (role == Qt::EditRole && index.column() == columnForRole(Roles::NoteRole)) {
         return m_sessionList.at(index.row()).note();
     }
 
@@ -113,18 +103,18 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
     if (role != Qt::DisplayRole or orientation != Qt::Horizontal)
         return QVariant::Invalid;
 
-    switch (static_cast<Column>(section)) {
-    case Column::SessionId:
+    switch (roleForColumn(section)) {
+    case Roles::SessionIdRole:
         return i18nc("session number", "Session #");
-    case Column::Name:
+    case Roles::NameRole:
         return i18n("Name");
-    case Column::Date:
+    case Roles::DateRole:
         return i18n("Date");
-    case Column::Note:
+    case Roles::NoteRole:
         return i18n("Note");
-    default:
-        return QVariant::Invalid;
     }
+
+    return QVariant::Invalid;
 }
 
 bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int role)
@@ -132,7 +122,7 @@ bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int 
     if (not index.isValid() or role != Qt::EditRole)
         return false;
 
-    if (index.column() == static_cast<int>(Column::Name)) {
+    if (index.column() == columnForRole(Roles::NameRole)) {
         if (value.toString().isEmpty())
             return false;
 
@@ -142,7 +132,7 @@ bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int 
         return true;
     }
 
-    if (index.column() == static_cast<int>(Column::Note)) {
+    if (index.column() == columnForRole(Roles::NoteRole)) {
         m_sessionList[index.row()].setNote(value.toString());
         emit dataChanged(index, index);
 
@@ -211,8 +201,8 @@ bool SessionModel::isEmpty() const
 
 bool SessionModel::isEditable(const QModelIndex& index) const
 {
-    auto column = static_cast<Column>(index.column());
-    return column == Column::Name || column == Column::Note;
+    auto role = roleForColumn(index.column());
+    return role == Roles::NameRole || role == Roles::NoteRole;
 }
 
 void SessionModel::read(const QJsonObject& json)
@@ -239,6 +229,16 @@ void SessionModel::slotWrite()
     saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate);
 
     auto saveDoc = QJsonDocument {json};
-    saveFile.write(saveDoc.toJson());
+            saveFile.write(saveDoc.toJson());
+}
+
+int SessionModel::columnForRole(SessionModel::Roles role) const
+{
+    return m_roles.indexOf(role);
+}
+
+SessionModel::Roles SessionModel::roleForColumn(int column) const
+{
+    return m_roles.at(column);
 }
 
