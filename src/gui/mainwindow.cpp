@@ -240,7 +240,7 @@ void MainWindow::slotNewSession()
 
 void MainWindow::slotOpenSession()
 {
-    auto dialog = new SessionDialog {this, i18nc("@title:window", "Open Session")};
+    auto dialog = new SessionDialog {this};
 
     connect(dialog, &QDialog::finished, this, [this, dialog](int result) {
         if (result == QDialog::Accepted) {

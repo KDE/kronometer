@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string extracomment="@title:window">Open Session</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

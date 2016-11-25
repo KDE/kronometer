@@ -32,7 +32,7 @@
 #include <QSortFilterProxyModel>
 #include <QTableView>
 
-SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(parent, Qt::Dialog)
+SessionDialog::SessionDialog(QWidget *parent) : QDialog(parent, Qt::Dialog)
 {
     setupUi(this);
     m_sessionModel = new SessionModel {this};
@@ -53,8 +53,6 @@ SessionDialog::SessionDialog(QWidget *parent, const QString& title) : QDialog(pa
     connect(m_buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     connect(m_sessionModel, &SessionModel::rowsInserted, this, &SessionDialog::slotSessionAdded);
     connect(m_sessionModel, &SessionModel::rowsRemoved, this, &SessionDialog::slotEmptyModel);
-
-    setWindowTitle(title);
 
     slotEmptyModel();
     slotSelectionChanged();
