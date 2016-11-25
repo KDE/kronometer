@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio_at_kdemail.net> -->
+<!-- Copyright (C) 2014 by Elvis Angelaccio <elvis.angelaccio_at_kde.org> -->
 <component type="desktop">
   <id>org.kde.kronometer.desktop</id>
   <metadata_license>CC0-1.0</metadata_license>
@@ -330,7 +330,7 @@
   <url type="homepage">http://aelog.org/kronometer/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kronometer</url>
   <url type="help">http://docs.kde.org/development/en/extragear-utils/kronometer/index.html</url>
-  <update_contact>elvis.angelaccio_at_kdemail.net</update_contact>
+  <update_contact>elvis.angelaccio_at_kde.org</update_contact>
   <project_group>KDE</project_group>
   <provides>
     <binary>kronometer</binary>
