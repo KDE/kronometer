@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>407</width>
+    <width>413</width>
     <height>413</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Stopwatch</string>
+       <string extracomment="@title:tab">Stopwatch</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_7">
        <item>
@@ -148,7 +148,7 @@
      </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
-       <string>Laps</string>
+       <string extracomment="@title:tab">Laps</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_8">
        <item>
