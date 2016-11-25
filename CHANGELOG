@@ -1,3 +1,8 @@
+v2.1.2
+* Fix default size of Session dialog.
+* Don't assume there are always sessions saved.
+* Updated translations.
+
 v2.1.1
 * Window size can now be restored (BUG 361494)
 * Fix wrongly-enabled Save action (BUG 352993)
