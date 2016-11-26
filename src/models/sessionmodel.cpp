@@ -215,11 +215,14 @@ void SessionModel::read(const QJsonObject& json)
 
 void SessionModel::slotWrite()
 {
+    QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
+    if (not saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+        qDebug().nospace() << "cannot open " << saveFile.fileName() << ": " << saveFile.errorString();
+        return;
+    }
+
     auto json = QJsonObject {};
     json[QStringLiteral("sessions")] = jsonSessions();
-
-    QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
-    saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate);
 
     auto saveDoc = QJsonDocument {json};
             saveFile.write(saveDoc.toJson());
