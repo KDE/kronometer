@@ -573,7 +573,8 @@ void MainWindow::loadSession()
 {
     m_stopwatch->initialize(m_session.time());
 
-    for (const auto& lap : m_session.laps()) {
+    const auto laps = m_session.laps();
+    for (const auto& lap : laps) {
         m_lapModel->append(lap);
     }
 

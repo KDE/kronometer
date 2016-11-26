@@ -95,7 +95,7 @@ public:
     /**
      * @return The session laps.
      */
-    const QVector<Lap>& laps() const;
+    QVector<Lap> laps() const;
 
     /**
      * Whether the session is empty.
