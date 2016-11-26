@@ -108,6 +108,11 @@ private:
      */
     Roles roleForColumn(int column) const;
 
+    /**
+     * @return The list of sessions as json array.
+     */
+    QJsonArray jsonSessions() const;
+
     const QVector<Roles> m_roles {Roles::SessionIdRole, Roles::NameRole, Roles::DateRole, Roles::NoteRole};
 
     QVector<Session> m_sessionList;    /** Sessions in the model. */

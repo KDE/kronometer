@@ -215,15 +215,8 @@ void SessionModel::read(const QJsonObject& json)
 
 void SessionModel::slotWrite()
 {
-    auto sessions = QJsonArray {};
-    for (const auto& session : m_sessionList) {
-        auto object = QJsonObject {};
-        session.write(object);
-        sessions.append(object);
-    }
-
     auto json = QJsonObject {};
-    json[QStringLiteral("sessions")] = sessions;
+    json[QStringLiteral("sessions")] = jsonSessions();
 
     QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
     saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate);
@@ -240,5 +233,18 @@ int SessionModel::columnForRole(SessionModel::Roles role) const
 SessionModel::Roles SessionModel::roleForColumn(int column) const
 {
     return m_roles.at(column);
+}
+
+QJsonArray SessionModel::jsonSessions() const
+{
+    auto array = QJsonArray {};
+    const auto sessions = m_sessionList;
+    for (const auto& session : sessions) {
+        auto object = QJsonObject {};
+        session.write(object);
+        array.append(object);
+    }
+
+    return array;
 }
 
