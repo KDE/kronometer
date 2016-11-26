@@ -49,7 +49,6 @@ SessionDialog::SessionDialog(QWidget *parent) : QDialog(parent, Qt::Dialog)
 
     connect(m_sessionView, &QTableView::doubleClicked, this, &SessionDialog::slotDoubleClicked);
     connect(m_sessionView->selectionModel(), &QItemSelectionModel::selectionChanged, this, &SessionDialog::slotSelectionChanged);
-    connect(m_buttonBox, &QDialogButtonBox::accepted, this, &SessionDialog::accept);
     connect(m_buttonBox, &QDialogButtonBox::rejected, this, &QDialog::reject);
     connect(m_sessionModel, &SessionModel::rowsInserted, this, &SessionDialog::slotSessionAdded);
     connect(m_sessionModel, &SessionModel::rowsRemoved, this, &SessionDialog::slotEmptyModel);
