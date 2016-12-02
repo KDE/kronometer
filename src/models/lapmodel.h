@@ -43,7 +43,8 @@ public:
         LapIdRole = Qt::UserRole,
         RelativeTimeRole,
         AbsoluteTimeRole,
-        NoteRole
+        NoteRole,
+        LapRole
     };
 
     explicit LapModel(QObject *parent = nullptr);
@@ -60,13 +61,6 @@ public:
      * @param format The times format to be used.
      */
     void setTimeFormat(const TimeFormat& format);
-
-    /**
-     * Retrieve a specific Lap object. The given index must be a valid index in the model.
-     * @param lapIndex The index of the lap
-     * @return The Lap at the given index
-     */
-    const Lap& at(int lapIndex);
 
     /**
      * Insert a new Lap object to the end of the model.

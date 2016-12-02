@@ -33,6 +33,15 @@ class SessionModel : public QAbstractTableModel
 
 public:
 
+    enum class Roles
+    {
+        SessionIdRole = Qt::UserRole,
+        NameRole,
+        DateRole,
+        NoteRole,
+        SessionRole
+    };
+
     explicit SessionModel(QObject *parent = nullptr);
 
     int rowCount(const QModelIndex& parent = {}) const override;
@@ -42,13 +51,6 @@ public:
     bool setData(const QModelIndex& index, const QVariant& value, int role) override;
     Qt::ItemFlags flags(const QModelIndex& index) const override;
     bool removeRows(int row, int count, const QModelIndex& parent) override;
-
-    /**
-     * Retrieve a specific Session object. The given index must be a valid index in the model.
-     * @param sessionIndex The index of the session.
-     * @return The Session at the given index.
-     */
-    const Session& at(int sessionIndex);
 
     /**
      * Insert a new Session object to the end of the model.
@@ -89,14 +91,6 @@ public slots:
     void slotWrite();
 
 private:
-
-    enum class Roles
-    {
-        SessionIdRole = Qt::UserRole,
-        NameRole,
-        DateRole,
-        NoteRole
-    };
 
     /**
      * @return The index of the column for the given role.

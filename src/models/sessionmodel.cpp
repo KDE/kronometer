@@ -83,6 +83,8 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
         return m_sessionList.at(index.row()).date();
     case Roles::NoteRole:
         return m_sessionList.at(index.row()).note();
+    case Roles::SessionRole:
+        return QVariant::fromValue(m_sessionList.at(index.row()));
     }
 
     if (role == Qt::EditRole && index.column() == columnForRole(Roles::NameRole)) {
@@ -112,6 +114,8 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
         return i18n("Date");
     case Roles::NoteRole:
         return i18n("Note");
+    case Roles::SessionRole:
+        break;
     }
 
     return QVariant::Invalid;
@@ -167,11 +171,6 @@ bool SessionModel::removeRows(int row, int count, const QModelIndex& parent)
     endRemoveRows();
 
     return true;
-}
-
-const Session& SessionModel::at(int sessionIndex)
-{
-    return m_sessionList.at(sessionIndex);
 }
 
 void SessionModel::append(const Session& session)

@@ -262,7 +262,7 @@ void MainWindow::slotSaveSession()
     m_session.setTime(m_stopwatch->raw());
 
     for (int i = 0; i < m_lapModel->rowCount(); i++) {
-        m_session.addLap(m_lapModel->at(i));
+        m_session.addLap(m_lapModel->data(m_lapModel->index(i, 0), static_cast<int>(LapModel::Roles::LapRole)).value<Lap>());
     }
 
     m_session.setIsOutdated(false);
@@ -558,7 +558,7 @@ void MainWindow::saveSessionAs(const QString& name)
     newSession.setName(name);
 
     for (int i = 0; i < m_lapModel->rowCount(); i++) {
-        newSession.addLap(m_lapModel->at(i));
+        newSession.addLap(m_lapModel->data(m_lapModel->index(i, 0), static_cast<int>(LapModel::Roles::LapRole)).value<Lap>());
     }
 
     m_sessionModel->append(newSession);
@@ -625,7 +625,8 @@ void MainWindow::exportLapsAsJson(QJsonObject& json)
     auto laps = QJsonArray {};
     for (auto i = 0; i < m_lapModel->rowCount(); i++) {
         auto object = QJsonObject {};
-        m_lapModel->at(i).write(object);
+        const auto lap = m_lapModel->data(m_lapModel->index(i, 0), static_cast<int>(LapModel::Roles::LapRole)).value<Lap>();
+        lap.write(object);
         laps.append(object);
     }
 
@@ -638,10 +639,11 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
     out << '#' << i18nc("@info:shell", "Lap number,Lap time,Global time,Note") << '\r' << '\n';
 
     for (auto i = 0; i < m_lapModel->rowCount(); i++) {
+        const auto index = m_lapModel->index(i, 0);
         out << i;
-        out << ',' << m_lapModel->at(i).relativeTime();
-        out << ',' << m_lapModel->at(i).absoluteTime();
-        out << ',' << m_lapModel->at(i).note();
+        out << ',' << m_lapModel->data(index, static_cast<int>(LapModel::Roles::RelativeTimeRole)).toString();
+        out << ',' << m_lapModel->data(index, static_cast<int>(LapModel::Roles::AbsoluteTimeRole)).toString();
+        out << ',' << m_lapModel->data(index, static_cast<int>(LapModel::Roles::NoteRole)).toString();
         out << '\r' << '\n';
     }
 }

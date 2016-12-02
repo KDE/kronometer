@@ -20,6 +20,7 @@
 #ifndef LAP_H
 #define LAP_H
 
+#include <QMetaType>
 #include <QString>
 #include <QTime>
 
@@ -118,5 +119,7 @@ private:
     QString m_absoluteTime;    /** String representation of the specific (absolute) lap time */
     QString m_note;            /** Custom lap annotation */
 };
+
+Q_DECLARE_METATYPE(Lap)
 
 #endif

@@ -63,6 +63,8 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         return m_laps.at(index.row()).absoluteTime();
     case Roles::NoteRole:
         return m_laps.at(index.row()).note();
+    case Roles::LapRole:
+        return QVariant::fromValue(m_laps.at(index.row()));
     }
 
     if (role == Qt::EditRole && index.column() == columnForRole(Roles::NoteRole)) {
@@ -87,6 +89,8 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
         return i18nc("@title:column", "Global Time");
     case Roles::NoteRole:
         return i18nc("@title:column", "Note");
+    case Roles::LapRole:
+        break;
     }
 
     return QVariant::Invalid;
@@ -124,11 +128,6 @@ void LapModel::setTimeFormat(const TimeFormat& format)
     if (not isEmpty()) {
         reload();
     }
-}
-
-const Lap& LapModel::at(int lapIndex)
-{
-    return m_laps.at(lapIndex);
 }
 
 void LapModel::append(const Lap& lap)

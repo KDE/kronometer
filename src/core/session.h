@@ -22,6 +22,7 @@
 
 #include "lap.h"
 
+#include <QMetaType>
 #include <QVector>
 
 /**
@@ -139,5 +140,7 @@ private:
     QVector<Lap> m_laps;    /** Session laps. */
     bool m_isOutdated = false;    /** Whether the session data is outdated. */
 };
+
+Q_DECLARE_METATYPE(Session)
 
 #endif

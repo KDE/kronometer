@@ -77,7 +77,7 @@ void SessionDialog::keyPressEvent(QKeyEvent *event)
 
 void SessionDialog::accept()
 {
-    m_selectedSession = m_sessionModel->at(selectedIndex().row());
+    m_selectedSession = m_sessionModel->data(selectedIndex(), static_cast<int>(SessionModel::Roles::SessionRole)).value<Session>();
     QDialog::accept();
 }
 
