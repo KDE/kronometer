@@ -229,7 +229,7 @@ void MainWindow::slotWriteSettings()
 void MainWindow::slotUpdateLapDock()
 {
     m_lapView->horizontalHeader()->setStretchLastSection(true);
-    m_lapView->selectRow(m_lapModel->rowCount({}) - 1);  // rows indexes start from 0
+    m_lapView->selectRow(m_lapModel->rowCount() - 1);  // rows indexes start from 0
 }
 
 void MainWindow::slotNewSession()
@@ -261,7 +261,7 @@ void MainWindow::slotSaveSession()
     m_session.clear();    // required for laps consistency
     m_session.setTime(m_stopwatch->raw());
 
-    for (int i = 0; i < m_lapModel->rowCount({}); i++) {
+    for (int i = 0; i < m_lapModel->rowCount(); i++) {
         m_session.addLap(m_lapModel->at(i));
     }
 
@@ -557,7 +557,7 @@ void MainWindow::saveSessionAs(const QString& name)
     auto newSession = Session {m_stopwatch->raw()};
     newSession.setName(name);
 
-    for (int i = 0; i < m_lapModel->rowCount({}); i++) {
+    for (int i = 0; i < m_lapModel->rowCount(); i++) {
         newSession.addLap(m_lapModel->at(i));
     }
 
@@ -623,7 +623,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
 void MainWindow::exportLapsAsJson(QJsonObject& json)
 {
     auto laps = QJsonArray {};
-    for (auto i = 0; i < m_lapModel->rowCount({}); i++) {
+    for (auto i = 0; i < m_lapModel->rowCount(); i++) {
         auto object = QJsonObject {};
         m_lapModel->at(i).write(object);
         laps.append(object);
@@ -637,7 +637,7 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
     out << '#' << timestampMessage() << '\r' << '\n';
     out << '#' << i18nc("@info:shell", "Lap number,Lap time,Global time,Note") << '\r' << '\n';
 
-    for (auto i = 0; i < m_lapModel->rowCount({}); i++) {
+    for (auto i = 0; i < m_lapModel->rowCount(); i++) {
         out << i;
         out << ',' << m_lapModel->at(i).relativeTime();
         out << ',' << m_lapModel->at(i).absoluteTime();

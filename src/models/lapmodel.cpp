@@ -46,7 +46,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
         return QVariant::Invalid;
     }
 
-    if (index.row() >= m_laps.size() || index.row() < 0) {
+    if (index.row() >= rowCount() or index.row() < 0) {
         return QVariant::Invalid;
     }
 
@@ -134,7 +134,7 @@ const Lap& LapModel::at(int lapIndex)
 void LapModel::append(const Lap& lap)
 {
     // Append the new row at the end.
-    beginInsertRows(QModelIndex(), m_laps.size(), m_laps.size());
+    beginInsertRows(QModelIndex(), rowCount(), rowCount());
 
     // Either the time of the first lap or the time relative to the last lap.
     const auto relativeTime = m_laps.isEmpty() ? lap.time() : m_laps.last().timeTo(lap);

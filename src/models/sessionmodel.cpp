@@ -66,7 +66,7 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
         return QVariant::Invalid;
     }
 
-    if (index.row() >= m_sessionList.size() || index.row() < 0) {
+    if (index.row() >= rowCount() or index.row() < 0) {
         return QVariant::Invalid;
     }
 
@@ -155,7 +155,7 @@ Qt::ItemFlags SessionModel::flags(const QModelIndex& index) const
 
 bool SessionModel::removeRows(int row, int count, const QModelIndex& parent)
 {
-    if (row < 0 || row + count - 1 >= m_sessionList.size())
+    if (row < 0 or row + count - 1 >= rowCount())
         return false;
 
     beginRemoveRows(parent, row, row + count - 1);
@@ -176,7 +176,7 @@ const Session& SessionModel::at(int sessionIndex)
 
 void SessionModel::append(const Session& session)
 {
-    beginInsertRows(QModelIndex(), m_sessionList.size(), m_sessionList.size());    // i.e. append the new row at the table end
+    beginInsertRows(QModelIndex(), rowCount(), rowCount());    // i.e. append the new row at the table end
     m_sessionList.append(session);
     endInsertRows();
 }
@@ -202,7 +202,7 @@ bool SessionModel::isEmpty() const
 bool SessionModel::isEditable(const QModelIndex& index) const
 {
     auto role = roleForColumn(index.column());
-    return role == Roles::NameRole || role == Roles::NoteRole;
+    return role == Roles::NameRole or role == Roles::NoteRole;
 }
 
 void SessionModel::read(const QJsonObject& json)
