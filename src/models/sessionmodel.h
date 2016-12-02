@@ -92,10 +92,10 @@ private:
 
     enum class Roles
     {
-        SessionIdRole = Qt::UserRole,    /**< Index of the session-number column. */
-        NameRole,                        /**< Index of the session name column. */
-        DateRole,                        /**< Index of the session date column. */
-        NoteRole                         /**< Index of the session annotation column. */
+        SessionIdRole = Qt::UserRole,
+        NameRole,
+        DateRole,
+        NoteRole
     };
 
     /**

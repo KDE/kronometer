@@ -40,10 +40,10 @@ public:
 
     enum class Roles
     {
-        LapIdRole = Qt::UserRole,    /**< Index of the lap-number column */
-        RelativeTimeRole,            /**< Index of the lap relative time column */
-        AbsoluteTimeRole,            /**< Index of the lap absolute time column */
-        NoteRole                     /**< Index of the lap annotation column */
+        LapIdRole = Qt::UserRole,
+        RelativeTimeRole,
+        AbsoluteTimeRole,
+        NoteRole
     };
 
     explicit LapModel(QObject *parent = nullptr);
