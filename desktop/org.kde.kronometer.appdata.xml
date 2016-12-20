@@ -33,7 +33,6 @@
   <name xml:lang="x-test">xxKronometerxx</name>
   <name xml:lang="zh-CN">Kronometer</name>
   <summary>Chronometer</summary>
-  <summary xml:lang="ast">Cronómetru</summary>
   <summary xml:lang="bs">Kronometar</summary>
   <summary xml:lang="ca">Cronòmetre</summary>
   <summary xml:lang="ca-valencia">Cronòmetre</summary>
@@ -85,7 +84,6 @@
     <p xml:lang="uk">Kronometer — програма-секундомір. У ній передбачено основні можливості секундоміра (призупинення відліку, відновлення відліку, скидання відліку, відлік часу за колами), а також можливість збереження даних щодо часу і відновлення збережених даних із файла. Kronometer є частиною збірки додаткового програмного забезпечення KDE, а саме, модуля Utils.</p>
     <p xml:lang="x-test">xxKronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.xx</p>
     <p>Features:</p>
-    <p xml:lang="ast">Carauterístiques:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
     <p xml:lang="ca-valencia">Característiques:</p>
