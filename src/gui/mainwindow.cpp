@@ -68,11 +68,6 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     setupActions();
     setupGUI(ToolBar | Keys | Save | Create, QStringLiteral("kronometerui.rc"));
 
-    // kxmlgui >= 5.30 would complain that these shortcuts are ambiguous.
-    // So we avoid this warning by setting them only after the setupGUI() call.
-    actionCollection()->setDefaultShortcut(m_startAction, Qt::Key_Space);
-    actionCollection()->setDefaultShortcut(m_pauseAction, Qt::Key_Space);
-
     // #351746: prevent ugly 640x480 default size (unless there is a previous size to be restored, see #361494).
     if (not isWindowSizeSaved()) {
         resize(minimumSizeHint());
@@ -460,6 +455,8 @@ void MainWindow::setupActions()
     actionCollection()->addAction(QStringLiteral("reset"), m_resetAction);
     actionCollection()->addAction(QStringLiteral("lap"), m_lapAction);
     actionCollection()->addAction(QStringLiteral("export_laps"), m_exportAction);
+    actionCollection()->setDefaultShortcut(m_startAction, Qt::Key_Space);
+    actionCollection()->setDefaultShortcut(m_pauseAction, Qt::Key_Space);
     actionCollection()->setDefaultShortcut(m_resetAction, Qt::Key_F5);
     actionCollection()->setDefaultShortcut(m_lapAction, Qt::Key_Return);
 
