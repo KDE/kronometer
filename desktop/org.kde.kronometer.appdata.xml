@@ -325,7 +325,7 @@
     </ul>
   </description>
   <screenshots>
-    <screenshot type="default" width="683" height="306">http://aelog.org/files/kronometer/appdata.png</screenshot>
+    <screenshot type="default" width="594" height="242">https://cdn.kde.org/screenshots/kronometer/kronometer.png</screenshot>
   </screenshots>
   <url type="homepage">https://eang.it/kronometer/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kronometer</url>
