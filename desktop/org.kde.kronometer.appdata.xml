@@ -327,7 +327,7 @@
   <screenshots>
     <screenshot type="default" width="683" height="306">http://aelog.org/files/kronometer/appdata.png</screenshot>
   </screenshots>
-  <url type="homepage">http://aelog.org/kronometer/</url>
+  <url type="homepage">https://eang.it/kronometer/</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kronometer</url>
   <url type="help">http://docs.kde.org/development/en/extragear-utils/kronometer/index.html</url>
   <update_contact>elvis.angelaccio_at_kde.org</update_contact>
