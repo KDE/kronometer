@@ -45,14 +45,14 @@ int main (int argc, char **argv)
         KAboutLicense::GPL_V2,    // licenseType
         i18n("Copyright (C) 2014-2016 Elvis Angelaccio"),    // copyrightStatement
         {},  // otherText
-        QStringLiteral("http://aelog.org/kronometer")   // homePageAddress
+        QStringLiteral("https://eang.it/kronometer")   // homePageAddress
     };
 
     aboutData.addAuthor(
         i18n("Elvis Angelaccio"),
         i18n("Maintainer"),
         QStringLiteral("elvis.angelaccio@kde.org"),
-        QStringLiteral("http://aelog.org")
+        QStringLiteral("https://eang.it")
     );
 
     aboutData.addCredit(
