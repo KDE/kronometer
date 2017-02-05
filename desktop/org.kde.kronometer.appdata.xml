@@ -193,7 +193,7 @@
       <li xml:lang="et">Stopperi ja ringiaegade lähtestamine</li>
       <li xml:lang="fi">Sekuntikellon nollaaminen ja kierrosajat</li>
       <li xml:lang="fr">Remise à zéro du chronomètre et des temps intermédiaires</li>
-      <li xml:lang="gl">Permite reiniciar o cronómetro e mailos tempos de voltas.</li>
+      <li xml:lang="gl">Permite reiniciar o cronómetro e os tempos de voltas.</li>
       <li xml:lang="it">Oggetto per azzerare il cronometro e i tempi sul giro</li>
       <li xml:lang="nds">Dat Stoppklock-Lüttprogramm un de Runnentieden torüchsetten</li>
       <li xml:lang="nl">Reset het stopwatch-widget en de rondetijden</li>
@@ -287,7 +287,7 @@
       <li xml:lang="et">Värvide kohandamine: stopperi numbritele ja taustale saab valida eraldi värvi</li>
       <li xml:lang="fi">Värien muokkaaminen: sekuntikellon numeroiden ja taustan värit ovat valittavissa</li>
       <li xml:lang="fr">Personnalisation de la couleur : vous pouvez choisir la couleur des chiffres de la couleur de fond du chronomètre</li>
-      <li xml:lang="gl">Personalización das cores: pode escoller as cores que queira para os díxitos e mailo fondo do cronómetro.</li>
+      <li xml:lang="gl">Personalización das cores: pode escoller as cores que queira para os díxitos e o fondo do cronómetro.</li>
       <li xml:lang="it">Configurazione dei colori: puoi scegliere il colore delle cifre e dello sfondo del cronometro</li>
       <li xml:lang="nds">Klöör topassen: Du kannst de Klöör för de Stoppklock-Tallen un de Achtergrundklöör utsöken.</li>
       <li xml:lang="nl">Aanpassen van kleur: u kunt de kleur van de cijfers en de achtergrond van de stopwatch kiezen</li>
