@@ -26,6 +26,9 @@
 #include <KXmlGuiWindow>
 
 #include <QPointer>
+#include <QTimer>
+
+#include <memory>
 
 class LapModel;
 class SessionModel;
@@ -152,7 +155,7 @@ private:
     QAction *m_resetAction;
     QAction *m_lapAction;
     QAction *m_exportAction;
-    QTimer *m_controlMenuTimer;
+    std::unique_ptr<QTimer> m_controlMenuTimer;
     QPointer<QToolButton> m_controlMenuButton;
     KToggleAction *m_toggleMenuAction;
 

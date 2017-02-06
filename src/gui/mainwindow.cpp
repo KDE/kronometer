@@ -51,7 +51,6 @@
 #include <QSplitter>
 #include <QStatusBar>
 #include <QTableView>
-#include <QTimer>
 #include <QToolButton>
 
 MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
@@ -696,18 +695,16 @@ void MainWindow::createControlMenuButton()
     // The control button may get deleted when e.g. the toolbar gets edited.
     // In this case we must add it again. The adding is done asynchronously using a QTimer.
     connect(m_controlMenuButton, &QObject::destroyed, this, &MainWindow::slotControlMenuButtonDeleted);
-    m_controlMenuTimer = new QTimer {this};
+    m_controlMenuTimer.reset(new QTimer {});
     m_controlMenuTimer->setInterval(500);
     m_controlMenuTimer->setSingleShot(true);
-    connect(m_controlMenuTimer, &QTimer::timeout, this, &MainWindow::slotToolBarUpdated);
+    connect(m_controlMenuTimer.get(), &QTimer::timeout, this, &MainWindow::slotToolBarUpdated);
 }
 
 void MainWindow::deleteControlMenuButton()
 {
     delete m_controlMenuButton;
-
-    delete m_controlMenuTimer;
-    m_controlMenuTimer = nullptr;
+    m_controlMenuTimer.reset();
 }
 
 bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
