@@ -385,6 +385,8 @@ void MainWindow::slotUpdateControlMenu()
     helpMenu->addSeparator();
     helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ReportBug))));
     helpMenu->addSeparator();
+    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Donate))));
+    helpMenu->addSeparator();
 
     // This action may be null, so must be checked before adding it to the help menu.
     addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::SwitchApplicationLanguage))), helpMenu);
