@@ -391,11 +391,6 @@ void MainWindow::slotUpdateControlMenu()
     addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ShowMenubar))), menu);
 }
 
-void MainWindow::slotControlMenuButtonDeleted()
-{
-    m_controlMenuTimer->start();
-}
-
 void MainWindow::slotToolBarUpdated()
 {
     if (menuBar()->isVisible())
@@ -694,10 +689,10 @@ void MainWindow::createControlMenuButton()
 
     // The control button may get deleted when e.g. the toolbar gets edited.
     // In this case we must add it again. The adding is done asynchronously using a QTimer.
-    connect(m_controlMenuButton, &QObject::destroyed, this, &MainWindow::slotControlMenuButtonDeleted);
     m_controlMenuTimer.reset(new QTimer {});
     m_controlMenuTimer->setInterval(500);
     m_controlMenuTimer->setSingleShot(true);
+    connect(m_controlMenuButton, &QObject::destroyed, m_controlMenuTimer.get(), qOverload<>(&QTimer::start));
     connect(m_controlMenuTimer.get(), &QTimer::timeout, this, &MainWindow::slotToolBarUpdated);
 }
 

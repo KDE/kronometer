@@ -140,8 +140,6 @@ private slots:
 
     void slotUpdateControlMenu();
 
-    void slotControlMenuButtonDeleted();
-
     void slotToolBarUpdated();
 
 private:
