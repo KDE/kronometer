@@ -697,7 +697,7 @@ void MainWindow::createControlMenuButton()
 
     // The control button may get deleted when e.g. the toolbar gets edited.
     // In this case we must add it again. The adding is done asynchronously using a QTimer.
-    connect(m_controlMenuButton, &QToolButton::destroyed, this, &MainWindow::slotControlMenuButtonDeleted);
+    connect(m_controlMenuButton, &QObject::destroyed, this, &MainWindow::slotControlMenuButtonDeleted);
     m_controlMenuTimer = new QTimer {this};
     m_controlMenuTimer->setInterval(500);
     m_controlMenuTimer->setSingleShot(true);
