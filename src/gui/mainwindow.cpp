@@ -95,6 +95,13 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
                 this, SLOT(slotPrepareForSleep(bool)));
 }
 
+MainWindow::~MainWindow()
+{
+    if (m_controlMenuButton) {
+        m_controlMenuButton->disconnect();
+    }
+}
+
 void MainWindow::setWindowTitle(const QString& title)
 {
     if (title.endsWith(QLatin1String("[*]"))) {
