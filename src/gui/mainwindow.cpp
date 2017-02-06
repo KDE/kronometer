@@ -55,7 +55,6 @@
 #include <QToolButton>
 
 MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
-    m_controlMenuButton {nullptr},
     m_session {session}
 {
     m_stopwatch = new Stopwatch {this};
@@ -395,7 +394,6 @@ void MainWindow::slotUpdateControlMenu()
 
 void MainWindow::slotControlMenuButtonDeleted()
 {
-    m_controlMenuButton = nullptr;
     m_controlMenuTimer->start();
 }
 
@@ -675,7 +673,7 @@ QString MainWindow::timestampMessage()
 
 void MainWindow::createControlMenuButton()
 {
-    if (m_controlMenuButton) {
+    if (not m_controlMenuButton.isNull()) {
         return;
     }
 
@@ -707,7 +705,6 @@ void MainWindow::createControlMenuButton()
 void MainWindow::deleteControlMenuButton()
 {
     delete m_controlMenuButton;
-    m_controlMenuButton = nullptr;
 
     delete m_controlMenuTimer;
     m_controlMenuTimer = nullptr;
