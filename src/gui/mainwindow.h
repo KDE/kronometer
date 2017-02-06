@@ -228,6 +228,11 @@ private:
 
     void deleteControlMenuButton();
 
+    /**
+     * @return true if @p action has been added to @p menu;
+     * false if @p action or @p menu is null, or if @p action
+     * is already on the toolBar().
+     */
     bool addActionToMenu(QAction* action, QMenu* menu);
 
     Q_DISABLE_COPY(MainWindow)
