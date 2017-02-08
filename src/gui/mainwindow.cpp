@@ -461,9 +461,7 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcut(m_resetAction, Qt::Key_F5);
     actionCollection()->setDefaultShortcut(m_lapAction, Qt::Key_Return);
 
-    // Disable both actions, otherwise setupGUI() would complain that
-    // they use the same shortcut.
-    m_startAction->setEnabled(false);
+    // Pause is initially disabled.
     m_pauseAction->setEnabled(false);
 
     // triggers for Stopwatch "behavioral" slots
