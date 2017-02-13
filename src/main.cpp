@@ -45,7 +45,7 @@ int main (int argc, char **argv)
         KAboutLicense::GPL_V2,    // licenseType
         i18n("Copyright (C) 2014-2016 Elvis Angelaccio"),    // copyrightStatement
         {},  // otherText
-        QStringLiteral("https://eang.it/kronometer")   // homePageAddress
+        QStringLiteral("https://userbase.kde.org/Kronometer")   // homePageAddress
     };
 
     aboutData.addAuthor(
