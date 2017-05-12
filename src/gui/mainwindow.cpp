@@ -305,7 +305,7 @@ void MainWindow::slotExportLapsAs()
 
     connect(dialog, &QDialog::finished, this, [this, dialog](int result) {
         if (result == QDialog::Accepted) {
-            exportLapsAs(dialog->selectedFiles().at(0), dialog->selectedNameFilter());
+            exportLapsAs(dialog->selectedFiles().at(0), dialog->selectedMimeTypeFilter());
         }
         dialog->deleteLater();
     });
@@ -586,7 +586,7 @@ void MainWindow::loadSession()
     setWindowTitle(m_session.name());
 }
 
-void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
+void MainWindow::exportLapsAs(const QString& name, const QString& mimeType)
 {
     if (name.isEmpty()) {
         return;
@@ -594,7 +594,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
 
     auto exportName = name;
 
-    if (nameFilter.contains(QLatin1String(".json"))) {
+    if (mimeType == QLatin1String("application/json")) {
         if (not exportName.endsWith(QLatin1String(".json"))) {
             exportName += QLatin1String(".json");
         }
@@ -609,7 +609,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& nameFilter)
         exportFile.write(exportDoc.toJson());
         exportFile.commit();
     }
-    else if (nameFilter.contains(QLatin1String(".csv"))) {
+    else if (mimeType == QLatin1String("text/csv")) {
         if (not exportName.endsWith(QLatin1String(".csv"))) {
             exportName += QLatin1String(".csv");
         }
