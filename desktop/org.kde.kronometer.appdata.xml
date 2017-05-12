@@ -328,7 +328,7 @@
   </screenshots>
   <url type="homepage">https://userbase.kde.org/Kronometer</url>
   <url type="bugtracker">https://bugs.kde.org/enter_bug.cgi?format=guided&amp;product=kronometer</url>
-  <url type="help">http://docs.kde.org/development/en/extragear-utils/kronometer/index.html</url>
+  <url type="help">https://docs.kde.org/index.php?application=kronometer</url>
   <update_contact>elvis.angelaccio_at_kde.org</update_contact>
   <project_group>KDE</project_group>
   <provides>
