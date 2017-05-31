@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gui SYSTEM "kpartgui.dtd">
 <gui name="kronometer"
      version="7"
      xmlns="http://www.kde.org/standards/kxmlgui/1.0"
