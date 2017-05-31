@@ -197,9 +197,9 @@ private:
     /**
      * Export current lap times on a new file.
      * @param name The name of the file to be created.
-     * @param mimeType The mime type of the file to be created.
+     * @param nameFilter The name filter of the file to be created.
      */
-    void exportLapsAs(const QString& name, const QString& mimeType);
+    void exportLapsAs(const QString& name, const QString& nameFilter);
 
     /**
      * Write the JSON laps representation on the given object.
