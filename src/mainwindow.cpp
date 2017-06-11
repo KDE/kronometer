@@ -415,10 +415,11 @@ void MainWindow::setupCentralWidget()
     m_lapView->setSelectionBehavior(QAbstractItemView::SelectRows);
     m_lapView->setGridStyle(Qt::DotLine);
     m_lapView->verticalHeader()->hide();
-    m_lapView->resizeColumnsToContents();
     m_lapView->horizontalHeader()->setStretchLastSection(true);
-    m_lapView->setSortingEnabled(true);
     m_lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+    // Enable sorting and resize the columns to take the sorting arrow into account.
+    m_lapView->setSortingEnabled(true);
+    m_lapView->resizeColumnsToContents();
 
     splitter->setOrientation(Qt::Horizontal);
     splitter->setChildrenCollapsible(false);
