@@ -192,6 +192,7 @@ void MainWindow::slotPrepareForSleep(bool beforeSleep)
     if (not beforeSleep)
         return;
 
+    qDebug() << "System is going to sleep, pausing the stopwatch.";
     m_stopwatch->slotPause();
     slotPaused();
 }
