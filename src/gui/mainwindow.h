@@ -38,6 +38,7 @@ class TimeDisplay;
 class KToggleAction;
 
 class QAction;
+class QDBusInterface;
 class QLabel;
 class QSortFilterProxyModel;
 class QSplitter;
@@ -163,6 +164,9 @@ private:
 
     Session m_session;
 
+    QDBusInterface *m_screensaverInterface = nullptr;
+    quint32 m_screenInhibitCookie = 0;
+
     /**
      * Setup the central widget of the window.
      */
@@ -234,6 +238,10 @@ private:
      * is already on the toolBar().
      */
     bool addActionToMenu(QAction* action, QMenu* menu);
+
+    void activateScreenInhibition();
+
+    void disactivateScreenInhibition();
 
     Q_DISABLE_COPY(MainWindow)
 };

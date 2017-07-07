@@ -39,6 +39,9 @@
 #include <QApplication>
 #include <QClipboard>
 #include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QJsonArray>
@@ -88,6 +91,10 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
                 QStringLiteral("org.freedesktop.login1.Manager"),
                 QStringLiteral("PrepareForSleep"),
                 this, SLOT(slotPrepareForSleep(bool)));
+
+    m_screensaverInterface = new QDBusInterface(QStringLiteral("org.freedesktop.ScreenSaver"),
+                                                QStringLiteral("/ScreenSaver"),
+                                                QStringLiteral("org.freedesktop.ScreenSaver"));
 }
 
 MainWindow::~MainWindow()
@@ -153,6 +160,7 @@ void MainWindow::slotRunning()
 {
     m_session.setIsOutdated(true);
     setWindowModified(true);
+    activateScreenInhibition();
 
     stateChanged(QStringLiteral("running"));
 }
@@ -160,6 +168,7 @@ void MainWindow::slotRunning()
 void MainWindow::slotPaused()
 {
     m_startAction->setText(i18nc("@action", "Re&sume"));
+    disactivateScreenInhibition();
 
     if (m_session.isEmpty()) {
         stateChanged(QStringLiteral("paused"));
@@ -183,6 +192,7 @@ void MainWindow::slotInactive()
 
     setWindowTitle(i18nc("untitled window", "Untitled"));
     setWindowModified(false);
+    disactivateScreenInhibition();
 
     stateChanged(QStringLiteral("inactive"));
 }
@@ -727,5 +737,48 @@ bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
 
     menu->addAction(action);
     return true;
+}
+
+void MainWindow::activateScreenInhibition()
+{
+    if (m_screenInhibitCookie) {
+        qWarning() << "Screen inhibition is already active.";
+        return;
+    }
+
+    auto pendingCall = m_screensaverInterface->asyncCall(QStringLiteral("Inhibit"),
+                                                         QCoreApplication::applicationName(),
+                                                         i18n("A stopwatch is running."));
+
+    auto pendingCallWatcher = new QDBusPendingCallWatcher(pendingCall, this);
+    connect(pendingCallWatcher, &QDBusPendingCallWatcher::finished, this, [=](QDBusPendingCallWatcher *callWatcher) {
+        QDBusPendingReply<quint32> reply = *callWatcher;
+        if (reply.isValid()) {
+            m_screenInhibitCookie = reply.value();
+            qDebug() << "Screen inhibition activated, got cookie:" << m_screenInhibitCookie;
+        } else {
+            qWarning() << "Could not inhibit screen locker:" << reply.error();
+        }
+    });
+}
+
+void MainWindow::disactivateScreenInhibition()
+{
+    if (!m_screenInhibitCookie) {
+        return;
+    }
+
+    auto pendingCall = m_screensaverInterface->asyncCall(QStringLiteral("UnInhibit"), m_screenInhibitCookie);
+
+    auto pendingCallWatcher = new QDBusPendingCallWatcher(pendingCall, this);
+    connect(pendingCallWatcher, &QDBusPendingCallWatcher::finished, this, [=](QDBusPendingCallWatcher *callWatcher) {
+        QDBusPendingReply<void> reply = *callWatcher;
+        if (reply.isValid()) {
+            qDebug() << "Screen inhibition disactivated.";
+            m_screenInhibitCookie = 0;
+        } else {
+            qWarning() << "Could not disactivate screen inhibition:" << reply.error();
+        }
+    });
 }
 
