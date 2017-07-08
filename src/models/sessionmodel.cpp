@@ -224,7 +224,7 @@ void SessionModel::slotWriteData()
     json[QStringLiteral("sessions")] = jsonSessions();
 
     auto saveDoc = QJsonDocument {json};
-            saveFile.write(saveDoc.toJson());
+    saveFile.write(saveDoc.toJson());
 }
 
 int SessionModel::columnForRole(SessionModel::Roles role) const
