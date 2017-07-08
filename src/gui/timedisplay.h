@@ -97,12 +97,12 @@ public slots:
      * Set the time to be displayed.
      * @param time The time to be displayed.
      */
-    void slotTime(int time);
+    void setTime(int time);
 
     /**
      * Reset the display to the default time format. The overridden format (if any) is lost.
      */
-    void slotReset();
+    void reset();
 
 private:
 

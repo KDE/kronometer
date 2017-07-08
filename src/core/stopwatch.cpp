@@ -62,7 +62,7 @@ bool Stopwatch::initialize(int rawData)
     return true;
 }
 
-void Stopwatch::slotStart()
+void Stopwatch::start()
 {
     if (isInactive()) {
         m_accumulator = 0;
@@ -80,7 +80,7 @@ void Stopwatch::slotStart()
     m_state = State::Running;
 }
 
-void Stopwatch::slotPause()
+void Stopwatch::pause()
 {
     if (m_elapsedTimer.isValid()) {
         m_accumulator += m_elapsedTimer.elapsed();
@@ -90,7 +90,7 @@ void Stopwatch::slotPause()
     m_state = State::Paused;
 }
 
-void Stopwatch::slotReset()
+void Stopwatch::reset()
 {
     m_elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
@@ -98,7 +98,7 @@ void Stopwatch::slotReset()
     m_state = State::Inactive;
 }
 
-void Stopwatch::slotLap()
+void Stopwatch::storeLap()
 {
     auto lapTime = m_accumulator;
 

@@ -92,22 +92,22 @@ public slots:
     /**
      * Start the stopwatch, if inactive or paused.
      */
-    void slotStart();
+    void start();
 
     /**
      * Pause the stopwatch, if running.
      */
-    void slotPause();
+    void pause();
 
     /**
      * Reset the stopwatch to the inactive state.
      */
-    void slotReset();
+    void reset();
 
     /**
-     * Tells the stopwatch to emits a signal with the last lap time.
+     * Tells the stopwatch to compute a new lap time.
      */
-    void slotLap();
+    void storeLap();
 
 signals:
 

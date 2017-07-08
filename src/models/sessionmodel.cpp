@@ -41,9 +41,9 @@ SessionModel::SessionModel(QObject *parent) : QAbstractTableModel(parent)
         }
     }
 
-    connect(this, &QAbstractTableModel::dataChanged, this, &SessionModel::slotWrite);
-    connect(this, &QAbstractTableModel::rowsInserted, this, &SessionModel::slotWrite);
-    connect(this, &QAbstractTableModel::rowsRemoved, this, &SessionModel::slotWrite);
+    connect(this, &QAbstractTableModel::dataChanged, this, &SessionModel::slotWriteData);
+    connect(this, &QAbstractTableModel::rowsInserted, this, &SessionModel::slotWriteData);
+    connect(this, &QAbstractTableModel::rowsRemoved, this, &SessionModel::slotWriteData);
 }
 
 int SessionModel::columnCount(const QModelIndex& parent) const
@@ -212,7 +212,7 @@ void SessionModel::read(const QJsonObject& json)
     }
 }
 
-void SessionModel::slotWrite()
+void SessionModel::slotWriteData()
 {
     QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
     if (not saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate)) {

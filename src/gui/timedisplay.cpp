@@ -97,7 +97,7 @@ QString TimeDisplay::currentTime()
     return currentTime;
 }
 
-void TimeDisplay::slotTime(int time)
+void TimeDisplay::setTime(int time)
 {
     m_displayTime.setHMS(time / MSECS_PER_HOUR,
                         (time % MSECS_PER_HOUR) / MSECS_PER_MIN,
@@ -107,7 +107,7 @@ void TimeDisplay::slotTime(int time)
     updateTimer();
 }
 
-void TimeDisplay::slotReset()
+void TimeDisplay::reset()
 {
     if (m_currentFormat == m_defaultFormat)
         return;

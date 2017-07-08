@@ -83,12 +83,12 @@ public:
      */
     void read(const QJsonObject& json);
 
-public slots:
+private slots:
 
     /**
      * Update the global sessions file with the data in the model.
      */
-    void slotWrite();
+    void slotWriteData();
 
 private:
 

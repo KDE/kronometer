@@ -84,12 +84,12 @@ public slots:
      * Add a new absolute lap time to the model.
      * @param lapTime The absolute time of the new lap.
      */
-    void slotLap(const QTime& lapTime);
+    void addLap(const QTime& lapTime);
 
     /**
      * Clear all the model data
      */
-    void slotClear();
+    void clear();
 
 private:
 

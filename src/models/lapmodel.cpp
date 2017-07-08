@@ -156,12 +156,12 @@ int LapModel::columnForRole(LapModel::Roles role) const
     return m_roles.indexOf(role);
 }
 
-void LapModel::slotLap(const QTime& lapTime)
+void LapModel::addLap(const QTime& lapTime)
 {
     append(Lap {lapTime});
 }
 
-void LapModel::slotClear()
+void LapModel::clear()
 {
     beginResetModel();
     m_laps.clear();
@@ -171,7 +171,7 @@ void LapModel::slotClear()
 void LapModel::reload()
 {
     const auto laps = m_laps;
-    slotClear();
+    clear();
 
     for (const auto& lap : laps) {
         append(lap);

@@ -61,7 +61,7 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
 {
     m_stopwatch = new Stopwatch {this};
     m_stopwatchDisplay = new TimeDisplay {this};
-    connect(m_stopwatch, &Stopwatch::time, m_stopwatchDisplay, &TimeDisplay::slotTime);  // bind stopwatch to its display
+    connect(m_stopwatch, &Stopwatch::time, m_stopwatchDisplay, &TimeDisplay::setTime);  // bind stopwatch to its display
 
     m_sessionModel = new SessionModel {this};
 
@@ -121,7 +121,7 @@ bool MainWindow::queryClose()
     }
 
     if (m_stopwatch->isRunning()) {
-        m_stopwatch->slotPause();
+        m_stopwatch->pause();
         slotPaused();
     }
 
@@ -203,7 +203,7 @@ void MainWindow::slotPrepareForSleep(bool beforeSleep)
         return;
 
     qDebug() << "System is going to sleep, pausing the stopwatch.";
-    m_stopwatch->slotPause();
+    m_stopwatch->pause();
     slotPaused();
 }
 
@@ -476,14 +476,14 @@ void MainWindow::setupActions()
     m_pauseAction->setEnabled(false);
 
     // triggers for Stopwatch "behavioral" slots
-    connect(m_startAction, &QAction::triggered, m_stopwatch, &Stopwatch::slotStart);
-    connect(m_pauseAction, &QAction::triggered, m_stopwatch, &Stopwatch::slotPause);
-    connect(m_resetAction, &QAction::triggered, m_stopwatch, &Stopwatch::slotReset);
-    connect(m_lapAction, &QAction::triggered, m_stopwatch, &Stopwatch::slotLap);
+    connect(m_startAction, &QAction::triggered, m_stopwatch, &Stopwatch::start);
+    connect(m_pauseAction, &QAction::triggered, m_stopwatch, &Stopwatch::pause);
+    connect(m_resetAction, &QAction::triggered, m_stopwatch, &Stopwatch::reset);
+    connect(m_lapAction, &QAction::triggered, m_stopwatch, &Stopwatch::storeLap);
 
     // triggers for LapModel slots
-    connect(m_resetAction, &QAction::triggered, m_lapModel,&LapModel::slotClear);
-    connect(m_stopwatch, &Stopwatch::lap, m_lapModel, &LapModel::slotLap);
+    connect(m_resetAction, &QAction::triggered, m_lapModel,&LapModel::clear);
+    connect(m_stopwatch, &Stopwatch::lap, m_lapModel, &LapModel::addLap);
 
     // triggers for MainWindow "gui" slots
     connect(m_startAction, &QAction::triggered, this, &MainWindow::slotRunning);
@@ -492,7 +492,7 @@ void MainWindow::setupActions()
     connect(m_lapAction, &QAction::triggered, this, &MainWindow::slotUpdateLapDock);
 
     // triggers for TimeDisplay slots
-    connect(m_resetAction, &QAction::triggered, m_stopwatchDisplay, &TimeDisplay::slotReset);
+    connect(m_resetAction, &QAction::triggered, m_stopwatchDisplay, &TimeDisplay::reset);
 
     // File menu triggers
     KStandardAction::quit(this, &QWidget::close, actionCollection());
