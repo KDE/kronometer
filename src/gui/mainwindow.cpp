@@ -62,6 +62,9 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     m_stopwatch = new Stopwatch {this};
     m_stopwatchDisplay = new TimeDisplay {this};
     connect(m_stopwatch, &Stopwatch::time, m_stopwatchDisplay, &TimeDisplay::setTime);  // bind stopwatch to its display
+    connect(m_stopwatch, &Stopwatch::running, this, &MainWindow::slotRunning);
+    connect(m_stopwatch, &Stopwatch::paused, this, &MainWindow::slotPaused);
+    connect(m_stopwatch, &Stopwatch::inactive, this, &MainWindow::slotInactive);
 
     m_sessionModel = new SessionModel {this};
 
@@ -122,7 +125,6 @@ bool MainWindow::queryClose()
 
     if (m_stopwatch->isRunning()) {
         m_stopwatch->pause();
-        slotPaused();
     }
 
     if (m_session.isEmpty()) {
@@ -204,7 +206,6 @@ void MainWindow::slotPrepareForSleep(bool beforeSleep)
 
     qDebug() << "System is going to sleep, pausing the stopwatch.";
     m_stopwatch->pause();
-    slotPaused();
 }
 
 void MainWindow::slotShowSettings()

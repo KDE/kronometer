@@ -112,6 +112,21 @@ public slots:
 signals:
 
     /**
+     * The stopwatch has been started.
+     */
+    void running();
+
+    /**
+     * The stopwatch has been paused.
+     */
+    void paused();
+
+    /**
+     * The stopwatch has been reset.
+     */
+    void inactive();
+
+    /**
      * Emits a signal with the last lap *absolute* time.
      * This class does not compute *relatives* lap times.
      * You can compute them simply by the difference between consecutives absolute times.

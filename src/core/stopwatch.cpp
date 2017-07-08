@@ -78,6 +78,7 @@ void Stopwatch::start()
     }
 
     m_state = State::Running;
+    emit running();
 }
 
 void Stopwatch::pause()
@@ -88,6 +89,7 @@ void Stopwatch::pause()
 
     m_elapsedTimer.invalidate();
     m_state = State::Paused;
+    emit paused();
 }
 
 void Stopwatch::reset()
@@ -96,6 +98,7 @@ void Stopwatch::reset()
     QCoreApplication::processEvents();
     emit time(0);
     m_state = State::Inactive;
+    emit inactive();
 }
 
 void Stopwatch::storeLap()
