@@ -58,6 +58,7 @@
   <summary xml:lang="sv">Kronometer</summary>
   <summary xml:lang="uk">Хронометр</summary>
   <summary xml:lang="x-test">xxChronometerxx</summary>
+  <summary xml:lang="zh-CN">计时器</summary>
   <description>
     <p>
       Kronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.
