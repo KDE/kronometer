@@ -30,6 +30,7 @@
 
 #include <KActionCollection>
 #include <KConfigDialog>
+#include <KHelpMenu>
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KToggleAction>
@@ -385,22 +386,8 @@ void MainWindow::slotUpdateControlMenu()
     addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Preferences))), menu);
 
     // Add "Help" menu
-    auto helpMenu = new QMenu {i18nc("@action:inmenu", "Help"), menu};
-    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::HelpContents))));
-    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::WhatsThis))));
-    helpMenu->addSeparator();
-    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ReportBug))));
-    helpMenu->addSeparator();
-    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Donate))));
-    helpMenu->addSeparator();
-
-    // This action may be null, so must be checked before adding it to the help menu.
-    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::SwitchApplicationLanguage))), helpMenu);
-
-    helpMenu->addSeparator();
-    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::AboutApp))));
-    helpMenu->addAction(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::AboutKDE))));
-    menu->addMenu(helpMenu);
+    auto helpMenu = new KHelpMenu {menu};
+    menu->addMenu(helpMenu->menu());
 
     menu->addSeparator();
     addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ShowMenubar))), menu);
