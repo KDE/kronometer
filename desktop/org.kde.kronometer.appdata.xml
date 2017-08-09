@@ -122,7 +122,7 @@
       <li xml:lang="et">Stopperi käivitamine, pausile panemine ja jätkamine</li>
       <li xml:lang="fi">Sekuntikellon perustoiminnot: käynnistäminen, tauko, jatkaminen</li>
       <li xml:lang="fr">Démarrage/mise en pause/reprise du chronomètre</li>
-      <li xml:lang="gl">Permite iniciar, deter e continuar o cronómetro.</li>
+      <li xml:lang="gl">Permite iniciar, deter e continuar o trebello de cronómetro.</li>
       <li xml:lang="it">Oggetto per avviare, mettere in pausa e riavviare il cronometro</li>
       <li xml:lang="nds">Anfangen, anhollen un wiedermaken över dat Stoppklock-Lüttprogramm</li>
       <li xml:lang="nl">Start/pauzeer/hervat het stopwatch-widget</li>
@@ -194,7 +194,7 @@
       <li xml:lang="et">Stopperi ja ringiaegade lähtestamine</li>
       <li xml:lang="fi">Sekuntikellon nollaaminen ja kierrosajat</li>
       <li xml:lang="fr">Remise à zéro du chronomètre et des temps intermédiaires</li>
-      <li xml:lang="gl">Permite reiniciar o cronómetro e os tempos de voltas.</li>
+      <li xml:lang="gl">Permite reiniciar o trebello de cronómetro e os tempos de voltas.</li>
       <li xml:lang="it">Oggetto per azzerare il cronometro e i tempi sul giro</li>
       <li xml:lang="nds">Dat Stoppklock-Lüttprogramm un de Runnentieden torüchsetten</li>
       <li xml:lang="nl">Reset het stopwatch-widget en de rondetijden</li>
