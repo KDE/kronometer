@@ -16,5 +16,3 @@ target_link_libraries(kronometer
 install(TARGETS kronometer ${KDE_INSTALL_TARGETS_DEFAULT_ARGS})
 install(FILES gui/kronometer.kcfg
         DESTINATION ${KDE_INSTALL_KCFGDIR})
-install(FILES gui/kronometerui.rc
-        DESTINATION ${KDE_INSTALL_KXMLGUI5DIR}/kronometer)

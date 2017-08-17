@@ -60,6 +60,8 @@
 MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
     m_session {session}
 {
+    Q_INIT_RESOURCE(kronometerui);
+
     m_stopwatch = new Stopwatch {this};
     m_stopwatchDisplay = new TimeDisplay {this};
     connect(m_stopwatch, &Stopwatch::time, m_stopwatchDisplay, &TimeDisplay::setTime);  // bind stopwatch to its display
