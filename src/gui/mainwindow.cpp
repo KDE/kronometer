@@ -764,10 +764,10 @@ void MainWindow::disactivateScreenInhibition()
     connect(pendingCallWatcher, &QDBusPendingCallWatcher::finished, this, [=](QDBusPendingCallWatcher *callWatcher) {
         QDBusPendingReply<void> reply = *callWatcher;
         if (reply.isValid()) {
-            qDebug() << "Screen inhibition disactivated.";
+            qDebug() << "Screen inhibition disabled.";
             m_screenInhibitCookie = 0;
         } else {
-            qWarning() << "Could not disactivate screen inhibition:" << reply.error();
+            qWarning() << "Could not disable screen inhibition:" << reply.error();
         }
     });
 }
