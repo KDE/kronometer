@@ -24,6 +24,8 @@
 
 #include <QGroupBox>
 
+#include <KColorScheme>
+
 void TestTimeDisplay::testDefaultWidget()
 {
     TimeDisplay timeDisplay;
@@ -39,7 +41,8 @@ void TestTimeDisplay::testDefaultWidget()
 
 void TestTimeDisplay::testSetBackgroundColor()
 {
-    QColor color {Qt::red};
+    KColorScheme scheme(QPalette::Active);
+    const auto color = scheme.foreground(KColorScheme::NegativeText).color();
 
     TimeDisplay timeDisplay;
     timeDisplay.setBackgroundColor(color);
