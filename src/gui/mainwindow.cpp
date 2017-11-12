@@ -218,6 +218,7 @@ void MainWindow::slotShowSettings()
     }
 
     auto dialog = new KConfigDialog {this, QStringLiteral("settings"), KronometerConfig::self()};
+    dialog->setModal(true);
 
     auto generalPage = dialog->addPage(new GeneralSettings {this}, i18nc("@title:tab", "General Settings"));
     generalPage->setIcon(QIcon::fromTheme(QApplication::windowIcon().name()));
