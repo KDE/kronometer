@@ -41,7 +41,7 @@ void TestTimeDisplay::testDefaultWidget()
 
 void TestTimeDisplay::testSetBackgroundColor()
 {
-    KColorScheme scheme(QPalette::Active);
+    KColorScheme scheme {QPalette::Active};
     const auto color = scheme.foreground(KColorScheme::NegativeText).color();
 
     TimeDisplay timeDisplay;
@@ -55,7 +55,8 @@ void TestTimeDisplay::testSetBackgroundColor()
 
 void TestTimeDisplay::testSetTextColor()
 {
-    QColor color {Qt::red};
+    KColorScheme scheme {QPalette::Active};
+    const auto color = scheme.foreground(KColorScheme::NegativeText).color();
 
     TimeDisplay timeDisplay;
     timeDisplay.setTextColor(color);
