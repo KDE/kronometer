@@ -262,7 +262,7 @@ void MainWindow::slotOpenSession()
 {
     auto dialog = new SessionDialog {this};
 
-    connect(dialog, &QDialog::finished, this, [this, dialog](int result) {
+    connect(dialog, &QDialog::finished, this, [dialog](int result) {
         if (result == QDialog::Accepted) {
             auto window = new MainWindow {nullptr, dialog->selectedSession()};
             window->show();
