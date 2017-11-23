@@ -324,6 +324,12 @@
       <li xml:lang="x-test">xxColor customization: you can choose the color for the stopwatch digits and the stopwatch backgroundxx</li>
       <li xml:lang="zh-CN">颜色自定义功能： 您可以选择秒表位数和秒表背景的颜色</li>
       <li>Lap times export: you can export the lap times to a file using the JSON or CSV format</li>
+      <li xml:lang="ca">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer usant el format JSON o CSV</li>
+      <li xml:lang="fr">Exportation des temps intermédiaires : vous pouvez exporter les temps intermédiaire dans un fichier au format JSON ou CSV</li>
+      <li xml:lang="nl">Exporteren van rondetijden: u kunt de rondetijden exporteren naar een bestand met het JSON- of CSV-formaat</li>
+      <li xml:lang="pt">Exportação dos tempos das voltas: poderá exportar os tempos das voltas para um ficheiro em JSON ou CSV</li>
+      <li xml:lang="uk">Експортування даних щодо часу проходження кіл: ви можете експортувати дані до файла у форматі XML або CSV.</li>
+      <li xml:lang="x-test">xxLap times export: you can export the lap times to a file using the JSON or CSV formatxx</li>
     </ul>
   </description>
   <screenshots>
