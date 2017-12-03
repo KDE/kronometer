@@ -1,3 +1,7 @@
+v2.2.0
+* Fixed laps export feature.
+* Implemented screen inhibition while a stopwatch is running.
+
 v2.1.5
 * Fixed width of columns in the laps view.
 * Updated translations.
