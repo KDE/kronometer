@@ -56,7 +56,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
     switch (static_cast<Roles>(role)) {
     case Roles::LapIdRole:
-        return QString::number(index.row() + 1);
+        return index.row() + 1;
     case Roles::RelativeTimeRole:
         return m_laps.at(index.row()).relativeTime();
     case Roles::AbsoluteTimeRole:
