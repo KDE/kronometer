@@ -1,3 +1,7 @@
+v2.2.1
+* Fixed laps sorting.
+* Updated translations.
+
 v2.2.0
 * Fixed laps export feature.
 * Implemented screen inhibition while a stopwatch is running.
