@@ -15,7 +15,7 @@
    <item>
     <widget class="QGroupBox" name="m_hourGroup">
      <property name="title">
-      <string extracomment="@title:column">Hours</string>
+      <string comment="@title:column">Hours</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
@@ -27,7 +27,7 @@
    <item>
     <widget class="QGroupBox" name="m_minGroup">
      <property name="title">
-      <string extracomment="@title:column">Minutes</string>
+      <string comment="@title:column">Minutes</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_3">
       <item>
@@ -39,7 +39,7 @@
    <item>
     <widget class="QGroupBox" name="m_secGroup">
      <property name="title">
-      <string extracomment="@title:column">Seconds</string>
+      <string comment="@title:column">Seconds</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
@@ -51,7 +51,7 @@
    <item>
     <widget class="QGroupBox" name="m_fracGroup">
      <property name="title">
-      <string extracomment="@title:column">Hundredths</string>
+      <string comment="@title:column">Hundredths</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
