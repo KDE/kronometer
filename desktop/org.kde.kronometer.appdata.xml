@@ -363,6 +363,7 @@
       <li xml:lang="nn">Eksportering av rundetider. Du kan eksportera rundetidene til JSON- og CSV-format</li>
       <li xml:lang="pl">Eksportowanie czasów okrążeń: można eksportować czasy okrążeń do pliku przy użyciu formatu JSON lub CSV</li>
       <li xml:lang="pt">Exportação dos tempos das voltas: poderá exportar os tempos das voltas para um ficheiro em JSON ou CSV</li>
+      <li xml:lang="pt-BR">Exportação dos tempos das voltas: Você pode exportar os tempos das voltas para um arquivo no formato JSON ou CSV</li>
       <li xml:lang="sk">Export časov kôl: môžete exportovať časy kôl do súboru pomocou formátu JSON alebo CSV</li>
       <li xml:lang="sv">Export av varvtider: Det går att exportera varvtider till en fil med JSON- eller CSV-format</li>
       <li xml:lang="tr">Tur zamanlarını dışa aktarma: tur zamanlarını JSON veya CSV biçiminde bir dosyaya aktarabilirsiniz</li>
