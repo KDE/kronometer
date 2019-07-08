@@ -27,6 +27,12 @@ Stopwatch::Stopwatch(QObject *parent) : QObject(parent) {}
 void Stopwatch::setGranularity(Granularity g)
 {
     m_granularity = g;
+
+    // whenever granularity is changed, also apply that granularity to the timer event
+    if (m_timerId != INACTIVE_TIMER_ID) {
+        killTimer(m_timerId);
+        m_timerId = startTimer(granularity());
+    }
 }
 
 bool Stopwatch::isRunning() const
