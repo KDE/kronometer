@@ -230,7 +230,7 @@
       <li xml:lang="fi">Sekuntikellon nollaaminen ja kierrosajat</li>
       <li xml:lang="fr">Remise à zéro du chronomètre et des temps intermédiaires</li>
       <li xml:lang="gl">Permite reiniciar o trebello de cronómetro e os tempos de voltas.</li>
-      <li xml:lang="id">Reset widget stopwatch dan waktu lap</li>
+      <li xml:lang="id">Set ulang widget stopwatch dan waktu lap</li>
       <li xml:lang="it">Oggetto per azzerare il cronometro e i tempi sul giro</li>
       <li xml:lang="ko">초시계 위젯과 랩 시간 초기화</li>
       <li xml:lang="nds">Dat Stoppklock-Lüttprogramm un de Runnentieden torüchsetten</li>
@@ -259,7 +259,7 @@
       <li xml:lang="fi">Ajan muodon asetukset: sekuntikellon tarkkuus on valittavissa</li>
       <li xml:lang="fr">Réglages du format d'heure : vous pouvez choisir la granularité du chronomètre</li>
       <li xml:lang="gl">Configuración do formato de tempo: permite escoller o nivel de detalle do tempo do cronómetro.</li>
-      <li xml:lang="id">Setelan format waktu: kamu bisa memilih stopwatch secara terperinci</li>
+      <li xml:lang="id">Pengesetan format waktu: kamu bisa memilih stopwatch secara terperinci</li>
       <li xml:lang="it">Impostazioni del formato del tempo: puoi scegliere la risoluzione del cronometro</li>
       <li xml:lang="ko">시간 형식 설정: 초시계의 정밀도를 설정할 수 있습니다</li>
       <li xml:lang="nds">Tietformaat instellen: Du kannst de Oplösen vun de Stoppklock utsöken</li>
