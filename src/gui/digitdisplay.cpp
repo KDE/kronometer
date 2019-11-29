@@ -101,13 +101,13 @@ QSize DigitDisplay::minimumSizeHint() const
 
     switch (m_digits) {
     case Digits::One:
-        width = fontMetrics.width(m_leftmostDigit->text());
+        width = fontMetrics.boundingRect(m_leftmostDigit->text()).width();
         break;
     case Digits::Two:
-        width = fontMetrics.width(m_leftmostDigit->text()) + fontMetrics.width(m_centerDigit->text());
+        width = fontMetrics.boundingRect(m_leftmostDigit->text()).width() + fontMetrics.boundingRect(m_centerDigit->text()).width();
         break;
     case Digits::Three:
-        width = fontMetrics.width(m_leftmostDigit->text()) + fontMetrics.width(m_centerDigit->text()) + fontMetrics.width(m_rightmostDigit->text());
+        width = fontMetrics.boundingRect(m_leftmostDigit->text()).width() + fontMetrics.boundingRect(m_centerDigit->text()).width() + fontMetrics.boundingRect(m_rightmostDigit->text()).width();
         break;
     default:
         break;

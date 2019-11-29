@@ -314,7 +314,7 @@ void MainWindow::slotExportLapsAs()
 {
     auto dialog = new QFileDialog {this};
     dialog->setAcceptMode(QFileDialog::AcceptSave);
-    dialog->setConfirmOverwrite(true);
+    dialog->setOption(QFileDialog::DontConfirmOverwrite, false);
     dialog->setWindowTitle(i18nc("@title:window", "Export Laps"));
     dialog->setMimeTypeFilters({ QStringLiteral("text/csv"), QStringLiteral("application/json") });
 
