@@ -97,17 +97,17 @@
               <widget class="QComboBox" name="kcfg_fractionsType">
                <item>
                 <property name="text">
-                 <string>up to Tenths</string>
+                 <string>Up to Tenths</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>up to Hundredths</string>
+                 <string>Up to Hundredths</string>
                 </property>
                </item>
                <item>
                 <property name="text">
-                 <string>up to Milliseconds</string>
+                 <string>Up to Thousandths</string>
                 </property>
                </item>
               </widget>
@@ -237,17 +237,17 @@
                  <widget class="QComboBox" name="kcfg_lapFractionsType">
                   <item>
                    <property name="text">
-                    <string>up to Tenths</string>
+                    <string>Up to Tenths</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>up to Hundredths</string>
+                    <string>Up to Hundredths</string>
                    </property>
                   </item>
                   <item>
                    <property name="text">
-                    <string>up to Milliseconds</string>
+                    <string>Up to Thousandths</string>
                    </property>
                   </item>
                  </widget>
