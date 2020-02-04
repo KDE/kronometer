@@ -132,7 +132,7 @@
       <li>Start/pause/resume the stopwatch widget</li>
       <li xml:lang="bs">Pokreni/zaustaviti/nastaviti kontrolu štoperice</li>
       <li xml:lang="ca">Engega/pausa/continua l'estri de cronòmetre</li>
-      <li xml:lang="ca-valencia">Connecta/pausa/continua el giny («widget») de cronòmetre</li>
+      <li xml:lang="ca-valencia">Engega/pausa/continua l'estri de cronòmetre</li>
       <li xml:lang="da">Start/pause/genoptag stopur-widget'en</li>
       <li xml:lang="de">Das Stoppuhr-Miniprogramm starten/anhalten/fortsetzen</li>
       <li xml:lang="el">Δώστε εκκίνηση/παύση/συνέχεια στο γραφικό συστατικό του χρονομετρητή</li>
@@ -219,7 +219,7 @@
       <li>Reset the stopwatch widget and the lap times</li>
       <li xml:lang="bs">Resetovati kontrolu štoperice i vremena krugova</li>
       <li xml:lang="ca">Inicialitza l'estri de cronòmetre i els temps per volta</li>
-      <li xml:lang="ca-valencia">Inicialitza el giny («widget») de cronòmetre i els temps per volta</li>
+      <li xml:lang="ca-valencia">Inicialitza l'estri de cronòmetre i els temps per volta</li>
       <li xml:lang="da">Nulstil stopur-widget'en og omgangstiderne</li>
       <li xml:lang="de">Das Stoppuhr-Miniprogramm sowie Zwischenzeiten zurücksetzen</li>
       <li xml:lang="el">Επαναφορά γραφικού συστατικού χρονομετρητή και χρόνων γύρων</li>
