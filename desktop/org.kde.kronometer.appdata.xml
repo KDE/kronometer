@@ -19,6 +19,7 @@
   <name xml:lang="fi">Kronometer</name>
   <name xml:lang="fr">Kronometer</name>
   <name xml:lang="gl">Kronometer</name>
+  <name xml:lang="ia">Kronometer</name>
   <name xml:lang="id">Kronometer</name>
   <name xml:lang="it">Kronometer</name>
   <name xml:lang="ko">Kronometer</name>
@@ -112,6 +113,7 @@
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
     <p xml:lang="ko">기능:</p>
@@ -143,6 +145,7 @@
       <li xml:lang="fi">Sekuntikellon perustoiminnot: käynnistäminen, tauko, jatkaminen</li>
       <li xml:lang="fr">Démarrage/mise en pause/reprise du chronomètre</li>
       <li xml:lang="gl">Permite iniciar, deter e continuar o trebello de cronómetro.</li>
+      <li xml:lang="ia">Strta/Pausa/Reprende le widget de stopparhorologio</li>
       <li xml:lang="id">Widget stopwatch mulai/jeda/lanjut</li>
       <li xml:lang="it">Oggetto per avviare, mettere in pausa e riavviare il cronometro</li>
       <li xml:lang="ko">초시계 위쳇 시작/일시 정지/다시 시작</li>
