@@ -35,6 +35,7 @@
   <name xml:lang="sv">Kronometer</name>
   <name xml:lang="tr">Kronometer</name>
   <name xml:lang="uk">Kronometer</name>
+  <name xml:lang="x-test">xxKronometerxx</name>
   <name xml:lang="zh-CN">Kronometer</name>
   <summary>Chronometer</summary>
   <summary xml:lang="bs">Kronometar</summary>
@@ -67,6 +68,7 @@
   <summary xml:lang="sv">Kronometer</summary>
   <summary xml:lang="tr">Kronometre</summary>
   <summary xml:lang="uk">Хронометр</summary>
+  <summary xml:lang="x-test">xxChronometerxx</summary>
   <summary xml:lang="zh-CN">计时器</summary>
   <description>
     <p>
@@ -99,6 +101,7 @@
     <p xml:lang="sv">Kronometer är ett tidtagarurprogram. Det tillhandahåller grundfunktioner för tidtagning (paus, återstarta, nollställ, varvtid) samt möjlighet att spara tiderna och senare återstarta dem. Kronometer ingår i KDE:s Extragear-samling i undermodulen Utils.</p>
     <p xml:lang="tr">Kronometer bir kronometre uygulamasıdır. Temel kronometre eylemlerini (duraklatma/devam ettirme/sıfırlama/turlama), zaman kazanma ve bunları daha sonra yeniden başlatma becerisi sunar. Kronometre, Utils alt modülündeki KDE Extragear koleksiyonunun bir parçasıdır.</p>
     <p xml:lang="uk">Kronometer — програма-секундомір. У ній передбачено основні можливості секундоміра (призупинення відліку, відновлення відліку, скидання відліку, відлік часу за колами), а також можливість збереження даних щодо часу і відновлення збережених даних із файла. Kronometer є частиною збірки додаткового програмного забезпечення KDE, а саме, модуля Utils.</p>
+    <p xml:lang="x-test">xxKronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.xx</p>
     <p xml:lang="zh-CN">Kronometer 是一个秒表应用程序。它具有基本的秒表功能 (暂停/恢复/归零/圈数)，也有保存时间和稍后恢复的功能。Kronmeter 是 KDE Extragear 集合的一部分，属于小工具模块。</p>
     <p>Features:</p>
     <p xml:lang="bs">Svojstva:</p>
@@ -131,6 +134,7 @@
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
     <p xml:lang="uk">Можливості:</p>
+    <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
     <ul>
       <li>Start/pause/resume the stopwatch widget</li>
@@ -162,6 +166,7 @@
       <li xml:lang="sv">Starta, pausa, återstarta tidtagarurets grafiska komponent</li>
       <li xml:lang="tr">Başlat/duraklat/devam et kronometre programcıkları</li>
       <li xml:lang="uk">Віджет запуску, призупинення та поновлення відліку секундоміра.</li>
+      <li xml:lang="x-test">xxStart/pause/resume the stopwatch widgetxx</li>
       <li xml:lang="zh-CN">开始/暂停/恢复秒表小部件</li>
       <li>Laps recording: you can capture the stopwatch time when you want</li>
       <li xml:lang="bs">Snimanje krugova: možete snimiti vrijeme štoperice kada god želite</li>
@@ -192,6 +197,7 @@
       <li xml:lang="sv">Varvtider: Det går att lagra tidtagarurets tid när man vill</li>
       <li xml:lang="tr">Tur kayıtları: İstediğinizde kronometre saatini yakalayabilirsiniz</li>
       <li xml:lang="uk">Запис даних щодо проходження кіл: ви можете записувати дані секундоміра у довільні моменти часу.</li>
+      <li xml:lang="x-test">xxLaps recording: you can capture the stopwatch time when you wantxx</li>
       <li xml:lang="zh-CN">圈数记录：您可以随时捕获秒表时间</li>
       <li>Lap times sorting: you can easily find the shortest lap time or the longest one</li>
       <li xml:lang="bs">Sortiranje vremena krugova: možete jednostavno naći najkraće ili najduže vrijeme kruga</li>
@@ -222,6 +228,7 @@
       <li xml:lang="sv">Sortering av varvtider: Det är enkelt att hitta den kortaste eller längsta varvtiden</li>
       <li xml:lang="tr">Tur zamanı sıralama: en kısa tur zamanı veya en uzun tur zamanını kolayca bulabilirsiniz</li>
       <li xml:lang="uk">Упорядковування за часом проходження кола: ви легко можете встановити найкращий і найгірший часи проходження.</li>
+      <li xml:lang="x-test">xxLap times sorting: you can easily find the shortest lap time or the longest onexx</li>
       <li xml:lang="zh-CN">圈时排序：您可以轻松地找出最短和最长的圈时间</li>
       <li>Reset the stopwatch widget and the lap times</li>
       <li xml:lang="bs">Resetovati kontrolu štoperice i vremena krugova</li>
@@ -252,6 +259,7 @@
       <li xml:lang="sv">Nollställ tidtagarurets grafiska komponent och varvtiderna</li>
       <li xml:lang="tr">Kronometre programcığını ve tur zamanlarını sıfırlama</li>
       <li xml:lang="uk">Скидання значення на віджеті секундоміра та скидання часу проходження кіл.</li>
+      <li xml:lang="x-test">xxReset the stopwatch widget and the lap timesxx</li>
       <li xml:lang="zh-CN">重置秒表小部件和单圈时间</li>
       <li>Time format settings: you can choose the stopwatch granularity</li>
       <li xml:lang="bs">Postavke formata vremena: možete izabrati granularnost štoperice</li>
@@ -282,6 +290,7 @@
       <li xml:lang="sv">Inställning av tidsformat: Det går att välja tidtagarurets upplösning</li>
       <li xml:lang="tr">Zaman biçimi ayarları: kronometre parçalarını seçebilirsiniz</li>
       <li xml:lang="uk">Можливість зміни форматування часу: ви можете вибрати значення параметрів так, щоб було показано лише потрібні вам дані.</li>
+      <li xml:lang="x-test">xxTime format settings: you can choose the stopwatch granularityxx</li>
       <li xml:lang="zh-CN">时间格式设置： 您可以选择秒表粒度</li>
       <li>Times saving and resuming: you can save the stopwatch status and resume it later</li>
       <li xml:lang="ca">Desament i continuació dels temps: podeu desar l'estat del cronòmetre per a continuar més tard</li>
@@ -310,6 +319,7 @@
       <li xml:lang="sv">Spara och återstarta tider: Det går att spara tidtagarurets status och senare återstarta det</li>
       <li xml:lang="tr">Zaman kaydetme ve devam ettirme: kronometre durumunu kaydedebilir ve sonradan devam ettirebilirsiniz</li>
       <li xml:lang="uk">Збереження та відновлення записаних даних щодо часу: ви можете записати стан секундоміра на диск і згодом відновити його.</li>
+      <li xml:lang="x-test">xxTimes saving and resuming: you can save the stopwatch status and resume it laterxx</li>
       <li xml:lang="zh-CN">保存和恢复时间： 您可以保存秒表状态并在以后继续</li>
       <li>Font customization: you can choose the fonts for each of the stopwatch digits</li>
       <li xml:lang="bs">Modificiranje fonta: možete izabrati font za svaku cifru štoperice</li>
@@ -340,6 +350,7 @@
       <li xml:lang="sv">Anpassning av teckensnitt: Det går att välja teckensnitten för varje siffra i tidtagaruret</li>
       <li xml:lang="tr">Yazı tipi özelleştirme: kronometrenin her bir basamağının yazı tipini seçebilirsiniz</li>
       <li xml:lang="uk">Можливість налаштовування шрифтів: ви можете вибрати шрифт для кожного з компонентів числових даних секундоміра.</li>
+      <li xml:lang="x-test">xxFont customization: you can choose the fonts for each of the stopwatch digitsxx</li>
       <li xml:lang="zh-CN">自定义字体： 您可以为每个秒表数字选择字体</li>
       <li>Color customization: you can choose the color for the stopwatch digits and the stopwatch background</li>
       <li xml:lang="bs">Modificiranje boje: možete izabrati boju za cifre štoperice i za pozadinu štoperice</li>
@@ -370,6 +381,7 @@
       <li xml:lang="sv">Anpassning av färger: Det går att välja färg för tidtagarurets siffror och bakgrund</li>
       <li xml:lang="tr">Renk özelleştirme: kronometrenin her bir basamağını ve arkaplanının rengini seçebilirsiniz</li>
       <li xml:lang="uk">Можливість налаштовування кольорів: ви можете вибрати колір для числових даних секундоміра та колір тла.</li>
+      <li xml:lang="x-test">xxColor customization: you can choose the color for the stopwatch digits and the stopwatch backgroundxx</li>
       <li xml:lang="zh-CN">颜色自定义功能： 您可以选择秒表位数和秒表背景的颜色</li>
       <li>Lap times export: you can export the lap times to a file using the JSON or CSV format</li>
       <li xml:lang="ca">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer usant el format JSON o CSV</li>
@@ -398,6 +410,7 @@
       <li xml:lang="sv">Export av varvtider: Det går att exportera varvtider till en fil med JSON- eller CSV-format</li>
       <li xml:lang="tr">Tur zamanlarını dışa aktarma: tur zamanlarını JSON veya CSV biçiminde bir dosyaya aktarabilirsiniz</li>
       <li xml:lang="uk">Експортування даних щодо часу проходження кіл: ви можете експортувати дані до файла у форматі XML або CSV.</li>
+      <li xml:lang="x-test">xxLap times export: you can export the lap times to a file using the JSON or CSV formatxx</li>
     </ul>
   </description>
   <screenshots>
