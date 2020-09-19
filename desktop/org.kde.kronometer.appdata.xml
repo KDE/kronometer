@@ -30,6 +30,7 @@
   <name xml:lang="pl">Kronometer</name>
   <name xml:lang="pt">Kronometer</name>
   <name xml:lang="pt-BR">Kronometer</name>
+  <name xml:lang="ro">Kronometer</name>
   <name xml:lang="ru">Kronometer</name>
   <name xml:lang="sk">Kronometer</name>
   <name xml:lang="sl">Kronometer</name>
@@ -63,6 +64,7 @@
   <summary xml:lang="pl">Chronometr</summary>
   <summary xml:lang="pt">Cronómetro</summary>
   <summary xml:lang="pt-BR">Cronômetro</summary>
+  <summary xml:lang="ro">Cronometru</summary>
   <summary xml:lang="ru">Секундомер</summary>
   <summary xml:lang="sk">Chronometer</summary>
   <summary xml:lang="sl">Časomer</summary>
@@ -129,6 +131,7 @@
     <p xml:lang="pl">Możliwości:</p>
     <p xml:lang="pt">Funcionalidades:</p>
     <p xml:lang="pt-BR">Funcionalidades:</p>
+    <p xml:lang="ro">Caracteristici:</p>
     <p xml:lang="ru">Возможности:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Zmožnosti:</p>
