@@ -3,7 +3,7 @@
     "branch": "master",
     "rename-icon": "kronometer",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.9",
+    "runtime-version": "5.15",
     "sdk": "org.kde.Sdk",
     "command": "kronometer",
     "tags": ["nightly"],
@@ -14,7 +14,7 @@
         {
             "name": "kronometer",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "git://anongit.kde.org/kronometer.git" } ]
+            "sources": [ { "type": "git", "url": "https://invent.kde.org/utilities/kronometer.git" } ]
         }
     ]
 }
