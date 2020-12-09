@@ -143,7 +143,7 @@
     <ul>
       <li>Start/pause/resume the stopwatch widget</li>
       <li xml:lang="bs">Pokreni/zaustaviti/nastaviti kontrolu štoperice</li>
-      <li xml:lang="ca">Engega/pausa/continua l'estri de cronòmetre</li>
+      <li xml:lang="ca">Engega/pausa/continua el giny de cronòmetre</li>
       <li xml:lang="ca-valencia">Engega/pausa/continua l'estri de cronòmetre</li>
       <li xml:lang="da">Start/pause/genoptag stopur-widget'en</li>
       <li xml:lang="de">Das Stoppuhr-Miniprogramm starten/anhalten/fortsetzen</li>
@@ -236,7 +236,7 @@
       <li xml:lang="zh-CN">圈时排序：您可以轻松地找出最短和最长的圈时间</li>
       <li>Reset the stopwatch widget and the lap times</li>
       <li xml:lang="bs">Resetovati kontrolu štoperice i vremena krugova</li>
-      <li xml:lang="ca">Inicialitza l'estri de cronòmetre i els temps per volta</li>
+      <li xml:lang="ca">Inicialitza el giny de cronòmetre i els temps per volta</li>
       <li xml:lang="ca-valencia">Inicialitza l'estri de cronòmetre i els temps per volta</li>
       <li xml:lang="da">Nulstil stopur-widget'en og omgangstiderne</li>
       <li xml:lang="de">Das Stoppuhr-Miniprogramm sowie Zwischenzeiten zurücksetzen</li>
