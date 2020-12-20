@@ -17,6 +17,7 @@
     along with Kronometer.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include "sessionmodel.h"
 #include "mainwindow.h"
 #include "version.h"
 
@@ -76,7 +77,8 @@ int main (int argc, char **argv)
         dir.mkdir(appdata.fileName());
     }
 
-    auto window = new MainWindow {};
+    SessionModel sessionModel;
+    auto window = new MainWindow {&sessionModel};
     window->show();
 
     return app.exec();

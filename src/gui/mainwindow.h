@@ -55,7 +55,7 @@ class MainWindow : public KXmlGuiWindow
 
 public:
 
-    explicit MainWindow(QWidget *parent = nullptr, const Session& session = Session {});
+    explicit MainWindow(SessionModel *sessionModel, QWidget *parent = nullptr, const Session& session = Session {});
     virtual ~MainWindow();
 
     /**

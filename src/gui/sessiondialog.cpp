@@ -32,10 +32,10 @@
 #include <QSortFilterProxyModel>
 #include <QTableView>
 
-SessionDialog::SessionDialog(QWidget *parent) : QDialog(parent, Qt::Dialog)
+SessionDialog::SessionDialog(SessionModel *sessionModel, QWidget *parent) : QDialog(parent, Qt::Dialog)
 {
     setupUi(this);
-    m_sessionModel = new SessionModel {this};
+    m_sessionModel = sessionModel;
 
     m_proxyModel = new QSortFilterProxyModel {this};
     m_proxyModel->setSourceModel(m_sessionModel);

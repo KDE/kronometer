@@ -57,7 +57,8 @@
 #include <QTableView>
 #include <QToolButton>
 
-MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
+MainWindow::MainWindow(SessionModel *sessionModel, QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
+    m_sessionModel {sessionModel},
     m_session {session}
 {
     Q_INIT_RESOURCE(kronometerui);
@@ -68,8 +69,6 @@ MainWindow::MainWindow(QWidget *parent, const Session& session) : KXmlGuiWindow(
     connect(m_stopwatch, &Stopwatch::running, this, &MainWindow::slotRunning);
     connect(m_stopwatch, &Stopwatch::paused, this, &MainWindow::slotPaused);
     connect(m_stopwatch, &Stopwatch::inactive, this, &MainWindow::slotInactive);
-
-    m_sessionModel = new SessionModel {this};
 
     setupCentralWidget();
     setupActions();
@@ -254,17 +253,17 @@ void MainWindow::slotUpdateLapDock()
 
 void MainWindow::slotNewSession()
 {
-    auto window = new MainWindow {};
+    auto window = new MainWindow {m_sessionModel};
     window->show();
 }
 
 void MainWindow::slotOpenSession()
 {
-    auto dialog = new SessionDialog {this};
+    auto dialog = new SessionDialog {m_sessionModel, this};
 
-    connect(dialog, &QDialog::finished, this, [dialog](int result) {
+    connect(dialog, &QDialog::finished, this, [this, dialog](int result) {
         if (result == QDialog::Accepted) {
-            auto window = new MainWindow {nullptr, dialog->selectedSession()};
+            auto window = new MainWindow {m_sessionModel, nullptr, dialog->selectedSession()};
             window->show();
         }
         dialog->deleteLater();
