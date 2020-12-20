@@ -59,11 +59,11 @@ public:
     void append(const Session& session);
 
     /**
-     * Update the given session in the model.
+     * Update the given session in the model and updates its date.
      * If the session does not belong to the model, nothing happens.
      * @param session The session to be updated.
      */
-    void update(const Session& session);
+    void update(Session& session);
 
     /**
      * @return Whether the model does not hold any session.

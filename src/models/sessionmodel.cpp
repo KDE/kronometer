@@ -180,15 +180,15 @@ void SessionModel::append(const Session& session)
     endInsertRows();
 }
 
-void SessionModel::update(const Session& session)
+void SessionModel::update(Session& session)
 {
     int i = m_sessionList.indexOf(session);
 
     if (i == -1)
         return;
 
+    session.setDate(QDateTime::currentDateTime());
     m_sessionList[i] = session;
-    m_sessionList[i].setDate(QDateTime::currentDateTime());
 
     emit dataChanged({}, {});
 }
