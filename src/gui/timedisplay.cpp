@@ -147,7 +147,7 @@ void TimeDisplay::updateWidth()
                      qMax(m_secDisplay->minimumSizeHint().width(),
                           m_fracDisplay->minimumSizeHint().width()));
 
-    width = width + (width * 20 / 100); // 20% as padding, i.e. 10% as right padding and 10% as left padding
+    width = width + (width * 40 / 100); // 40% as padding, i.e. 20% as right padding and 20% as left padding
 
     m_hourGroup->setMinimumWidth(width);
     m_minGroup->setMinimumWidth(width);
