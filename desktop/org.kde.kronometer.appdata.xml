@@ -153,7 +153,7 @@
       <li xml:lang="et">Stopperi käivitamine, pausile panemine ja jätkamine</li>
       <li xml:lang="eu">Habiarazi/eten/berrekin kronometro trepeta</li>
       <li xml:lang="fi">Sekuntikellon perustoiminnot: käynnistäminen, tauko, jatkaminen</li>
-      <li xml:lang="fr">Démarrage/mise en pause/reprise du chronomètre</li>
+      <li xml:lang="fr">Composant graphique pour le démarrage / mise en pause / reprise du chronomètre</li>
       <li xml:lang="gl">Permite iniciar, deter e continuar o trebello de cronómetro.</li>
       <li xml:lang="ia">Strta/Pausa/Reprende le widget de stopparhorologio</li>
       <li xml:lang="id">Widget stopwatch mulai/jeda/lanjut</li>
@@ -246,7 +246,7 @@
       <li xml:lang="et">Stopperi ja ringiaegade lähtestamine</li>
       <li xml:lang="eu">Berrezarri kronometro trepeta eta itzuli denborak</li>
       <li xml:lang="fi">Sekuntikellon nollaaminen ja kierrosajat</li>
-      <li xml:lang="fr">Remise à zéro du chronomètre et des temps intermédiaires</li>
+      <li xml:lang="fr">Ré-initialiser le composant graphique de mise à zéro du chronomètre et des temps intermédiaires</li>
       <li xml:lang="gl">Permite reiniciar o trebello de cronómetro e os tempos de voltas.</li>
       <li xml:lang="ia">Reprende (reuce a zero) le widhet de chronometro e le tempores de gyro</li>
       <li xml:lang="id">Set ulang widget stopwatch dan waktu lap</li>
@@ -337,7 +337,7 @@
       <li xml:lang="et">Fontide kohandamine: kõigile stopperi ajaühikutele võib valida oma fondi</li>
       <li xml:lang="eu">Letra-tipo pertsonalizatuekin: Kronometroaren zenbaki bakoitzaren letra-tipoa aukera dezakezu</li>
       <li xml:lang="fi">Fonttien muokkaaminen: sekuntikellon jokaisen numeron fontti on valittavissa</li>
-      <li xml:lang="fr">Personnalisation des fontes : vous pouvez choisir les fontes pour chaque chiffre du chronomètre</li>
+      <li xml:lang="fr">Personnalisation des polices : vous pouvez choisir les polices pour chaque chiffre du chronomètre</li>
       <li xml:lang="gl">Personalización da fonte: pode escoller a fonte que queira para os díxitos do cronómetro</li>
       <li xml:lang="ia">Personalisation de Font: tu pote seliger le font per cata cifras del chronometro</li>
       <li xml:lang="id">Kustomisasi font: kamu bisa memilih font-font untuk setiap digit stopwatch</li>
