@@ -62,11 +62,11 @@ int SessionModel::rowCount(const QModelIndex& parent) const
 
 QVariant SessionModel::data(const QModelIndex& index, int role) const
 {
-    if (not index.isValid()) {
+    if (!index.isValid()) {
         return QVariant::Invalid;
     }
 
-    if (index.row() >= rowCount() or index.row() < 0) {
+    if (index.row() >= rowCount() || index.row() < 0) {
         return QVariant::Invalid;
     }
 
@@ -102,7 +102,7 @@ QVariant SessionModel::data(const QModelIndex& index, int role) const
 
 QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role != Qt::DisplayRole or orientation != Qt::Horizontal)
+    if (role != Qt::DisplayRole || orientation != Qt::Horizontal)
         return QVariant::Invalid;
 
     switch (roleForColumn(section)) {
@@ -123,7 +123,7 @@ QVariant SessionModel::headerData(int section, Qt::Orientation orientation, int 
 
 bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
-    if (not index.isValid() or role != Qt::EditRole)
+    if (!index.isValid() || role != Qt::EditRole)
         return false;
 
     if (index.column() == columnForRole(Roles::NameRole)) {
@@ -148,7 +148,7 @@ bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int 
 
 Qt::ItemFlags SessionModel::flags(const QModelIndex& index) const
 {
-    if (not index.isValid())
+    if (!index.isValid())
         return Qt::ItemIsEnabled;
 
     if (isEditable(index))
@@ -159,7 +159,7 @@ Qt::ItemFlags SessionModel::flags(const QModelIndex& index) const
 
 bool SessionModel::removeRows(int row, int count, const QModelIndex& parent)
 {
-    if (row < 0 or row + count - 1 >= rowCount())
+    if (row < 0 || row + count - 1 >= rowCount())
         return false;
 
     beginRemoveRows(parent, row, row + count - 1);
@@ -201,7 +201,7 @@ bool SessionModel::isEmpty() const
 bool SessionModel::isEditable(const QModelIndex& index) const
 {
     auto role = roleForColumn(index.column());
-    return role == Roles::NameRole or role == Roles::NoteRole;
+    return role == Roles::NameRole || role == Roles::NoteRole;
 }
 
 void SessionModel::read(const QJsonObject& json)
@@ -215,7 +215,7 @@ void SessionModel::read(const QJsonObject& json)
 void SessionModel::slotWriteData()
 {
     QFile saveFile {QStandardPaths::writableLocation(QStandardPaths::AppLocalDataLocation) + QLatin1String("/sessions.json")};
-    if (not saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
+    if (!saveFile.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
         qDebug().nospace() << "cannot open " << saveFile.fileName() << ": " << saveFile.errorString();
         return;
     }

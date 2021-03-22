@@ -140,6 +140,6 @@ bool Session::operator==(const Session& right) const
 
 bool Session::operator!=(const Session& right) const
 {
-    return not (*this == right);
+    return !(*this == right);
 }
 

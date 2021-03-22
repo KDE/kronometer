@@ -75,7 +75,7 @@ MainWindow::MainWindow(SessionModel *sessionModel, QWidget *parent, const Sessio
     setupGUI(ToolBar | Keys | Save | Create, QStringLiteral("kronometerui.rc"));
 
     // #351746: prevent ugly 640x480 default size (unless there is a previous size to be restored, see #361494).
-    if (not isWindowSizeSaved()) {
+    if (!isWindowSizeSaved()) {
         resize(minimumSizeHint());
     }
 
@@ -183,7 +183,7 @@ void MainWindow::slotPaused()
 
     // the export action can be used only if there are laps (in both the paused states).
     // so, it can't be enabled directly from kronometerui.rc
-    if (not m_lapModel->isEmpty()) {
+    if (!m_lapModel->isEmpty()) {
         m_exportAction->setEnabled(true);
     }
 }
@@ -203,7 +203,7 @@ void MainWindow::slotInactive()
 
 void MainWindow::slotPrepareForSleep(bool beforeSleep)
 {
-    if (not beforeSleep)
+    if (!beforeSleep)
         return;
 
     qDebug() << "System is going to sleep, pausing the stopwatch.";
@@ -274,7 +274,7 @@ void MainWindow::slotOpenSession()
 
 void MainWindow::slotSaveSession()
 {
-    if (not m_session.isOutdated())
+    if (!m_session.isOutdated())
         return;
 
     m_session.clear();    // required for laps consistency
@@ -300,7 +300,7 @@ void MainWindow::slotSaveSessionAs()
                                       {},
                                       &accepted);
 
-    if (not accepted)
+    if (!accepted)
         return;
 
     if (name.isEmpty())
@@ -349,7 +349,7 @@ void MainWindow::slotToggleMenuBar()
 void MainWindow::slotUpdateControlMenu()
 {
     auto menu = qobject_cast<QMenu*>(sender());
-    if (not menu)
+    if (!menu)
         return;
 
     // All actions get cleared by QMenu::clear().
@@ -510,8 +510,8 @@ void MainWindow::loadSettings()
     m_lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_lapView->setVisible(KronometerConfig::isLapsRecordingEnabled());
-    m_lapView->setColumnHidden(m_lapModel->columnForRole(LapModel::Roles::AbsoluteTimeRole), not KronometerConfig::showLapAbsoluteTimes());
-    m_lapView->setColumnHidden(m_lapModel->columnForRole(LapModel::Roles::NoteRole), not KronometerConfig::showLapNotes());
+    m_lapView->setColumnHidden(m_lapModel->columnForRole(LapModel::Roles::AbsoluteTimeRole), !KronometerConfig::showLapAbsoluteTimes());
+    m_lapView->setColumnHidden(m_lapModel->columnForRole(LapModel::Roles::NoteRole), !KronometerConfig::showLapNotes());
     m_lapModel->setTimeFormat(lapTimeFormat);
     timeFormat.showDividers(false);
     m_stopwatchDisplay->setTimeFormat(timeFormat);
@@ -537,7 +537,7 @@ void MainWindow::loadSettings()
 
 void MainWindow::setupGranularity()
 {
-    if (not KronometerConfig::showSecondFractions()) {
+    if (!KronometerConfig::showSecondFractions()) {
         m_stopwatch->setGranularity(Stopwatch::Granularity::Seconds);
         return;
     }
@@ -596,7 +596,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& mimeType)
     auto exportName = name;
 
     if (mimeType == QLatin1String("application/json")) {
-        if (not exportName.endsWith(QLatin1String(".json"))) {
+        if (!exportName.endsWith(QLatin1String(".json"))) {
             exportName += QLatin1String(".json");
         }
 
@@ -611,7 +611,7 @@ void MainWindow::exportLapsAs(const QString& name, const QString& mimeType)
         exportFile.commit();
     }
     else if (mimeType == QLatin1String("text/csv")) {
-        if (not exportName.endsWith(QLatin1String(".csv"))) {
+        if (!exportName.endsWith(QLatin1String(".csv"))) {
             exportName += QLatin1String(".csv");
         }
 
@@ -660,7 +660,7 @@ bool MainWindow::isWindowSizeSaved() const
     const auto keys = group.keyList();
     for (const auto& key : keys) {
         // Size keys contain the screen size, e.g. 'Width 1920' and 'Height 1080'.
-        if (key.startsWith(QLatin1String("Height")) or key.startsWith(QLatin1String("Width"))) {
+        if (key.startsWith(QLatin1String("Height")) || key.startsWith(QLatin1String("Width"))) {
             return true;
         }
     }
@@ -677,7 +677,7 @@ QString MainWindow::timestampMessage()
 
 void MainWindow::createControlMenuButton()
 {
-    if (not m_controlMenuButton.isNull()) {
+    if (!m_controlMenuButton.isNull()) {
         return;
     }
 
@@ -714,7 +714,7 @@ void MainWindow::deleteControlMenuButton()
 
 bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
 {
-    if (not action or not menu)
+    if (!action || !menu)
         return false;
 
     const auto toolBarWidget = toolBar();

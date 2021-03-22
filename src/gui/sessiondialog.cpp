@@ -68,7 +68,7 @@ Session SessionDialog::selectedSession() const
 
 void SessionDialog::keyPressEvent(QKeyEvent *event)
 {
-    if (event->key() == Qt::Key_Delete and not m_sessionModel->isEmpty()) {
+    if (event->key() == Qt::Key_Delete && !m_sessionModel->isEmpty()) {
         removeDialog();
     }
 
@@ -108,7 +108,7 @@ void SessionDialog::slotSessionAdded()
 
 void SessionDialog::slotEmptyModel()
 {
-    if (not m_sessionModel->isEmpty())
+    if (!m_sessionModel->isEmpty())
         return;
 
     const auto message = i18nc("@info", "You don't have any saved session yet.");

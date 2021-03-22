@@ -26,8 +26,8 @@ void TestStopwatch::testInactive()
 {
     Stopwatch stopwatch;
 
-    QVERIFY(not stopwatch.isRunning());
-    QVERIFY(not stopwatch.isPaused());
+    QVERIFY(!stopwatch.isRunning());
+    QVERIFY(!stopwatch.isPaused());
     QVERIFY(stopwatch.isInactive());
 }
 
@@ -38,8 +38,8 @@ void TestStopwatch::testRunning()
     stopwatch.start();
 
     QVERIFY(stopwatch.isRunning());
-    QVERIFY(not stopwatch.isPaused());
-    QVERIFY(not stopwatch.isInactive());
+    QVERIFY(!stopwatch.isPaused());
+    QVERIFY(!stopwatch.isInactive());
 }
 
 void TestStopwatch::testPaused()
@@ -48,9 +48,9 @@ void TestStopwatch::testPaused()
 
     stopwatch.pause();
 
-    QVERIFY(not stopwatch.isRunning());
+    QVERIFY(!stopwatch.isRunning());
     QVERIFY(stopwatch.isPaused());
-    QVERIFY(not stopwatch.isInactive());
+    QVERIFY(!stopwatch.isInactive());
 }
 
 void TestStopwatch::testReset()
@@ -59,8 +59,8 @@ void TestStopwatch::testReset()
 
     stopwatch.reset();
 
-    QVERIFY(not stopwatch.isRunning());
-    QVERIFY(not stopwatch.isPaused());
+    QVERIFY(!stopwatch.isRunning());
+    QVERIFY(!stopwatch.isPaused());
     QVERIFY(stopwatch.isInactive());
 }
 

@@ -26,7 +26,7 @@ void TestSession::testDefaultSession()
 
     QCOMPARE(session.time(), 0);
     QVERIFY(session.isEmpty());
-    QVERIFY(not session.isOutdated());
+    QVERIFY(!session.isOutdated());
     QVERIFY(session.laps().isEmpty());
     QVERIFY(session.name().isNull());
     QVERIFY(session.note().isEmpty());

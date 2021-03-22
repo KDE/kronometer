@@ -134,7 +134,7 @@ bool DigitDisplay::isValid(const QString &text) const
 
 void DigitDisplay::showOneDigit(const QString& digit) const
 {
-    if (not isValid(digit)) {
+    if (!isValid(digit)) {
         return;
     }
 
@@ -143,7 +143,7 @@ void DigitDisplay::showOneDigit(const QString& digit) const
 
 void DigitDisplay::showTwoDigits(const QString& digits) const
 {
-    if (not isValid(digits)) {
+    if (!isValid(digits)) {
         return;
     }
 
@@ -154,7 +154,7 @@ void DigitDisplay::showTwoDigits(const QString& digits) const
 
 void DigitDisplay::showThreeDigits(const QString& digits) const
 {
-    if (not isValid(digits)) {
+    if (!isValid(digits)) {
         return;
     }
 

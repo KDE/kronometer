@@ -42,11 +42,11 @@ int LapModel::rowCount(const QModelIndex& parent) const
 
 QVariant LapModel::data(const QModelIndex& index, int role) const
 {
-    if (not index.isValid()) {
+    if (!index.isValid()) {
         return QVariant::Invalid;
     }
 
-    if (index.row() >= rowCount() or index.row() < 0) {
+    if (index.row() >= rowCount() || index.row() < 0) {
         return QVariant::Invalid;
     }
 
@@ -77,7 +77,7 @@ QVariant LapModel::data(const QModelIndex& index, int role) const
 
 QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role) const
 {
-    if (role != Qt::DisplayRole or orientation != Qt::Horizontal)
+    if (role != Qt::DisplayRole || orientation != Qt::Horizontal)
         return QVariant::Invalid;
 
     switch (roleForColumn(section)) {
@@ -98,7 +98,7 @@ QVariant LapModel::headerData(int section, Qt::Orientation orientation, int role
 
 bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
-    if (not index.isValid() or role != Qt::EditRole)
+    if (!index.isValid() || role != Qt::EditRole)
         return false;
 
     if (index.column() != columnForRole(Roles::NoteRole))
@@ -112,7 +112,7 @@ bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role
 
 Qt::ItemFlags LapModel::flags(const QModelIndex& index) const
 {
-    if (not index.isValid())
+    if (!index.isValid())
         return Qt::ItemIsEnabled;
 
     if (index.column() != columnForRole(Roles::NoteRole))
@@ -125,7 +125,7 @@ void LapModel::setTimeFormat(const TimeFormat& format)
 {
     m_timeFormat = format;
 
-    if (not isEmpty()) {
+    if (!isEmpty()) {
         reload();
     }
 }

@@ -41,7 +41,7 @@ QString TimeFormat::format(const QTime& time) const
 
 QString TimeFormat::formatHours(const QTime& time) const
 {
-    if (not m_showHours) {
+    if (!m_showHours) {
         return {};
     }
 
@@ -50,7 +50,7 @@ QString TimeFormat::formatHours(const QTime& time) const
 
 QString TimeFormat::formatMinutes(const QTime& time) const
 {
-    if (not m_showMinutes) {
+    if (!m_showMinutes) {
         return {};
     }
 
@@ -127,15 +127,15 @@ void TimeFormat::showDividers(bool show)
 
 bool TimeFormat::operator==(const TimeFormat& right) const
 {
-    return m_showHours == right.m_showHours and
-            m_showMinutes == right.m_showMinutes and
-            m_fractions == right.m_fractions and
+    return m_showHours == right.m_showHours &&
+            m_showMinutes == right.m_showMinutes &&
+            m_fractions == right.m_fractions &&
             m_showDividers == right.m_showDividers;
 }
 
 bool TimeFormat::operator!=(const TimeFormat& right) const
 {
-    return not (*this == right);
+    return !(*this == right);
 }
 
 void TimeFormat::setupFormat()
@@ -158,7 +158,7 @@ void TimeFormat::setupFormat()
         }
     }
 
-    if (m_showDividers and m_fractions != NoFractions) {
+    if (m_showDividers && m_fractions != NoFractions) {
         m_secFormat = QStringLiteral("ss.");
     }
     else {

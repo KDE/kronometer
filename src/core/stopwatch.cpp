@@ -57,7 +57,7 @@ int Stopwatch::raw() const
 
 bool Stopwatch::initialize(int rawData)
 {
-    if (not isInactive() or rawData <= 0) {
+    if (!isInactive() || rawData <= 0) {
         return false;
     }
 

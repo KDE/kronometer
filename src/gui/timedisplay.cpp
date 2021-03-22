@@ -185,7 +185,7 @@ void TimeDisplay::updateTimeFormat()
 
 void TimeDisplay::setGroupboxColor(QGroupBox *groupBox, QPalette::ColorRole role, const QColor& color)
 {
-    if (not groupBox) {
+    if (!groupBox) {
         return;
     }
 
