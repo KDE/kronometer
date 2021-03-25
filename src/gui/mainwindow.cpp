@@ -100,6 +100,11 @@ MainWindow::MainWindow(SessionModel *sessionModel, QWidget *parent, const Sessio
     m_screensaverInterface = new QDBusInterface(QStringLiteral("org.freedesktop.ScreenSaver"),
                                                 QStringLiteral("/ScreenSaver"),
                                                 QStringLiteral("org.freedesktop.ScreenSaver"));
+        
+    if (m_triggerOnStartup) {
+        m_stopwatch->start();        
+    }
+    
 }
 
 MainWindow::~MainWindow()
@@ -506,6 +511,8 @@ void MainWindow::loadSettings()
 
     auto timeFormat = TimeFormat {KronometerConfig::showHours(), KronometerConfig::showMinutes(), timeFrac};
     auto lapTimeFormat = TimeFormat {KronometerConfig::showLapHours(), KronometerConfig::showLapMinutes(), lapFrac};
+
+    m_triggerOnStartup = KronometerConfig::triggerOnStartup();
 
     m_lapAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
     m_exportAction->setVisible(KronometerConfig::isLapsRecordingEnabled());
