@@ -146,6 +146,7 @@ private slots:
 
 private:
 
+    bool m_startTimerImmediately = false;
     Stopwatch *m_stopwatch;
     TimeDisplay *m_stopwatchDisplay;
     QTableView *m_lapView;
