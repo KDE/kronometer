@@ -29,6 +29,7 @@
 #include <QHeaderView>
 #include <QKeyEvent>
 #include <QPushButton>
+#include <QScreen>
 #include <QSortFilterProxyModel>
 #include <QTableView>
 
@@ -56,9 +57,9 @@ SessionDialog::SessionDialog(SessionModel *sessionModel, QWidget *parent) : QDia
     slotEmptyModel();
     slotSelectionChanged();
 
-    auto desktopWidget = QApplication::desktop();
+    auto desktopWidget = QGuiApplication::screens();
     // Set a good default size, tested on 1920x1200 and 1366x768 screens.
-    resize(desktopWidget->screenGeometry().size() / 2.5);
+    resize(desktopWidget[0]->size() / 2.5);
 }
 
 Session SessionDialog::selectedSession() const
