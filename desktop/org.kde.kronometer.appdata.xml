@@ -415,6 +415,7 @@
       <li xml:lang="tr">Tur zamanlarını dışa aktarma: tur zamanlarını JSON veya CSV biçiminde bir dosyaya aktarabilirsiniz</li>
       <li xml:lang="uk">Експортування даних щодо часу проходження кіл: ви можете експортувати дані до файла у форматі XML або CSV.</li>
       <li xml:lang="x-test">xxLap times export: you can export the lap times to a file using the JSON or CSV formatxx</li>
+      <li xml:lang="zh-CN">圈时间导出：您可以将各圈时间导出为 JSON 格式或 CSV 格式的文件</li>
     </ul>
   </description>
   <screenshots>
