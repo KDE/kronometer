@@ -103,6 +103,7 @@ Comment[sv]=Ett enkelt kronometerprogram av KDE
 Comment[tr]=Kde için basit bir kronometre uygulaması
 Comment[uk]=Проста програма-хронометр від KDE
 Comment[x-test]=xxA simple chronometer application by KDExx
+Comment[zh_CN]=由 KDE 打造的简单计时器应用程序
 Comment[zh_TW]=來自 KDE 的精密計時應用程式
 Categories=Qt;KDE;Utility;Clock;
 X-DocPath=kronometer/index.html
