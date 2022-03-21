@@ -1,4 +1,0 @@
-REPOSITORY = "kronometer"
-REVIEWBOARD_URL = "https://git.reviewboard.kde.org"
-TARGET_PEOPLE = "elvisangelaccio"
-BRANCH = "frameworks"
