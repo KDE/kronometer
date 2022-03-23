@@ -175,7 +175,7 @@
       <li>Laps recording: you can capture the stopwatch time when you want</li>
       <li xml:lang="bs">Snimanje krugova: možete snimiti vrijeme štoperice kada god želite</li>
       <li xml:lang="ca">Enregistra les voltes: podeu capturar el temps del cronòmetre quan vulgueu</li>
-      <li xml:lang="ca-valencia">Enregistra les voltes: podeu capturar el temps del cronòmetre quan vulgueu</li>
+      <li xml:lang="ca-valencia">Grava les voltes: podeu capturar el temps del cronòmetre quan vulgueu</li>
       <li xml:lang="da">Optagelse af omgange: du kan optage stopurstiden når du vil</li>
       <li xml:lang="de">Zwischenzeiten: Sie können eine Zeit festhalten, wann sie möchten</li>
       <li xml:lang="el">Εγγραφή γύρων: μπορείτε να συλλάβετε τη χρονομέτρηση όποτε θέλετε</li>
@@ -298,7 +298,7 @@
       <li xml:lang="zh-CN">时间格式设置： 您可以选择秒表粒度</li>
       <li>Times saving and resuming: you can save the stopwatch status and resume it later</li>
       <li xml:lang="ca">Desament i continuació dels temps: podeu desar l'estat del cronòmetre per a continuar més tard</li>
-      <li xml:lang="ca-valencia">Guardar i continuació dels temps: podeu guardar l'estat del cronòmetre per a continuar més tard</li>
+      <li xml:lang="ca-valencia">Guardada i continuació dels temps: podeu guardar l'estat del cronòmetre per a continuar més tard</li>
       <li xml:lang="da">Gem og genoptag af tider: du kan gemme stopurets status og genoptage det senere</li>
       <li xml:lang="de">Zeiten speichern und fortsetzen: Sie können den Status der Stoppuhr speichern und später fortsetzen</li>
       <li xml:lang="el">Αποθήκευση και συνέχεια χρόνων: μπορείτε να αποθηκεύσετε την κατάσταση του χρονομετρητή και να συνεχίσετε αργότερα</li>
