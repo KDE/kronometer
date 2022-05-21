@@ -418,6 +418,7 @@
       <li xml:lang="zh-CN">圈时间导出：您可以将各圈时间导出为 JSON 格式或 CSV 格式的文件</li>
     </ul>
   </description>
+  <content_rating type="oars-1.1" />
   <screenshots>
     <screenshot type="default">
       <image width="594" height="242">https://cdn.kde.org/screenshots/kronometer/kronometer.png</image>
