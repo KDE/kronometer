@@ -78,7 +78,7 @@
       Kronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.
     </p>
     <p xml:lang="ca">El Kronometer és una aplicació de cronòmetre. Compta amb les característiques bàsiques d'un cronòmetre (pausa/continua/inicialitza/voltes), així com la possibilitat de desar els temps i tornar-hi més tard. El Kronometer forma part de la col·lecció «KDE Extragear», dins del submòdul «Utils».</p>
-    <p xml:lang="ca-valencia">Kronometer és una aplicació de cronòmetre. Compta amb les característiques bàsiques d'un cronòmetre (pausa/continua/restableix/voltes), així com la possibilitat de guardar els temps i tornar-hi més tard. Kronometer forma part de la col·lecció «KDE Extragear», dins del submòdul «Utils».</p>
+    <p xml:lang="ca-valencia">Kronometer és una aplicació de cronòmetre. Compta amb les característiques bàsiques d'un cronòmetre (pausa/continua/restableix/voltes), aixina com la possibilitat de guardar els temps i tornar-hi més tard. Kronometer forma part de la colecció «KDE Extragear», dins del submòdul «Utils».</p>
     <p xml:lang="da">Kronometer er et stopursprogram. Det har de grundlæggende stopurshandlinger (pause/genoptag/nulstil/omgange), såvel som muligheden for at gemme tiderne og genoptage dem senere. Kronometer er del af KDE Extragear-samlingen, inden i Utils-undermodulet.</p>
     <p xml:lang="de">Kronometer ist eine Stoppuhr-Anwendung. Sie bietet die grundlegenden Stoppuhrfunktionen (anhalten/fortsetzen/zurücksetzen/Zwischenzeiten) sowie die Möglichkeit, alle Zeiten zu speichern und später fortzusetzen. Kronometer ist Teil der KDE-Extragear-Sammung im Untermodul „Utils“.</p>
     <p xml:lang="el">Το Kronometer είναι μια εφαρμογή χρονομετρητή. Περιέχει τις βασικές λειτουργίες χρονομετρητή (παύση/συνέχεια/επαναφορά/γύροι) καθώς επίσης την ικανότητα να αποθηκεύει τους χρόνους και να τους συνεχίζει αργότερα. Το Kronometer είναι τμήμα της συλλογής KDE Extragear στο υποάρθρωμα Utils.</p>
@@ -389,7 +389,7 @@
       <li xml:lang="zh-CN">颜色自定义功能： 您可以选择秒表位数和秒表背景的颜色</li>
       <li>Lap times export: you can export the lap times to a file using the JSON or CSV format</li>
       <li xml:lang="ca">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer usant el format JSON o CSV</li>
-      <li xml:lang="ca-valencia">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer utilitzant el format JSON o CSV</li>
+      <li xml:lang="ca-valencia">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer utilisant el format JSON o CSV</li>
       <li xml:lang="da">Eksport af omgangstider: du kan eksportere omgangstiderne til en fil i JSON- eller CSV-format</li>
       <li xml:lang="de">Zwischenzeiten-Export: Sie können die Zwischenzeiten in den Formaten JSON oder CVS in eine Datei speichern</li>
       <li xml:lang="el">Εξαγωγή χρόνων γύρων: μπορείτε να εξάγετε τους χρόνους των γύρων σε ένα αρχείο τύπου JSON ή CSV</li>
