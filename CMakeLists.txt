@@ -1,7 +1,7 @@
 project(kronometer)
 
 cmake_minimum_required(VERSION 3.1)
-set(QT_MIN_VERSION 5.9.0)
+set(QT_MIN_VERSION 5.15.0)
 set(KF5_MIN_VERSION 5.26.0)
 
 set(PROJECT_VERSION 2.2.70)
