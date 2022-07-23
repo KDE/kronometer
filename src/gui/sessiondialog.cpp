@@ -43,9 +43,9 @@ SessionDialog::SessionDialog(SessionModel *sessionModel, QWidget *parent) : QDia
     slotEmptyModel();
     slotSelectionChanged();
 
-    auto desktopWidget = QGuiApplication::screens();
+    auto screens = QGuiApplication::screens();
     // Set a good default size, tested on 1920x1200 and 1366x768 screens.
-    resize(desktopWidget[0]->size() / 2.5);
+    resize(screens[0]->size() / 2.5);
 }
 
 Session SessionDialog::selectedSession() const
