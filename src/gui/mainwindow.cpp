@@ -667,7 +667,9 @@ QString MainWindow::timestampMessage()
 {
     const auto timestamp = QDateTime::currentDateTime();
 
-    return i18nc("@info:shell", "Created by Kronometer on %1", timestamp.toString(Qt::DefaultLocaleLongDate));
+    const QString timeString = QLocale::system().toString(timestamp, QLocale::LongFormat);
+
+    return i18nc("@info:shell", "Created by Kronometer on %1", timeString);
 }
 
 void MainWindow::createControlMenuButton()
