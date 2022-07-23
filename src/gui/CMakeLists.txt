@@ -14,13 +14,13 @@ ki18n_wrap_ui(gui_SRCS
     sessiondialog.ui
     timedisplay.ui)
 
-qt5_add_resources(gui_SRCS kronometerui.qrc)
+qt_add_resources(gui_SRCS kronometerui.qrc)
 kconfig_add_kcfg_files(gui_SRCS settings.kcfgc GENERATE_MOC)
 
 add_library(gui STATIC ${gui_SRCS})
 target_link_libraries(gui
-    Qt5::Core
-    Qt5::Widgets
+    Qt::Core
+    Qt::Widgets
     KF5::I18n
     KF5::WidgetsAddons
     KF5::XmlGui

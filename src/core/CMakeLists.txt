@@ -5,4 +5,4 @@ set(core_SRCS
     timeformat.cpp)
 
 add_library(core STATIC ${core_SRCS})
-target_link_libraries(core Qt5::Core)
+target_link_libraries(core Qt::Core)

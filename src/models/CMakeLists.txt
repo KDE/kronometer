@@ -4,6 +4,6 @@ set(models_SRCS
 
 add_library(models STATIC ${models_SRCS})
 target_link_libraries(models
-    Qt5::Core
+    Qt::Core
     KF5::I18n
     core)
