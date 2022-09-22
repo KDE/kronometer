@@ -89,6 +89,7 @@ void Stopwatch::reset()
 {
     m_elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
+    m_accumulator = 0;
     emit time(0);
     m_state = State::Inactive;
     emit inactive();
