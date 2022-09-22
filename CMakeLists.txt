@@ -19,9 +19,6 @@ include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(FeatureSummary)
 
-# ecm >= 5.31 disables alternative operators, but we use them.
-string(REPLACE "-fno-operator-names" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
-
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED
     COMPONENTS
     Core
