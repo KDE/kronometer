@@ -6,6 +6,7 @@
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>GPL-2.0+</project_license>
   <name>Kronometer</name>
+  <name xml:lang="ast">Kronometer</name>
   <name xml:lang="bs">Kronometar</name>
   <name xml:lang="ca">Kronometer</name>
   <name xml:lang="ca-valencia">Kronometer</name>
@@ -292,7 +293,7 @@
       <li xml:lang="sk">Nastavenia formátu času: môžete si zvoliť granularitu stopiek</li>
       <li xml:lang="sl">Nastavitve oblike časa: nastavite lahko razdrobljenost časa</li>
       <li xml:lang="sv">Inställning av tidsformat: Det går att välja tidtagarurets upplösning</li>
-      <li xml:lang="tr">Zaman biçimi ayarları: Kronometre ayrıntılılığını seçebilirsiniz</li>
+      <li xml:lang="tr">Zaman biçimi ayarları: Kronometre parçalarını seçebilirsiniz</li>
       <li xml:lang="uk">Можливість зміни форматування часу: ви можете вибрати значення параметрів так, щоб було показано лише потрібні вам дані.</li>
       <li xml:lang="x-test">xxTime format settings: you can choose the stopwatch granularityxx</li>
       <li xml:lang="zh-CN">时间格式设置： 您可以选择秒表粒度</li>
@@ -410,7 +411,7 @@
       <li xml:lang="pt">Exportação dos tempos das voltas: poderá exportar os tempos das voltas para um ficheiro em JSON ou CSV</li>
       <li xml:lang="pt-BR">Exportação dos tempos das voltas: Você pode exportar os tempos das voltas para um arquivo no formato JSON ou CSV</li>
       <li xml:lang="sk">Export časov kôl: môžete exportovať časy kôl do súboru pomocou formátu JSON alebo CSV</li>
-      <li xml:lang="sl">Izvoz časov krogov: čase krogov lahko izvozite v datoteko vrste JSON ali CSV</li>
+      <li xml:lang="sl">Izvoz časov krogov: čase krogov lahko izvozite v datoteko v formatu JSON ali CSV</li>
       <li xml:lang="sv">Export av varvtider: Det går att exportera varvtider till en fil med JSON- eller CSV-format</li>
       <li xml:lang="tr">Tur zamanlarını dışa aktarma: Tur zamanlarını JSON veya CSV biçiminde bir dosyaya aktarabilirsiniz</li>
       <li xml:lang="uk">Експортування даних щодо часу проходження кіл: ви можете експортувати дані до файла у форматі XML або CSV.</li>
