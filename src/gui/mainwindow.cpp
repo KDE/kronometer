@@ -8,6 +8,7 @@
 #include "colorsettings.h"
 #include "fontsettings.h"
 #include "generalsettings.h"
+#include "lapitemdelegate.h"
 #include "lapmodel.h"
 #include "sessiondialog.h"
 #include "sessionmodel.h"
@@ -108,6 +109,15 @@ void MainWindow::setWindowTitle(const QString& title)
     else {
         KXmlGuiWindow::setWindowTitle(title + QLatin1String("[*]"));
     }
+}
+
+void MainWindow::enableLapShortcuts(bool enable)
+{
+    QList<QKeySequence> shortcuts;
+    if(enable) {
+        shortcuts << Qt::Key_Return << Qt::Key_Enter;
+    }
+    actionCollection()->setDefaultShortcuts(m_lapAction, shortcuts);
 }
 
 bool MainWindow::queryClose()
@@ -410,6 +420,7 @@ void MainWindow::setupCentralWidget()
     m_lapView->verticalHeader()->hide();
     m_lapView->horizontalHeader()->setStretchLastSection(true);
     m_lapView->setSizePolicy(QSizePolicy::MinimumExpanding, QSizePolicy::Preferred);
+    m_lapView->setItemDelegate(new LapItemDelegate(this));
     // Enable sorting and resize the columns to take the sorting arrow into account.
     m_lapView->setSortingEnabled(true);
     m_lapView->resizeColumnsToContents();
@@ -452,7 +463,8 @@ void MainWindow::setupActions()
     actionCollection()->setDefaultShortcut(m_startAction, Qt::Key_Space);
     actionCollection()->setDefaultShortcut(m_pauseAction, Qt::Key_Space);
     actionCollection()->setDefaultShortcut(m_resetAction, Qt::Key_F5);
-    actionCollection()->setDefaultShortcut(m_lapAction, Qt::Key_Return);
+    // Enable shortcut for lap
+    enableLapShortcuts(true);
 
     // Pause is initially disabled.
     m_pauseAction->setEnabled(false);
