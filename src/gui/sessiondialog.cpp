@@ -12,7 +12,6 @@
 #include <KMessageWidget>
 
 #include <QDialogButtonBox>
-#include <QHeaderView>
 #include <QKeyEvent>
 #include <QPushButton>
 #include <QScreen>

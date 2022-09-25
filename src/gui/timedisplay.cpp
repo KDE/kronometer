@@ -9,7 +9,6 @@
 
 #include <KLocalizedString>
 
-#include <QBoxLayout>
 #include <QGroupBox>
 
 TimeDisplay::TimeDisplay(QWidget *parent) : QWidget(parent)

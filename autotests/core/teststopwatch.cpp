@@ -7,8 +7,6 @@
 #include "teststopwatch.h"
 #include "stopwatch.h"
 
-#include <QTime>
-
 void TestStopwatch::testInactive()
 {
     Stopwatch stopwatch;

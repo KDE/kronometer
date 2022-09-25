@@ -7,8 +7,6 @@
 #include "generalsettings.h"
 
 #include <QCheckBox>
-#include <QComboBox>
-#include <QGroupBox>
 
 GeneralSettings::GeneralSettings(QWidget *parent) : QWidget(parent)
 {

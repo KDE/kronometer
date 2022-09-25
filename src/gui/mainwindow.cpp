@@ -36,7 +36,6 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMenuBar>
-#include <QPointer>
 #include <QSaveFile>
 #include <QSortFilterProxyModel>
 #include <QSplitter>
