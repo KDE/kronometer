@@ -23,6 +23,7 @@
   <name xml:lang="ia">Kronometer</name>
   <name xml:lang="id">Kronometer</name>
   <name xml:lang="it">Kronometer</name>
+  <name xml:lang="ka">Kronometer</name>
   <name xml:lang="ko">Kronometer</name>
   <name xml:lang="nds">Kronometer</name>
   <name xml:lang="nl">Kronometer</name>
@@ -57,6 +58,7 @@
   <summary xml:lang="ia">Chronometro</summary>
   <summary xml:lang="id">Pencatat Waktu</summary>
   <summary xml:lang="it">Cronometro</summary>
+  <summary xml:lang="ka">ქრონომეტრი</summary>
   <summary xml:lang="ko">크로노미터</summary>
   <summary xml:lang="nds">Tietmeter</summary>
   <summary xml:lang="nl">Chronometer</summary>
@@ -124,6 +126,7 @@
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
+    <p xml:lang="ka">თვისებები:</p>
     <p xml:lang="ko">기능:</p>
     <p xml:lang="nds">Markmalen:</p>
     <p xml:lang="nl">Mogelijkheden:</p>
@@ -158,6 +161,7 @@
       <li xml:lang="ia">Strta/Pausa/Reprende le widget de stopparhorologio</li>
       <li xml:lang="id">Widget stopwatch mulai/jeda/lanjut</li>
       <li xml:lang="it">Oggetto per avviare, mettere in pausa e riavviare il cronometro</li>
+      <li xml:lang="ka">ტაიმერის ვიჯეტის გაშვება/შეჩერება/გაგრძელება</li>
       <li xml:lang="ko">초시계 위쳇 시작/일시 정지/다시 시작</li>
       <li xml:lang="nds">Anfangen, anhollen un wiedermaken över dat Stoppklock-Lüttprogramm</li>
       <li xml:lang="nl">Start/pauzeer/hervat het stopwatch-widget</li>
@@ -282,6 +286,7 @@
       <li xml:lang="ia">Preferentias de formato de tempore: tu pote seliger le granularitate del chronometro</li>
       <li xml:lang="id">Pengesetan format waktu: kamu bisa memilih stopwatch secara terperinci</li>
       <li xml:lang="it">Impostazioni del formato del tempo: puoi scegliere la risoluzione del cronometro</li>
+      <li xml:lang="ka">დროის ფორმატის მორგება: შეგიძლიათ აირჩიოთ ტაიმერის გრანულარობა</li>
       <li xml:lang="ko">시간 형식 설정: 초시계의 정밀도를 설정할 수 있습니다</li>
       <li xml:lang="nds">Tietformaat instellen: Du kannst de Oplösen vun de Stoppklock utsöken</li>
       <li xml:lang="nl">Instellingen van de tijdopmaak: u kunt de nauwkeurigheid van de stopwatch kiezen</li>
