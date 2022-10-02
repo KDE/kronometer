@@ -1,0 +1,314 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kronometer "<application
+>Kronometer</application
+>">
+  <!ENTITY kappname "&kronometer;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Brazilian-Portuguese "INCLUDE">
+]>
+
+<book id="kronometer" lang="&language;">
+
+<bookinfo>
+<title
+>Manual do &kronometer;</title>
+
+<authorgroup>
+  <author
+><firstname
+>Elvis</firstname
+><surname
+>Angelaccio</surname
+> <affiliation
+> <address
+> <email
+>elvis.angelaccio@kdemail.net</email>
+      </address>
+    </affiliation>
+  </author>
+<othercredit role="translator"
+><firstname
+>André Marcelo</firstname
+><surname
+>Alvarenga</surname
+><affiliation
+><address
+><email
+>alvarenga@kde.org</email
+></address
+></affiliation
+><contrib
+>Tradução</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2014-2016</year>
+<holder
+>Elvis Angelaccio</holder>
+</copyright>
+
+<date
+>10/04/2016</date>
+<releaseinfo
+>&kronometer; 2.1</releaseinfo>
+
+<legalnotice>
+  &FDLNotice;
+</legalnotice>
+
+<abstract>
+  <para
+>&kronometer; é um aplicativo de cronômetro. Ele pode ser usado para tarefas básicas, como o iniciar/pausar/continuar o temporizador, assim como registrar os tempos de voltas em corridas. </para>
+  <para
+>O &kronometer; permite salvar uma sessão completa (tempos totais e por voltas), assim como recuperá-las mais tarde. </para>
+</abstract>
+
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Kronometer</keyword>
+  <keyword
+>Cronômetro</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Introdução</title>
+  <para
+>O &kronometer; é um aplicativo simples de cronômetro. Ele pretende ser simples e agradável de usar, graças a um desenvolvimento baseado em casos de uso. </para>
+  <para
+>As principais funcionalidades do &kronometer; são as seguintes: </para>
+  <itemizedlist>
+    <listitem>
+      <para
+>O &kronometer; oferece um temporizador que pode ser iniciado, pausado, continuado e apagado. </para>
+    </listitem>
+    <listitem>
+      <para
+>O &kronometer; permite-lhe registrar os tempos de voltas em corridas e exportá-los para um arquivo. </para>
+    </listitem>
+    <listitem>
+      <para
+>O &kronometer; permite-lhe salvar uma sessão e recuperá-la mais tarde. </para>
+    </listitem>
+    <listitem>
+      <para
+>O &kronometer; permite-lhe copiar os números apresentados no temporizador. </para>
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="usage">
+  <title
+>Uso</title>
+  <sect1 id="general_usage">
+    <title
+>Uso geral</title>
+    <para
+>O principal caso de uso do &kronometer; é, obviamente, a interação com o temporizador. Você pode iniciar/pausar/continuar o temporizador, clicando nas ações adequadas da barra de ferramentas ou no menu do &kronometer;. </para>
+    <para
+>Ainda mais simples, você poderá usar o teclado em vez do mouse: poderá iniciar o temporizador com a tecla <keycap
+>Espaço</keycap
+> e também poderá também pausar o temporizador com o <keycap
+>Espaço</keycap
+>. Poderá encontrar esse comportamento em vários aplicativos para reprodução de mídias. </para>
+    <para
+>Ao pressionar a tecla &Enter; enquanto o cronômetro estiver em execução, esse tempo em particular será guardado e será criado um novo tempo de <emphasis
+>volta</emphasis
+>. Esses tempos ficarão visíveis na tabela à esquerda do aplicativo e podem ser ordenados clicando no cabeçalho da coluna <emphasis
+>Tempo da volta</emphasis
+>. Você também poderá adicionar uma anotação personalizada para cada volta, com um clique duplo nas células dentro da coluna <emphasis
+>Nota</emphasis
+>. </para>
+    <para
+>A barra de menus (oculta por padrão) fornece acesso a todos os comandos e opções de configuração. A barra de menus pode ser ativada/desativada com <guimenuitem
+>Mostrar barra de menu</guimenuitem
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>) a partir do menu <guimenu
+>Configurações</guimenu
+> ou do botão do menu na barra de ferramentas. </para>
+    <sect2 id="save_and_restore">
+      <title
+>Salvar e restaurar sessões</title>
+      <para
+>Quando pausar um cronômetro em execução, irá criar uma sessão: um tempo do cronômetro e zero ou mais tempos de voltas. Poderá salvar uma sessão e recuperá-la mais tarde. </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title
+>Salvar uma sessão</title>
+      <para
+>Pause um cronômetro em execução e, então, clique no botão <guibutton
+>Salvar como</guibutton
+> no menu <guimenu
+>Arquivo</guimenu
+>. Você pode escolher um nome para a sessão que esta salvando. </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title
+>Restaurar uma sessão</title>
+      <para
+>Clique no botão <guibutton
+>Abrir</guibutton
+> na barra de ferramentas ou no menu <guimenu
+>Arquivo</guimenu
+>. Depois escolha uma sessão existente a ser carregada a partir da caixa de diálogo de sessões. </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title
+>Atualizar uma sessão</title>
+      <para
+>Quando a sessão for restaurada, você poderá retomar o cronômetro e gravar novos tempos de voltas. Se quiser salvar a sessão atualizada, poderá simplesmente clicar no botão <guibutton
+>Salvar</guibutton
+> do menu <guimenu
+>Arquivo</guimenu
+>. </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title
+>Editar uma sessão</title>
+      <para
+>Clique no botão <guibutton
+>Abrir</guibutton
+> na barra de ferramentas ou no menu <guimenu
+>Arquivo</guimenu
+>. Se escolher uma sessão existente a partir da caixa de diálogo de sessões, você poderá: <itemizedlist>
+          <listitem>
+            <para
+>Renomear a sessão, com um clique duplo sobre o seu nome.</para>
+          </listitem>
+          <listitem>
+            <para
+>Excluir a sessão, pressionando a tecla <keycap
+>Del</keycap
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+>Adicionar uma nota à sessão ou editá-la.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="additional_features">
+    <title
+>Recursos adicionais</title>
+    <sect2 id="export_lap_times">
+      <title
+>Exportar os tempos das voltas</title>
+      <para
+>Quando registrar um ou mais tempos de voltas, as funcionalidades de exportação do menu <guimenu
+>Arquivo</guimenu
+> ficam disponíveis sob o item <guimenuitem
+>Exportar voltas como</guimenuitem
+>. Clique nele e depois escolha um nome para o arquivo exportado. Você pode exportar no formato CSV (Comma Separated Values) ou JSON. </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title
+>Suporte para a área de transferência</title>
+      <para
+>O &kronometer; é capaz de copiar o tempo atual do cronômetro para a área de transferência do sistema. Use a combinação de teclas <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> ou o item <guimenuitem
+>Copiar</guimenuitem
+> do menu <guimenu
+>Editar</guimenu
+>. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="configuration">
+  <title
+>Configuração</title>
+  <sect1 id="settings_dialog">
+    <title
+>Caixa de diálogo Configurações</title>
+    <para
+>O &kronometer; é personalizado em vários aspectos. Você pode abrir a caixa de diálogo de configuração clicando na opção <guimenuitem
+>Configurar o &kronometer;</guimenuitem
+> do menu <guimenu
+>Configurações</guimenu
+>. A caixa de diálogo de configuração está organizada nas seguintes categorias. </para>
+    <sect2 id="general_settings">
+      <title
+>Configurações gerais</title>
+      <para
+>Na página de configurações gerais, você encontra as definições do cronômetro e das voltas. Na aba do cronômetro, você pode definir o formato de tempo preferido no visor do cronômetro. Também pode escolher se deseja mostrar as horas, minutos ou frações de segundo (os segundos sempre ficarão visíveis). O &kronometer; tem suporte a granularidade para os milissegundos, ainda que isto exija uma grande carga de processamento da CPU, devido à taxa de atualização elevada da interface. </para>
+      <para
+>Dentro da aba de voltas, você pode ativar a funcionalidade de gravação das voltas. Se as mesmas estiverem ativas, você pode escolher o formato das horas, se deve mostrar as suas notas e se deve mostrar suas horas absolutas, que são as horas do cronômetro quando foram gravadas. </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title
+>Configuração da fonte</title>
+      <para
+>Na página de configuração da fonte, você poderá personalizar a fonte usada no visor do cronômetro. Poderá escolher diversos estilos, famílias e tamanhos de fonte para cada componente do temporizador (horas, minutos, &etc;). Por padrão, cada componente do cronômetro usará a mesma fonte, de acordo com a fonte padrão do sistema. </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title
+>Configuração de cores</title>
+      <para
+>Na página de configuração de cores, você poderá personalizar as cores padrão do visor do cronômetro. Poderá mudar as cores de fundo e do texto. As cores padrão irão respeitar o tema que estiver selecionado no sistema. </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title
+>Configurações incorporadas do &kde;</title>
+      <para
+>O &kronometer; utiliza as ferramentas de configuração padrão do &kde;. Você pode encontrá-las no menu <guimenu
+>Configurações</guimenu
+>, sob os itens <guimenuitem
+>Configurar os atalhos</guimenuitem
+> e <guimenuitem
+>Configurar barras de ferramentas</guimenuitem
+>. Elas permitem-lhe alterar os atalhos das ações do &kronometer;, assim como mudar a posição da barra de ferramentas e do seu conteúdo. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Créditos e Licença</title>
+  <para
+>&kronometer; </para>
+  <para
+>Direitos autorais do programa &copy; 2014-2016 Elvis Angelaccio <email
+>elvis.angelaccio@kdemail.net</email
+> </para>
+  <para
+>Direitos autorais da documentação &copy; 2014-2016 Elvis Angelaccio <email
+>elvis.angelaccio@kdemail.net</email
+> </para>
+<para
+>Tradução de André Marcelo Alvarenga <email
+>alvarenga@kde.org</email
+></para
+> 
+&underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+-->

@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Catalan  "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>10 d'abril de 2016</date>
+    <releaseinfo
+>kronometer 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>Abril de 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>Kronometer 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>aplicació de cronòmetre</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>Descripció</title>
+<para
+>El Kronometer és una aplicació de cronòmetre.</para>
+
+<para
+>Les característiques principals del Kronometer són les següents:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>Engega/pausa/continua el giny de cronòmetre;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Enregistrament de les voltes: podeu capturar el temps del cronòmetre quan vulgueu;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Ordenació dels temps per volta: podeu trobar amb facilitat els temps per volta més ràpida o més lenta;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Inicialitzar el giny de cronòmetre i els temps per volta;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Arranjament pel format del temps: podeu triar el nivell de detall del cronòmetre;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Desament i continuació dels temps: podeu desar l'estat del cronòmetre per a continuar més tard;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Personalització dels tipus de lletra: podeu triar els tipus de lletra per a cadascun dels dígits del cronòmetre;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Personalització dels colors: podeu triar el color per als dígits del cronòmetre i el fons del cronòmetre;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer usant el format JSON o CSV.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>Autor</title>
+<para
+>El Kronometer ha estat escrit per l'Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt;.</para>
+
+<para
+>Aquesta pàgina de manual ha estat escrita per en Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; pel projecte Debian (però la poden emprar els altres).</para>
+</refsect1>
+</refentry>
+

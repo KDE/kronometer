@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Ukrainian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>10 квітня 2016 року</date>
+    <releaseinfo
+>kronometer 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>квітень 2016 року</refmiscinfo>
+<refmiscinfo class='manual'
+>KRONOMETER 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>програма-секундомір</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>ОПИС</title>
+<para
+>Kronometer — програма-секундомір (таймер і хронометр).</para>
+
+<para
+>Основні можливості Kronometer:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>Віджет запуску, призупинення та поновлення відліку секундоміра.</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Запис даних щодо проходження кіл: ви можете записувати дані секундоміра у довільні моменти часу.</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Упорядковування за часом проходження кола: ви легко можете встановити найкращий і найгірший часи проходження.</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Скидання значення на віджеті секундоміра та скидання часу проходження кіл.</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Можливість зміни форматування часу: ви можете вибрати значення параметрів так, щоб було показано лише потрібні вам дані.</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Збереження та відновлення записаних даних щодо часу: ви можете записати стан секундоміра на диск і згодом відновити його.</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Можливість налаштовування шрифтів: ви можете вибрати шрифт для кожного з компонентів числових даних секундоміра.</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Можливість налаштовування кольорів: ви можете вибрати колір для числових даних секундоміра та колір тла.</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Експортування даних щодо часу проходження кіл: ви можете експортувати дані до файла у форматі JSON або CSV.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>Автор</title>
+<para
+>Програму KRONOMETER створено Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt;.</para>
+
+<para
+>Цю сторінку підручника створено Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; для проєкту Debian (її можна використовувати і у інших проєктах).</para>
+</refsect1>
+</refentry>
+

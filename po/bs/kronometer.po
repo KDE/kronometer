@@ -1,0 +1,721 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Kronometer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"PO-Revision-Date: 2015-02-24 22:48+0100\n"
+"Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
+"Language-Team: Bosnian <bs@kde.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-15 06:27+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Samir Ribić,Mirza Bulbulusic"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Samir.ribic@etf.unsa.ba,mbulbulusic@gmail.com"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/colorsettings.ui:20
+#, fuzzy, kde-format
+#| msgid "Display background:"
+msgid "Display Background:"
+msgstr "Prikaži pozadinu:"
+
+#. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_backgroundColor)
+#: src/gui/colorsettings.ui:27
+#, kde-format
+msgid "Background color of the stopwatch display"
+msgstr "Boja pozadine prikaza štoperice"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/colorsettings.ui:34
+#, fuzzy, kde-format
+#| msgid "Display digits:"
+msgid "Display Digits:"
+msgstr "Prikaži cifre"
+
+#. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_textColor)
+#: src/gui/colorsettings.ui:41
+#, kde-format
+msgid "Color of the stopwatch display digits"
+msgstr "Boja cifara štoperice"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/fontsettings.ui:23
+#, fuzzy, kde-format
+#| msgid "Hours font:"
+msgid "Hours Font:"
+msgstr "Font sati:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/fontsettings.ui:56
+#, fuzzy, kde-format
+#| msgid "Minutes font:"
+msgid "Minutes Font:"
+msgstr "Font minuta:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/gui/fontsettings.ui:89
+#, fuzzy, kde-format
+#| msgid "Seconds font:"
+msgid "Seconds Font:"
+msgstr "Font sekundi:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/fontsettings.ui:122
+#, fuzzy, kde-format
+#| msgid "Second fractions font:"
+msgid "Second Fractions Font:"
+msgstr "Font za dijelove sekundi:"
+
+#. i18n: @title:tab
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: src/gui/generalsettings.ui:24
+#, kde-format
+msgid "Stopwatch"
+msgstr "Štoperica"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: src/gui/generalsettings.ui:36
+#, fuzzy, kde-format
+#| msgid "Lap times format"
+msgid "Time Format"
+msgstr "Vremenski format krugova"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showHours)
+#: src/gui/generalsettings.ui:42
+#, kde-format
+msgid "Whether to show hours in the stopwatch"
+msgstr "Da li prikazati sate na štoperici"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showHours)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapHours)
+#: src/gui/generalsettings.ui:45 src/gui/generalsettings.ui:192
+#, fuzzy, kde-format
+#| msgid "Show hours"
+msgid "Show Hours"
+msgstr "Prikaži sate"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showMinutes)
+#: src/gui/generalsettings.ui:55
+#, kde-format
+msgid "Whether to show minutes in the stopwatch"
+msgstr "Da li prikazati minute na štoperici"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMinutes)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapMinutes)
+#: src/gui/generalsettings.ui:58 src/gui/generalsettings.ui:205
+#, fuzzy, kde-format
+#| msgid "Show minutes"
+msgid "Show Minutes"
+msgstr "Prikaži minute"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showSecondFractions)
+#: src/gui/generalsettings.ui:86
+#, fuzzy, kde-format
+#| msgid "Whether to hide second fractions in the stopwatch"
+msgid "Whether to show second fractions in the stopwatch"
+msgstr "Da li sakriti druge frakcije na štoperici"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showSecondFractions)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapSecondFractions)
+#: src/gui/generalsettings.ui:89 src/gui/generalsettings.ui:236
+#, fuzzy, kde-format
+#| msgid "Hide second fractions"
+msgid "Show Second Fractions:"
+msgstr "Sakrij druge frakcije"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:100 src/gui/generalsettings.ui:247
+#, fuzzy, kde-format
+#| msgid "Hundredths"
+msgid "Up to Tenths"
+msgstr "Stotinke"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:105 src/gui/generalsettings.ui:252
+#, fuzzy, kde-format
+#| msgid "Hundredths"
+msgid "Up to Hundredths"
+msgstr "Stotinke"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:110 src/gui/generalsettings.ui:257
+#, fuzzy, kde-format
+#| msgid "Hundredths"
+msgid "Up to Thousandths"
+msgstr "Stotinke"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_startTimerImmediately)
+#: src/gui/generalsettings.ui:137
+#, kde-format
+msgid "Start timer immediately"
+msgstr ""
+
+#. i18n: @title:tab
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: src/gui/generalsettings.ui:158
+#, kde-format
+msgid "Laps"
+msgstr "Krugovi"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
+#: src/gui/generalsettings.ui:164
+#, kde-format
+msgid "Whether to enable the laps recording feature"
+msgstr "Da li uključiti opciju snimanja krugova"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
+#: src/gui/generalsettings.ui:167
+#, fuzzy, kde-format
+#| msgid "Enable laps recording"
+msgid "Enable Laps Recording"
+msgstr "Uključiti opciju snimanja krugova"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/generalsettings.ui:183
+#, fuzzy, kde-format
+#| msgid "Lap times format"
+msgid "Lap Times Format"
+msgstr "Vremenski format krugova"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapHours)
+#: src/gui/generalsettings.ui:189
+#, kde-format
+msgid "Whether to show hours in the laps"
+msgstr "Da li prikazati sate u krugovima"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapMinutes)
+#: src/gui/generalsettings.ui:202
+#, kde-format
+msgid "Whether to show minutes in the laps"
+msgstr "Da li prikazati minute u krugovima"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapSecondFractions)
+#: src/gui/generalsettings.ui:233
+#, fuzzy, kde-format
+#| msgid "Whether to hide second fractions in the laps"
+msgid "Whether to show second fractions in the laps"
+msgstr "Da li sakriti dijelove sekundi u krugovima"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapAbsoluteTimes)
+#: src/gui/generalsettings.ui:284
+#, fuzzy, kde-format
+#| msgid "Show minutes"
+msgid "Show Absolute Times"
+msgstr "Prikaži minute"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapNotes)
+#: src/gui/generalsettings.ui:291
+#, fuzzy, kde-format
+#| msgid "Show minutes"
+msgid "Show Notes"
+msgstr "Prikaži minute"
+
+#. i18n: ectx: Menu (file)
+#: src/gui/kronometerui.rc:7
+#, kde-format
+msgid "&File"
+msgstr "&Datoteka"
+
+#. i18n: ectx: Menu (kronometerActions)
+#: src/gui/kronometerui.rc:11
+#, kde-format
+msgid "&Kronometer"
+msgstr "&Hronometar"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/gui/kronometerui.rc:20
+#, kde-format
+msgid "Kronometer Toolbar"
+msgstr "Kronometer traka"
+
+#: src/gui/mainwindow.cpp:126
+#, kde-format
+msgid "Do you want to quit and lose your unsaved times?"
+msgstr "Želite li izaći i izgubiti nesnimljena vremena?"
+
+#: src/gui/mainwindow.cpp:127
+#, fuzzy, kde-format
+#| msgid "Confirm quit"
+msgctxt "@title:window"
+msgid "Confirm Quit"
+msgstr "Potvrdite odustajanje"
+
+#: src/gui/mainwindow.cpp:138
+#, fuzzy, kde-format
+#| msgid "Save times to file %1?"
+msgid "Save times to session %1?"
+msgstr "Snimi vremena na fajl %1?"
+
+#: src/gui/mainwindow.cpp:166
+#, fuzzy, kde-format
+#| msgid "Re&sume"
+msgctxt "@action"
+msgid "Re&sume"
+msgstr "Na&stavi"
+
+#: src/gui/mainwindow.cpp:185
+#, fuzzy, kde-format
+#| msgid "&Start"
+msgctxt "@action"
+msgid "&Start"
+msgstr "&Počni"
+
+#: src/gui/mainwindow.cpp:189
+#, kde-format
+msgctxt "untitled window"
+msgid "Untitled"
+msgstr ""
+
+#: src/gui/mainwindow.cpp:214
+#, fuzzy, kde-format
+#| msgid "General settings"
+msgctxt "@title:tab"
+msgid "General Settings"
+msgstr "Opšte postavke"
+
+#: src/gui/mainwindow.cpp:217
+#, fuzzy, kde-format
+#| msgid "Font settings"
+msgctxt "@title:tab"
+msgid "Font Settings"
+msgstr "Postavke fonta"
+
+#: src/gui/mainwindow.cpp:220
+#, fuzzy, kde-format
+#| msgid "Color settings"
+msgctxt "@title:tab"
+msgid "Color Settings"
+msgstr "Podešavanja boja"
+
+#: src/gui/mainwindow.cpp:289
+#, fuzzy, kde-format
+#| msgid "Save settings"
+msgctxt "@title:window"
+msgid "Save Session"
+msgstr "Snimi postavke"
+
+#: src/gui/mainwindow.cpp:290
+#, kde-format
+msgid "You can choose a name for this session:"
+msgstr ""
+
+#: src/gui/mainwindow.cpp:299
+#, kde-format
+msgctxt "untitled session"
+msgid "Untitled session"
+msgstr ""
+
+#: src/gui/mainwindow.cpp:309
+#, fuzzy, kde-format
+#| msgid "&Export laps as..."
+msgctxt "@title:window"
+msgid "Export Laps"
+msgstr "&Izvezi prolazna vremena kao..."
+
+#: src/gui/mainwindow.cpp:435
+#, fuzzy, kde-format
+#| msgid "&Pause"
+msgctxt "@action"
+msgid "&Pause"
+msgstr "&Pauza"
+
+#: src/gui/mainwindow.cpp:438
+#, fuzzy, kde-format
+#| msgid "&Reset"
+msgctxt "@action"
+msgid "&Reset"
+msgstr "&Resetuj"
+
+#: src/gui/mainwindow.cpp:441
+#, fuzzy, kde-format
+#| msgid "&Lap"
+msgctxt "@action"
+msgid "&Lap"
+msgstr "&Prolazno vrijeme"
+
+#: src/gui/mainwindow.cpp:444
+#, fuzzy, kde-format
+#| msgid "&Export laps as..."
+msgctxt "@action:inmenu"
+msgid "&Export Laps as..."
+msgstr "&Izvezi prolazna vremena kao..."
+
+#: src/gui/mainwindow.cpp:638
+#, fuzzy, kde-format
+#| msgid "Lap number,Lap time,Global time,Note"
+msgctxt "@info:shell"
+msgid "Lap number,Lap time,Global time,Note"
+msgstr "Broj kruga, Vrijeme kruga, Globalno brijeme, Napomena"
+
+#: src/gui/mainwindow.cpp:671
+#, fuzzy, kde-format
+#| msgid "Created by Kronometer on %1"
+msgctxt "@info:shell"
+msgid "Created by Kronometer on %1"
+msgstr "Kreirano Kronometrom na %1"
+
+#: src/gui/mainwindow.cpp:737
+#, kde-format
+msgid "A stopwatch is running."
+msgstr ""
+
+#: src/gui/sessiondialog.cpp:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Open session"
+msgstr ""
+
+#: src/gui/sessiondialog.cpp:100
+#, kde-format
+msgctxt "@info"
+msgid "You don't have any saved session yet."
+msgstr ""
+
+#: src/gui/sessiondialog.cpp:122
+#, kde-format
+msgctxt "@info"
+msgid "Do you want to remove the selected session?"
+msgstr ""
+
+#: src/gui/sessiondialog.cpp:123
+#, fuzzy, kde-format
+#| msgid "Confirm quit"
+msgctxt "@title:window"
+msgid "Confirm deletion"
+msgstr "Potvrdite odustajanje"
+
+#. i18n: @title:window
+#. i18n: ectx: property (windowTitle), widget (QDialog, SessionDialog)
+#: src/gui/sessiondialog.ui:14
+#, fuzzy, kde-format
+#| msgid "Save settings"
+msgid "Open Session"
+msgstr "Snimi postavke"
+
+#: src/gui/timedisplay.cpp:153
+#, fuzzy, kde-format
+#| msgid "Tenths"
+msgctxt "@title:column"
+msgid "Tenths"
+msgstr "Desetinke sekunde"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_fracGroup)
+#: src/gui/timedisplay.cpp:157 src/gui/timedisplay.ui:54
+#, fuzzy, kde-format
+#| msgid "Hundredths"
+msgctxt "@title:column"
+msgid "Hundredths"
+msgstr "Stotinke"
+
+#: src/gui/timedisplay.cpp:161
+#, fuzzy, kde-format
+#| msgid "Milliseconds"
+msgctxt "@title:column"
+msgid "Milliseconds"
+msgstr "Milisekundi"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_hourGroup)
+#: src/gui/timedisplay.ui:18
+#, fuzzy, kde-format
+#| msgid "Hours"
+msgctxt "@title:column"
+msgid "Hours"
+msgstr "Sati"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_minGroup)
+#: src/gui/timedisplay.ui:30
+#, fuzzy, kde-format
+#| msgid "Minutes"
+msgctxt "@title:column"
+msgid "Minutes"
+msgstr "Minute"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_secGroup)
+#: src/gui/timedisplay.ui:42
+#, fuzzy, kde-format
+#| msgid "Seconds"
+msgctxt "@title:column"
+msgid "Seconds"
+msgstr "Sekundi"
+
+#: src/main.cpp:32
+#, fuzzy, kde-format
+#| msgid "Kronometer"
+msgctxt "KAboutData display name"
+msgid "Kronometer"
+msgstr "Kronometer"
+
+#: src/main.cpp:34
+#, fuzzy, kde-format
+#| msgid "Kronometer is a simple chronometer application built for KDE"
+msgid "Kronometer is a simple stopwatch application"
+msgstr "Kronometer je prosti mjerač vremena za KDE"
+
+#: src/main.cpp:36
+#, fuzzy, kde-format
+#| msgid "Copyright (C) 2014 Elvis Angelaccio"
+msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
+msgstr "Copyright (C) 2014 Elvis Angelaccio"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Elvis Angelaccio"
+msgstr "Elvis Angelaccio"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Maintainer"
+msgstr ""
+
+#: src/main.cpp:49
+#, kde-format
+msgid "Ken Vermette"
+msgstr ""
+
+#: src/main.cpp:50
+#, fuzzy, kde-format
+#| msgid "Kronometer"
+msgid "Kronometer icon"
+msgstr "Kronometer"
+
+#: src/models/lapmodel.cpp:72
+#, fuzzy, kde-format
+#| msgid "Lap #"
+msgctxt "lap number"
+msgid "Lap #"
+msgstr "Prolaz #"
+
+#: src/models/lapmodel.cpp:74
+#, fuzzy, kde-format
+#| msgid "Lap time"
+msgctxt "@title:column"
+msgid "Lap Time"
+msgstr "Vrijeme kruga"
+
+#: src/models/lapmodel.cpp:76
+#, fuzzy, kde-format
+#| msgid "Global time"
+msgctxt "@title:column"
+msgid "Global Time"
+msgstr "Globalno vrijeme"
+
+#: src/models/lapmodel.cpp:78
+#, fuzzy, kde-format
+#| msgid "Note"
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Napomena"
+
+#: src/models/sessionmodel.cpp:97
+#, kde-format
+msgctxt "session number"
+msgid "Session #"
+msgstr ""
+
+#: src/models/sessionmodel.cpp:99
+#, kde-format
+msgid "Name"
+msgstr ""
+
+#: src/models/sessionmodel.cpp:101
+#, kde-format
+msgid "Date"
+msgstr ""
+
+#: src/models/sessionmodel.cpp:103
+#, kde-format
+msgid "Note"
+msgstr "Napomena"
+
+#, fuzzy
+#~| msgid "Show also milliseconds"
+#~ msgid "up to Milliseconds"
+#~ msgstr "Takođe prikaži milisekunde"
+
+#, fuzzy
+#~| msgid "Hundredths"
+#~ msgid "Hundredths"
+#~ msgstr "Stotinke"
+
+#~ msgid "Developer"
+#~ msgstr "Programer"
+
+#~ msgid "Empty Toolbar"
+#~ msgstr "Prazna Alatna traka"
+
+#, fuzzy
+#~| msgid "Running..."
+#~ msgctxt "@info:status"
+#~ msgid "Running..."
+#~ msgstr "Pokretanje..."
+
+#, fuzzy
+#~| msgid "Paused"
+#~ msgctxt "@info:status"
+#~ msgid "Paused"
+#~ msgstr "Pauzirano"
+
+#, fuzzy
+#~| msgid "Inactive"
+#~ msgctxt "@info:status"
+#~ msgid "Inactive"
+#~ msgstr "Neaktivno"
+
+#, fuzzy
+#~| msgid "Current chronometer status"
+#~ msgctxt "@info:tooltip"
+#~ msgid "Current chronometer status"
+#~ msgstr "Trenutno stanje mjerača vremena"
+
+#, fuzzy
+#~| msgid ""
+#~| "Whether to show the descriptive headers on top of the stopwatch "
+#~| "display(s)"
+#~ msgid ""
+#~ "Whether to show the descriptive headers on top of the stopwatch display"
+#~ msgstr "Da li prikazati opisna zaglavlja na vrhu zaslona štoperice"
+
+#, fuzzy
+#~| msgid "Show time headers"
+#~ msgid "Show time headers in the display"
+#~ msgstr "Prikaži zaglavlje vremena"
+
+#~ msgid "Choose export file destination"
+#~ msgstr "Izaberite izvoznu destinaciju fajla"
+
+#~ msgid "Interface settings"
+#~ msgstr "Postavke interfejsa"
+
+#~ msgid "Choose a Kronometer save file"
+#~ msgstr "Odaberi Kronometer datoteku za snimiti"
+
+#~ msgid "Choose Kronometer save file destination"
+#~ msgstr "Izaberite lokaciju za snimanje fajla Kronometra"
+
+#~ msgid "Failed to open file"
+#~ msgstr "Neuspješno otvaranje datoteke."
+
+#~ msgid "Cannot open file: %1"
+#~ msgstr "Nije moguće otvoriti datoteku: %1"
+
+#~ msgid "Invalid XML file"
+#~ msgstr "Nevažeča XML datoteka"
+
+#~ msgid "Incomplete Kronometer save file"
+#~ msgstr "Nepotpun Kronometrov fajl za snimanje"
+
+#~ msgid "Stopwatch time format"
+#~ msgstr "Format vremena štoperice"
+
+#~ msgid "Whether to show seconds in the stopwatch"
+#~ msgstr "Da li prikazati sekunde na štoperici"
+
+#~ msgid "Show seconds"
+#~ msgstr "Prikaži sekunde"
+
+#~ msgid "Stopwatch advanced time format"
+#~ msgstr "Napredni format vremena za štopericu"
+
+#~ msgid "Whether to show tenths of second in the stopwatch"
+#~ msgstr "Da li prikazati desetinke na štoperici"
+
+#~ msgid "Show also tenths of second"
+#~ msgstr "Takođe prikaži desetinke"
+
+#~ msgid "Whether to show tenths and hundredths of second in the stopwatch"
+#~ msgstr "Da li prikazati desetinke i stotinke na štoperici"
+
+#~ msgid "Show tenths and hundredths of second"
+#~ msgstr "Prikaži desetinke i stotinke"
+
+#~ msgid ""
+#~ "Whether to show milliseconds in the stopwatch. It requires an high CPU "
+#~ "usage because the GUI is refreshed every millisecond"
+#~ msgstr ""
+#~ "Da li prikazati milisekunde na štoperici. To zahtijeva veliku upotrebu "
+#~ "CPU-a, jer će se GUI osvježavati svake milisekunde"
+
+#~ msgid "Show also milliseconds (high CPU usage!)"
+#~ msgstr "Takođe prikaži milisekunde (velika upotreba CPU-a)"
+
+#~ msgid "Whether to show seconds in the laps"
+#~ msgstr "Da li prikazati sekunde u krugovima"
+
+#~ msgid "Lap times advanced format"
+#~ msgstr "Napredni format vremena kruga"
+
+#~ msgid "Whether to show tenths of second in the lapswatch"
+#~ msgstr "Da li prikazati desetinke u lapswatchu"
+
+#~ msgid "Whether to show tenths and hundredths of second in the laps"
+#~ msgstr "Da li prikazati desetinke i stotinke u krugovima"
+
+#~ msgid "Whether to show milliseconds in the stopwatch"
+#~ msgstr "Da li prikazati milisekunde na štoperici"
+
+#~ msgid "Stopwatch display"
+#~ msgstr "Prikaz štoperice"
+
+#~ msgid "XML save files"
+#~ msgstr "XML snimljeni fajlovi"
+
+#~ msgid "Indent size:"
+#~ msgstr "Veličina ureza:"
+
+#~ msgid "Indent size of the XML save files created by the program"
+#~ msgstr "Veličina ureza XML snimljenih fajlova kreiranih od strane programa"
+
+#~ msgid " characters"
+#~ msgstr " slova"
+
+#~ msgid "XML exported files"
+#~ msgstr "XML izvozni fajlovi"
+
+#~ msgid "Indent size of the XML exported files created by the program"
+#~ msgstr "Veličina ureza XML izvoznih fajlova kreiranih od strane programa"
+
+#~ msgid "Save times on a new file?"
+#~ msgstr "Snimi vremena na novi fajl?"
+
+#~ msgid "Background color:"
+#~ msgstr "Boja pozadine:"
+
+#~ msgid "Text color:"
+#~ msgstr "Boja teksta:"
+
+#~ msgid "Window content"
+#~ msgstr "Sadržaj prozora"
+
+#~ msgid "Unsaved times"
+#~ msgstr "Nesnimljena vremena"
+
+#~ msgid ""
+#~ "Whether to show a save dialog on application exit, if there are unsaved "
+#~ "times"
+#~ msgstr ""
+#~ "Da li prikazati dijalog za snimanje prilikom izlaska iz aplikacije, "
+#~ "ukoliko postoje nesnimljena vremena"
+
+#~ msgid "Ask to save on exit"
+#~ msgstr "Pitajte za snimanje na izlazu"

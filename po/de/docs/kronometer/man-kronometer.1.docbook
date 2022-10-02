@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % German "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>2016-04-10</date>
+    <releaseinfo
+>kronometer 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>April 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>KRONOMETER 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>Stoppuhrprogramm</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>Beschreibung</title>
+<para
+>Kronometer ist eine Anwendung für die Zeitmessung (Stoppuhr).</para>
+
+<para
+>Kronometer hat folgende wichtige Funktionen:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>Das Stoppuhr-Miniprogramm starten/anhalten/fortsetzen</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Zwischenzeiten: Sie können eine Zeit festhalten, wann sie möchten</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Zwischenzeiten sortieren: so finden Sie einfach die schnellste oder langsamste Zeit</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Das Stoppuhr-Miniprogramm sowie Zwischenzeiten zurücksetzen</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Zeitformat einstellen: Sie können die Genauigkeit der Stoppuhr einstellen</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Zeiten speichern und fortsetzen: Sie können den Status der Stoppuhr speichern und später fortsetzen</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Eigene Schriftarten: Sie können für jede Ziffer der Stoppuhr eine Schriftart wählen</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Eigene Farben: Sie können für die Ziffern und den Hintergrund der Stoppuhr die Farbe wählen</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Zwischenzeiten-Export: Sie können die Zwischenzeiten in den Formaten JSON oder CVS in eine Datei speichern.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>Autor</title>
+<para
+>Das Programm Kronometer wurde von Elvis Angelaccio &lt;elvis.angelaccio@kde.orgt&gt; geschrieben.</para>
+
+<para
+>Diese Handbuchseite wurde von Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; für das Debian-Projekt geschrieben, darf aber auch von anderen verwendet werden.</para>
+</refsect1>
+</refentry>
+

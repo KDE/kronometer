@@ -1,0 +1,295 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kronometer "<application
+>Kronometer</application
+>">
+  <!ENTITY kappname "&kronometer;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Dutch "INCLUDE">
+]>
+
+<book id="kronometer" lang="&language;">
+
+<bookinfo>
+<title
+>Het handboek van &kronometer;</title>
+
+<authorgroup>
+  <author
+><firstname
+>Elvis</firstname
+><surname
+>Angelaccio</surname
+> <affiliation
+> <address
+> <email
+>elvis.angelaccio@kde.org</email>
+      </address>
+    </affiliation>
+  </author>
+&Freek.de.Kruijf;&Ronald.Stroethoff; 
+</authorgroup>
+
+<copyright>
+<year
+>2014-2016</year>
+<holder
+>Elvis Angelaccio</holder>
+</copyright>
+
+<date
+>2016-04-10</date>
+<releaseinfo
+>&kronometer; 2.1</releaseinfo>
+
+<legalnotice>
+  &FDLNotice;
+</legalnotice>
+
+<abstract>
+  <para
+>&kronometer; is een stopwatch-toepassing. Het kan gebruikt worden voor basistaken zoals starten/pauzeren/doorgaan van een stopwatch, evenals opnemen van rondetijden. </para>
+  <para
+>&kronometer; kan een volledige sessie opslaan (stopwatch en rondetijden) en deze later herstellen. </para>
+</abstract>
+
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Kronometer</keyword>
+  <keyword
+>stopwatch</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Inleiding</title>
+  <para
+>&kronometer; is een toepassing met een eenvoudige stopwatch. Het is bedoeld om eenvoudig te zijn en prettig in gebruik, dankzij op gebruik gerichte ontwikkeling. </para>
+  <para
+>De hoofdfunctie van &kronometer; zijn als volgt: </para>
+  <itemizedlist>
+    <listitem>
+      <para
+>&kronometer; biedt een stopwatch die gestart, gepauzeerd, doorgestart en gereset kan worden. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; kan rondetijden opnemen en ze exporteren naar een bestand. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; kan een sessie opslaan en deze later herstellen. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; kan de stopwatchgetallen vanaf zijn scherm kopiëren. </para>
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="usage">
+  <title
+>Gebruik</title>
+  <sect1 id="general_usage">
+    <title
+>Algemeen gebruik</title>
+    <para
+>De hoofdfunctie van &kronometer; is natuurlijk de interactie met de stopwatch. U kunt de stopwatch starten/pauzeren/laten doorgaan door te klikken op de juiste acties in de werkbalk of in het menu van &kronometer;. </para>
+    <para
+>Nog makkelijker, u kunt in plaats van de muis het toetsenbord gebruiken: u start de stopwatch met de toets <keycap
+>Space</keycap
+> en u zet de stopwatch op pauze ook met <keycap
+>Space</keycap
+>. U herkent dit wellicht van vele media spelers. </para>
+    <para
+>Door op de toets &Enter; te drukken, wanneer de timer loopt, kunt u die specifieke tijd bevriezen en u kunt een nieuwe <emphasis
+>rondetijd</emphasis
+> maken. Deze tijden zijn altijd zichtbaar in de tabel aan de linkerkant van de toepassing, waar u ze kunt sorteren door te klikken op de kolomkop van <emphasis
+>Rondetijden</emphasis
+>. U kunt ook een eigen tekstannotatie aan elke ronde toevoegen door dubbel te klikken in de cellen in de kolom <emphasis
+>Notitie</emphasis
+>. </para>
+    <para
+>De menubalk (standaard verborgen) biedt toegang tot alle commando en configuratie opties. De menubalk kan omgeschakeld worden met <guimenuitem
+>Menubalk tonen</guimenuitem
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>) uit het menu <guimenu
+>Instellingen</guimenu
+> of de menuknop in de werkbalk. </para>
+    <sect2 id="save_and_restore">
+      <title
+>Opslaan en herstellen van sessies</title>
+      <para
+>Als u een lopende stopwatch pauzeert dan creëert u een sessie: een stopwatchtijd en een of meer rondetijden. U kunt een sessie opslaan en u kunt deze later weer herstellen. </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title
+>Sessie opslaan</title>
+      <para
+>Pauzeer een lopende stopwatch, klik vervolgens op de knop <guibutton
+>Opslaan als</guibutton
+> of in het menu <guimenu
+>Bestand</guimenu
+>. U kunt een naam voor de sessie die u wilt opslaan kiezen. </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title
+>Sessie herstellen</title>
+      <para
+>Klik op de knop <guibutton
+>Openen</guibutton
+> op de werkbalk of in het menu <guimenu
+>Bestand</guimenu
+>. Kies vervolgens een bestaand sessie-bestand dat u wilt laden in de sessie-dialoog. </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title
+>Sessie bijwerken</title>
+      <para
+>Als de sessie is hersteld, dan kunt u de stopwatch zijn taak laten hervatten en weer rondetijden laten registreren. Als u de bijgewerkte sessie weer wilt opslaan, dan kunt u weer op de knop <guibutton
+>Opslaan</guibutton
+> of in het menu <guimenu
+>Bestand</guimenu
+> klikken. </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title
+>Sessie bewerken</title>
+      <para
+>Klik op de knop <guibutton
+>Openen</guibutton
+> op de werkbalk of in het menu <guimenu
+>Bestand</guimenu
+>. Als u een bestaande sessie in de sessie-dialoog selecteert, zult in staat zijn: <itemizedlist>
+          <listitem>
+            <para
+>De sessie te hernoemen door dubbel te klikken op zijn naam.</para>
+          </listitem>
+          <listitem>
+            <para
+>De sessie verwijderen door op <keycap
+>Del</keycap
+> te drukken.</para>
+          </listitem>
+          <listitem>
+            <para
+>Een notitie aan de sessie toevoegen of deze bewerken.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="additional_features">
+    <title
+>Verdere mogelijkheden</title>
+    <sect2 id="export_lap_times">
+      <title
+>Rondetijden te exporteren</title>
+      <para
+>Nadat u een of meerdere rondetijden heeft opgenomen, komt in het menuitem <guimenuitem
+>Ronden exporteren als</guimenuitem
+> van het menu <guimenu
+>Bestand</guimenu
+> de mogelijkheid tot exporteren beschikbaar. Klik erop en kies een naam voor het te exporteren bestand. U kunt exporteren naar het formaat Comma Separated Values (CSV) of naar het JSON-bestand. </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title
+>Ondersteuning van het klembord</title>
+      <para
+>&kronometer; is in staat om de huidige stopwatchtijd naar klembord van het systeem te kopiëren. Gebruik de toetscombinatie <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> of het item <guimenuitem
+>Kopiëren</guimenuitem
+>uit het menu <guimenu
+>Bewerken</guimenu
+>. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="configuration">
+  <title
+>Configuratie</title>
+  <sect1 id="settings_dialog">
+    <title
+>Instellingendialoog</title>
+    <para
+>U kunt vele aspecten van &kronometer; aanpassen. U kunt de instellingendialoog openen door op het item <guimenuitem
+>&kronometer; instellen</guimenuitem
+> te klikken in het menu <guimenu
+>Instellingen</guimenu
+>. De instellingendialoog heeft de volgende categorieën. </para>
+    <sect2 id="general_settings">
+      <title
+>Algemene instellingen</title>
+      <para
+>In de algemene instellingenpagina kunt u de instellingen vinden voor de stopwatch en de rondetijden. Onder het tabblad stopwatch kunt u uw voorkeur voor het tijdsindeling op de display van de stopwatch instellen. U kunt kiezen of u fracties van uren, minuten of seconden laat tonen (terwijl seconden altijd getoond worden). &kronometer; ondersteunt tijden tot op de milliseconde, hoewel dat een hoog CPU-gebruik eist vanwege de hoge snelheid voor verversing van het gebruikersinterface. </para>
+      <para
+>In het tabblad rondentijden kunt u het opnemen van rondetijden aan of uitschakelen. Als deze zijn ingeschakeld kunt u hun tijdindeling kiezen, om hun notities te tonen en hun absolute tijden, die de tijden van de stopwatch zijn op het moment dat ze zijn opgenomen. </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title
+>Lettertype-instellingen</title>
+      <para
+>In pagina voor instellingen voor lettertypen kunt de keuze voor het lettertype van het stopwatchbeeldscherm aanpassen. U kunt verschillende families lettertypen, stijlen en formaten voor elke tijdseenheid (uren, minuten, &etc;) kiezen. Standaard zal elke component van de timer hetzelfde lettertype gebruiken, overeenkomstig het huidige standaard lettertype van het systeem. </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title
+>Kleurinstellingen</title>
+      <para
+>In de pagina voor de kleurinstellingen kunt u de standaard kleur van het beeldscherm van de stopwatch aanpassen. U kunt de achtergrondkleur en de tekstkleur wijzigen. De standaard kleuren volgen het huidige geselecteerde thema van het systeem. </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title
+>&kde; ingebouwde instellingen</title>
+      <para
+>&kronometer; maakt gebruik van de standaard &kde;-hulpmiddelen voor instellingen. U kunt ze vinden in het menu <guimenu
+>Instellingen</guimenu
+>, onder de items <guimenuitem
+>Sneltoetsen instellen</guimenuitem
+> en <guimenuitem
+>Werkbalken instellen</guimenuitem
+>. U kunt hier de sneltoetsen voor de acties in &kronometer;, de locatie van de werkbalk en zijn inhoud wijzigen. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Dankbetuigingen en licentie</title>
+  <para
+>&kronometer; </para>
+  <para
+>Programma copyright &copy; 2014-2016 Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+  <para
+>Documentatie copyright &copy; 2014-2016 Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+&meld.fouten;&vertaling.freek;&vertaling.ronald;&nagelezen.freek; &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+-->

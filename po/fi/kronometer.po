@@ -1,0 +1,681 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2014, 2015, 2016.
+# Tommi Nieminen <translator@legisign.org>, 2018, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"PO-Revision-Date: 2021-09-03 21:56+0300\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 20.04.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Lasse Liehu, Tommi Nieminen"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lasse.liehu@gmail.com, translator@legisign.org"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/colorsettings.ui:20
+#, kde-format
+msgid "Display Background:"
+msgstr "Näytön tausta:"
+
+#. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_backgroundColor)
+#: src/gui/colorsettings.ui:27
+#, kde-format
+msgid "Background color of the stopwatch display"
+msgstr "Sekuntikellon näytön taustaväri"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/colorsettings.ui:34
+#, kde-format
+msgid "Display Digits:"
+msgstr "Näytön numerot:"
+
+#. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_textColor)
+#: src/gui/colorsettings.ui:41
+#, kde-format
+msgid "Color of the stopwatch display digits"
+msgstr "Sekuntikellon näytön numeroiden väri"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/fontsettings.ui:23
+#, kde-format
+msgid "Hours Font:"
+msgstr "Tuntien fontti:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/fontsettings.ui:56
+#, kde-format
+msgid "Minutes Font:"
+msgstr "Minuuttien fontti:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/gui/fontsettings.ui:89
+#, kde-format
+msgid "Seconds Font:"
+msgstr "Sekuntien fontti:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/fontsettings.ui:122
+#, kde-format
+msgid "Second Fractions Font:"
+msgstr "Sekunnin murto-osien fontti:"
+
+#. i18n: @title:tab
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: src/gui/generalsettings.ui:24
+#, kde-format
+msgid "Stopwatch"
+msgstr "Sekuntikello"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: src/gui/generalsettings.ui:36
+#, kde-format
+msgid "Time Format"
+msgstr "Ajan muoto"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showHours)
+#: src/gui/generalsettings.ui:42
+#, kde-format
+msgid "Whether to show hours in the stopwatch"
+msgstr "Näytetäänkö tunnit sekuntikellossa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showHours)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapHours)
+#: src/gui/generalsettings.ui:45 src/gui/generalsettings.ui:192
+#, kde-format
+msgid "Show Hours"
+msgstr "Näytä tunnit"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showMinutes)
+#: src/gui/generalsettings.ui:55
+#, kde-format
+msgid "Whether to show minutes in the stopwatch"
+msgstr "Näytetäänkö minuutit sekuntikellossa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMinutes)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapMinutes)
+#: src/gui/generalsettings.ui:58 src/gui/generalsettings.ui:205
+#, kde-format
+msgid "Show Minutes"
+msgstr "Näytä minuutit"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showSecondFractions)
+#: src/gui/generalsettings.ui:86
+#, kde-format
+msgid "Whether to show second fractions in the stopwatch"
+msgstr "Näytetäänkö sekunnin murto-osat sekuntikellossa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showSecondFractions)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapSecondFractions)
+#: src/gui/generalsettings.ui:89 src/gui/generalsettings.ui:236
+#, kde-format
+msgid "Show Second Fractions:"
+msgstr "Näytä sekunnin murto-osat:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:100 src/gui/generalsettings.ui:247
+#, kde-format
+msgid "Up to Tenths"
+msgstr "Kymmenesosiin asti"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:105 src/gui/generalsettings.ui:252
+#, kde-format
+msgid "Up to Hundredths"
+msgstr "Sadasosiin asti"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:110 src/gui/generalsettings.ui:257
+#, kde-format
+msgid "Up to Thousandths"
+msgstr "Tuhannesosiin asti"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_startTimerImmediately)
+#: src/gui/generalsettings.ui:137
+#, kde-format
+msgid "Start timer immediately"
+msgstr "Käynnistä ajastus välittömästi"
+
+#. i18n: @title:tab
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: src/gui/generalsettings.ui:158
+#, kde-format
+msgid "Laps"
+msgstr "Kierrokset"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
+#: src/gui/generalsettings.ui:164
+#, kde-format
+msgid "Whether to enable the laps recording feature"
+msgstr "Tallennetaanko kierrokset"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
+#: src/gui/generalsettings.ui:167
+#, kde-format
+msgid "Enable Laps Recording"
+msgstr "Tallenna kierrokset"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/generalsettings.ui:183
+#, kde-format
+msgid "Lap Times Format"
+msgstr "Kierrosaikojen muoto"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapHours)
+#: src/gui/generalsettings.ui:189
+#, kde-format
+msgid "Whether to show hours in the laps"
+msgstr "Näytetäänkö tunnit kierroksissa"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapMinutes)
+#: src/gui/generalsettings.ui:202
+#, kde-format
+msgid "Whether to show minutes in the laps"
+msgstr "Näytetäänkö minuutit kierroksissa"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapSecondFractions)
+#: src/gui/generalsettings.ui:233
+#, kde-format
+msgid "Whether to show second fractions in the laps"
+msgstr "Näytetäänkö sekunnin murto-osat kierrosajoissa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapAbsoluteTimes)
+#: src/gui/generalsettings.ui:284
+#, kde-format
+msgid "Show Absolute Times"
+msgstr "Näytä absoluuttiset ajat"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapNotes)
+#: src/gui/generalsettings.ui:291
+#, kde-format
+msgid "Show Notes"
+msgstr "Näytä muistiinpanot"
+
+#. i18n: ectx: Menu (file)
+#: src/gui/kronometerui.rc:7
+#, kde-format
+msgid "&File"
+msgstr "&Tiedosto"
+
+#. i18n: ectx: Menu (kronometerActions)
+#: src/gui/kronometerui.rc:11
+#, kde-format
+msgid "&Kronometer"
+msgstr "&Kronometer"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/gui/kronometerui.rc:20
+#, kde-format
+msgid "Kronometer Toolbar"
+msgstr "Kronometerin työkalurivi"
+
+#: src/gui/mainwindow.cpp:126
+#, kde-format
+msgid "Do you want to quit and lose your unsaved times?"
+msgstr "Haluatko lopettaa ja menettää tallentamattomat ajat?"
+
+#: src/gui/mainwindow.cpp:127
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Quit"
+msgstr "Vahvista lopetus"
+
+#: src/gui/mainwindow.cpp:138
+#, kde-format
+msgid "Save times to session %1?"
+msgstr "Tallennetaanko ajat istuntoon %1?"
+
+#: src/gui/mainwindow.cpp:166
+#, kde-format
+msgctxt "@action"
+msgid "Re&sume"
+msgstr "&Jatka"
+
+#: src/gui/mainwindow.cpp:185
+#, kde-format
+msgctxt "@action"
+msgid "&Start"
+msgstr "&Käynnistä"
+
+#: src/gui/mainwindow.cpp:189
+#, kde-format
+msgctxt "untitled window"
+msgid "Untitled"
+msgstr "Nimetön"
+
+#: src/gui/mainwindow.cpp:214
+#, kde-format
+msgctxt "@title:tab"
+msgid "General Settings"
+msgstr "Yleisasetukset"
+
+#: src/gui/mainwindow.cpp:217
+#, kde-format
+msgctxt "@title:tab"
+msgid "Font Settings"
+msgstr "Fonttiasetukset"
+
+#: src/gui/mainwindow.cpp:220
+#, kde-format
+msgctxt "@title:tab"
+msgid "Color Settings"
+msgstr "Väriasetukset"
+
+#: src/gui/mainwindow.cpp:289
+#, kde-format
+msgctxt "@title:window"
+msgid "Save Session"
+msgstr "Tallenna istunto"
+
+#: src/gui/mainwindow.cpp:290
+#, kde-format
+msgid "You can choose a name for this session:"
+msgstr "Voit valita nimen tälle istunnolle:"
+
+#: src/gui/mainwindow.cpp:299
+#, kde-format
+msgctxt "untitled session"
+msgid "Untitled session"
+msgstr "Nimetön istunto"
+
+#: src/gui/mainwindow.cpp:309
+#, kde-format
+msgctxt "@title:window"
+msgid "Export Laps"
+msgstr "Vie kierrokset"
+
+#: src/gui/mainwindow.cpp:435
+#, kde-format
+msgctxt "@action"
+msgid "&Pause"
+msgstr "&Tauko"
+
+#: src/gui/mainwindow.cpp:438
+#, kde-format
+msgctxt "@action"
+msgid "&Reset"
+msgstr "&Nollaa"
+
+#: src/gui/mainwindow.cpp:441
+#, kde-format
+msgctxt "@action"
+msgid "&Lap"
+msgstr "&Kierros"
+
+#: src/gui/mainwindow.cpp:444
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Export Laps as..."
+msgstr "&Vie kierrokset nimellä…"
+
+#: src/gui/mainwindow.cpp:638
+#, kde-format
+msgctxt "@info:shell"
+msgid "Lap number,Lap time,Global time,Note"
+msgstr "Kierrosnumero,kierrosaika,yhteisaika,muistiinpano"
+
+#: src/gui/mainwindow.cpp:671
+#, kde-format
+msgctxt "@info:shell"
+msgid "Created by Kronometer on %1"
+msgstr "Kronometer loi %1"
+
+#: src/gui/mainwindow.cpp:737
+#, kde-format
+msgid "A stopwatch is running."
+msgstr "Sekuntikello on käynnissä."
+
+#: src/gui/sessiondialog.cpp:34
+#, kde-format
+msgctxt "@action:button"
+msgid "Open session"
+msgstr "Avaa istunto"
+
+#: src/gui/sessiondialog.cpp:100
+#, kde-format
+msgctxt "@info"
+msgid "You don't have any saved session yet."
+msgstr "Yhtään istuntoa ei ole vielä tallennettu."
+
+#: src/gui/sessiondialog.cpp:122
+#, kde-format
+msgctxt "@info"
+msgid "Do you want to remove the selected session?"
+msgstr "Haluatko poistaa valitun istunnon?"
+
+#: src/gui/sessiondialog.cpp:123
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm deletion"
+msgstr "Vahvista poisto"
+
+#. i18n: @title:window
+#. i18n: ectx: property (windowTitle), widget (QDialog, SessionDialog)
+#: src/gui/sessiondialog.ui:14
+#, kde-format
+msgid "Open Session"
+msgstr "Avaa istunto"
+
+#: src/gui/timedisplay.cpp:153
+#, kde-format
+msgctxt "@title:column"
+msgid "Tenths"
+msgstr "Kymmenesosat"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_fracGroup)
+#: src/gui/timedisplay.cpp:157 src/gui/timedisplay.ui:54
+#, kde-format
+msgctxt "@title:column"
+msgid "Hundredths"
+msgstr "Sadasosat"
+
+#: src/gui/timedisplay.cpp:161
+#, kde-format
+msgctxt "@title:column"
+msgid "Milliseconds"
+msgstr "Millisekunnit"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_hourGroup)
+#: src/gui/timedisplay.ui:18
+#, kde-format
+msgctxt "@title:column"
+msgid "Hours"
+msgstr "Tunnit"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_minGroup)
+#: src/gui/timedisplay.ui:30
+#, kde-format
+msgctxt "@title:column"
+msgid "Minutes"
+msgstr "Minuutit"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_secGroup)
+#: src/gui/timedisplay.ui:42
+#, kde-format
+msgctxt "@title:column"
+msgid "Seconds"
+msgstr "Sekunnit"
+
+# pmap: =:gen=Kronometerin:
+# pmap: =:elat=Kronometeristä:
+#: src/main.cpp:32
+#, kde-format
+msgctxt "KAboutData display name"
+msgid "Kronometer"
+msgstr "Kronometer"
+
+#: src/main.cpp:34
+#, kde-format
+msgid "Kronometer is a simple stopwatch application"
+msgstr "Kronometer on yksinkertainen sekuntikellosovellus"
+
+#: src/main.cpp:36
+#, kde-format
+msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
+msgstr "Copyright © 2014–2016 Elvis Angelaccio"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Elvis Angelaccio"
+msgstr "Elvis Angelaccio"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Maintainer"
+msgstr "Ylläpitäjä"
+
+#: src/main.cpp:49
+#, kde-format
+msgid "Ken Vermette"
+msgstr "Ken Vermette"
+
+#: src/main.cpp:50
+#, kde-format
+msgid "Kronometer icon"
+msgstr "Kronometer-kuvake"
+
+#: src/models/lapmodel.cpp:72
+#, kde-format
+msgctxt "lap number"
+msgid "Lap #"
+msgstr "Kierros #"
+
+#: src/models/lapmodel.cpp:74
+#, kde-format
+msgctxt "@title:column"
+msgid "Lap Time"
+msgstr "Kierrosaika"
+
+#: src/models/lapmodel.cpp:76
+#, kde-format
+msgctxt "@title:column"
+msgid "Global Time"
+msgstr "Yhteisaika"
+
+#: src/models/lapmodel.cpp:78
+#, kde-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Muistiinpano"
+
+#: src/models/sessionmodel.cpp:97
+#, kde-format
+msgctxt "session number"
+msgid "Session #"
+msgstr "Istunto #"
+
+#: src/models/sessionmodel.cpp:99
+#, kde-format
+msgid "Name"
+msgstr "Nimi"
+
+#: src/models/sessionmodel.cpp:101
+#, kde-format
+msgid "Date"
+msgstr "Päivä"
+
+#: src/models/sessionmodel.cpp:103
+#, kde-format
+msgid "Note"
+msgstr "Muistiinpano"
+
+#~ msgid "up to Milliseconds"
+#~ msgstr "millisekunteihin asti"
+
+#~ msgid "Hundredths"
+#~ msgstr "Sadasosat"
+
+#~ msgctxt "@action:inmenu"
+#~ msgid "Help"
+#~ msgstr "Ohje"
+
+#~ msgid "Dialog"
+#~ msgstr "Valintaikkuna"
+
+#~ msgid "Developer"
+#~ msgstr "Kehittäjä"
+
+#~ msgid "Sessions"
+#~ msgstr "Istunnot"
+
+#~ msgid "Empty Toolbar"
+#~ msgstr "Tyhjä työkalurivi"
+
+#~ msgctxt "@info:status"
+#~ msgid "Running..."
+#~ msgstr "Käynnissä…"
+
+#~ msgctxt "@info:status"
+#~ msgid "Paused"
+#~ msgstr "Tauko"
+
+#~ msgctxt "@info:status"
+#~ msgid "Inactive"
+#~ msgstr "Ei käynnissä"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "Current chronometer status"
+#~ msgstr "Sekuntikellon nykyinen tila"
+
+#~ msgid ""
+#~ "Whether to show the descriptive headers on top of the stopwatch display"
+#~ msgstr "Näytetäänkö sekuntikellon näytön yläpuolella kuvaavat otsikot"
+
+#~ msgid "Show time headers in the display"
+#~ msgstr "Näytä aikojen otsikot näytössä"
+
+#~ msgid "Choose a name"
+#~ msgstr "Valitse nimi"
+
+#~ msgid "Session name:"
+#~ msgstr "Istunnon nimi:"
+
+#~ msgid "Choose export file destination"
+#~ msgstr "Valitse vientitiedoston kohde"
+
+#~ msgid "No session saved yet."
+#~ msgstr "Ei tallennettuja istuntoja."
+
+#~ msgid "Interface settings"
+#~ msgstr "Käyttöliittymän asetukset"
+
+#~ msgid "Choose a Kronometer save file"
+#~ msgstr "Valitse Kronometerin tallennustiedosto"
+
+#~ msgid "Choose Kronometer save file destination"
+#~ msgstr "Valitse Kronometerin tallennustiedoston kohde"
+
+#~ msgid "Failed to open file"
+#~ msgstr "Tiedoston avaaminen epäonnistui"
+
+#~ msgid "Cannot open file: %1"
+#~ msgstr "Tiedoston %1 avaaminen epäonnistui"
+
+#~ msgid "Invalid XML file"
+#~ msgstr "Virheellinen XML-tiedosto"
+
+#~ msgid "Incomplete Kronometer save file"
+#~ msgstr "Epätäydellinen Kronometerin tallennustiedosto"
+
+#~ msgid "Stopwatch time format"
+#~ msgstr "Sekuntikellon ajan muoto"
+
+#~ msgid "Whether to show seconds in the stopwatch"
+#~ msgstr "Näytetäänkö sekunnit sekuntikellossa"
+
+#~ msgid "Show seconds"
+#~ msgstr "Näytä sekunnit"
+
+#~ msgid "Stopwatch advanced time format"
+#~ msgstr "Sekuntikellon ajan muodon lisäasetukset"
+
+#~ msgid "Whether to show tenths of second in the stopwatch"
+#~ msgstr "Näytetäänkö sekunnin kymmenesosat sekuntikellossa"
+
+#~ msgid "Show also tenths of second"
+#~ msgstr "Näytä myös sekunnin kymmenesosat"
+
+#~ msgid "Whether to show tenths and hundredths of second in the stopwatch"
+#~ msgstr "Näytetäänkö sekunnin kymmenes- ja sadasosat sekuntikellossa"
+
+#~ msgid "Show tenths and hundredths of second"
+#~ msgstr "Näytä sekuntien kymmenes- ja sadasosat"
+
+#~ msgid ""
+#~ "Whether to show milliseconds in the stopwatch. It requires an high CPU "
+#~ "usage because the GUI is refreshed every millisecond"
+#~ msgstr ""
+#~ "Näytetäänkö millisekunnit sekuntikellossa. Niiden näyttäminen kuormittaa "
+#~ "suoritinta paljon, koska käyttöliittymä päivitetään joka millisekunti."
+
+#~ msgid "Show also milliseconds (high CPU usage!)"
+#~ msgstr "Näytä myös millisekunnit (kuormittaa suoritinta!)"
+
+#~ msgid "Whether to show seconds in the laps"
+#~ msgstr "Näytetäänkö sekunnit kierroksissa"
+
+#~ msgid "Lap times advanced format"
+#~ msgstr "Kierrosaikojen muodon lisäasetukset"
+
+#~ msgid "Whether to show tenths of second in the lapswatch"
+#~ msgstr "Näytetäänkö sekunnin kymmenesosat kierrosajoissa"
+
+#~ msgid "Whether to show tenths and hundredths of second in the laps"
+#~ msgstr "Näytetäänkö sekunnin kymmenes- ja sadasosat kierrosajoissa"
+
+#~ msgid "Whether to show milliseconds in the stopwatch"
+#~ msgstr "Näytetäänkö millisekunnit sekuntikellossa"
+
+#~ msgid "Stopwatch display"
+#~ msgstr "Sekuntikellon näyttö"
+
+#~ msgid "XML save files"
+#~ msgstr "XML-tallennustiedostot"
+
+#~ msgid "Indent size:"
+#~ msgstr "Sisennyksen määrä:"
+
+#~ msgid "Indent size of the XML save files created by the program"
+#~ msgstr "Sisennyksen määrä ohjelman luomissa  XML-tallennustiedostoissa"
+
+#~ msgid " characters"
+#~ msgstr " merkkiä"
+
+#~ msgid "XML exported files"
+#~ msgstr "XML-vientitiedostot"
+
+#~ msgid "Indent size of the XML exported files created by the program"
+#~ msgstr "Sisennyksen määrä ohjelman luomissa XML-vientitiedostoissa"
+
+#~ msgid "Save times on a new file?"
+#~ msgstr "Tallennetaanko ajat uuteen tiedostoon?"
+
+#~ msgid "Background color:"
+#~ msgstr "Taustaväri:"
+
+#~ msgid "Text color:"
+#~ msgstr "Tekstiväri:"
+
+#~ msgid "Window content"
+#~ msgstr "Ikkunan sisältö"
+
+#~ msgid "Unsaved times"
+#~ msgstr "Tallentamattomat ajat"
+
+#~ msgid ""
+#~ "Whether to show a save dialog on application exit, if there are unsaved "
+#~ "times"
+#~ msgstr ""
+#~ "Näytetäänkö tallennusikkuna ohjelmaa lopetettaessa, jos on "
+#~ "tallentamattomia aikoja"
+
+#~ msgid "Ask to save on exit"
+#~ msgstr "Kysy tallentamisesta lopetettaessa"
+
+#~ msgid "Window appearance"
+#~ msgstr "Ikkunan ulkoasu"
+
+#~ msgid "Show status bar"
+#~ msgstr "Näytä tilarivi"
+
+#~ msgid "Main Toolbar"
+#~ msgstr "Päätyökalurivi"

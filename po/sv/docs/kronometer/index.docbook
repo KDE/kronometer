@@ -1,0 +1,313 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kronometer "<application
+>Kronometer</application
+>">
+  <!ENTITY kappname "&kronometer;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Swedish "INCLUDE">
+]>
+
+<book id="kronometer" lang="&language;">
+
+<bookinfo>
+<title
+>Handbok &kronometer;</title>
+
+<authorgroup>
+  <author
+><firstname
+>Elvis</firstname
+><surname
+>Angelaccio</surname
+> <affiliation
+> <address
+> <email
+>elvis.angelaccio@kde.org</email>
+      </address>
+    </affiliation>
+  </author>
+<othercredit role="translator"
+> <firstname
+>Stefan</firstname
+> <surname
+>Asserhäll</surname
+> <affiliation
+><address
+><email
+>stefan.asserhall@bredband.net</email
+></address
+></affiliation
+> <contrib
+>Översättare</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2014-2016</year>
+<holder
+>Elvis Angelaccio</holder>
+</copyright>
+
+<date
+>2016-04-10</date>
+<releaseinfo
+>&kronometer; 2.1</releaseinfo>
+
+<legalnotice>
+  &FDLNotice;
+</legalnotice>
+
+<abstract>
+  <para
+>&kronometer; är ett tidtagarurprogram. Det kan användas för grundfunktioner som att starta, pausa och återstarta tidtagning, samt för att mäta varvtider. </para>
+  <para
+>&kronometer; kan spara en hel session (tid och varvtider) och återställa den senare. </para>
+</abstract>
+
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Kronometer</keyword>
+  <keyword
+>tidtagarur</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Inledning</title>
+  <para
+>&kronometer; är ett enkelt tidtagarur. Det är avsett att vara enkelt och bekvämt att använda, tack vara en utveckling baserad på användarfall. </para>
+  <para
+>Huvudfunktionerna i &kronometer; är följande: </para>
+  <itemizedlist>
+    <listitem>
+      <para
+>&kronometer; tillhandahåller ett tidtagarur som kan startas, pausas, återstartas och nollställas. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; låter dig mäta varvtider och exportera dem till en fil. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; låter dig spara en session och återställa den senare. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; låter dig kopiera tiderna från dess urtavla. </para>
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="usage">
+  <title
+>Användning</title>
+  <sect1 id="general_usage">
+    <title
+>Allmän användning</title>
+    <para
+>Huvudanvändningen av &kronometer; är förstås interaktion med tidtagningen. Man kan starta, pausa, återstarta tidtagning genom att klicka på lämpliga alternativ i verktygsraden eller i &kronometer;s meny. </para>
+    <para
+>Det är ännu enklare att använda tangentbordet istället för musen: Man startar tidtagning med <keycap
+>Mellanslag</keycap
+> på tangentbordet och pausar också med <keycap
+>Mellanslag</keycap
+>. Beteendet kanske känns igen från många mediaspelare. </para>
+    <para
+>Genom att trycka på returtangenten när tidtagningen pågår, kan man frysa den specifika tiden och skapa en ny <emphasis
+>varvtid</emphasis
+>. Tiderna är alltid synliga i tabellen till vänster i programmet, där de kan sorteras genom att klicka på kolumnrubriken <emphasis
+>Varvtid</emphasis
+>. Det går också att lägga till en egen textanmärkning för varje varv genom att dubbelklicka på cellerna i kolumnen <emphasis
+>Anmärkning</emphasis
+>. </para>
+    <para
+>Menyraden (normalt dold), ger tillgång till alla kommandon och inställningsalternativ. Menyraden kan visas eller döljas med <guimenuitem
+>Visa menyrad</guimenuitem
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>) i menyn <guimenu
+>Inställningar</guimenu
+> eller menyknappen i verktygsraden. </para>
+    <sect2 id="save_and_restore">
+      <title
+>Spara och återställa sessioner</title>
+      <para
+>När ett tidtagarur som mäter pausas, skapas en session: en tid mätt med tidtagaruret och noll eller flera varvtider. En session kan sparas och kan senare återställas. </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title
+>Spara en session</title>
+      <para
+>Pausa ett tidtagarur som mäter, klicka därefter på knappen <guibutton
+>Spara som</guibutton
+> i menyn <guimenu
+>Arkiv</guimenu
+>. Därefter kan du välja ett namn på sessionen som ska lagras. </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title
+>Återställa en session</title>
+      <para
+>Klicka på knappen <guibutton
+>Öppna</guibutton
+> på verktygsraden eller i menyn <guimenu
+>Arkiv</guimenu
+>. Välj därefter en befintlig session som ska läsas in i sessionens dialogruta. </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title
+>Uppdatera en session</title>
+      <para
+>När sessionen har återställts, kan man återstarta tidtagaruret och mäta nya varvtider. Om man vill spara den uppdaterade sessionen kan man helt enkelt klicka på knappen <guibutton
+>Spara</guibutton
+> i menyn <guimenu
+>Arkiv</guimenu
+>. </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title
+>Redigera en session</title>
+      <para
+>Klicka på knappen <guibutton
+>Öppna</guibutton
+> på verktygsraden eller i menyn <guimenu
+>Arkiv</guimenu
+>. Om du väljer en befintlig session i sessionens dialogruta kan du: <itemizedlist>
+          <listitem>
+            <para
+>Byta namn på sessionen genom att dubbelklicka på dess namn.</para>
+          </listitem>
+          <listitem>
+            <para
+>Ta bort sessionen genom att trycka på <keycap
+>Delete</keycap
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+>Lägga till en anmärkning i sessionen eller redigera den.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="additional_features">
+    <title
+>Ytterligare funktioner</title>
+    <sect2 id="export_lap_times">
+      <title
+>Exportera varvtider</title>
+      <para
+>När en eller flera varvtider mäts, blir exportfunktionen i menyn <guimenu
+>Arkiv</guimenu
+> tillgänglig, med alternativet <guimenuitem
+>Exportera varv som</guimenuitem
+>. Klicka på det och väl ett namn på den exporterade filen. Du kan exportera med formaten CSV (värden åtskilda med kommatecken) eller JSON. </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title
+>Stöd för klippbordet</title>
+      <para
+>&kronometer; kan kopiera den aktuella tiden i tidtagaruret till systemets klippbord. Använd tangentkombinationen <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> eller alternativet <guimenuitem
+>Kopiera</guimenuitem
+> i menyn <guimenu
+>Redigera</guimenu
+>. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="configuration">
+  <title
+>Inställning</title>
+  <sect1 id="settings_dialog">
+    <title
+>Inställningsdialogruta</title>
+    <para
+>&kronometer; kan anpassas på många sätt. Det går att visa inställningsdialogrutan genom att klicka på <guimenuitem
+>Anpassa &kronometer;</guimenuitem
+> i menyn <guimenu
+>Inställningar</guimenu
+>. Inställningsdialogrutan är organiserad i följande kategorier: </para>
+    <sect2 id="general_settings">
+      <title
+>Allmänna inställningar</title>
+      <para
+>På den allmänna inställningssidan finns tidtagarurets inställningar och för varvtiderna. Under tidtagarursfliken kan önskat tidsformat för tidtagarurets urtavla ställas in. Man kan välja att visa timmar, minuter eller delar av sekunder (medan sekunder alltid visas). &kronometer; stöder tidsupplösning ner till millisekunder, även om det kräver hög processoranvändning på grund av den höga uppdateringsfrekvensen av användargränssnittet. </para>
+      <para
+>Under varvtidsfliken kan du aktivera eller inaktivera lagringsfunktionen för varvtider. Om varvtider är aktiverade kan deras tidsformat väljas, om deras anmärkningar ska visas, och om deras absoluta tider ska visas, vilka är tidtagarurets tider när de lagrades. </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title
+>Teckensnittsinställningar</title>
+      <para
+>På inställningssidan för teckensnitt kan man anpassa teckensnittet för tidtagarurets urtavla. Det går att välja olika teckenfamiljer, stilar och storlekar för varje tidskomponent (timmar, minuter, etc.). Normalt använder alla tidskomponenter samma teckensnitt enligt systemets nuvarande standardteckensnitt. </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title
+>Färginställningar</title>
+      <para
+>På färginställningssidan kan man ställa in den normala färgen på tidtagarurets urtavla. Det går att ändra bakgrundsfärg och textfärg. Standardfärgerna följer temat som för närvarande är valt i systemet. </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title
+>&kde;:s inbyggda inställningar</title>
+      <para
+>&kronometer; använder &kde;:s vanliga inställningsverktyg. De finns i menyn <guimenu
+>Inställningar</guimenu
+> under alternativen <guimenuitem
+>Anpassa genvägar</guimenuitem
+> och <guimenuitem
+>Anpassa verktygsrader</guimenuitem
+>. De gör det möjligt att ändra genvägarna för &kronometer;s funktioner, och ändra verktygsradens plats och dess innehåll. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Tack till och licens</title>
+  <para
+>&kronometer; </para>
+  <para
+>Program copyright &copy; 2014-2016 Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+  <para
+>Dokumentation copyright &copy; 2014-2016 Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+<para
+>Översättning Stefan Asserhäll <email
+>stefan.asserhall@bredband.net</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+-->
