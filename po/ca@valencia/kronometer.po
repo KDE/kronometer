@@ -217,7 +217,7 @@ msgstr "Mostra les notes"
 #: src/gui/kronometerui.rc:7
 #, kde-format
 msgid "&File"
-msgstr "&Fitxer"
+msgstr "Fi&txer"
 
 #. i18n: ectx: Menu (kronometerActions)
 #: src/gui/kronometerui.rc:11
@@ -257,7 +257,7 @@ msgstr "&Continua"
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
-msgstr "&Inicia"
+msgstr "I&nicia"
 
 #: src/gui/mainwindow.cpp:189
 #, kde-format
