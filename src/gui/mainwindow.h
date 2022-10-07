@@ -50,6 +50,8 @@ public:
      */
     void setWindowTitle(const QString& title);
 
+    void enableLapShortcuts(bool enable);
+
 protected:
 
     bool queryClose() override;

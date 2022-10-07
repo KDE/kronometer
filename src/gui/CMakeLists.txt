@@ -3,6 +3,7 @@ set(gui_SRCS
     digitdisplay.cpp
     fontsettings.cpp
     generalsettings.cpp
+    lapitemdelegate.cpp
     mainwindow.cpp
     sessiondialog.cpp
     timedisplay.cpp)
