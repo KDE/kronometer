@@ -5,6 +5,7 @@ v2.3.0
 * Fixed wrong times restored from session (BUG 421515)
 * Fixed stopwatch restart after system sleep (BUG 439998)
 * Fixed deletion of sessions (BUG 353077, thanks to Johnny Jazeix)
+* Fixed wrong usage of Enter key when writing a lap note (BUG 438167, thanks to Johnny Jazeix)
 * Qt 5.15 and C++17 are now required.
 * Fixed compilation on Windows (thanks to Johnny Jazeix).
 * Updated translations.
