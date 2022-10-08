@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-08 00:52+0000\n"
 "PO-Revision-Date: 2021-04-13 00:42+0200\n"
 "Last-Translator: Luigi Toscano <luigi.toscano@tiscali.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -228,118 +228,118 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Barra degli strumenti di Kronometer"
 
-#: src/gui/mainwindow.cpp:126
+#: src/gui/mainwindow.cpp:136
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Vuoi uscire e perdere i tempi salvati?"
 
-#: src/gui/mainwindow.cpp:127
+#: src/gui/mainwindow.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Conferma l'uscita"
 
-#: src/gui/mainwindow.cpp:138
+#: src/gui/mainwindow.cpp:148
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Salvare i tempi nella sessione %1?"
 
-#: src/gui/mainwindow.cpp:166
+#: src/gui/mainwindow.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "&Riprendi"
 
-#: src/gui/mainwindow.cpp:185
+#: src/gui/mainwindow.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "&Avvia"
 
-#: src/gui/mainwindow.cpp:189
+#: src/gui/mainwindow.cpp:199
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Senza titolo"
 
-#: src/gui/mainwindow.cpp:214
+#: src/gui/mainwindow.cpp:224
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Impostazioni generali"
 
-#: src/gui/mainwindow.cpp:217
+#: src/gui/mainwindow.cpp:227
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Impostazioni dei caratteri"
 
-#: src/gui/mainwindow.cpp:220
+#: src/gui/mainwindow.cpp:230
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Impostazioni dei colori"
 
-#: src/gui/mainwindow.cpp:289
+#: src/gui/mainwindow.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Salva sessione"
 
-#: src/gui/mainwindow.cpp:290
+#: src/gui/mainwindow.cpp:300
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Puoi scegliere un nome per questa sessione:"
 
-#: src/gui/mainwindow.cpp:299
+#: src/gui/mainwindow.cpp:309
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Sessione senza titolo"
 
-#: src/gui/mainwindow.cpp:309
+#: src/gui/mainwindow.cpp:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Esporta giri"
 
-#: src/gui/mainwindow.cpp:435
+#: src/gui/mainwindow.cpp:446
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pausa"
 
-#: src/gui/mainwindow.cpp:438
+#: src/gui/mainwindow.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "Azze&ra"
 
-#: src/gui/mainwindow.cpp:441
+#: src/gui/mainwindow.cpp:452
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Giro"
 
-#: src/gui/mainwindow.cpp:444
+#: src/gui/mainwindow.cpp:455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Esporta giri come..."
 
-#: src/gui/mainwindow.cpp:638
+#: src/gui/mainwindow.cpp:650
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Giro №,Tempo sul giro,Tempo totale,Nota"
 
-#: src/gui/mainwindow.cpp:671
+#: src/gui/mainwindow.cpp:683
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Creato da Kronometer in data %1"
 
-#: src/gui/mainwindow.cpp:737
+#: src/gui/mainwindow.cpp:749
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Un cronometro è in esecuzione."

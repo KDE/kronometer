@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-08 00:52+0000\n"
 "PO-Revision-Date: 2022-04-09 20:11+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -226,118 +226,118 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Panel nástrojov Kronometer"
 
-#: src/gui/mainwindow.cpp:126
+#: src/gui/mainwindow.cpp:136
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Chcete ukončiť a stratiť vaše neuložené zmeny?"
 
-#: src/gui/mainwindow.cpp:127
+#: src/gui/mainwindow.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Potvrdiť ukončenie"
 
-#: src/gui/mainwindow.cpp:138
+#: src/gui/mainwindow.cpp:148
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Uložiť časy do sedenia %1?"
 
-#: src/gui/mainwindow.cpp:166
+#: src/gui/mainwindow.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "&Obnoviť"
 
-#: src/gui/mainwindow.cpp:185
+#: src/gui/mainwindow.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "Spustiť"
 
-#: src/gui/mainwindow.cpp:189
+#: src/gui/mainwindow.cpp:199
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Bez názvu"
 
-#: src/gui/mainwindow.cpp:214
+#: src/gui/mainwindow.cpp:224
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Všeobecné nastavenia"
 
-#: src/gui/mainwindow.cpp:217
+#: src/gui/mainwindow.cpp:227
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Nastavenie písma"
 
-#: src/gui/mainwindow.cpp:220
+#: src/gui/mainwindow.cpp:230
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Nastavenie farieb"
 
-#: src/gui/mainwindow.cpp:289
+#: src/gui/mainwindow.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Uložiť sedenie"
 
-#: src/gui/mainwindow.cpp:290
+#: src/gui/mainwindow.cpp:300
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Môžete vybrať názov pre toto sedenie:"
 
-#: src/gui/mainwindow.cpp:299
+#: src/gui/mainwindow.cpp:309
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Nepomenované sedenie"
 
-#: src/gui/mainwindow.cpp:309
+#: src/gui/mainwindow.cpp:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Exportovať kolá"
 
-#: src/gui/mainwindow.cpp:435
+#: src/gui/mainwindow.cpp:446
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pozastaviť"
 
-#: src/gui/mainwindow.cpp:438
+#: src/gui/mainwindow.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Vynulovať"
 
-#: src/gui/mainwindow.cpp:441
+#: src/gui/mainwindow.cpp:452
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "Kolo"
 
-#: src/gui/mainwindow.cpp:444
+#: src/gui/mainwindow.cpp:455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "Exportovať kolá ako..."
 
-#: src/gui/mainwindow.cpp:638
+#: src/gui/mainwindow.cpp:650
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Číslo kola,čas kola,globálny čas,poznámka"
 
-#: src/gui/mainwindow.cpp:671
+#: src/gui/mainwindow.cpp:683
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Vytvoril Kronometer dňa %1"
 
-#: src/gui/mainwindow.cpp:737
+#: src/gui/mainwindow.cpp:749
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Stopky bežia."

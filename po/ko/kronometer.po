@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-09-26 00:49+0000\n"
+"POT-Creation-Date: 2022-10-08 00:52+0000\n"
 "PO-Revision-Date: 2021-05-16 21:57+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -227,118 +227,118 @@ msgstr "Kronometer(&K)"
 msgid "Kronometer Toolbar"
 msgstr "Kronometer 도구 모음"
 
-#: src/gui/mainwindow.cpp:126
+#: src/gui/mainwindow.cpp:136
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "시간을 저장하지 않고 종료하시겠습니까?"
 
-#: src/gui/mainwindow.cpp:127
+#: src/gui/mainwindow.cpp:137
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "종료 확인"
 
-#: src/gui/mainwindow.cpp:138
+#: src/gui/mainwindow.cpp:148
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "%1 세션에 시간을 저장하시겠습니까?"
 
-#: src/gui/mainwindow.cpp:166
+#: src/gui/mainwindow.cpp:176
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "다시 시작(&S)"
 
-#: src/gui/mainwindow.cpp:185
+#: src/gui/mainwindow.cpp:195
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "시작(&S)"
 
-#: src/gui/mainwindow.cpp:189
+#: src/gui/mainwindow.cpp:199
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "제목 없음"
 
-#: src/gui/mainwindow.cpp:214
+#: src/gui/mainwindow.cpp:224
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "일반 설정"
 
-#: src/gui/mainwindow.cpp:217
+#: src/gui/mainwindow.cpp:227
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "글꼴 설정"
 
-#: src/gui/mainwindow.cpp:220
+#: src/gui/mainwindow.cpp:230
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "색상 설정"
 
-#: src/gui/mainwindow.cpp:289
+#: src/gui/mainwindow.cpp:299
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "세션 저장"
 
-#: src/gui/mainwindow.cpp:290
+#: src/gui/mainwindow.cpp:300
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "세션 이름을 지정할 수 있습니다:"
 
-#: src/gui/mainwindow.cpp:299
+#: src/gui/mainwindow.cpp:309
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "제목 없는 세션"
 
-#: src/gui/mainwindow.cpp:309
+#: src/gui/mainwindow.cpp:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "랩 내보내기"
 
-#: src/gui/mainwindow.cpp:435
+#: src/gui/mainwindow.cpp:446
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "일시 정지(&P)"
 
-#: src/gui/mainwindow.cpp:438
+#: src/gui/mainwindow.cpp:449
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "초기화(&R)"
 
-#: src/gui/mainwindow.cpp:441
+#: src/gui/mainwindow.cpp:452
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "랩(&L)"
 
-#: src/gui/mainwindow.cpp:444
+#: src/gui/mainwindow.cpp:455
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "다른 이름으로 랩 내보내기(&E)..."
 
-#: src/gui/mainwindow.cpp:638
+#: src/gui/mainwindow.cpp:650
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "랩 번호,랩 시간,전역 시간,메모"
 
-#: src/gui/mainwindow.cpp:671
+#: src/gui/mainwindow.cpp:683
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "%1에 Kronometer에서 생성함"
 
-#: src/gui/mainwindow.cpp:737
+#: src/gui/mainwindow.cpp:749
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "초시계가 실행 중입니다."
