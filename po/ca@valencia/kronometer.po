@@ -41,7 +41,7 @@ msgstr "Fons de la pantalla:"
 #: src/gui/colorsettings.ui:27
 #, kde-format
 msgid "Background color of the stopwatch display"
-msgstr "Color del fons a la pantalla del cronòmetre"
+msgstr "Color del fons en la pantalla del cronòmetre"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/colorsettings.ui:34
@@ -53,7 +53,7 @@ msgstr "Dígits de la pantalla:"
 #: src/gui/colorsettings.ui:41
 #, kde-format
 msgid "Color of the stopwatch display digits"
-msgstr "Color dels dígits a la pantalla del cronòmetre"
+msgstr "Color dels dígits en la pantalla del cronòmetre"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/fontsettings.ui:23
