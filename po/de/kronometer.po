@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-08 00:52+0000\n"
+"POT-Creation-Date: 2022-10-14 00:50+0000\n"
 "PO-Revision-Date: 2021-04-15 10:02+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -413,38 +413,38 @@ msgctxt "@title:column"
 msgid "Seconds"
 msgstr "Sekunden"
 
-#: src/main.cpp:32
+#: src/main.cpp:33
 #, kde-format
 msgctxt "KAboutData display name"
 msgid "Kronometer"
 msgstr "Kronometer"
 
-#: src/main.cpp:34
+#: src/main.cpp:35
 #, kde-format
 msgid "Kronometer is a simple stopwatch application"
 msgstr "Kronometer ist eine einfache Anwendung für die Zeitmessung"
 
-#: src/main.cpp:36
+#: src/main.cpp:37
 #, kde-format
 msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
 msgstr "Copyright 2014-2016 Elvis Angelaccio"
 
-#: src/main.cpp:42
+#: src/main.cpp:43
 #, kde-format
 msgid "Elvis Angelaccio"
 msgstr "Elvis Angelaccio"
 
-#: src/main.cpp:43
+#: src/main.cpp:44
 #, kde-format
 msgid "Maintainer"
 msgstr "Betreuer"
 
-#: src/main.cpp:49
+#: src/main.cpp:50
 #, kde-format
 msgid "Ken Vermette"
 msgstr "Ken Vermette"
 
-#: src/main.cpp:50
+#: src/main.cpp:51
 #, kde-format
 msgid "Kronometer icon"
 msgstr "Kronometer-Symbol"
