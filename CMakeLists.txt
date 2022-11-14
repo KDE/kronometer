@@ -45,9 +45,14 @@ add_definitions(
     -DQT_USE_QSTRINGBUILDER)
 
 add_subdirectory(desktop)
-add_subdirectory(doc)
 add_subdirectory(src)
 add_subdirectory(icons)
 add_subdirectory(autotests)
+
+ki18n_install(po)
+if(KF5DocTools_FOUND)
+    add_subdirectory(doc)
+    kdoctools_install(po)
+endif()
 
 feature_summary(WHAT ALL FATAL_ON_MISSING_REQUIRED_PACKAGES)
