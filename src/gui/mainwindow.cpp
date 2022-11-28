@@ -23,6 +23,7 @@
 #include <KMessageBox>
 #include <KToggleAction>
 #include <KToolBar>
+#include <kwidgetsaddons_version.h>
 
 #include <QAction>
 #include <QApplication>
@@ -145,6 +146,7 @@ bool MainWindow::queryClose()
         return false;
     }
     else if (m_session.isOutdated()) {
+#if KWIDGETSADDONS_VERSION < QT_VERSION_CHECK(5, 100, 0)
         auto buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to session %1?", m_session.name()));
 
         switch (buttonCode) {
@@ -156,6 +158,19 @@ bool MainWindow::queryClose()
         default: // cancel
             return false;
         }
+#else
+        auto buttonCode = KMessageBox::warningTwoActionsCancel(this, i18n("Save times to session %1?", m_session.name()), QString(), KStandardGuiItem::save(), KStandardGuiItem::cancel());
+
+        switch (buttonCode) {
+        case KMessageBox::PrimaryAction:
+            slotSaveSession();
+            return true;
+        case KMessageBox::SecondaryAction:
+            return true;
+        default: // cancel
+            return false;
+        }
+#endif
     }
 
     return true;  // there is an open session, but times are already saved.

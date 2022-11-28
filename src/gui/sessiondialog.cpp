@@ -10,6 +10,7 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KMessageWidget>
+#include <kwidgetsaddons_version.h>
 
 #include <QDialogButtonBox>
 #include <QKeyEvent>
@@ -117,6 +118,7 @@ QModelIndex SessionDialog::selectedIndex()
 
 void SessionDialog::removeDialog()
 {
+#if KWIDGETSADDONS_VERSION < QT_VERSION_CHECK(5, 100, 0)
     const auto buttonCode = KMessageBox::warningYesNo(
                 this,
                 i18nc("@info", "Do you want to remove the selected session?"),
@@ -126,6 +128,17 @@ void SessionDialog::removeDialog()
                 QStringLiteral("delete-session"));
 
     if (buttonCode != KMessageBox::Yes)
+#else
+    const auto buttonCode = KMessageBox::warningTwoActions(
+                this,
+                i18nc("@info", "Do you want to remove the selected session?"),
+                i18nc("@title:window", "Confirm deletion"),
+                KStandardGuiItem::remove(),
+                KStandardGuiItem::cancel(),
+                QStringLiteral("delete-session"));
+
+    if (buttonCode != KMessageBox::PrimaryAction)
+#endif
         return;
 
     m_sessionModel->removeRow(selectedIndex().row());
