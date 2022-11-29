@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:50+0000\n"
+"POT-Creation-Date: 2022-11-29 00:50+0000\n"
 "PO-Revision-Date: 2021-06-28 12:46+0300\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -228,141 +228,141 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Γραμμή εργαλείων Kronometer"
 
-#: src/gui/mainwindow.cpp:136
+#: src/gui/mainwindow.cpp:137
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Θέλετε να εγκαταλείψετε και να χάσετε τους μη αποθηκευμένους χρόνους;"
 
-#: src/gui/mainwindow.cpp:137
+#: src/gui/mainwindow.cpp:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Επιβεβαιώστε ότι εγκαταλείπετε"
 
-#: src/gui/mainwindow.cpp:148
+#: src/gui/mainwindow.cpp:150 src/gui/mainwindow.cpp:162
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Να αποθηκευτούν οι χρόνοι στη συνεδρία %1;"
 
-#: src/gui/mainwindow.cpp:176
+#: src/gui/mainwindow.cpp:191
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "Ε&παναφορά"
 
-#: src/gui/mainwindow.cpp:195
+#: src/gui/mainwindow.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "Εκκίνη&ση"
 
-#: src/gui/mainwindow.cpp:199
+#: src/gui/mainwindow.cpp:214
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Χωρίς τίτλο"
 
-#: src/gui/mainwindow.cpp:224
+#: src/gui/mainwindow.cpp:239
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Γενικές ρυθμίσεις"
 
-#: src/gui/mainwindow.cpp:227
+#: src/gui/mainwindow.cpp:242
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Ρυθμίσεις γραμματοσειράς"
 
-#: src/gui/mainwindow.cpp:230
+#: src/gui/mainwindow.cpp:245
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Ρυθμίσεις χρώματος"
 
-#: src/gui/mainwindow.cpp:299
+#: src/gui/mainwindow.cpp:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Αποθήκευση συνεδρίας"
 
-#: src/gui/mainwindow.cpp:300
+#: src/gui/mainwindow.cpp:315
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Μπορείτε να επιλέξετε όνομα για αυτήν τη συνεδρία:"
 
-#: src/gui/mainwindow.cpp:309
+#: src/gui/mainwindow.cpp:324
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Χωρίς τίτλο συνεδρία"
 
-#: src/gui/mainwindow.cpp:319
+#: src/gui/mainwindow.cpp:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Εξαγωγή γύρων"
 
-#: src/gui/mainwindow.cpp:446
+#: src/gui/mainwindow.cpp:461
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Παύση"
 
-#: src/gui/mainwindow.cpp:449
+#: src/gui/mainwindow.cpp:464
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "Επαναφο&ρά"
 
-#: src/gui/mainwindow.cpp:452
+#: src/gui/mainwindow.cpp:467
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Γύρος"
 
-#: src/gui/mainwindow.cpp:455
+#: src/gui/mainwindow.cpp:470
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Εξαγωγή γύρων ως..."
 
-#: src/gui/mainwindow.cpp:650
+#: src/gui/mainwindow.cpp:665
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "αριθμός γύρου,χρόνος γύρου,γενικός χρόνος,σημείωση"
 
-#: src/gui/mainwindow.cpp:683
+#: src/gui/mainwindow.cpp:698
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Δημιουργήθηκε από το Kronometer %1"
 
-#: src/gui/mainwindow.cpp:749
+#: src/gui/mainwindow.cpp:764
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Ένας χρονομετρητής εκτελείται."
 
-#: src/gui/sessiondialog.cpp:34
+#: src/gui/sessiondialog.cpp:35
 #, kde-format
 msgctxt "@action:button"
 msgid "Open session"
 msgstr "Άνοιγμα συνεδρίας"
 
-#: src/gui/sessiondialog.cpp:100
+#: src/gui/sessiondialog.cpp:101
 #, kde-format
 msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr "Δν έχετε αποθηκεύσει ακόμη καμιά συνεδρία."
 
-#: src/gui/sessiondialog.cpp:122
+#: src/gui/sessiondialog.cpp:124 src/gui/sessiondialog.cpp:134
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr "Θέλετε να αφαιρέσετε την επιλεγμένη συνεδρία;"
 
-#: src/gui/sessiondialog.cpp:123
+#: src/gui/sessiondialog.cpp:125 src/gui/sessiondialog.cpp:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"

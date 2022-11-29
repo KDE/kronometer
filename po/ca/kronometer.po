@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:50+0000\n"
+"POT-Creation-Date: 2022-11-29 00:50+0000\n"
 "PO-Revision-Date: 2021-09-05 14:44+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -231,141 +231,141 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Barra d'eines del Kronometer"
 
-#: src/gui/mainwindow.cpp:136
+#: src/gui/mainwindow.cpp:137
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Voleu sortir i perdre els vostres temps sense desar?"
 
-#: src/gui/mainwindow.cpp:137
+#: src/gui/mainwindow.cpp:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Confirma la sortida"
 
-#: src/gui/mainwindow.cpp:148
+#: src/gui/mainwindow.cpp:150 src/gui/mainwindow.cpp:162
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Deso els temps a la sessió %1?"
 
-#: src/gui/mainwindow.cpp:176
+#: src/gui/mainwindow.cpp:191
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "&Continua"
 
-#: src/gui/mainwindow.cpp:195
+#: src/gui/mainwindow.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "&Engega"
 
-#: src/gui/mainwindow.cpp:199
+#: src/gui/mainwindow.cpp:214
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Sense títol"
 
-#: src/gui/mainwindow.cpp:224
+#: src/gui/mainwindow.cpp:239
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Configuració general"
 
-#: src/gui/mainwindow.cpp:227
+#: src/gui/mainwindow.cpp:242
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Arranjament dels tipus de lletra"
 
-#: src/gui/mainwindow.cpp:230
+#: src/gui/mainwindow.cpp:245
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Arranjament dels colors"
 
-#: src/gui/mainwindow.cpp:299
+#: src/gui/mainwindow.cpp:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Desa la sessió"
 
-#: src/gui/mainwindow.cpp:300
+#: src/gui/mainwindow.cpp:315
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Podeu triar un nom per a aquesta sessió:"
 
-#: src/gui/mainwindow.cpp:309
+#: src/gui/mainwindow.cpp:324
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Sessió sense títol"
 
-#: src/gui/mainwindow.cpp:319
+#: src/gui/mainwindow.cpp:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Exporta les voltes"
 
-#: src/gui/mainwindow.cpp:446
+#: src/gui/mainwindow.cpp:461
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pausa"
 
-#: src/gui/mainwindow.cpp:449
+#: src/gui/mainwindow.cpp:464
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Inicialitza"
 
-#: src/gui/mainwindow.cpp:452
+#: src/gui/mainwindow.cpp:467
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Volta"
 
-#: src/gui/mainwindow.cpp:455
+#: src/gui/mainwindow.cpp:470
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Exporta les voltes com a..."
 
-#: src/gui/mainwindow.cpp:650
+#: src/gui/mainwindow.cpp:665
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Número de volta,Temps per volta,Temps global,Nota"
 
-#: src/gui/mainwindow.cpp:683
+#: src/gui/mainwindow.cpp:698
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Creat pel Kronometer el %1"
 
-#: src/gui/mainwindow.cpp:749
+#: src/gui/mainwindow.cpp:764
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "S'està executant un cronòmetre."
 
-#: src/gui/sessiondialog.cpp:34
+#: src/gui/sessiondialog.cpp:35
 #, kde-format
 msgctxt "@action:button"
 msgid "Open session"
 msgstr "Obre una sessió"
 
-#: src/gui/sessiondialog.cpp:100
+#: src/gui/sessiondialog.cpp:101
 #, kde-format
 msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr "Encara no hi ha cap sessió desada."
 
-#: src/gui/sessiondialog.cpp:122
+#: src/gui/sessiondialog.cpp:124 src/gui/sessiondialog.cpp:134
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr "Voleu eliminar la sessió seleccionada?"
 
-#: src/gui/sessiondialog.cpp:123
+#: src/gui/sessiondialog.cpp:125 src/gui/sessiondialog.cpp:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"

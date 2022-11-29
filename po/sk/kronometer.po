@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-10-14 00:50+0000\n"
+"POT-Creation-Date: 2022-11-29 00:50+0000\n"
 "PO-Revision-Date: 2022-04-09 20:11+0200\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -226,141 +226,141 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Panel nástrojov Kronometer"
 
-#: src/gui/mainwindow.cpp:136
+#: src/gui/mainwindow.cpp:137
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Chcete ukončiť a stratiť vaše neuložené zmeny?"
 
-#: src/gui/mainwindow.cpp:137
+#: src/gui/mainwindow.cpp:138
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Potvrdiť ukončenie"
 
-#: src/gui/mainwindow.cpp:148
+#: src/gui/mainwindow.cpp:150 src/gui/mainwindow.cpp:162
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Uložiť časy do sedenia %1?"
 
-#: src/gui/mainwindow.cpp:176
+#: src/gui/mainwindow.cpp:191
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "&Obnoviť"
 
-#: src/gui/mainwindow.cpp:195
+#: src/gui/mainwindow.cpp:210
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "Spustiť"
 
-#: src/gui/mainwindow.cpp:199
+#: src/gui/mainwindow.cpp:214
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Bez názvu"
 
-#: src/gui/mainwindow.cpp:224
+#: src/gui/mainwindow.cpp:239
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Všeobecné nastavenia"
 
-#: src/gui/mainwindow.cpp:227
+#: src/gui/mainwindow.cpp:242
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Nastavenie písma"
 
-#: src/gui/mainwindow.cpp:230
+#: src/gui/mainwindow.cpp:245
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Nastavenie farieb"
 
-#: src/gui/mainwindow.cpp:299
+#: src/gui/mainwindow.cpp:314
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Uložiť sedenie"
 
-#: src/gui/mainwindow.cpp:300
+#: src/gui/mainwindow.cpp:315
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Môžete vybrať názov pre toto sedenie:"
 
-#: src/gui/mainwindow.cpp:309
+#: src/gui/mainwindow.cpp:324
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Nepomenované sedenie"
 
-#: src/gui/mainwindow.cpp:319
+#: src/gui/mainwindow.cpp:334
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Exportovať kolá"
 
-#: src/gui/mainwindow.cpp:446
+#: src/gui/mainwindow.cpp:461
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pozastaviť"
 
-#: src/gui/mainwindow.cpp:449
+#: src/gui/mainwindow.cpp:464
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Vynulovať"
 
-#: src/gui/mainwindow.cpp:452
+#: src/gui/mainwindow.cpp:467
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "Kolo"
 
-#: src/gui/mainwindow.cpp:455
+#: src/gui/mainwindow.cpp:470
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "Exportovať kolá ako..."
 
-#: src/gui/mainwindow.cpp:650
+#: src/gui/mainwindow.cpp:665
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Číslo kola,čas kola,globálny čas,poznámka"
 
-#: src/gui/mainwindow.cpp:683
+#: src/gui/mainwindow.cpp:698
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Vytvoril Kronometer dňa %1"
 
-#: src/gui/mainwindow.cpp:749
+#: src/gui/mainwindow.cpp:764
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Stopky bežia."
 
-#: src/gui/sessiondialog.cpp:34
+#: src/gui/sessiondialog.cpp:35
 #, kde-format
 msgctxt "@action:button"
 msgid "Open session"
 msgstr "Otvoriť sedenie"
 
-#: src/gui/sessiondialog.cpp:100
+#: src/gui/sessiondialog.cpp:101
 #, kde-format
 msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr "Ešte nemáte žiadne uložené sedenia."
 
-#: src/gui/sessiondialog.cpp:122
+#: src/gui/sessiondialog.cpp:124 src/gui/sessiondialog.cpp:134
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr "Chcete odstrániť vybrané sedenie?"
 
-#: src/gui/sessiondialog.cpp:123
+#: src/gui/sessiondialog.cpp:125 src/gui/sessiondialog.cpp:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"
