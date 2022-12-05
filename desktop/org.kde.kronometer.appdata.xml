@@ -196,6 +196,7 @@
       <li xml:lang="ia">Registration de gyros: tu pote capturar le tempore de chronometro quando tu vole</li>
       <li xml:lang="id">Perekaman lap: kamu bisa menangkap waktu stopwatch ketika kamu inginkan</li>
       <li xml:lang="it">Registrazione dei giri: puoi catturare il tempo del cronometro ogni volta che vuoi</li>
+      <li xml:lang="ka">დოღის ჩაწერა: შეგიძლიათ წამზომი ნებისმიერ დროს ჩაიწეროთ</li>
       <li xml:lang="ko">랩 기록: 필요한 시간을 기록할 수 있습니다</li>
       <li xml:lang="nds">Runnen opnehmen: Du kannst de Stoppklock-Tiet aflesen, wenn Du dat wullt</li>
       <li xml:lang="nl">Rondetijden opnemen: u kunt de tijd van de stopwatch opnemen wanneer u wilt</li>
@@ -228,6 +229,7 @@
       <li xml:lang="ia">Ordinar tempores de gyro: tu pote facilemente trovar le plus breve o le plus longe tempore de gyro</li>
       <li xml:lang="id">Pengurutan waktu lap: Kamu bisa dengan mudah menemukan waktu lap terpendek atau terpanjang</li>
       <li xml:lang="it">Ordinamento dei tempi sul giro: puoi facilmente trovare il tempo sul giro più breve o più lungo</li>
+      <li xml:lang="ka">დოღის დროების დალაგება: შეგიძლიათ დოღის უმოკლესი ან უგრძესი დრო იპოვოთ</li>
       <li xml:lang="ko">랩 시간 정렬: 가장 짧은 시간과 가장 긴 시간을 찾을 수 있습니다</li>
       <li xml:lang="nds">Runnentieden sorteren: Du kannst de körtste oder de längste Runntiet heel eenfach rutfinnen</li>
       <li xml:lang="nl">Rondetijden sorteren: u kunt gemakkelijk de kortste of de langste rondetijd vinden</li>
@@ -260,6 +262,7 @@
       <li xml:lang="ia">Reprende (reuce a zero) le widhet de chronometro e le tempores de gyro</li>
       <li xml:lang="id">Set ulang widget stopwatch dan waktu lap</li>
       <li xml:lang="it">Oggetto per azzerare il cronometro e i tempi sul giro</li>
+      <li xml:lang="ka">წამზომის ვიჯეტის და დოღის დროის საწყის მნიშვნელობებზე დაბრუნება</li>
       <li xml:lang="ko">초시계 위젯과 랩 시간 초기화</li>
       <li xml:lang="nds">Dat Stoppklock-Lüttprogramm un de Runnentieden torüchsetten</li>
       <li xml:lang="nl">Reset het stopwatch-widget en de rondetijden</li>
@@ -324,6 +327,7 @@
       <li xml:lang="ia">Salveguardar e reprender tempores: tu pote salveguardar le stato de chronometro e reprender loo plus tarde</li>
       <li xml:lang="id">Pelanjutan dan penyimpanan waktu: kamu bisa menyimpan status stopwatch dan melanjutkannya</li>
       <li xml:lang="it">Salvataggio e ripristino dei tempi: puoi salvare lo stato del cronometro e ripristinarlo più avanti</li>
+      <li xml:lang="ka">დროის შენახვა და გაგრძელება: შეგიძლიათ წამზომის სტატუსი შეინახოთ და მოგვიანებით გააგრძელოთ</li>
       <li xml:lang="ko">시간 저장 및 복원: 초시계 상태를 저장하여 나중에 다시 시작할 수 있습니다</li>
       <li xml:lang="nl">Tijden opslaan en hervatten: u kunt de status van de stopwatch opslaan en deze later hervatten</li>
       <li xml:lang="nn">Lagring og framhald av tider: Du kan lagra statusen til stoppeklokka for seinare framhald</li>
@@ -355,6 +359,7 @@
       <li xml:lang="ia">Personalisation de Font: tu pote seliger le font per cata cifras del chronometro</li>
       <li xml:lang="id">Kustomisasi font: kamu bisa memilih font-font untuk setiap digit stopwatch</li>
       <li xml:lang="it">Configurazione dei caratteri: puoi scegliere i caratteri per ciascuna cifra del cronometro</li>
+      <li xml:lang="ka">ფონტის მორგება: შეგიძლიათ ფონტი წამზომის ყველა ციფრისთვის ცალ-ცალკე აირჩიოთ</li>
       <li xml:lang="ko">글꼴 사용자 정의: 개별 초시계 숫자 글꼴을 별경할 수 있습니다</li>
       <li xml:lang="nds">Schrift topassen: Du kannst de Schrift för elkeen Tall op de Stoppklock utsöken</li>
       <li xml:lang="nl">Aanpassen van het lettertype: u kunt het lettertype van elk van de cijfers van de stopwatch kiezen</li>
@@ -387,6 +392,7 @@
       <li xml:lang="ia">Personalisation de color: tu pote seliger le color per cata cifras  e fundo del chronometro</li>
       <li xml:lang="id">Kustomisasi warna: kamu bisa memilih warna untuk digit stopwatch dan latarbelakang stopwatch</li>
       <li xml:lang="it">Configurazione dei colori: puoi scegliere il colore delle cifre e dello sfondo del cronometro</li>
+      <li xml:lang="ka">ფერების მორგება: შეგიძლიათ წამზომის ციფრების და ფონის ფერი შეცვალოთ</li>
       <li xml:lang="ko">색 사용자 정의: 초시계 숫자와 배경색을 변경할 수 있습니다</li>
       <li xml:lang="nds">Klöör topassen: Du kannst de Klöör för de Stoppklock-Tallen un de Achtergrundklöör utsöken.</li>
       <li xml:lang="nl">Aanpassen van kleur: u kunt de kleur van de cijfers en de achtergrond van de stopwatch kiezen</li>
@@ -418,6 +424,7 @@
       <li xml:lang="ia">Exporta tempore de gyro: tu pote exportar le tempores de gyro in un file per usar formato JSON o CSV</li>
       <li xml:lang="id">Ekspor waktu lap: kamu bisa mengekspor waktu lap ke file menggunakan format JSON atau CSV</li>
       <li xml:lang="it">Esportazione dei tempi sul giro: puoi esportare i tempi sul giro su file nei formati JSON o CSV</li>
+      <li xml:lang="ka">დოღის დროის გატანა: შეგიძლიათ დოღის დრო JSON ან CSV ფორმატში გაიტანოთ</li>
       <li xml:lang="ko">랩 시간 내보내기: JSON이나 CSV 형식으로 랩 시간을 내보낼 수 있습니다</li>
       <li xml:lang="nl">Exporteren van rondetijden: u kunt de rondetijden exporteren naar een bestand met het JSON- of CSV-formaat</li>
       <li xml:lang="nn">Eksportering av rundetider. Du kan eksportera rundetidene til JSON- og CSV-format</li>
