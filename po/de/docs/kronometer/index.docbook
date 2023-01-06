@@ -1,302 +1,240 @@
 <?xml version="1.0" ?>
 <!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-  <!ENTITY kronometer "<application
->Kronometer</application
->">
+  <!ENTITY kronometer "<application>Kronometer</application>">
   <!ENTITY kappname "&kronometer;">
   <!ENTITY % addindex "IGNORE">
-  <!ENTITY % German "INCLUDE">
+  <!ENTITY % English "INCLUDE">
 ]>
 
 <book id="kronometer" lang="&language;">
 
 <bookinfo>
-<title
->Das Handbuch zu &kronometer;</title>
+<title>The &kronometer; Handbook</title>
 
 <authorgroup>
-  <author
-><firstname
->Elvis</firstname
-><surname
->Angelaccio</surname
-> <affiliation
-> <address
-> <email
->elvis.angelaccio@kde.org</email>
+  <author><firstname>Elvis</firstname><surname>Angelaccio</surname>
+    <affiliation>
+      <address>
+	<email>elvis.angelaccio@kde.org</email>
       </address>
     </affiliation>
   </author>
-<othercredit role="translator"
-><firstname
->Burkhard</firstname
-><surname
->Lück</surname
-><affiliation
-><address
-><email
->lueck@hube-lueck.de</email
-></address
-></affiliation
-><contrib
->Übersetzung</contrib
-></othercredit
-> 
+<!-- TRANS:ROLES_OF_TRANSLATORS -->
 </authorgroup>
 
 <copyright>
-<year
->2014-2016</year>
-<holder
->Elvis Angelaccio</holder>
+<year>2014-2016</year>
+<holder>Elvis Angelaccio</holder>
 </copyright>
 
-<date
->2016-04-10</date>
-<releaseinfo
->&kronometer; 2.1</releaseinfo>
+<date>2016-04-10</date>
+<releaseinfo>&kronometer; 2.1</releaseinfo>
 
 <legalnotice>
   &FDLNotice;
 </legalnotice>
 
 <abstract>
-  <para
->&kronometer; ist ein Stoppuhr-Programm. Es kann für einfache Aufgaben wie das Starten, Anhalten und Fortsetzen des Zeitgebers wie auch die Aufnahmen von Zwischenzeiten verwendet werden kann. </para>
-  <para
->&kronometer; kann eine vollständige Sitzung mit Zeiten und Zwischenzeiten zu speichern und sie später wiederherzustellen. </para>
+  <para>
+    &kronometer; is a stopwatch application. It can be used for basic tasks like timer start/pause/resume, as well as lap times recording.
+  </para>
+  <para>
+    &kronometer; is able to save a complete session (timer and lap times) and to restore it later.
+  </para>
 </abstract>
 
 <keywordset>
-  <keyword
->KDE</keyword>
-  <keyword
->Kronometer</keyword>
-  <keyword
->Stoppuhr</keyword>
+  <keyword>KDE</keyword>
+  <keyword>Kronometer</keyword>
+  <keyword>stopwatch</keyword>
 </keywordset>
 
 </bookinfo>
 
 <chapter id="introduction">
-  <title
->Einleitung</title>
-  <para
->&kronometer; ist eine einfache Stoppuhr-Anwendung, die ohne Probleme verwendet werden kann, dank einer Entwicklung, die durch Anwendungsfälle voran gebracht wird. </para>
-  <para
->&kronometer; hat folgende wichtige Funktionen: </para>
+  <title>Introduction</title>
+  <para>
+    &kronometer; is a simple stopwatch application. It is meant to be simple and pleasant to use, thanks to a use cases driven development.
+  </para>
+  <para>
+    &kronometer; main features are the following:
+  </para>
   <itemizedlist>
     <listitem>
-      <para
->&kronometer; hat einen Zeitgeber, der gestartet, angehalten, wieder gestartet und zurückgesetzt werden kann. </para>
+      <para>
+	&kronometer; provides a timer that can be started, paused, resumed and reset.
+      </para>
     </listitem>
     <listitem>
-      <para
->&kronometer; erlaubt es, Zwischenzeiten zu speichern und sie in einer Datei zu speichern. </para>
+      <para>
+	&kronometer; allows you to record lap times and export them to a file.
+      </para>
     </listitem>
     <listitem>
-      <para
->&kronometer; ermöglicht es Ihnen, eine Sitzung zu speichern und sie später wieder herzustellen. </para>
+      <para>
+	&kronometer; allows you to save a session and restore it later.
+      </para>
     </listitem>
     <listitem>
-      <para
->&kronometer; erlaubt es Ihnen, Zahlen des Zeitgebers in der Anzeige zu kopieren. </para>
+      <para>
+	&kronometer; allows you to copy the timer numbers from its display.
+      </para>
     </listitem>
   </itemizedlist>
 </chapter>
 
 <chapter id="usage">
-  <title
->Anwendung</title>
+  <title>Usage</title>
   <sect1 id="general_usage">
-    <title
->Allgemeine Anwendung</title>
-    <para
->Der wichtigste Anwendungsfall von &kronometer; ist natürlich die Zeitmessung. Sie können die Stoppuhr starten, anhalten und weiter laufen lassen, in dem Sie auf die zugehörigen Knöpfe in der Werkzeugleiste klicken oder die Einträge im Menü von &kronometer; verwenden. </para>
-    <para
->Es geht sogar noch einfacher, indem Sie die Tastatur anstatt der Maus benutzen: Sie starten die Stoppuhr mit der <keycap
->Leertaste</keycap
-> der Tastatur und halten die Uhr auch wieder mit der <keycap
->Leertaste</keycap
-> an. Diese Funktion kennen Sie wahrscheinlich von vielen Anwendungen zu Medienwiedergabe. </para>
-    <para
->Durch Drücken der &Enter;-taste während die Zeit läuft, erstellen Sie eine neue <emphasis
->Zwischenzeit</emphasis
->. Diese Zeiten werden immer in der Tabelle auf der linken Seite der Anwendung angezeigt. Sie können sie sortieren, indem Sie auf Spaltentitel <emphasis
->Zwischenzeit</emphasis
->klicken. Sie können auch eine benutzerdefinierte Textanmerkung zu jeder Runde hinzufügen, indem Sie auf die Zellen innerhalb der Spalte <emphasis
->Notiz</emphasis
-> doppelklicken. </para>
-    <para
->Die in der Voreinstellung ausgeblendete Menüleiste, die Zugriff auf alle Befehle und Einstellungen ermöglicht. Die Anzeige der Menüleiste kann mit <guimenuitem
->Menüleiste anzeigen</guimenuitem
-> aus dem Menü <guimenu
->Einstellungen</guimenu
-> oder über den Knopf <guibutton
->Einstellungen</guibutton
-> oder dem Menüknopf in der Werkzeugleiste ein- und ausgeschaltet werden. Für diese Aktion  gibt es dem Kurzbefehl <keycombo action="simul"
->&Ctrl;<keycap
->M</keycap
-></keycombo
->. </para>
+    <title>General Usage</title>
+    <para>
+      &kronometer; main use case is of course the interaction with the timer. You can start/pause/resume the timer by clicking on the proper actions in the toolbar or in the &kronometer; menu.
+    </para>
+    <para>
+      Even simpler, you can use the keyboard instead of the mouse: you start the timer with the keyboard's <keycap>Space</keycap> and you pause the timer with <keycap>Space</keycap> too. You might recognize this behavior from many media player applications.
+    </para>
+    <para>
+      By pressing the &Enter; key when the timer is running, you freeze that particular time and you create a new <emphasis>lap</emphasis> time. These times are always visible in the table on the left of the application, where you can sort them by clicking the <emphasis>Lap time</emphasis> column's header.
+      You can also add a custom text annotation to each lap, by double-clicking the cells within the <emphasis>Note</emphasis> column.
+    </para>
+    <para>
+      The menubar (hidden by default) provides access to all commands and configuration options.
+      The menubar can be toggled with <guimenuitem>Show Menubar</guimenuitem> (<keycombo action="simul">&Ctrl;<keycap>M</keycap></keycombo>)
+      from the <guimenu>Settings</guimenu> menu or the menu button in the toolbar.
+    </para>
     <sect2 id="save_and_restore">
-      <title
->Sitzungen speichern und wiederherstellen</title>
-      <para
->Wenn Sie eine laufende Stoppuhr anhalten, erstellen Sie eine Sitzung: Eine Stoppuhr-Zeit und keine oder mehrere Zwischenzeiten. Sie können eine Sitzung speichern und sie später wiederherstellen. </para>
+      <title>Save and Restore Sessions</title>
+      <para>
+        When you pause a running stopwatch you create a session: a stopwatch time and zero or more lap times.
+        You can save a session and you can restore it later.
+      </para>
     </sect2>
     <sect2 id="save_a_session">
-      <title
->Sitzungen speichern</title>
-      <para
->Halten Sie die Stoppuhr an und klicken Sie dann auf den Knopf <guibutton
->Speichern unter</guibutton
-> im Menü <guimenu
->Datei</guimenu
->. Wählen Sie dann einen Namen für die Sitzung, die Sie speichern möchten. </para>
+      <title>Save a Session</title>
+      <para>
+        Pause a running stopwatch, then click on the <guibutton>Save As</guibutton> button in the <guimenu>File</guimenu> menu.
+        You can choose a name for the session that you are going to save.
+      </para>
     </sect2>
     <sect2 id="restore_a_session">
-      <title
->Sitzungen wiederherstellen</title>
-      <para
->Klicken Sie auf den Kopf <guibutton
->Öffnen</guibutton
-> in der Werkzeugleiste oder im Menü <guimenu
->Datei</guimenu
->. Wählen Sie dann eine vorhandene Sitzung aus dem Sitzungsdialog. </para>
+      <title>Restore a Session</title>
+      <para>
+        Click the <guibutton>Open</guibutton> button on the toolbar or in the <guimenu>File</guimenu> menu.
+        Then choose an existing session to be loaded from the session's dialog.
+      </para>
     </sect2>
     <sect2 id="update_a_session">
-      <title
->Sitzungen aktualisieren</title>
-      <para
->Wenn eine Sitzung wiederhergestellt wird, können Sie die Stoppuhr wieder starten und Sie können neue Zwischenzeiten aufnehmen. Möchten Sie die aktualisierte Sitzung speichern, klicken Sie nur auf den Knopf <guibutton
->Speichern</guibutton
-> oder im Menü <guimenu
->Datei</guimenu
->. </para>
+      <title>Update a Session</title>
+      <para>
+        When the session is restored, you can resume the stopwatch and you can record new lap times.
+        If you want to save the updated session, you can simply click the <guibutton>Save</guibutton> button in the <guimenu>File</guimenu> menu.
+      </para>
     </sect2>
     <sect2 id="edit_a_session">
-      <title
->Sitzungen bearbeiten</title>
-      <para
->Klicken Sie auf den Kopf <guibutton
->Öffnen</guibutton
-> in der Werkzeugleiste oder im Menü <guimenu
->Datei</guimenu
->. Wählen Sie eine vorhandene Sitzung aus dem Sitzungsdialog, stehen folgende Möglichkeiten zur Verfügung: <itemizedlist>
+      <title>Edit a Session</title>
+      <para>
+        Click the <guibutton>Open</guibutton> button on the toolbar or in the <guimenu>File</guimenu> menu.
+        If you select an existing session in the session's dialog, you will be able to:
+        <itemizedlist>
           <listitem>
-            <para
->Umbenennen einer Sitzung durch Doppelklicken auf deren Namen.</para>
+            <para>Rename the session, by double-clicking on its name.</para>
           </listitem>
           <listitem>
-            <para
->Löschen einer Sitzung mit der Taste <keycap
->Entf</keycap
->.</para>
+            <para>Delete the session, by pressing <keycap>Del</keycap>.</para>
           </listitem>
           <listitem>
-            <para
->Anmerkungen zu einer Sitzung hinzufügen oder bearbeiten.</para>
+            <para>Add a note to the session or edit it.</para>
           </listitem>
         </itemizedlist>
       </para>
     </sect2>
   </sect1>
   <sect1 id="additional_features">
-    <title
->Zusätzliche Funktionen</title>
+    <title>Additional Features</title>
     <sect2 id="export_lap_times">
-      <title
->Zwischenzeiten exportieren</title>
-      <para
->Wenn Sie eine oder mehrere Zwischenzeiten aufnehmen, wird die Export-Funktion im Menü <guimenu
->Datei</guimenu
-> im Eintrag <guimenuitem
->Zwischenzeiten exportieren als</guimenuitem
-> aktiviert. Klicken Sie dann auf diesen Eintrag und wählen Sie einen Namen für die exportierte Datei. Sie können die Daten im Format CSV (Comma Separated Value) oder im Format JSON exportieren. </para>
+      <title>Export Lap Times</title>
+      <para>
+        When you record one or more lap times, the export features in the <guimenu>File</guimenu> menu is made available, under the entry <guimenuitem>Export laps as</guimenuitem>.
+        Click on it and then choose a name for the exported file.
+        You can export in the Comma Separated Values (CSV) format or in the JSON one.
+      </para>
     </sect2>
     <sect2 id="clipboard_support">
-      <title
->Unterstützung der Zwischenablage</title>
-      <para
->&kronometer; kann die aktuelle Zeit der Stoppuhr in die Zwischenablage des Systems exportieren. Benutzen Sie dazu die Tastenkombination <keycombo
->&Ctrl;<keycap
->C</keycap
-></keycombo
-> oder den Eintrag <guimenuitem
->Kopieren</guimenuitem
-> im Menü <guimenu
->Bearbeiten</guimenu
->. </para>
+      <title>Clipboard Support</title>
+      <para>
+        &kronometer; is able to copy the current stopwatch time to the system clipboard.
+        Use the <keycombo>&Ctrl;<keycap>C</keycap></keycombo> key combination or the <guimenuitem>Copy</guimenuitem> entry in the <guimenu>Edit</guimenu> menu.
+      </para>
     </sect2>
   </sect1>
 </chapter>
 
 <chapter id="configuration">
-  <title
->Einrichtung</title>
+  <title>Configuration</title>
   <sect1 id="settings_dialog">
-    <title
->Einrichtungsdialog</title>
-    <para
->Viele Aspekte von &kronometer; können angepasst werden. Den Einrichtungsdialog öffnen Sie mit dem Eintrag <guimenuitem
->&kronometer; einrichten</guimenuitem
-> im Menü <guimenu
->Einstellungen</guimenu
->. Dieser Dialog enthält folgende Seiten: </para>
+    <title>Settings Dialog</title>
+    <para>
+      &kronometer; is customizable in many aspects.
+      You can open the settings dialog clicking on the <guimenuitem>Configure &kronometer;</guimenuitem> entry in the <guimenu>Settings</guimenu> menu.
+      The settings dialog is organized in the following categories.
+    </para>
     <sect2 id="general_settings">
-      <title
->Allgemeine Einstellungen</title>
-      <para
->Auf dieser Seite finden Sie die Einstellungen für die Stoppuhr und die Zwischenzeiten. Auf der Karteikarte Stoppuhr können Sie das Format der angezeigten Zeiten festlegen. Stunden, Minuten und Sekundenbruchteile können angezeigt werden. Die Genauigkeit der Zeitmessung kann bis auf Millisekunden eingestellt werden, Das erzeugt aber eine hohe CPU-Auslastung wegen der häufigen Aktualisierung der Anzeige. </para>
-      <para
->Auf der Karteikarte Zwischenzeiten können Sie die Aufnahme ein- oder ausschalten. Wenn Zwischenzeiten eingeschaltet sind, können Sie das Zeitformat wählen, ob Notizen angezeigt werden sollen oder ob die absoluten Zeiten, d. h. die Zeiten der Stoppuhr, angezeigt werden. </para>
+      <title>General Settings</title>
+      <para>
+        In the general settings page you can find the settings for the stopwatch and for the laps.
+        Under the stopwatch tab you can set your preferred time format for the stopwatch display.
+        You can choose whether to show hours, minutes or second fractions (while seconds are always shown).
+        &kronometer; supports time granularity up to millisecond, although this requires high CPU usage due to the high refresh rate of the User Interface.
+      </para>
+      <para>
+        Within the laps tab you can enable or disable the laps recording feature.
+        If the laps are enabled, you can choose their time format, whether to show their notes and whether to show their absolute times, which are the stopwatch times when they were recorded.
+      </para>
     </sect2>
     <sect2 id="font_settings">
-      <title
->Schrift-Einstellungen</title>
-      <para
->Auf dieser Seite können Sie die Schriften für die Anzeige der Stoppuhr anpassen. Sie können verschiedene Schriftarten, Schriftstile und Schriftgrößen für jede Komponente der Stoppuhr wie Stunden, Minuten &etc; einstellen. In der Voreinstellung verwenden alle Komponenten die gleiche Schrift, die der Standardschrift des Systems entspricht. </para>
+      <title>Font Settings</title>
+      <para>
+        In the font settings page you can customize the font of the stopwatch display.
+        You can choose different font families, styles and sizes for each timer component (hours, minutes, &etc;).
+        By default every timer component will use the same font, according the current default font in the system.
+      </para>
     </sect2>
     <sect2 id="color_settings">
-      <title
->Farbeinstellungen</title>
-      <para
->Auf dieser Seite können Sie die Standardfarbe der Stoppuhr-Anzeige einstellen. Sie können hier die Farbe des Hintergrunds und des Texts ändern. Die Standardfarben entsprechen dem aktuell ausgewählten Design des Systems. </para>
+      <title>Color Settings</title>
+      <para>
+        In the color settings page you can customize the default color of the stopwatch display.
+        You can change the background color and the text color.
+        The default colors will respect the currently selected system's theme.
+      </para>
     </sect2>
     <sect2 id="kde_built_in_settings">
-      <title
->&kde;-Systemeinstellungen</title>
-      <para
->&kronometer; verwendet die Standardeinstellungen von &kde;. Diese finden Sie im Menü <guimenu
->Einstellungen</guimenu
-> in den Einträgen <guimenuitem
->Kurzbefehle festlegen</guimenuitem
-> und <guimenuitem
->Werkzeugleisten einrichten</guimenuitem
->. Damit können Sie die Kurzbefehle für die Aktionen in &kronometer; und die Position der Werkzeugleiste und deren Inhalt ändern. </para>
+      <title>&kde; Built-in Settings</title>
+      <para>
+        &kronometer; makes use of the standard &kde; configuration tools.
+        You find them in the <guimenu>Settings</guimenu> menu, under the <guimenuitem>Configure shortcuts</guimenuitem> and <guimenuitem>Configure Toolbars</guimenuitem> entries.
+        They allow you to change the shortcuts of the &kronometer;'s actions, and to change the position of the toolbar and its content.
+      </para>
     </sect2>
   </sect1>
 </chapter>
 
 <chapter id="credits">
-  <title
->Mitwirkende und Lizenz</title>
-  <para
->&kronometer; </para>
-  <para
->Programm Copyright &copy; 2014-2016 Elvis Angelaccio <email
->elvis.angelaccio@kde.org</email
-> </para>
-  <para
->Dokumentation Copyright &copy; 2014-2016 Elvis Angelaccio <email
->elvis.angelaccio@kde.org</email
-> </para>
-<para
->Übersetzung Burkhard Lück<email
->lueck@hube-lueck.de</email
-></para
-> &underFDL; &underGPL; </chapter>
+  <title>Credits and License</title>
+  <para>
+    &kronometer;
+  </para>
+  <para>
+    Program copyright &copy; 2014-2016 Elvis Angelaccio
+    <email>elvis.angelaccio@kde.org</email>
+  </para>
+  <para>
+    Documentation copyright &copy; 2014-2016 Elvis Angelaccio
+    <email>elvis.angelaccio@kde.org</email>
+  </para>
+<!-- TRANS:CREDIT_FOR_TRANSLATORS -->
+&underFDL;
+&underGPL;
+</chapter>
 
 &documentation.index;
 

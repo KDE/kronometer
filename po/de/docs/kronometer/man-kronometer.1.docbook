@@ -1,98 +1,78 @@
 <?xml version="1.0" ?>
 <!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
-<!ENTITY % German "INCLUDE">
+<!ENTITY % English "INCLUDE">
 ]>
 
 <refentry lang="&language;">
 <refentryinfo>
-    <date
->2016-04-10</date>
-    <releaseinfo
->kronometer 2.0</releaseinfo>
+    <date>2016-04-10</date>
+    <releaseinfo>kronometer 2.0</releaseinfo>
 </refentryinfo>
 <!-- lifted from man+troff by doclifter -->
 <refmeta>
-<refentrytitle
->kronometer</refentrytitle>
-<manvolnum
->1</manvolnum>
-<refmiscinfo class='source'
->April 2016</refmiscinfo>
-<refmiscinfo class='manual'
->KRONOMETER 2.1.0</refmiscinfo>
+<refentrytitle>kronometer</refentrytitle>
+<manvolnum>1</manvolnum>
+<refmiscinfo class='source'>April 2016</refmiscinfo>
+<refmiscinfo class='manual'>KRONOMETER 2.1.0</refmiscinfo>
 </refmeta>
 <refnamediv>
-<refname
->kronometer</refname>
-<refpurpose
->Stoppuhrprogramm</refpurpose>
+<refname>kronometer</refname>
+<refpurpose>stopwatch application</refpurpose>
 </refnamediv>
 <!-- body begins here -->
 <refsynopsisdiv id='synopsis'>
 <cmdsynopsis>
-  <command
->kronometer</command>
+  <command>kronometer</command>
 </cmdsynopsis>
 </refsynopsisdiv>
 
-<refsect1 id='description'
-><title
->Beschreibung</title>
-<para
->Kronometer ist eine Anwendung für die Zeitmessung (Stoppuhr).</para>
+<refsect1 id='description'><title>DESCRIPTION</title>
+<para>Kronometer is a stopwatch (timer/chronometer) application.</para>
 
-<para
->Kronometer hat folgende wichtige Funktionen:</para>
+<para>Kronometer’s main features are the following:</para>
   <blockquote>
   <itemizedlist>
     <listitem override='bullet'>
-<para
->Das Stoppuhr-Miniprogramm starten/anhalten/fortsetzen</para>
+<para>Start/pause/resume the stopwatch widget;</para>
     </listitem>
     <listitem override='bullet'>
-<para
->Zwischenzeiten: Sie können eine Zeit festhalten, wann sie möchten</para>
+<para>Laps recording: you can capture the stopwatch time when you want;</para>
     </listitem>
     <listitem override='bullet'>
-<para
->Zwischenzeiten sortieren: so finden Sie einfach die schnellste oder langsamste Zeit</para>
+<para>Lap times sorting: you can easily find the shortest lap time or the
+longest one;</para>
     </listitem>
     <listitem override='bullet'>
-<para
->Das Stoppuhr-Miniprogramm sowie Zwischenzeiten zurücksetzen</para>
+<para>Reset the stopwatch widget and the lap times;</para>
     </listitem>
     <listitem override='bullet'>
-<para
->Zeitformat einstellen: Sie können die Genauigkeit der Stoppuhr einstellen</para>
+<para>Time format settings: you can choose the stopwatch granularity;</para>
     </listitem>
     <listitem override='bullet'>
-<para
->Zeiten speichern und fortsetzen: Sie können den Status der Stoppuhr speichern und später fortsetzen</para>
+<para>Times saving and resuming: you can save the stopwatch status and
+resume it later;</para>
     </listitem>
     <listitem override='bullet'>
-<para
->Eigene Schriftarten: Sie können für jede Ziffer der Stoppuhr eine Schriftart wählen</para>
+<para>Font customization: you can choose the fonts for each of the stopwatch
+digits;</para>
     </listitem>
     <listitem override='bullet'>
-<para
->Eigene Farben: Sie können für die Ziffern und den Hintergrund der Stoppuhr die Farbe wählen</para>
+<para>Color customization: you can choose the color for the stopwatch digits
+and the stopwatch background;</para>
     </listitem>
     <listitem override='bullet'>
-<para
->Zwischenzeiten-Export: Sie können die Zwischenzeiten in den Formaten JSON oder CVS in eine Datei speichern.</para>
+<para>Lap times export: you can export the lap times on a file using the JSON
+or CSV format.</para>
     </listitem>
   </itemizedlist>
   </blockquote>
 </refsect1>
 
-<refsect1 id='author'
-><title
->Autor</title>
-<para
->Das Programm Kronometer wurde von Elvis Angelaccio &lt;elvis.angelaccio@kde.orgt&gt; geschrieben.</para>
+<refsect1 id='author'><title>AUTHOR</title>
+<para>The KRONOMETER was written by Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt;.</para>
 
-<para
->Diese Handbuchseite wurde von Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; für das Debian-Projekt geschrieben, darf aber auch von anderen verwendet werden.</para>
+<para>This manual page was written by Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt;
+for the Debian project (but may be used by others).</para>
 </refsect1>
 </refentry>
 
