@@ -89,7 +89,7 @@
     <p xml:lang="et">Kronometer on stopperirakendus. See pakub põhilisi stopperi omadusi (paus/jätkamine/taastamine/ringid) ning võimaldab aegu salvestada ja neid hiljem taastada. Kronometer kuulub KDE lisarakenduste (Extragear) hulka.</p>
     <p xml:lang="eu">Kronometer kronometro aplikazio bat da. Bere eginbideak oinarrizko kronometroarenak dira (Eten/berrekin/berrezarri/itzuliak), denborak gordetzeko gaitasunaz eta gerora horiek berrekiteko. Kronometer KDE Extragear bildumako parte da, erabilgarrien azpi-modulukoa.</p>
     <p xml:lang="fi">Kronometer on sekuntikellosovellus. Siinä on sekuntikellon perustoiminnot (tauko/jatkaminen/nollaaminen/kierrokset) sekä mahdollisuus tallentaa ajat ja jatkaa tallennettuja aikoja myöhemmin. Kronometer kuuluu KDE Extragearin Työkalut-aliyksikköön.</p>
-    <p xml:lang="fr">Kronometer est une application de chronomètre. Il fournit les actions de base d'un chronomètre (pause/reprise/remise à zéro/temps intermédiaires), ainsi que la possibilité d'enregistrer les temps dans un fichier et les reprendre plus tard. Kronometer fait partie du sous-module Utils de la collection KDE Extragear</p>
+    <p xml:lang="fr">Kronometer est une application de chronomètre. Il fournit les actions de base d'un chronomètre (pause/reprise/remise à zéro/temps intermédiaires), ainsi que la possibilité d'enregistrer les temps dans un fichier et les reprendre plus tard. Kronometer fait partie du sous-module « Utils » de la collection KDE « Extragear ».</p>
     <p xml:lang="gl">Kronometer é unha aplicación para cronometrar. Goza de accións básicas de cronometraxe (deter, continuar, reiniciar, voltas), e permite gardar tempos para continualos máis adiante. Kronometer é parte do módulo de ferramentas da colección Extragear de KDE.</p>
     <p xml:lang="ia">Kronometer es un applicatin de chronometro. Illo presenta le actiones basic de chronometro (pausa/resume/reduce a zero/gyros), tal como le habilitate de salveguardar los plus tarde. Kronometer es parte del collection KDE Extragear, intra le sub-modulo de Utils.</p>
     <p xml:lang="id">Kronometer adalah aplikasi stopwatch. Ini fitur aksi stopwatch dasar (jeda/lanjut/reset/lap), serta kemampuan untuk menghemat waktu dan melanjutkannya nanti. Kronometer adalah bagian dari koleksi KDE Extragear, dalam sub-modul Utils.</p>
@@ -418,7 +418,7 @@
       <li xml:lang="et">Ringiaegade eksport: ringiajad saab eksportida failina, kasutades JSON- või CSV-vcormingut.</li>
       <li xml:lang="eu">Itzuli denboren esportatzea: Itzulien denbora fitxategi batera esporta ditzakezu JSON edo CSV formatuan</li>
       <li xml:lang="fi">Kierrosaikojen vienti: kierrosajat voi viedä JSON- tai CSV-muotoiseen tiedostoon</li>
-      <li xml:lang="fr">Exportation des temps intermédiaires : vous pouvez exporter les temps intermédiaire dans un fichier au format JSON ou CSV</li>
+      <li xml:lang="fr">Exportation des temps intermédiaires : vous pouvez exporter les temps intermédiaire dans un fichier au format « JSON » ou « CSV »</li>
       <li xml:lang="gl">Exportar os tempos de voltas: permítelle exportar os tempos de voltas a un ficheiro en formato JSON ou CSV.</li>
       <li xml:lang="ia">Exporta tempore de gyro: tu pote exportar le tempores de gyro in un file per usar formato JSON o CSV</li>
       <li xml:lang="id">Ekspor waktu lap: kamu bisa mengekspor waktu lap ke file menggunakan format JSON atau CSV</li>
