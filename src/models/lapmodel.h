@@ -65,7 +65,7 @@ public:
      */
     int columnForRole(Roles role) const;
 
-public slots:
+public Q_SLOTS:
 
     /**
      * Add a new absolute lap time to the model.

@@ -6,7 +6,16 @@ set(gui_SRCS
     lapitemdelegate.cpp
     mainwindow.cpp
     sessiondialog.cpp
-    timedisplay.cpp)
+    timedisplay.cpp
+    colorsettings.h
+    digitdisplay.h
+    fontsettings.h
+    generalsettings.h
+    lapitemdelegate.h
+    mainwindow.h
+    sessiondialog.h
+    timedisplay.h
+)
 
 ki18n_wrap_ui(gui_SRCS
     colorsettings.ui

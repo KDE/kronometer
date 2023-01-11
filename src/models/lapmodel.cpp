@@ -92,7 +92,7 @@ bool LapModel::setData(const QModelIndex& index, const QVariant& value, int role
         return false;
 
     m_laps[index.row()].setNote(value.toString());
-    emit dataChanged(index, index);
+    Q_EMIT dataChanged(index, index);
 
     return true;
 }

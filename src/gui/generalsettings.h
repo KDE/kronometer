@@ -16,7 +16,7 @@ class GeneralSettings : public QWidget, public Ui::GeneralSettings
 public:
     explicit GeneralSettings(QWidget *parent = nullptr);
 
-private slots:
+private Q_SLOTS:
 
     void showFractionsToggled(bool toggled);
     void showLapFractionsToggled(bool toggled);

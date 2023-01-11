@@ -13,7 +13,7 @@ class TestSession : public QObject
 {
     Q_OBJECT
 
-private slots:
+private Q_SLOTS:
 
     void testDefaultSession();
     void testTime();

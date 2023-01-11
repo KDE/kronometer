@@ -254,7 +254,7 @@ void MainWindow::slotWriteSettings()
 {
     KronometerConfig::self()->save();
 
-    foreach (auto widget, QApplication::topLevelWidgets()) {
+    for (auto widget : QApplication::topLevelWidgets()) {
         auto window = qobject_cast<MainWindow*>(widget);
 
         if (window) {

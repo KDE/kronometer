@@ -118,14 +118,14 @@ bool SessionModel::setData(const QModelIndex& index, const QVariant& value, int 
             return false;
 
         m_sessionList[index.row()].setName(value.toString());
-        emit dataChanged(index, index);
+        Q_EMIT dataChanged(index, index);
 
         return true;
     }
 
     if (index.column() == columnForRole(Roles::NoteRole)) {
         m_sessionList[index.row()].setNote(value.toString());
-        emit dataChanged(index, index);
+        Q_EMIT dataChanged(index, index);
 
         return true;
     }
@@ -177,7 +177,7 @@ void SessionModel::update(Session& session)
     session.setDate(QDateTime::currentDateTime());
     m_sessionList[i] = session;
 
-    emit dataChanged({}, {});
+    Q_EMIT dataChanged({}, {});
 }
 
 bool SessionModel::isEmpty() const

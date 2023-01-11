@@ -50,7 +50,7 @@ bool Stopwatch::initialize(int rawData)
 
     m_accumulator = rawData;
     m_state = State::Paused;
-    emit time(m_accumulator);  // it signals that has been deserialized and can be resumed
+    Q_EMIT time(m_accumulator);  // it signals that has been deserialized and can be resumed
 
     return true;
 }
@@ -71,7 +71,7 @@ void Stopwatch::start()
     }
 
     m_state = State::Running;
-    emit running();
+    Q_EMIT running();
 }
 
 void Stopwatch::pause()
@@ -82,7 +82,7 @@ void Stopwatch::pause()
 
     m_elapsedTimer.invalidate();
     m_state = State::Paused;
-    emit paused();
+    Q_EMIT paused();
 }
 
 void Stopwatch::reset()
@@ -90,9 +90,9 @@ void Stopwatch::reset()
     m_elapsedTimer.invalidate();          // if state is running, it will emit a zero time at next timerEvent() call
     QCoreApplication::processEvents();
     m_accumulator = 0;
-    emit time(0);
+    Q_EMIT time(0);
     m_state = State::Inactive;
-    emit inactive();
+    Q_EMIT inactive();
 }
 
 void Stopwatch::storeLap()
@@ -104,7 +104,7 @@ void Stopwatch::storeLap()
     }
 
     const auto zero = QTime {0, 0};
-    emit lap(zero.addMSecs(lapTime));
+    Q_EMIT lap(zero.addMSecs(lapTime));
 }
 
 void Stopwatch::timerEvent(QTimerEvent *event)
@@ -115,7 +115,7 @@ void Stopwatch::timerEvent(QTimerEvent *event)
     }
 
     if (m_elapsedTimer.isValid()) {
-        emit time(m_accumulator + m_elapsedTimer.elapsed());
+        Q_EMIT time(m_accumulator + m_elapsedTimer.elapsed());
     }
     else {
         killTimer(m_timerId);

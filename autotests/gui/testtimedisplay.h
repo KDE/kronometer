@@ -13,7 +13,7 @@ class TestTimeDisplay : public QObject
 {
     Q_OBJECT
 
-private slots:
+private Q_SLOTS:
 
     void testDefaultWidget();
     void testSetBackgroundColor();

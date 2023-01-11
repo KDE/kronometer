@@ -78,7 +78,7 @@ public:
      */
     QString currentTime();
 
-public slots:
+public Q_SLOTS:
 
     /**
      * Set the time to be displayed.

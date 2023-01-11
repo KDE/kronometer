@@ -56,7 +56,7 @@ protected:
 
     bool queryClose() override;
 
-private slots:
+private Q_SLOTS:
 
     /**
      * Stopwatch running state triggers.

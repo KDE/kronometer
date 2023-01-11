@@ -33,7 +33,7 @@ public:
 
     Session selectedSession() const;
 
-public slots:
+public Q_SLOTS:
 
     virtual void accept() override;
 
@@ -41,7 +41,7 @@ protected:
 
     virtual void keyPressEvent(QKeyEvent *event) override;
 
-private slots:
+private Q_SLOTS:
 
     /**
      * Call accept() if the selection's column is not editable.

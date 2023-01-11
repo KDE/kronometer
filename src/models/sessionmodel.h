@@ -70,7 +70,7 @@ public:
      */
     void read(const QJsonObject& json);
 
-private slots:
+private Q_SLOTS:
 
     /**
      * Update the global sessions file with the data in the model.
