@@ -2,7 +2,7 @@ project(kronometer)
 
 cmake_minimum_required(VERSION 3.1)
 set(QT_MIN_VERSION 5.15.0)
-set(KF5_MIN_VERSION 5.26.0)
+set(KF5_MIN_VERSION 5.92.0)
 
 set(PROJECT_VERSION 2.3.70)
 
@@ -18,6 +18,7 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(FeatureSummary)
+include(ECMDeprecationSettings)
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED
     COMPONENTS
@@ -43,6 +44,10 @@ add_definitions(
     -DQT_NO_CAST_FROM_ASCII
     -DQT_NO_CAST_TO_ASCII
     -DQT_USE_QSTRINGBUILDER)
+
+ecm_set_disabled_deprecation_versions(QT 5.15.2
+    KF 5.102
+)
 
 add_subdirectory(desktop)
 add_subdirectory(src)
