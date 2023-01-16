@@ -1,0 +1,504 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: kronometer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2022-10-08 02:40+0000\n"
+"PO-Revision-Date: 2017-11-22 14:59+0000\n"
+"Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
+"Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POFile-SpellExtra: Kronometer Angelaccio Elvis Ken Vermette\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "José Nuno Pires"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zepires@gmail.com"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/colorsettings.ui:20
+#, kde-format
+msgid "Display Background:"
+msgstr "Mostrar o Fundo:"
+
+#. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_backgroundColor)
+#: src/gui/colorsettings.ui:27
+#, kde-format
+msgid "Background color of the stopwatch display"
+msgstr "Cor de fundo do ecrã do cronómetro"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/colorsettings.ui:34
+#, kde-format
+msgid "Display Digits:"
+msgstr "Mostrar os Algarismos:"
+
+#. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_textColor)
+#: src/gui/colorsettings.ui:41
+#, kde-format
+msgid "Color of the stopwatch display digits"
+msgstr "Cor dos algarismos apresentados no cronómetro"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/fontsettings.ui:23
+#, kde-format
+msgid "Hours Font:"
+msgstr "Tipo de Letra das Horas:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/fontsettings.ui:56
+#, kde-format
+msgid "Minutes Font:"
+msgstr "Tipo de Letra dos Minutos:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/gui/fontsettings.ui:89
+#, kde-format
+msgid "Seconds Font:"
+msgstr "Tipo de Letra dos Segundos:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/fontsettings.ui:122
+#, kde-format
+msgid "Second Fractions Font:"
+msgstr "Tipo de Letra das Fracções de Segundos:"
+
+#. i18n: @title:tab
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: src/gui/generalsettings.ui:24
+#, kde-format
+msgid "Stopwatch"
+msgstr "Cronómetro"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: src/gui/generalsettings.ui:36
+#, kde-format
+msgid "Time Format"
+msgstr "Formato das Horas"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showHours)
+#: src/gui/generalsettings.ui:42
+#, kde-format
+msgid "Whether to show hours in the stopwatch"
+msgstr "Se deve mostrar as horas no cronómetro"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showHours)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapHours)
+#: src/gui/generalsettings.ui:45 src/gui/generalsettings.ui:192
+#, kde-format
+msgid "Show Hours"
+msgstr "Mostrar as Horas"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showMinutes)
+#: src/gui/generalsettings.ui:55
+#, kde-format
+msgid "Whether to show minutes in the stopwatch"
+msgstr "Se deve mostrar os minutos no cronómetro"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMinutes)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapMinutes)
+#: src/gui/generalsettings.ui:58 src/gui/generalsettings.ui:205
+#, kde-format
+msgid "Show Minutes"
+msgstr "Mostrar os Minutos"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showSecondFractions)
+#: src/gui/generalsettings.ui:86
+#, kde-format
+msgid "Whether to show second fractions in the stopwatch"
+msgstr "Se deve esconder as fracções de segundo no cronómetro"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showSecondFractions)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapSecondFractions)
+#: src/gui/generalsettings.ui:89 src/gui/generalsettings.ui:236
+#, kde-format
+msgid "Show Second Fractions:"
+msgstr "Mostrar as Fracções de Segundo:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:100 src/gui/generalsettings.ui:247
+#, fuzzy, kde-format
+#| msgid "up to Tenths"
+msgid "Up to Tenths"
+msgstr "até às Décimas"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:105 src/gui/generalsettings.ui:252
+#, fuzzy, kde-format
+#| msgid "up to Hundredths"
+msgid "Up to Hundredths"
+msgstr "até às Centésimas"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:110 src/gui/generalsettings.ui:257
+#, fuzzy, kde-format
+#| msgid "up to Tenths"
+msgid "Up to Thousandths"
+msgstr "até às Décimas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_startTimerImmediately)
+#: src/gui/generalsettings.ui:137
+#, kde-format
+msgid "Start timer immediately"
+msgstr ""
+
+#. i18n: @title:tab
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: src/gui/generalsettings.ui:158
+#, kde-format
+msgid "Laps"
+msgstr "Voltas"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
+#: src/gui/generalsettings.ui:164
+#, kde-format
+msgid "Whether to enable the laps recording feature"
+msgstr "Se deve activar a funcionalidade de gravação das voltas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
+#: src/gui/generalsettings.ui:167
+#, kde-format
+msgid "Enable Laps Recording"
+msgstr "Activar a Gravação das Voltas"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/generalsettings.ui:183
+#, kde-format
+msgid "Lap Times Format"
+msgstr "Formato das Horas nas Voltas"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapHours)
+#: src/gui/generalsettings.ui:189
+#, kde-format
+msgid "Whether to show hours in the laps"
+msgstr "Se deve mostrar as horas nas voltas"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapMinutes)
+#: src/gui/generalsettings.ui:202
+#, kde-format
+msgid "Whether to show minutes in the laps"
+msgstr "Se deve mostrar os minutos nas voltas"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapSecondFractions)
+#: src/gui/generalsettings.ui:233
+#, kde-format
+msgid "Whether to show second fractions in the laps"
+msgstr "Se deve mostrar as fracções de segundos nas voltas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapAbsoluteTimes)
+#: src/gui/generalsettings.ui:284
+#, kde-format
+msgid "Show Absolute Times"
+msgstr "Mostrar os Tempos Absolutos"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapNotes)
+#: src/gui/generalsettings.ui:291
+#, kde-format
+msgid "Show Notes"
+msgstr "Mostrar as Notas"
+
+#. i18n: ectx: Menu (file)
+#: src/gui/kronometerui.rc:7
+#, kde-format
+msgid "&File"
+msgstr "&Ficheiro"
+
+#. i18n: ectx: Menu (kronometerActions)
+#: src/gui/kronometerui.rc:11
+#, kde-format
+msgid "&Kronometer"
+msgstr "&Kronometer"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/gui/kronometerui.rc:20
+#, kde-format
+msgid "Kronometer Toolbar"
+msgstr "Barra do Kronometer"
+
+#: src/gui/mainwindow.cpp:137
+#, kde-format
+msgid "Do you want to quit and lose your unsaved times?"
+msgstr "Deseja sair e perder os seus tempos não gravados?"
+
+#: src/gui/mainwindow.cpp:138
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Quit"
+msgstr "Confirmar a Saída"
+
+#: src/gui/mainwindow.cpp:149
+#, kde-format
+msgid "Save times to session %1?"
+msgstr "Deseja gravar os tempos da sessão %1?"
+
+#: src/gui/mainwindow.cpp:177
+#, kde-format
+msgctxt "@action"
+msgid "Re&sume"
+msgstr "&Continuar"
+
+#: src/gui/mainwindow.cpp:196
+#, kde-format
+msgctxt "@action"
+msgid "&Start"
+msgstr "&Iniciar"
+
+#: src/gui/mainwindow.cpp:200
+#, kde-format
+msgctxt "untitled window"
+msgid "Untitled"
+msgstr "Sem Título"
+
+#: src/gui/mainwindow.cpp:225
+#, kde-format
+msgctxt "@title:tab"
+msgid "General Settings"
+msgstr "Configuração Geral"
+
+#: src/gui/mainwindow.cpp:228
+#, kde-format
+msgctxt "@title:tab"
+msgid "Font Settings"
+msgstr "Configuração do Tipo de Letra"
+
+#: src/gui/mainwindow.cpp:231
+#, kde-format
+msgctxt "@title:tab"
+msgid "Color Settings"
+msgstr "Configuração das Cores"
+
+#: src/gui/mainwindow.cpp:300
+#, kde-format
+msgctxt "@title:window"
+msgid "Save Session"
+msgstr "Gravar a Sessão"
+
+#: src/gui/mainwindow.cpp:301
+#, kde-format
+msgid "You can choose a name for this session:"
+msgstr "Poderá escolher um nome para esta sessão:"
+
+#: src/gui/mainwindow.cpp:310
+#, kde-format
+msgctxt "untitled session"
+msgid "Untitled session"
+msgstr "Sessão sem nome"
+
+#: src/gui/mainwindow.cpp:320
+#, kde-format
+msgctxt "@title:window"
+msgid "Export Laps"
+msgstr "Exportar as Voltas"
+
+#: src/gui/mainwindow.cpp:447
+#, kde-format
+msgctxt "@action"
+msgid "&Pause"
+msgstr "&Pausa"
+
+#: src/gui/mainwindow.cpp:450
+#, kde-format
+msgctxt "@action"
+msgid "&Reset"
+msgstr "&Reiniciar"
+
+#: src/gui/mainwindow.cpp:453
+#, kde-format
+msgctxt "@action"
+msgid "&Lap"
+msgstr "&Volta"
+
+#: src/gui/mainwindow.cpp:456
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Export Laps as..."
+msgstr "&Exportar as Voltas Como..."
+
+#: src/gui/mainwindow.cpp:651
+#, kde-format
+msgctxt "@info:shell"
+msgid "Lap number,Lap time,Global time,Note"
+msgstr "Número da volta,Tempo da volta,Tempo global,Nota"
+
+#: src/gui/mainwindow.cpp:684
+#, kde-format
+msgctxt "@info:shell"
+msgid "Created by Kronometer on %1"
+msgstr "Criado pelo Kronometer a %1"
+
+#: src/gui/mainwindow.cpp:750
+#, kde-format
+msgid "A stopwatch is running."
+msgstr "Está um cronómetro em funcionamento."
+
+#: src/gui/sessiondialog.cpp:35
+#, kde-format
+msgctxt "@action:button"
+msgid "Open session"
+msgstr "Abrir uma sessão"
+
+#: src/gui/sessiondialog.cpp:101
+#, kde-format
+msgctxt "@info"
+msgid "You don't have any saved session yet."
+msgstr "Não tem ainda nenhuma sessão gravada."
+
+#: src/gui/sessiondialog.cpp:123
+#, kde-format
+msgctxt "@info"
+msgid "Do you want to remove the selected session?"
+msgstr "Deseja remover a sessão seleccionada?"
+
+#: src/gui/sessiondialog.cpp:124
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm deletion"
+msgstr "Confirmar a remoção"
+
+#. i18n: @title:window
+#. i18n: ectx: property (windowTitle), widget (QDialog, SessionDialog)
+#: src/gui/sessiondialog.ui:14
+#, kde-format
+msgid "Open Session"
+msgstr "Abrir a Sessão"
+
+#: src/gui/timedisplay.cpp:154
+#, kde-format
+msgctxt "@title:column"
+msgid "Tenths"
+msgstr "Décimos"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_fracGroup)
+#: src/gui/timedisplay.cpp:158 src/gui/timedisplay.ui:54
+#, kde-format
+msgctxt "@title:column"
+msgid "Hundredths"
+msgstr "Centésimos"
+
+#: src/gui/timedisplay.cpp:162
+#, kde-format
+msgctxt "@title:column"
+msgid "Milliseconds"
+msgstr "Milisegundos"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_hourGroup)
+#: src/gui/timedisplay.ui:18
+#, fuzzy, kde-format
+#| msgid "Hours"
+msgctxt "@title:column"
+msgid "Hours"
+msgstr "Horas"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_minGroup)
+#: src/gui/timedisplay.ui:30
+#, fuzzy, kde-format
+#| msgid "Minutes"
+msgctxt "@title:column"
+msgid "Minutes"
+msgstr "Minutos"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_secGroup)
+#: src/gui/timedisplay.ui:42
+#, fuzzy, kde-format
+#| msgid "Seconds"
+msgctxt "@title:column"
+msgid "Seconds"
+msgstr "Segundos"
+
+#: src/main.cpp:32
+#, kde-format
+msgctxt "KAboutData display name"
+msgid "Kronometer"
+msgstr "Kronometer"
+
+#: src/main.cpp:34
+#, kde-format
+msgid "Kronometer is a simple stopwatch application"
+msgstr "O Kronometer é uma aplicação simples de cronómetro"
+
+#: src/main.cpp:36
+#, kde-format
+msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
+msgstr "'Copyright' (C) 2014-2016 de Elvis Angelaccio"
+
+#: src/main.cpp:42
+#, kde-format
+msgid "Elvis Angelaccio"
+msgstr "Elvis Angelaccio"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Maintainer"
+msgstr "Manutenção"
+
+#: src/main.cpp:49
+#, kde-format
+msgid "Ken Vermette"
+msgstr "Ken Vermette"
+
+#: src/main.cpp:50
+#, kde-format
+msgid "Kronometer icon"
+msgstr "Ícone do Kronometer"
+
+#: src/models/lapmodel.cpp:72
+#, kde-format
+msgctxt "lap number"
+msgid "Lap #"
+msgstr "Volta #"
+
+#: src/models/lapmodel.cpp:74
+#, kde-format
+msgctxt "@title:column"
+msgid "Lap Time"
+msgstr "Tempo da Volta"
+
+#: src/models/lapmodel.cpp:76
+#, kde-format
+msgctxt "@title:column"
+msgid "Global Time"
+msgstr "Tempo Global"
+
+#: src/models/lapmodel.cpp:78
+#, kde-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "Nota"
+
+#: src/models/sessionmodel.cpp:97
+#, kde-format
+msgctxt "session number"
+msgid "Session #"
+msgstr "Sessão #"
+
+#: src/models/sessionmodel.cpp:99
+#, kde-format
+msgid "Name"
+msgstr "Nome"
+
+#: src/models/sessionmodel.cpp:101
+#, kde-format
+msgid "Date"
+msgstr "Data"
+
+#: src/models/sessionmodel.cpp:103
+#, kde-format
+msgid "Note"
+msgstr "Nota"
+
+#~ msgid "up to Milliseconds"
+#~ msgstr "até aos Milisegundos"
+
+#~ msgid "Hundredths"
+#~ msgstr "Centésimos"

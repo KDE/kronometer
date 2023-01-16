@@ -1,0 +1,313 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kronometer "<application
+>Kronometer</application
+>">
+  <!ENTITY kappname "&kronometer;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Italian "INCLUDE">
+]>
+
+<book id="kronometer" lang="&language;">
+
+<bookinfo>
+<title
+>Manuale di &kronometer;</title>
+
+<authorgroup>
+  <author
+><firstname
+>Elvis</firstname
+><surname
+>Angelaccio</surname
+> <affiliation
+> <address
+> <email
+>elvis.angelaccio@kde.org</email>
+      </address>
+    </affiliation>
+  </author>
+<othercredit role="translator"
+><firstname
+>Federico</firstname
+><surname
+>Zenith</surname
+><affiliation
+><address
+><email
+>zenith.federico@gmail.com</email
+></address
+></affiliation
+><contrib
+>Traduzione di applicazione e documentazione</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2014-2016</year>
+<holder
+>Elvis Angelaccio</holder>
+</copyright>
+
+<date
+>2016-04-10</date>
+<releaseinfo
+>&kronometer; 2.1</releaseinfo>
+
+<legalnotice>
+  &FDLNotice;
+</legalnotice>
+
+<abstract>
+  <para
+>&kronometer; è un cronometro. Si può usare per compiti semplici come avvio, pausa e riavvio, e per la registrazione dei tempi sul giro. </para>
+  <para
+>&kronometer; può salvare una sessione completa (cronometro e tempi sul giro) e ripristinarla più avanti. </para>
+</abstract>
+
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Kronometer</keyword>
+  <keyword
+>cronometro</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Introduzione</title>
+  <para
+>&kronometer; è un semplice cronometro. È pensato per essere semplice e comodo da usare, ed è stato sviluppato in base alle tue esigenze. </para>
+  <para
+>Le principali funzionalità di &kronometer; sono: </para>
+  <itemizedlist>
+    <listitem>
+      <para
+>&kronometer; consiste in un cronometro che puoi avviare, mettere in pausa, far ripartire e azzerare. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; permette di registrare i tempi sul giro ed esportarli su file. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; permette di salvare una sessione e ripristinarla più avanti. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; permette di copiare i numeri visualizzati dal cronometro. </para>
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="usage">
+  <title
+>Uso</title>
+  <sect1 id="general_usage">
+    <title
+>Uso generale</title>
+    <para
+>L'uso principale di &kronometer; è ovviamente come cronometro. Puoi avviare, mettere in pausa e far ripartire il cronometro facendo clic sull'azione corrispondente nella barra degli strumenti o nel menu di &kronometer;. </para>
+    <para
+>Ancora più semplicemente, puoi usare la tastiera al posto del mouse: puoi avviare il cronometro con il tasto <keycap
+>Spazio</keycap
+> e metterlo in pausa sempre con <keycap
+>Spazio</keycap
+>. Potresti aver già visto questo comportamento in molti lettori multimediali. </para>
+    <para
+>Premendo il tasto &Enter; quando il cronometro è in funzione, congeli quel tempo e crei un nuovo tempo sul <emphasis
+>giro</emphasis
+>. Questi tempi sono sempre visibili nella tabella a sinistra dell'applicazione, dove li puoi ordinare facendo clic sull'intestazione della colonna <guilabel
+>Tempo sul giro</guilabel
+>. Puoi anche aggiungere una tua nota a ogni giro facendo doppio clic sulle celle nella colonna <guilabel
+>Nota</guilabel
+>. </para>
+    <para
+>La barra dei menu (nascosta in modo predefinito) fornisce l'accesso a tutti i comandi e alle opzioni di configurazione. La barra dei menu può essere attivata con <guimenuitem
+>Mostra la barra dei menu</guimenuitem
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>) dal menu <guimenu
+>Impostazioni</guimenu
+> o dal pulsante del menu nella barra degli strumenti. </para>
+    <sect2 id="save_and_restore">
+      <title
+>Salvare e ripristinare sessioni</title>
+      <para
+>Quando metti in pausa un cronometro crei una sessione: un tempo del cronometro ed eventuali tempi sul giro. Puoi salvare una sessione e ripristinarla in seguito. </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title
+>Salvare una sessione</title>
+      <para
+>Pausa un cronometro, fai quindi clic sul pulsante <guibutton
+>Salva come</guibutton
+> nel men <guimenu
+>File</guimenu
+>. Puoi scegliere un nome per la sessione che stai salvando. </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title
+>Ripristinare una sessione</title>
+      <para
+>Fai clic sul pulsante <guibutton
+>Apri</guibutton
+> sulla barra degli strumenti nel menu <guimenu
+>File</guimenu
+>. Scegli quindi una sessione esistente da caricare nella finestra delle sessioni. </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title
+>Aggiornare una sessione</title>
+      <para
+>Quando la sessione viene ripristinata, puoi far ripartire il cronometro e registrare nuovi tempi sul giro. Se vuoi salvare la sessione aggiornata, basta fare clic su <guibutton
+>Salva</guibutton
+> nel menu <guimenu
+>File</guimenu
+>. </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title
+>Modificare una sessione</title>
+      <para
+>Fai clic sul pulsante <guibutton
+>Apri</guibutton
+> sulla barra degli strumenti nel menu <guimenu
+>File</guimenu
+>. Se selezioni una sessione esistente da caricare nella finestra delle sessioni, potrai: <itemizedlist>
+          <listitem>
+            <para
+>Rinomina la sessione tramite un doppio clic sul suo nome.</para>
+          </listitem>
+          <listitem>
+            <para
+>Eliminare la sessione premendo <keycap
+>Canc</keycap
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+>Aggiungere una nota alla sessione o modificarla.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="additional_features">
+    <title
+>Funzionalità aggiuntive</title>
+    <sect2 id="export_lap_times">
+      <title
+>Esportare i tempi sul giro</title>
+      <para
+>Quando registri uno o più tempi sul giro, divengono disponibili le funzionalità di esportazione nel menu <guimenu
+>File</guimenu
+>, sotto la voce <guimenuitem
+>Esporta giri come</guimenuitem
+>. Facci clic e scegli un nome per il file esportato. Puoi esportare nel formato a valori separati da virgole (CSV) o in JSON. </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title
+>Supporto degli appunti</title>
+      <para
+>&kronometer; può copiare il tempo attuale del cronometro negli appunti del sistema. Usa <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> o la voce <guimenuitem
+>Copia</guimenuitem
+> del menu <guimenu
+>Modifica</guimenu
+>. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="configuration">
+  <title
+>Configurazione</title>
+  <sect1 id="settings_dialog">
+    <title
+>Finestra delle impostazioni</title>
+    <para
+>&kronometer; è configurabile in molti aspetti. Puoi aprire la finestra delle impostazioni con la voce <guimenuitem
+>Configura &kronometer;</guimenuitem
+> del menu <guimenu
+>Impostazioni</guimenu
+>. La finestra delle impostazioni è suddivisa nelle categorie seguenti. </para>
+    <sect2 id="general_settings">
+      <title
+>Impostazioni generali</title>
+      <para
+>Nella pagina delle impostazioni generali puoi trovare le impostazioni per il cronometro e i giri. Nella scheda del cronometro puoi impostare il formato dei tempi del cronometro: puoi mostrare ore, minuti o frazioni di secondo (i secondi sono sempre presenti). &kronometer; supporta una risoluzione dei tempi fino ai millesimi, anche se questo richiede molte risorse dalla CPU a causa del rapido aggiornamento dell'interfaccia grafica. </para>
+      <para
+>Nella scheda dei giri puoi abilitare o meno la funzionalità di registrazione dei giri. Se sono abilitati, ne puoi scegliere il formato, se mostrarne le note e i tempi assoluti, che sono i tempi del cronometro al momento della registrazione. </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title
+>Impostazioni dei caratteri</title>
+      <para
+>Nella pagina delle impostazioni dei caratteri puoi configurare il carattere del cronometro. Puoi scegliere diverse famiglie, stili e dimensioni dei caratteri per ogni componente del cronometro (ore, minuti, eccetera). Il comportamento predefinito prevede l'uso dello stesso carattere per tutti i componenti, in base al carattere predefinito del sistema. </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title
+>Impostazioni dei colori</title>
+      <para
+>Nella pagina delle impostazioni dei colori puoi configurare il colore predefinito del cronometro. Puoi cambiare il colore dello sfondo e del testo. I colori predefiniti rispetteranno il tema di sistema attualmente selezionato. </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title
+>Impostazioni integrate di &kde;</title>
+      <para
+>&kronometer; usa i normali strumenti di configurazione di &kde;. Li trovi nel menu <guimenu
+>Impostazioni</guimenu
+>, sotto le voci <guimenuitem
+>Configura le scorciatoie</guimenuitem
+> e <guimenuitem
+>Configura le barre degli strumenti</guimenuitem
+>; permettono di cambiare le scorciatoie delle azioni di &kronometer; e di cambiare la posizione e il contenuto della barra degli strumenti. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Riconoscimenti e licenza</title>
+  <para
+>&kronometer; </para>
+  <para
+>Copyright del programma 2014-2016 di Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+  <para
+>Copyright della documentazione &copy; 2014-2016 di Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+<para
+>Traduzione di Federico Zenith<email
+>zenith.federico@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+-->

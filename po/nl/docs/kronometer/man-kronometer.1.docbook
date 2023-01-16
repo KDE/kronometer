@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Dutch "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>2016-04-10</date>
+    <releaseinfo
+>kronometer 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>April 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>KRONOMETER 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>stopwatch-toepassing</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>BESCHRIJVING</title>
+<para
+>Kronometer is een stopwatch (timer/chronometer) toepassing.</para>
+
+<para
+>De hoofdfuncties van Kronometer zijn als volgt:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>Start/pauzeer/hervat het stopwatch-widget;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Rondetijden opnemen: u kunt de tijd van de stopwatch opnemen wanneer u wilt;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Rondetijden sorteren: u kunt gemakkelijk de kortste of de langste rondetijd vinden;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Reset het stopwatch-widget en de rondetijden;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Instellingen van de tijdopmaak: u kunt de nauwkeurigheid van de stopwatch kiezen;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Tijden opslaan en hervatten: u kunt de status van de stopwatch opslaan en deze later hervatten;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Aanpassen van het lettertype: u kunt het lettertype van elk van de cijfers van de stopwatch kiezen;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Aanpassen van kleur: u kunt de kleur van de cijfers en de achtergrond van de stopwatch kiezen;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Exporteren van rondetijden: u kunt de rondetijden exporteren in een bestand met het JSON- of CSV-formaat.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>AUTEUR</title>
+<para
+>KRONOMETER is geschreven door Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt;.</para>
+
+<para
+>Deze manpagina is gemaakt door Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; voor het Debian GNU/Linux systeem (maar kan worden gebruikt door anderen).</para>
+</refsect1>
+</refentry>
+

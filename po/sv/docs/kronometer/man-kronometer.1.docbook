@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Swedish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>2016-04-10</date>
+    <releaseinfo
+>kronometer 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>April 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>Kronometer 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>Tidtagarurprogram</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>Beskrivning</title>
+<para
+>Kronometer är ett tidtagarurprogram (stoppur/kronometer).</para>
+
+<para
+>Huvudfunktionerna i Kronometer är följande:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>Starta, pausa, återstarta tidtagarurets grafiska komponent,</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Varvtider: Det går att lagra tidtagarurets tid när man vill,</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Sortering av varvtider: Det är enkelt att hitta den kortaste eller längsta varvtiden,</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Nollställ tidtagarurets grafiska komponent och varvtiderna,</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Inställning av tidsformat: Det går att välja tidtagarurets upplösning,</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Spara och återstarta tider: Det går att spara tidtagarurets status och senare återstarta det,</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Anpassning av teckensnitt: Det går att välja teckensnitten för varje siffra i tidtagaruret,</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Anpassning av färger: Det går att välja färg för tidtagarurets siffror och bakgrund,</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Export av varvtider: Det går att exportera varvtider till en fil med JSON- eller CSV-format.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>Upphovsman</title>
+<para
+>Kronometer är skrivet av Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt;.</para>
+
+<para
+>Den här manualsidan är skriven av Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; för Debians GNU/Linux-system (men kan användas av andra).</para>
+</refsect1>
+</refentry>
+

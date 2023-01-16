@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Spanish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>2016-04-10</date>
+    <releaseinfo
+>kronometer 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>Abril de 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>KRONOMETER 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>aplicación de cronómetro</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>DESCRIPCIÓN</title>
+<para
+>Kronometer es una aplicación de cronómetro (temporizador/cronómetro).</para>
+
+<para
+>Las funciones principales de Kronometer son las siguientes:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>Iniciar, pausar y continuar el elemento gráfico de cronómetro;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Grabación de las vueltas: puede capturar los tiempos del cronómetro cuando quiera;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Ordenación de los tiempos de las vueltas: puede encontrar con facilidad el tiempo de vuelta más corto o el más largo;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Reiniciar el elemento gráfico del cronómetro y los tiempos por vuelta;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Preferencias de formato de tiempos: puede escoger el nivel de detalle del cronómetro;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Grabación y reanudación de tiempos: puede guardar el estado del cronómetro y reanudar dicho estado posteriormente;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Personalización de tipos de letra: puede escoger los tipos de letra para los dígitos del cronómetro;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Personalización de colores: puede escoger el color de los dígitos del cronómetro y de su fondo;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Exportar los tiempos de las vueltas: puede exportar los tiempos de las vueltas en un archivo usando los formatos JSON o CSV.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>AUTOR</title>
+<para
+>KRONOMETER fue escrito por Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt;.</para>
+
+<para
+>Esta página de manual fue escrita por Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; para el proyecto Debian (aunque se puede usar por otros).</para>
+</refsect1>
+</refentry>
+

@@ -1,0 +1,297 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kronometer "<application
+>Kronometer</application
+>">
+  <!ENTITY kappname "&kronometer;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Catalan  "INCLUDE">
+]>
+
+<book id="kronometer" lang="&language;">
+
+<bookinfo>
+<title
+>El manual del &kronometer;</title>
+
+<authorgroup>
+  <author
+><firstname
+>Elvis</firstname
+><surname
+>Angelaccio</surname
+> <affiliation
+> <address
+> <email
+>elvis.angelaccio@kde.org</email>
+      </address>
+    </affiliation>
+  </author>
+&traductor.Antoni.Bella; 
+</authorgroup>
+
+<copyright>
+<year
+>2014-2016</year>
+<holder
+>Elvis Angelaccio</holder>
+</copyright>
+
+<date
+>10 de març de 2016</date>
+<releaseinfo
+>&kronometer; 2.1</releaseinfo>
+
+<legalnotice>
+  &FDLNotice;
+</legalnotice>
+
+<abstract>
+  <para
+>El &kronometer; és una senzilla aplicació de cronòmetre. Pot utilitzar-se per a tasques bàsiques com iniciar/posar en pausa/reprendre el temporitzador, així com prendre els temps de la volta. </para>
+  <para
+>El &kronometer; és capaç de desar una sessió completa (temporitzador i els temps per volta) i restaurar-la més endavant. </para>
+</abstract>
+
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Kronometer</keyword>
+  <keyword
+>cronòmetre</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Introducció</title>
+  <para
+>El &kronometer; és una senzilla aplicació de cronòmetre. Destinada a ser senzilla i agradable d'usar, gràcies a un desenvolupament impulsat pels casos d'ús. </para>
+  <para
+>Les característiques principals del &kronometer; són les següents: </para>
+  <itemizedlist>
+    <listitem>
+      <para
+>El &kronometer; proporciona un temporitzador que es pot iniciar, posar en pausa, reprendre i restablir. </para>
+    </listitem>
+    <listitem>
+      <para
+>El &kronometer; permet enregistrar els temps per volta i exportar-los a un fitxer. </para>
+    </listitem>
+    <listitem>
+      <para
+>El &kronometer; permet desar una sessió i restaurar-la més endavant. </para>
+    </listitem>
+    <listitem>
+      <para
+>El &kronometer; permet copiar els números del temporitzador des de la pantalla. </para>
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="usage">
+  <title
+>Ús</title>
+  <sect1 id="general_usage">
+    <title
+>Ús general</title>
+    <para
+>El cas d'ús principal del &kronometer; és, per descomptat, la interacció amb el temporitzador. Podeu iniciar/posar en pausa/reprendre el temporitzador fent clic a les accions apropiades a la barra d'eines o al menú del &kronometer;. </para>
+    <para
+>Fins i tot més simple, podeu utilitzar el teclat en comptes del ratolí: iniciar el temporitzador amb la tecla <keycap
+>Espai</keycap
+> del teclat i aturar-lo també amb la tecla <keycap
+>Espai</keycap
+>. Podeu reconèixer aquest comportament en moltes aplicacions de reproductor de suports. </para>
+    <para
+>Prement la tecla &Intro; quan el temporitzador està en marxa, congelareu aquest temps en particular i creareu un nou temps per <emphasis
+>volta</emphasis
+>. Aquests temps sempre seran visibles a la taula de l'esquerra de l'aplicació, on es poden ordenar fent clic a la capçalera de la columna <emphasis
+>Temps per volta</emphasis
+>. També podeu afegir una anotació de text personalitzat per a cada volta, fent doble clic a les cel·les dins de la columna <emphasis
+>Nota</emphasis
+>. </para>
+    <para
+>La barra de menús (per omissió oculta), que proporciona accés a totes les ordres i opcions de configuració. La barra de menús es pot alternar amb <guimenuitem
+>Mostra la barra de menús</guimenuitem
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>) des del menú <guimenu
+>Arranjament</guimenu
+> o des del botó de menú a la barra d'eines. </para>
+    <sect2 id="save_and_restore">
+      <title
+>Desar i restaurar les sessions</title>
+      <para
+>Quan feu una pausa en un cronòmetre en marxa, creareu una sessió: un temps de cronòmetre i zero o més temps per volta. Podeu desar una sessió i restaurar-la més endavant. </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title
+>Desar una sessió</title>
+      <para
+>Poseu en pausa un cronòmetre en funcionament, després feu clic al botó <guibutton
+>Desa com a</guibutton
+> al menú <guimenu
+>Fitxer</guimenu
+>. Podreu triar un nom per a la sessió que esteu desant. </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title
+>Restaurar una sessió</title>
+      <para
+>Feu clic al botó <guibutton
+>Obre</guibutton
+> a la barra d'eines o al menú <guimenu
+>Fitxer</guimenu
+>. Després trieu una sessió existent per a carregar-la des del diàleg de la sessió. </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title
+>Actualitzar una sessió</title>
+      <para
+>Quan es restaura la sessió, podeu reprendre el cronòmetre i podeu enregistrar temps per volta nous. Si voleu desar la sessió actualitzada, podeu simplement fer clic al botó <guibutton
+>Desa</guibutton
+> al menú <guimenu
+>Fitxer</guimenu
+>. </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title
+>Editar una sessió</title>
+      <para
+>Feu clic al botó <guibutton
+>Obre</guibutton
+> de la barra d'eines o al menú <guimenu
+>Fitxer</guimenu
+>. Si seleccioneu una sessió existent en el diàleg de la sessió, sereu capaç de: <itemizedlist>
+          <listitem>
+            <para
+>Canviar el nom de la sessió, fent doble clic sobre el seu nom.</para>
+          </listitem>
+          <listitem>
+            <para
+>Suprimir la sessió, prement la tecla <keycap
+>Supr</keycap
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+>Afegir una nota a la sessió o editar-la.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="additional_features">
+    <title
+>Característiques addicionals</title>
+    <sect2 id="export_lap_times">
+      <title
+>Exportar els temps per volta</title>
+      <para
+>Quan enregistreu un o més temps per volta, estaran disponibles les funcions d'exportació en el menú <guimenu
+>Fitxer</guimenu
+>, sota l'entrada <guimenuitem
+>Exporta les voltes com a</guimenuitem
+>. Feu-hi clic i després trieu un nom per al fitxer exportat. Es poden exportar en el format de valors separats per comes (CSV) o al JSON. </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title
+>Compatibilitat amb el porta-retalls</title>
+      <para
+>El &kronometer; és capaç de copiar el temps del cronòmetre actual al porta-retalls del sistema. Empreu la drecera <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> o l'entrada <guimenuitem
+>Copia</guimenuitem
+> en el menú <guimenu
+>Edita</guimenu
+>. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="configuration">
+  <title
+>Configuració</title>
+  <sect1 id="settings_dialog">
+    <title
+>Diàleg d'arranjament</title>
+    <para
+>El &kronometer; és personalitzable en molts aspectes. Podeu obrir el diàleg de configuració fent clic a l'entrada <guimenuitem
+>Configura el &kronometer;</guimenuitem
+> en el menú <guimenu
+>Arranjament</guimenu
+>. El diàleg de configuració està organitzat en les següents categories. </para>
+    <sect2 id="general_settings">
+      <title
+>Configuració general</title>
+      <para
+>A la pàgina de configuració general trobareu les opcions per al cronòmetre i les voltes. A la pestanya cronòmetre podreu configurar el format preferit del temps per a la pantalla cronòmetre. Podeu decidir si voleu mostrar hores, minuts o fraccions de segon (els segons es mostraran sempre). I el &kronometer; implementa la granularitat del temps fins als mil·lisegons, encara que això requereix un ús intensiu de la CPU a causa de l'alta freqüència d'actualització de la interfície d'usuari. </para>
+      <para
+>Dins de la pestanya voltes podeu activar o desactivar la característica enregistrar les voltes. Si s'activen les voltes, podreu triar el seu format per a l'hora, si voleu mostrar les vostres notes i si voleu els temps absoluts, els quals són els temps del cronòmetre quan es van enregistrar. </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title
+>Arranjament del tipus de lletra</title>
+      <para
+>A la pàgina de configuració per al tipus de lletra, podreu personalitzar el tipus de lletra per a la pantalla del cronòmetre. Podeu escollir entre diferents famílies, estils i mides de tipus de lletra per a cada component del temporitzador (hores, minuts, &etc;). Per omissió, tots els components del temporitzador empraran el mateix tipus de lletra, d'acord amb el tipus de lletra per omissió del sistema. </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title
+>Configuració del color</title>
+      <para
+>A la pàgina de configuració per al color, podreu personalitzar el color per omissió per a la pantalla del cronòmetre. Podeu canviar el color de fons i el color del text. Els colors per omissió respecten el tema del sistema actualment seleccionat. </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title
+>Configuració predefinida del &kde;</title>
+      <para
+>El &kronometer; utilitza les eines de configuració estàndards del &kde;. Les trobareu al menú <guimenu
+>Arranjament</guimenu
+>, sota les entrades <guimenuitem
+>Configura les dreceres</guimenuitem
+> i <guimenuitem
+>Configura les barres d'eines</guimenuitem
+>. Permeten canviar les dreceres de les accions del &kronometer;, així com canviar la posició de la barra d'eines i el seu contingut. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Crèdits i llicència</title>
+  <para
+>&kronometer; </para>
+  <para
+>Copyright del programa &copy; 2014-2016 Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+  <para
+>Copyright de la documentació &copy; 2014-2016 Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+<para
+>Traductor de la documentació: &credits.Antoni.Bella;</para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+-->

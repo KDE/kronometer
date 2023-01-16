@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Italian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>2016-04-10</date>
+    <releaseinfo
+>kronometer 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>Aprile 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>KRONOMETER 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>cronometro</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>DESCRIZIONE</title>
+<para
+>Kronometer è un cronometro.</para>
+
+<para
+>Le principali funzionalità di Kronometer sono:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>Oggetto per avviare, mettere in pausa e riavviare il cronometro;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Registrazione dei giri: puoi catturare il tempo del cronometro ogni volta che vuoi;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Ordinamento dei tempi sul giro: puoi facilmente trovare il tempo sul giro più breve o più lungo;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Oggetto per azzerare il cronometro e i tempi sul giro;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Impostazioni del formato del tempo: puoi scegliere la risoluzione del cronometro;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Salvataggio e ripristino dei tempi: puoi salvare lo stato del cronometro e ripristinarlo più avanti;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Configurazione dei caratteri: puoi scegliere i caratteri per ciascuna cifra del cronometro;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Configurazione dei colori: puoi scegliere il colore delle cifre e dello sfondo del cronometro;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Esportazione dei tempi sul giro: puoi esportare i tempi sul giro su file nei formati JSON o CSV.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>AUTORE</title>
+<para
+>Kronometer è stato scritto da Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt;.</para>
+
+<para
+>Questa pagina di manuale è stata scritta da João Eriberto Mota Filho &lt;eriberto@debian.org&gt; per il progetto Debian (ma fruibile da altri).</para>
+</refsect1>
+</refentry>
+
