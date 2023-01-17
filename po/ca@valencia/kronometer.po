@@ -275,13 +275,13 @@ msgstr "Configuració general"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
-msgstr "Configuració dels tipus de lletra"
+msgstr "Configureu els tipus de lletra"
 
 #: src/gui/mainwindow.cpp:231
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
-msgstr "Configuració dels colors"
+msgstr "Configureu els colors"
 
 #: src/gui/mainwindow.cpp:300
 #, kde-format
