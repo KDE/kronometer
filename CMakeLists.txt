@@ -2,14 +2,14 @@ project(kronometer)
 
 cmake_minimum_required(VERSION 3.1)
 set(QT_MIN_VERSION 5.15.0)
-set(KF5_MIN_VERSION 5.92.0)
+set(KF_MIN_VERSION 5.92.0)
 
 set(PROJECT_VERSION 2.3.70)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CXX_STANDARD_REQUIRED ON)
 
-find_package(ECM ${KF5_MIN_VERSION} REQUIRED NO_MODULE)
+find_package(ECM ${KF_MIN_VERSION} REQUIRED NO_MODULE)
 set(CMAKE_MODULE_PATH ${ECM_MODULE_PATH})
 
 include(KDEInstallDirs)
@@ -26,7 +26,7 @@ find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED
     Gui
     Widgets)
 
-find_package(KF5 ${KF5_MIN_VERSION} REQUIRED
+find_package(KF5 ${KF_MIN_VERSION} REQUIRED
     COMPONENTS
     CoreAddons
     Config
