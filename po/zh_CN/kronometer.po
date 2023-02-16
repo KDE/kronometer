@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-11-29 00:50+0000\n"
-"PO-Revision-Date: 2023-02-07 11:02\n"
+"PO-Revision-Date: 2023-02-15 11:04\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -31,7 +31,7 @@ msgstr "kde-china@kde.org"
 #: src/gui/colorsettings.ui:20
 #, kde-format
 msgid "Display Background:"
-msgstr "显示背景︰"
+msgstr "显示背景："
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_backgroundColor)
 #: src/gui/colorsettings.ui:27
@@ -55,19 +55,19 @@ msgstr "秒表显示数字的颜色"
 #: src/gui/fontsettings.ui:23
 #, kde-format
 msgid "Hours Font:"
-msgstr "小时字体︰"
+msgstr "小时字体："
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/fontsettings.ui:56
 #, kde-format
 msgid "Minutes Font:"
-msgstr "分钟字体︰"
+msgstr "分钟字体："
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/fontsettings.ui:89
 #, kde-format
 msgid "Seconds Font:"
-msgstr "秒数字体︰"
+msgstr "秒数字体："
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/fontsettings.ui:122
@@ -288,7 +288,7 @@ msgstr "保存会话"
 #: src/gui/mainwindow.cpp:315
 #, kde-format
 msgid "You can choose a name for this session:"
-msgstr "您可以选择此会话的名称︰"
+msgstr "您可以选择此会话的名称："
 
 #: src/gui/mainwindow.cpp:324
 #, kde-format
