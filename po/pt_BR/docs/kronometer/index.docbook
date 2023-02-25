@@ -23,7 +23,7 @@
 > <affiliation
 > <address
 > <email
->elvis.angelaccio@kdemail.net</email>
+>elvis.angelaccio@kde.org</email>
       </address>
     </affiliation>
   </author>
@@ -284,18 +284,17 @@
 >&kronometer; </para>
   <para
 >Direitos autorais do programa &copy; 2014-2016 Elvis Angelaccio <email
->elvis.angelaccio@kdemail.net</email
+>elvis.angelaccio@kde.org</email
 > </para>
   <para
 >Direitos autorais da documentação &copy; 2014-2016 Elvis Angelaccio <email
->elvis.angelaccio@kdemail.net</email
+>elvis.angelaccio@kde.org</email
 > </para>
 <para
 >Tradução de André Marcelo Alvarenga <email
 >alvarenga@kde.org</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 
