@@ -32,7 +32,7 @@ msgstr "adriyetichaves@gmail.com"
 #: src/gui/colorsettings.ui:20
 #, kde-format
 msgid "Display Background:"
-msgstr "Mostrar o fondo:"
+msgstr "Amosar o fondo:"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_backgroundColor)
 #: src/gui/colorsettings.ui:27
@@ -44,7 +44,7 @@ msgstr "A cor de fondo da pantalla do cronómetro"
 #: src/gui/colorsettings.ui:34
 #, kde-format
 msgid "Display Digits:"
-msgstr "Mostrar os díxitos:"
+msgstr "Amosar os díxitos:"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_textColor)
 #: src/gui/colorsettings.ui:41
@@ -93,40 +93,40 @@ msgstr "Formato de hora"
 #: src/gui/generalsettings.ui:42
 #, kde-format
 msgid "Whether to show hours in the stopwatch"
-msgstr "Indica se mostrar ou non as horas no cronómetro"
+msgstr "Indica se amosar ou non as horas no cronómetro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showHours)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapHours)
 #: src/gui/generalsettings.ui:45 src/gui/generalsettings.ui:192
 #, kde-format
 msgid "Show Hours"
-msgstr "Mostrar as horas"
+msgstr "Amosar as horas"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showMinutes)
 #: src/gui/generalsettings.ui:55
 #, kde-format
 msgid "Whether to show minutes in the stopwatch"
-msgstr "Indica se mostrar ou non os minutos no cronómetro"
+msgstr "Indica se amosar ou non os minutos no cronómetro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMinutes)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapMinutes)
 #: src/gui/generalsettings.ui:58 src/gui/generalsettings.ui:205
 #, kde-format
 msgid "Show Minutes"
-msgstr "Mostrar os minutos"
+msgstr "Amosar os minutos"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showSecondFractions)
 #: src/gui/generalsettings.ui:86
 #, kde-format
 msgid "Whether to show second fractions in the stopwatch"
-msgstr "Indica se mostrar ou non as fraccións de segundo no cronómetro"
+msgstr "Indica se amosar ou non as fraccións de segundo no cronómetro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showSecondFractions)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapSecondFractions)
 #: src/gui/generalsettings.ui:89 src/gui/generalsettings.ui:236
 #, kde-format
 msgid "Show Second Fractions:"
-msgstr "Mostrar as fraccións de segundo:"
+msgstr "Amosar as fraccións de segundo:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
@@ -184,31 +184,31 @@ msgstr "Formato de tempo das voltas"
 #: src/gui/generalsettings.ui:189
 #, kde-format
 msgid "Whether to show hours in the laps"
-msgstr "Indica se mostrar ou non as horas nas voltas"
+msgstr "Indica se amosar ou non as horas nas voltas"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapMinutes)
 #: src/gui/generalsettings.ui:202
 #, kde-format
 msgid "Whether to show minutes in the laps"
-msgstr "Indica se mostrar ou non os minutos nas voltas"
+msgstr "Indica se amosar ou non os minutos nas voltas"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapSecondFractions)
 #: src/gui/generalsettings.ui:233
 #, kde-format
 msgid "Whether to show second fractions in the laps"
-msgstr "Indica se mostrar ou non as voltas no cronómetro"
+msgstr "Indica se amosar ou non as voltas no cronómetro"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapAbsoluteTimes)
 #: src/gui/generalsettings.ui:284
 #, kde-format
 msgid "Show Absolute Times"
-msgstr "Mostrar os tempos absolutos"
+msgstr "Amosar os tempos absolutos"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapNotes)
 #: src/gui/generalsettings.ui:291
 #, kde-format
 msgid "Show Notes"
-msgstr "Mostrar as notas"
+msgstr "Amosar as notas"
 
 #. i18n: ectx: Menu (file)
 #: src/gui/kronometerui.rc:7
