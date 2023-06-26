@@ -7,7 +7,7 @@
 #ifndef TESTSESSION_H
 #define TESTSESSION_H
 
-#include <QtTest>
+#include <QTest>
 
 class TestSession : public QObject
 {

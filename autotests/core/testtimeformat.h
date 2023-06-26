@@ -7,7 +7,7 @@
 #ifndef TESTTIMEFORMAT_H
 #define TESTTIMEFORMAT_H
 
-#include <QtTest>
+#include <QTest>
 
 class TestTimeFormat : public QObject
 {

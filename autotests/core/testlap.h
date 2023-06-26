@@ -7,7 +7,7 @@
 #ifndef TESTLAP_H
 #define TESTLAP_H
 
-#include <QtTest>
+#include <QTest>
 
 class TestLap : public QObject
 {

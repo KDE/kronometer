@@ -7,7 +7,7 @@
 #ifndef TESTSTOPWATCH_H
 #define TESTSTOPWATCH_H
 
-#include <QtTest>
+#include <QTest>
 
 class TestStopwatch : public QObject
 {

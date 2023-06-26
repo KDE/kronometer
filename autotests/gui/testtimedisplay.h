@@ -7,7 +7,7 @@
 #ifndef TESTTIMEDISPLAY_H
 #define TESTTIMEDISPLAY_H
 
-#include <QtTest>
+#include <QTest>
 
 class TestTimeDisplay : public QObject
 {
