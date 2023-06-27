@@ -250,7 +250,7 @@
     </sect2>
     <sect2 id="kde_built_in_settings">
       <title
->Configuració predefinida del &kde;</title>
+>Configuració integrada del &kde;</title>
       <para
 >El &kronometer; utilitza les eines de configuració estàndards del &kde;. Les trobareu al menú <guimenu
 >Arranjament</guimenu
