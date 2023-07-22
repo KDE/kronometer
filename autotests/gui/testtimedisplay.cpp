@@ -55,3 +55,5 @@ void TestTimeDisplay::testSetTextColor()
 }
 
 QTEST_MAIN(TestTimeDisplay)
+
+#include "moc_testtimedisplay.cpp"

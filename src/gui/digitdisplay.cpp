@@ -150,3 +150,5 @@ void DigitDisplay::showThreeDigits(const QString& digits) const
     m_centerDigit->setText(digits.at(1));
     m_leftmostDigit->setText(digits.at(0));
 }
+
+#include "moc_digitdisplay.cpp"

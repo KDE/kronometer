@@ -795,3 +795,5 @@ void MainWindow::disactivateScreenInhibition()
     });
 }
 
+
+#include "moc_mainwindow.cpp"

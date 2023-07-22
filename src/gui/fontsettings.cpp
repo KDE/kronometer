@@ -10,3 +10,5 @@ FontSettings::FontSettings(QWidget *parent) : QWidget(parent)
 {
     setupUi(this);
 }
+
+#include "moc_fontsettings.cpp"

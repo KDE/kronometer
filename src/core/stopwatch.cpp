@@ -127,3 +127,5 @@ int Stopwatch::granularity() const
 {
     return static_cast<int>(m_granularity);
 }
+
+#include "moc_stopwatch.cpp"

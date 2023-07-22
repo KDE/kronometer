@@ -64,3 +64,5 @@ void TestStopwatch::testInitialize()
 }
 
 QTEST_MAIN(TestStopwatch)
+
+#include "moc_teststopwatch.cpp"

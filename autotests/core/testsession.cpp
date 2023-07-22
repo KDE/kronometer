@@ -112,3 +112,5 @@ void TestSession::testJson()
 }
 
 QTEST_MAIN(TestSession)
+
+#include "moc_testsession.cpp"

@@ -96,3 +96,5 @@ void TestTimeFormat::testOverrideMinutes()
 }
 
 QTEST_MAIN(TestTimeFormat)
+
+#include "moc_testtimeformat.cpp"

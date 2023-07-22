@@ -144,3 +144,5 @@ void SessionDialog::removeDialog()
     m_sessionModel->removeRow(selectedIndex().row());
 }
 
+
+#include "moc_sessiondialog.cpp"

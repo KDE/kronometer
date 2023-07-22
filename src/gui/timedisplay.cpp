@@ -180,3 +180,5 @@ void TimeDisplay::setGroupboxColor(QGroupBox *groupBox, QPalette::ColorRole role
     groupBox->setPalette(palette);
 }
 
+
+#include "moc_timedisplay.cpp"

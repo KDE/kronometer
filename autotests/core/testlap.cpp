@@ -77,3 +77,5 @@ void TestLap::testTimeTo()
 }
 
 QTEST_MAIN(TestLap)
+
+#include "moc_testlap.cpp"

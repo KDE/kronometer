@@ -28,3 +28,5 @@ void LapItemDelegate::onCloseEditor(QWidget *,
 {
     m_window->enableLapShortcuts(true);
 }
+
+#include "moc_lapitemdelegate.cpp"

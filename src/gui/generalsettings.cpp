@@ -31,3 +31,5 @@ void GeneralSettings::enableLapsToggled(bool toggled)
 {
     lapSettings->setVisible(toggled);
 }
+
+#include "moc_generalsettings.cpp"

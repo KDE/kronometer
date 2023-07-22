@@ -169,3 +169,5 @@ LapModel::Roles LapModel::roleForColumn(int column) const
 {
     return m_roles.at(column);
 }
+
+#include "moc_lapmodel.cpp"

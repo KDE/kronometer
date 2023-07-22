@@ -237,3 +237,5 @@ QJsonArray SessionModel::jsonSessions() const
     return array;
 }
 
+
+#include "moc_sessionmodel.cpp"

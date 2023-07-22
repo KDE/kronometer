@@ -10,3 +10,5 @@ ColorSettings::ColorSettings(QWidget *parent) : QWidget(parent)
 {
     setupUi(this);
 }
+
+#include "moc_colorsettings.cpp"
