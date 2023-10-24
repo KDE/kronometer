@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:50+0000\n"
+"POT-Creation-Date: 2023-10-24 00:45+0000\n"
 "PO-Revision-Date: 2021-05-16 21:57+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -302,43 +302,43 @@ msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "랩 내보내기"
 
-#: src/gui/mainwindow.cpp:461
+#: src/gui/mainwindow.cpp:485
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "일시 정지(&P)"
 
-#: src/gui/mainwindow.cpp:464
+#: src/gui/mainwindow.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "초기화(&R)"
 
-#: src/gui/mainwindow.cpp:467
+#: src/gui/mainwindow.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "랩(&L)"
 
-#: src/gui/mainwindow.cpp:470
+#: src/gui/mainwindow.cpp:494
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "다른 이름으로 랩 내보내기(&E)..."
 
-#: src/gui/mainwindow.cpp:665
+#: src/gui/mainwindow.cpp:689
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "랩 번호,랩 시간,전역 시간,메모"
 
-#: src/gui/mainwindow.cpp:698
+#: src/gui/mainwindow.cpp:722
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "%1에 Kronometer에서 생성함"
 
-#: src/gui/mainwindow.cpp:764
+#: src/gui/mainwindow.cpp:788
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "초시계가 실행 중입니다."

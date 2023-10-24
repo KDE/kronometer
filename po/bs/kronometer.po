@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:50+0000\n"
+"POT-Creation-Date: 2023-10-24 00:45+0000\n"
 "PO-Revision-Date: 2015-02-24 22:48+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@kde.org>\n"
@@ -333,49 +333,49 @@ msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "&Izvezi prolazna vremena kao..."
 
-#: src/gui/mainwindow.cpp:461
+#: src/gui/mainwindow.cpp:485
 #, fuzzy, kde-format
 #| msgid "&Pause"
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pauza"
 
-#: src/gui/mainwindow.cpp:464
+#: src/gui/mainwindow.cpp:488
 #, fuzzy, kde-format
 #| msgid "&Reset"
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Resetuj"
 
-#: src/gui/mainwindow.cpp:467
+#: src/gui/mainwindow.cpp:491
 #, fuzzy, kde-format
 #| msgid "&Lap"
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Prolazno vrijeme"
 
-#: src/gui/mainwindow.cpp:470
+#: src/gui/mainwindow.cpp:494
 #, fuzzy, kde-format
 #| msgid "&Export laps as..."
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Izvezi prolazna vremena kao..."
 
-#: src/gui/mainwindow.cpp:665
+#: src/gui/mainwindow.cpp:689
 #, fuzzy, kde-format
 #| msgid "Lap number,Lap time,Global time,Note"
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Broj kruga, Vrijeme kruga, Globalno brijeme, Napomena"
 
-#: src/gui/mainwindow.cpp:698
+#: src/gui/mainwindow.cpp:722
 #, fuzzy, kde-format
 #| msgid "Created by Kronometer on %1"
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Kreirano Kronometrom na %1"
 
-#: src/gui/mainwindow.cpp:764
+#: src/gui/mainwindow.cpp:788
 #, kde-format
 msgid "A stopwatch is running."
 msgstr ""

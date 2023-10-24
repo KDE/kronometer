@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:50+0000\n"
+"POT-Creation-Date: 2023-10-24 00:45+0000\n"
 "PO-Revision-Date: 2021-04-15 10:02+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -301,43 +301,43 @@ msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Zwischenzeiten exportieren"
 
-#: src/gui/mainwindow.cpp:461
+#: src/gui/mainwindow.cpp:485
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Anhalten"
 
-#: src/gui/mainwindow.cpp:464
+#: src/gui/mainwindow.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Zurücksetzen"
 
-#: src/gui/mainwindow.cpp:467
+#: src/gui/mainwindow.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Zwischenzeit"
 
-#: src/gui/mainwindow.cpp:470
+#: src/gui/mainwindow.cpp:494
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "Zwischenzeiten e&xportieren als ..."
 
-#: src/gui/mainwindow.cpp:665
+#: src/gui/mainwindow.cpp:689
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Nummer der Zwischenzeit, Zwischenzeit, Gesamtzeit, Notiz"
 
-#: src/gui/mainwindow.cpp:698
+#: src/gui/mainwindow.cpp:722
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Erstellt durch Kronometer am %1"
 
-#: src/gui/mainwindow.cpp:764
+#: src/gui/mainwindow.cpp:788
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Eine Stoppuhr läuft."

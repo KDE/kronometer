@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:50+0000\n"
+"POT-Creation-Date: 2023-10-24 00:45+0000\n"
 "PO-Revision-Date: 2021-07-26 18:08+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -306,43 +306,43 @@ msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Esportatu itzuliak"
 
-#: src/gui/mainwindow.cpp:461
+#: src/gui/mainwindow.cpp:485
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pausatu"
 
-#: src/gui/mainwindow.cpp:464
+#: src/gui/mainwindow.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "Be&rrezarri"
 
-#: src/gui/mainwindow.cpp:467
+#: src/gui/mainwindow.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Itzulia"
 
-#: src/gui/mainwindow.cpp:470
+#: src/gui/mainwindow.cpp:494
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Esportatu itzuliak"
 
-#: src/gui/mainwindow.cpp:665
+#: src/gui/mainwindow.cpp:689
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Itzuli zenbakia, itzuliaren denbora, Denbora orokorra, Oharra"
 
-#: src/gui/mainwindow.cpp:698
+#: src/gui/mainwindow.cpp:722
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Kronometroak sortua %1-(e)n"
 
-#: src/gui/mainwindow.cpp:764
+#: src/gui/mainwindow.cpp:788
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Kronometroa martxan."

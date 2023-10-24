@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2022-11-29 00:50+0000\n"
+"POT-Creation-Date: 2023-10-24 00:45+0000\n"
 "PO-Revision-Date: 2021-04-05 13:54+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
@@ -302,43 +302,43 @@ msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Rondetijden exporteren"
 
-#: src/gui/mainwindow.cpp:461
+#: src/gui/mainwindow.cpp:485
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pauzeren"
 
-#: src/gui/mainwindow.cpp:464
+#: src/gui/mainwindow.cpp:488
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Resetten"
 
-#: src/gui/mainwindow.cpp:467
+#: src/gui/mainwindow.cpp:491
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Ronde"
 
-#: src/gui/mainwindow.cpp:470
+#: src/gui/mainwindow.cpp:494
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "Ronden &exporteren als..."
 
-#: src/gui/mainwindow.cpp:665
+#: src/gui/mainwindow.cpp:689
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Nummer van ronde,rondetijd,globale tijd,notitie"
 
-#: src/gui/mainwindow.cpp:698
+#: src/gui/mainwindow.cpp:722
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Aangemaakt door Kronometer op %1"
 
-#: src/gui/mainwindow.cpp:764
+#: src/gui/mainwindow.cpp:788
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Een stopwatch is actief."
