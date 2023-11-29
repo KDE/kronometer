@@ -15,6 +15,7 @@
   <name xml:lang="de">Kronometer</name>
   <name xml:lang="el">Kronometer</name>
   <name xml:lang="en-GB">Kronometer</name>
+  <name xml:lang="eo">Kronometro</name>
   <name xml:lang="es">Kronometer</name>
   <name xml:lang="et">Kronometer</name>
   <name xml:lang="eu">Kronometer</name>
@@ -50,6 +51,7 @@
   <summary xml:lang="de">Zeitmesser</summary>
   <summary xml:lang="el">Χρονόμετρο</summary>
   <summary xml:lang="en-GB">Chronometer</summary>
+  <summary xml:lang="eo">Kronometro</summary>
   <summary xml:lang="es">Cronómetro</summary>
   <summary xml:lang="et">Kronomeeter</summary>
   <summary xml:lang="eu">Kronometroa</summary>
@@ -119,6 +121,7 @@
     <p xml:lang="de">Funktionen:</p>
     <p xml:lang="el">Χαρακτηριστικά:</p>
     <p xml:lang="en-GB">Features:</p>
+    <p xml:lang="eo">Trajtoj:</p>
     <p xml:lang="es">Funciones:</p>
     <p xml:lang="et">Omadused:</p>
     <p xml:lang="eu">Eginbideak:</p>
@@ -154,6 +157,7 @@
       <li xml:lang="de">Das Stoppuhr-Miniprogramm starten/anhalten/fortsetzen</li>
       <li xml:lang="el">Δώστε εκκίνηση/παύση/συνέχεια στο γραφικό συστατικό του χρονομετρητή</li>
       <li xml:lang="en-GB">Start/pause/resume the stopwatch widget</li>
+      <li xml:lang="eo">Komencu/paŭzigi/rekomenci la fenestraĵon de kronometro</li>
       <li xml:lang="es">Iniciar, pausar y continuar el elemento gráfico de cronómetro</li>
       <li xml:lang="et">Stopperi käivitamine, pausile panemine ja jätkamine</li>
       <li xml:lang="eu">Habiarazi/eten/berrekin kronometro trepeta</li>
@@ -187,6 +191,7 @@
       <li xml:lang="de">Zwischenzeiten: Sie können eine Zeit festhalten, wann sie möchten</li>
       <li xml:lang="el">Εγγραφή γύρων: μπορείτε να συλλάβετε τη χρονομέτρηση όποτε θέλετε</li>
       <li xml:lang="en-GB">Laps recording: you can capture the stopwatch time when you want</li>
+      <li xml:lang="eo">Registrado de rondiroj: vi povas kapti la kronometron kiam vi volas</li>
       <li xml:lang="es">Grabación de las vueltas: puede capturar los tiempos del cronómetro cuando quiera</li>
       <li xml:lang="et">Ringide salvestamine ja soovi korral stopperiaja jäädvustamine</li>
       <li xml:lang="eu">Itzuliak grabatu: kronometroaren denbora harrapa dezakezu nahi duzunean</li>
@@ -253,6 +258,7 @@
       <li xml:lang="de">Das Stoppuhr-Miniprogramm sowie Zwischenzeiten zurücksetzen</li>
       <li xml:lang="el">Επαναφορά γραφικού συστατικού χρονομετρητή και χρόνων γύρων</li>
       <li xml:lang="en-GB">Reset the stopwatch widget and the lap times</li>
+      <li xml:lang="eo">Restarigi la fenestraĵon de la kronometro kaj la rondirtempojn</li>
       <li xml:lang="es">Reiniciar el elemento gráfico del cronómetro y los tiempos por vuelta</li>
       <li xml:lang="et">Stopperi ja ringiaegade lähtestamine</li>
       <li xml:lang="eu">Berrezarri kronometro trepeta eta itzuli denborak</li>
@@ -286,6 +292,7 @@
       <li xml:lang="de">Zeitformat einstellen: Sie können die Genauigkeit der Stoppuhr einstellen</li>
       <li xml:lang="el">Ρυθμίσεις ενδείξεων χρόνου: μπορείτε να επιλέξετε το βάθος λεπτομέρειας του χροομετρητή</li>
       <li xml:lang="en-GB">Time format settings: you can choose the stopwatch granularity</li>
+      <li xml:lang="eo">Agordoj de la formato de tempo: vi povas elekti la granularecon de la kronometro</li>
       <li xml:lang="es">Preferencias de formato de tiempos: puede escoger el nivel de detalle del cronómetro</li>
       <li xml:lang="et">Ajavormingu seadistamise võimalus</li>
       <li xml:lang="eu">Denboren formatu ezarpenak: Zuk aukera dezakezu denboren zatikapena</li>
@@ -350,6 +357,7 @@
       <li xml:lang="de">Eigene Schriftarten: Sie können für jede Ziffer der Stoppuhr eine Schriftart wählen</li>
       <li xml:lang="el">Προσαρμογή γραμματοσειράς: μπορείτε να επιλέξετε τις γραμματοσειρές για καθένα από τα ψηφία του χρονομετρητή</li>
       <li xml:lang="en-GB">Font customisation: you can choose the fonts for each of the stopwatch digits</li>
+      <li xml:lang="eo">Tipa personigo: vi povas elekti la tiparojn por ĉiu el la kronometroj</li>
       <li xml:lang="es">Personalización de tipos de letra: puede escoger los tipos de letra para los dígitos del cronómetro</li>
       <li xml:lang="et">Fontide kohandamine: kõigile stopperi ajaühikutele võib valida oma fondi</li>
       <li xml:lang="eu">Letra-tipo pertsonalizatuekin: Kronometroaren zenbaki bakoitzaren letra-tipoa aukera dezakezu</li>
