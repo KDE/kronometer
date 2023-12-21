@@ -700,7 +700,7 @@ void MainWindow::exportLapsAsCsv(QTextStream& out)
 
 bool MainWindow::isWindowSizeSaved() const
 {
-    KConfigGroup group {KSharedConfig::openConfig(), "MainWindow"};
+    KConfigGroup group {KSharedConfig::openConfig(), QStringLiteral("MainWindow")};
 
     const auto keys = group.keyList();
     for (const auto& key : keys) {
