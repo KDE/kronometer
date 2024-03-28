@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Emir SARI <emir_sari@icloud.com>, 2022.
+# SPDX-FileCopyrightText: 2022, 2024 Emir SARI <emir_sari@icloud.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-08 02:40+0000\n"
-"PO-Revision-Date: 2022-06-24 05:33+0300\n"
+"PO-Revision-Date: 2024-03-27 14:32+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 22.04.2\n"
+"X-Generator: Lokalize 24.02.1\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -31,7 +31,7 @@ msgstr "kaanozdincer@gmail.com, emir_sari@icloud.com"
 #: src/gui/colorsettings.ui:20
 #, kde-format
 msgid "Display Background:"
-msgstr "Arka Planı Görüntüle:"
+msgstr "Görüntü arka planı:"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_backgroundColor)
 #: src/gui/colorsettings.ui:27
@@ -43,7 +43,7 @@ msgstr "Kronometre görünümünün arka plan rengi"
 #: src/gui/colorsettings.ui:34
 #, kde-format
 msgid "Display Digits:"
-msgstr "Basamakları Görüntüle:"
+msgstr "Görüntü basamakları:"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_textColor)
 #: src/gui/colorsettings.ui:41
@@ -55,25 +55,25 @@ msgstr "Kronometredeki basamakların rengi"
 #: src/gui/fontsettings.ui:23
 #, kde-format
 msgid "Hours Font:"
-msgstr "Saat Yazıtipi:"
+msgstr "Saat yazıtipi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/fontsettings.ui:56
 #, kde-format
 msgid "Minutes Font:"
-msgstr "Dakika Yazıtipi:"
+msgstr "Dakika yazıtipi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/fontsettings.ui:89
 #, kde-format
 msgid "Seconds Font:"
-msgstr "Saniye Yazıtipi:"
+msgstr "Saniye yazıtipi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/fontsettings.ui:122
 #, kde-format
 msgid "Second Fractions Font:"
-msgstr "Saniye Kesri Yazıtipi:"
+msgstr "Saniye kesri yazıtipi:"
 
 #. i18n: @title:tab
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
@@ -125,7 +125,7 @@ msgstr "Kronometrede saniyenin gösterilip gösterilmeyeceği"
 #: src/gui/generalsettings.ui:89 src/gui/generalsettings.ui:236
 #, kde-format
 msgid "Show Second Fractions:"
-msgstr "Saniye Kesirlerini Göster:"
+msgstr "Saniye kesirlerini göster:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
@@ -241,7 +241,7 @@ msgstr "Çıkışı Onayla"
 #: src/gui/mainwindow.cpp:149
 #, kde-format
 msgid "Save times to session %1?"
-msgstr "Zamanları %1 oturumuna kaydet?"
+msgstr "Zamanlar %1 oturumuna kaydedilsin mi?"
 
 #: src/gui/mainwindow.cpp:177
 #, kde-format
@@ -324,7 +324,7 @@ msgstr "&Tur"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
-msgstr "&Turları Farklı Dışa Aktar..."
+msgstr "&Turları Farklı Dışa Aktar…"
 
 #: src/gui/mainwindow.cpp:651
 #, kde-format
@@ -378,14 +378,14 @@ msgstr "Oturum Aç"
 #, kde-format
 msgctxt "@title:column"
 msgid "Tenths"
-msgstr "Onda Bir"
+msgstr "Onluk"
 
 #. i18n: ectx: property (title), widget (QGroupBox, m_fracGroup)
 #: src/gui/timedisplay.cpp:158 src/gui/timedisplay.ui:54
 #, kde-format
 msgctxt "@title:column"
 msgid "Hundredths"
-msgstr "Yüzde Bir"
+msgstr "Yüzde"
 
 #: src/gui/timedisplay.cpp:162
 #, kde-format
@@ -428,7 +428,7 @@ msgstr "Kronometre, basit bir kronometre uygulamasıdır"
 #: src/main.cpp:36
 #, kde-format
 msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
-msgstr "Copyright (C) 2014-2016 Elvis Angelaccio"
+msgstr "Copyright (C) 2014–2016 Elvis Angelaccio"
 
 #: src/main.cpp:42
 #, kde-format
@@ -438,7 +438,7 @@ msgstr "Elvis Angelaccio"
 #: src/main.cpp:43
 #, kde-format
 msgid "Maintainer"
-msgstr "Projeyi Yürüten"
+msgstr "Bakımcı"
 
 #: src/main.cpp:49
 #, kde-format
@@ -454,7 +454,7 @@ msgstr "Kronometre simgesi"
 #, kde-format
 msgctxt "lap number"
 msgid "Lap #"
-msgstr "Tur #"
+msgstr "Tur №"
 
 #: src/models/lapmodel.cpp:74
 #, kde-format
@@ -478,7 +478,7 @@ msgstr "Not"
 #, kde-format
 msgctxt "session number"
 msgid "Session #"
-msgstr "Oturum #"
+msgstr "Oturum №"
 
 #: src/models/sessionmodel.cpp:99
 #, kde-format
