@@ -182,7 +182,7 @@
       <li xml:lang="sk">Widget stopiek pre spustnie/pozastavenie/pokračovanie</li>
       <li xml:lang="sl">Začni/premor/nadaljuj gradnik(a) časomera</li>
       <li xml:lang="sv">Starta, pausa, återstarta tidtagarurets grafiska komponent</li>
-      <li xml:lang="tr">Başlat/duraklat/sürdürkronometre programcıkları</li>
+      <li xml:lang="tr">Kronometre araç takımını başlat/duraklat/sürdür</li>
       <li xml:lang="uk">Віджет запуску, призупинення та поновлення відліку секундоміра.</li>
       <li xml:lang="x-test">xxStart/pause/resume the stopwatch widgetxx</li>
       <li xml:lang="zh-CN">开始/暂停/恢复秒表部件</li>
@@ -284,7 +284,7 @@
       <li xml:lang="sk">Vynulovať widget stopiek a časy kôl</li>
       <li xml:lang="sl">Ponastavitev gradnika časomera in časi krogov</li>
       <li xml:lang="sv">Nollställ tidtagarurets grafiska komponent och varvtiderna</li>
-      <li xml:lang="tr">Kronometre programcığını ve tur zamanlarını sıfırlama</li>
+      <li xml:lang="tr">Kronometre araç takımını ve tur zamanlarını sıfırla</li>
       <li xml:lang="uk">Скидання значення на віджеті секундоміра та скидання часу проходження кіл.</li>
       <li xml:lang="x-test">xxReset the stopwatch widget and the lap timesxx</li>
       <li xml:lang="zh-CN">重置秒表部件和单圈时间</li>
