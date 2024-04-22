@@ -154,8 +154,10 @@ private:
 
     Session m_session;
 
+#ifndef Q_OS_WINDOWS
     QDBusInterface *m_screensaverInterface = nullptr;
     quint32 m_screenInhibitCookie = 0;
+#endif
 
     /**
      * Setup the central widget of the window.

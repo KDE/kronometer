@@ -28,10 +28,6 @@
 #include <QAction>
 #include <QApplication>
 #include <QClipboard>
-#include <QDBusConnection>
-#include <QDBusInterface>
-#include <QDBusPendingCallWatcher>
-#include <QDBusPendingReply>
 #include <QFileDialog>
 #include <QInputDialog>
 #include <QJsonArray>
@@ -44,6 +40,13 @@
 #include <QStatusBar>
 #include <QTableView>
 #include <QToolButton>
+
+#ifndef Q_OS_WINDOWS
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
+#endif
 
 MainWindow::MainWindow(SessionModel *sessionModel, QWidget *parent, const Session& session) : KXmlGuiWindow(parent),
     m_sessionModel {sessionModel},
@@ -77,6 +80,7 @@ MainWindow::MainWindow(SessionModel *sessionModel, QWidget *parent, const Sessio
         loadSession();
     }
 
+#ifndef Q_OS_WINDOWS
     // TODO: replace this with solid-power API, once it's released.
     QDBusConnection::systemBus().connect(
                 QStringLiteral("org.freedesktop.login1"),
@@ -88,7 +92,8 @@ MainWindow::MainWindow(SessionModel *sessionModel, QWidget *parent, const Sessio
     m_screensaverInterface = new QDBusInterface(QStringLiteral("org.freedesktop.ScreenSaver"),
                                                 QStringLiteral("/ScreenSaver"),
                                                 QStringLiteral("org.freedesktop.ScreenSaver"));
-        
+#endif
+
     if (m_startTimerImmediately) {
         m_stopwatch->start();        
     }
@@ -778,6 +783,7 @@ bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
 
 void MainWindow::activateScreenInhibition()
 {
+#ifndef Q_OS_WINDOWS
     if (m_screenInhibitCookie) {
         qWarning() << "Screen inhibition is already active.";
         return;
@@ -797,10 +803,12 @@ void MainWindow::activateScreenInhibition()
             qWarning() << "Could not inhibit screen locker:" << reply.error();
         }
     });
+#endif
 }
 
 void MainWindow::disactivateScreenInhibition()
 {
+#ifndef Q_OS_WINDOWS
     if (!m_screenInhibitCookie) {
         return;
     }
@@ -817,6 +825,7 @@ void MainWindow::disactivateScreenInhibition()
             qWarning() << "Could not disable screen inhibition:" << reply.error();
         }
     });
+#endif
 }
 
 
