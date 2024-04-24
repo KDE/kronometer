@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:41+0000\n"
-"PO-Revision-Date: 2024-04-21 04:52\n"
+"POT-Creation-Date: 2024-04-24 01:57+0000\n"
+"PO-Revision-Date: 2024-04-23 19:31\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
 "Language: zh_CN\n"
@@ -227,118 +227,118 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Kronometer 工具栏"
 
-#: src/gui/mainwindow.cpp:137
+#: src/gui/mainwindow.cpp:142
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "您真地想退出吗？这会丢失所有未保存的计时。"
 
-#: src/gui/mainwindow.cpp:138
+#: src/gui/mainwindow.cpp:143
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "确认退出"
 
-#: src/gui/mainwindow.cpp:150 src/gui/mainwindow.cpp:162
+#: src/gui/mainwindow.cpp:155 src/gui/mainwindow.cpp:167
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "要保存计时到会话 %1 吗？"
 
-#: src/gui/mainwindow.cpp:191
+#: src/gui/mainwindow.cpp:196
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "恢复(&S)"
 
-#: src/gui/mainwindow.cpp:210
+#: src/gui/mainwindow.cpp:215
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "开始(&S)"
 
-#: src/gui/mainwindow.cpp:214
+#: src/gui/mainwindow.cpp:219
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "无标题"
 
-#: src/gui/mainwindow.cpp:239
+#: src/gui/mainwindow.cpp:244
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "常规设置"
 
-#: src/gui/mainwindow.cpp:242
+#: src/gui/mainwindow.cpp:247
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "字体设置"
 
-#: src/gui/mainwindow.cpp:245
+#: src/gui/mainwindow.cpp:250
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "颜色设置"
 
-#: src/gui/mainwindow.cpp:314
+#: src/gui/mainwindow.cpp:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "保存会话"
 
-#: src/gui/mainwindow.cpp:315
+#: src/gui/mainwindow.cpp:320
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "您可以选择此会话的名称："
 
-#: src/gui/mainwindow.cpp:324
+#: src/gui/mainwindow.cpp:329
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "无标题会话"
 
-#: src/gui/mainwindow.cpp:334
+#: src/gui/mainwindow.cpp:339
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "导出圈信息"
 
-#: src/gui/mainwindow.cpp:485
+#: src/gui/mainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "暂停(&P)"
 
-#: src/gui/mainwindow.cpp:488
+#: src/gui/mainwindow.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "重置(&R)"
 
-#: src/gui/mainwindow.cpp:491
+#: src/gui/mainwindow.cpp:496
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "记圈(&L)"
 
-#: src/gui/mainwindow.cpp:494
+#: src/gui/mainwindow.cpp:499
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "导出圈为(&E)..."
 
-#: src/gui/mainwindow.cpp:689
+#: src/gui/mainwindow.cpp:694
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "圈数,单圈时间,全局时间,备注"
 
-#: src/gui/mainwindow.cpp:722
+#: src/gui/mainwindow.cpp:727
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "由 Kronometer 创建于 %1"
 
-#: src/gui/mainwindow.cpp:788
+#: src/gui/mainwindow.cpp:794
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "秒表正在运行。"

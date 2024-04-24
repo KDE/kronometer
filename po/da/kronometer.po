@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:41+0000\n"
+"POT-Creation-Date: 2024-04-24 01:57+0000\n"
 "PO-Revision-Date: 2020-07-21 17:20+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -230,118 +230,118 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Kronometerværktøjslinje"
 
-#: src/gui/mainwindow.cpp:137
+#: src/gui/mainwindow.cpp:142
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Vil du afslutte og miste dine tider som ikke er blevet gemt?"
 
-#: src/gui/mainwindow.cpp:138
+#: src/gui/mainwindow.cpp:143
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Bekræft afslutning"
 
-#: src/gui/mainwindow.cpp:150 src/gui/mainwindow.cpp:162
+#: src/gui/mainwindow.cpp:155 src/gui/mainwindow.cpp:167
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Gem tider til session %1?"
 
-#: src/gui/mainwindow.cpp:191
+#: src/gui/mainwindow.cpp:196
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "&Genoptag"
 
-#: src/gui/mainwindow.cpp:210
+#: src/gui/mainwindow.cpp:215
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "&Start"
 
-#: src/gui/mainwindow.cpp:214
+#: src/gui/mainwindow.cpp:219
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Unavngivet"
 
-#: src/gui/mainwindow.cpp:239
+#: src/gui/mainwindow.cpp:244
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Generelle indstillinger"
 
-#: src/gui/mainwindow.cpp:242
+#: src/gui/mainwindow.cpp:247
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Indstillinger for skrifttyper"
 
-#: src/gui/mainwindow.cpp:245
+#: src/gui/mainwindow.cpp:250
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Indstillinger for farver"
 
-#: src/gui/mainwindow.cpp:314
+#: src/gui/mainwindow.cpp:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Gem session"
 
-#: src/gui/mainwindow.cpp:315
+#: src/gui/mainwindow.cpp:320
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Du kan vælge et navn til denne session:"
 
-#: src/gui/mainwindow.cpp:324
+#: src/gui/mainwindow.cpp:329
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Unavngivet session"
 
-#: src/gui/mainwindow.cpp:334
+#: src/gui/mainwindow.cpp:339
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Eksportér omgange"
 
-#: src/gui/mainwindow.cpp:485
+#: src/gui/mainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pause"
 
-#: src/gui/mainwindow.cpp:488
+#: src/gui/mainwindow.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Nulstil"
 
-#: src/gui/mainwindow.cpp:491
+#: src/gui/mainwindow.cpp:496
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Omgang"
 
-#: src/gui/mainwindow.cpp:494
+#: src/gui/mainwindow.cpp:499
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Eksportér omgange som..."
 
-#: src/gui/mainwindow.cpp:689
+#: src/gui/mainwindow.cpp:694
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Omgangsnummer,omgangstid,global tid,note"
 
-#: src/gui/mainwindow.cpp:722
+#: src/gui/mainwindow.cpp:727
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Oprettet af Kronometer den %1"
 
-#: src/gui/mainwindow.cpp:788
+#: src/gui/mainwindow.cpp:794
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Et stopur kører."

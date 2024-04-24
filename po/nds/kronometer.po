@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2023-11-05 12:41+0000\n"
+"POT-Creation-Date: 2024-04-24 01:57+0000\n"
 "PO-Revision-Date: 2014-08-15 14:38+0200\n"
 "Last-Translator: Sönke Dibbern <s_dibbern@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -248,132 +248,132 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Kronometer-Warktüüchbalken"
 
-#: src/gui/mainwindow.cpp:137
+#: src/gui/mainwindow.cpp:142
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr ""
 
-#: src/gui/mainwindow.cpp:138
+#: src/gui/mainwindow.cpp:143
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr ""
 
-#: src/gui/mainwindow.cpp:150 src/gui/mainwindow.cpp:162
+#: src/gui/mainwindow.cpp:155 src/gui/mainwindow.cpp:167
 #, fuzzy, kde-format
 #| msgid "Save times to file %1?"
 msgid "Save times to session %1?"
 msgstr "Tieden binnen Datei %1 sekern?"
 
-#: src/gui/mainwindow.cpp:191
+#: src/gui/mainwindow.cpp:196
 #, fuzzy, kde-format
 #| msgid "Re&sume"
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "&Wiedermaken"
 
-#: src/gui/mainwindow.cpp:210
+#: src/gui/mainwindow.cpp:215
 #, fuzzy, kde-format
 #| msgid "&Start"
 msgctxt "@action"
 msgid "&Start"
 msgstr "&Start"
 
-#: src/gui/mainwindow.cpp:214
+#: src/gui/mainwindow.cpp:219
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr ""
 
-#: src/gui/mainwindow.cpp:239
+#: src/gui/mainwindow.cpp:244
 #, fuzzy, kde-format
 #| msgid "General settings"
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Allmeen Instellen"
 
-#: src/gui/mainwindow.cpp:242
+#: src/gui/mainwindow.cpp:247
 #, fuzzy, kde-format
 #| msgid "Font settings"
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Schriftoorden instellen"
 
-#: src/gui/mainwindow.cpp:245
+#: src/gui/mainwindow.cpp:250
 #, fuzzy, kde-format
 #| msgid "Color settings"
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Klören instellen"
 
-#: src/gui/mainwindow.cpp:314
+#: src/gui/mainwindow.cpp:319
 #, fuzzy, kde-format
 #| msgid "Save settings"
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Instellen sekern"
 
-#: src/gui/mainwindow.cpp:315
+#: src/gui/mainwindow.cpp:320
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr ""
 
-#: src/gui/mainwindow.cpp:324
+#: src/gui/mainwindow.cpp:329
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr ""
 
-#: src/gui/mainwindow.cpp:334
+#: src/gui/mainwindow.cpp:339
 #, fuzzy, kde-format
 #| msgid "&Export laps as..."
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "&Runnen exporteren as..."
 
-#: src/gui/mainwindow.cpp:485
+#: src/gui/mainwindow.cpp:490
 #, fuzzy, kde-format
 #| msgid "&Pause"
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Paus"
 
-#: src/gui/mainwindow.cpp:488
+#: src/gui/mainwindow.cpp:493
 #, fuzzy, kde-format
 #| msgid "&Reset"
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Torüchsetten"
 
-#: src/gui/mainwindow.cpp:491
+#: src/gui/mainwindow.cpp:496
 #, fuzzy, kde-format
 #| msgid "&Lap"
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Runn"
 
-#: src/gui/mainwindow.cpp:494
+#: src/gui/mainwindow.cpp:499
 #, fuzzy, kde-format
 #| msgid "&Export laps as..."
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Runnen exporteren as..."
 
-#: src/gui/mainwindow.cpp:689
+#: src/gui/mainwindow.cpp:694
 #, fuzzy, kde-format
 #| msgid "Lap number,Lap time,Global time,Note"
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Runnennummer,Runnentiet,Heeltiet,Notiz"
 
-#: src/gui/mainwindow.cpp:722
+#: src/gui/mainwindow.cpp:727
 #, fuzzy, kde-format
 #| msgid "Created by Kronometer on %1"
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Vun Kronometer op %1 opstellt"
 
-#: src/gui/mainwindow.cpp:788
+#: src/gui/mainwindow.cpp:794
 #, kde-format
 msgid "A stopwatch is running."
 msgstr ""
