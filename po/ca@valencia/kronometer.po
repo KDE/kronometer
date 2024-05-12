@@ -328,7 +328,7 @@ msgstr "&Volta"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
-msgstr "&Exporta les voltes com a..."
+msgstr "&Exporta les voltes com a…"
 
 #: src/gui/mainwindow.cpp:694
 #, kde-format
