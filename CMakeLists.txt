@@ -1,6 +1,6 @@
+cmake_minimum_required(VERSION 3.16)
 project(kronometer)
 
-cmake_minimum_required(VERSION 3.1)
 set(QT_MIN_VERSION 5.15.0)
 set(KF_MIN_VERSION 5.92.0)
 
