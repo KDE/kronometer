@@ -770,7 +770,7 @@ bool MainWindow::addActionToMenu(QAction *action, QMenu *menu)
         return false;
 
     const auto toolBarWidget = toolBar();
-    const auto widgets = action->associatedWidgets();
+    const auto widgets = action->associatedObjects();
     for (const auto widget : widgets) {
         if (widget == toolBarWidget) {
             return false;

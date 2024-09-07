@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.16)
 project(kronometer)
 
-set(QT_MIN_VERSION 5.15.0)
-set(KF_MIN_VERSION 5.92.0)
+set(QT_MIN_VERSION "6.5.0")
+set(KF_MIN_VERSION "6.0.0")
+set(KF_MAJOR_VERSION "6")
 
 set(PROJECT_VERSION 2.3.70)
 
@@ -19,13 +20,6 @@ include(ECMInstallIcons)
 include(ECMSetupVersion)
 include(FeatureSummary)
 include(ECMDeprecationSettings)
-if (QT_MAJOR_VERSION STREQUAL "6")
-    set(QT_REQUIRED_VERSION "6.4.0")
-    set(KF_MIN_VERSION "5.240.0")
-    set(KF_MAJOR_VERSION "6")
-else()
-    set(KF_MAJOR_VERSION "5")
-endif()
 
 find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED
     COMPONENTS
