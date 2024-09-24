@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-24 01:57+0000\n"
-"PO-Revision-Date: 2024-03-27 14:32+0300\n"
+"PO-Revision-Date: 2024-09-23 15:31+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 24.02.1\n"
+"X-Generator: Lokalize 24.11.70\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -428,7 +428,7 @@ msgstr "Kronometre, basit bir kronometre uygulamasıdır"
 #: src/main.cpp:37
 #, kde-format
 msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
-msgstr "Copyright (C) 2014–2016 Elvis Angelaccio"
+msgstr "Copyright © 2014–2016 Elvis Angelaccio"
 
 #: src/main.cpp:43
 #, kde-format
