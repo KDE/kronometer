@@ -472,6 +472,7 @@
   </provides>
   <launchable type="desktop-id">org.kde.kronometer.desktop</launchable>
   <releases>
+    <release version="2.3.0" date="2022-10-20"/>
     <release version="2.2.3" date="2019-07-28"/>
     <release version="2.2.2" date="2019-05-19"/>
     <release version="2.2.1" date="2018-01-27"/>
