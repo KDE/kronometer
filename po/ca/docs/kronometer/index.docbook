@@ -238,9 +238,9 @@
     </sect2>
     <sect2 id="font_settings">
       <title
->Arranjament del tipus de lletra</title>
+>Arranjament de la lletra</title>
       <para
->A la pàgina de configuració per al tipus de lletra, podreu personalitzar el tipus de lletra per a la pantalla del cronòmetre. Podeu escollir entre diferents famílies, estils i mides de tipus de lletra per a cada component del temporitzador (hores, minuts, &etc;). Per omissió, tots els components del temporitzador empraran el mateix tipus de lletra, d'acord amb el tipus de lletra per omissió del sistema. </para>
+>A la pàgina de configuració de la lletra, podreu personalitzar la lletra de la pantalla del cronòmetre. Podeu escollir entre diferents famílies, estils i mides de lletres per a cada component del temporitzador (hores, minuts, &etc;). Per omissió, tots els components del temporitzador empraran la mateixa lletra, d'acord amb la lletra per omissió del sistema. </para>
     </sect2>
     <sect2 id="color_settings">
       <title
