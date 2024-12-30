@@ -37,6 +37,7 @@
   <name xml:lang="pt-BR">Kronometer</name>
   <name xml:lang="ro">Kronometer</name>
   <name xml:lang="ru">Kronometer</name>
+  <name xml:lang="sa">क्रोनोमीटर्</name>
   <name xml:lang="sk">Kronometer</name>
   <name xml:lang="sl">Kronometer</name>
   <name xml:lang="sv">Kronometer</name>
@@ -73,6 +74,7 @@
   <summary xml:lang="pt-BR">Cronômetro</summary>
   <summary xml:lang="ro">Cronometru</summary>
   <summary xml:lang="ru">Секундомер</summary>
+  <summary xml:lang="sa">क्रोनोमीटर</summary>
   <summary xml:lang="sk">Chronometer</summary>
   <summary xml:lang="sl">Časomer</summary>
   <summary xml:lang="sv">Kronometer</summary>
@@ -108,6 +110,7 @@
     <p xml:lang="pt">O Kronometer é uma aplicação de cronómetros. Oferece as acções básicas de um cronómetro (pausar/prosseguir/limpar/voltas), assim como a capacidade de gravar os tempos num ficheiro e retomá-los mais tarde. O Kronometer faz parte da colecção Extragear do KDE, dentro do sub-módulo Utils.</p>
     <p xml:lang="pt-BR">Kronometer é um aplicativo de cronômetro. Oferece as ações básicas de um cronômetro (pausar/continuar/reiniciar/voltas), assim como a capacidade de salvar os tempos e retomá-los mais tarde. O Kronometer é integrante da coleção Extragear do KDE, dentro do sub-módulo Utils.</p>
     <p xml:lang="ru">Kronometer — это программный секундомер. В нём есть обычные функции (приостановка, продолжение, сброс, запоминание времени круга), а также возможность сохранить время и продолжить его измерение в будущем. Kronometer входит в группу приложений «Utils» («Утилиты») раздела приложений KDE «Extragear».</p>
+    <p xml:lang="sa">क्रोनोमीटर् एकः स्टॉपवॉच् अनुप्रयोगः अस्ति । अस्मिन् मूलभूताः स्टॉपवॉच् क्रियाः (pause/resume/reset/laps) सन्ति, तथैव समयान् रक्षितुं पश्चात् पुनः आरभ्यतुं च क्षमता अपि अस्ति । क्रोनोमीटर् KDE Extragear संग्रहस्य भागः अस्ति, Utils उप-मॉड्यूल् इत्यस्य अन्तः ।</p>
     <p xml:lang="sk">Kronometer je aplikácia stopiek. Poskytuje základné akcie stopiek (pauza/pokračovanie/reset/kolá), ako aj schopnosť ukladať časy a neskôr v nich pokračovať. Kronometer je súčasťou kolekcie KDE Extragear, v podmodule Utils.</p>
     <p xml:lang="sl">Kronometer je časomer. Ima osnovne zmožnosti časomera (premor/nadaljuj/ponastavi/krogi), kot tudi zmožnost shranjevanja časov in kasnejše nadaljevanje. Kronometer je del zbirke KDE extragear-utils.</p>
     <p xml:lang="sv">Kronometer är ett tidtagarurprogram. Det tillhandahåller grundfunktioner för tidtagning (paus, återstarta, nollställ, varvtid) samt möjlighet att spara tiderna och senare återstarta dem. Kronometer ingår i KDE:s Extragear-samling i undermodulen Utils.</p>
@@ -144,6 +147,7 @@
     <p xml:lang="pt-BR">Funcionalidades:</p>
     <p xml:lang="ro">Caracteristici:</p>
     <p xml:lang="ru">Возможности:</p>
+    <p xml:lang="sa">गुणाः:</p>
     <p xml:lang="sk">Funkcie:</p>
     <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
@@ -179,6 +183,7 @@
       <li xml:lang="pt">Iniciar/pausar/prosseguir o item do cronómetro</li>
       <li xml:lang="pt-BR">Iniciar/pausar/continuar o cronômetro</li>
       <li xml:lang="ru">Виджет запуска/приостановки/возобновления отсчёта секундомера</li>
+      <li xml:lang="sa">स्टॉपवॉच विजेट् आरभ्य/विरामं/पुनः आरभत</li>
       <li xml:lang="sk">Widget stopiek pre spustnie/pozastavenie/pokračovanie</li>
       <li xml:lang="sl">Začni/premor/nadaljuj gradnik(a) časomera</li>
       <li xml:lang="sv">Starta, pausa, återstarta tidtagarurets grafiska komponent</li>
@@ -213,6 +218,7 @@
       <li xml:lang="pt">Registo de voltas: poderá capturar o tempo do cronómetro sempre que quiser</li>
       <li xml:lang="pt-BR">Registro de voltas: Você pode capturar o tempo do cronômetro sempre que quiser</li>
       <li xml:lang="ru">Запись кругов: возможно записать данные секундомера в желаемое время</li>
+      <li xml:lang="sa">Laps recording: यदा इच्छति तदा स्टॉपवॉचसमयं गृहीतुं शक्नोति</li>
       <li xml:lang="sk">Záznam kôl: môžete zachytiť čas stopiek, kedy chcete</li>
       <li xml:lang="sl">Beleženje krogov: čas časomera lahko zajamete kadarkoli želite</li>
       <li xml:lang="sv">Varvtider: Det går att lagra tidtagarurets tid när man vill</li>
@@ -247,6 +253,7 @@
       <li xml:lang="pt">Ordenação dos tempos das voltas: poderá descobrir facilmente o tempo mais curto ou mais longo</li>
       <li xml:lang="pt-BR">Ordenação dos tempos das voltas: Você pode localizar facilmente o tempo mais curto ou mais longo</li>
       <li xml:lang="ru">Сортировка времени кругов: легко найти самый короткий или самый длинный круг</li>
+      <li xml:lang="sa">गोदसमयानां क्रमणं : भवन्तः लघुतमं परिक्रमणसमयं दीर्घतमं वा सहजतया अन्वेष्टुं शक्नुवन्ति</li>
       <li xml:lang="sk">Triedenie časov kôl: môžete jednoducho nájsť najkratší čas kola alebo najdlhší</li>
       <li xml:lang="sl">Razvrščanje časov krogov: enostavno lahko najdete najdaljši ali najkrajši čas kroga</li>
       <li xml:lang="sv">Sortering av varvtider: Det är enkelt att hitta den kortaste eller längsta varvtiden</li>
@@ -281,6 +288,7 @@
       <li xml:lang="pt">Reiniciar o item do cronómetro e os tempos das voltas</li>
       <li xml:lang="pt-BR">Reiniciar o cronômetro e os tempos das voltas</li>
       <li xml:lang="ru">Сброс виджета секундомера и времени кругов</li>
+      <li xml:lang="sa">स्टॉपवॉच् विजेट् तथा च लैप् टाइम्स् रीसेट् कुर्वन्तु</li>
       <li xml:lang="sk">Vynulovať widget stopiek a časy kôl</li>
       <li xml:lang="sl">Ponastavitev gradnika časomera in časi krogov</li>
       <li xml:lang="sv">Nollställ tidtagarurets grafiska komponent och varvtiderna</li>
@@ -315,6 +323,7 @@
       <li xml:lang="pt">Configuração do formato dos tempos: poderá escolher a granularidade dos cronómetros</li>
       <li xml:lang="pt-BR">Configuração do formato dos tempos: Você pode escolher a granularidade dos cronômetros</li>
       <li xml:lang="ru">Параметры формата времени: возможно настроить детализацию секундомера</li>
+      <li xml:lang="sa">समयस्वरूपसेटिंग्स्: भवान् स्टॉपवॉच् दाणेदारतां चिन्वितुं शक्नोति</li>
       <li xml:lang="sk">Nastavenia formátu času: môžete si zvoliť granularitu stopiek</li>
       <li xml:lang="sl">Nastavitve oblike časa: nastavite lahko razdrobljenost časa</li>
       <li xml:lang="sv">Inställning av tidsformat: Det går att välja tidtagarurets upplösning</li>
@@ -347,6 +356,7 @@
       <li xml:lang="pt">Gravação e reposição dos tempos: poderá gravar o estado do cronómetro num ficheiro para o retomar mais tarde</li>
       <li xml:lang="pt-BR">Gravação e continuação dos tempos: Você pode salvar o status do cronômetro para continuar mais tarde</li>
       <li xml:lang="ru">Сохранение данных и возобновление отсчёта времени: возможно сохранить состояние секундомера и затем возобновить его работу</li>
+      <li xml:lang="sa">समयस्य रक्षणं पुनः आरम्भं च : भवान् स्टॉपवॉच् स्थितिं रक्षित्वा पश्चात् पुनः आरभुं शक्नोति</li>
       <li xml:lang="sk">Ukladanie a pokračovania v časoch: môžete uložiť stav stopiek a pokračovať v nich neskôr</li>
       <li xml:lang="sl">Shranjevanje časov in nadaljevanje: stanje časomera lahko shranite in kasneje nadaljujete</li>
       <li xml:lang="sv">Spara och återstarta tider: Det går att spara tidtagarurets status och senare återstarta det</li>
@@ -381,6 +391,7 @@
       <li xml:lang="pt">Personalização dos tipos de letra: poderá escolher os tipos de letra para cada um dos números do cronómetro</li>
       <li xml:lang="pt-BR">Personalização de fontes: Você pode escolher as fontes para cada um dos dígitos do cronômetro</li>
       <li xml:lang="ru">Настройка шрифтов: возможно выбрать шрифт для каждого из компонентов числовых данных секундомера</li>
+      <li xml:lang="sa">फ़ॉन्ट् अनुकूलनम् : भवान् प्रत्येकस्य स्टॉपवॉच् अङ्कस्य कृते फन्ट् चिन्वितुं शक्नोति</li>
       <li xml:lang="sk">Prispôsobenie písma: môžete si vybrať písma pre každú číslicu stopiek</li>
       <li xml:lang="sl">Prilagoditev pisav: za vsako števko časomera lahko izberete pisavo po meri</li>
       <li xml:lang="sv">Anpassning av teckensnitt: Det går att välja teckensnitten för varje siffra i tidtagaruret</li>
@@ -415,6 +426,7 @@
       <li xml:lang="pt">Personalização das cores: Poderá escolher a cor dos números do cronómetro e o fundo do mesmo</li>
       <li xml:lang="pt-BR">Personalização de cores: Você pode escolher a cor dos dígitos e do fundo do cronômetro</li>
       <li xml:lang="ru">Настройка цветов: возможно выбрать цвет для числовых данных и фона секундомера</li>
+      <li xml:lang="sa">वर्ण अनुकूलनम् : भवान् स्टॉपवॉच् अङ्कानां कृते वर्णं स्टॉपवॉच् पृष्ठभूमिं च चिन्वितुं शक्नोति</li>
       <li xml:lang="sk">Prispôsobenie farieb: môžete si vybrať farbu číslic stopiek a pozadie stopiek</li>
       <li xml:lang="sl">Prilagoditev barv: za vsako števko časomera in njegovo ozadje lahko izberete barvo po meri</li>
       <li xml:lang="sv">Anpassning av färger: Det går att välja färg för tidtagarurets siffror och bakgrund</li>
@@ -447,6 +459,7 @@
       <li xml:lang="pt">Exportação dos tempos das voltas: poderá exportar os tempos das voltas para um ficheiro em JSON ou CSV</li>
       <li xml:lang="pt-BR">Exportação dos tempos das voltas: Você pode exportar os tempos das voltas para um arquivo no formato JSON ou CSV</li>
       <li xml:lang="ru">Экспорт времени кругов: время кругов возможно экспортировать в файл в формате JSON или CSV</li>
+      <li xml:lang="sa">Lap times export: भवान् JSON अथवा CSV प्रारूपस्य उपयोगेन lap times इत्येतत् सञ्चिकायां निर्यातयितुं शक्नोति</li>
       <li xml:lang="sk">Export časov kôl: môžete exportovať časy kôl do súboru pomocou formátu JSON alebo CSV</li>
       <li xml:lang="sl">Izvoz časov krogov: čase krogov lahko izvozite v datoteko vrste JSON ali CSV</li>
       <li xml:lang="sv">Export av varvtider: Det går att exportera varvtider till en fil med JSON- eller CSV-format</li>
