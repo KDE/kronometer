@@ -1,0 +1,498 @@
+# Sanskrit translations for kronometer package.
+# Copyright (C) 2024 This file is copyright:
+# This file is distributed under the same license as the kronometer package.
+# Kali <EMAIL@ADDRESS>, 2024.
+#
+# SPDX-FileCopyrightText: 2024 kali <shreekantkalwar@gmail.com>
+msgid ""
+msgstr ""
+"Project-Id-Version: kronometer\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2024-04-24 01:57+0000\n"
+"PO-Revision-Date: 2024-12-29 17:56+0530\n"
+"Last-Translator: kali <shreekantkalwar@gmail.com>\n"
+"Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
+"Language: sa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 24.08.2\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "भवतः नामानि"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "भवतः ईमेलपत्राणि"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/colorsettings.ui:20
+#, kde-format
+msgid "Display Background:"
+msgstr "प्रदर्शन पृष्ठभूमिः :"
+
+#. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_backgroundColor)
+#: src/gui/colorsettings.ui:27
+#, kde-format
+msgid "Background color of the stopwatch display"
+msgstr "स्टॉपवॉच प्रदर्शनस्य पृष्ठभूमिवर्णः"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/colorsettings.ui:34
+#, kde-format
+msgid "Display Digits:"
+msgstr "अङ्कान् प्रदर्शयन्तु :"
+
+#. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_textColor)
+#: src/gui/colorsettings.ui:41
+#, kde-format
+msgid "Color of the stopwatch display digits"
+msgstr "स्टॉपवॉचस्य अङ्कानां प्रदर्शनस्य वर्णः"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: src/gui/fontsettings.ui:23
+#, kde-format
+msgid "Hours Font:"
+msgstr "घण्टाः फ़ॉन्टः :"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: src/gui/fontsettings.ui:56
+#, kde-format
+msgid "Minutes Font:"
+msgstr "निमेषः फ़ॉन्टः :"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: src/gui/fontsettings.ui:89
+#, kde-format
+msgid "Seconds Font:"
+msgstr "सेकेण्ड् फन्ट् :"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: src/gui/fontsettings.ui:122
+#, kde-format
+msgid "Second Fractions Font:"
+msgstr "द्वितीयः भिन्नः फ़ॉन्टः :"
+
+#. i18n: @title:tab
+#. i18n: ectx: attribute (title), widget (QWidget, tab)
+#: src/gui/generalsettings.ui:24
+#, kde-format
+msgid "Stopwatch"
+msgstr "स्टॉपवॉच"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: src/gui/generalsettings.ui:36
+#, kde-format
+msgid "Time Format"
+msgstr "समय प्रारूप"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showHours)
+#: src/gui/generalsettings.ui:42
+#, kde-format
+msgid "Whether to show hours in the stopwatch"
+msgstr "स्टॉपवॉचमध्ये घण्टाः दर्शयितव्याः वा"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showHours)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapHours)
+#: src/gui/generalsettings.ui:45 src/gui/generalsettings.ui:192
+#, kde-format
+msgid "Show Hours"
+msgstr "घण्टाः दर्शयतु"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showMinutes)
+#: src/gui/generalsettings.ui:55
+#, kde-format
+msgid "Whether to show minutes in the stopwatch"
+msgstr "स्टॉपवॉचमध्ये निमेषाः दर्शयितव्याः वा"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMinutes)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapMinutes)
+#: src/gui/generalsettings.ui:58 src/gui/generalsettings.ui:205
+#, kde-format
+msgid "Show Minutes"
+msgstr "निमेषान् दर्शयतु"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showSecondFractions)
+#: src/gui/generalsettings.ui:86
+#, kde-format
+msgid "Whether to show second fractions in the stopwatch"
+msgstr "स्टॉपवॉचमध्ये द्वितीयभागाः दर्शयितव्याः वा"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showSecondFractions)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapSecondFractions)
+#: src/gui/generalsettings.ui:89 src/gui/generalsettings.ui:236
+#, kde-format
+msgid "Show Second Fractions:"
+msgstr "द्वितीयं भिन्नं दर्शयतु :"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:100 src/gui/generalsettings.ui:247
+#, kde-format
+msgid "Up to Tenths"
+msgstr "दशमांशपर्यन्तम्"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:105 src/gui/generalsettings.ui:252
+#, kde-format
+msgid "Up to Hundredths"
+msgstr "शतभागपर्यन्तम्"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
+#: src/gui/generalsettings.ui:110 src/gui/generalsettings.ui:257
+#, kde-format
+msgid "Up to Thousandths"
+msgstr "सहस्रभागपर्यन्तम्"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_startTimerImmediately)
+#: src/gui/generalsettings.ui:137
+#, kde-format
+msgid "Start timer immediately"
+msgstr "तत्क्षणमेव समयनिर्धारकं आरभत"
+
+#. i18n: @title:tab
+#. i18n: ectx: attribute (title), widget (QWidget, tab_2)
+#: src/gui/generalsettings.ui:158
+#, kde-format
+msgid "Laps"
+msgstr "गोदः"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
+#: src/gui/generalsettings.ui:164
+#, kde-format
+msgid "Whether to enable the laps recording feature"
+msgstr "laps recording feature इत्येतत् सक्षमं कर्तव्यं वा"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
+#: src/gui/generalsettings.ui:167
+#, kde-format
+msgid "Enable Laps Recording"
+msgstr "Laps Recording सक्षमं कुर्वन्तु"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: src/gui/generalsettings.ui:183
+#, kde-format
+msgid "Lap Times Format"
+msgstr "गोद समय प्रारूप"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapHours)
+#: src/gui/generalsettings.ui:189
+#, kde-format
+msgid "Whether to show hours in the laps"
+msgstr "अङ्केषु घण्टाः दर्शयितव्याः वा"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapMinutes)
+#: src/gui/generalsettings.ui:202
+#, kde-format
+msgid "Whether to show minutes in the laps"
+msgstr "गोदेषु निमेषाः दर्शयितव्याः वा"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapSecondFractions)
+#: src/gui/generalsettings.ui:233
+#, kde-format
+msgid "Whether to show second fractions in the laps"
+msgstr "अङ्केषु द्वितीयं अंशं दर्शयितव्यम् वा"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapAbsoluteTimes)
+#: src/gui/generalsettings.ui:284
+#, kde-format
+msgid "Show Absolute Times"
+msgstr "निरपेक्ष समयं दर्शयतु"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapNotes)
+#: src/gui/generalsettings.ui:291
+#, kde-format
+msgid "Show Notes"
+msgstr "टिप्पण्यानि दर्शयतु"
+
+#. i18n: ectx: Menu (file)
+#: src/gui/kronometerui.rc:7
+#, kde-format
+msgid "&File"
+msgstr "&संचिका"
+
+#. i18n: ectx: Menu (kronometerActions)
+#: src/gui/kronometerui.rc:11
+#, kde-format
+msgid "&Kronometer"
+msgstr "&क्रोनोमीटर्"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: src/gui/kronometerui.rc:20
+#, kde-format
+msgid "Kronometer Toolbar"
+msgstr "क्रोनोमीटर टूलबार"
+
+#: src/gui/mainwindow.cpp:142
+#, kde-format
+msgid "Do you want to quit and lose your unsaved times?"
+msgstr "किं भवन्तः त्यक्त्वा स्वस्य अरक्षितं समयं नष्टुं इच्छन्ति?"
+
+#: src/gui/mainwindow.cpp:143
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm Quit"
+msgstr "Confirm Quit"
+
+#: src/gui/mainwindow.cpp:155 src/gui/mainwindow.cpp:167
+#, kde-format
+msgid "Save times to session %1?"
+msgstr "सत्र %1 मध्ये समयं रक्षतु?"
+
+#: src/gui/mainwindow.cpp:196
+#, kde-format
+msgctxt "@action"
+msgid "Re&sume"
+msgstr "पुनर्प्रारम्भय"
+
+#: src/gui/mainwindow.cpp:215
+#, kde-format
+msgctxt "@action"
+msgid "&Start"
+msgstr "&प्रारंभः"
+
+#: src/gui/mainwindow.cpp:219
+#, kde-format
+msgctxt "untitled window"
+msgid "Untitled"
+msgstr "अनामिका"
+
+#: src/gui/mainwindow.cpp:244
+#, kde-format
+msgctxt "@title:tab"
+msgid "General Settings"
+msgstr "सामान्य सेटिंग्स्"
+
+#: src/gui/mainwindow.cpp:247
+#, kde-format
+msgctxt "@title:tab"
+msgid "Font Settings"
+msgstr "फॉन्ट सेटिंग्स्"
+
+#: src/gui/mainwindow.cpp:250
+#, kde-format
+msgctxt "@title:tab"
+msgid "Color Settings"
+msgstr "रङ्ग सेटिंग्स्"
+
+#: src/gui/mainwindow.cpp:319
+#, kde-format
+msgctxt "@title:window"
+msgid "Save Session"
+msgstr "सत्रं रक्षतु"
+
+#: src/gui/mainwindow.cpp:320
+#, kde-format
+msgid "You can choose a name for this session:"
+msgstr "अस्य सत्रस्य नाम चिन्वतु:"
+
+#: src/gui/mainwindow.cpp:329
+#, kde-format
+msgctxt "untitled session"
+msgid "Untitled session"
+msgstr "अनामिका सत्र"
+
+#: src/gui/mainwindow.cpp:339
+#, kde-format
+msgctxt "@title:window"
+msgid "Export Laps"
+msgstr "निर्यात Laps"
+
+#: src/gui/mainwindow.cpp:490
+#, kde-format
+msgctxt "@action"
+msgid "&Pause"
+msgstr "&विराम"
+
+#: src/gui/mainwindow.cpp:493
+#, kde-format
+msgctxt "@action"
+msgid "&Reset"
+msgstr "&पुनः सेट् कुर्वन्तु"
+
+#: src/gui/mainwindow.cpp:496
+#, kde-format
+msgctxt "@action"
+msgid "&Lap"
+msgstr "&उत्सङ्ग"
+
+#: src/gui/mainwindow.cpp:499
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "&Export Laps as..."
+msgstr "&निर्यात Laps यथा..."
+
+#: src/gui/mainwindow.cpp:694
+#, kde-format
+msgctxt "@info:shell"
+msgid "Lap number,Lap time,Global time,Note"
+msgstr "गोद संख्या,गोल समय,वैश्विक समय,नोट"
+
+#: src/gui/mainwindow.cpp:727
+#, kde-format
+msgctxt "@info:shell"
+msgid "Created by Kronometer on %1"
+msgstr "%1 इत्यत्र Kronometer द्वारा निर्मितम्"
+
+#: src/gui/mainwindow.cpp:794
+#, kde-format
+msgid "A stopwatch is running."
+msgstr "एकः स्टॉपवॉचः प्रचलति।"
+
+#: src/gui/sessiondialog.cpp:35
+#, kde-format
+msgctxt "@action:button"
+msgid "Open session"
+msgstr "सत्रं उद्घाटयन्तु"
+
+#: src/gui/sessiondialog.cpp:101
+#, kde-format
+msgctxt "@info"
+msgid "You don't have any saved session yet."
+msgstr "भवतः अद्यापि किमपि रक्षितं सत्रं नास्ति।"
+
+#: src/gui/sessiondialog.cpp:124 src/gui/sessiondialog.cpp:134
+#, kde-format
+msgctxt "@info"
+msgid "Do you want to remove the selected session?"
+msgstr "चयनितं सत्रं हर्तुं इच्छति वा ?"
+
+#: src/gui/sessiondialog.cpp:125 src/gui/sessiondialog.cpp:135
+#, kde-format
+msgctxt "@title:window"
+msgid "Confirm deletion"
+msgstr "लोपस्य पुष्टिः कुर्वन्तु"
+
+#. i18n: @title:window
+#. i18n: ectx: property (windowTitle), widget (QDialog, SessionDialog)
+#: src/gui/sessiondialog.ui:14
+#, kde-format
+msgid "Open Session"
+msgstr "Open Session इति"
+
+#: src/gui/timedisplay.cpp:153
+#, kde-format
+msgctxt "@title:column"
+msgid "Tenths"
+msgstr "दशम्"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_fracGroup)
+#: src/gui/timedisplay.cpp:157 src/gui/timedisplay.ui:54
+#, kde-format
+msgctxt "@title:column"
+msgid "Hundredths"
+msgstr "शतभागः"
+
+#: src/gui/timedisplay.cpp:161
+#, kde-format
+msgctxt "@title:column"
+msgid "Milliseconds"
+msgstr "मिलीसेकेण्ड्"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_hourGroup)
+#: src/gui/timedisplay.ui:18
+#, kde-format
+msgctxt "@title:column"
+msgid "Hours"
+msgstr "घण्टानः"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_minGroup)
+#: src/gui/timedisplay.ui:30
+#, kde-format
+msgctxt "@title:column"
+msgid "Minutes"
+msgstr "पन्चनिमेषः"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_secGroup)
+#: src/gui/timedisplay.ui:42
+#, kde-format
+msgctxt "@title:column"
+msgid "Seconds"
+msgstr "सेकण्ड्"
+
+#: src/main.cpp:33
+#, kde-format
+msgctxt "KAboutData display name"
+msgid "Kronometer"
+msgstr "क्रोनोमीटर्"
+
+#: src/main.cpp:35
+#, kde-format
+msgid "Kronometer is a simple stopwatch application"
+msgstr "क्रोनोमीटर् एकः सरलः स्टॉपवॉच् अनुप्रयोगः अस्ति"
+
+#: src/main.cpp:37
+#, kde-format
+msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
+msgstr "प्रतिलिपि अधिकार (C) 2014-2016 Elvis Angelaccio"
+
+#: src/main.cpp:43
+#, kde-format
+msgid "Elvis Angelaccio"
+msgstr "एल्विस एन्जेलाक्सिओ"
+
+#: src/main.cpp:44
+#, kde-format
+msgid "Maintainer"
+msgstr "परिपालकः"
+
+#: src/main.cpp:50
+#, kde-format
+msgid "Ken Vermette"
+msgstr "केन वर्मेट्"
+
+#: src/main.cpp:51
+#, kde-format
+msgid "Kronometer icon"
+msgstr "क्रोनोमीटर चिह्न"
+
+#: src/models/lapmodel.cpp:72
+#, kde-format
+msgctxt "lap number"
+msgid "Lap #"
+msgstr "उत्सङ्ग #"
+
+#: src/models/lapmodel.cpp:74
+#, kde-format
+msgctxt "@title:column"
+msgid "Lap Time"
+msgstr "गोदकालः"
+
+#: src/models/lapmodel.cpp:76
+#, kde-format
+msgctxt "@title:column"
+msgid "Global Time"
+msgstr "वैश्विक समय"
+
+#: src/models/lapmodel.cpp:78
+#, kde-format
+msgctxt "@title:column"
+msgid "Note"
+msgstr "टीका"
+
+#: src/models/sessionmodel.cpp:97
+#, kde-format
+msgctxt "session number"
+msgid "Session #"
+msgstr "सत्र #"
+
+#: src/models/sessionmodel.cpp:99
+#, kde-format
+msgid "Name"
+msgstr "नामः"
+
+#: src/models/sessionmodel.cpp:101
+#, kde-format
+msgid "Date"
+msgstr "दिनाङ्कः"
+
+#: src/models/sessionmodel.cpp:103
+#, kde-format
+msgid "Note"
+msgstr "टीका"
