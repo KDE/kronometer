@@ -24,6 +24,7 @@
   <name xml:lang="fi">Kronometer</name>
   <name xml:lang="fr">Kronometer</name>
   <name xml:lang="gl">Kronometer</name>
+  <name xml:lang="he">קרונומטר</name>
   <name xml:lang="ia">Kronometer</name>
   <name xml:lang="id">Kronometer</name>
   <name xml:lang="it">Kronometer</name>
@@ -61,6 +62,7 @@
   <summary xml:lang="fi">Sekuntikello</summary>
   <summary xml:lang="fr">Chronomètre</summary>
   <summary xml:lang="gl">Cronómetro</summary>
+  <summary xml:lang="he">כרונומטר</summary>
   <summary xml:lang="ia">Chronometro</summary>
   <summary xml:lang="id">Pencatat Waktu</summary>
   <summary xml:lang="it">Cronometro</summary>
@@ -99,6 +101,7 @@
     <p xml:lang="fi">Kronometer on sekuntikellosovellus. Siinä on sekuntikellon perustoiminnot (tauko/jatkaminen/nollaaminen/kierrokset) sekä mahdollisuus tallentaa ajat ja jatkaa tallennettuja aikoja myöhemmin. Kronometer kuuluu KDE Extragearin Työkalut-aliyksikköön.</p>
     <p xml:lang="fr">Kronometer est une application de chronomètre. Il fournit les actions de base d'un chronomètre (pause/reprise/remise à zéro/temps intermédiaires), ainsi que la possibilité d'enregistrer les temps dans un fichier et les reprendre plus tard. Kronometer fait partie du sous-module « Utils » de la collection KDE « Extragear ».</p>
     <p xml:lang="gl">Kronometer é unha aplicación para cronometrar. Goza de accións básicas de cronometraxe (deter, continuar, reiniciar, voltas), e permite gardar tempos para continualos máis adiante. Kronometer é parte do módulo de ferramentas da colección Extragear de KDE.</p>
+    <p xml:lang="he">קרונומטר הוא יישום שעון עצר. יש לו את פעולות שעון העצר הבסיסיות (השהיה/עצירה/איפוס/הקפות), לרבות היכולת לשמור זמנים ולהמשיך אותם מאוחר יותר. קרונומטר הוא חלק מאוסף התוספות (Extragear) של KDE, כחלק מתת־מודול העזרים.</p>
     <p xml:lang="ia">Kronometer es un applicatin de chronometro. Illo presenta le actiones basic de chronometro (pausa/resume/reduce a zero/gyros), tal como le habilitate de salveguardar los plus tarde. Kronometer es parte del collection KDE Extragear, intra le sub-modulo de Utils.</p>
     <p xml:lang="id">Kronometer adalah aplikasi stopwatch. Ini fitur aksi stopwatch dasar (jeda/lanjut/reset/lap), serta kemampuan untuk menghemat waktu dan melanjutkannya nanti. Kronometer adalah bagian dari koleksi KDE Extragear, dalam sub-modul Utils.</p>
     <p xml:lang="it">Kronometer è un cronometro. Include le azioni fondamentali di un cronometro (pausa, riavvio, azzeramento, giri), oltre alla possibilità di salvare i tempi e caricarli in seguito. Kronometer fa parte della raccolta Extragear di KDE, nel modulo delle Utilità.</p>
@@ -134,6 +137,7 @@
     <p xml:lang="fi">Ominaisuuksia:</p>
     <p xml:lang="fr">Fonctionnalités :</p>
     <p xml:lang="gl">Funcionalidades:</p>
+    <p xml:lang="he">יכולות:</p>
     <p xml:lang="ia">Characteristicas:</p>
     <p xml:lang="id">Fitur:</p>
     <p xml:lang="it">Funzionalità:</p>
@@ -171,6 +175,7 @@
       <li xml:lang="fi">Sekuntikellon perustoiminnot: käynnistäminen, tauko, jatkaminen</li>
       <li xml:lang="fr">Composant graphique pour le démarrage / mise en pause / reprise du chronomètre</li>
       <li xml:lang="gl">Permite iniciar, deter e continuar o trebello de cronómetro.</li>
+      <li xml:lang="he">התחלת/השהיית/המשך וידג׳ט שעון העצר</li>
       <li xml:lang="ia">Strta/Pausa/Reprende le widget de stopparhorologio</li>
       <li xml:lang="id">Widget stopwatch mulai/jeda/lanjut</li>
       <li xml:lang="it">Oggetto per avviare, mettere in pausa e riavviare il cronometro</li>
@@ -206,6 +211,7 @@
       <li xml:lang="fi">Kierrosten tallentaminen: sekuntikellon nykyisen ajan voi tallentaa milloin haluaa</li>
       <li xml:lang="fr">Temps intermédiaires : vous pouvez mémoriser le temps du chronomètre quand vous voulez</li>
       <li xml:lang="gl">Captura de voltas: permite capturar o tempo do cronómetro en calquera momento.</li>
+      <li xml:lang="he">תיעוד הקפות: אפשר ללכוד את זמן שעון העצר בעת הצורך</li>
       <li xml:lang="ia">Registration de gyros: tu pote capturar le tempore de chronometro quando tu vole</li>
       <li xml:lang="id">Perekaman lap: kamu bisa menangkap waktu stopwatch ketika kamu inginkan</li>
       <li xml:lang="it">Registrazione dei giri: puoi catturare il tempo del cronometro ogni volta che vuoi</li>
@@ -241,6 +247,7 @@
       <li xml:lang="fi">Kierrosaikojen järjestäminen: lyhimmän tai pisimmän kierrosajan löytäminen on helppoa</li>
       <li xml:lang="fr">Tri des temps intermédiaires : vous pouvez facilement trouver le temps le plus court et le plus long</li>
       <li xml:lang="gl">Ordenación dos tempos de voltas: permite atopar facilmente os tempos de volta máis curtos ou máis longos.</li>
+      <li xml:lang="he">מיון זמני הקפות: אפשר למצוא בקלות את זמני ההקפה הקצרים והארוכים ביותר</li>
       <li xml:lang="ia">Ordinar tempores de gyro: tu pote facilemente trovar le plus breve o le plus longe tempore de gyro</li>
       <li xml:lang="id">Pengurutan waktu lap: Kamu bisa dengan mudah menemukan waktu lap terpendek atau terpanjang</li>
       <li xml:lang="it">Ordinamento dei tempi sul giro: puoi facilmente trovare il tempo sul giro più breve o più lungo</li>
@@ -276,6 +283,7 @@
       <li xml:lang="fi">Sekuntikellon nollaaminen ja kierrosajat</li>
       <li xml:lang="fr">Ré-initialiser le composant graphique de mise à zéro du chronomètre et des temps intermédiaires</li>
       <li xml:lang="gl">Permite reiniciar o trebello de cronómetro e os tempos de voltas.</li>
+      <li xml:lang="he">איפוס וידג׳ט שעון העצר ואת זמני ההקפות</li>
       <li xml:lang="ia">Reprende (reuce a zero) le widhet de chronometro e le tempores de gyro</li>
       <li xml:lang="id">Set ulang widget stopwatch dan waktu lap</li>
       <li xml:lang="it">Oggetto per azzerare il cronometro e i tempi sul giro</li>
@@ -311,6 +319,7 @@
       <li xml:lang="fi">Ajan muodon asetukset: sekuntikellon tarkkuus on valittavissa</li>
       <li xml:lang="fr">Réglages du format d'heure : vous pouvez choisir la granularité du chronomètre</li>
       <li xml:lang="gl">Configuración do formato de tempo: permite escoller o nivel de detalle do tempo do cronómetro.</li>
+      <li xml:lang="he">הגדרות תבנית שעה: אפשר לבחור את שעון העצר באופן נקודתי</li>
       <li xml:lang="ia">Preferentias de formato de tempore: tu pote seliger le granularitate del chronometro</li>
       <li xml:lang="id">Pengesetan format waktu: kamu bisa memilih stopwatch secara terperinci</li>
       <li xml:lang="it">Impostazioni del formato del tempo: puoi scegliere la risoluzione del cronometro</li>
@@ -345,6 +354,7 @@
       <li xml:lang="fi">Aikojen tallentaminen ja jatkaminen: sekuntikellon tilan voi tallentaa, ja siitä voi jatkaa myöhemmin</li>
       <li xml:lang="fr">Mémorisation et reprise des temps : vous pouvez enregistrer l'état du chronomètre dans un fichier et le reprendre plus tard</li>
       <li xml:lang="gl">Gardar e cargar tempos: permite gardar o estado do cronómetro e continualo máis adiante.</li>
+      <li xml:lang="he">שמירת זמנים והמשך: אפשר לשמור את מצב שעון העצר ולהמשיך את פעילותו מאוחר יותר</li>
       <li xml:lang="ia">Salveguardar e reprender tempores: tu pote salveguardar le stato de chronometro e reprender loo plus tarde</li>
       <li xml:lang="id">Pelanjutan dan penyimpanan waktu: kamu bisa menyimpan status stopwatch dan melanjutkannya</li>
       <li xml:lang="it">Salvataggio e ripristino dei tempi: puoi salvare lo stato del cronometro e ripristinarlo più avanti</li>
@@ -379,6 +389,7 @@
       <li xml:lang="fi">Fonttien muokkaaminen: sekuntikellon jokaisen numeron fontti on valittavissa</li>
       <li xml:lang="fr">Personnalisation des polices : vous pouvez choisir les polices pour chaque chiffre du chronomètre</li>
       <li xml:lang="gl">Personalización da fonte: pode escoller a fonte que queira para os díxitos do cronómetro</li>
+      <li xml:lang="he">התאמת גופנים: אפשר לבחור גופנים לכל אחת מספרות שעוני העצר</li>
       <li xml:lang="ia">Personalisation de Font: tu pote seliger le font per cata cifras del chronometro</li>
       <li xml:lang="id">Kustomisasi font: kamu bisa memilih font-font untuk setiap digit stopwatch</li>
       <li xml:lang="it">Configurazione dei caratteri: puoi scegliere i caratteri per ciascuna cifra del cronometro</li>
@@ -414,6 +425,7 @@
       <li xml:lang="fi">Värien muokkaaminen: sekuntikellon numeroiden ja taustan värit ovat valittavissa</li>
       <li xml:lang="fr">Personnalisation de la couleur : vous pouvez choisir la couleur des chiffres de la couleur de fond du chronomètre</li>
       <li xml:lang="gl">Personalización das cores: pode escoller as cores que queira para os díxitos e o fondo do cronómetro.</li>
+      <li xml:lang="he">התאמת צבע: אפשר לבחור את צבע ספרות שעון העצר ואת רקע שעון העצר</li>
       <li xml:lang="ia">Personalisation de color: tu pote seliger le color per cata cifras  e fundo del chronometro</li>
       <li xml:lang="id">Kustomisasi warna: kamu bisa memilih warna untuk digit stopwatch dan latarbelakang stopwatch</li>
       <li xml:lang="it">Configurazione dei colori: puoi scegliere il colore delle cifre e dello sfondo del cronometro</li>
@@ -448,6 +460,7 @@
       <li xml:lang="fi">Kierrosaikojen vienti: kierrosajat voi viedä JSON- tai CSV-muotoiseen tiedostoon</li>
       <li xml:lang="fr">Exportation des temps intermédiaires : vous pouvez exporter les temps intermédiaire dans un fichier au format « JSON » ou « CSV »</li>
       <li xml:lang="gl">Exportar os tempos de voltas: permítelle exportar os tempos de voltas a un ficheiro en formato JSON ou CSV.</li>
+      <li xml:lang="he">ייצוא זמני הקפות: אפשר לייצא את זמני ההקפות לקובץ בתסדירי JSON או CSV</li>
       <li xml:lang="ia">Exporta tempore de gyro: tu pote exportar le tempores de gyro in un file per usar formato JSON o CSV</li>
       <li xml:lang="id">Ekspor waktu lap: kamu bisa mengekspor waktu lap ke file menggunakan format JSON atau CSV</li>
       <li xml:lang="it">Esportazione dei tempi sul giro: puoi esportare i tempi sul giro su file nei formati JSON o CSV</li>
