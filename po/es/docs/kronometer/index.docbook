@@ -267,10 +267,10 @@
 >&kronometer; usa las herramientas de configuración estándares de &kde;. Puede encontrarlas en el menú <guimenu
 >Preferencias</guimenu
 >, bajo las entradas <guimenuitem
->Configurar accesos rápidos de teclado</guimenuitem
+>Configurar atajos de teclado</guimenuitem
 > y <guimenuitem
 >Configurar barras de herramientas</guimenuitem
->. Le permiten cambiar los accesos rápidos de las acciones de &kronometer; y cambiar la posición de la barra de herramientas y su contenido. </para>
+>. Le permiten cambiar los atajos de teclado de las acciones de &kronometer; y cambiar la posición de la barra de herramientas y su contenido. </para>
     </sect2>
   </sect1>
 </chapter>
@@ -292,8 +292,7 @@
 >Traducido por Eloy Cuadra<email
 >ecuadra@eloihr.net</email
 ></para
-> 
-&underFDL; &underGPL; </chapter>
+> &underFDL; &underGPL; </chapter>
 
 &documentation.index;
 
