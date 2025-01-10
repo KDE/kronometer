@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2024-04-24 01:57+0000\n"
-"PO-Revision-Date: 2014-07-02 01:51+0000\n"
+"PO-Revision-Date: 2025-01-09 23:52+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: lt\n"
 "Language: lt\n"
@@ -17,481 +17,482 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Poedit 3.5\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Moo"
 
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "<>"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/colorsettings.ui:20
 #, kde-format
 msgid "Display Background:"
-msgstr ""
+msgstr "Rodyti foną:"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_backgroundColor)
 #: src/gui/colorsettings.ui:27
 #, kde-format
 msgid "Background color of the stopwatch display"
-msgstr ""
+msgstr "Chronometro rodinio fono spalva"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/colorsettings.ui:34
 #, kde-format
 msgid "Display Digits:"
-msgstr ""
+msgstr "Rodyti skaitmenis:"
 
 #. i18n: ectx: property (toolTip), widget (KColorButton, kcfg_textColor)
 #: src/gui/colorsettings.ui:41
 #, kde-format
 msgid "Color of the stopwatch display digits"
-msgstr ""
+msgstr "Chronometre rodomų skaitmenų spalva"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: src/gui/fontsettings.ui:23
 #, kde-format
 msgid "Hours Font:"
-msgstr ""
+msgstr "Valandų šriftas:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/fontsettings.ui:56
 #, kde-format
 msgid "Minutes Font:"
-msgstr ""
+msgstr "Minučių šriftas:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/fontsettings.ui:89
 #, kde-format
 msgid "Seconds Font:"
-msgstr ""
+msgstr "Sekundžių šriftas:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/fontsettings.ui:122
 #, kde-format
 msgid "Second Fractions Font:"
-msgstr ""
+msgstr "Sekundės dalelių šriftas:"
 
 #. i18n: @title:tab
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
 #: src/gui/generalsettings.ui:24
 #, kde-format
 msgid "Stopwatch"
-msgstr ""
+msgstr "Chronometras"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #: src/gui/generalsettings.ui:36
 #, kde-format
 msgid "Time Format"
-msgstr ""
+msgstr "Laiko formatas"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showHours)
 #: src/gui/generalsettings.ui:42
 #, kde-format
 msgid "Whether to show hours in the stopwatch"
-msgstr ""
+msgstr "Ar rodyti chronometre valandas"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showHours)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapHours)
 #: src/gui/generalsettings.ui:45 src/gui/generalsettings.ui:192
 #, kde-format
 msgid "Show Hours"
-msgstr ""
+msgstr "Rodyti valandas"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showMinutes)
 #: src/gui/generalsettings.ui:55
 #, kde-format
 msgid "Whether to show minutes in the stopwatch"
-msgstr ""
+msgstr "Ar rodyti chronometre minutes"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showMinutes)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapMinutes)
 #: src/gui/generalsettings.ui:58 src/gui/generalsettings.ui:205
 #, kde-format
 msgid "Show Minutes"
-msgstr ""
+msgstr "Rodyti minutes"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showSecondFractions)
 #: src/gui/generalsettings.ui:86
 #, kde-format
 msgid "Whether to show second fractions in the stopwatch"
-msgstr ""
+msgstr "Ar rodyti chronometre sekundės daleles"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showSecondFractions)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapSecondFractions)
 #: src/gui/generalsettings.ui:89 src/gui/generalsettings.ui:236
 #, kde-format
 msgid "Show Second Fractions:"
-msgstr ""
+msgstr "Rodyti sekundės daleles:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
 #: src/gui/generalsettings.ui:100 src/gui/generalsettings.ui:247
 #, kde-format
 msgid "Up to Tenths"
-msgstr ""
+msgstr "Iki dešimtųjų"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
 #: src/gui/generalsettings.ui:105 src/gui/generalsettings.ui:252
 #, kde-format
 msgid "Up to Hundredths"
-msgstr ""
+msgstr "Iki šimtųjų"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
 #: src/gui/generalsettings.ui:110 src/gui/generalsettings.ui:257
 #, kde-format
 msgid "Up to Thousandths"
-msgstr ""
+msgstr "Iki tūkstantųjų"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_startTimerImmediately)
 #: src/gui/generalsettings.ui:137
 #, kde-format
 msgid "Start timer immediately"
-msgstr ""
+msgstr "Nedelsiant paleisti laikmatį"
 
 #. i18n: @title:tab
 #. i18n: ectx: attribute (title), widget (QWidget, tab_2)
 #: src/gui/generalsettings.ui:158
 #, kde-format
 msgid "Laps"
-msgstr ""
+msgstr "Ratai"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
 #: src/gui/generalsettings.ui:164
 #, kde-format
 msgid "Whether to enable the laps recording feature"
-msgstr ""
+msgstr "Ar įjungti ratų įrašymo ypatybę"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_isLapsRecordingEnabled)
 #: src/gui/generalsettings.ui:167
 #, kde-format
 msgid "Enable Laps Recording"
-msgstr ""
+msgstr "Įjungti ratų įrašymą"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: src/gui/generalsettings.ui:183
 #, kde-format
 msgid "Lap Times Format"
-msgstr ""
+msgstr "Rato laikų formatas"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapHours)
 #: src/gui/generalsettings.ui:189
 #, kde-format
 msgid "Whether to show hours in the laps"
-msgstr ""
+msgstr "Ar rodyti ratuose valandas"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapMinutes)
 #: src/gui/generalsettings.ui:202
 #, kde-format
 msgid "Whether to show minutes in the laps"
-msgstr ""
+msgstr "Ar rodyti ratuose minutes"
 
 #. i18n: ectx: property (toolTip), widget (QCheckBox, kcfg_showLapSecondFractions)
 #: src/gui/generalsettings.ui:233
 #, kde-format
 msgid "Whether to show second fractions in the laps"
-msgstr ""
+msgstr "Ar rodyti ratuose sekundes"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapAbsoluteTimes)
 #: src/gui/generalsettings.ui:284
 #, kde-format
 msgid "Show Absolute Times"
-msgstr ""
+msgstr "Rodyti absoliučius laikus"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_showLapNotes)
 #: src/gui/generalsettings.ui:291
 #, kde-format
 msgid "Show Notes"
-msgstr ""
+msgstr "Rodyti pastabas"
 
 #. i18n: ectx: Menu (file)
 #: src/gui/kronometerui.rc:7
 #, kde-format
 msgid "&File"
-msgstr ""
+msgstr "&Failas"
 
 #. i18n: ectx: Menu (kronometerActions)
 #: src/gui/kronometerui.rc:11
 #, kde-format
 msgid "&Kronometer"
-msgstr ""
+msgstr "&Kronometer"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: src/gui/kronometerui.rc:20
 #, kde-format
 msgid "Kronometer Toolbar"
-msgstr ""
+msgstr "Kronometer įrankių juosta"
 
 #: src/gui/mainwindow.cpp:142
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
-msgstr ""
+msgstr "Ar norite išjungti ir prarasti visus neįrašytus laikus?"
 
 #: src/gui/mainwindow.cpp:143
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
-msgstr ""
+msgstr "Patvirtinti išjungimą"
 
 #: src/gui/mainwindow.cpp:155 src/gui/mainwindow.cpp:167
 #, kde-format
 msgid "Save times to session %1?"
-msgstr ""
+msgstr "Įrašyti laikus į seansą %1?"
 
 #: src/gui/mainwindow.cpp:196
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
-msgstr ""
+msgstr "Pra&tęsti"
 
 #: src/gui/mainwindow.cpp:215
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
-msgstr ""
+msgstr "&Paleisti"
 
 #: src/gui/mainwindow.cpp:219
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
-msgstr ""
+msgstr "Be pavadinimo"
 
 #: src/gui/mainwindow.cpp:244
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
-msgstr ""
+msgstr "Bendrosios nuostatos"
 
 #: src/gui/mainwindow.cpp:247
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
-msgstr ""
+msgstr "Šrifto nuostatos"
 
 #: src/gui/mainwindow.cpp:250
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
-msgstr ""
+msgstr "Spalvų nuostatos"
 
 #: src/gui/mainwindow.cpp:319
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
-msgstr ""
+msgstr "Įrašyti seansą"
 
 #: src/gui/mainwindow.cpp:320
 #, kde-format
 msgid "You can choose a name for this session:"
-msgstr ""
+msgstr "Galite pasirinkti šio seanso pavadinimą:"
 
 #: src/gui/mainwindow.cpp:329
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
-msgstr ""
+msgstr "Bevardis seansas"
 
 #: src/gui/mainwindow.cpp:339
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
-msgstr ""
+msgstr "Eksportuoti ratus"
 
 #: src/gui/mainwindow.cpp:490
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
-msgstr ""
+msgstr "Prista&bdyti"
 
 #: src/gui/mainwindow.cpp:493
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
-msgstr ""
+msgstr "&Atstatyti"
 
 #: src/gui/mainwindow.cpp:496
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
-msgstr ""
+msgstr "&Ratas"
 
 #: src/gui/mainwindow.cpp:499
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
-msgstr ""
+msgstr "&Eksportuoti ratus kaip..."
 
 #: src/gui/mainwindow.cpp:694
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
-msgstr ""
+msgstr "Rato numeris,Rato laikas,Visuotinis laikas,Pastaba"
 
 #: src/gui/mainwindow.cpp:727
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
-msgstr ""
+msgstr "Sukūrė Kronometer ties %1"
 
 #: src/gui/mainwindow.cpp:794
 #, kde-format
 msgid "A stopwatch is running."
-msgstr ""
+msgstr "Veikia chronometras."
 
 #: src/gui/sessiondialog.cpp:35
 #, kde-format
 msgctxt "@action:button"
 msgid "Open session"
-msgstr ""
+msgstr "Atverti seansą"
 
 #: src/gui/sessiondialog.cpp:101
 #, kde-format
 msgctxt "@info"
 msgid "You don't have any saved session yet."
-msgstr ""
+msgstr "Jūs kol kas neturite jokių įrašytų seansų."
 
 #: src/gui/sessiondialog.cpp:124 src/gui/sessiondialog.cpp:134
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
-msgstr ""
+msgstr "Ar norite pašalinti pažymėtą seansą?"
 
 #: src/gui/sessiondialog.cpp:125 src/gui/sessiondialog.cpp:135
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"
-msgstr ""
+msgstr "Patvirtinti ištrynimą"
 
 #. i18n: @title:window
 #. i18n: ectx: property (windowTitle), widget (QDialog, SessionDialog)
 #: src/gui/sessiondialog.ui:14
 #, kde-format
 msgid "Open Session"
-msgstr ""
+msgstr "Atverti seansą"
 
 #: src/gui/timedisplay.cpp:153
 #, kde-format
 msgctxt "@title:column"
 msgid "Tenths"
-msgstr ""
+msgstr "Dešimtosios"
 
 #. i18n: ectx: property (title), widget (QGroupBox, m_fracGroup)
 #: src/gui/timedisplay.cpp:157 src/gui/timedisplay.ui:54
 #, kde-format
 msgctxt "@title:column"
 msgid "Hundredths"
-msgstr ""
+msgstr "Šimtosios"
 
 #: src/gui/timedisplay.cpp:161
 #, kde-format
 msgctxt "@title:column"
 msgid "Milliseconds"
-msgstr ""
+msgstr "Milisekundės"
 
 #. i18n: ectx: property (title), widget (QGroupBox, m_hourGroup)
 #: src/gui/timedisplay.ui:18
 #, kde-format
 msgctxt "@title:column"
 msgid "Hours"
-msgstr ""
+msgstr "Valandos"
 
 #. i18n: ectx: property (title), widget (QGroupBox, m_minGroup)
 #: src/gui/timedisplay.ui:30
 #, kde-format
 msgctxt "@title:column"
 msgid "Minutes"
-msgstr ""
+msgstr "Minutės"
 
 #. i18n: ectx: property (title), widget (QGroupBox, m_secGroup)
 #: src/gui/timedisplay.ui:42
 #, kde-format
 msgctxt "@title:column"
 msgid "Seconds"
-msgstr ""
+msgstr "Sekundės"
 
 #: src/main.cpp:33
 #, kde-format
 msgctxt "KAboutData display name"
 msgid "Kronometer"
-msgstr ""
+msgstr "Kronometer"
 
 #: src/main.cpp:35
 #, kde-format
 msgid "Kronometer is a simple stopwatch application"
-msgstr ""
+msgstr "Kronometer yra paprasta sekundmačio programa"
 
 #: src/main.cpp:37
 #, kde-format
 msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
-msgstr ""
+msgstr "Autorių teisės (C) 2014–2016 Elvis Angelaccio"
 
 #: src/main.cpp:43
 #, kde-format
 msgid "Elvis Angelaccio"
-msgstr ""
+msgstr "Elvis Angelaccio"
 
 #: src/main.cpp:44
 #, kde-format
 msgid "Maintainer"
-msgstr ""
+msgstr "Prižiūrėtojas"
 
 #: src/main.cpp:50
 #, kde-format
 msgid "Ken Vermette"
-msgstr ""
+msgstr "Ken Vermette"
 
 #: src/main.cpp:51
 #, kde-format
 msgid "Kronometer icon"
-msgstr ""
+msgstr "Kronometer piktograma"
 
 #: src/models/lapmodel.cpp:72
 #, kde-format
 msgctxt "lap number"
 msgid "Lap #"
-msgstr ""
+msgstr "Rato nr."
 
 #: src/models/lapmodel.cpp:74
 #, kde-format
 msgctxt "@title:column"
 msgid "Lap Time"
-msgstr ""
+msgstr "Rato laikas"
 
 #: src/models/lapmodel.cpp:76
 #, kde-format
 msgctxt "@title:column"
 msgid "Global Time"
-msgstr ""
+msgstr "Visuotinis laikas"
 
 #: src/models/lapmodel.cpp:78
 #, kde-format
 msgctxt "@title:column"
 msgid "Note"
-msgstr ""
+msgstr "Pastaba"
 
 #: src/models/sessionmodel.cpp:97
 #, kde-format
 msgctxt "session number"
 msgid "Session #"
-msgstr ""
+msgstr "Seanso nr."
 
 #: src/models/sessionmodel.cpp:99
 #, kde-format
 msgid "Name"
-msgstr ""
+msgstr "Pavadinimas"
 
 #: src/models/sessionmodel.cpp:101
 #, kde-format
 msgid "Date"
-msgstr ""
+msgstr "Data"
 
 #: src/models/sessionmodel.cpp:103
 #, kde-format
 msgid "Note"
-msgstr ""
+msgstr "Pastaba"
