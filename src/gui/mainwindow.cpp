@@ -151,19 +151,6 @@ bool MainWindow::queryClose()
         return false;
     }
     else if (m_session.isOutdated()) {
-#if KWIDGETSADDONS_VERSION < QT_VERSION_CHECK(5, 100, 0)
-        auto buttonCode = KMessageBox::warningYesNoCancel(this, i18n("Save times to session %1?", m_session.name()));
-
-        switch (buttonCode) {
-        case KMessageBox::Yes:
-            slotSaveSession();
-            return true;
-        case KMessageBox::No:
-            return true;
-        default: // cancel
-            return false;
-        }
-#else
         auto buttonCode = KMessageBox::warningTwoActionsCancel(this, i18n("Save times to session %1?", m_session.name()), QString(), KStandardGuiItem::save(), KStandardGuiItem::cancel());
 
         switch (buttonCode) {
@@ -175,7 +162,6 @@ bool MainWindow::queryClose()
         default: // cancel
             return false;
         }
-#endif
     }
 
     return true;  // there is an open session, but times are already saved.
@@ -381,24 +367,14 @@ void MainWindow::slotUpdateControlMenu()
     auto ac = actionCollection();
 
     // Add "File" actions
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    auto added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::New))), menu) |
-                 addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Open))), menu);
-#else
     auto added = addActionToMenu(ac->action(KStandardAction::name(KStandardAction::New)), menu) |
                  addActionToMenu(ac->action(KStandardAction::name(KStandardAction::Open)), menu);
-#endif
 
     if (added)
         menu->addSeparator();
 
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Save))), menu) |
-            addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::SaveAs))), menu);
-#else
     added = addActionToMenu(ac->action(KStandardAction::name(KStandardAction::Save)), menu) |
             addActionToMenu(ac->action(KStandardAction::name(KStandardAction::SaveAs)), menu);
-#endif
 
     if (added)
         menu->addSeparator();
@@ -409,36 +385,22 @@ void MainWindow::slotUpdateControlMenu()
         menu->addSeparator();
 
     // Add "Edit actions
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    added = addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Copy))), menu);
-#else
     added = addActionToMenu(ac->action(KStandardAction::name(KStandardAction::Copy)), menu);
-#endif
 
     if (added)
         menu->addSeparator();
 
     // Add "Settings" menu entries
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::KeyBindings))), menu);
-    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ConfigureToolbars))), menu);
-    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::Preferences))), menu);
-#else
     addActionToMenu(ac->action(KStandardAction::name(KStandardAction::KeyBindings)), menu);
     addActionToMenu(ac->action(KStandardAction::name(KStandardAction::ConfigureToolbars)), menu);
     addActionToMenu(ac->action(KStandardAction::name(KStandardAction::Preferences)), menu);
-#endif
 
     // Add "Help" menu
     auto helpMenu = new KHelpMenu {menu};
     menu->addMenu(helpMenu->menu());
 
     menu->addSeparator();
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    addActionToMenu(ac->action(QString::fromLatin1(KStandardAction::name(KStandardAction::ShowMenubar))), menu);
-#else
     addActionToMenu(ac->action(KStandardAction::name(KStandardAction::ShowMenubar)), menu);
-#endif
 }
 
 void MainWindow::slotToolBarUpdated()

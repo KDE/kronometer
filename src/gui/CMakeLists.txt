@@ -31,8 +31,8 @@ add_library(gui STATIC ${gui_SRCS})
 target_link_libraries(gui
     Qt::Core
     Qt::Widgets
-    KF${KF_MAJOR_VERSION}::I18n
-    KF${KF_MAJOR_VERSION}::WidgetsAddons
-    KF${KF_MAJOR_VERSION}::XmlGui
+    KF6::I18n
+    KF6::WidgetsAddons
+    KF6::XmlGui
     core
     models)

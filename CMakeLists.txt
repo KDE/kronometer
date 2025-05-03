@@ -3,7 +3,6 @@ project(kronometer)
 
 set(QT_MIN_VERSION "6.5.0")
 set(KF_MIN_VERSION "6.0.0")
-set(KF_MAJOR_VERSION "6")
 
 set(PROJECT_VERSION 2.3.70)
 
@@ -21,13 +20,13 @@ include(ECMSetupVersion)
 include(FeatureSummary)
 include(ECMDeprecationSettings)
 
-find_package(Qt${QT_MAJOR_VERSION} ${QT_MIN_VERSION} REQUIRED
+find_package(Qt6 ${QT_MIN_VERSION} REQUIRED
     COMPONENTS
     Core
     Gui
     Widgets)
 
-find_package(KF${KF_MAJOR_VERSION} ${KF_MIN_VERSION} REQUIRED
+find_package(KF6 ${KF_MIN_VERSION} REQUIRED
     COMPONENTS
     CoreAddons
     Config
@@ -56,7 +55,7 @@ add_subdirectory(icons)
 add_subdirectory(autotests)
 
 ki18n_install(po)
-if(KF5DocTools_FOUND)
+if(KF6DocTools_FOUND)
     add_subdirectory(doc)
     kdoctools_install(po)
 endif()
