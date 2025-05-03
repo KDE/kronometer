@@ -4,7 +4,8 @@
       xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
                           http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
 
-    <include>KColorScheme</include>
+    <include>QGuiApplication</include>
+    <include>QPalette</include>
     <include>QFontDatabase</include>
     <include>"timeformat.h"</include>
 
@@ -84,17 +85,10 @@
 
     <group name="Color">
         <entry name="backgroundColor" type="Color">
-            <code>
-                KColorScheme schemeView(QPalette::Active, KColorScheme::View);
-                QColor defaultColor = schemeView.background().color();
-            </code>
-            <default code="true">defaultColor</default>
+            <default code="true">qApp->palette().base().color()</default>
         </entry>
         <entry name="textColor" type="Color">
-            <code>
-                defaultColor = schemeView.foreground().color();
-            </code>
-            <default code="true">defaultColor</default>
+            <default code="true">qApp->palette().text().color()</default>
         </entry>
     </group>
 
