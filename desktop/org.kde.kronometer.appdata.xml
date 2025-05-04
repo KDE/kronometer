@@ -48,6 +48,7 @@
   <name xml:lang="uk">Kronometer</name>
   <name xml:lang="x-test">xxKronometerxx</name>
   <name xml:lang="zh-CN">Kronometer 计时器</name>
+  <name xml:lang="zh-TW">Kronometer</name>
   <summary>Chronometer</summary>
   <summary xml:lang="bs">Kronometar</summary>
   <summary xml:lang="ca">Cronòmetre</summary>
@@ -88,6 +89,7 @@
   <summary xml:lang="uk">Хронометр</summary>
   <summary xml:lang="x-test">xxChronometerxx</summary>
   <summary xml:lang="zh-CN">计时器</summary>
+  <summary xml:lang="zh-TW">精密計時器</summary>
   <description>
     <p>
       Kronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.
@@ -127,6 +129,7 @@
     <p xml:lang="uk">Kronometer — програма-секундомір. У ній передбачено основні можливості секундоміра (призупинення відліку, відновлення відліку, скидання відліку, відлік часу за колами), а також можливість збереження даних щодо часу і відновлення збережених даних із файла. Kronometer є частиною збірки додаткового програмного забезпечення KDE, а саме, модуля Utils.</p>
     <p xml:lang="x-test">xxKronometer is a stopwatch application. It features the basic stopwatch actions (pause/resume/reset/laps), as well as the ability to save the times and resume them later. Kronometer is part of the KDE Extragear collection, within the Utils sub-module.xx</p>
     <p xml:lang="zh-CN">Kronometer 是一个秒表应用程序。它具有基本的秒表功能 (暂停/恢复/归零/圈数)，也有保存时间和稍后恢复的功能。Kronmeter 是 KDE Extragear 集合的一部分，属于小工具模块。</p>
+    <p xml:lang="zh-TW">Kronometer 是一個碼錶應用程式。它提供基礎的碼錶功能（暫停、繼續、重設、單圈），也支援儲存時間並在之後復原的功能。Kronometer 是 KDE Extragear 收藏的一部分，位於工具程式子模組內。</p>
     <p>Features:</p>
     <p xml:lang="bs">Svojstva:</p>
     <p xml:lang="ca">Característiques:</p>
@@ -167,6 +170,7 @@
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="x-test">xxFeatures:xx</p>
     <p xml:lang="zh-CN">功能：</p>
+    <p xml:lang="zh-TW">功能：</p>
     <ul>
       <li>Start/pause/resume the stopwatch widget</li>
       <li xml:lang="bs">Pokreni/zaustaviti/nastaviti kontrolu štoperice</li>
@@ -206,6 +210,7 @@
       <li xml:lang="uk">Віджет запуску, призупинення та поновлення відліку секундоміра.</li>
       <li xml:lang="x-test">xxStart/pause/resume the stopwatch widgetxx</li>
       <li xml:lang="zh-CN">开始/暂停/恢复秒表部件</li>
+      <li xml:lang="zh-TW">開始/暫停/繼續進行碼錶元件即時</li>
       <li>Laps recording: you can capture the stopwatch time when you want</li>
       <li xml:lang="bs">Snimanje krugova: možete snimiti vrijeme štoperice kada god želite</li>
       <li xml:lang="ca">Enregistra les voltes: podeu capturar el temps del cronòmetre quan vulgueu</li>
@@ -244,6 +249,7 @@
       <li xml:lang="uk">Запис даних щодо проходження кіл: ви можете записувати дані секундоміра у довільні моменти часу.</li>
       <li xml:lang="x-test">xxLaps recording: you can capture the stopwatch time when you wantxx</li>
       <li xml:lang="zh-CN">圈数记录：您可以随时捕获秒表时间</li>
+      <li xml:lang="zh-TW">單圈記錄：隨時記錄碼錶目前時間</li>
       <li>Lap times sorting: you can easily find the shortest lap time or the longest one</li>
       <li xml:lang="bs">Sortiranje vremena krugova: možete jednostavno naći najkraće ili najduže vrijeme kruga</li>
       <li xml:lang="ca">Ordena els temps per volta: trobareu amb facilitat els temps per volta més ràpida o més lenta</li>
@@ -282,6 +288,7 @@
       <li xml:lang="uk">Упорядковування за часом проходження кола: ви легко можете встановити найкращий і найгірший часи проходження.</li>
       <li xml:lang="x-test">xxLap times sorting: you can easily find the shortest lap time or the longest onexx</li>
       <li xml:lang="zh-CN">圈时排序：您可以轻松地找出最短和最长的圈时间</li>
+      <li xml:lang="zh-TW">單圈排序：輕易查詢最短或最長的單圈時間</li>
       <li>Reset the stopwatch widget and the lap times</li>
       <li xml:lang="bs">Resetovati kontrolu štoperice i vremena krugova</li>
       <li xml:lang="ca">Inicialitza el giny de cronòmetre i els temps per volta</li>
@@ -320,6 +327,7 @@
       <li xml:lang="uk">Скидання значення на віджеті секундоміра та скидання часу проходження кіл.</li>
       <li xml:lang="x-test">xxReset the stopwatch widget and the lap timesxx</li>
       <li xml:lang="zh-CN">重置秒表部件和单圈时间</li>
+      <li xml:lang="zh-TW">重設碼錶元件與單圈時間</li>
       <li>Time format settings: you can choose the stopwatch granularity</li>
       <li xml:lang="bs">Postavke formata vremena: možete izabrati granularnost štoperice</li>
       <li xml:lang="ca">Arranjament per al format del temps: podeu triar el nivell de detall del cronòmetre</li>
@@ -358,6 +366,7 @@
       <li xml:lang="uk">Можливість зміни форматування часу: ви можете вибрати значення параметрів так, щоб було показано лише потрібні вам дані.</li>
       <li xml:lang="x-test">xxTime format settings: you can choose the stopwatch granularityxx</li>
       <li xml:lang="zh-CN">时间格式设置： 您可以选择秒表粒度</li>
+      <li xml:lang="zh-TW">時間格式設定：可以選擇碼錶的準確度</li>
       <li>Times saving and resuming: you can save the stopwatch status and resume it later</li>
       <li xml:lang="ca">Desament i continuació dels temps: podeu desar l'estat del cronòmetre per a continuar més tard</li>
       <li xml:lang="ca-valencia">Guardada i continuació dels temps: podeu guardar l'estat del cronòmetre per a continuar més tard</li>
@@ -394,6 +403,7 @@
       <li xml:lang="uk">Збереження та відновлення записаних даних щодо часу: ви можете записати стан секундоміра на диск і згодом відновити його.</li>
       <li xml:lang="x-test">xxTimes saving and resuming: you can save the stopwatch status and resume it laterxx</li>
       <li xml:lang="zh-CN">保存和恢复时间： 您可以保存秒表状态并在以后继续</li>
+      <li xml:lang="zh-TW">時間儲存與繼續：可以儲存碼錶狀態，之後從同樣狀態繼續進行計時</li>
       <li>Font customization: you can choose the fonts for each of the stopwatch digits</li>
       <li xml:lang="bs">Modificiranje fonta: možete izabrati font za svaku cifru štoperice</li>
       <li xml:lang="ca">Personalització de les lletres: podeu triar les lletres per a cadascun dels dígits del cronòmetre</li>
@@ -432,6 +442,7 @@
       <li xml:lang="uk">Можливість налаштовування шрифтів: ви можете вибрати шрифт для кожного з компонентів числових даних секундоміра.</li>
       <li xml:lang="x-test">xxFont customization: you can choose the fonts for each of the stopwatch digitsxx</li>
       <li xml:lang="zh-CN">自定义字体： 您可以为每个秒表数字选择字体</li>
+      <li xml:lang="zh-TW">字型調整：可以選擇每個碼錶數字的字型</li>
       <li>Color customization: you can choose the color for the stopwatch digits and the stopwatch background</li>
       <li xml:lang="bs">Modificiranje boje: možete izabrati boju za cifre štoperice i za pozadinu štoperice</li>
       <li xml:lang="ca">Personalització dels colors: podeu triar el color per als dígits del cronòmetre i el fons del cronòmetre</li>
@@ -470,6 +481,7 @@
       <li xml:lang="uk">Можливість налаштовування кольорів: ви можете вибрати колір для числових даних секундоміра та колір тла.</li>
       <li xml:lang="x-test">xxColor customization: you can choose the color for the stopwatch digits and the stopwatch backgroundxx</li>
       <li xml:lang="zh-CN">颜色自定义功能： 您可以选择秒表位数和秒表背景的颜色</li>
+      <li xml:lang="zh-TW">色彩調整，可以選擇碼錶數字與背景的色彩</li>
       <li>Lap times export: you can export the lap times to a file using the JSON or CSV format</li>
       <li xml:lang="ca">Exportació dels temps per volta: podeu exportar els temps per volta a un fitxer usant el format JSON o CSV</li>
       <li xml:lang="ca-valencia">Exporteu els temps per volta: podeu exportar els temps per volta a un fitxer utilitzant el format JSON o CSV</li>
@@ -506,6 +518,7 @@
       <li xml:lang="uk">Експортування даних щодо часу проходження кіл: ви можете експортувати дані до файла у форматі XML або CSV.</li>
       <li xml:lang="x-test">xxLap times export: you can export the lap times to a file using the JSON or CSV formatxx</li>
       <li xml:lang="zh-CN">圈时间导出：您可以将各圈时间导出为 JSON 格式或 CSV 格式的文件</li>
+      <li xml:lang="zh-TW">圈數時間匯出：可以將圈數時間匯出到 CSV 或 JSON 格式的檔案</li>
     </ul>
   </description>
   <content_rating type="oars-1.1"/>
