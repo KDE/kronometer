@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-24 01:57+0000\n"
+"POT-Creation-Date: 2025-05-04 00:45+0000\n"
 "PO-Revision-Date: 2024-12-29 17:56+0530\n"
 "Last-Translator: kali <shreekantkalwar@gmail.com>\n"
 "Language-Team: Sanskrit <kde-i18n-doc@kde.org>\n"
@@ -240,107 +240,107 @@ msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Confirm Quit"
 
-#: src/gui/mainwindow.cpp:155 src/gui/mainwindow.cpp:167
+#: src/gui/mainwindow.cpp:154
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "सत्र %1 मध्ये समयं रक्षतु?"
 
-#: src/gui/mainwindow.cpp:196
+#: src/gui/mainwindow.cpp:182
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "पुनर्प्रारम्भय"
 
-#: src/gui/mainwindow.cpp:215
+#: src/gui/mainwindow.cpp:201
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "&प्रारंभः"
 
-#: src/gui/mainwindow.cpp:219
+#: src/gui/mainwindow.cpp:205
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "अनामिका"
 
-#: src/gui/mainwindow.cpp:244
+#: src/gui/mainwindow.cpp:230
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "सामान्य सेटिंग्स्"
 
-#: src/gui/mainwindow.cpp:247
+#: src/gui/mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "फॉन्ट सेटिंग्स्"
 
-#: src/gui/mainwindow.cpp:250
+#: src/gui/mainwindow.cpp:236
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "रङ्ग सेटिंग्स्"
 
-#: src/gui/mainwindow.cpp:319
+#: src/gui/mainwindow.cpp:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "सत्रं रक्षतु"
 
-#: src/gui/mainwindow.cpp:320
+#: src/gui/mainwindow.cpp:306
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "अस्य सत्रस्य नाम चिन्वतु:"
 
-#: src/gui/mainwindow.cpp:329
+#: src/gui/mainwindow.cpp:315
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "अनामिका सत्र"
 
-#: src/gui/mainwindow.cpp:339
+#: src/gui/mainwindow.cpp:325
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "निर्यात Laps"
 
-#: src/gui/mainwindow.cpp:490
+#: src/gui/mainwindow.cpp:452
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&विराम"
 
-#: src/gui/mainwindow.cpp:493
+#: src/gui/mainwindow.cpp:455
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&पुनः सेट् कुर्वन्तु"
 
-#: src/gui/mainwindow.cpp:496
+#: src/gui/mainwindow.cpp:458
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&उत्सङ्ग"
 
-#: src/gui/mainwindow.cpp:499
+#: src/gui/mainwindow.cpp:461
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&निर्यात Laps यथा..."
 
-#: src/gui/mainwindow.cpp:694
+#: src/gui/mainwindow.cpp:656
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "गोद संख्या,गोल समय,वैश्विक समय,नोट"
 
-#: src/gui/mainwindow.cpp:727
+#: src/gui/mainwindow.cpp:689
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "%1 इत्यत्र Kronometer द्वारा निर्मितम्"
 
-#: src/gui/mainwindow.cpp:794
+#: src/gui/mainwindow.cpp:756
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "एकः स्टॉपवॉचः प्रचलति।"
@@ -357,13 +357,13 @@ msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr "भवतः अद्यापि किमपि रक्षितं सत्रं नास्ति।"
 
-#: src/gui/sessiondialog.cpp:124 src/gui/sessiondialog.cpp:134
+#: src/gui/sessiondialog.cpp:123
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr "चयनितं सत्रं हर्तुं इच्छति वा ?"
 
-#: src/gui/sessiondialog.cpp:125 src/gui/sessiondialog.cpp:135
+#: src/gui/sessiondialog.cpp:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"
@@ -416,38 +416,38 @@ msgctxt "@title:column"
 msgid "Seconds"
 msgstr "सेकण्ड्"
 
-#: src/main.cpp:33
+#: src/main.cpp:29
 #, kde-format
 msgctxt "KAboutData display name"
 msgid "Kronometer"
 msgstr "क्रोनोमीटर्"
 
-#: src/main.cpp:35
+#: src/main.cpp:31
 #, kde-format
 msgid "Kronometer is a simple stopwatch application"
 msgstr "क्रोनोमीटर् एकः सरलः स्टॉपवॉच् अनुप्रयोगः अस्ति"
 
-#: src/main.cpp:37
+#: src/main.cpp:33
 #, kde-format
 msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
 msgstr "प्रतिलिपि अधिकार (C) 2014-2016 Elvis Angelaccio"
 
-#: src/main.cpp:43
+#: src/main.cpp:39
 #, kde-format
 msgid "Elvis Angelaccio"
 msgstr "एल्विस एन्जेलाक्सिओ"
 
-#: src/main.cpp:44
+#: src/main.cpp:40
 #, kde-format
 msgid "Maintainer"
 msgstr "परिपालकः"
 
-#: src/main.cpp:50
+#: src/main.cpp:46
 #, kde-format
 msgid "Ken Vermette"
 msgstr "केन वर्मेट्"
 
-#: src/main.cpp:51
+#: src/main.cpp:47
 #, kde-format
 msgid "Kronometer icon"
 msgstr "क्रोनोमीटर चिह्न"

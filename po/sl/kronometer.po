@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-24 01:57+0000\n"
+"POT-Creation-Date: 2025-05-04 00:45+0000\n"
 "PO-Revision-Date: 2021-04-30 13:34+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
@@ -241,107 +241,107 @@ msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Potrditev izhoda"
 
-#: src/gui/mainwindow.cpp:155 src/gui/mainwindow.cpp:167
+#: src/gui/mainwindow.cpp:154
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Shranim čase v sejo %1?"
 
-#: src/gui/mainwindow.cpp:196
+#: src/gui/mainwindow.cpp:182
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "Nadaljuj"
 
-#: src/gui/mainwindow.cpp:215
+#: src/gui/mainwindow.cpp:201
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "Začni"
 
-#: src/gui/mainwindow.cpp:219
+#: src/gui/mainwindow.cpp:205
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Neimenovano"
 
-#: src/gui/mainwindow.cpp:244
+#: src/gui/mainwindow.cpp:230
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Splošne nastavitve"
 
-#: src/gui/mainwindow.cpp:247
+#: src/gui/mainwindow.cpp:233
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Nastavitve pisav"
 
-#: src/gui/mainwindow.cpp:250
+#: src/gui/mainwindow.cpp:236
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Nastavitve barv"
 
-#: src/gui/mainwindow.cpp:319
+#: src/gui/mainwindow.cpp:305
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Shranitev seje"
 
-#: src/gui/mainwindow.cpp:320
+#: src/gui/mainwindow.cpp:306
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Za to sejo lahko izberete ime:"
 
-#: src/gui/mainwindow.cpp:329
+#: src/gui/mainwindow.cpp:315
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Neimenovana seja"
 
-#: src/gui/mainwindow.cpp:339
+#: src/gui/mainwindow.cpp:325
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "izvoz krogov"
 
-#: src/gui/mainwindow.cpp:490
+#: src/gui/mainwindow.cpp:452
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "Naredi premor"
 
-#: src/gui/mainwindow.cpp:493
+#: src/gui/mainwindow.cpp:455
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "Ponastavi"
 
-#: src/gui/mainwindow.cpp:496
+#: src/gui/mainwindow.cpp:458
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "Krog"
 
-#: src/gui/mainwindow.cpp:499
+#: src/gui/mainwindow.cpp:461
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "Izvozi kroge kot..."
 
-#: src/gui/mainwindow.cpp:694
+#: src/gui/mainwindow.cpp:656
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Št. kroga,čas kroga,skupen čas,opomba"
 
-#: src/gui/mainwindow.cpp:727
+#: src/gui/mainwindow.cpp:689
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Ustvaril Kronometer %1"
 
-#: src/gui/mainwindow.cpp:794
+#: src/gui/mainwindow.cpp:756
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Časomer teče."
@@ -358,13 +358,13 @@ msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr "Ni shranjenih sej."
 
-#: src/gui/sessiondialog.cpp:124 src/gui/sessiondialog.cpp:134
+#: src/gui/sessiondialog.cpp:123
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr "Ali želite odstraniti izbrano sejo?"
 
-#: src/gui/sessiondialog.cpp:125 src/gui/sessiondialog.cpp:135
+#: src/gui/sessiondialog.cpp:124
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"
@@ -417,38 +417,38 @@ msgctxt "@title:column"
 msgid "Seconds"
 msgstr "Sekund"
 
-#: src/main.cpp:33
+#: src/main.cpp:29
 #, kde-format
 msgctxt "KAboutData display name"
 msgid "Kronometer"
 msgstr "Kronometer"
 
-#: src/main.cpp:35
+#: src/main.cpp:31
 #, kde-format
 msgid "Kronometer is a simple stopwatch application"
 msgstr "Kronometer je preprost časomer"
 
-#: src/main.cpp:37
+#: src/main.cpp:33
 #, kde-format
 msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
 msgstr "Avtorske pravice (C) 2014-2016 Elvis Angelaccio"
 
-#: src/main.cpp:43
+#: src/main.cpp:39
 #, kde-format
 msgid "Elvis Angelaccio"
 msgstr "Elvis Angelaccio"
 
-#: src/main.cpp:44
+#: src/main.cpp:40
 #, kde-format
 msgid "Maintainer"
 msgstr "Vzdrževalec"
 
-#: src/main.cpp:50
+#: src/main.cpp:46
 #, kde-format
 msgid "Ken Vermette"
 msgstr "Ken Vermette"
 
-#: src/main.cpp:51
+#: src/main.cpp:47
 #, kde-format
 msgid "Kronometer icon"
 msgstr "Ikona za Kronometer"

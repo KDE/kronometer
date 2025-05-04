@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2024-04-24 01:57+0000\n"
+"POT-Creation-Date: 2025-05-04 00:45+0000\n"
 "PO-Revision-Date: 2015-02-24 22:48+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@kde.org>\n"
@@ -261,121 +261,121 @@ msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Potvrdite odustajanje"
 
-#: src/gui/mainwindow.cpp:155 src/gui/mainwindow.cpp:167
+#: src/gui/mainwindow.cpp:154
 #, fuzzy, kde-format
 #| msgid "Save times to file %1?"
 msgid "Save times to session %1?"
 msgstr "Snimi vremena na fajl %1?"
 
-#: src/gui/mainwindow.cpp:196
+#: src/gui/mainwindow.cpp:182
 #, fuzzy, kde-format
 #| msgid "Re&sume"
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "Na&stavi"
 
-#: src/gui/mainwindow.cpp:215
+#: src/gui/mainwindow.cpp:201
 #, fuzzy, kde-format
 #| msgid "&Start"
 msgctxt "@action"
 msgid "&Start"
 msgstr "&Počni"
 
-#: src/gui/mainwindow.cpp:219
+#: src/gui/mainwindow.cpp:205
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr ""
 
-#: src/gui/mainwindow.cpp:244
+#: src/gui/mainwindow.cpp:230
 #, fuzzy, kde-format
 #| msgid "General settings"
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Opšte postavke"
 
-#: src/gui/mainwindow.cpp:247
+#: src/gui/mainwindow.cpp:233
 #, fuzzy, kde-format
 #| msgid "Font settings"
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Postavke fonta"
 
-#: src/gui/mainwindow.cpp:250
+#: src/gui/mainwindow.cpp:236
 #, fuzzy, kde-format
 #| msgid "Color settings"
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Podešavanja boja"
 
-#: src/gui/mainwindow.cpp:319
+#: src/gui/mainwindow.cpp:305
 #, fuzzy, kde-format
 #| msgid "Save settings"
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Snimi postavke"
 
-#: src/gui/mainwindow.cpp:320
+#: src/gui/mainwindow.cpp:306
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr ""
 
-#: src/gui/mainwindow.cpp:329
+#: src/gui/mainwindow.cpp:315
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr ""
 
-#: src/gui/mainwindow.cpp:339
+#: src/gui/mainwindow.cpp:325
 #, fuzzy, kde-format
 #| msgid "&Export laps as..."
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "&Izvezi prolazna vremena kao..."
 
-#: src/gui/mainwindow.cpp:490
+#: src/gui/mainwindow.cpp:452
 #, fuzzy, kde-format
 #| msgid "&Pause"
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pauza"
 
-#: src/gui/mainwindow.cpp:493
+#: src/gui/mainwindow.cpp:455
 #, fuzzy, kde-format
 #| msgid "&Reset"
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Resetuj"
 
-#: src/gui/mainwindow.cpp:496
+#: src/gui/mainwindow.cpp:458
 #, fuzzy, kde-format
 #| msgid "&Lap"
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Prolazno vrijeme"
 
-#: src/gui/mainwindow.cpp:499
+#: src/gui/mainwindow.cpp:461
 #, fuzzy, kde-format
 #| msgid "&Export laps as..."
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Izvezi prolazna vremena kao..."
 
-#: src/gui/mainwindow.cpp:694
+#: src/gui/mainwindow.cpp:656
 #, fuzzy, kde-format
 #| msgid "Lap number,Lap time,Global time,Note"
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Broj kruga, Vrijeme kruga, Globalno brijeme, Napomena"
 
-#: src/gui/mainwindow.cpp:727
+#: src/gui/mainwindow.cpp:689
 #, fuzzy, kde-format
 #| msgid "Created by Kronometer on %1"
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Kreirano Kronometrom na %1"
 
-#: src/gui/mainwindow.cpp:794
+#: src/gui/mainwindow.cpp:756
 #, kde-format
 msgid "A stopwatch is running."
 msgstr ""
@@ -392,13 +392,13 @@ msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr ""
 
-#: src/gui/sessiondialog.cpp:124 src/gui/sessiondialog.cpp:134
+#: src/gui/sessiondialog.cpp:123
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr ""
 
-#: src/gui/sessiondialog.cpp:125 src/gui/sessiondialog.cpp:135
+#: src/gui/sessiondialog.cpp:124
 #, fuzzy, kde-format
 #| msgid "Confirm quit"
 msgctxt "@title:window"
@@ -459,41 +459,41 @@ msgctxt "@title:column"
 msgid "Seconds"
 msgstr "Sekundi"
 
-#: src/main.cpp:33
+#: src/main.cpp:29
 #, fuzzy, kde-format
 #| msgid "Kronometer"
 msgctxt "KAboutData display name"
 msgid "Kronometer"
 msgstr "Kronometer"
 
-#: src/main.cpp:35
+#: src/main.cpp:31
 #, fuzzy, kde-format
 #| msgid "Kronometer is a simple chronometer application built for KDE"
 msgid "Kronometer is a simple stopwatch application"
 msgstr "Kronometer je prosti mjerač vremena za KDE"
 
-#: src/main.cpp:37
+#: src/main.cpp:33
 #, fuzzy, kde-format
 #| msgid "Copyright (C) 2014 Elvis Angelaccio"
 msgid "Copyright (C) 2014-2016 Elvis Angelaccio"
 msgstr "Copyright (C) 2014 Elvis Angelaccio"
 
-#: src/main.cpp:43
+#: src/main.cpp:39
 #, kde-format
 msgid "Elvis Angelaccio"
 msgstr "Elvis Angelaccio"
 
-#: src/main.cpp:44
+#: src/main.cpp:40
 #, kde-format
 msgid "Maintainer"
 msgstr ""
 
-#: src/main.cpp:50
+#: src/main.cpp:46
 #, kde-format
 msgid "Ken Vermette"
 msgstr ""
 
-#: src/main.cpp:51
+#: src/main.cpp:47
 #, fuzzy, kde-format
 #| msgid "Kronometer"
 msgid "Kronometer icon"
