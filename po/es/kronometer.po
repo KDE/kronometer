@@ -1,15 +1,15 @@
-# Copyright (C) YEAR This_file_is_part_of_KDE
-# This file is distributed under the same license as the PACKAGE package.
+# Spanish translations for kronometer.po package.
+# Copyright (C) 2014-2025 This file is copyright:
+# This file is distributed under the same license as the kronometer package.
 #
-# Eloy Cuadra <ecuadra@eloihr.net>, 2014, 2015, 2016, 2017, 2022.
-# Sofia Priego <spriego@darksylvania.net>, 2016, %Y.
-# Sofía Priego <spriego@darksylvania.net>, %Y.
+# SPDX-FileCopyrightText: 2014, 2015, 2016, 2017, 2022 Eloy Cuadra <ecuadra@eloihr.net>
+# SPDX-FileCopyrightText: 2016, 2022, 2025 Sofía Priego <spriego@darksylvania.net>
 msgid ""
 msgstr ""
-"Project-Id-Version: \n"
+"Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2022-10-08 02:40+0000\n"
-"PO-Revision-Date: 2022-09-24 12:15+0100\n"
+"PO-Revision-Date: 2025-05-24 18:45+0100\n"
 "Last-Translator: Sofía Priego <spriego@darksylvania.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -326,7 +326,7 @@ msgstr "&Vuelta"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
-msgstr "&Exportar vueltas como..."
+msgstr "&Exportar vueltas como…"
 
 #: src/gui/mainwindow.cpp:651
 #, kde-format
@@ -496,194 +496,3 @@ msgstr "Fecha"
 #, kde-format
 msgid "Note"
 msgstr "Nota"
-
-#~ msgid "up to Milliseconds"
-#~ msgstr "hasta los milisegundos"
-
-#~ msgid "Hundredths"
-#~ msgstr "Centésimas"
-
-#~ msgctxt "@action:inmenu"
-#~ msgid "Help"
-#~ msgstr "Ayuda"
-
-#~ msgid "Dialog"
-#~ msgstr "Diálogo"
-
-#~ msgid "Developer"
-#~ msgstr "Desarrollador"
-
-#~ msgid "Sessions"
-#~ msgstr "Sesiones"
-
-#~ msgid "Empty Toolbar"
-#~ msgstr "Vaciar barra de herramientas"
-
-#~ msgctxt "@info:status"
-#~ msgid "Running..."
-#~ msgstr "En marcha..."
-
-#~ msgctxt "@info:status"
-#~ msgid "Paused"
-#~ msgstr "En pausa"
-
-#~ msgctxt "@info:status"
-#~ msgid "Inactive"
-#~ msgstr "Inactivo"
-
-#~ msgctxt "@info:tooltip"
-#~ msgid "Current chronometer status"
-#~ msgstr "Estado actual del cronómetro"
-
-#~ msgid ""
-#~ "Whether to show the descriptive headers on top of the stopwatch display"
-#~ msgstr ""
-#~ "Si se deben mostrar cabeceras descriptivas en la parte superior de la "
-#~ "pantalla del cronómetro"
-
-#~ msgid "Show time headers in the display"
-#~ msgstr "Mostrar cabeceras del tiempo en la pantalla"
-
-#~ msgid "Choose a name"
-#~ msgstr "Elija un nombre"
-
-#~ msgid "Session name:"
-#~ msgstr "Nombre de la sesión:"
-
-#~ msgid "Choose export file destination"
-#~ msgstr "Elija el destino del archivo a exportar"
-
-#~ msgid "No session saved yet."
-#~ msgstr "Todavía no se ha guardado ninguna sesión."
-
-#~ msgid "Interface settings"
-#~ msgstr "Preferencias de la interfaz"
-
-#~ msgid "Choose a Kronometer save file"
-#~ msgstr "Elija un archivo de Kronometer para guardar"
-
-#~ msgid "Choose Kronometer save file destination"
-#~ msgstr "Elija el archivo de Kronometer de destino para guardar"
-
-#~ msgid "Failed to open file"
-#~ msgstr "La apertura del archivo ha fallado"
-
-#~ msgid "Cannot open file: %1"
-#~ msgstr "No se puede abrir el archivo: %1"
-
-#~ msgid "Invalid XML file"
-#~ msgstr "Archivo XML no válido"
-
-#~ msgid "Incomplete Kronometer save file"
-#~ msgstr "Archivo incompleto de Kronometer a guardar"
-
-#~ msgid "Stopwatch time format"
-#~ msgstr "Formato del tiempo del cronómetro"
-
-#~ msgid "Whether to show seconds in the stopwatch"
-#~ msgstr "Si se deben mostrar los segundos en el cronómetro"
-
-#~ msgid "Show seconds"
-#~ msgstr "Mostrar segundos"
-
-#~ msgid "Stopwatch advanced time format"
-#~ msgstr "Formato de tiempo avanzado del cronómetro"
-
-#~ msgid "Whether to show tenths of second in the stopwatch"
-#~ msgstr "Si se deben mostrar las décimas de segundo en el cronómetro"
-
-#~ msgid "Show also tenths of second"
-#~ msgstr "Mostrar también las décimas de segundo"
-
-#~ msgid "Whether to show tenths and hundredths of second in the stopwatch"
-#~ msgstr ""
-#~ "Si se deben mostrar las décimas y las centésimas de segundo en el "
-#~ "cronómetro"
-
-#~ msgid "Show tenths and hundredths of second"
-#~ msgstr "Mostrar décimas y centésimas de segundo"
-
-#~ msgid ""
-#~ "Whether to show milliseconds in the stopwatch. It requires an high CPU "
-#~ "usage because the GUI is refreshed every millisecond"
-#~ msgstr ""
-#~ "Si se deben mostrar los milisegundos en el cronómetro. Necesita un "
-#~ "elevado uso de la CPU porque la interfaz gráfica se refresca cada "
-#~ "milisegundo."
-
-#~ msgid "Show also milliseconds (high CPU usage!)"
-#~ msgstr "Mostrar también los milisegundos (uso de CPU elevado)"
-
-#~ msgid "Whether to show seconds in the laps"
-#~ msgstr "Si se deben mostrar los segundos en las vueltas"
-
-#~ msgid "Lap times advanced format"
-#~ msgstr "Formato avanzado del tiempo por vuelta"
-
-#~ msgid "Whether to show tenths of second in the lapswatch"
-#~ msgstr "Si se deben mostrar las décimas de segundo en las vueltas"
-
-#~ msgid "Whether to show tenths and hundredths of second in the laps"
-#~ msgstr ""
-#~ "Si se deben mostrar las décimas y las centésimas de segundo en las vueltas"
-
-#~ msgid "Whether to show milliseconds in the stopwatch"
-#~ msgstr "Si se deben mostrar los milisegundos en las vueltas"
-
-#~ msgid "Stopwatch display"
-#~ msgstr "Pantalla del cronómetro"
-
-#~ msgid "XML save files"
-#~ msgstr "Archivos XML para guardar"
-
-#~ msgid "Indent size:"
-#~ msgstr "Tamaño de la sangría:"
-
-#~ msgid "Indent size of the XML save files created by the program"
-#~ msgstr ""
-#~ "Tamaño de la sangría para los archivos XML a guardar creados por el "
-#~ "programa"
-
-#~ msgid " characters"
-#~ msgstr " caracteres"
-
-#~ msgid "XML exported files"
-#~ msgstr "Archivos XML exportados"
-
-#~ msgid "Indent size of the XML exported files created by the program"
-#~ msgstr ""
-#~ "Tamaño de la sangría para los archivos XML exportados por el programa"
-
-#~ msgid "Save times on a new file?"
-#~ msgstr "¿Guardar tiempos en un archivo nuevo?"
-
-#~ msgid "Background color:"
-#~ msgstr "Color del fondo:"
-
-#~ msgid "Text color:"
-#~ msgstr "Color del texto:"
-
-#~ msgid "Window content"
-#~ msgstr "Contenido de la ventana"
-
-#~ msgid "Unsaved times"
-#~ msgstr "Tiempos sin guardar"
-
-#~ msgid ""
-#~ "Whether to show a save dialog on application exit, if there are unsaved "
-#~ "times"
-#~ msgstr ""
-#~ "Si se debe mostrar un diálogo para guardar al salir de la aplicación "
-#~ "cuando existan tiempos sin guardar"
-
-#~ msgid "Ask to save on exit"
-#~ msgstr "Preguntar si de debe guardar al salir"
-
-#~ msgid "Window appearance"
-#~ msgstr "Aspecto de la ventana"
-
-#~ msgid "Show status bar"
-#~ msgstr "Mostrar la barra de estado"
-
-#~ msgid "Main Toolbar"
-#~ msgstr "Barra de herramientas principal"
