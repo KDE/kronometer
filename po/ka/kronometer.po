@@ -313,7 +313,7 @@ msgstr "&შეყოვნება"
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
-msgstr "&საწყისი მნიშვნელობებზე დაბრუნება"
+msgstr "ჩამოყ&რა"
 
 #: src/gui/mainwindow.cpp:458
 #, kde-format
