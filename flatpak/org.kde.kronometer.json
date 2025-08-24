@@ -3,18 +3,30 @@
     "branch": "master",
     "rename-icon": "kronometer",
     "runtime": "org.kde.Platform",
-    "runtime-version": "5.15-22.08",
+    "runtime-version": "5.15-24.08",
     "sdk": "org.kde.Sdk",
     "command": "kronometer",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-prefix": "(Nightly) ",
-    "finish-args": ["--share=ipc", "--socket=x11", "--socket=wayland", "--socket=session-bus", "--device=dri"],
-
+    "finish-args": [
+        "--device=dri",
+        "--share=ipc",
+        "--socket=session-bus",
+        "--socket=wayland",
+        "--socket=x11-fallback"
+    ],
     "modules": [
         {
             "name": "kronometer",
             "buildsystem": "cmake-ninja",
-            "sources": [ { "type": "git", "url": "https://invent.kde.org/utilities/kronometer.git" } ]
+            "sources": [
+                {
+                    "type": "dir",
+                    "path": "."
+                }
+            ]
         }
     ]
 }
