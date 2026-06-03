@@ -46,6 +46,7 @@
   <name xml:lang="sl">Kronometer</name>
   <name xml:lang="sv">Kronometer</name>
   <name xml:lang="tr">Kronometre</name>
+  <name xml:lang="ug">Kronometer</name>
   <name xml:lang="uk">Kronometer</name>
   <name xml:lang="zh-CN">Kronometer 计时器</name>
   <name xml:lang="zh-TW">Kronometer</name>
@@ -87,6 +88,7 @@
   <summary xml:lang="sl">Časomer</summary>
   <summary xml:lang="sv">Kronometer</summary>
   <summary xml:lang="tr">Kronometre</summary>
+  <summary xml:lang="ug">ئېنىقلىقى يۇقىرى سائەت</summary>
   <summary xml:lang="uk">Хронометр</summary>
   <summary xml:lang="zh-CN">计时器</summary>
   <summary xml:lang="zh-TW">精密計時器</summary>
@@ -168,6 +170,7 @@
     <p xml:lang="sl">Zmožnosti:</p>
     <p xml:lang="sv">Funktioner:</p>
     <p xml:lang="tr">Özellikler:</p>
+    <p xml:lang="ug">ئىقتىدار:</p>
     <p xml:lang="uk">Можливості:</p>
     <p xml:lang="zh-CN">功能：</p>
     <p xml:lang="zh-TW">功能：</p>
