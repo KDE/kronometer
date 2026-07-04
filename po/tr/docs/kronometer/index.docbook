@@ -1,0 +1,313 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kronometer "<application
+>Kronometer</application
+>">
+  <!ENTITY kappname "&kronometer;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Turkish "INCLUDE">
+]>
+
+<book id="kronometer" lang="&language;">
+
+<bookinfo>
+<title
+>&kronometer; El Kitabı</title>
+
+<authorgroup>
+  <author
+><firstname
+>Elvis</firstname
+><surname
+>Angelaccio</surname
+> <affiliation
+> <address
+> <email
+>elvis.angelaccio@kde.org</email>
+      </address>
+    </affiliation>
+  </author>
+<othercredit role="translator"
+><firstname
+>Emir</firstname
+><surname
+>SARI</surname
+><affiliation
+><address
+><email
+>emir_sari@icloud.com</email
+></address
+></affiliation
+><contrib
+>Çeviri</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2014-2016</year>
+<holder
+>Elvis Angelaccio</holder>
+</copyright>
+
+<date
+>2016‒04‒10</date>
+<releaseinfo
+>&kronometer; 2.1</releaseinfo>
+
+<legalnotice>
+  &FDLNotice;
+</legalnotice>
+
+<abstract>
+  <para
+>&kronometer;, bir kronometre uygulamasıdır. Sayaç başlatma/duraklatma/sürdürme veya tur zamanları kaydetme gibi temel görevler için kullanılabilir. </para>
+  <para
+>&kronometer;, tam bir oturumu kaydetme (sayaç ve tur zamanları) ve sonra onu geri yükleme yeteneğine sahiptir. </para>
+</abstract>
+
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Kronometre</keyword>
+  <keyword
+>kronometre</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Giriş</title>
+  <para
+>&kronometer;, basit bir kronometre uygulamasıdır. Geliştirmesi genelde kullanım gereksinimlerine göre şekillendiğinden, kullanımının kolay ve zevkli olması amaçlanmıştır. </para>
+  <para
+>&kronometer;’nin ana özellikleri şunlardır: </para>
+  <itemizedlist>
+    <listitem>
+      <para
+>&kronometer;, tur zamanlarını ölçebilir. Zamanlar duraklatılabilir, sürdürülebilir ve sıfırlanabilir. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer;, tur zamanlarını kaydetmenize ve onları bir dosyaya dışa aktarmanıza olanak tanır. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer;, bir oturumu kaydetmenize ve sonra onu geri yüklemenize olanak tanır. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer;, görünümünden sayaç verisini kopyalamanıza olanak tanır. </para>
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="usage">
+  <title
+>Kullanım</title>
+  <sect1 id="general_usage">
+    <title
+>Genel Kullanım</title>
+    <para
+>&kronometer;’nin ana kullanım alanı, sayaç ile etkileşimdir. Araç çubuğundaki veya &kronometer; menüsündeki ilgili eylemlere tıklayarak sayacı başlatabilir/duraklatabilir/sürdürebilir/sıfırlayabilirsiniz. </para>
+    <para
+>Daha da basiti, fare yerine klavyeyi kullanabilirsiniz: Sayacı klavyenin <keycap
+>Boşluk</keycap
+> düğmesiyle başlatır ve <keycap
+>Boşluk</keycap
+> düğmesiyle duraklatırsınız. Bu davranışı birçok ortam oynatıcısı uygulamasından tanıyabilirsiniz. </para>
+    <para
+>Sayaç çalışırken &Enter; düğmesine basarak o anı dondurursunuz ve <emphasis
+>tur</emphasis
+> atma yaratırsınız. Bu zamanlar uygulamanın solundaki tabloda her zaman görünür; burada <emphasis
+>Tur Süresi</emphasis
+> sütununun başlığını tıklayarak bunları sıralayabilirsiniz. Ayrıca <emphasis
+>Not</emphasis
+> sütunundaki hücreleri çift tıklayarak her tura özel bir metin açıklaması ekleyebilirsiniz. </para>
+    <para
+>Öntanımlı olarak gizli olan menü çubuğu, tüm komutlara ve yapılandırma seçeneklerine erişim sağlar. Menü çubuğu, <guimenu
+>Ayarlar</guimenu
+> menüsünden <guimenuitem
+>Menü Çubuğunu Göster</guimenuitem
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>) ile veya araç çubuğundaki menü düğmesiyle açılıp kapatılabilir. </para>
+    <sect2 id="save_and_restore">
+      <title
+>Oturumları Kaydet ve Geri Yükle</title>
+      <para
+>Çalışmakta olan bir kronometreyi duraklattığınızda bir oturum oluşturursunuz: Bir kronometre süresi ve sıfır veya daha fazla tur süresi. Bir oturumu kaydedebilir ve daha sonra geri yükleyebilirsiniz. </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title
+>Oturumu Kaydet</title>
+      <para
+>Çalışan bir kronometreyi duraklatın ve <guimenu
+>Dosya</guimenu
+> menüsünden <guibutton
+>Farklı Kaydet</guibutton
+> seçeneğini kullanın. Kaydetmek üzere olduğunuz oturum için bir ad girebilirsiniz. </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title
+>Oturumu Geri Yükle</title>
+      <para
+>Araç çubuğundaki veya <guimenu
+>Dosya</guimenu
+> menüsündeki <guibutton
+>Aç</guibutton
+> seçeneğini kullanın. Sonrasında oturumun iletişim kutusundan yüklenecek var olan bir oturumu seçin. </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title
+>Oturumu Güncelle</title>
+      <para
+>Oturum geri yüklendiğinde kronometreyi devam ettirebilir ve yeni tur süreleri kaydedebilirsiniz. Güncellenen oturumu kaydetmek istiyorsanız <guimenu
+>Dosya</guimenu
+> menüsündeki <guibutton
+>Kaydet</guibutton
+> düğmesine tıklamanız yeterlidir. </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title
+>Oturumu Düzenle</title>
+      <para
+>Araç çubuğundaki veya <guimenu
+>Dosya</guimenu
+> menüsündeki <guibutton
+>Aç</guibutton
+> seçeneğine tıklayın. Oturumun iletişim kutusundaki var olan bir oturumu seçerseniz şunları yapabilirsiniz: <itemizedlist>
+          <listitem>
+            <para
+>Üzerine çift tıklayarak oturumu yeniden adlandırın.</para>
+          </listitem>
+          <listitem>
+            <para
+><keycap
+>Sil</keycap
+> düğmesine basarak oturumu silin.</para>
+          </listitem>
+          <listitem>
+            <para
+>Oturuma bir not ekleyin veya notu düzenleyin.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="additional_features">
+    <title
+>Ek Özellikler</title>
+    <sect2 id="export_lap_times">
+      <title
+>Tur Zamanlarını Dışa Aktar</title>
+      <para
+>Bir veya birden çok tur zamanı kaydettiğinizde, <guimenu
+>Dosya</guimenu
+> menüsünün <guimenuitem
+>Turları Farklı Dışa Aktar</guimenuitem
+> seçeneğiyle etkin hâle gelir. Üzerine tıklayın ve dışa aktarılacak dosya için bir ad seçin. Bunları Virgülle Ayrılmış Değerler (CSV) veya JSON biçiminde dışa aktarabilirsiniz. </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title
+>Pano Desteği</title>
+      <para
+>&kronometer;, geçerli kronometre zamanını sistem panosuna kopyalayabilir. <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> düğme kombinasyonunu veya <guimenu
+>Düzen</guimenu
+> menüsündeki <guimenuitem
+>Kopyala</guimenuitem
+> seçeneğini kullanın. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="configuration">
+  <title
+>Yapılandırma</title>
+  <sect1 id="settings_dialog">
+    <title
+>Ayarlar İletişim Kutusu</title>
+    <para
+>&kronometer;, birçok şekilde özelleştirilebilirdir. <guimenu
+>Ayarlar</guimenu
+> menüsündeki <guimenuitem
+>&kronometer; Uygulamasını Yapılandır</guimenuitem
+> seçeneğini kullanarak ayarlar iletişim kutusunu açabilirsiniz. Aşağıdaki kategoriler bulunur: </para>
+    <sect2 id="general_settings">
+      <title
+>Genel Ayarlar</title>
+      <para
+>Genel ayarlar sayfasında kronometre ve turlara ilişkin ayarları bulabilirsiniz. Kronometre sekmesi altında, kronometre ekranı için tercih ettiğiniz saat biçimini ayarlayabilirsiniz. Saatleri, dakikaları veya saniye kesirlerini (saniyeler her zaman gösterilirken) göstermeyi seçebilirsiniz. &kronometer;, milisaniyeye kadar zaman ayrıntılarını destekler; ancak bu, kullanıcı arayüzünün yüksek yenileme hızı nedeniyle yüksek CPU kullanımı gerektirir. </para>
+      <para
+>Turlar sekmesinde tur kaydetme özelliğini etkinleştirebilir veya devre dışı bırakabilirsiniz. Turlar etkinse, zaman biçimini, notlarının gösterilip gösterilmeyeceğini ve kaydedildikleri zamandaki kronometre süreleri olan mutlak zamanlarının gösterilip gösterilmeyeceğini seçebilirsiniz. </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title
+>Yazıtipi Ayarları</title>
+      <para
+>Yazıtipi ayarları sayfasında kronometre ekranının yazıtipini özelleştirebilirsiniz. Her zamanlayıcı bileşeni (saat, dakika vb.) için farklı yazıtipi aileleri, biçemleri ve puntoyu seçebilirsiniz. Öntanımlı olarak her zamanlayıcı bileşeni, sistemdeki geçerli sistem öntanımlı ayarlarına göre aynı yazıtipini kullanacaktır. </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title
+>Renk Ayarları</title>
+      <para
+>Renk ayarları sayfasında kronometre ekranının öntanımlı rengini özelleştirebilirsiniz. Arka plan rengini ve metin rengini değiştirebilirsiniz. Öntanımlı renkler, hâlihazırda seçili olan sistemin temasına uygun olacaktır. </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title
+>Yerleşik &kde; Ayarları</title>
+      <para
+>&kronometer;, standart &kde; yapılandırma araçlarından yararlanır. Onları, <guimenu
+>Ayarlar</guimenu
+> menüsünün <guimenuitem
+>Kısayolları Yapılandır</guimenuitem
+> ve <guimenuitem
+>Araç Çubuklarını Yapılandır</guimenuitem
+> girdilerinde bulabilirsiniz. Bunlar, &kronometer; eylemlerinin kısayollarını ve araç çubuğun ve içeriğinin konumlarını değiştirmenize olanak tanırlar. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Emeği Geçenler ve Lisans</title>
+  <para
+>&kronometer; </para>
+  <para
+>Program telif hakkı &copy; 2014–2016 Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+  <para
+>Belgelendirme telif hakkı &copy; 2014–2016 Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+> </para>
+<para
+>Çeviren: Emir SARI <email
+>emir_sari@gicloud.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+-->

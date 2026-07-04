@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Turkish "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>2016‒04‒10</date>
+    <releaseinfo
+>Kronometre 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>Nisan 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>KRONOMETRE 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>Kronometre uygulaması</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>AÇIKLAMA</title>
+<para
+>Kronometre, bir zaman sayacı uygulamasıdır.</para>
+
+<para
+>Kronometre’nin ana özellikleri aşağıdaki gibidir:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>Kronometre araç takımını başlat/duraklat/sürdür</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Tur kayıtları: İstediğinizde kronometre saatini yakalayabilirsiniz</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Tur zamanı sıralama: En kısa tur zamanı veya en uzun tur zamanını kolayca bulabilirsiniz</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Kronometre araç takımını ve tur zamanlarını sıfırla</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Zaman biçimi ayarları: Kronometre ayrıntılarını seçebilirsiniz</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Zaman kaydetme ve sürdürme: Kronometre durumunu kaydedebilir ve sonradan sürdürebilirsiniz</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Yazıtipi özelleştirme: Kronometrenin her bir basamağının yazıtipini seçebilirsiniz</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Renk özelleştirme: Kronometrenin her bir basamağını ve arka planının rengini seçebilirsiniz</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>Tur zamanlarını dışa aktarma: Tur zamanlarını JSON veya CSV biçiminde bir dosyaya aktarabilirsiniz</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>YAZAR</title>
+<para
+>KRONOMETRE, Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt; tarafından yazılmıştır.</para>
+
+<para
+>Bu kılavuz sayfası, Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; tarafından Debian projesi için yazılmıştır (başka pek çok proje tarafından kullanılır).</para>
+</refsect1>
+</refentry>
+
