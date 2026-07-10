@@ -23,7 +23,6 @@
 #include <KMessageBox>
 #include <KToggleAction>
 #include <KToolBar>
-#include <kwidgetsaddons_version.h>
 
 #include <QAction>
 #include <QApplication>

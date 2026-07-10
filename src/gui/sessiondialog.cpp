@@ -10,7 +10,6 @@
 #include <KLocalizedString>
 #include <KMessageBox>
 #include <KMessageWidget>
-#include <kwidgetsaddons_version.h>
 
 #include <QDialogButtonBox>
 #include <QKeyEvent>
