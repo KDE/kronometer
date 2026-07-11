@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-07-11 00:47+0000\n"
 "PO-Revision-Date: 2022-10-12 15:05+0300\n"
 "Last-Translator: Olesya Gerasimenko <translation-team@basealt.ru>\n"
 "Language-Team: Basealt Translation Team\n"
@@ -233,142 +233,142 @@ msgstr "&Секундомер"
 msgid "Kronometer Toolbar"
 msgstr "Панель инструментов секундомера"
 
-#: src/gui/mainwindow.cpp:142
+#: src/gui/mainwindow.cpp:141
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Выйти и потерять несохранённые времена?"
 
-#: src/gui/mainwindow.cpp:143
+#: src/gui/mainwindow.cpp:142
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Подтверждение выхода"
 
-#: src/gui/mainwindow.cpp:154
+#: src/gui/mainwindow.cpp:153
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Сохранить времена в сеансе %1?"
 
-#: src/gui/mainwindow.cpp:182
+#: src/gui/mainwindow.cpp:181
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "Про&должить"
 
-#: src/gui/mainwindow.cpp:201
+#: src/gui/mainwindow.cpp:200
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "&Запустить"
 
-#: src/gui/mainwindow.cpp:205
+#: src/gui/mainwindow.cpp:204
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Безымянный"
 
-#: src/gui/mainwindow.cpp:230
+#: src/gui/mainwindow.cpp:229
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Основные параметры"
 
-#: src/gui/mainwindow.cpp:233
+#: src/gui/mainwindow.cpp:232
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Настройка шрифтов"
 
-#: src/gui/mainwindow.cpp:236
+#: src/gui/mainwindow.cpp:235
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Используемые цвета"
 
-#: src/gui/mainwindow.cpp:305
+#: src/gui/mainwindow.cpp:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Сохранение сеанса"
 
-#: src/gui/mainwindow.cpp:306
+#: src/gui/mainwindow.cpp:305
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Введите название для этого сеанса:"
 
-#: src/gui/mainwindow.cpp:315
+#: src/gui/mainwindow.cpp:314
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Безымянный сеанс"
 
-#: src/gui/mainwindow.cpp:325
+#: src/gui/mainwindow.cpp:324
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Экспорт времён кругов"
 
-#: src/gui/mainwindow.cpp:452
+#: src/gui/mainwindow.cpp:451
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Приостановить"
 
-#: src/gui/mainwindow.cpp:455
+#: src/gui/mainwindow.cpp:454
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "Сб&росить"
 
-#: src/gui/mainwindow.cpp:458
+#: src/gui/mainwindow.cpp:457
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Круг"
 
-#: src/gui/mainwindow.cpp:461
+#: src/gui/mainwindow.cpp:460
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Экспорт времён кругов..."
 
 # BUGME: add context telling about CSV --aspotashev
-#: src/gui/mainwindow.cpp:656
+#: src/gui/mainwindow.cpp:655
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Номер круга,Время круга,Общее время,Примечание"
 
-#: src/gui/mainwindow.cpp:689
+#: src/gui/mainwindow.cpp:688
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Создано в Kronometer %1"
 
-#: src/gui/mainwindow.cpp:756
+#: src/gui/mainwindow.cpp:755
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Работает секундомер."
 
-#: src/gui/sessiondialog.cpp:35
+#: src/gui/sessiondialog.cpp:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Open session"
 msgstr "Открыть сеанс"
 
-#: src/gui/sessiondialog.cpp:101
+#: src/gui/sessiondialog.cpp:100
 #, kde-format
 msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr "Пока нет сохраненных сеансов."
 
-#: src/gui/sessiondialog.cpp:123
+#: src/gui/sessiondialog.cpp:122
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr "Удалить выбранный сеанс?"
 
-#: src/gui/sessiondialog.cpp:124
+#: src/gui/sessiondialog.cpp:123
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-07-11 00:47+0000\n"
 "PO-Revision-Date: 2022-07-27 20:41+0200\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Nynorsk <l10n-no@nuug.no>\n"
@@ -231,142 +231,142 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Kronometer-verktøylinje"
 
-#: src/gui/mainwindow.cpp:142
+#: src/gui/mainwindow.cpp:141
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Vil du avslutta og forkasta dei ulagra tidene?"
 
-#: src/gui/mainwindow.cpp:143
+#: src/gui/mainwindow.cpp:142
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Stadfest avslutting"
 
-#: src/gui/mainwindow.cpp:154
+#: src/gui/mainwindow.cpp:153
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Vil du lagra tidene til økt %1?"
 
-#: src/gui/mainwindow.cpp:182
+#: src/gui/mainwindow.cpp:181
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "&Hald fram"
 
-#: src/gui/mainwindow.cpp:201
+#: src/gui/mainwindow.cpp:200
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "&Start"
 
-#: src/gui/mainwindow.cpp:205
+#: src/gui/mainwindow.cpp:204
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Namnlaus"
 
-#: src/gui/mainwindow.cpp:230
+#: src/gui/mainwindow.cpp:229
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Generelle innstillingar"
 
-#: src/gui/mainwindow.cpp:233
+#: src/gui/mainwindow.cpp:232
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Skriftinnstillingar"
 
-#: src/gui/mainwindow.cpp:236
+#: src/gui/mainwindow.cpp:235
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Fargeinnstillingar"
 
-#: src/gui/mainwindow.cpp:305
+#: src/gui/mainwindow.cpp:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Lagra økt"
 
-#: src/gui/mainwindow.cpp:306
+#: src/gui/mainwindow.cpp:305
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Du kan velja eit namn for økta:"
 
-#: src/gui/mainwindow.cpp:315
+#: src/gui/mainwindow.cpp:314
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Namnlaus økt"
 
-#: src/gui/mainwindow.cpp:325
+#: src/gui/mainwindow.cpp:324
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Eksporter rundetider"
 
-#: src/gui/mainwindow.cpp:452
+#: src/gui/mainwindow.cpp:451
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "&Pause"
 
-#: src/gui/mainwindow.cpp:455
+#: src/gui/mainwindow.cpp:454
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Nullstill"
 
-#: src/gui/mainwindow.cpp:458
+#: src/gui/mainwindow.cpp:457
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Runde"
 
-#: src/gui/mainwindow.cpp:461
+#: src/gui/mainwindow.cpp:460
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Eksporter rundetider som …"
 
-#: src/gui/mainwindow.cpp:656
+#: src/gui/mainwindow.cpp:655
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Rundenummer,Rundetid,Global tid,Merknad"
 
 # %1 er truleg ein dato
-#: src/gui/mainwindow.cpp:689
+#: src/gui/mainwindow.cpp:688
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Laga av Kronometer %1"
 
-#: src/gui/mainwindow.cpp:756
+#: src/gui/mainwindow.cpp:755
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Ei stoppeklokke køyrer."
 
-#: src/gui/sessiondialog.cpp:35
+#: src/gui/sessiondialog.cpp:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Open session"
 msgstr "Opna økt"
 
-#: src/gui/sessiondialog.cpp:101
+#: src/gui/sessiondialog.cpp:100
 #, kde-format
 msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr "Du har ikkje nokon lagra økter enno."
 
-#: src/gui/sessiondialog.cpp:123
+#: src/gui/sessiondialog.cpp:122
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr "Vil du sletta den merkte økta?"
 
-#: src/gui/sessiondialog.cpp:124
+#: src/gui/sessiondialog.cpp:123
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"

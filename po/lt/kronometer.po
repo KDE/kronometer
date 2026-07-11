@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: l 10n\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2025-11-17 11:55+0000\n"
+"POT-Creation-Date: 2026-07-11 00:47+0000\n"
 "PO-Revision-Date: 2025-01-09 23:52+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: lt\n"
@@ -229,141 +229,141 @@ msgstr "&Kronometer"
 msgid "Kronometer Toolbar"
 msgstr "Kronometer įrankių juosta"
 
-#: src/gui/mainwindow.cpp:142
+#: src/gui/mainwindow.cpp:141
 #, kde-format
 msgid "Do you want to quit and lose your unsaved times?"
 msgstr "Ar norite išjungti ir prarasti visus neįrašytus laikus?"
 
-#: src/gui/mainwindow.cpp:143
+#: src/gui/mainwindow.cpp:142
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Quit"
 msgstr "Patvirtinti išjungimą"
 
-#: src/gui/mainwindow.cpp:154
+#: src/gui/mainwindow.cpp:153
 #, kde-format
 msgid "Save times to session %1?"
 msgstr "Įrašyti laikus į seansą %1?"
 
-#: src/gui/mainwindow.cpp:182
+#: src/gui/mainwindow.cpp:181
 #, kde-format
 msgctxt "@action"
 msgid "Re&sume"
 msgstr "Pra&tęsti"
 
-#: src/gui/mainwindow.cpp:201
+#: src/gui/mainwindow.cpp:200
 #, kde-format
 msgctxt "@action"
 msgid "&Start"
 msgstr "&Paleisti"
 
-#: src/gui/mainwindow.cpp:205
+#: src/gui/mainwindow.cpp:204
 #, kde-format
 msgctxt "untitled window"
 msgid "Untitled"
 msgstr "Be pavadinimo"
 
-#: src/gui/mainwindow.cpp:230
+#: src/gui/mainwindow.cpp:229
 #, kde-format
 msgctxt "@title:tab"
 msgid "General Settings"
 msgstr "Bendrosios nuostatos"
 
-#: src/gui/mainwindow.cpp:233
+#: src/gui/mainwindow.cpp:232
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
 msgstr "Šrifto nuostatos"
 
-#: src/gui/mainwindow.cpp:236
+#: src/gui/mainwindow.cpp:235
 #, kde-format
 msgctxt "@title:tab"
 msgid "Color Settings"
 msgstr "Spalvų nuostatos"
 
-#: src/gui/mainwindow.cpp:305
+#: src/gui/mainwindow.cpp:304
 #, kde-format
 msgctxt "@title:window"
 msgid "Save Session"
 msgstr "Įrašyti seansą"
 
-#: src/gui/mainwindow.cpp:306
+#: src/gui/mainwindow.cpp:305
 #, kde-format
 msgid "You can choose a name for this session:"
 msgstr "Galite pasirinkti šio seanso pavadinimą:"
 
-#: src/gui/mainwindow.cpp:315
+#: src/gui/mainwindow.cpp:314
 #, kde-format
 msgctxt "untitled session"
 msgid "Untitled session"
 msgstr "Bevardis seansas"
 
-#: src/gui/mainwindow.cpp:325
+#: src/gui/mainwindow.cpp:324
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Laps"
 msgstr "Eksportuoti ratus"
 
-#: src/gui/mainwindow.cpp:452
+#: src/gui/mainwindow.cpp:451
 #, kde-format
 msgctxt "@action"
 msgid "&Pause"
 msgstr "Prista&bdyti"
 
-#: src/gui/mainwindow.cpp:455
+#: src/gui/mainwindow.cpp:454
 #, kde-format
 msgctxt "@action"
 msgid "&Reset"
 msgstr "&Atstatyti"
 
-#: src/gui/mainwindow.cpp:458
+#: src/gui/mainwindow.cpp:457
 #, kde-format
 msgctxt "@action"
 msgid "&Lap"
 msgstr "&Ratas"
 
-#: src/gui/mainwindow.cpp:461
+#: src/gui/mainwindow.cpp:460
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "&Export Laps as..."
 msgstr "&Eksportuoti ratus kaip..."
 
-#: src/gui/mainwindow.cpp:656
+#: src/gui/mainwindow.cpp:655
 #, kde-format
 msgctxt "@info:shell"
 msgid "Lap number,Lap time,Global time,Note"
 msgstr "Rato numeris,Rato laikas,Visuotinis laikas,Pastaba"
 
-#: src/gui/mainwindow.cpp:689
+#: src/gui/mainwindow.cpp:688
 #, kde-format
 msgctxt "@info:shell"
 msgid "Created by Kronometer on %1"
 msgstr "Sukūrė Kronometer ties %1"
 
-#: src/gui/mainwindow.cpp:756
+#: src/gui/mainwindow.cpp:755
 #, kde-format
 msgid "A stopwatch is running."
 msgstr "Veikia chronometras."
 
-#: src/gui/sessiondialog.cpp:35
+#: src/gui/sessiondialog.cpp:34
 #, kde-format
 msgctxt "@action:button"
 msgid "Open session"
 msgstr "Atverti seansą"
 
-#: src/gui/sessiondialog.cpp:101
+#: src/gui/sessiondialog.cpp:100
 #, kde-format
 msgctxt "@info"
 msgid "You don't have any saved session yet."
 msgstr "Jūs kol kas neturite jokių įrašytų seansų."
 
-#: src/gui/sessiondialog.cpp:123
+#: src/gui/sessiondialog.cpp:122
 #, kde-format
 msgctxt "@info"
 msgid "Do you want to remove the selected session?"
 msgstr "Ar norite pašalinti pažymėtą seansą?"
 
-#: src/gui/sessiondialog.cpp:124
+#: src/gui/sessiondialog.cpp:123
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm deletion"
