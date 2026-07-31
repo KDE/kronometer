@@ -114,7 +114,7 @@
     <para
 >Der wichtigste Anwendungsfall von &kronometer; ist natürlich die Zeitmessung. Sie können die Stoppuhr starten, anhalten und weiter laufen lassen, in dem Sie auf die zugehörigen Knöpfe in der Werkzeugleiste klicken oder die Einträge im Menü von &kronometer; verwenden. </para>
     <para
->Es geht sogar noch einfacher, indem Sie die Tastatur anstatt der Maus benutzen: Sie starten die Stoppuhr mit der <keycap
+>Es geht sogar noch einfacher, indem Sie die Tastatur anstatt der Maus verwenden: Sie starten die Stoppuhr mit der <keycap
 >Leertaste</keycap
 > der Tastatur und halten die Uhr auch wieder mit der <keycap
 >Leertaste</keycap
@@ -219,7 +219,7 @@
       <title
 >Unterstützung der Zwischenablage</title>
       <para
->&kronometer; kann die aktuelle Zeit der Stoppuhr in die Zwischenablage des Systems exportieren. Benutzen Sie dazu die Tastenkombination <keycombo
+>&kronometer; kann die aktuelle Zeit der Stoppuhr in die Zwischenablage des Systems exportieren. Verwenden Sie dazu die Tastenkombination <keycombo
 >&Ctrl;<keycap
 >C</keycap
 ></keycombo
@@ -250,7 +250,7 @@
       <para
 >Auf dieser Seite finden Sie die Einstellungen für die Stoppuhr und die Zwischenzeiten. Auf der Karteikarte Stoppuhr können Sie das Format der angezeigten Zeiten festlegen. Stunden, Minuten und Sekundenbruchteile können angezeigt werden. Die Genauigkeit der Zeitmessung kann bis auf Millisekunden eingestellt werden, Das erzeugt aber eine hohe CPU-Auslastung wegen der häufigen Aktualisierung der Anzeige. </para>
       <para
->Auf der Karteikarte Zwischenzeiten können Sie die Aufnahme ein- oder ausschalten. Wenn Zwischenzeiten eingeschaltet sind, können Sie das Zeitformat wählen, ob Notizen angezeigt werden sollen oder ob die absoluten Zeiten, d. h. die Zeiten der Stoppuhr, angezeigt werden. </para>
+>Auf der Karteikarte Zwischenzeiten können Sie die Aufnahme ein- oder ausschalten. Wenn Zwischenzeiten eingeschaltet sind, können Sie das Zeitformat wählen, ob Notizen angezeigt werden sollen oder ob die absoluten Zeiten, d. h. die Zeiten der Stoppuhr, angezeigt werden. </para>
     </sect2>
     <sect2 id="font_settings">
       <title
