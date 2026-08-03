@@ -8,15 +8,15 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2025-11-17 16:19+0000\n"
-"PO-Revision-Date: 2023-02-24 11:08+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"PO-Revision-Date: 2026-08-02 00:25+0200\n"
+"Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Lokalize 22.12.2\n"
+"X-Generator: Poedit 3.9\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -126,7 +126,7 @@ msgstr "Zda ve stopkách zobrazit části sekund"
 #: src/gui/generalsettings.ui:89 src/gui/generalsettings.ui:236
 #, kde-format
 msgid "Show Second Fractions:"
-msgstr "Zobrazit zlomky sekund"
+msgstr "Zobrazit zlomky sekund:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_fractionsType)
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_lapFractionsType)
