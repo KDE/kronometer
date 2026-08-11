@@ -5,16 +5,27 @@
     "runtime-version": "6.11",
     "sdk": "org.kde.Sdk",
     "command": "kronometer",
-    "tags": ["nightly"],
+    "tags": [
+        "nightly"
+    ],
     "desktop-file-name-suffix": " (Nightly)",
-    "finish-args": ["--share=ipc", "--socket=fallback-x11", "--socket=wayland" ],
+    "finish-args": [
+        "--share=ipc",
+        "--socket=fallback-x11",
+        "--socket=wayland"
+    ],
     "modules": [
         {
             "name": "kronometer",
             "buildsystem": "cmake-ninja",
-            "config-opts": [ "-DBUILD_WITH_QT6=ON" ],
+            "config-opts": [
+                "-DBUILD_WITH_QT6=ON"
+            ],
             "sources": [
-                { "type": "dir", "path": "." }
+                {
+                    "type": "dir",
+                    "path": "."
+                }
             ]
         }
     ]
