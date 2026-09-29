@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Russian "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>10 апреля 2016 г.</date>
+    <releaseinfo
+>kronometer 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>kronometer</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>Апрель 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>KRONOMETER 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>kronometer</refname>
+<refpurpose
+>приложение-секундомер</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>ОПИСАНИЕ</title>
+<para
+>Kronometer — приложение-секундомер (таймер/хронометр).</para>
+
+<para
+>Основные возможности Kronometer:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>запуск, приостановка и возобновление секундомера;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>запись кругов: показание секундомера можно зафиксировать в любой момент;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>сортировка времени кругов: легко найти самый короткий или самый длинный круг;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>сброс секундомера и времени кругов;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>настройка формата времени: можно выбрать точность секундомера;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>сохранение и возобновление: состояние секундомера можно сохранить и продолжить позже;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>настройка шрифтов: можно выбрать шрифт для каждого разряда секундомера;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>настройка цветов: можно выбрать цвет цифр и фона секундомера;</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>экспорт времени кругов: время кругов можно экспортировать в файл формата JSON или CSV.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>АВТОР</title>
+<para
+>KRONOMETER написан Elvis Angelaccio &lt;elvis.angelaccio@kde.org&gt;.</para>
+
+<para
+>Эта страница руководства написана Joao Eriberto Mota Filho &lt;eriberto@debian.org&gt; для проекта Debian (но может использоваться и другими).</para>
+</refsect1>
+</refentry>
+

@@ -1,0 +1,311 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kronometer "<application
+>Kronometer</application
+>">
+  <!ENTITY kappname "&kronometer;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Russian "INCLUDE">
+]>
+
+<book id="kronometer" lang="&language;">
+
+<bookinfo>
+<title
+>Руководство пользователя &kronometer;</title>
+
+<authorgroup>
+  <author
+><firstname
+>Elvis</firstname
+><surname
+>Angelaccio</surname
+> <affiliation
+> <address
+> <email
+>elvis.angelaccio@kde.org</email>
+      </address>
+    </affiliation>
+  </author>
+<othercredit role="translator"
+><firstname
+>Александр</firstname
+><surname
+>Яворский</surname
+><affiliation
+><address
+><email
+>kekcuha@gmail.com</email
+></address
+></affiliation
+><contrib
+>Перевод на русский</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2014-2016</year>
+<holder
+>Elvis Angelaccio</holder>
+</copyright>
+
+<date
+>10 апреля 2016 г.</date>
+<releaseinfo
+>&kronometer; 2.1</releaseinfo>
+
+<legalnotice>
+  &FDLNotice;
+</legalnotice>
+
+<abstract>
+  <para
+>&kronometer; — приложение-секундомер. Им можно пользоваться для простых задач — запустить, приостановить и продолжить отсчёт, — а также записывать время кругов. </para>
+  <para
+>&kronometer; умеет сохранять сеанс целиком (показание секундомера и время кругов) и восстанавливать его позже. </para>
+</abstract>
+
+<keywordset>
+  <keyword
+>KDE</keyword>
+  <keyword
+>Kronometer</keyword>
+  <keyword
+>секундомер</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>Введение</title>
+  <para
+>&kronometer; — простое приложение-секундомер. Благодаря тому, что при разработке исходили из реальных сценариев использования, им просто и приятно пользоваться. </para>
+  <para
+>Основные возможности &kronometer;: </para>
+  <itemizedlist>
+    <listitem>
+      <para
+>В &kronometer; есть секундомер, который можно запустить, приостановить, продолжить и сбросить. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; позволяет записывать время кругов и экспортировать его в файл. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; позволяет сохранить сеанс и восстановить его позже. </para>
+    </listitem>
+    <listitem>
+      <para
+>&kronometer; позволяет скопировать показание секундомера с его табло. </para>
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="usage">
+  <title
+>Использование</title>
+  <sect1 id="general_usage">
+    <title
+>Основные действия</title>
+    <para
+>Главное в &kronometer; — конечно, работа с секундомером. Запустить, приостановить и продолжить отсчёт можно соответствующими действиями на панели инструментов или в меню «Секундомер». </para>
+    <para
+>Ещё проще пользоваться клавиатурой вместо мыши: секундомер запускается клавишей <keycap
+>Пробел</keycap
+> и ею же приостанавливается. Так же ведут себя многие медиапроигрыватели. </para>
+    <para
+>Если нажать клавишу &Enter; во время отсчёта, текущее время фиксируется и появляется новый <emphasis
+>круг</emphasis
+>. Время кругов всегда видно в таблице в левой части окна; его можно отсортировать, щёлкнув по заголовку столбца <emphasis
+>Время круга</emphasis
+>. К каждому кругу можно добавить свой комментарий: дважды щёлкните по ячейке в столбце <emphasis
+>Примечание</emphasis
+>. </para>
+    <para
+>Строка меню (по умолчанию скрыта) даёт доступ ко всем командам и параметрам. Её можно показать или скрыть пунктом <guimenuitem
+>Показать меню</guimenuitem
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>) в меню <guimenu
+>Настройка</guimenu
+> или кнопкой меню на панели инструментов. </para>
+    <sect2 id="save_and_restore">
+      <title
+>Сохранение и восстановление сеансов</title>
+      <para
+>Когда вы приостанавливаете секундомер, образуется сеанс: показание секундомера и время кругов, если они есть. Сеанс можно сохранить и восстановить позже. </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title
+>Сохранение сеанса</title>
+      <para
+>Приостановите секундомер и выберите пункт <guibutton
+>Сохранить как…</guibutton
+> в меню <guimenu
+>Файл</guimenu
+>. Сохраняемому сеансу можно дать название. </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title
+>Восстановление сеанса</title>
+      <para
+>Нажмите кнопку <guibutton
+>Открыть…</guibutton
+> на панели инструментов или выберите этот пункт в меню <guimenu
+>Файл</guimenu
+>. Затем выберите нужный сеанс в диалоге сеансов. </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title
+>Обновление сеанса</title>
+      <para
+>После восстановления сеанса секундомер можно запустить снова и записать новые круги. Чтобы сохранить изменённый сеанс, просто выберите пункт <guibutton
+>Сохранить</guibutton
+> в меню <guimenu
+>Файл</guimenu
+>. </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title
+>Редактирование сеанса</title>
+      <para
+>Нажмите кнопку <guibutton
+>Открыть…</guibutton
+> на панели инструментов или выберите этот пункт в меню <guimenu
+>Файл</guimenu
+>. Выбрав сеанс в диалоге сеансов, можно: <itemizedlist>
+          <listitem>
+            <para
+>Переименовать сеанс, дважды щёлкнув по его названию.</para>
+          </listitem>
+          <listitem>
+            <para
+>Удалить сеанс клавишей <keycap
+>Del</keycap
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+>Добавить или изменить примечание к сеансу.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="additional_features">
+    <title
+>Дополнительные возможности</title>
+    <sect2 id="export_lap_times">
+      <title
+>Экспорт времени кругов</title>
+      <para
+>Когда записан хотя бы один круг, в меню <guimenu
+>Файл</guimenu
+> становится доступен экспорт — пункт <guimenuitem
+>Экспорт времён кругов...</guimenuitem
+>. Выберите его и задайте имя файла. Экспортировать можно в формате CSV (значения, разделённые запятыми) или JSON. </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title
+>Поддержка буфера обмена</title>
+      <para
+>&kronometer; умеет копировать текущее показание секундомера в системный буфер обмена. Нажмите <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> или выберите пункт <guimenuitem
+>Копировать</guimenuitem
+> в меню <guimenu
+>Правка</guimenu
+>. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="configuration">
+  <title
+>Настройка</title>
+  <sect1 id="settings_dialog">
+    <title
+>Диалог настройки</title>
+    <para
+>&kronometer; можно настроить во многих отношениях. Диалог настройки открывается пунктом <guimenuitem
+>Настроить &kronometer;</guimenuitem
+> в меню <guimenu
+>Настройка</guimenu
+>. Параметры в нём разбиты на следующие разделы. </para>
+    <sect2 id="general_settings">
+      <title
+>Основные параметры</title>
+      <para
+>На странице основных параметров собраны параметры секундомера и кругов. На вкладке «Секундомер» задаётся формат времени на табло: показывать ли часы, минуты и доли секунды (секунды показываются всегда). &kronometer; поддерживает точность до миллисекунд, но при этом из-за частой перерисовки интерфейса сильно нагружается процессор. </para>
+      <para
+>На вкладке «Круги» можно включить или выключить запись кругов. Если она включена, можно выбрать формат времени кругов, а также показывать ли примечания и общее время, то есть показание секундомера в момент записи круга. </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title
+>Настройка шрифтов</title>
+      <para
+>На странице «Настройка шрифтов» настраивается шрифт табло секундомера. Для каждого разряда (часов, минут и т. д.) можно выбрать своё семейство, начертание и размер шрифта. По умолчанию все разряды используют один шрифт — системный шрифт по умолчанию. </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title
+>Используемые цвета</title>
+      <para
+>На странице «Используемые цвета» можно изменить цвета табло секундомера: цвет фона и цвет цифр. По умолчанию цвета соответствуют выбранной в системе цветовой схеме. </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title
+>Стандартные параметры &kde;</title>
+      <para
+>В &kronometer; есть стандартные средства настройки &kde;: пункты <guimenuitem
+>Настроить комбинации клавиш…</guimenuitem
+> и <guimenuitem
+>Настроить панели инструментов…</guimenuitem
+> в меню <guimenu
+>Настройка</guimenu
+>. С их помощью можно изменить комбинации клавиш для действий &kronometer;, а также расположение и состав панели инструментов. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>Авторские права и лицензия</title>
+  <para
+>&kronometer; </para>
+  <para
+>© Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+>, 2014–2016 (программа) </para>
+  <para
+>© Elvis Angelaccio <email
+>elvis.angelaccio@kde.org</email
+>, 2014–2016 (документация) </para>
+<para
+>Перевод на русский — Александр Яворский<email
+>kekcuha@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+-->
