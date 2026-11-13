@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<!DOCTYPE refentry PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY % Arabic "INCLUDE">
+]>
+
+<refentry lang="&language;">
+<refentryinfo>
+    <date
+>2016-04-10</date>
+    <releaseinfo
+>كرونومتر 2.0</releaseinfo>
+</refentryinfo>
+<!-- lifted from man+troff by doclifter -->
+<refmeta>
+<refentrytitle
+>كرونومتر</refentrytitle>
+<manvolnum
+>1</manvolnum>
+<refmiscinfo class='source'
+>أبريل 2016</refmiscinfo>
+<refmiscinfo class='manual'
+>كرونومتر 2.1.0</refmiscinfo>
+</refmeta>
+<refnamediv>
+<refname
+>كرونومتر</refname>
+<refpurpose
+>تطبيق ساعة إيقاف</refpurpose>
+</refnamediv>
+<!-- body begins here -->
+<refsynopsisdiv id='synopsis'>
+<cmdsynopsis>
+  <command
+>kronometer</command>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1 id='description'
+><title
+>الوصف</title>
+<para
+>كرونومتر هو تطبيق ساعة إيقاف (ميقاتية/كرونومتر).</para>
+
+<para
+>الميزات الرئيسة لكرونومتر هي التالية:</para>
+  <blockquote>
+  <itemizedlist>
+    <listitem override='bullet'>
+<para
+>ابدأ/ألبث/استأنف أداة ساعة الإيقاف</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>تسجيل اللفات: يمكنك التقاط وقت ساعة الإيقاف عندما تريد</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>فرز أوقات اللفة: يمكنك بسهولة العثور على أقصر وقت لفة أو أطولها</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>صفّر أداة ساعة الإيقاف وأوقات اللفة</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>إعدادات تنسيق الوقت: يمكنك اختيار دقة ساعة الإيقاف</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>حفظ الوقت واستئنافه: يمكنك حفظ حالة ساعة الإيقاف واستئنافها لاحقًا</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>تخصيص الخط: يمكنك اختيار الخطوط لكل رقم من أرقام ساعة الإيقاف</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>تخصيص اللون: يمكنك اختيار لون أرقام ساعة الإيقاف وخلفية ساعة الإيقاف</para>
+    </listitem>
+    <listitem override='bullet'>
+<para
+>تصدير أوقات اللفات: يمكنك تصدير أوقات اللفات إلى ملف باستخدام صيغة JSON أو CSV.</para>
+    </listitem>
+  </itemizedlist>
+  </blockquote>
+</refsect1>
+
+<refsect1 id='author'
+><title
+>المؤلّف</title>
+<para
+>كُتب كرونومتر بواسطة إلفيس أنجيلاتشو &lt;elvis.angelaccio@kde.org&gt;.</para>
+
+<para
+>كُتبت صفحة الدليل هذه بواسطة جواو إيريبرتو موتا فيلهو &lt;eriberto@debian.org&gt; لمشروع دبيان (ولكن قد يستخدمها الآخرون).</para>
+</refsect1>
+</refentry>
+

@@ -1,0 +1,313 @@
+<?xml version="1.0" ?>
+<!DOCTYPE book PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+  <!ENTITY kronometer "<application
+>Kronometer</application
+>">
+  <!ENTITY kappname "&kronometer;">
+  <!ENTITY % addindex "IGNORE">
+  <!ENTITY % Arabic "INCLUDE">
+]>
+
+<book id="kronometer" lang="&language;">
+
+<bookinfo>
+<title
+>دليل كرونومتر</title>
+
+<authorgroup>
+  <author
+><firstname
+>Elvis</firstname
+><surname
+>Angelaccio</surname
+> <affiliation
+> <address
+> <email
+>elvis.angelaccio@kde.org</email>
+      </address>
+    </affiliation>
+  </author>
+<othercredit role="translator"
+><firstname
+>زايد</firstname
+><surname
+>السعيدي</surname
+><affiliation
+><address
+><email
+>zayed.alsaidi@gmail.com</email
+></address
+></affiliation
+><contrib
+>التّرجمة العربيّة</contrib
+></othercredit
+> 
+</authorgroup>
+
+<copyright>
+<year
+>2014-2016</year>
+<holder
+>Elvis Angelaccio</holder>
+</copyright>
+
+<date
+>2016-04-10</date>
+<releaseinfo
+>كرونومتر 2.1</releaseinfo>
+
+<legalnotice>
+  &FDLNotice;
+</legalnotice>
+
+<abstract>
+  <para
+>كرونومتر هو تطبيق ساعة توقيت. يمكن استخدامه للمهام الأساسية مثل بدء/إيقاف مؤقت/استئناف المؤقت، بالإضافة إلى تسجيل أوقات اللفات. </para>
+  <para
+>كرونومتر قادر على حفظ جلسة كاملة (المؤقت وأوقات اللفات) واستعادتها لاحقًا. </para>
+</abstract>
+
+<keywordset>
+  <keyword
+>كيدي</keyword>
+  <keyword
+>كرونومتر</keyword>
+  <keyword
+>مؤقت</keyword>
+</keywordset>
+
+</bookinfo>
+
+<chapter id="introduction">
+  <title
+>مقدمة</title>
+  <para
+>كرونومتر هو تطبيق ساعة توقيت بسيط. صُمم ليكون بسيطًا وممتعًا في الاستخدام، بفضل التطوير القائم على حالات الاستخدام. </para>
+  <para
+>الميزات الرئيسة لـ كرونومتر هي التالية: </para>
+  <itemizedlist>
+    <listitem>
+      <para
+>يوفر كرونومتر مؤقتًا يمكن تشغيله وإيقافه مؤقتًا واستئنافه وإعادة ضبطه. </para>
+    </listitem>
+    <listitem>
+      <para
+>يسمح لك كرونومتر بتسجيل أوقات اللفات وتصديرها إلى ملف. </para>
+    </listitem>
+    <listitem>
+      <para
+>يسمح لك كرونومتر بحفظ جلسة واستعادتها لاحقًا. </para>
+    </listitem>
+    <listitem>
+      <para
+>يسمح لك كرونومتر بنسخ أرقام المؤقت من شاشته. </para>
+    </listitem>
+  </itemizedlist>
+</chapter>
+
+<chapter id="usage">
+  <title
+>الاستخدام</title>
+  <sect1 id="general_usage">
+    <title
+>الاستخدام العام</title>
+    <para
+>حالة الاستخدام الرئيسة لـ كرونومتر هي بالطبع التفاعل مع المؤقت. يمكنك تشغيل/إيقاف مؤقت/استئناف المؤقت بالنقر على الإجراءات المناسبة في شريط الأدوات أو في قائمة كرونومتر. </para>
+    <para
+>الأبسط من ذلك، يمكنك استخدام لوحة المفاتيح بدلًا من الفأرة: تشغّل المؤقت بمفتاح <keycap
+>Space</keycap
+> من لوحة المفاتيح وتوقف المؤقت مؤقتًا بمفتاح <keycap
+>Space</keycap
+> أيضًا. قد تتعرف على هذا السلوك من العديد من تطبيقات مشغلات الوسائط. </para>
+    <para
+>بالضغط على مفتاح &Enter; أثناء تشغيل المؤقت، تُجمّد ذلك الوقت المحدد وتُنشئ وقت <emphasis
+>لفة</emphasis
+> جديد. هذه الأوقات مرئية دائمًا في الجدول على يسار التطبيق، حيث يمكنك فرزها بالنقر على رأس عمود <emphasis
+>وقت اللفة</emphasis
+>. يمكنك أيضًا إضافة تعليق نصي مخصص لكل لفة، بالنقر المزدوج على الخلايا داخل عمود <emphasis
+>ملاحظة</emphasis
+>. </para>
+    <para
+>يوفر شريط القوائم (مخفي مبدئيًا) الوصول إلى جميع الأوامر وخيارات الضبط. يمكن تبديل شريط القوائم باستخدام <guimenuitem
+>أظهر شريط القوائم</guimenuitem
+> (<keycombo action="simul"
+>&Ctrl;<keycap
+>M</keycap
+></keycombo
+>) من قائمة <guimenu
+>إعدادات</guimenu
+> أو زر القائمة في شريط الأدوات. </para>
+    <sect2 id="save_and_restore">
+      <title
+>حفظ الجلسات واستعادتها</title>
+      <para
+>عند إيقاف ساعة توقيت قيد التشغيل مؤقتًا، تُنشئ جلسة: وقت ساعة توقيت وصفر أو أكثر من أوقات اللفات. يمكنك حفظ جلسة ويمكنك استعادتها لاحقًا. </para>
+    </sect2>
+    <sect2 id="save_a_session">
+      <title
+>حفظ جلسة</title>
+      <para
+>أوقف ساعة توقيت قيد التشغيل مؤقتًا، ثم انقر على زر <guibutton
+>حفظ باسم</guibutton
+> في قائمة <guimenu
+>ملف</guimenu
+>. يمكنك اختيار اسم للجلسة التي ستُحفظ. </para>
+    </sect2>
+    <sect2 id="restore_a_session">
+      <title
+>استعادة جلسة</title>
+      <para
+>انقر على زر <guibutton
+>فتح</guibutton
+> في شريط الأدوات أو في قائمة <guimenu
+>ملف</guimenu
+>. ثم اختر جلسة موجودة ليُحمّلها من حوار الجلسات. </para>
+    </sect2>
+    <sect2 id="update_a_session">
+      <title
+>تحديث جلسة</title>
+      <para
+>عند استعادة الجلسة، يمكنك استئناف ساعة التوقيت ويمكنك تسجيل أوقات لفات جديدة. إذا أردت حفظ الجلسة المحدّثة، يمكنك ببساطة النقر على زر <guibutton
+>حفظ</guibutton
+> في قائمة <guimenu
+>ملف</guimenu
+>. </para>
+    </sect2>
+    <sect2 id="edit_a_session">
+      <title
+>تحرير جلسة</title>
+      <para
+>انقر على زر <guibutton
+>فتح</guibutton
+> في شريط الأدوات أو في قائمة <guimenu
+>ملف</guimenu
+>. إذا حددت جلسة موجودة في حوار الجلسات، ستتمكن من: <itemizedlist>
+          <listitem>
+            <para
+>إعادة تسمية الجلسة، بالنقر المزدوج على اسمها.</para>
+          </listitem>
+          <listitem>
+            <para
+>حذف الجلسة، بالضغط على <keycap
+>Del</keycap
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+>إضافة ملاحظة إلى الجلسة أو تحريرها.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect2>
+  </sect1>
+  <sect1 id="additional_features">
+    <title
+>ميزات إضافية</title>
+    <sect2 id="export_lap_times">
+      <title
+>تصدير أوقات اللفات</title>
+      <para
+>عند تسجيل لفة واحدة أو أكثر، تُتاح ميزات التصدير في قائمة <guimenu
+>ملف</guimenu
+>، تحت المدخل <guimenuitem
+>صدّر اللفات كـ</guimenuitem
+>. انقر عليه ثم اختر اسمًا للملف المُصدّر. يمكنك التصدير بتنسيق القيم المفصولة بفواصل (CSV) أو بتنسيق JSON. </para>
+    </sect2>
+    <sect2 id="clipboard_support">
+      <title
+>دعم الحافظة</title>
+      <para
+>يستطيع كرونومتر نسخ الوقت الحالي لساعة الإيقاف إلى حافظة النظام. استخدم مجموعة المفاتيح <keycombo
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> أو المدخل <guimenuitem
+>نسخ</guimenuitem
+> في القائمة <guimenu
+>تحرير</guimenu
+>. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="configuration">
+  <title
+>الضّبط</title>
+  <sect1 id="settings_dialog">
+    <title
+>مربع حوار الإعدادات</title>
+    <para
+>كرونومتر قابل للتخصيص في جوانب عديدة. يمكنك فتح حوار الإعدادات بالنقر على المدخل <guimenuitem
+>اضبط كرونومتر</guimenuitem
+> في القائمة <guimenu
+>إعدادات</guimenu
+>. حوار الإعدادات منظم في الفئات التالية. </para>
+    <sect2 id="general_settings">
+      <title
+>الإعدادات العامة</title>
+      <para
+>في صفحة الإعدادات العامة يمكنك إيجاد إعدادات ساعة الإيقاف واللفات. تحت لسان ساعة الإيقاف يمكنك ضبط تنسيق الوقت المفضل لعرض ساعة الإيقاف. يمكنك اختيار إظهار الساعات أو الدقائق أو كسور الثواني (بينما تُظهر الثواني دائمًا). يدعم كرونومتر دقة الوقت حتى الميلي ثانية، رغم أن هذا يتطلب استخدامًا عاليًا لوحدة المعالجة المركزية بسبب معدل التحديث العالي لواجهة المستخدم. </para>
+      <para
+>ضمن لسان اللفات يمكنك تمكين أو تعطيل ميزة تسجيل اللفات. إذا كانت اللفات مفعلة، يمكنك اختيار تنسيق وقتها، وإظهار ملاحظاتها، وإظهار أوقاتها المطلقة، وهي أوقات ساعة الإيقاف عند تسجيلها. </para>
+    </sect2>
+    <sect2 id="font_settings">
+      <title
+>إعدادات الخطّ</title>
+      <para
+>في صفحة إعدادات الخط يمكنك تخصيص خط عرض ساعة الإيقاف. يمكنك اختيار عائلات خطوط وأنماط وأحجام مختلفة لكل مكون مؤقت (الساعات والدقائق وإلخ). افتراضيًا سيستخدم كل مكون مؤقت نفس الخط، وفقًا للخط المبدئي الحالي في النظام. </para>
+    </sect2>
+    <sect2 id="color_settings">
+      <title
+>إعدادات الألوان</title>
+      <para
+>في صفحة إعدادات اللون يمكنك تخصيص اللون المبدئي لعرض ساعة الإيقاف. يمكنك تغيير لون الخلفية ولون النص. ستحترم الألوان المبدئية سمة النظام المحددة حاليًا. </para>
+    </sect2>
+    <sect2 id="kde_built_in_settings">
+      <title
+>إعدادات كيدي المدمجة</title>
+      <para
+>يستخدم كرونومتر أدوات الضبط القياسية لكيدي. تجدها في القائمة <guimenu
+>إعدادات</guimenu
+>، تحت المدخلين <guimenuitem
+>اضبط الاختصارات</guimenuitem
+> و<guimenuitem
+>اضبط أشرطة الأدوات</guimenuitem
+>. تسمح لك بتغيير اختصارات إجراءات كرونومتر، وتغيير موضع شريط الأدوات ومحتواه. </para>
+    </sect2>
+  </sect1>
+</chapter>
+
+<chapter id="credits">
+  <title
+>الحقوق والترخيص</title>
+  <para
+>كرونومتر </para>
+  <para
+>حقوق نشر البرنامج &copy; 2014-2016 إلفيس أنجيلاتشو <email
+>elvis.angelaccio@kde.org</email
+> </para>
+  <para
+>حقوق نشر التوثيق &copy; 2014-2016 إلفيس أنجيلاتشو <email
+>elvis.angelaccio@kde.org</email
+> </para>
+<para
+>الترجمة: زايد السعيدي <email
+>zayed.alsaidi@gmail.com</email
+></para
+> &underFDL; &underGPL; </chapter>
+
+&documentation.index;
+
+</book>
+
+<!--
+Local Variables:
+mode: xml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+
+vim:tabstop=2:shiftwidth=2:expandtab
+-->
