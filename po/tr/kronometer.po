@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kronometer\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-07-11 00:47+0000\n"
-"PO-Revision-Date: 2026-05-02 19:53+0300\n"
+"PO-Revision-Date: 2026-11-15 19:28+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 25.12.3\n"
+"X-Generator: Lokalize 26.08.2\n"
 
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
@@ -55,25 +55,25 @@ msgstr "Kronometredeki basamakların rengi"
 #: src/gui/fontsettings.ui:23
 #, kde-format
 msgid "Hours Font:"
-msgstr "Saat yazıtipi:"
+msgstr "Saat yazı tipi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: src/gui/fontsettings.ui:56
 #, kde-format
 msgid "Minutes Font:"
-msgstr "Dakika yazıtipi:"
+msgstr "Dakika yazı tipi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: src/gui/fontsettings.ui:89
 #, kde-format
 msgid "Seconds Font:"
-msgstr "Saniye yazıtipi:"
+msgstr "Saniye yazı tipi:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: src/gui/fontsettings.ui:122
 #, kde-format
 msgid "Second Fractions Font:"
-msgstr "Saniye kesri yazıtipi:"
+msgstr "Saniye kesri yazı tipi:"
 
 #. i18n: @title:tab
 #. i18n: ectx: attribute (title), widget (QWidget, tab)
@@ -271,7 +271,7 @@ msgstr "Genel Ayarlar"
 #, kde-format
 msgctxt "@title:tab"
 msgid "Font Settings"
-msgstr "Yazıtipi Ayarları"
+msgstr "Yazı Tipi Ayarları"
 
 #: src/gui/mainwindow.cpp:235
 #, kde-format
