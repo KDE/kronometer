@@ -128,7 +128,7 @@
 >Not</emphasis
 > sütunundaki hücreleri çift tıklayarak her tura özel bir metin açıklaması ekleyebilirsiniz. </para>
     <para
->Öntanımlı olarak gizli olan menü çubuğu, tüm komutlara ve yapılandırma seçeneklerine erişim sağlar. Menü çubuğu, <guimenu
+>Varsayılan olarak gizli olan menü çubuğu, tüm komutlara ve yapılandırma seçeneklerine erişim sağlar. Menü çubuğu, <guimenu
 >Ayarlar</guimenu
 > menüsünden <guimenuitem
 >Menü Çubuğunu Göster</guimenuitem
@@ -252,15 +252,15 @@
     </sect2>
     <sect2 id="font_settings">
       <title
->Yazıtipi Ayarları</title>
+>Yazı Tipi Ayarları</title>
       <para
->Yazıtipi ayarları sayfasında kronometre ekranının yazıtipini özelleştirebilirsiniz. Her zamanlayıcı bileşeni (saat, dakika vb.) için farklı yazıtipi aileleri, biçemleri ve puntoyu seçebilirsiniz. Öntanımlı olarak her zamanlayıcı bileşeni, sistemdeki geçerli sistem öntanımlı ayarlarına göre aynı yazıtipini kullanacaktır. </para>
+>Yazı tipi ayarları sayfasında kronometre ekranının yazı tipini özelleştirebilirsiniz. Her zamanlayıcı bileşeni (saat, dakika vb.) için farklı yazı tipi aileleri, stilleri ve puntoyu seçebilirsiniz. Varsayılan olarak her zamanlayıcı bileşeni, sistemdeki geçerli sistem varsayılan ayarlarına göre aynı yazı tipini kullanacaktır. </para>
     </sect2>
     <sect2 id="color_settings">
       <title
 >Renk Ayarları</title>
       <para
->Renk ayarları sayfasında kronometre ekranının öntanımlı rengini özelleştirebilirsiniz. Arka plan rengini ve metin rengini değiştirebilirsiniz. Öntanımlı renkler, hâlihazırda seçili olan sistemin temasına uygun olacaktır. </para>
+>Renk ayarları sayfasında kronometre ekranının varsayılan rengini özelleştirebilirsiniz. Arka plan rengini ve metin rengini değiştirebilirsiniz. Varsayılan renkler, hâlihazırda seçili olan sistemin temasına uygun olacaktır. </para>
     </sect2>
     <sect2 id="kde_built_in_settings">
       <title
